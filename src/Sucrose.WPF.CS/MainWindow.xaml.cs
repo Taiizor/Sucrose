@@ -3,9 +3,10 @@ using Skylark.Enum;
 using Skylark.Struct.Monitor;
 using Skylark.Wing.Helper;
 using Skylark.Wing.Utility;
-using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Threading;
+using Sucrose.Grpc.Services;
 
 namespace Sucrose.WPF.CS
 {
@@ -18,32 +19,46 @@ namespace Sucrose.WPF.CS
 
         public bool IsFixed { get; private set; } = false;
 
-        public bool State { get; private set; } = false;
-
         public bool Hook { get; private set; } = false;
 
         private static IntPtr MouseHook = IntPtr.Zero;
+
+        private DispatcherTimer Timer = new();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            this.Hook = true;
-            WallView.Address = "https://www.vegalya.com/3/0wj1biqk.f41/fluid.html";
-
             WallView.MenuHandler = new CustomContextMenuHandler();
 
             PinToBackground();
+
+            Timer.Interval = TimeSpan.FromSeconds(1);
+            Timer.Tick += Timer_Tick;
+            Timer.Start();
+
+            System.Windows.MessageBox.Show(GeneralServerService.Host + "-" + GeneralServerService.Port);
+
+            GeneralServerService.ServerInstance.Start();
         }
 
-        private void WallView_Loaded(object sender, RoutedEventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            if (Hook)
+            if (Variables.State)
             {
-                State = true;
+                Variables.State = false;
+                WallView.Address = Variables.Uri;
+                Hook = Variables.Hook;
 
-                MouseEventCall = CatchMouseEvent;
-                MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+                if (Hook)
+                {
+                    MouseEventCall = CatchMouseEvent;
+                    MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+                }
+                else
+                {
+                    WinAPI.UnhookWinEvent(MouseHook);
+                }
             }
         }
 
@@ -129,68 +144,65 @@ namespace Sucrose.WPF.CS
 
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (State)
+            IBrowserHost WVHost = WallView.GetBrowser().GetHost();
+
+            MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
+            int X = mouseHookStruct.Point.X;
+            int Y = mouseHookStruct.Point.Y;
+
+            if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
             {
-                IBrowserHost WVHost = WallView.GetBrowser().GetHost();
+                int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
+                bool isScrollDown = (delta & 0x8000) != 0;
 
-                MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
-                int X = mouseHookStruct.Point.X;
-                int Y = mouseHookStruct.Point.Y;
+                int deltaX = mouseHookStruct.MouseData & 0xFFFF;
+                int deltaY = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
 
-                if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
-                {
-                    int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
-                    bool isScrollDown = (delta & 0x8000) != 0;
+                int amount = 120;
 
-                    int deltaX = mouseHookStruct.MouseData & 0xFFFF;
-                    int deltaY = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
+                if (isScrollDown)
+                {
+                    //deltaX = -+(delta / amount);
+                    deltaY = -amount;
+                }
+                else
+                {
+                    //deltaX = delta / amount;
+                    deltaY = amount;
+                }
 
-                    int amount = 120;
-
-                    if (isScrollDown)
-                    {
-                        //deltaX = -+(delta / amount);
-                        deltaY = -amount;
-                    }
-                    else
-                    {
-                        //deltaX = delta / amount;
-                        deltaY = amount;
-                    }
-
-                    MouseEvent mouseEvent = new(deltaX, deltaY, CefEventFlags.None);
-                    WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
-                {
-                    // Sol tuşa basma olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
-                {
-                    // Sol tuştan el çekme olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
-                {
-                    // Sağ tuşa basma olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
-                {
-                    // Sağ tuştan el çekme olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
-                {
-                    // Fare hareketi olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
-                }
+                MouseEvent mouseEvent = new(deltaX, deltaY, CefEventFlags.None);
+                WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
+            }
+            else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
+            {
+                // Sol tuşa basma olayı
+                // İlgili işlemleri burada gerçekleştirin
+                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
+            }
+            else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
+            {
+                // Sol tuştan el çekme olayı
+                // İlgili işlemleri burada gerçekleştirin
+                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
+            }
+            else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
+            {
+                // Sağ tuşa basma olayı
+                // İlgili işlemleri burada gerçekleştirin
+                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
+            }
+            else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
+            {
+                // Sağ tuştan el çekme olayı
+                // İlgili işlemleri burada gerçekleştirin
+                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
+            }
+            else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
+            {
+                // Fare hareketi olayı
+                // İlgili işlemleri burada gerçekleştirin
+                WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
             }
 
             return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);

@@ -59,6 +59,11 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
+        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
+    </ItemGroup>
+
     <!--<ItemGroup>
         <Reference Include="System.Windows.Forms" />
     </ItemGroup>-->

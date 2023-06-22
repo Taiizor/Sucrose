@@ -9,6 +9,7 @@
         <UseWPF>true</UseWPF>
         <LangVersion>preview</LangVersion>
         <AnalysisLevel>preview</AnalysisLevel>
+        <DefineConstants>$(DefineConstants);WPF_CS</DefineConstants>
         <Platforms>AnyCPU;x64;x86;ARM64</Platforms>
     </PropertyGroup>
 

@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Sucrose.Grpc.Common;
+using Sucrose.Grpc.Services;
+using Sucrose.Grpc.Client.Services;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Sucrose.WPF.UI
@@ -25,34 +28,38 @@ namespace Sucrose.WPF.UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            GeneralServerService.ChannelCreate("127.0.0.1", 52286);
+            Websiter.WebsiterClient client = new(GeneralServerService.ChannelInstance);
+            //WebsiterChangeResponse response = WebsiterClientService.ChangeAddress(client, "https://www.vegalya.com", true);
+
             switch ((sender as Button).Content)
             {
                 case "Design 1":
-                    //Engine = new Back(Uri1, true);
+                    WebsiterClientService.ChangeAddress(client, Uri1, true);
                     break;
                 case "Design 2":
-                    //Engine = new Back(Uri2, true);
+                    WebsiterClientService.ChangeAddress(client, Uri2, true);
                     break;
                 case "Design 3":
-                    //Engine = new Back(Uri3, false);
+                    WebsiterClientService.ChangeAddress(client, Uri3, false);
                     break;
                 case "Design 4":
-                    //Engine = new Back(Uri4, false);
+                    WebsiterClientService.ChangeAddress(client, Uri4, false);
                     break;
                 case "Design 5":
-                    //Engine = new Back(Uri5, false);
+                    WebsiterClientService.ChangeAddress(client, Uri5, false);
                     break;
                 case "Design 6":
-                    //Engine = new Back(Uri6, false);
+                    WebsiterClientService.ChangeAddress(client, Uri6, false);
                     break;
                 case "Design 7":
-                    //Engine = new Back(Uri7, false);
+                    WebsiterClientService.ChangeAddress(client, Uri7, false);
                     break;
                 case "Design 8":
-                    //Engine = new Back(Uri8, false);
+                    WebsiterClientService.ChangeAddress(client, Uri8, false);
                     break;
                 case "Design 9":
-                    //Engine = new Back(Uri9, false);
+                    WebsiterClientService.ChangeAddress(client, Uri9, false);
                     break;
                 default:
                     break;

@@ -5,6 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Proto\Websiter.proto" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Proto\Websiter.proto" />
         <Protobuf Include="Proto\Trayer.proto" />
         <Protobuf Include="Proto\Greeter.proto" />
     </ItemGroup>

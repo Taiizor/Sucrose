@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sucrose.WPF.UI"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
-        Title="Main" Height="180" Width="640">
+        Title="Main" Height="180" Width="660">
     <Grid>
         <Button Click="Button_Click" Cursor="Hand" Content="Design 1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
         <Button Click="Button_Click" Cursor="Hand" Content="Design 2" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Height="57" Width="120"/>

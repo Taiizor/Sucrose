@@ -44,9 +44,16 @@ namespace Sucrose.Grpc.Services
             }
         }
 
-        public static void ChannelCreate()
+        public static void ChannelCreate(string Hosting = null, int Porting = -1)
         {
-            ChannelInstance = new($"{Host}:{Port}", ChannelCredentials.Insecure);
+            if (string.IsNullOrEmpty(Hosting) && Porting < 0)
+            {
+                ChannelInstance = new($"{Host}:{Port}", ChannelCredentials.Insecure);
+            }
+            else
+            {
+                ChannelInstance = new($"{Hosting}:{Porting}", ChannelCredentials.Insecure);
+            }
         }
     }
 }
