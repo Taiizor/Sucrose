@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.5;netstandard1.6;netstandard2.0;netstandard2.1;net48;net481;net6.0;net7.0;net8.0</TargetFrameworks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Proto\Trayer.proto" />
+        <Protobuf Include="Proto\Greeter.proto" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc" Version="2.46.6" />
+        <PackageReference Include="Grpc.Core" Version="2.46.6" />
+        <PackageReference Include="Grpc.Core.Api" Version="2.54.0" />
+        <PackageReference Include="Google.Protobuf" Version="3.23.3" />
+        <PackageReference Include="Grpc.Tools" Version="2.54.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+</Project>
