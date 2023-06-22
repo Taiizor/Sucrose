@@ -1,2 +1,2 @@
-# Skyrose
-Sucrose Vexena Aurora Avare
+# Sucrose
+Skyrose Vexena Aurora Avare
