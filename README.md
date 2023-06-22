@@ -20,17 +20,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		<a href="https://github.com/Taiizor/Skylark/commits?author=Taiizor" title="Code">💻</a>
 		<a href="https://www.vegalya.com" title="Ideas & Planning, Feedback">🤔</a>
 	</td>
-    <td align="center">
-		<a href="https://github.com/Grovre">
-			<img src="https://avatars3.githubusercontent.com/u/50428844?s=460&v=4" width="80px;" alt="Grovre"/>
-			<br/>
-			<sub>
-				<b>Grovre</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Taiizor/Skylark/commits?author=Grovre" title="Code">💻</a>
-	</td>
   </tr>
 </table>
 
