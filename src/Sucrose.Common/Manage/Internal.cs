@@ -9,6 +9,10 @@ namespace Sucrose.Common.Manage
     {
         public static SettingsManager ServerManager = new("Server.json");
 
+#if BROWSER
+        public static SettingsManager WebsiteManager = new("Website.json");
+#endif
+
 #if TRAY_ICON
         public static TrayIconManager TrayIconManager = new();
 #endif

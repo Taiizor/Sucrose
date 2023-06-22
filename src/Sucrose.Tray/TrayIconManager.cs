@@ -77,7 +77,7 @@
 
         private void CommandClose(object sender, EventArgs e)
         {
-            //Application.ExitThread();
+            Application.ExitThread();
             Environment.Exit(0);
             Application.Exit();
         }

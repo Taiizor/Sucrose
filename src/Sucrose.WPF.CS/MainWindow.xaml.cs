@@ -28,6 +28,9 @@ namespace Sucrose.WPF.CS
         {
             InitializeComponent();
 
+            Variables.Hook = true;
+            Variables.State = true;
+
             WallView.MenuHandler = new CustomContextMenuHandler();
 
             PinToBackground();
@@ -44,20 +47,27 @@ namespace Sucrose.WPF.CS
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (Variables.State)
+            try
             {
-                Variables.State = false;
-                WallView.Address = Variables.Uri;
+                if (Variables.State)
+                {
+                    Variables.State = false;
+                    WallView.Address = Variables.Uri;
 
-                if (Variables.Hook)
-                {
-                    MouseEventCall = CatchMouseEvent;
-                    MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+                    if (Variables.Hook)
+                    {
+                        MouseEventCall = CatchMouseEvent;
+                        MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+                    }
+                    else
+                    {
+                        WinAPI.UnhookWinEvent(MouseHook);
+                    }
                 }
-                else
-                {
-                    WinAPI.UnhookWinEvent(MouseHook);
-                }
+            }
+            catch
+            {
+                //
             }
         }
 
@@ -205,13 +215,13 @@ namespace Sucrose.WPF.CS
                     // İlgili işlemleri burada gerçekleştirin
                     WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
                 }
+
+                return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
             }
             catch
             {
-                //
+                return IntPtr.Zero;
             }
-
-            return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
         }
     }
 
