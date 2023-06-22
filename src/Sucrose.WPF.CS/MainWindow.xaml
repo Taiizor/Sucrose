@@ -6,5 +6,5 @@
         xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
         Title="CefSharp" Height="400" Width="400">
-    <wpf:ChromiumWebBrowser x:Name="WallView" Address="https://www.vegalya.com/3/0wj1biqk.f41/fluid.html" Loaded="WallView_Loaded"/>
+    <wpf:ChromiumWebBrowser x:Name="WallView" Loaded="WallView_Loaded"/>
 </Window>

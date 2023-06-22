@@ -1,0 +1,19 @@
+﻿<Window x:Class="Sucrose.WPF.UI.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sucrose.WPF.UI"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        Title="Main" Height="180" Width="640">
+    <Grid>
+        <Button Click="Button_Click" Cursor="Hand" Content="Design 1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
+        <Button Click="Button_Click" Cursor="Hand" Content="Design 2" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
+        <Button Click="Button_Click" Cursor="Hand" Content="Design 3" HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
+        <Button Click="Button_Click" Cursor="Hand" Content="Design 4" HorizontalAlignment="Left" Margin="385,10,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
+        <Button Click="Button_Click" Cursor="Hand" Content="Design 5" HorizontalAlignment="Left" Margin="510,10,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
+        <Button Click="Button_Click" Cursor="Hand" Content="Design 6" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
+        <Button Click="Button_Click" Cursor="Hand" Content="Design 7" HorizontalAlignment="Left" Margin="135,72,0,0" VerticalAlignment="Top" Height="57" Width="120"/>
+    </Grid>
+</Window>

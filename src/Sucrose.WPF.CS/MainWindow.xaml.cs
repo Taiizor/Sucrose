@@ -1,7 +1,9 @@
 ﻿using CefSharp;
+using Skylark.Enum;
 using Skylark.Struct.Monitor;
 using Skylark.Wing.Helper;
 using Skylark.Wing.Utility;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -18,23 +20,31 @@ namespace Sucrose.WPF.CS
 
         public bool State { get; private set; } = false;
 
+        public bool Hook { get; private set; } = false;
+
         private static IntPtr MouseHook = IntPtr.Zero;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            PinToBackground();
+            this.Hook = true;
+            WallView.Address = "https://www.vegalya.com/3/0wj1biqk.f41/fluid.html";
 
             WallView.MenuHandler = new CustomContextMenuHandler();
+
+            PinToBackground();
         }
 
         private void WallView_Loaded(object sender, RoutedEventArgs e)
         {
-            State = true;
+            if (Hook)
+            {
+                State = true;
 
-            MouseEventCall = CatchMouseEvent;
-            MouseHook = SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+                MouseEventCall = CatchMouseEvent;
+                MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+            }
         }
 
         protected bool PinToBackground()
@@ -89,28 +99,7 @@ namespace Sucrose.WPF.CS
             }
         }
 
-        private enum MouseMessages
-        {
-            WM_LBUTTONDOWN = 0x0201,
-            WM_LBUTTONUP = 0x0202,
-            WM_RBUTTONDOWN = 0x0204,
-            WM_RBUTTONUP = 0x0205,
-            WM_MOUSEMOVE = 0x0200,
-            WM_MOUSEWHEEL = 0x020A
-        }
-
-        private delegate IntPtr MouseEventCallback(int nCode, IntPtr wParam, IntPtr lParam);
-
-        private static MouseEventCallback? MouseEventCall;
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        private static extern IntPtr SetWindowsHookEx(int idHook, MouseEventCallback lpfn, IntPtr hMod, uint dwThreadId);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        private static extern bool UnhookWindowsHookEx(IntPtr hhk);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
+        private static WinAPI.MouseEventCallback? MouseEventCall;
 
         [StructLayout(LayoutKind.Sequential)]
         private struct MousePoint
@@ -148,7 +137,7 @@ namespace Sucrose.WPF.CS
                 int X = mouseHookStruct.Point.X;
                 int Y = mouseHookStruct.Point.Y;
 
-                if (nCode >= 0 && MouseMessages.WM_MOUSEWHEEL == (MouseMessages)wParam)
+                if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
                 {
                     int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
                     bool isScrollDown = (delta & 0x8000) != 0;
@@ -172,31 +161,31 @@ namespace Sucrose.WPF.CS
                     MouseEvent mouseEvent = new(deltaX, deltaY, CefEventFlags.None);
                     WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
                 }
-                else if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
                 {
                     // Sol tuşa basma olayı
                     // İlgili işlemleri burada gerçekleştirin
                     WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
                 }
-                else if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
                 {
                     // Sol tuştan el çekme olayı
                     // İlgili işlemleri burada gerçekleştirin
                     WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
                 }
-                else if (nCode >= 0 && MouseMessages.WM_RBUTTONDOWN == (MouseMessages)wParam)
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
                 {
                     // Sağ tuşa basma olayı
                     // İlgili işlemleri burada gerçekleştirin
                     WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
                 }
-                else if (nCode >= 0 && MouseMessages.WM_RBUTTONUP == (MouseMessages)wParam)
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
                 {
                     // Sağ tuştan el çekme olayı
                     // İlgili işlemleri burada gerçekleştirin
                     WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
                 }
-                else if (nCode >= 0 && MouseMessages.WM_MOUSEMOVE == (MouseMessages)wParam)
+                else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
                 {
                     // Fare hareketi olayı
                     // İlgili işlemleri burada gerçekleştirin
@@ -204,7 +193,7 @@ namespace Sucrose.WPF.CS
                 }
             }
 
-            return CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
+            return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
         }
     }
 
