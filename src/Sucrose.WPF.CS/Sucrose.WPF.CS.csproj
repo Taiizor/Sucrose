@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.2" />
+        <PackageReference Include="Skylark" Version="3.0.1.3" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.1" />
         <PackageReference Include="CefSharp.Wpf" Version="114.2.100" />
     </ItemGroup>
