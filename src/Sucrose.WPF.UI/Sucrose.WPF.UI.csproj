@@ -27,6 +27,7 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
+        <OutputPath>..\Package\Sucrose.WPF\Browser</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>

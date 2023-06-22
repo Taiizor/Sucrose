@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Manager", "Sucrose.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose", "Sucrose\Sucrose.csproj", "{980C0628-C1A9-4C17-A6D3-3185C0593248}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Memory", "Sucrose.Memory\Sucrose.Memory.csproj", "{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,22 @@ Global
 		{980C0628-C1A9-4C17-A6D3-3185C0593248}.Release|x64.Build.0 = Release|Any CPU
 		{980C0628-C1A9-4C17-A6D3-3185C0593248}.Release|x86.ActiveCfg = Release|Any CPU
 		{980C0628-C1A9-4C17-A6D3-3185C0593248}.Release|x86.Build.0 = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|x64.Build.0 = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Debug|x86.Build.0 = Debug|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|ARM64.Build.0 = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x64.ActiveCfg = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x64.Build.0 = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,5 +196,6 @@ Global
 		Sucrose.Common\Sucrose.Common.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{4a57580b-4ae3-4a25-a887-766d1b3709c7}*SharedItemsImports = 13
+		Sucrose.Common\Sucrose.Common.projitems*{980c0628-c1a9-4c17-a6d3-3185c0593248}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

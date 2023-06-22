@@ -2,12 +2,17 @@
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;netstandard2.1;net48;net481;net6.0;net7.0;net8.0</TargetFrameworks>
+        <OutputPath>..\Package\Sucrose.Manager</OutputPath>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
     </ItemGroup>
 
 </Project>

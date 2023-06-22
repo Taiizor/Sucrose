@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+        <OutputPath>..\Package\Sucrose.Tray</OutputPath>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>

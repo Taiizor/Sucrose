@@ -1,9 +1,12 @@
-﻿using Grpc.Core;
+﻿using CefSharp;
+using CefSharp.Wpf;
+using Grpc.Core;
 using Sucrose.Common.Manage;
 using Sucrose.Common.Services;
 using Sucrose.Grpc.Common;
 using Sucrose.Grpc.Services;
-using System.Collections.Generic;
+using Sucrose.Memory;
+using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
@@ -24,6 +27,26 @@ namespace Sucrose.WPF.CS
                 Websiter.BindService(new WebsiterServerService()),
                 Trayer.BindService(new TrayerServerService())
             });
+
+            CefRuntime.SubscribeAnyCpuAssemblyResolver();
+
+            CefSettings settings = new()
+            {
+                CachePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, Readonly.CefSharp, Readonly.CacheFolder)
+            };
+
+            settings.CefCommandLineArgs.Add("enable-media-stream");
+            settings.CefCommandLineArgs.Add("use-fake-ui-for-media-stream");
+            settings.CefCommandLineArgs.Add("enable-usermedia-screen-capturing");
+
+            //Example of checking if a call to Cef.Initialize has already been made, we require this for
+            //our .Net 5.0 Single File Publish example, you don't typically need to perform this check
+            //if you call Cef.Initialze within your WPF App constructor.
+            if (!Cef.IsInitialized)
+            {
+                //Perform dependency check to make sure all relevant resources are in our output directory.
+                Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);
+            }
         }
 
         protected override void OnStartup(StartupEventArgs e)

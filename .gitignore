@@ -18,6 +18,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+Package/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

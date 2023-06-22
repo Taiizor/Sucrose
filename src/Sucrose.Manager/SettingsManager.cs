@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
+using Sucrose.Memory;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -13,11 +13,8 @@ namespace Sucrose.Manager
 
         public SettingsManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string appName = "Sucrose";
-
             // Ayar dosyasının tam yolunu oluşturun
-            _settingsFilePath = Path.Combine(appDataPath, appName, settingsFileName);
+            _settingsFilePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, settingsFileName);
 
             // Ayar dosyasının dizinini oluşturun (varsa zaten var olmayacaktır)
             Directory.CreateDirectory(Path.GetDirectoryName(_settingsFilePath));
