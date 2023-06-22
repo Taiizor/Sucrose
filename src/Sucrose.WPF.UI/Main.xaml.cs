@@ -3,6 +3,8 @@ using Sucrose.Grpc.Services;
 using Sucrose.Grpc.Client.Services;
 using System.Windows;
 using System.Windows.Controls;
+using Sucrose.Manager;
+using System.Net;
 
 namespace Sucrose.WPF.UI
 {
@@ -11,6 +13,8 @@ namespace Sucrose.WPF.UI
     /// </summary>
     public partial class Main : Window
     {
+        SettingsManager SettingsManager = new("Server.json");
+
         private readonly string Uri1 = "https://www.vegalya.com/3/0wj1biqk.f41/fluid.html";
         private readonly string Uri2 = "https://www.vegalya.com/3/iqdvd4pt.jyo/triangle.html";
         private readonly string Uri3 = "https://www.vegalya.com/3/lgz4xpht.sjn/index.html";
@@ -28,7 +32,7 @@ namespace Sucrose.WPF.UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GeneralServerService.ChannelCreate("127.0.0.1", 52286);
+            GeneralServerService.ChannelCreate(SettingsManager.GetSetting<string>("Host"), SettingsManager.GetSettingStable<int>("Port"));
             Websiter.WebsiterClient client = new(GeneralServerService.ChannelInstance);
             //WebsiterChangeResponse response = WebsiterClientService.ChangeAddress(client, "https://www.vegalya.com", true);
 

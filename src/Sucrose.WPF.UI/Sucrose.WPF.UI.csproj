@@ -62,6 +62,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
+        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
     </ItemGroup>
 
     <!--<ItemGroup>

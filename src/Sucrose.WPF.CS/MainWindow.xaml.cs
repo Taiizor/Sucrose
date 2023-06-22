@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Threading;
 using Sucrose.Grpc.Services;
+using Sucrose.Manager;
 
 namespace Sucrose.WPF.CS
 {
@@ -15,11 +16,11 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class MainWindow : Window
     {
+        SettingsManager SettingsManager = new("Server.json");
+
         public int ScreenIndex { get; private set; } = 0;
 
         public bool IsFixed { get; private set; } = false;
-
-        public bool Hook { get; private set; } = false;
 
         private static IntPtr MouseHook = IntPtr.Zero;
 
@@ -37,7 +38,8 @@ namespace Sucrose.WPF.CS
             Timer.Tick += Timer_Tick;
             Timer.Start();
 
-            System.Windows.MessageBox.Show(GeneralServerService.Host + "-" + GeneralServerService.Port);
+            SettingsManager.SetSetting("Host", GeneralServerService.Host);
+            SettingsManager.SetSetting("Port", GeneralServerService.Port);
 
             GeneralServerService.ServerInstance.Start();
         }
@@ -48,9 +50,8 @@ namespace Sucrose.WPF.CS
             {
                 Variables.State = false;
                 WallView.Address = Variables.Uri;
-                Hook = Variables.Hook;
 
-                if (Hook)
+                if (Variables.Hook)
                 {
                     MouseEventCall = CatchMouseEvent;
                     MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
@@ -144,65 +145,72 @@ namespace Sucrose.WPF.CS
 
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            IBrowserHost WVHost = WallView.GetBrowser().GetHost();
-
-            MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
-            int X = mouseHookStruct.Point.X;
-            int Y = mouseHookStruct.Point.Y;
-
-            if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
+            try
             {
-                int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
-                bool isScrollDown = (delta & 0x8000) != 0;
+                IBrowserHost WVHost = WallView.GetBrowser().GetHost();
 
-                int deltaX = mouseHookStruct.MouseData & 0xFFFF;
-                int deltaY = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
+                MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
+                int X = mouseHookStruct.Point.X;
+                int Y = mouseHookStruct.Point.Y;
 
-                int amount = 120;
-
-                if (isScrollDown)
+                if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
                 {
-                    //deltaX = -+(delta / amount);
-                    deltaY = -amount;
-                }
-                else
-                {
-                    //deltaX = delta / amount;
-                    deltaY = amount;
-                }
+                    int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
+                    bool isScrollDown = (delta & 0x8000) != 0;
 
-                MouseEvent mouseEvent = new(deltaX, deltaY, CefEventFlags.None);
-                WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
+                    int deltaX = mouseHookStruct.MouseData & 0xFFFF;
+                    int deltaY = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
+
+                    int amount = 120;
+
+                    if (isScrollDown)
+                    {
+                        //deltaX = -+(delta / amount);
+                        deltaY = -amount;
+                    }
+                    else
+                    {
+                        //deltaX = delta / amount;
+                        deltaY = amount;
+                    }
+
+                    MouseEvent mouseEvent = new(deltaX, deltaY, CefEventFlags.None);
+                    WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
+                {
+                    // Sol tuşa basma olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
+                {
+                    // Sol tuştan el çekme olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
+                {
+                    // Sağ tuşa basma olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
+                {
+                    // Sağ tuştan el çekme olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
+                {
+                    // Fare hareketi olayı
+                    // İlgili işlemleri burada gerçekleştirin
+                    WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
+                }
             }
-            else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
+            catch
             {
-                // Sol tuşa basma olayı
-                // İlgili işlemleri burada gerçekleştirin
-                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
-            }
-            else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
-            {
-                // Sol tuştan el çekme olayı
-                // İlgili işlemleri burada gerçekleştirin
-                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
-            }
-            else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
-            {
-                // Sağ tuşa basma olayı
-                // İlgili işlemleri burada gerçekleştirin
-                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
-            }
-            else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
-            {
-                // Sağ tuştan el çekme olayı
-                // İlgili işlemleri burada gerçekleştirin
-                WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
-            }
-            else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
-            {
-                // Fare hareketi olayı
-                // İlgili işlemleri burada gerçekleştirin
-                WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
+                //
             }
 
             return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
