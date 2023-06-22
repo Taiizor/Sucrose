@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 480 192" style="enable-background:new 0 0 480 192;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#D2D2D2;}
+	.st1{fill:#F25022;}
+	.st2{fill:#7FBA00;}
+	.st3{fill:#00A4EF;}
+	.st4{fill:#FFB900;}
+	.st5{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		<rect x="2" y="2" width="476" height="188"/>
+	</g>
+	<g>
+		<path class="st0" d="M476,4v184H4V4H476 M480,0H0v192h480V0L480,0z"/>
+	</g>
+</g>
+<g id="MS_Logo">
+	<g>
+		<rect x="296.3" y="40.2" class="st1" width="53" height="53"/>
+	</g>
+	<g>
+		<rect x="354.9" y="40.2" class="st2" width="53" height="53"/>
+	</g>
+	<g>
+		<rect x="296.3" y="98.8" class="st3" width="53" height="53"/>
+	</g>
+	<g>
+		<rect x="354.9" y="98.8" class="st4" width="53" height="53"/>
+	</g>
+</g>
+<g>
+	<path class="st5" d="M123.9,50.7l-31.9,89H75.4L44,50.7h16.1l22,67.5c0.7,2.2,1.2,4.7,1.6,7.5H84c0.3-2.4,0.9-4.9,1.8-7.6
+		l22.5-67.4H123.9z"/>
+	<path class="st5" d="M154.1,141.2c-9.8,0-17.6-3-23.5-8.9c-5.9-5.9-8.8-13.8-8.8-23.6c0-10.7,3-19,9.1-25c6.1-6,14.3-9,24.7-9
+		c9.9,0,17.7,2.9,23.2,8.7c5.5,5.8,8.3,13.9,8.3,24.3c0,10.1-3,18.2-9,24.3C172.2,138.1,164.2,141.2,154.1,141.2z M154.8,86.1
+		c-5.6,0-10.1,2-13.3,5.9c-3.3,3.9-4.9,9.3-4.9,16.3c0,6.7,1.7,11.9,5,15.7c3.3,3.8,7.7,5.7,13.3,5.7c5.7,0,10-1.9,13.1-5.6
+		c3-3.8,4.6-9.1,4.6-16.1c0-7-1.5-12.4-4.6-16.2C164.8,88,160.4,86.1,154.8,86.1z"/>
+	<path class="st5" d="M258.4,139.7H244v-35.8c0-11.9-4.2-17.8-12.6-17.8c-4.4,0-8,1.6-10.9,4.9c-2.9,3.3-4.3,7.4-4.3,12.4v36.2
+		h-14.5V76.1h14.5v10.5h0.2c4.8-8,11.6-12,20.6-12c6.9,0,12.2,2.2,15.8,6.7c3.6,4.5,5.5,11,5.5,19.4V139.7z"/>
+</g>
+</svg>
