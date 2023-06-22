@@ -5,8 +5,10 @@
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
         <StartupObject>Sucrose.WPF.UI.App</StartupObject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
         <Company>Taiizor</Company>
-        <Title>$(AssemblyName) - New Generation Password Generator</Title>
+        <Title>$(AssemblyName) - New Generation Wallpaper Engine</Title>
         <Description>$(Title)</Description>
         <Product>$(Title)</Product>
         <InformationalVersion>$(Version)</InformationalVersion>
@@ -59,20 +61,16 @@
         </PackageReference>
     </ItemGroup>
 
+    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
 
-    <!--<ItemGroup>
-        <Reference Include="System.Windows.Forms" />
-    </ItemGroup>-->
-
     <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
-
-    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
 
 </Project>

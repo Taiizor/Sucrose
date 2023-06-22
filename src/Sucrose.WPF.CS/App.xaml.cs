@@ -3,6 +3,7 @@ using Sucrose.Common.Manage;
 using Sucrose.Common.Services;
 using Sucrose.Grpc.Common;
 using Sucrose.Grpc.Services;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
