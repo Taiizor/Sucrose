@@ -85,7 +85,7 @@ Soferity: Game Portal it allows you to have a fun and good time with the various
 -   Adventure
 -   And many more game types!
 
-Soferity: Game Portal is currently under heavy development. You can give your suggestions and feedback on our [Discussions](https://github.com/Soferity/GamePortal/discussions) page. If you feel comfortable in writing code using C# (.NET), we highly encourage you to [contribute to this project](https://github.com/Soferity/GamePortal/graphs/contributors).
+Soferity: Game Portal is currently under heavy development. You can give your suggestions and feedback on our [Discussions](https://github.com/Taiizor/Sucrose/discussions) page. If you feel comfortable in writing code using C# (.NET), we highly encourage you to [contribute to this project](https://github.com/Taiizor/Sucrose/graphs/contributors).
 
 ---
 
@@ -98,7 +98,7 @@ Soferity: Game Portal is currently under heavy development. You can give your su
 
 ## Installation
 
-Soferity: Game Portal is available for you to install via [Microsoft Store](https://www.microsoft.com/store/apps/9P1JZMGT34M2), [GitHub](https://github.com/Soferity/GamePortal/releases/latest).
+Soferity: Game Portal is available for you to install via [Microsoft Store](https://www.microsoft.com/store/apps/9P1JZMGT34M2), [GitHub](https://github.com/Taiizor/Sucrose/releases/latest).
 
 All the distribution methods mentioned above are supported, however installing the app from the **Microsoft Store** is **recommended** as it is easier to install and will automatically remain up to date.
 
@@ -112,10 +112,10 @@ All the distribution methods mentioned above are supported, however installing t
 
 **GitHub**
 
-<a href='https://github.com/Soferity/GamePortal/releases/download/v1.0.9/GamePortal_1.0.9.0_x64.msix'>
+<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.9/GamePortal_1.0.9.0_x64.msix'>
   <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
 </a>
-<a href='https://github.com/Soferity/GamePortal/releases/download/v1.0.9/GamePortal_1.0.9.0_x86.msix'>
+<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.9/GamePortal_1.0.9.0_x86.msix'>
   <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
 </a>
 
