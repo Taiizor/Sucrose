@@ -1,7 +1,8 @@
-﻿#if WPF_CS
+﻿#if BROWSER
 
 using Grpc.Core;
 using Sucrose.Grpc.Common;
+using Sucrose.WPF.CS;
 using static Sucrose.Grpc.Common.Websiter;
 
 namespace Sucrose.Common.Services
@@ -10,9 +11,9 @@ namespace Sucrose.Common.Services
     {
         public override Task<WebsiterChangeResponse> ChangeAddress(WebsiterChangeRequest Request, ServerCallContext Context)
         {
-            Sucrose.WPF.CS.Variables.State = true;
-            Sucrose.WPF.CS.Variables.Uri = Request.Url;
-            Sucrose.WPF.CS.Variables.Hook = Request.Hook;
+            Variables.State = true;
+            Variables.Uri = Request.Url;
+            Variables.Hook = Request.Hook;
 
             return Task.FromResult(new WebsiterChangeResponse { Result = true });
         }

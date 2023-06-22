@@ -54,7 +54,7 @@ namespace Sucrose.Manager
             if (File.Exists(_settingsFilePath))
             {
                 string json = File.ReadAllText(_settingsFilePath);
-                var settings = JsonConvert.DeserializeObject<Settings>(json);
+                Settings settings = JsonConvert.DeserializeObject<Settings>(json);
                 if (settings.Properties.TryGetValue(key, out object value))
                 {
                     return JsonConvert.DeserializeObject<T>(value.ToString());
@@ -69,14 +69,14 @@ namespace Sucrose.Manager
             if (File.Exists(_settingsFilePath))
             {
                 string json = File.ReadAllText(_settingsFilePath);
-                var settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
                 if (settings.Properties.TryGetValue(key, out object value))
                 {
                     return ConvertToType<T>(value);
                 }
             }
 
-            return default(T);
+            return default;
         }
 
         public void SetSetting<T>(string key, T value)
