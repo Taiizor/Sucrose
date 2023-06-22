@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Threading;
 using Sucrose.Grpc.Services;
-using Sucrose.Manager;
+using Sucrose.Common.Manage;
 
 namespace Sucrose.WPF.CS
 {
@@ -16,8 +16,6 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class MainWindow : Window
     {
-        SettingsManager SettingsManager = new("Server.json");
-
         public int ScreenIndex { get; private set; } = 0;
 
         public bool IsFixed { get; private set; } = false;
@@ -38,8 +36,8 @@ namespace Sucrose.WPF.CS
             Timer.Tick += Timer_Tick;
             Timer.Start();
 
-            SettingsManager.SetSetting("Host", GeneralServerService.Host);
-            SettingsManager.SetSetting("Port", GeneralServerService.Port);
+            Internal.ServerManager.SetSetting("Host", GeneralServerService.Host);
+            Internal.ServerManager.SetSetting("Port", GeneralServerService.Port);
 
             GeneralServerService.ServerInstance.Start();
         }

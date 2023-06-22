@@ -61,8 +61,8 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
-        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
 
     <!--<ItemGroup>
@@ -72,5 +72,7 @@
     <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
+
+    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
 
 </Project>

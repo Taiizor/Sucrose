@@ -1,5 +1,6 @@
 ﻿using Grpc.Core;
 using Sucrose.Grpc.Common;
+using System.Threading.Tasks;
 using static Sucrose.Grpc.Common.Greeter;
 
 namespace Sucrose.Common.Services

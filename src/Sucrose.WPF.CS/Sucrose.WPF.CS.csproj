@@ -20,9 +20,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Tray\Sucrose.Tray.csproj" />
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
+        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
 

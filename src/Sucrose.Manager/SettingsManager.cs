@@ -11,7 +11,7 @@ namespace Sucrose.Manager
         private readonly string _settingsFilePath;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public SettingsManager(string settingsFileName, TypeNameHandling typeNameHandling = TypeNameHandling.None)
+        public SettingsManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string appName = "Sucrose";
@@ -25,8 +25,8 @@ namespace Sucrose.Manager
             // JSON serileştirme ayarlarını yapılandırın
             _serializerSettings = new JsonSerializerSettings
             {
-                Formatting = Formatting.Indented,
                 TypeNameHandling = typeNameHandling,
+                Formatting = formatting,
                 Converters = new[]
                 {
                     new IPAddressConverter()
@@ -64,7 +64,7 @@ namespace Sucrose.Manager
             return default;
         }
 
-        public T GetSetting3<T>(string key)
+        public T GetSettingAddress<T>(string key)
         {
             if (File.Exists(_settingsFilePath))
             {
