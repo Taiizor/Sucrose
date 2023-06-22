@@ -12,9 +12,9 @@ using System.Windows.Threading;
 namespace Sucrose.WPF.CS
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Main : Window
     {
         public int ScreenIndex { get; private set; } = 0;
 
@@ -24,7 +24,7 @@ namespace Sucrose.WPF.CS
 
         private DispatcherTimer Timer = new();
 
-        public MainWindow()
+        public Main()
         {
             InitializeComponent();
 
