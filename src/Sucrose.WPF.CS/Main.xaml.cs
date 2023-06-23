@@ -2,10 +2,13 @@
 using Skylark.Enum;
 using Skylark.Struct.Monitor;
 using Skylark.Wing.Helper;
+using Skylark.Wing.Manage;
+using Skylark.Wing.Native;
 using Skylark.Wing.Utility;
 using Sucrose.Common.Manage;
 using Sucrose.Grpc.Services;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -16,13 +19,17 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class Main : Window
     {
-        public int ScreenIndex { get; private set; } = 0;
+        private int ScreenIndex { get; set; } = 0;
 
-        public bool IsFixed { get; private set; } = false;
+        private bool IsFixed { get; set; } = false;
 
+        private static WinAPI.MouseEventCallback? MouseEventCall;
         private static IntPtr MouseHook = IntPtr.Zero;
 
-        private DispatcherTimer Timer = new();
+        private static WinAPI.WinEventDelegate? ForegroundDelegate;
+        private static IntPtr ForegroundHook = IntPtr.Zero;
+
+        private readonly DispatcherTimer Timer = new();
 
         public Main()
         {
@@ -35,9 +42,12 @@ namespace Sucrose.WPF.CS
 
             PinToBackground();
 
-            Timer.Interval = TimeSpan.FromSeconds(1);
-            Timer.Tick += Timer_Tick;
+            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
+
+            ForegroundDelegate = new WinAPI.WinEventDelegate(FullScreenChanged);
+            ForegroundHook = WinAPI.SetWinEventHook(External.EVENT_SYSTEM_FOREGROUND, External.EVENT_SYSTEM_FOREGROUND, IntPtr.Zero, ForegroundDelegate, 0, 0, External.WINEVENT_OUTOFCONTEXT);
 
             Internal.ServerManager.SetSetting("Host", GeneralServerService.Host);
             Internal.ServerManager.SetSetting("Port", GeneralServerService.Port);
@@ -45,30 +55,26 @@ namespace Sucrose.WPF.CS
             GeneralServerService.ServerInstance.Start();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        protected void Timer_Tick(object sender, EventArgs e)
         {
-            try
+            if (Variables.State)
             {
-                if (Variables.State)
-                {
-                    Variables.State = false;
-                    WallView.Address = Variables.Uri;
+                Variables.State = false;
+                WallView.Address = Variables.Uri;
 
-                    if (Variables.Hook)
-                    {
-                        MouseEventCall = CatchMouseEvent;
-                        MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
-                    }
-                    else
-                    {
-                        WinAPI.UnhookWinEvent(MouseHook);
-                    }
+                if (Variables.Hook)
+                {
+                    MouseEventCall = CatchMouseEvent;
+                    MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
+                }
+                else
+                {
+                    MouseEventCall = null;
+                    WinAPI.UnhookWinEvent(MouseHook);
                 }
             }
-            catch
-            {
-                //
-            }
+
+            ForegroundAppMonitor();
         }
 
         protected bool PinToBackground()
@@ -83,7 +89,7 @@ namespace Sucrose.WPF.CS
             return IsFixed;
         }
 
-        public int OwnerScreenIndex
+        protected int OwnerScreenIndex
         {
             get => ScreenIndex;
             set
@@ -106,7 +112,7 @@ namespace Sucrose.WPF.CS
             }
         }
 
-        public MonitorStruct OwnerScreen
+        protected MonitorStruct OwnerScreen
         {
             get
             {
@@ -122,8 +128,6 @@ namespace Sucrose.WPF.CS
                 };
             }
         }
-
-        private static WinAPI.MouseEventCallback? MouseEventCall;
 
         [StructLayout(LayoutKind.Sequential)]
         private struct MousePoint
@@ -216,16 +220,77 @@ namespace Sucrose.WPF.CS
                     WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
                 }
 
-                return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
+                return IntPtr.Zero;
+                //return WinAPI.CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
             }
             catch
             {
                 return IntPtr.Zero;
             }
         }
+
+        private void FullScreenChanged(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
+        {
+            try
+            {
+                if (hwnd != IntPtr.Zero)
+                {
+                    if (IsWhitelistedClass(hwnd)) //Remove this if you want to pin to background all windows
+                    {
+                        PinToBackground();
+                    }
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private readonly string[] ClassWhiteList = new string[]
+        {
+            //StartMeu, TaskView (Win10), action center etc
+            "Windows.UI.Core.CoreWindow",
+            //Alt+Tab Screen (Win10)
+            "MultitaskingViewFrame",
+            //TaskView (Win11)
+            "XamlExplorerHostIslandWindow",
+            "TaskListThumbnailWnd",
+            //DirectX Fullscreen
+            "ForegroundStaging",
+            //Taskbar(s)
+            "Shell_TrayWnd",
+            "Shell_SecondaryTrayWnd",
+            //Systray Notifyicon Expanded Popup
+            "NotifyIconOverflowWindow",
+            //RainMeter Widgets
+            "RainmeterMeterWindow",
+            //Coodesker
+            "_cls_desk_"
+        };
+
+        private bool IsWhitelistedClass(IntPtr hwnd)
+        {
+            const int maxChars = 256;
+
+            StringBuilder className = new(maxChars);
+
+            return Methods.GetClassName((int)hwnd, className, maxChars) > 0 && ClassWhiteList.Any(x => x.Equals(className.ToString(), StringComparison.Ordinal));
+        }
+
+        private void ForegroundAppMonitor()
+        {
+            IntPtr fHandle = Methods.GetForegroundWindow();
+
+            if (IsWhitelistedClass(fHandle))
+            {
+                PinToBackground();
+                return;
+            }
+        }
     }
 
-    public class CustomContextMenuHandler : IContextMenuHandler
+    internal class CustomContextMenuHandler : IContextMenuHandler
     {
         public void OnBeforeContextMenu(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model)
         {
