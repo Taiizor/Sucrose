@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
-        <OutputPath>..\Package\Sucrose.Tray</OutputPath>
+        <OutputPath>..\Sucrose\Tray</OutputPath>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>
@@ -10,10 +10,6 @@
         <Nullable>disable</Nullable>
         <UseWPF>true</UseWPF>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
-    </ItemGroup>
 
     <ItemGroup>
         <None Update="Assets\WideScreen.png">
@@ -31,6 +27,14 @@
         <None Update="Assets\Error.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Skylark" Version="3.0.1.301" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
     </ItemGroup>
 
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />

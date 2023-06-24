@@ -28,7 +28,7 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\Package\Sucrose.WPF\Browser</OutputPath>
+        <OutputPath>..\Sucrose\WPF\Browser</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -63,13 +63,13 @@
         </PackageReference>
     </ItemGroup>
 
-    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
-
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
+
+    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />

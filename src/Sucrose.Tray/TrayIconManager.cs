@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Skylark.Enum;
+using System.IO;
 using System.Reflection;
 using ECT = Sucrose.Space.Enum.CommandsType;
 using HC = Sucrose.Space.Helper.Command;
@@ -20,20 +21,35 @@ namespace Sucrose.Tray
 
         public void Start()
         {
-            Start(null, null);
+            Start(null, null, WindowsThemeType.Light);
+        }
+
+        public void Start(WindowsThemeType ThemeType = WindowsThemeType.Light)
+        {
+            Start(null, null, ThemeType);
         }
 
         public void StartWPF(WPF WPF = null)
         {
-            Start(WPF, null);
+            Start(WPF, null, WindowsThemeType.Light);
+        }
+
+        public void StartWPF(WPF WPF = null, WindowsThemeType ThemeType = WindowsThemeType.Light)
+        {
+            Start(WPF, null, ThemeType);
         }
 
         public void StartWinForms(WinForms WinForms = null)
         {
-            Start(null, WinForms);
+            Start(null, WinForms, WindowsThemeType.Light);
         }
 
-        private void Start(WPF WPF = null, WinForms WinForms = null)
+        public void StartWinForms(WinForms WinForms = null, WindowsThemeType ThemeType = WindowsThemeType.Light)
+        {
+            Start(null, WinForms, ThemeType);
+        }
+
+        private void Start(WPF WPF = null, WinForms WinForms = null, WindowsThemeType ThemeType = WindowsThemeType.Light)
         {
             this.WPF = WPF;
             this.WinForms = WinForms;
@@ -41,26 +57,33 @@ namespace Sucrose.Tray
             TrayIcon.Text = "Sucrose Wallpaper";
             TrayIcon.Icon = new Icon("Assets/TrayIcon.ico");
 
-            ContextMenu.Renderer = new RendererLight();
+            if (ThemeType == WindowsThemeType.Dark)
+            {
+                ContextMenu.Renderer = new RendererDark();
+            }
+            else
+            {
+                ContextMenu.Renderer = new RendererLight();
+            }
 
             ContextMenu.Items.Add("Sucrose'yi Aç", Image.FromFile("Assets/WideScreen.png"), CommandInterface);
 
-            StripSeparatorLight Separator1 = new();
-            ContextMenu.Items.Add(Separator1.StripSeparator);
+            StripSeparator Separator1 = new(ThemeType);
+            ContextMenu.Items.Add(Separator1.Strip);
 
             ContextMenu.Items.Add("Duvar Kağıdını Kapat", null, null);
             ContextMenu.Items.Add("Duvar Kağıdını Durdur", null, null); //Başlat
             ContextMenu.Items.Add("Duvar Kağıdını Değiştir", null, null);
             ContextMenu.Items.Add("Duvar Kağıdını Özelleştir", null, null);
 
-            StripSeparatorLight Separator2 = new();
-            ContextMenu.Items.Add(Separator2.StripSeparator);
+            StripSeparator Separator2 = new(ThemeType);
+            ContextMenu.Items.Add(Separator2.Strip);
 
             ContextMenu.Items.Add("Ayarlar", Image.FromFile("Assets/Setting.png"), null);
             ContextMenu.Items.Add("Hata Bildir", Image.FromFile("Assets/Error.png"), CommandReport);
 
-            StripSeparatorLight Separator3 = new();
-            ContextMenu.Items.Add(Separator3.StripSeparator);
+            StripSeparator Separator3 = new(ThemeType);
+            ContextMenu.Items.Add(Separator3.Strip);
 
             ContextMenu.Items.Add("Çıkış", Image.FromFile("Assets/Close.png"), CommandClose);
 
@@ -91,7 +114,9 @@ namespace Sucrose.Tray
             if (e.Button == MouseButtons.Right)
             {
                 Point MousePosition = Control.MousePosition;
+
                 MousePosition.Offset(-(ContextMenu.Size.Width / 2), -(30 + ContextMenu.Size.Height));
+                
                 ContextMenu.Show(MousePosition);
             }
         }

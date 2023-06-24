@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
-        <!--<OutputPath>..\Package\Sucrose.CommandLine</OutputPath>-->
-        <OutputPath>..\Package\Sucrose.WPF\Browser</OutputPath>
+        <!--<OutputPath>..\Sucrose\CommandLine</OutputPath>-->
+        <OutputPath>..\Sucrose\WPF\Browser</OutputPath>
         <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
@@ -12,12 +12,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.3" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.1.206" />
+        <PackageReference Include="Skylark" Version="3.0.1.301" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.207" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
+        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
     </ItemGroup>
 
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />

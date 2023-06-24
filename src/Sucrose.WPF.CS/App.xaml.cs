@@ -1,6 +1,7 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
 using Grpc.Core;
+using Skylark.Wing.Helper;
 using Sucrose.Common.Manage;
 using Sucrose.Common.Services;
 using Sucrose.Grpc.Common;
@@ -48,7 +49,7 @@ namespace Sucrose.WPF.CS
             // DispatcherUnhandledException olayına bir olay işleyici ekleyin
             DispatcherUnhandledException += App_DispatcherUnhandledException;
 
-            Internal.TrayIconManager.StartWPF(Current);
+            Internal.TrayIconManager.StartWPF(Current, WindowsTheme.GetTheme());
 
             GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
             {

@@ -30,7 +30,7 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\Package\Sucrose.WPF\Browser</OutputPath>
+        <OutputPath>..\Sucrose\WPF\Browser</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -59,19 +59,22 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.3" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.1.206" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.207" />
         <PackageReference Include="CefSharp.Wpf" Version="114.2.100" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sucrose.Tray\Sucrose.Tray.csproj" />
+        <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
+        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
+        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
 
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
 
     <ItemGroup>
-        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
-        <ProjectReference Include="..\Sucrose.Tray\Sucrose.Tray.csproj" />
-        <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
-        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
+        <Folder Include="Properties\" />
     </ItemGroup>
 
 </Project>
