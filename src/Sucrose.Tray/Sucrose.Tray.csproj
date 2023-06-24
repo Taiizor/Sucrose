@@ -26,4 +26,6 @@
         </None>
     </ItemGroup>
 
+    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
+
 </Project>

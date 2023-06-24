@@ -23,11 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.WPF.CS", "Sucrose.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.WPF.UI", "Sucrose.WPF.UI\Sucrose.WPF.UI.csproj", "{403A332A-B17E-43CC-9208-FB9985B7728E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Manager", "Sucrose.Manager\Sucrose.Manager.csproj", "{BD34975C-0706-432B-A6A1-4D548772FB77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Manager", "Sucrose.Manager\Sucrose.Manager.csproj", "{BD34975C-0706-432B-A6A1-4D548772FB77}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose", "Sucrose\Sucrose.csproj", "{980C0628-C1A9-4C17-A6D3-3185C0593248}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Memory", "Sucrose.Memory\Sucrose.Memory.csproj", "{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Memory", "Sucrose.Memory\Sucrose.Memory.csproj", "{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.CommandLine", "Sucrose.CommandLine\Sucrose.CommandLine.csproj", "{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Space", "Sucrose.Space\Sucrose.Space.shproj", "{3B13E30A-F789-484A-BC78-534EEC688625}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -185,6 +189,22 @@ Global
 		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x64.Build.0 = Release|Any CPU
 		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x86.ActiveCfg = Release|Any CPU
 		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x86.Build.0 = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x64.Build.0 = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x86.Build.0 = Debug|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|ARM64.Build.0 = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x64.ActiveCfg = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x64.Build.0 = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,8 +214,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Sucrose.Common\Sucrose.Common.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
+		Sucrose.Space\Sucrose.Space.projitems*{38624e0d-4bfd-4b82-b22a-3c57cdcdd1bf}*SharedItemsImports = 5
+		Sucrose.Space\Sucrose.Space.projitems*{3b13e30a-f789-484a-bc78-534eec688625}*SharedItemsImports = 13
 		Sucrose.Common\Sucrose.Common.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{4a57580b-4ae3-4a25-a887-766d1b3709c7}*SharedItemsImports = 13
+		Sucrose.Space\Sucrose.Space.projitems*{5e789d25-d3e8-451f-a350-4eab348c5629}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{980c0628-c1a9-4c17-a6d3-3185c0593248}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

@@ -20,6 +20,7 @@
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
+        <DefineConstants>$(DefineConstants);SERVER</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <Configurations>Debug;GitHub;Release</Configurations>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>

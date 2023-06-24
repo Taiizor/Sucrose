@@ -22,7 +22,7 @@
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>AnyCPU;x64;x86;ARM64</Platforms>
-        <DefineConstants>$(DefineConstants);TRAY_ICON;BROWSER</DefineConstants>
+        <DefineConstants>$(DefineConstants);TRAY_ICON;BROWSER;SERVER</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <Configurations>Debug;GitHub;Release</Configurations>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>

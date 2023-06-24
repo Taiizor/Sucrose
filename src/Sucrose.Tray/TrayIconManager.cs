@@ -1,4 +1,9 @@
-﻿using WinForms = System.Windows.Forms.Application;
+﻿using System.IO;
+using System.Reflection;
+using ECT = Sucrose.Space.Enum.CommandsType;
+using HC = Sucrose.Space.Helper.Command;
+using MI = Sucrose.Space.Manage.Internal;
+using WinForms = System.Windows.Forms.Application;
 using WPF = System.Windows.Application;
 
 namespace Sucrose.Tray
@@ -38,8 +43,7 @@ namespace Sucrose.Tray
 
             ContextMenu.Renderer = new ContextMenuTheme.RendererDark();
 
-            // İkon menüsü oluşturma
-            ContextMenu.Items.Add("Sucrose'yi Aç", Image.FromFile("Assets/WideScreen.png"), OnCommand);
+            ContextMenu.Items.Add("Sucrose'yi Aç", Image.FromFile("Assets/WideScreen.png"), CommandInterface);
             ContextMenu.Items.Add("Duvar Kağıdını Kapat", null, null);
             ContextMenu.Items.Add("Duvar Kağıdını Durdur", null, null); //Başlat
             ContextMenu.Items.Add("Duvar Kağıdını Değiştir", null, null);
@@ -58,7 +62,6 @@ namespace Sucrose.Tray
             TrayIcon.MouseClick += MouseClick;
             TrayIcon.MouseDoubleClick += MouseDoubleClick;
 
-            // İkonü gösterme
             TrayIcon.Visible = true;
         }
 
@@ -81,9 +84,9 @@ namespace Sucrose.Tray
         {
             if (e.Button == MouseButtons.Right)
             {
-                Point mousePosition = Control.MousePosition;
-                mousePosition.Offset(-(ContextMenu.Size.Width / 2), -(30 + ContextMenu.Size.Height));
-                ContextMenu.Show(mousePosition);
+                Point MousePosition = Control.MousePosition;
+                MousePosition.Offset(-(ContextMenu.Size.Width / 2), -(30 + ContextMenu.Size.Height));
+                ContextMenu.Show(MousePosition);
             }
         }
 
@@ -95,15 +98,31 @@ namespace Sucrose.Tray
             }
         }
 
-        private void OnCommand(object sender, EventArgs e)
+        private void CommandInterface(object sender, EventArgs e)
         {
-            //
+            if (WPF != null)
+            {
+                string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+                HC.Run(Path.Combine(Folder, MI.ConsoleApplication), $"{MI.StartCommand}{ECT.Interface}{MI.ValueSeparator}{Path.Combine(Folder, MI.WPFApplication)}");
+            }
+            else if (WinForms != null)
+            {
+                string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+                HC.Run(Path.Combine(Folder, MI.ConsoleApplication), $"{MI.StartCommand}{ECT.Interface}{MI.ValueSeparator}{Path.Combine(Folder, MI.WinFormsApplication)}");
+            }
+            else
+            {
+                MessageBox.Show("Arayüz uygulaması başlatılamadı!");
+            }
         }
 
         private void CommandClose(object sender, EventArgs e)
         {
             if (WPF != null)
             {
+                WPF.Current.MainWindow.Close();
                 WPF.Current.Shutdown();
             }
             else if (WinForms != null)
