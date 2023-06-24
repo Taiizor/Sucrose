@@ -77,7 +77,8 @@
 
 </details>
 
-Sucrose it allows you to have a fun and good time with the various types of games it offers. Some Soferity: Game Portal's game types in summary are:
+<!--
+Sucrose it allows you to have a fun and good time with the various types of games it offers. Some Sucrose's game types in summary are:
 
 -   Race
 -   Sport
@@ -137,3 +138,4 @@ All the distribution methods mentioned above are supported, however installing t
 * Confirmation windows will appear After that Try Installing the MSIX
 
 ---
+-->
