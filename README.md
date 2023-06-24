@@ -57,24 +57,27 @@
 
 # What is Sucrose?
 
-![Home](.screenshots/View.png)
+![View](.screenshots/View.png)
 
 <details>
 
   <summary>View More Screenshots</summary>
 
-  ![TheCube](.screenshots/TheCube.EN.png)
-  ![ValorousRabbit](.screenshots/ValorousRabbit.EN.png)
-  ![TowerBlock](.screenshots/TowerBlock.EN.png)
-  ![SweetMemory](.screenshots/SweetMemory.EN.png)
-  ![TowerOfHanoi](.screenshots/TowerOfHanoi.EN.png)
-  ![TheAviator](.screenshots/TheAviator.EN.png)
-  ![Coloron](.screenshots/Coloron.EN.png)
-  ![Menja](.screenshots/Menja.EN.png)
+  ![View2](.screenshots/View2.png)
+  ![View3](.screenshots/View3.png)
+  ![View4](.screenshots/View4.png)
+  ![View5](.screenshots/View5.png)
+  ![View6](.screenshots/View6.png)
+  ![View7](.screenshots/View7.png)
+  ![View8](.screenshots/View8.png)
+  ![View9](.screenshots/View9.png)
+  ![View10](.screenshots/View10.png)
+  ![View11](.screenshots/View11.png)
+  ![View12](.screenshots/View12.png)
 
 </details>
 
-Soferity: Game Portal it allows you to have a fun and good time with the various types of games it offers. Some Soferity: Game Portal's game types in summary are:
+Sucrose it allows you to have a fun and good time with the various types of games it offers. Some Soferity: Game Portal's game types in summary are:
 
 -   Race
 -   Sport
@@ -85,7 +88,7 @@ Soferity: Game Portal it allows you to have a fun and good time with the various
 -   Adventure
 -   And many more game types!
 
-Soferity: Game Portal is currently under heavy development. You can give your suggestions and feedback on our [Discussions](https://github.com/Taiizor/Sucrose/discussions) page. If you feel comfortable in writing code using C# (.NET), we highly encourage you to [contribute to this project](https://github.com/Taiizor/Sucrose/graphs/contributors).
+Sucrose is currently under heavy development. You can give your suggestions and feedback on our [Discussions](https://github.com/Taiizor/Sucrose/discussions) page. If you feel comfortable in writing code using C# (.NET), we highly encourage you to [contribute to this project](https://github.com/Taiizor/Sucrose/graphs/contributors).
 
 ---
 
