@@ -2,7 +2,7 @@
 using System.Reflection;
 using ECT = Sucrose.Space.Enum.CommandsType;
 using HC = Sucrose.Space.Helper.Command;
-using MI = Sucrose.Space.Manage.Internal;
+using R = Sucrose.Memory.Readonly;
 using WinForms = System.Windows.Forms.Application;
 using WPF = System.Windows.Application;
 
@@ -44,17 +44,23 @@ namespace Sucrose.Tray
             ContextMenu.Renderer = new ContextMenuTheme.RendererDark();
 
             ContextMenu.Items.Add("Sucrose'yi Aç", Image.FromFile("Assets/WideScreen.png"), CommandInterface);
+
+            ContextMenuTheme.StripSeparatorCustom Separator1 = new();
+            ContextMenu.Items.Add(Separator1.stripSeparator);
+
             ContextMenu.Items.Add("Duvar Kağıdını Kapat", null, null);
             ContextMenu.Items.Add("Duvar Kağıdını Durdur", null, null); //Başlat
             ContextMenu.Items.Add("Duvar Kağıdını Değiştir", null, null);
             ContextMenu.Items.Add("Duvar Kağıdını Özelleştir", null, null);
-            //ContextMenu.Items.Add("Ayarlar", null, null);
 
-            ContextMenuTheme.StripSeparatorCustom separator = new();
+            ContextMenuTheme.StripSeparatorCustom Separator2 = new();
+            ContextMenu.Items.Add(Separator2.stripSeparator);
 
-            ContextMenu.Items.Add(separator.stripSeparator);
-            ContextMenu.Items.Add("Hata Bildir", Image.FromFile("Assets/Error.png"), null);
-            ContextMenu.Items.Add(separator.stripSeparator);
+            ContextMenu.Items.Add("Ayarlar", Image.FromFile("Assets/Setting.png"), null);
+            ContextMenu.Items.Add("Hata Bildir", Image.FromFile("Assets/Error.png"), CommandReport);
+
+            ContextMenuTheme.StripSeparatorCustom Separator3 = new();
+            ContextMenu.Items.Add(Separator3.stripSeparator);
 
             ContextMenu.Items.Add("Çıkış", Image.FromFile("Assets/Close.png"), CommandClose);
 
@@ -94,7 +100,7 @@ namespace Sucrose.Tray
         {
             if (e.Button == MouseButtons.Left)
             {
-                MessageBox.Show("Tray icon çift tıklandı!");
+                CommandInterface(sender, e);
             }
         }
 
@@ -104,18 +110,25 @@ namespace Sucrose.Tray
             {
                 string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-                HC.Run(Path.Combine(Folder, MI.ConsoleApplication), $"{MI.StartCommand}{ECT.Interface}{MI.ValueSeparator}{Path.Combine(Folder, MI.WPFApplication)}");
+                HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WPFApplication)}");
             }
             else if (WinForms != null)
             {
                 string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-                HC.Run(Path.Combine(Folder, MI.ConsoleApplication), $"{MI.StartCommand}{ECT.Interface}{MI.ValueSeparator}{Path.Combine(Folder, MI.WinFormsApplication)}");
+                HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WinFormsApplication)}");
             }
             else
             {
                 MessageBox.Show("Arayüz uygulaması başlatılamadı!");
             }
+        }
+
+        private void CommandReport(object sender, EventArgs e)
+        {
+            string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Report}{R.ValueSeparator}{R.ReportWebsite}");
         }
 
         private void CommandClose(object sender, EventArgs e)

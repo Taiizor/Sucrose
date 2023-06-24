@@ -16,6 +16,10 @@
         <PackageReference Include="Skylark.Wing" Version="3.0.1.206" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
+    </ItemGroup>
+
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
 
 </Project>

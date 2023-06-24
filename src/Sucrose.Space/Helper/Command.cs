@@ -13,8 +13,8 @@ namespace Sucrose.Space.Helper
         {
             ProcessStartInfo ProcessInfo = new(Application, Arguments)
             {
-                CreateNoWindow = true, // Konsol penceresini oluşturma
-                UseShellExecute = false // Shell kullanmayı devre dışı bırakma
+                CreateNoWindow = true,
+                UseShellExecute = false
             };
 
             Process Process = new()

@@ -12,10 +12,17 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
         <None Update="Assets\WideScreen.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Update="Assets\TrayIcon.ico">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Setting.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Update="Assets\Close.png">

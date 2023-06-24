@@ -64,6 +64,9 @@ namespace Sucrose.WPF.CS
             Main Browser = new();
             Browser.ShowDialog();
 
+            Cef.Shutdown();
+            Cef.PreShutdown();
+
             GeneralServerService.ServerInstance.ShutdownAsync().Wait();
         }
 

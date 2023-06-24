@@ -11,6 +11,5 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Command.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
   </ItemGroup>
 </Project>

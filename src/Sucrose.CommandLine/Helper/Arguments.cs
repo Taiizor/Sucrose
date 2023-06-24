@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using ECT = Sucrose.Space.Enum.CommandsType;
 using HWS = Skylark.Wing.Helper.WindowsStartup;
-using MI = Sucrose.Space.Manage.Internal;
+using R = Sucrose.Memory.Readonly;
 
 namespace Sucrose.CommandLine.Helper
 {
@@ -15,13 +15,13 @@ namespace Sucrose.CommandLine.Helper
                 {
                     string Argument = Arguments[Count];
 
-                    if (Argument.StartsWith(MI.StartCommand) && Argument.Contains(MI.ValueSeparatorChar))
+                    if (Argument.StartsWith(R.StartCommand) && Argument.Contains(R.ValueSeparatorChar))
                     {
 
 #if NET6_0_OR_GREATER
-                        string[] ArgumentParts = Argument[1..].Split(MI.ValueSeparatorChar);
+                        string[] ArgumentParts = Argument[1..].Split(R.ValueSeparatorChar);
 #else
-                        string[] ArgumentParts = Argument.Substring(1).Split(MI.ValueSeparatorChar);
+                        string[] ArgumentParts = Argument.Substring(1).Split(R.ValueSeparatorChar);
 #endif
 
                         if (ArgumentParts.Length >= 2)
