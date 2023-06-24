@@ -8,7 +8,7 @@
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Nullable>disable</Nullable>
-        <UseWPF>false</UseWPF>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
 
     <ItemGroup>

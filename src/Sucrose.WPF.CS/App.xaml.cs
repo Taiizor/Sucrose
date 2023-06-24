@@ -20,14 +20,6 @@ namespace Sucrose.WPF.CS
     {
         public App()
         {
-            Internal.TrayIconManager.Start();
-
-            GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
-            {
-                Websiter.BindService(new WebsiterServerService()),
-                Trayer.BindService(new TrayerServerService())
-            });
-
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
 
             CefSettings settings = new()
@@ -55,12 +47,28 @@ namespace Sucrose.WPF.CS
 
             // DispatcherUnhandledException olayına bir olay işleyici ekleyin
             DispatcherUnhandledException += App_DispatcherUnhandledException;
+
+            Internal.TrayIconManager.StartWPF(Current);
+
+            GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
+            {
+                Websiter.BindService(new WebsiterServerService()),
+                Trayer.BindService(new TrayerServerService())
+            });
+
+            Internal.ServerManager.SetSetting("Host", GeneralServerService.Host);
+            Internal.ServerManager.SetSetting("Port", GeneralServerService.Port);
+
+            GeneralServerService.ServerInstance.Start();
+
+            Main Browser = new();
+            Browser.ShowDialog();
+
+            GeneralServerService.ServerInstance.ShutdownAsync().Wait();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            GeneralServerService.ServerInstance.ShutdownAsync().Wait();
-
             base.OnExit(e);
         }
 

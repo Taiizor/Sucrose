@@ -5,8 +5,6 @@ using Skylark.Wing.Helper;
 using Skylark.Wing.Manage;
 using Skylark.Wing.Native;
 using Skylark.Wing.Utility;
-using Sucrose.Common.Manage;
-using Sucrose.Grpc.Services;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
@@ -48,11 +46,6 @@ namespace Sucrose.WPF.CS
 
             ForegroundDelegate = new WinAPI.WinEventDelegate(FullScreenChanged);
             ForegroundHook = WinAPI.SetWinEventHook(External.EVENT_SYSTEM_FOREGROUND, External.EVENT_SYSTEM_FOREGROUND, IntPtr.Zero, ForegroundDelegate, 0, 0, External.WINEVENT_OUTOFCONTEXT);
-
-            Internal.ServerManager.SetSetting("Host", GeneralServerService.Host);
-            Internal.ServerManager.SetSetting("Port", GeneralServerService.Port);
-
-            GeneralServerService.ServerInstance.Start();
         }
 
         protected void Timer_Tick(object sender, EventArgs e)

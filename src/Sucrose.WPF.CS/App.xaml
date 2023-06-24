@@ -1,8 +1,7 @@
 ﻿<Application x:Class="Sucrose.WPF.CS.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Sucrose.WPF.CS"
-             StartupUri="Main.xaml">
+             xmlns:local="clr-namespace:Sucrose.WPF.CS">
     <Application.Resources>
 
     </Application.Resources>
