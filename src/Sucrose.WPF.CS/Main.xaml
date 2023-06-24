@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
-        Title="CefSharp" Height="400" Width="400">
+        Title="Sucrose.WPF.CS" Height="400" Width="400">
     <wpf:ChromiumWebBrowser x:Name="WallView"/>
 </Window>

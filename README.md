@@ -55,9 +55,9 @@
 
 ---
 
-# What is Soferity: Game Portal?
+# What is Sucrose?
 
-![Home](.screenshots/Home.EN.png)
+![Home](.screenshots/View.png)
 
 <details>
 
