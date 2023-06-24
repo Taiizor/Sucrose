@@ -41,26 +41,26 @@ namespace Sucrose.Tray
             TrayIcon.Text = "Sucrose Wallpaper";
             TrayIcon.Icon = new Icon("Assets/TrayIcon.ico");
 
-            ContextMenu.Renderer = new ContextMenuTheme.RendererDark();
+            ContextMenu.Renderer = new RendererLight();
 
             ContextMenu.Items.Add("Sucrose'yi Aç", Image.FromFile("Assets/WideScreen.png"), CommandInterface);
 
-            ContextMenuTheme.StripSeparatorCustom Separator1 = new();
-            ContextMenu.Items.Add(Separator1.stripSeparator);
+            StripSeparatorLight Separator1 = new();
+            ContextMenu.Items.Add(Separator1.StripSeparator);
 
             ContextMenu.Items.Add("Duvar Kağıdını Kapat", null, null);
             ContextMenu.Items.Add("Duvar Kağıdını Durdur", null, null); //Başlat
             ContextMenu.Items.Add("Duvar Kağıdını Değiştir", null, null);
             ContextMenu.Items.Add("Duvar Kağıdını Özelleştir", null, null);
 
-            ContextMenuTheme.StripSeparatorCustom Separator2 = new();
-            ContextMenu.Items.Add(Separator2.stripSeparator);
+            StripSeparatorLight Separator2 = new();
+            ContextMenu.Items.Add(Separator2.StripSeparator);
 
             ContextMenu.Items.Add("Ayarlar", Image.FromFile("Assets/Setting.png"), null);
             ContextMenu.Items.Add("Hata Bildir", Image.FromFile("Assets/Error.png"), CommandReport);
 
-            ContextMenuTheme.StripSeparatorCustom Separator3 = new();
-            ContextMenu.Items.Add(Separator3.stripSeparator);
+            StripSeparatorLight Separator3 = new();
+            ContextMenu.Items.Add(Separator3.StripSeparator);
 
             ContextMenu.Items.Add("Çıkış", Image.FromFile("Assets/Close.png"), CommandClose);
 

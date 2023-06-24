@@ -4,9 +4,9 @@ namespace Sucrose.Memory
 {
     public static class Readonly
     {
-        public static readonly char StartCommandChar = '-';
-
         public static readonly string AppName = "Sucrose";
+
+        public static readonly char StartCommandChar = '-';
 
         public static readonly string CacheFolder = "Cache";
 
