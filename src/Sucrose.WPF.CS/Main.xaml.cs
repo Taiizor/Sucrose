@@ -5,6 +5,7 @@ using Skylark.Wing.Helper;
 using Skylark.Wing.Manage;
 using Skylark.Wing.Native;
 using Skylark.Wing.Utility;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
@@ -122,6 +123,12 @@ namespace Sucrose.WPF.CS
             }
         }
 
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            Timer.Stop();
+            WallView.Stop();
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         private struct MousePoint
         {
@@ -155,10 +162,39 @@ namespace Sucrose.WPF.CS
                 IBrowserHost WVHost = WallView.GetBrowser().GetHost();
 
                 MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
+                
                 int X = mouseHookStruct.Point.X;
                 int Y = mouseHookStruct.Point.Y;
 
-                if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
+                if (nCode >= 0 && MouseMessagesType.WM_MBUTTONDOWN == (MouseMessagesType)wParam)
+                {
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Middle, false, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_MBUTTONUP == (MouseMessagesType)wParam)
+                {
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Middle, true, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
+                {
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
+                {
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
+                {
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
+                {
+                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
+                {
+                    WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
+                }
+                else if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
                 {
                     int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
                     bool isScrollDown = (delta & 0x8000) != 0;
@@ -179,38 +215,8 @@ namespace Sucrose.WPF.CS
                         deltaY = amount;
                     }
 
-                    MouseEvent mouseEvent = new(deltaX, deltaY, CefEventFlags.None);
+                    MouseEvent mouseEvent = new(0, 0, CefEventFlags.None);
                     WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
-                {
-                    // Sol tuşa basma olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
-                {
-                    // Sol tuştan el çekme olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
-                {
-                    // Sağ tuşa basma olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
-                {
-                    // Sağ tuştan el çekme olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
-                {
-                    // Fare hareketi olayı
-                    // İlgili işlemleri burada gerçekleştirin
-                    WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
                 }
 
                 return IntPtr.Zero;
@@ -280,29 +286,6 @@ namespace Sucrose.WPF.CS
                 PinToBackground();
                 return;
             }
-        }
-    }
-
-    internal class CustomContextMenuHandler : IContextMenuHandler
-    {
-        public void OnBeforeContextMenu(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model)
-        {
-            model.Clear();
-        }
-
-        public bool OnContextMenuCommand(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, CefMenuCommand commandId, CefEventFlags eventFlags)
-        {
-            return false;
-        }
-
-        public void OnContextMenuDismissed(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame)
-        {
-            return;
-        }
-
-        public bool RunContextMenu(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model, IRunContextMenuCallback callback)
-        {
-            return false;
         }
     }
 }

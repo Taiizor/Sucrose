@@ -23,14 +23,14 @@ namespace Sucrose.WPF.CS
         {
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
 
-            CefSettings settings = new()
+            CefSettings Settings = new()
             {
                 CachePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, Readonly.CefSharp, Readonly.CacheFolder)
             };
 
-            settings.CefCommandLineArgs.Add("enable-media-stream");
-            settings.CefCommandLineArgs.Add("use-fake-ui-for-media-stream");
-            settings.CefCommandLineArgs.Add("enable-usermedia-screen-capturing");
+            Settings.CefCommandLineArgs.Add("enable-media-stream");
+            Settings.CefCommandLineArgs.Add("use-fake-ui-for-media-stream");
+            Settings.CefCommandLineArgs.Add("enable-usermedia-screen-capturing");
 
             //Example of checking if a call to Cef.Initialize has already been made, we require this for
             //our .Net 5.0 Single File Publish example, you don't typically need to perform this check
@@ -38,7 +38,7 @@ namespace Sucrose.WPF.CS
             if (!Cef.IsInitialized)
             {
                 //Perform dependency check to make sure all relevant resources are in our output directory.
-                Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);
+                Cef.Initialize(Settings, performDependencyCheck: true, browserProcessHandler: null);
             }
         }
 
@@ -68,7 +68,8 @@ namespace Sucrose.WPF.CS
             Cef.Shutdown();
             Cef.PreShutdown();
 
-            GeneralServerService.ServerInstance.ShutdownAsync().Wait();
+            GeneralServerService.ServerInstance.KillAsync().Wait();
+            //GeneralServerService.ServerInstance.ShutdownAsync().Wait();
         }
 
         protected override void OnExit(ExitEventArgs e)
