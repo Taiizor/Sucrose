@@ -24,7 +24,7 @@ namespace Sucrose.Memory
 
         public static readonly string WinFormsApplication = "Sucrose.WinForms.UI.exe";
 
-        public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues";
+        public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
     }

@@ -57,13 +57,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />

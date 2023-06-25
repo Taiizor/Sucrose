@@ -8,6 +8,7 @@ using Sucrose.Grpc.Common;
 using Sucrose.Grpc.Services;
 using Sucrose.Memory;
 using System.IO;
+using System.Runtime.ExceptionServices;
 using System.Windows;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
@@ -21,6 +22,10 @@ namespace Sucrose.WPF.CS
     {
         public App()
         {
+            DispatcherUnhandledException += App_DispatcherUnhandledException;
+            AppDomain.CurrentDomain.FirstChanceException += App_FirstChanceException;
+            AppDomain.CurrentDomain.UnhandledException += App_GlobalUnhandledExceptionHandler;
+
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
 
             CefSettings Settings = new()
@@ -46,16 +51,13 @@ namespace Sucrose.WPF.CS
         {
             base.OnStartup(e);
 
-            // DispatcherUnhandledException olayına bir olay işleyici ekleyin
-            DispatcherUnhandledException += App_DispatcherUnhandledException;
-
             Internal.TrayIconManager.StartWPF(Current, WindowsTheme.GetTheme());
 
             GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
-            {
-                Websiter.BindService(new WebsiterServerService()),
-                Trayer.BindService(new TrayerServerService())
-            });
+                {
+                    Websiter.BindService(new WebsiterServerService()),
+                    Trayer.BindService(new TrayerServerService())
+                });
 
             Internal.ServerManager.SetSetting("Host", GeneralServerService.Host);
             Internal.ServerManager.SetSetting("Port", GeneralServerService.Port);
@@ -64,9 +66,6 @@ namespace Sucrose.WPF.CS
 
             Main Browser = new();
             Browser.ShowDialog();
-
-            Cef.Shutdown();
-            Cef.PreShutdown();
 
             GeneralServerService.ServerInstance.KillAsync().Wait();
             //GeneralServerService.ServerInstance.ShutdownAsync().Wait();
@@ -84,6 +83,32 @@ namespace Sucrose.WPF.CS
 
             // İstisnayı işleyin veya loglayın
             //Exception exception = e.Exception;
+            // ...
+
+            // İstisnayı işledikten sonra uygulamayı kapatmak istiyorsanız aşağıdaki satırı ekleyebilirsiniz
+            Shutdown();
+        }
+
+        private void App_FirstChanceException(object sender, FirstChanceExceptionEventArgs e)
+        {
+            // Dispose işlemleri burada gerçekleştirilebilir
+            // ...
+
+            // İstisnayı işleyin veya loglayın
+            //Exception exception = e.Exception;
+            // ...
+
+            // İstisnayı işledikten sonra uygulamayı kapatmak istiyorsanız aşağıdaki satırı ekleyebilirsiniz
+            Shutdown();
+        }
+
+        private void App_GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            // Dispose işlemleri burada gerçekleştirilebilir
+            // ...
+
+            // İstisnayı işleyin veya loglayın
+            //Exception exception = (Exception)e.ExceptionObject;
             // ...
 
             // İstisnayı işledikten sonra uygulamayı kapatmak istiyorsanız aşağıdaki satırı ekleyebilirsiniz

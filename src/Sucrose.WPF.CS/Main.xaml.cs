@@ -49,6 +49,15 @@ namespace Sucrose.WPF.CS
             ForegroundHook = WinAPI.SetWinEventHook(External.EVENT_SYSTEM_FOREGROUND, External.EVENT_SYSTEM_FOREGROUND, IntPtr.Zero, ForegroundDelegate, 0, 0, External.WINEVENT_OUTOFCONTEXT);
         }
 
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            //WallView.Dispose();
+
+            //Cef.Shutdown();
+            //Cef.PreShutdown();
+            //Cef.GetGlobalRequestContext()?.Dispose();
+        }
+
         protected void Timer_Tick(object sender, EventArgs e)
         {
             if (Variables.State)
@@ -123,12 +132,6 @@ namespace Sucrose.WPF.CS
             }
         }
 
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            Timer.Stop();
-            WallView.Stop();
-        }
-
         [StructLayout(LayoutKind.Sequential)]
         private struct MousePoint
         {
@@ -162,7 +165,7 @@ namespace Sucrose.WPF.CS
                 IBrowserHost WVHost = WallView.GetBrowser().GetHost();
 
                 MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
-                
+
                 int X = mouseHookStruct.Point.X;
                 int Y = mouseHookStruct.Point.Y;
 
@@ -196,24 +199,13 @@ namespace Sucrose.WPF.CS
                 }
                 else if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
                 {
-                    int delta = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
-                    bool isScrollDown = (delta & 0x8000) != 0;
+                    int mouseData = mouseHookStruct.MouseData;
+                    int delta = (mouseData >> 16) & 0xFFFF;
 
-                    int deltaX = mouseHookStruct.MouseData & 0xFFFF;
-                    int deltaY = (mouseHookStruct.MouseData >> 16) & 0xFFFF;
+                    int amount = delta >> 15 == 1 ? delta - 0xFFFF - 1 : delta;
 
-                    int amount = 120;
-
-                    if (isScrollDown)
-                    {
-                        //deltaX = -+(delta / amount);
-                        deltaY = -amount;
-                    }
-                    else
-                    {
-                        //deltaX = delta / amount;
-                        deltaY = amount;
-                    }
+                    int deltaX = mouseData & 0xFFFF;
+                    int deltaY = amount;
 
                     MouseEvent mouseEvent = new(0, 0, CefEventFlags.None);
                     WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
