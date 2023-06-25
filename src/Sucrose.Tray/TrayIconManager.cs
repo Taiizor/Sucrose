@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using ECT = Sucrose.Space.Enum.CommandsType;
 using HC = Sucrose.Space.Helper.Command;
+using HTL = Sucrose.Globalization.Helper.TrayLocalization;
 using R = Sucrose.Memory.Readonly;
 using WinForms = System.Windows.Forms.Application;
 using WPF = System.Windows.Application;
@@ -54,8 +55,8 @@ namespace Sucrose.Tray
             this.WPF = WPF;
             this.WinForms = WinForms;
 
-            TrayIcon.Text = "Sucrose Wallpaper";
-            TrayIcon.Icon = new Icon("Assets/TrayIcon.ico");
+            TrayIcon.Text = HTL.GetValue("TrayText");
+            TrayIcon.Icon = new Icon(HTL.GetValue("TrayIcon"));
 
             if (ThemeType == WindowsThemeType.Dark)
             {
@@ -66,26 +67,26 @@ namespace Sucrose.Tray
                 ContextMenu.Renderer = new RendererLight();
             }
 
-            ContextMenu.Items.Add("Sucrose'yi Aç", Image.FromFile("Assets/WideScreen.png"), CommandInterface);
+            ContextMenu.Items.Add(HTL.GetValue("OpenText"), Image.FromFile(HTL.GetValue("OpenIcon")), CommandInterface);
 
             StripSeparator Separator1 = new(ThemeType);
             ContextMenu.Items.Add(Separator1.Strip);
 
-            ContextMenu.Items.Add("Duvar Kağıdını Kapat", null, null);
-            ContextMenu.Items.Add("Duvar Kağıdını Durdur", null, null); //Başlat
-            ContextMenu.Items.Add("Duvar Kağıdını Değiştir", null, null);
-            ContextMenu.Items.Add("Duvar Kağıdını Özelleştir", null, null);
+            ContextMenu.Items.Add(HTL.GetValue("WallCloseText"), null, null);
+            ContextMenu.Items.Add(HTL.GetValue("WallStopText"), null, null); //HTL.GetValue("WallStartText")
+            ContextMenu.Items.Add(HTL.GetValue("WallChangeText"), null, null);
+            ContextMenu.Items.Add(HTL.GetValue("WallCustomizeText"), null, null);
 
             StripSeparator Separator2 = new(ThemeType);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add("Ayarlar", Image.FromFile("Assets/Setting.png"), null);
-            ContextMenu.Items.Add("Hata Bildir", Image.FromFile("Assets/Error.png"), CommandReport);
+            ContextMenu.Items.Add(HTL.GetValue("SettingsText"), Image.FromFile(HTL.GetValue("SettingsIcon")), null);
+            ContextMenu.Items.Add(HTL.GetValue("ReportText"), Image.FromFile(HTL.GetValue("ReportIcon")), CommandReport);
 
             StripSeparator Separator3 = new(ThemeType);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add("Çıkış", Image.FromFile("Assets/Close.png"), CommandClose);
+            ContextMenu.Items.Add(HTL.GetValue("ExitText"), Image.FromFile(HTL.GetValue("ExitIcon")), CommandClose);
 
             TrayIcon.ContextMenuStrip = ContextMenu;
             TrayIcon.MouseClick += MouseClick;
@@ -116,7 +117,7 @@ namespace Sucrose.Tray
                 Point MousePosition = Control.MousePosition;
 
                 MousePosition.Offset(-(ContextMenu.Size.Width / 2), -(30 + ContextMenu.Size.Height));
-                
+
                 ContextMenu.Show(MousePosition);
             }
         }

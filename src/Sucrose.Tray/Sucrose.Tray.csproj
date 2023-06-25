@@ -18,23 +18,24 @@
         <None Update="Assets\TrayIcon.ico">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Update="Assets\Setting.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="Assets\Close.png">
+        <None Update="Assets\Settings.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Update="Assets\Error.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Exit.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Skylark" Version="3.0.1.301" />
+        <PackageReference Include="Skylark" Version="3.0.1.301" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
+        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />

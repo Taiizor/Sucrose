@@ -1,5 +1,4 @@
-﻿using E = Skylark.Exception;
-using HA = Sucrose.CommandLine.Helper.Arguments;
+﻿using HA = Sucrose.CommandLine.Helper.Arguments;
 
 namespace Sucrose.CommandLine
 {
@@ -7,14 +6,7 @@ namespace Sucrose.CommandLine
     {
         internal static void Main(string[] Args)
         {
-            try
-            {
-                HA.Parse(Args);
-            }
-            catch (E Ex)
-            {
-                Console.WriteLine(Ex.Message);
-            }
+            HA.Parse(Args);
         }
     }
 }
