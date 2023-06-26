@@ -125,6 +125,42 @@ namespace Sucrose.WPF.CS
         {
             get
             {
+                int width = 0;
+                int height = 0;
+
+                int totalWidth = 0;
+                int totalHeight = 0;
+
+                foreach (Screen Screen1 in Screen.AllScreens)
+                {
+                    if (width < Screen1.Bounds.Width)
+                    {
+                        width = Screen1.Bounds.Width;
+                    }
+
+                    if (height < Screen1.Bounds.Height)
+                    {
+                        height = Screen1.Bounds.Height;
+                    }
+
+                    totalWidth += Screen1.Bounds.Width;
+                    totalHeight += Screen1.Bounds.Height;
+                }
+
+                return new MonitorStruct()
+                {
+                    rcMonitor = new()
+                    {
+                        Width = totalWidth,
+                        Height = height,
+                        Left = 0,
+                        Top = 0,
+                        X = 0,
+                        Y = 0
+                    },
+                    rcWork = Screen.PrimaryScreen.WorkingArea,
+                };
+
                 if (OwnerScreenIndex < Screene.Screens.Length)
                 {
                     return Screene.Screens[OwnerScreenIndex];
@@ -133,7 +169,7 @@ namespace Sucrose.WPF.CS
                 return new MonitorStruct()
                 {
                     rcMonitor = Screen.PrimaryScreen.Bounds,
-                    rcWork = Screen.PrimaryScreen.WorkingArea,
+                    rcWork = Screen.PrimaryScreen.WorkingArea
                 };
             }
         }
