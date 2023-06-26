@@ -15,22 +15,34 @@
         <None Update="Assets\WideScreen.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\WideScreen.ico">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
         <None Update="Assets\TrayIcon.ico">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Update="Assets\Settings.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Settings.ico">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
         <None Update="Assets\Error.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Error.ico">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Update="Assets\Exit.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <None Update="Assets\Exit.ico">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.302" />
+        <PackageReference Include="Skylark" Version="3.0.1.303" />
     </ItemGroup>
 
     <ItemGroup>

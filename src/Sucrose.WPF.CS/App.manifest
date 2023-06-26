@@ -51,14 +51,14 @@
        app.config'de 'EnableWindowsFormsHighDpiAutoResizing' ayarının 'true' olarak belirlenmesi gerekir. 
        
        Uygulamayı uzun yol kullanan uygulama haline getirir. Bkz. https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation -->
-  <!--
+  
   <application xmlns="urn:schemas-microsoft-com:asm.v3">
     <windowsSettings>
-      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true</dpiAware>
-      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
+      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">false</dpiAware>
+      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">false</longPathAware>
     </windowsSettings>
   </application>
-  -->
+  
 
   <!-- Windows genel denetimler ve iletişim kutuları için temaları etkinleştir (Windows XP ve sonrası) -->
   <!--

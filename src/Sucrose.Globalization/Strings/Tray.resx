@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ExitIcon" xml:space="preserve">
-    <value>Assets/Exit.png</value>
+    <value>Assets/Exit.ico</value>
   </data>
   <data name="ExitText" xml:space="preserve">
     <value>Close</value>
   </data>
   <data name="OpenIcon" xml:space="preserve">
-    <value>Assets/WideScreen.png</value>
+    <value>Assets/WideScreen.ico</value>
   </data>
   <data name="OpenText" xml:space="preserve">
     <value>Open Sucrose</value>
   </data>
   <data name="ReportIcon" xml:space="preserve">
-    <value>Assets/Error.png</value>
+    <value>Assets/Error.ico</value>
   </data>
   <data name="ReportText" xml:space="preserve">
     <value>Report Error</value>
   </data>
   <data name="SettingsIcon" xml:space="preserve">
-    <value>Assets/Settings.png</value>
+    <value>Assets/Settings.ico</value>
   </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Settings</value>

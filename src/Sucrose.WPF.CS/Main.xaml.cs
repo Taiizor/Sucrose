@@ -1,6 +1,8 @@
 ﻿using CefSharp;
+using Microsoft.Win32;
 using Skylark.Enum;
 using Skylark.Struct.Monitor;
+using Skylark.Struct.Mouse;
 using Skylark.Wing.Helper;
 using Skylark.Wing.Manage;
 using Skylark.Wing.Native;
@@ -45,12 +47,16 @@ namespace Sucrose.WPF.CS
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
 
+            SystemEvents.DisplaySettingsChanged += DisplaySettingsChanged;
+
             ForegroundDelegate = new WinAPI.WinEventDelegate(FullScreenChanged);
             ForegroundHook = WinAPI.SetWinEventHook(External.EVENT_SYSTEM_FOREGROUND, External.EVENT_SYSTEM_FOREGROUND, IntPtr.Zero, ForegroundDelegate, 0, 0, External.WINEVENT_OUTOFCONTEXT);
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            Desktop.RefreshDesktop();
+
             //WallView.Dispose();
 
             //Cef.Shutdown();
@@ -132,32 +138,6 @@ namespace Sucrose.WPF.CS
             }
         }
 
-        [StructLayout(LayoutKind.Sequential)]
-        private struct MousePoint
-        {
-            public int X;
-            public int Y;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct MouseHookStruct
-        {
-            public MousePoint pt;
-            public IntPtr hwnd;
-            public uint wHitTestCode;
-            public IntPtr dwExtraInfo;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct MouseExtraHookStruct
-        {
-            public MousePoint Point;
-            public int MouseData;
-            public int Flags;
-            public int Time;
-            public IntPtr ExtraInfo;
-        }
-
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
         {
             try
@@ -217,6 +197,21 @@ namespace Sucrose.WPF.CS
             catch
             {
                 return IntPtr.Zero;
+            }
+        }
+
+        private void DisplaySettingsChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Screene.Initialize(); //Ekran boyutu değiştiyse güncelle
+
+                PinToBackground();
+
+            }
+            catch
+            {
+                return;
             }
         }
 
