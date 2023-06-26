@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
+using CefSharp.Wpf;
 using Grpc.Core;
 using Skylark.Wing.Helper;
 using Sucrose.Common.Manage;
@@ -26,7 +27,9 @@ namespace Sucrose.WPF.CS
             AppDomain.CurrentDomain.FirstChanceException += App_FirstChanceException;
             AppDomain.CurrentDomain.UnhandledException += App_GlobalUnhandledExceptionHandler;
 
+#if NET48_OR_GREATER && DEBUG
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
+#endif
 
             CefSettings Settings = new()
             {
@@ -54,10 +57,10 @@ namespace Sucrose.WPF.CS
             Internal.TrayIconManager.StartWPF(Current, WindowsTheme.GetTheme());
 
             GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
-                {
-                    Websiter.BindService(new WebsiterServerService()),
-                    Trayer.BindService(new TrayerServerService())
-                });
+            {
+                Websiter.BindService(new WebsiterServerService()),
+                Trayer.BindService(new TrayerServerService())
+            });
 
             Internal.ServerManager.SetSetting("Host", GeneralServerService.Host);
             Internal.ServerManager.SetSetting("Port", GeneralServerService.Port);

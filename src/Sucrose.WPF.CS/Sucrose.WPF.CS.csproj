@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFrameworks>net48;net481</TargetFrameworks>
+        <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
         <StartupObject>Sucrose.WPF.CS.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -60,7 +60,14 @@
 
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.0.1.210" />
+    </ItemGroup>
+    
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <PackageReference Include="CefSharp.Wpf" Version="114.2.100" />
+    </ItemGroup>
+
+    <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.100" />
     </ItemGroup>
 
     <ItemGroup>

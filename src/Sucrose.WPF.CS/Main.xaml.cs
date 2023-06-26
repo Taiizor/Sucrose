@@ -84,7 +84,7 @@ namespace Sucrose.WPF.CS
 
         protected bool PinToBackground(int Index = 0, ScreenType Type = ScreenType.DisplayBound)
         {
-            return Engine.WallpaperWindow(this, ExpandScreenType.Default, Type);
+            //return Engine.WallpaperWindow(this, ExpandScreenType.Default, Type);
             return Engine.WallpaperWindow(this, Index, Type);
         }
 

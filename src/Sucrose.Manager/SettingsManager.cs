@@ -13,13 +13,10 @@ namespace Sucrose.Manager
 
         public SettingsManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
-            // Ayar dosyasının tam yolunu oluşturun
             _settingsFilePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, settingsFileName);
 
-            // Ayar dosyasının dizinini oluşturun (varsa zaten var olmayacaktır)
             Directory.CreateDirectory(Path.GetDirectoryName(_settingsFilePath));
 
-            // JSON serileştirme ayarlarını yapılandırın
             _serializerSettings = new JsonSerializerSettings
             {
                 TypeNameHandling = typeNameHandling,
@@ -36,7 +33,9 @@ namespace Sucrose.Manager
             if (File.Exists(_settingsFilePath))
             {
                 string json = File.ReadAllText(_settingsFilePath);
+                
                 Settings? settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                
                 if (settings.Properties.TryGetValue(key, out object value))
                 {
                     return (T)value;
@@ -51,7 +50,9 @@ namespace Sucrose.Manager
             if (File.Exists(_settingsFilePath))
             {
                 string json = File.ReadAllText(_settingsFilePath);
+                
                 Settings settings = JsonConvert.DeserializeObject<Settings>(json);
+                
                 if (settings.Properties.TryGetValue(key, out object value))
                 {
                     return JsonConvert.DeserializeObject<T>(value.ToString());
@@ -66,7 +67,9 @@ namespace Sucrose.Manager
             if (File.Exists(_settingsFilePath))
             {
                 string json = File.ReadAllText(_settingsFilePath);
+                
                 Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                
                 if (settings.Properties.TryGetValue(key, out object value))
                 {
                     return ConvertToType<T>(value);
@@ -90,9 +93,10 @@ namespace Sucrose.Manager
                 settings = new Settings();
             }
 
-            settings.Properties[key] = value;
+            settings.Properties[key] = ConvertToType<T>(value);
 
             string serializedSettings = JsonConvert.SerializeObject(settings, _serializerSettings);
+
             File.WriteAllText(_settingsFilePath, serializedSettings);
         }
 
