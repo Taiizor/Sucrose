@@ -1,8 +1,8 @@
 ﻿using CefSharp;
 using Microsoft.Win32;
 using Skylark.Enum;
-using Skylark.Struct.Monitor;
 using Skylark.Struct.Mouse;
+using Skylark.Wing;
 using Skylark.Wing.Helper;
 using Skylark.Wing.Manage;
 using Skylark.Wing.Native;
@@ -20,10 +20,6 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class Main : Window
     {
-        private int ScreenIndex { get; set; } = 0;
-
-        private bool IsFixed { get; set; } = false;
-
         private static WinAPI.MouseEventCallback? MouseEventCall;
         private static IntPtr MouseHook = IntPtr.Zero;
 
@@ -86,92 +82,10 @@ namespace Sucrose.WPF.CS
             ForegroundAppMonitor();
         }
 
-        protected bool PinToBackground()
+        protected bool PinToBackground(int Index = 0, ScreenType Type = ScreenType.DisplayBound)
         {
-            IsFixed = DesktopIcon.FixWindow(this);
-
-            if (IsFixed)
-            {
-                Screene.FillScreenWindow(this, OwnerScreen);
-            }
-
-            return IsFixed;
-        }
-
-        protected int OwnerScreenIndex
-        {
-            get => ScreenIndex;
-            set
-            {
-                if (value < 0)
-                {
-                    value = 0;
-                }
-                else if (value >= Screen.AllScreens.Length)
-                {
-                    value = 0;
-                }
-
-                if (ScreenIndex != value)
-                {
-                    ScreenIndex = value;
-
-                    PinToBackground();
-                }
-            }
-        }
-
-        protected MonitorStruct OwnerScreen
-        {
-            get
-            {
-                int width = 0;
-                int height = 0;
-
-                int totalWidth = 0;
-                int totalHeight = 0;
-
-                foreach (Screen Screen1 in Screen.AllScreens)
-                {
-                    if (width < Screen1.Bounds.Width)
-                    {
-                        width = Screen1.Bounds.Width;
-                    }
-
-                    if (height < Screen1.Bounds.Height)
-                    {
-                        height = Screen1.Bounds.Height;
-                    }
-
-                    totalWidth += Screen1.Bounds.Width;
-                    totalHeight += Screen1.Bounds.Height;
-                }
-
-                return new MonitorStruct()
-                {
-                    rcMonitor = new()
-                    {
-                        Width = totalWidth,
-                        Height = height,
-                        Left = 0,
-                        Top = 0,
-                        X = 0,
-                        Y = 0
-                    },
-                    rcWork = Screen.PrimaryScreen.WorkingArea,
-                };
-
-                if (OwnerScreenIndex < Screene.Screens.Length)
-                {
-                    return Screene.Screens[OwnerScreenIndex];
-                }
-
-                return new MonitorStruct()
-                {
-                    rcMonitor = Screen.PrimaryScreen.Bounds,
-                    rcWork = Screen.PrimaryScreen.WorkingArea
-                };
-            }
+            return Engine.WallpaperWindow(this, ExpandScreenType.Default, Type);
+            return Engine.WallpaperWindow(this, Index, Type);
         }
 
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
