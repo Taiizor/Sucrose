@@ -84,8 +84,9 @@ namespace Sucrose.WPF.CS
 
         protected bool PinToBackground(int Index = 0, ScreenType Type = ScreenType.DisplayBound)
         {
-            return Engine.WallpaperWindow(this, ExpandScreenType.Default, Type);
-            //return Engine.WallpaperWindow(this, Index, Type);
+            //return Engine.WallpaperWindow(this, DuplicateScreenType.Default, Type);
+            //return Engine.WallpaperWindow(this, ExpandScreenType.Default, Type);
+            return Engine.WallpaperWindow(this, Index, Type);
         }
 
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
@@ -96,7 +97,7 @@ namespace Sucrose.WPF.CS
 
                 MouseExtraHookStruct HookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
 
-                MousePointStruct Position = Calculate.MousePosition(HookStruct, MouseScreenType.SpanAcross);
+                MousePointStruct Position = Calculate.MousePosition(HookStruct, MouseScreenType.SpanAcross); //MouseScreenType.PerDisplay
 
                 int X = Position.X;
                 int Y = Position.Y;

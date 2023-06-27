@@ -59,7 +59,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Wing" Version="3.0.1.212" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.213" />
     </ItemGroup>
     
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
