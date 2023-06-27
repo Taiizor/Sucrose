@@ -1,70 +1,38 @@
 ﻿using Skylark.Enum;
+using Sucrose.Tray.Renderer;
+using Sucrose.Tray.Separator;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using ECT = Sucrose.Space.Enum.CommandsType;
 using HC = Sucrose.Space.Helper.Command;
+using HR = Sucrose.Globalization.Manage.Resources;
 using HTL = Sucrose.Globalization.Helper.TrayLocalization;
 using R = Sucrose.Memory.Readonly;
 using WinForms = System.Windows.Forms.Application;
-using WPF = System.Windows.Application;
 
-namespace Sucrose.Tray
+namespace Sucrose.Tray.Manager
 {
     public class TrayIconManager
     {
-        private WPF WPF { get; set; } = null;
-
-        private WinForms WinForms { get; set; } = null;
-
         private NotifyIcon TrayIcon { get; set; } = new();
 
         private ContextMenuStrip ContextMenu { get; set; } = new();
 
-        public void Start()
+        public void Start(WindowsThemeType ThemeType, string CultureName)
         {
-            Start(null, null, WindowsThemeType.Light);
-        }
-
-        public void Start(WindowsThemeType ThemeType = WindowsThemeType.Light)
-        {
-            Start(null, null, ThemeType);
-        }
-
-        public void StartWPF(WPF WPF = null)
-        {
-            Start(WPF, null, WindowsThemeType.Light);
-        }
-
-        public void StartWPF(WPF WPF = null, WindowsThemeType ThemeType = WindowsThemeType.Light)
-        {
-            Start(WPF, null, ThemeType);
-        }
-
-        public void StartWinForms(WinForms WinForms = null)
-        {
-            Start(null, WinForms, WindowsThemeType.Light);
-        }
-
-        public void StartWinForms(WinForms WinForms = null, WindowsThemeType ThemeType = WindowsThemeType.Light)
-        {
-            Start(null, WinForms, ThemeType);
-        }
-
-        private void Start(WPF WPF = null, WinForms WinForms = null, WindowsThemeType ThemeType = WindowsThemeType.Light)
-        {
-            this.WPF = WPF;
-            this.WinForms = WinForms;
+            HR.CultureInfo = new CultureInfo(CultureName, true);
 
             TrayIcon.Text = HTL.GetValue("TrayText");
             TrayIcon.Icon = new Icon(HTL.GetValue("TrayIcon"));
 
             if (ThemeType == WindowsThemeType.Dark)
             {
-                ContextMenu.Renderer = new RendererDark();
+                ContextMenu.Renderer = new DarkRenderer();
             }
             else
             {
-                ContextMenu.Renderer = new RendererLight();
+                ContextMenu.Renderer = new LightRenderer();
             }
 
             ContextMenu.Items.Add(HTL.GetValue("OpenText"), Image.FromFile(HTL.GetValue("OpenIcon")), CommandInterface);
@@ -93,6 +61,14 @@ namespace Sucrose.Tray
             TrayIcon.MouseDoubleClick += MouseDoubleClick;
 
             TrayIcon.Visible = true;
+        }
+
+        public bool Dispose()
+        {
+            TrayIcon.Visible = false;
+            TrayIcon.Dispose();
+
+            return true;
         }
 
         public bool State()
@@ -132,22 +108,15 @@ namespace Sucrose.Tray
 
         private void CommandInterface(object sender, EventArgs e)
         {
-            if (WPF != null)
-            {
-                string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+#if TRAY_ICON_WPF
+            string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-                HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WPFApplication)}");
-            }
-            else if (WinForms != null)
-            {
-                string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WPFApplication)}");
+#elif TRAY_ICON_WinForms
+            string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-                HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WinFormsApplication)}");
-            }
-            else
-            {
-                MessageBox.Show("Arayüz uygulaması başlatılamadı!");
-            }
+            HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WinFormsApplication)}");
+#endif
         }
 
         private void CommandReport(object sender, EventArgs e)
@@ -159,21 +128,10 @@ namespace Sucrose.Tray
 
         private void CommandClose(object sender, EventArgs e)
         {
-            if (WPF != null)
-            {
-                WPF.Current.MainWindow.Close();
-                WPF.Current.Shutdown();
-            }
-            else if (WinForms != null)
-            {
-                WinForms.Exit();
-            }
-            else
-            {
-                Application.ExitThread();
-                Environment.Exit(0);
-                Application.Exit();
-            }
+            Dispose();
+            WinForms.ExitThread();
+            Environment.Exit(0);
+            WinForms.Exit();
         }
     }
 }

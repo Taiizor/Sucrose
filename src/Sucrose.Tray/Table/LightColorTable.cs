@@ -1,4 +1,4 @@
-﻿namespace Sucrose.Tray
+﻿namespace Sucrose.Tray.Table
 {
     internal class LightColorTable : ProfessionalColorTable
     {

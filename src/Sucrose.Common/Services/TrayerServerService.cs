@@ -11,17 +11,17 @@ namespace Sucrose.Common.Services
     {
         public override Task<TrayStateResponse> StateTray(Empty _, ServerCallContext Context)
         {
-            return Task.FromResult(new TrayStateResponse { State = Internal.TrayIconManager.State() });
+            return Task.FromResult(new TrayStateResponse { State = Internal.TrayIcon.State() });
         }
 
         public override Task<TrayShowResponse> ShowTray(Empty _, ServerCallContext Context)
         {
-            return Task.FromResult(new TrayShowResponse { Result = Internal.TrayIconManager.Show() });
+            return Task.FromResult(new TrayShowResponse { Result = Internal.TrayIcon.Show() });
         }
 
         public override Task<TrayHideResponse> HideTray(Empty _, ServerCallContext Context)
         {
-            return Task.FromResult(new TrayHideResponse { Result = Internal.TrayIconManager.Hide() });
+            return Task.FromResult(new TrayHideResponse { Result = Internal.TrayIcon.Hide() });
         }
     }
 }

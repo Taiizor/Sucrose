@@ -2,7 +2,7 @@
 using System;
 using System.Net;
 
-namespace Sucrose.Manager
+namespace Sucrose.Manager.Converter
 {
     public class IPAddressConverter : JsonConverter
     {

@@ -1,6 +1,6 @@
 ﻿using Skylark.Enum;
 
-namespace Sucrose.Tray
+namespace Sucrose.Tray.Separator
 {
     public class StripSeparator
     {

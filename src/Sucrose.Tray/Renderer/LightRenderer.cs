@@ -1,10 +1,11 @@
-﻿using System.Drawing.Drawing2D;
+﻿using Sucrose.Tray.Table;
+using System.Drawing.Drawing2D;
 
-namespace Sucrose.Tray
+namespace Sucrose.Tray.Renderer
 {
-    public class RendererLight : ToolStripProfessionalRenderer
+    public class LightRenderer : ToolStripProfessionalRenderer
     {
-        public RendererLight() : base(new LightColorTable())
+        public LightRenderer() : base(new LightColorTable())
         {
         }
 

@@ -1,7 +1,7 @@
 ﻿#if TRAY_ICON
-using Sucrose.Tray;
+using Sucrose.Tray.Manager;
 #endif
-#if SERVER
+#if SERVER || TRAY_ICON
 using Sucrose.Manager;
 #endif
 
@@ -10,7 +10,8 @@ namespace Sucrose.Common.Manage
     internal static class Internal
     {
 #if TRAY_ICON
-        public static TrayIconManager TrayIconManager = new();
+        public static TrayIconManager TrayIcon = new();
+        public static SettingsManager TrayIconManager = new("TrayIcon.json");
 #endif
 
 #if SERVER

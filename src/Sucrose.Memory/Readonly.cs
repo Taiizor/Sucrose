@@ -24,6 +24,8 @@ namespace Sucrose.Memory
 
         public static readonly string WinFormsApplication = "Sucrose.WinForms.UI.exe";
 
+        public static readonly string TrayIconMutex = "{Sucrose-Wallpaper-Engine-Tray-Icon}";
+
         public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

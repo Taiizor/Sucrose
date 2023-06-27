@@ -6,7 +6,7 @@ namespace Sucrose.Globalization.Manage
 {
     public static class Resources
     {
-        public static readonly CultureInfo CultureInfo = CultureInfo.CurrentUICulture;
+        public static CultureInfo CultureInfo = CultureInfo.CurrentUICulture;
 
         public static readonly ResourceManager TrayManager = new($"{typeof(Tray)}", typeof(Tray).Assembly);
 

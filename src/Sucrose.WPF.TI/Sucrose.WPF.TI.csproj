@@ -4,9 +4,9 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Sucrose.WPF.CS.App</StartupObject>
+        <StartupObject>Sucrose.WPF.TI.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
         <Title>$(AssemblyName) - New Generation Wallpaper Engine</Title>
         <Description>$(Title)</Description>
@@ -15,14 +15,13 @@
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
-        <AssemblyName>Sucrose.WPF.CS</AssemblyName>
+        <AssemblyName>Sucrose.WPF.TI</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
-        <Platforms>AnyCPU;x64;x86;ARM64</Platforms>
-        <DefineConstants>$(DefineConstants);BROWSER;SERVER</DefineConstants>
+        <DefineConstants>$(DefineConstants);TRAY_ICON;TRAY_ICON_WPF</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -50,29 +49,23 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Skylark" Version="3.0.1.308" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.213" />
-    </ItemGroup>
-    
-    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf" Version="114.2.100" />
-    </ItemGroup>
-
-    <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.100" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
         <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
+    <Import Project="..\Sucrose.Tray\Sucrose.Tray.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
-
+    
 </Project>

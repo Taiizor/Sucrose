@@ -1,14 +1,20 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Sucrose.Manager.Converter;
 using Sucrose.Memory;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Threading;
 
 namespace Sucrose.Manager
 {
     public class SettingsManager
     {
         private readonly string _settingsFilePath;
+        private readonly ReaderWriterLockSlim _lock;
         private readonly JsonSerializerSettings _serializerSettings;
 
         public SettingsManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
@@ -21,83 +27,125 @@ namespace Sucrose.Manager
             {
                 TypeNameHandling = typeNameHandling,
                 Formatting = formatting,
-                Converters = new[]
+                Converters =
                 {
-                    new IPAddressConverter()
+                    //new StringEnumConverter(),
+                    new IPAddressConverter(),
+                    //new EnumConverter()
                 }
             };
+
+            _lock = new ReaderWriterLockSlim();
         }
 
-        public T GetSetting<T>(string key)
+        public T GetSetting<T>(string key, T back = default)
         {
-            if (File.Exists(_settingsFilePath))
+            _lock.EnterReadLock();
+
+            try
             {
-                string json = File.ReadAllText(_settingsFilePath);
-                
-                Settings? settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-                
-                if (settings.Properties.TryGetValue(key, out object value))
+                if (File.Exists(_settingsFilePath))
                 {
-                    return (T)value;
+                    string json = File.ReadAllText(_settingsFilePath);
+
+                    Settings? settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                    if (settings.Properties.TryGetValue(key, out object value))
+                    {
+                        return ConvertToType<T>(value);
+                    }
                 }
             }
+            finally
+            {
+                _lock.ExitReadLock();
+            }
 
-            return default;
+            return back;
         }
 
-        public T GetSettingStable<T>(string key)
+        public T GetSettingStable<T>(string key, T back = default)
         {
-            if (File.Exists(_settingsFilePath))
+            _lock.EnterReadLock();
+
+            try
             {
-                string json = File.ReadAllText(_settingsFilePath);
-                
-                Settings settings = JsonConvert.DeserializeObject<Settings>(json);
-                
-                if (settings.Properties.TryGetValue(key, out object value))
+                if (File.Exists(_settingsFilePath))
                 {
-                    return JsonConvert.DeserializeObject<T>(value.ToString());
+                    string json = File.ReadAllText(_settingsFilePath);
+
+                    Settings settings = JsonConvert.DeserializeObject<Settings>(json);
+
+                    if (settings.Properties.TryGetValue(key, out object value))
+                    {
+                        return JsonConvert.DeserializeObject<T>(value.ToString());
+                    }
                 }
             }
+            finally
+            {
+                _lock.ExitReadLock();
+            }
 
-            return default;
+            return back;
         }
 
-        public T GetSettingAddress<T>(string key)
+        public T GetSettingAddress<T>(string key, T back = default)
         {
-            if (File.Exists(_settingsFilePath))
+            _lock.EnterReadLock();
+
+            try
             {
-                string json = File.ReadAllText(_settingsFilePath);
-                
-                Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-                
-                if (settings.Properties.TryGetValue(key, out object value))
+                if (File.Exists(_settingsFilePath))
                 {
-                    return ConvertToType<T>(value);
+                    string json = File.ReadAllText(_settingsFilePath);
+
+                    Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                    if (settings.Properties.TryGetValue(key, out object value))
+                    {
+                        return ConvertToType<T>(value);
+                    }
                 }
             }
+            finally
+            {
+                _lock.ExitReadLock();
+            }
 
-            return default;
+            return back;
         }
 
         public void SetSetting<T>(string key, T value)
         {
-            Settings settings;
+            _lock.EnterWriteLock();
 
-            if (File.Exists(_settingsFilePath))
+            try
             {
-                string json = File.ReadAllText(_settingsFilePath);
-                settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                Settings settings;
+
+                if (File.Exists(_settingsFilePath))
+                {
+                    string json = File.ReadAllText(_settingsFilePath);
+                    settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                }
+                else
+                {
+                    settings = new Settings();
+                }
+
+                settings.Properties[key] = ConvertToType<T>(value);
+
+                string serializedSettings = JsonConvert.SerializeObject(settings, _serializerSettings);
+
+                using FileStream fileStream = new(_settingsFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
+                using StreamWriter writer = new(fileStream);
+                writer.Write(serializedSettings);
             }
-            else
+            finally
             {
-                settings = new Settings();
+                _lock.ExitWriteLock();
             }
-
-            settings.Properties[key] = ConvertToType<T>(value);
-
-            string serializedSettings = JsonConvert.SerializeObject(settings, _serializerSettings);
-
-            File.WriteAllText(_settingsFilePath, serializedSettings);
         }
 
         private T ConvertToType<T>(object value)
@@ -105,6 +153,10 @@ namespace Sucrose.Manager
             if (typeof(T) == typeof(IPAddress))
             {
                 return (T)(object)IPAddress.Parse(value.ToString());
+            }
+            else if (typeof(T).IsEnum)
+            {
+                return (T)Enum.Parse(typeof(T), value.ToString());
             }
 
             return (T)value;

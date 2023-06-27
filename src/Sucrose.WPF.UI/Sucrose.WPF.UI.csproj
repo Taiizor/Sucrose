@@ -22,7 +22,6 @@
         <LangVersion>preview</LangVersion>
         <DefineConstants>$(DefineConstants);SERVER</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
-        <Configurations>Debug;GitHub;Release</Configurations>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
@@ -41,14 +40,6 @@
         <TieredCompilation>true</TieredCompilation>
         <InvariantGlobalization>false</InvariantGlobalization>
     </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)'=='GitHub'">
-        <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-    </PropertyGroup>
-
-    <ItemGroup Condition="'$(Configuration)'=='GitHub'">
-        <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.5.23280.8" />
-    </ItemGroup>
 
     <ItemGroup>
         <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
