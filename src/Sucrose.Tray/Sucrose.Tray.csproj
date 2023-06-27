@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.305" />
+        <PackageReference Include="Skylark" Version="3.0.1.307" />
     </ItemGroup>
 
     <ItemGroup>

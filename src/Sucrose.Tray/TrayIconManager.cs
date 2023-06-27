@@ -72,7 +72,7 @@ namespace Sucrose.Tray
             StripSeparator Separator1 = new(ThemeType);
             ContextMenu.Items.Add(Separator1.Strip);
 
-            ContextMenu.Items.Add(HTL.GetValue("WallCloseText"), null, null);
+            ContextMenu.Items.Add(HTL.GetValue("WallCloseText"), null, null); //HTL.GetValue("WallOpenText")
             ContextMenu.Items.Add(HTL.GetValue("WallStopText"), null, null); //HTL.GetValue("WallStartText")
             ContextMenu.Items.Add(HTL.GetValue("WallChangeText"), null, null);
             ContextMenu.Items.Add(HTL.GetValue("WallCustomizeText"), null, null);

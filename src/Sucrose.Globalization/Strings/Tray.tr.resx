@@ -141,6 +141,9 @@
   <data name="WallCustomizeText" xml:space="preserve">
     <value>Duvar Kağıdını Özelleştir</value>
   </data>
+  <data name="WallOpenText" xml:space="preserve">
+    <value>Duvar Kağıdını Aç</value>
+  </data>
   <data name="WallStartText" xml:space="preserve">
     <value>Duvar Kağıdını Başlat</value>
   </data>

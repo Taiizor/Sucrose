@@ -156,6 +156,9 @@
   <data name="WallCustomizeText" xml:space="preserve">
     <value>Customize Wallpaper</value>
   </data>
+  <data name="WallOpenText" xml:space="preserve">
+    <value>Open Wallpaper</value>
+  </data>
   <data name="WallStartText" xml:space="preserve">
     <value>Start Wallpaper</value>
   </data>

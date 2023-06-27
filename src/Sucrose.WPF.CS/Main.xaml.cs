@@ -84,8 +84,8 @@ namespace Sucrose.WPF.CS
 
         protected bool PinToBackground(int Index = 0, ScreenType Type = ScreenType.DisplayBound)
         {
-            //return Engine.WallpaperWindow(this, ExpandScreenType.Default, Type);
-            return Engine.WallpaperWindow(this, Index, Type);
+            return Engine.WallpaperWindow(this, ExpandScreenType.Default, Type);
+            //return Engine.WallpaperWindow(this, Index, Type);
         }
 
         private IntPtr CatchMouseEvent(int nCode, IntPtr wParam, IntPtr lParam)
@@ -94,10 +94,12 @@ namespace Sucrose.WPF.CS
             {
                 IBrowserHost WVHost = WallView.GetBrowser().GetHost();
 
-                MouseExtraHookStruct mouseHookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
+                MouseExtraHookStruct HookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
 
-                int X = mouseHookStruct.Point.X;
-                int Y = mouseHookStruct.Point.Y;
+                MousePointStruct Position = Calculate.MousePosition(HookStruct, MouseScreenType.SpanAcross);
+
+                int X = Position.X;
+                int Y = Position.Y;
 
                 if (nCode >= 0 && MouseMessagesType.WM_MBUTTONDOWN == (MouseMessagesType)wParam)
                 {
@@ -129,7 +131,7 @@ namespace Sucrose.WPF.CS
                 }
                 else if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
                 {
-                    int mouseData = mouseHookStruct.MouseData;
+                    int mouseData = HookStruct.MouseData;
                     int delta = (mouseData >> 16) & 0xFFFF;
 
                     int amount = delta >> 15 == 1 ? delta - 0xFFFF - 1 : delta;
@@ -137,8 +139,8 @@ namespace Sucrose.WPF.CS
                     int deltaX = mouseData & 0xFFFF;
                     int deltaY = amount;
 
-                    MouseEvent mouseEvent = new(0, 0, CefEventFlags.None);
-                    WVHost.SendMouseWheelEvent(mouseEvent, deltaX, deltaY);
+                    MouseEvent MouseEvent = new(X, Y, CefEventFlags.None);
+                    WVHost.SendMouseWheelEvent(MouseEvent, deltaX, deltaY);
                 }
 
                 return IntPtr.Zero;
