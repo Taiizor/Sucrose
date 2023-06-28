@@ -1,13 +1,15 @@
-﻿using System.Windows;
+﻿using Skylark.Enum;
+using Skylark.Wing.Helper;
 using Sucrose.Common.Manage;
 using Sucrose.Common.Services;
-using Application = System.Windows.Application;
-using Sucrose.Memory;
-using Skylark.Enum;
 using Sucrose.Grpc.Common;
 using Sucrose.Grpc.Services;
+using Sucrose.Memory;
+using Sucrose.Tray.Command;
+using System.Diagnostics;
+using System.Windows;
+using Application = System.Windows.Application;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using Grpc.Core;
 
 namespace Sucrose.WPF.TI
 {
@@ -21,32 +23,35 @@ namespace Sucrose.WPF.TI
         public App()
         {
             AppDomain.CurrentDomain.UnhandledException += GlobalUnhandledExceptionHandler;
+
+            Internal.TrayIconLogManager.Log(Manager.LogLevelType.Info, "TrayIcon initializing..");
         }
 
         protected void Close()
         {
             Environment.Exit(0);
             Current.Shutdown();
+            Shutdown();
         }
 
         protected void Configure()
         {
-            string Culture = Internal.TrayIconManager.GetSetting("CultureName", SGMR.CultureInfo.Name);
-            WindowsThemeType Theme = Internal.TrayIconManager.GetSetting("ThemeType", WindowsThemeType.Dark);
+            WindowsThemeType Theme = Internal.TrayIconSettingManager.GetSetting("ThemeType", WindowsTheme.GetTheme());
+            string Culture = Internal.TrayIconSettingManager.GetSetting("CultureName", SGMR.CultureInfo.Name);
+            WindowsThemeType Theme = Internal.TrayIconSettingManager.GetSetting("ThemeType", WindowsTheme.GetTheme());
 
-            Internal.TrayIcon.Start(Theme, Culture);
+            Internal.TrayIconManager.Start(Theme, Culture);
 
-            GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
-            {
-                Trayer.BindService(new TrayerServerService())
-            });
+            GeneralServerService.ServerCreate(TrayIcon.BindService(new TrayIconServerService()));
 
-            Internal.TrayIconManager.SetSetting("ThemeType", Theme);
-            Internal.TrayIconManager.SetSetting("CultureName", Culture);
-            Internal.TrayIconManager.SetSetting("Host", GeneralServerService.Host);
-            Internal.TrayIconManager.SetSetting("Port", GeneralServerService.Port);
+            Internal.TrayIconSettingManager.SetSetting("ThemeType", Theme);
+            Internal.TrayIconSettingManager.SetSetting("CultureName", Culture);
+            Internal.TrayIconSettingManager.SetSetting("Host", GeneralServerService.Host);
+            Internal.TrayIconSettingManager.SetSetting("Port", GeneralServerService.Port);
 
             GeneralServerService.ServerInstance.Start();
+
+            Internal.TrayIconLogManager.Log(Manager.LogLevelType.Info, "TrayIcon initialized..");
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -56,7 +61,7 @@ namespace Sucrose.WPF.TI
             GeneralServerService.ServerInstance.KillAsync().Wait();
             //GeneralServerService.ServerInstance.ShutdownAsync().Wait();
 
-            Internal.TrayIcon.Dispose();
+            Internal.TrayIconManager.Dispose();
 
             Close();
         }
@@ -65,13 +70,14 @@ namespace Sucrose.WPF.TI
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true))
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && Internal.TrayIconSettingManager.GetSetting("Visible", true))
             {
                 Mutex.ReleaseMutex();
                 Configure();
             }
             else
             {
+                Interface.Command();
                 Close();
             }
         }

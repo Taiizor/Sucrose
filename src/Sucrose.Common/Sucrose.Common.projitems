@@ -10,8 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\TrayIconServerService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebsiterServerService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\GreeterServerService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\TrayerServerService.cs" />
   </ItemGroup>
 </Project>

@@ -8,9 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Proto\TrayIcon.proto" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Proto\TrayIcon.proto" />
         <Protobuf Include="Proto\Websiter.proto" />
         <Protobuf Include="Proto\Greeter.proto" />
-        <Protobuf Include="Proto\Trayer.proto" />
     </ItemGroup>
 
     <ItemGroup>

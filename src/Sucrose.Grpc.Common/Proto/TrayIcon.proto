@@ -1,14 +1,19 @@
 ﻿syntax = "proto3";
 
-package Sucrose.Grpc.Common.Proto.Trayer;
+package Sucrose.Grpc.Common.Proto.TrayIcon;
 option csharp_namespace = "Sucrose.Grpc.Common";
 
 import "google/protobuf/empty.proto";
 
-service Trayer {
+service TrayIcon {
+    rpc DisposeTray (google.protobuf.Empty) returns (TrayDisposeResponse);
     rpc StateTray (google.protobuf.Empty) returns (TrayStateResponse);
     rpc ShowTray (google.protobuf.Empty) returns (TrayShowResponse);
     rpc HideTray (google.protobuf.Empty) returns (TrayHideResponse);
+}
+
+message TrayDisposeResponse {
+    bool state = 1;
 }
 
 message TrayStateResponse {

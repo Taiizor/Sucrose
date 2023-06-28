@@ -12,7 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.308" />
+        <PackageReference Include="Skylark" Version="3.0.1.309" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.213" />
     </ItemGroup>
 

@@ -41,6 +41,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Command\Close.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Command\Report.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Command\Interface.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\TrayIconManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Renderer\DarkRenderer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Renderer\LightRenderer.cs" />

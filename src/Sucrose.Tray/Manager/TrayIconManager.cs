@@ -1,15 +1,10 @@
 ﻿using Skylark.Enum;
+using Sucrose.Tray.Command;
 using Sucrose.Tray.Renderer;
 using Sucrose.Tray.Separator;
 using System.Globalization;
-using System.IO;
-using System.Reflection;
-using ECT = Sucrose.Space.Enum.CommandsType;
-using HC = Sucrose.Space.Helper.Command;
 using HR = Sucrose.Globalization.Manage.Resources;
 using HTL = Sucrose.Globalization.Helper.TrayLocalization;
-using R = Sucrose.Memory.Readonly;
-using WinForms = System.Windows.Forms.Application;
 
 namespace Sucrose.Tray.Manager
 {
@@ -98,40 +93,27 @@ namespace Sucrose.Tray.Manager
             }
         }
 
-        private void MouseDoubleClick(object? sender, MouseEventArgs e)
+        private void MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                CommandInterface(sender, e);
+                Interface.Command();
             }
         }
 
         private void CommandInterface(object sender, EventArgs e)
         {
-#if TRAY_ICON_WPF
-            string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-
-            HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WPFApplication)}");
-#elif TRAY_ICON_WinForms
-            string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-
-            HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Interface}{R.ValueSeparator}{Path.Combine(Folder, R.WinFormsApplication)}");
-#endif
+            Interface.Command();
         }
 
         private void CommandReport(object sender, EventArgs e)
         {
-            string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-
-            HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Report}{R.ValueSeparator}{R.ReportWebsite}");
+            Report.Command();
         }
 
         private void CommandClose(object sender, EventArgs e)
         {
-            Dispose();
-            WinForms.ExitThread();
-            Environment.Exit(0);
-            WinForms.Exit();
+            Close.Command();
         }
     }
 }

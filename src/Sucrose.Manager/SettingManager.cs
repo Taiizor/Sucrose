@@ -1,23 +1,21 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using Sucrose.Manager.Converter;
 using Sucrose.Memory;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading;
 
 namespace Sucrose.Manager
 {
-    public class SettingsManager
+    public class SettingManager
     {
         private readonly string _settingsFilePath;
         private readonly ReaderWriterLockSlim _lock;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public SettingsManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
+        public SettingManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
             _settingsFilePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, settingsFileName);
 
