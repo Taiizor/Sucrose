@@ -1,16 +1,20 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
 using Grpc.Core;
+using Skylark.Enum;
+using Skylark.Wing.Helper;
 using Sucrose.Common.Manage;
 using Sucrose.Common.Services;
 using Sucrose.Grpc.Common;
 using Sucrose.Grpc.Services;
+using Sucrose.MessageBox;
 using Sucrose.Memory;
 using System.IO;
 using System.Runtime.ExceptionServices;
 using System.Windows;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
+using SGMR = Sucrose.Globalization.Manage.Resources;
 
 namespace Sucrose.WPF.CS
 {
@@ -19,11 +23,22 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class App : Application
     {
-        private static readonly Mutex Mutex = new(true, Readonly.CefSharpMutex);
+        private static WindowsThemeType Theme { get; set; } = Internal.GeneralSettingManager.GetSetting(Constant.ThemeType, WindowsTheme.GetTheme());
+
+        private static string Culture { get; set; } = Internal.GeneralSettingManager.GetSetting(Constant.CultureName, SGMR.CultureInfo.Name);
+
+        private static Mutex Mutex { get; } = new(true, Readonly.CefSharpMutex);
+
+        private static bool HasStart { get; set; } = false;
 
         public App()
         {
-            AppDomain.CurrentDomain.UnhandledException += GlobalUnhandledExceptionHandler;
+            System.Windows.Forms.Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
+            AppDomain.CurrentDomain.UnhandledException += App_GlobalUnhandledExceptionHandler;
+            System.Windows.Forms.Application.ThreadException += Application_ThreadException;
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+            AppDomain.CurrentDomain.FirstChanceException += App_FirstChanceException;
+            Current.DispatcherUnhandledException += App_DispatcherUnhandledException;
 
 #if NET48_OR_GREATER && DEBUG
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
@@ -54,6 +69,33 @@ namespace Sucrose.WPF.CS
             Current.Shutdown();
             Shutdown();
         }
+        protected void Message(string Message)
+        {
+            if (HasStart)
+            {
+                HasStart = false;
+
+                Message = "Beklenmeyen bir hata oluştu:" + Environment.NewLine + Message;
+
+                switch (Theme)
+                {
+                    case WindowsThemeType.Dark:
+                        DarkErrorMessageBox DarkMessageBox = new(Message);
+                        DarkMessageBox.ShowDialog();
+                        break;
+                    default:
+                        LightErrorMessageBox LightMessageBox = new(Message);
+                        LightMessageBox.ShowDialog();
+                        break;
+                }
+
+                Close();
+            }
+            else
+            {
+                Close();
+            }
+        }
 
         protected override void OnExit(ExitEventArgs e)
         {
@@ -69,31 +111,102 @@ namespace Sucrose.WPF.CS
         {
             base.OnStartup(e);
 
-            GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
+            if (Mutex.WaitOne(TimeSpan.Zero, true))
             {
-                Websiter.BindService(new WebsiterServerService())
-            });
 
-            Internal.ServerManager.SetSetting("Host", GeneralServerService.Host);
-            Internal.ServerManager.SetSetting("Port", GeneralServerService.Port);
+                GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
+                {
+                    Websiter.BindService(new WebsiterServerService())
+                });
 
-            GeneralServerService.ServerInstance.Start();
+                Internal.ServerManager.SetSetting(Constant.Host, GeneralServerService.Host);
+                Internal.ServerManager.SetSetting(Constant.Port, GeneralServerService.Port);
 
-            Main Browser = new();
-            Browser.Show();
+                GeneralServerService.ServerInstance.Start();
+
+                Main Browser = new();
+                Browser.Show();
+
+                HasStart = true;
+            }
+            else
+            {
+                Close();
+            }
         }
 
-        private void GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
+        private void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
-            Exception ex = (Exception)e.ExceptionObject;
-            System.Windows.MessageBox.Show(ex.Message + "\n" + ex.InnerException + "\n" + ex.StackTrace + "\n" + ex.Data + "\n" + ex.TargetSite + "\n" + ex.HResult + "\n" + ex.Source + "\n" + ex.HelpLink);
-            //var logger = NLog.LogManager.GetCurrentClassLogger();
-            //logger.Error($"UNHANDELED EXCEPTION START");
-            //logger.Error($"Application crashed: {ex.Message}.");
-            //logger.Error($"Inner exception: {ex.InnerException}.");
-            //logger.Error($"Stack trace: {ex.StackTrace}.");
-            //logger.Error($"UNHANDELED EXCEPTION FINISH");
-            Close();
+            Exception Exception = e.Exception;
+
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"THREAD EXCEPTION START");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"THREAD EXCEPTION FINISH");
+
+            //Close();
+            Message(Exception.Message);
+        }
+
+        private void App_FirstChanceException(object sender, FirstChanceExceptionEventArgs e)
+        {
+            Exception Exception = e.Exception;
+
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"FIRST CHANCE EXCEPTION START");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"FIRST CHANCE EXCEPTION FINISH");
+
+            //Close();
+            //Message(Exception.Message);
+        }
+
+        protected void App_GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception Exception = (Exception)e.ExceptionObject;
+
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"GLOBAL UNHANDLED EXCEPTION START");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"GLOBAL UNHANDLED EXCEPTION FINISH");
+
+            //Close();
+            Message(Exception.Message);
+        }
+
+        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            Exception Exception = e.Exception;
+
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"DISPATCHER UNHANDLED EXCEPTION START");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"DISPATCHER UNHANDLED EXCEPTION FINISH");
+
+            e.Handled = true;
+
+            //Close();
+            Message(Exception.Message);
+        }
+
+        private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+        {
+            Exception Exception = e.Exception;
+
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"UNOBSERVED TASK EXCEPTION START");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
+            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"UNOBSERVED TASK EXCEPTION FINISH");
+
+            e.SetObserved();
+
+            //Close();
+            Message(Exception.Message);
         }
     }
 }

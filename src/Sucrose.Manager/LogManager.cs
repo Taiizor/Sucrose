@@ -1,4 +1,5 @@
-﻿using Sucrose.Memory;
+﻿using Skylark.Enum;
+using Sucrose.Memory;
 using System;
 using System.IO;
 using System.Threading;
@@ -21,7 +22,7 @@ namespace Sucrose.Manager
             _lock = new ReaderWriterLockSlim();
         }
 
-        public void Log(LogLevelType level, string message)
+        public void Log(LevelLogType level, string message)
         {
             if (logType == LogType.None)
             {

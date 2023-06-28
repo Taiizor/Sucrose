@@ -31,9 +31,11 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Space", "Sucrose.Sp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Globalization", "Sucrose.Globalization\Sucrose.Globalization.csproj", "{9DCE4879-A41F-458A-AA42-44BD0F3E7831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.WPF.TI", "Sucrose.WPF.TI\Sucrose.WPF.TI.csproj", "{075ECECA-F607-4D7B-8449-3B1B6C0F73E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.WPF.TI", "Sucrose.WPF.TI\Sucrose.WPF.TI.csproj", "{075ECECA-F607-4D7B-8449-3B1B6C0F73E2}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Tray", "Sucrose.Tray\Sucrose.Tray.shproj", "{BF2BFA28-F6CF-4075-9D3B-025A2F6EB967}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.MessageBox", "Sucrose.MessageBox\Sucrose.MessageBox.shproj", "{A7A7402E-BC6F-4AF8-B0F4-E9D701458A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -216,13 +218,16 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Sucrose.Common\Sucrose.Common.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
+		Sucrose.MessageBox\Sucrose.MessageBox.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Tray\Sucrose.Tray.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
+		Sucrose.MessageBox\Sucrose.MessageBox.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{38624e0d-4bfd-4b82-b22a-3c57cdcdd1bf}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{3b13e30a-f789-484a-bc78-534eec688625}*SharedItemsImports = 13
 		Sucrose.Common\Sucrose.Common.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{4a57580b-4ae3-4a25-a887-766d1b3709c7}*SharedItemsImports = 13
+		Sucrose.MessageBox\Sucrose.MessageBox.projitems*{a7a7402e-bc6f-4af8-b0f4-e9d701458a56}*SharedItemsImports = 13
 		Sucrose.Tray\Sucrose.Tray.projitems*{bf2bfa28-f6cf-4075-9d3b-025a2f6eb967}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

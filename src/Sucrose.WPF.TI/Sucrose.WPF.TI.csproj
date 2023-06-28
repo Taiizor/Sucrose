@@ -21,7 +21,7 @@
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
-        <DefineConstants>$(DefineConstants);TRAY_ICON;TRAY_ICON_WPF</DefineConstants>
+        <DefineConstants>$(DefineConstants);GENERAL;TRAY_ICON;TRAY_ICON_WPF</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -63,9 +63,16 @@
     <Import Project="..\Sucrose.Tray\Sucrose.Tray.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.MessageBox\Sucrose.MessageBox.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="LightErrorMessageBox.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
     
 </Project>

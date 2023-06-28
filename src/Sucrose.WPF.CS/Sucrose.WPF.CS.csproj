@@ -22,7 +22,7 @@
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>AnyCPU;x64;x86;ARM64</Platforms>
-        <DefineConstants>$(DefineConstants);BROWSER;SERVER</DefineConstants>
+        <DefineConstants>$(DefineConstants);GENERAL;CEFSHARP;BROWSER;SERVER</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -70,6 +70,7 @@
     </ItemGroup>
 
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.MessageBox\Sucrose.MessageBox.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
