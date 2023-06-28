@@ -8,7 +8,7 @@ using System.Windows.Controls;
 namespace Sucrose.WPF.UI
 {
     /// <summary>
-    /// Main.xaml etkileşim mantığı
+    /// Interaction logic for Main.xaml
     /// </summary>
     public partial class Main : Window
     {

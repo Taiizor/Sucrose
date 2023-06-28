@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using Sucrose.Memory;
+﻿using Sucrose.Memory;
+using System.Windows;
 
 namespace Sucrose.WPF.UI
 {

@@ -7,8 +7,8 @@ using Sucrose.Common.Manage;
 using Sucrose.Common.Services;
 using Sucrose.Grpc.Common;
 using Sucrose.Grpc.Services;
-using Sucrose.MessageBox;
 using Sucrose.Memory;
+using Sucrose.MessageBox;
 using System.IO;
 using System.Runtime.ExceptionServices;
 using System.Windows;
@@ -75,16 +75,14 @@ namespace Sucrose.WPF.CS
             {
                 HasStart = false;
 
-                Message = "Beklenmeyen bir hata oluştu:" + Environment.NewLine + Message;
-
                 switch (Theme)
                 {
                     case WindowsThemeType.Dark:
-                        DarkErrorMessageBox DarkMessageBox = new(Message);
+                        DarkErrorMessageBox DarkMessageBox = new(Culture, Message);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        LightErrorMessageBox LightMessageBox = new(Message);
+                        LightErrorMessageBox LightMessageBox = new(Culture, Message);
                         LightMessageBox.ShowDialog();
                         break;
                 }
@@ -113,7 +111,6 @@ namespace Sucrose.WPF.CS
 
             if (Mutex.WaitOne(TimeSpan.Zero, true))
             {
-
                 GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
                 {
                     Websiter.BindService(new WebsiterServerService())

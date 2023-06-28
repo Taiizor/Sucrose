@@ -45,11 +45,11 @@
 
         <Border Background="#FF292929" BorderBrush="#FF707070" BorderThickness="1" CornerRadius="5" Margin="20">
             <StackPanel Margin="20">
-                <TextBlock Text="Hata" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
-                <TextBlock x:Name="ErrorMessageTextBlock" TextWrapping="Wrap" FontSize="14" Foreground="White" />
+                <TextBlock x:Name="Error_Title" Text="Error" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
+                <TextBlock x:Name="Error_Message" Text="Message" TextWrapping="Wrap" FontSize="14" Foreground="White" />
             </StackPanel>
         </Border>
 
-        <Button Content="Kapat" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click" />
+        <Button x:Name="Close_Button" Content="Close" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click" />
     </Grid>
 </Window>

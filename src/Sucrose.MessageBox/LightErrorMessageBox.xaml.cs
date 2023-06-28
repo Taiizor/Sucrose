@@ -1,18 +1,20 @@
 ﻿using System.Windows;
+using SGHMBL = Sucrose.Globalization.Helper.MessageBoxLocalization;
 
 namespace Sucrose.MessageBox
 {
     /// <summary>
-    /// LightErrorMessageBox.xaml etkileşim mantığı
+    /// Interaction logic for LightErrorMessageBox.xaml
     /// </summary>
     public partial class LightErrorMessageBox : Window
     {
-        public string Message { get; set; }
-
-        public LightErrorMessageBox(string Message)
+        public LightErrorMessageBox(string Culture, string ErrorMessage)
         {
             InitializeComponent();
-            ErrorMessageTextBlock.Text = Message;
+            Title = SGHMBL.GetValue("WindowTitle", Culture);
+            Error_Title.Text = SGHMBL.GetValue("ErrorTitle", Culture);
+            Close_Button.Content = SGHMBL.GetValue("CloseButton", Culture);
+            Error_Message.Text = SGHMBL.GetValue("ErrorMessage", Culture) + Environment.NewLine + ErrorMessage;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

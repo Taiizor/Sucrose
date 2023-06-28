@@ -5,13 +5,13 @@ using Sucrose.Common.Services;
 using Sucrose.Grpc.Common;
 using Sucrose.Grpc.Services;
 using Sucrose.Memory;
-using Sucrose.Tray.Command;
 using Sucrose.MessageBox;
+using Sucrose.Tray.Command;
+using System.Runtime.ExceptionServices;
 using System.Windows;
+using System.Windows.Threading;
 using Application = System.Windows.Application;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using System.Runtime.ExceptionServices;
-using System.Windows.Threading;
 
 namespace Sucrose.WPF.TI
 {
@@ -55,16 +55,14 @@ namespace Sucrose.WPF.TI
             {
                 HasStart = false;
 
-                Message = "Beklenmeyen bir hata oluştu:" + Environment.NewLine + Message;
-
                 switch (Theme)
                 {
                     case WindowsThemeType.Dark:
-                        DarkErrorMessageBox DarkMessageBox = new(Message);
+                        DarkErrorMessageBox DarkMessageBox = new(Culture, Message);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        LightErrorMessageBox LightMessageBox = new(Message);
+                        LightErrorMessageBox LightMessageBox = new(Culture, Message);
                         LightMessageBox.ShowDialog();
                         break;
                 }

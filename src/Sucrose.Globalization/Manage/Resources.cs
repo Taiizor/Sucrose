@@ -11,5 +11,7 @@ namespace Sucrose.Globalization.Manage
         public static readonly ResourceManager TrayManager = new($"{typeof(Tray)}", typeof(Tray).Assembly);
 
         public static readonly ResourceManager GeneralManager = new($"{typeof(General)}", typeof(General).Assembly);
+
+        public static readonly ResourceManager MessageBoxManager = new($"{typeof(MessageBox)}", typeof(MessageBox).Assembly);
     }
 }

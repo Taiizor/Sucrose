@@ -3,7 +3,7 @@ using Sucrose.Tray.Command;
 using Sucrose.Tray.Renderer;
 using Sucrose.Tray.Separator;
 using System.Globalization;
-using HR = Sucrose.Globalization.Manage.Resources;
+using SGMR = Sucrose.Globalization.Manage.Resources;
 using HTL = Sucrose.Globalization.Helper.TrayLocalization;
 
 namespace Sucrose.Tray.Manager
@@ -16,7 +16,7 @@ namespace Sucrose.Tray.Manager
 
         public void Start(WindowsThemeType ThemeType, string CultureName)
         {
-            HR.CultureInfo = new CultureInfo(CultureName, true);
+            SGMR.CultureInfo = new CultureInfo(CultureName, true);
 
             TrayIcon.Text = HTL.GetValue("TrayText");
             TrayIcon.Icon = new Icon(HTL.GetValue("TrayIcon"));
