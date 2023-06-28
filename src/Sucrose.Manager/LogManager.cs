@@ -1,30 +1,32 @@
-﻿using Skylark.Enum;
-using Sucrose.Memory;
-using System;
+﻿
 using System.IO;
 using System.Threading;
+using SELLT = Skylark.Enum.LevelLogType;
+using SELT = Skylark.Enum.LogType;
+using SMR = Sucrose.Memory.Readonly;
+using SMV = Sucrose.Memory.Valuable;
 
 namespace Sucrose.Manager
 {
     public class LogManager
     {
         private string logFilePath;
-        private LogType logType = LogType.All;
+        private SELT logType = SELT.All;
         private static object lockObject = new();
         private readonly ReaderWriterLockSlim _lock;
 
-        public LogManager(string logFileName, LogType logType = LogType.All)
+        public LogManager(string logFileName, SELT logType = SELT.All)
         {
-            logFilePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, Readonly.LogFolder, string.Format(logFileName, $"{DateTime.Now:yy.MM.dd}"));
+            logFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder, string.Format(logFileName, SMV.LogFileDate));
 
             Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
 
             _lock = new ReaderWriterLockSlim();
         }
 
-        public void Log(LevelLogType level, string message)
+        public void Log(SELLT level, string message)
         {
-            if (logType == LogType.None)
+            if (logType == SELT.None)
             {
                 return;
             }
@@ -36,7 +38,7 @@ namespace Sucrose.Manager
                 lock (lockObject)
                 {
                     using StreamWriter writer = File.AppendText(logFilePath);
-                    writer.WriteLine($"[{DateTime.Now:HH:mm:ss}] ~ [SucroseManager Thread/{level}] ~ [{message}]");
+                    writer.WriteLine($"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}/{level}] ~ [{message}]");
                 }
             }
             finally

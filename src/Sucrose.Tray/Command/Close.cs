@@ -1,5 +1,5 @@
-﻿using Skylark.Enum;
-using Sucrose.Common.Manage;
+﻿using SCMI = Sucrose.Common.Manage.Internal;
+using SELLT = Skylark.Enum.LevelLogType;
 using WinForms = System.Windows.Forms.Application;
 
 namespace Sucrose.Tray.Command
@@ -8,7 +8,7 @@ namespace Sucrose.Tray.Command
     {
         public static void Command()
         {
-            Internal.TrayIconLogManager.Log(LevelLogType.Info, $"Application has been closed.");
+            SCMI.TrayIconLogManager.Log(SELLT.Info, $"Application has been closed.");
 
             WinForms.ExitThread();
             Environment.Exit(0);

@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Reflection;
-using ECT = Sucrose.Space.Enum.CommandsType;
-using HC = Sucrose.Space.Helper.Command;
-using R = Sucrose.Memory.Readonly;
+using SMR = Sucrose.Memory.Readonly;
+using SSECT = Sucrose.Space.Enum.CommandsType;
+using SSHC = Sucrose.Space.Helper.Command;
 
 namespace Sucrose.Tray.Command
 {
@@ -10,9 +10,9 @@ namespace Sucrose.Tray.Command
     {
         public static void Command()
         {
-            string Folder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string Folder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            HC.Run(Path.Combine(Folder, R.ConsoleApplication), $"{R.StartCommand}{ECT.Report}{R.ValueSeparator}{R.ReportWebsite}");
+            SSHC.Run(Path.Combine(Folder, SMR.ConsoleApplication), $"{SMR.StartCommand}{SSECT.Report}{SMR.ValueSeparator}{SMR.ReportWebsite}");
         }
     }
 }

@@ -1,14 +1,14 @@
 ﻿using Grpc.Core;
-using Sucrose.Grpc.Helper;
 using System.Collections.Generic;
 using System.Net;
+using SGHG = Sucrose.Grpc.Helper.Gadget;
 
 namespace Sucrose.Grpc.Services
 {
     public static class GeneralServerService
     {
         public static IPAddress Host = IPAddress.Loopback;
-        public static int Port = Gadget.AvailablePort(Host);
+        public static int Port = SGHG.AvailablePort(Host);
 
         public static Server ServerInstance { get; set; }
         public static Channel ChannelInstance { get; set; }

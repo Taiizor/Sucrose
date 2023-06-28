@@ -22,6 +22,8 @@ namespace Sucrose.Memory
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
+        public static readonly string LogDescription = "SucroseManager Thread";
+
         public static readonly string ConsoleApplication = "Sucrose.CommandLine.exe";
 
         public static readonly string WinFormsApplication = "Sucrose.WinForms.UI.exe";

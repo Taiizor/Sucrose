@@ -69,6 +69,7 @@ namespace Sucrose.WPF.CS
             Current.Shutdown();
             Shutdown();
         }
+
         protected void Message(string Message)
         {
             if (HasStart)

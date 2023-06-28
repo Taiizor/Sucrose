@@ -1,11 +1,11 @@
-﻿using Sucrose.Tray.Table;
-using System.Drawing.Drawing2D;
+﻿using System.Drawing.Drawing2D;
+using STTLCT = Sucrose.Tray.Table.LightColorTable;
 
 namespace Sucrose.Tray.Renderer
 {
     public class LightRenderer : ToolStripProfessionalRenderer
     {
-        public LightRenderer() : base(new LightColorTable())
+        public LightRenderer() : base(new STTLCT())
         {
         }
 

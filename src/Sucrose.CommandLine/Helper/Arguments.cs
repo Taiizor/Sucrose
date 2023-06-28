@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
-using ECT = Sucrose.Space.Enum.CommandsType;
-using HWS = Skylark.Wing.Helper.WindowsStartup;
-using R = Sucrose.Memory.Readonly;
+using SMR = Sucrose.Memory.Readonly;
+using SSECT = Sucrose.Space.Enum.CommandsType;
+using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
 namespace Sucrose.CommandLine.Helper
 {
@@ -15,13 +15,13 @@ namespace Sucrose.CommandLine.Helper
                 {
                     string Argument = Arguments[Count];
 
-                    if (Argument.StartsWith(R.StartCommand) && Argument.Contains(R.ValueSeparatorChar))
+                    if (Argument.StartsWith(SMR.StartCommand) && Argument.Contains(SMR.ValueSeparatorChar))
                     {
 
 #if NET6_0_OR_GREATER
-                        string[] ArgumentParts = Argument[1..].Split(R.ValueSeparatorChar);
+                        string[] ArgumentParts = Argument[1..].Split(SMR.ValueSeparatorChar);
 #else
-                        string[] ArgumentParts = Argument.Substring(1).Split(R.ValueSeparatorChar);
+                        string[] ArgumentParts = Argument.Substring(1).Split(SMR.ValueSeparatorChar);
 #endif
 
                         if (ArgumentParts.Length >= 2)
@@ -39,11 +39,11 @@ namespace Sucrose.CommandLine.Helper
                             }
 #endif
 
-                            if (Enum.TryParse(Name, true, out ECT Command))
+                            if (Enum.TryParse(Name, true, out SSECT Command))
                             {
                                 switch (Command)
                                 {
-                                    case ECT.Test:
+                                    case SSECT.Test:
                                         Console.WriteLine("Test değerleri:");
 
                                         foreach (string value in Values)
@@ -64,13 +64,13 @@ namespace Sucrose.CommandLine.Helper
                                             }
                                         }
                                         break;
-                                    case ECT.Report:
+                                    case SSECT.Report:
                                         Process.Start(ParseArgumentValue<string>(Values[0]));
                                         break;
-                                    case ECT.Startup:
-                                        HWS.SetStartup(ParseArgumentValue<string>(Values[0]), ParseArgumentValue<string>(Values[1]), ParseArgumentValue<bool>(Values[2]));
+                                    case SSECT.Startup:
+                                        SWHWS.SetStartup(ParseArgumentValue<string>(Values[0]), ParseArgumentValue<string>(Values[1]), ParseArgumentValue<bool>(Values[2]));
                                         break;
-                                    case ECT.Interface:
+                                    case SSECT.Interface:
                                         Process.Start(ParseArgumentValue<string>(Values[0]));
                                         break;
                                     default:

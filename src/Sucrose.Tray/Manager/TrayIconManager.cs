@@ -1,10 +1,13 @@
-﻿using Skylark.Enum;
-using Sucrose.Tray.Command;
-using Sucrose.Tray.Renderer;
-using Sucrose.Tray.Separator;
-using System.Globalization;
+﻿using System.Globalization;
+using SEWTT = Skylark.Enum.WindowsThemeType;
+using SGHTL = Sucrose.Globalization.Helper.TrayLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using HTL = Sucrose.Globalization.Helper.TrayLocalization;
+using STCC = Sucrose.Tray.Command.Close;
+using STCI = Sucrose.Tray.Command.Interface;
+using STCR = Sucrose.Tray.Command.Report;
+using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
+using STRLR = Sucrose.Tray.Renderer.LightRenderer;
+using STSSS = Sucrose.Tray.Separator.StripSeparator;
 
 namespace Sucrose.Tray.Manager
 {
@@ -14,42 +17,42 @@ namespace Sucrose.Tray.Manager
 
         private ContextMenuStrip ContextMenu { get; set; } = new();
 
-        public void Start(WindowsThemeType ThemeType, string CultureName)
+        public void Start(SEWTT ThemeType, string CultureName)
         {
             SGMR.CultureInfo = new CultureInfo(CultureName, true);
 
-            TrayIcon.Text = HTL.GetValue("TrayText");
-            TrayIcon.Icon = new Icon(HTL.GetValue("TrayIcon"));
+            TrayIcon.Text = SGHTL.GetValue("TrayText");
+            TrayIcon.Icon = new Icon(SGHTL.GetValue("TrayIcon"));
 
-            if (ThemeType == WindowsThemeType.Dark)
+            if (ThemeType == SEWTT.Dark)
             {
-                ContextMenu.Renderer = new DarkRenderer();
+                ContextMenu.Renderer = new STRDR();
             }
             else
             {
-                ContextMenu.Renderer = new LightRenderer();
+                ContextMenu.Renderer = new STRLR();
             }
 
-            ContextMenu.Items.Add(HTL.GetValue("OpenText"), Image.FromFile(HTL.GetValue("OpenIcon")), CommandInterface);
+            ContextMenu.Items.Add(SGHTL.GetValue("OpenText"), Image.FromFile(SGHTL.GetValue("OpenIcon")), CommandInterface);
 
-            StripSeparator Separator1 = new(ThemeType);
+            STSSS Separator1 = new(ThemeType);
             ContextMenu.Items.Add(Separator1.Strip);
 
-            ContextMenu.Items.Add(HTL.GetValue("WallCloseText"), null, null); //HTL.GetValue("WallOpenText")
-            ContextMenu.Items.Add(HTL.GetValue("WallStopText"), null, null); //HTL.GetValue("WallStartText")
-            ContextMenu.Items.Add(HTL.GetValue("WallChangeText"), null, null);
-            ContextMenu.Items.Add(HTL.GetValue("WallCustomizeText"), null, null);
+            ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, null); //SGHTL.GetValue("WallOpenText")
+            ContextMenu.Items.Add(SGHTL.GetValue("WallStopText"), null, null); //SGHTL.GetValue("WallStartText")
+            ContextMenu.Items.Add(SGHTL.GetValue("WallChangeText"), null, null);
+            ContextMenu.Items.Add(SGHTL.GetValue("WallCustomizeText"), null, null);
 
-            StripSeparator Separator2 = new(ThemeType);
+            STSSS Separator2 = new(ThemeType);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(HTL.GetValue("SettingsText"), Image.FromFile(HTL.GetValue("SettingsIcon")), null);
-            ContextMenu.Items.Add(HTL.GetValue("ReportText"), Image.FromFile(HTL.GetValue("ReportIcon")), CommandReport);
+            ContextMenu.Items.Add(SGHTL.GetValue("SettingsText"), Image.FromFile(SGHTL.GetValue("SettingsIcon")), null);
+            ContextMenu.Items.Add(SGHTL.GetValue("ReportText"), Image.FromFile(SGHTL.GetValue("ReportIcon")), CommandReport);
 
-            StripSeparator Separator3 = new(ThemeType);
+            STSSS Separator3 = new(ThemeType);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add(HTL.GetValue("ExitText"), Image.FromFile(HTL.GetValue("ExitIcon")), CommandClose);
+            ContextMenu.Items.Add(SGHTL.GetValue("ExitText"), Image.FromFile(SGHTL.GetValue("ExitIcon")), CommandClose);
 
             TrayIcon.ContextMenuStrip = ContextMenu;
             TrayIcon.MouseClick += MouseClick;
@@ -97,23 +100,23 @@ namespace Sucrose.Tray.Manager
         {
             if (e.Button == MouseButtons.Left)
             {
-                Interface.Command();
+                STCI.Command();
             }
         }
 
         private void CommandInterface(object sender, EventArgs e)
         {
-            Interface.Command();
+            STCI.Command();
         }
 
         private void CommandReport(object sender, EventArgs e)
         {
-            Report.Command();
+            STCR.Command();
         }
 
         private void CommandClose(object sender, EventArgs e)
         {
-            Close.Command();
+            STCC.Command();
         }
     }
 }

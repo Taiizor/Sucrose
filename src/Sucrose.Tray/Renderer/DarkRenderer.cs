@@ -1,11 +1,11 @@
-﻿using Sucrose.Tray.Table;
-using System.Drawing.Drawing2D;
+﻿using System.Drawing.Drawing2D;
+using STTDCT = Sucrose.Tray.Table.DarkColorTable;
 
 namespace Sucrose.Tray.Renderer
 {
     public class DarkRenderer : ToolStripProfessionalRenderer
     {
-        public DarkRenderer() : base(new DarkColorTable())
+        public DarkRenderer() : base(new STTDCT())
         {
         }
 

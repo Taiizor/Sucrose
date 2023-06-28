@@ -1,4 +1,4 @@
-﻿using HA = Sucrose.CommandLine.Helper.Arguments;
+﻿using SCLHA = Sucrose.CommandLine.Helper.Arguments;
 
 namespace Sucrose.CommandLine
 {
@@ -6,7 +6,7 @@ namespace Sucrose.CommandLine
     {
         internal static void Main(string[] Args)
         {
-            HA.Parse(Args);
+            SCLHA.Parse(Args);
         }
     }
 }

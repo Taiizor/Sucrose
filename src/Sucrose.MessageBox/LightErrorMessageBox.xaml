@@ -44,12 +44,22 @@
         </Grid.RowDefinitions>
 
         <Border Background="#F0F0F0" BorderBrush="#DDDDDD" BorderThickness="1" CornerRadius="5" Margin="20">
+            <Border.Effect>
+                <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
+            </Border.Effect>
             <StackPanel Margin="20">
                 <TextBlock x:Name="Error_Title" Text="Error" Foreground="#333333" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
                 <TextBlock x:Name="Error_Message" Text="Message" TextWrapping="Wrap" FontSize="14" Foreground="#333333" />
             </StackPanel>
         </Border>
 
-        <Button x:Name="Close_Button" Content="Close" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click" />
+        <Button x:Name="Close_Button" Content="Close" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
+            </Button.Effect>
+        </Button>
     </Grid>
+    <Window.Effect>
+        <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="10" Opacity="0.5" />
+    </Window.Effect>
 </Window>
