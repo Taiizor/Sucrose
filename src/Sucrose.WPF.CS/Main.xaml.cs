@@ -28,11 +28,12 @@ namespace Sucrose.WPF.CS
 
         private readonly DispatcherTimer Timer = new();
 
+        private static IBrowserHost? WVHost = null;
+
         public Main()
         {
             InitializeComponent();
 
-            Variables.Hook = true;
             Variables.State = true;
 
             WallView.MenuHandler = new CustomContextMenuHandler();
@@ -70,10 +71,12 @@ namespace Sucrose.WPF.CS
                 if (Variables.Hook)
                 {
                     MouseEventCall = CatchMouseEvent;
+                    WVHost = WallView.GetBrowser().GetHost();
                     MouseHook = WinAPI.SetWindowsHookEx(14, MouseEventCall, IntPtr.Zero, 0);
                 }
                 else
                 {
+                    WVHost = null;
                     MouseEventCall = null;
                     WinAPI.UnhookWinEvent(MouseHook);
                 }
@@ -93,55 +96,58 @@ namespace Sucrose.WPF.CS
         {
             try
             {
-                IBrowserHost WVHost = WallView.GetBrowser().GetHost();
+                if (nCode >= 0 && WVHost != null)
+                {
+                    MouseExtraHookStruct HookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
 
-                MouseExtraHookStruct HookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
+                    MousePointStruct Position = Calculate.MousePosition(HookStruct, MouseScreenType.PerDisplay); //MouseScreenType.PerDisplay
 
-                MousePointStruct Position = Calculate.MousePosition(HookStruct, MouseScreenType.SpanAcross); //MouseScreenType.PerDisplay
+                    int X = Position.X;
+                    int Y = Position.Y;
 
-                int X = Position.X;
-                int Y = Position.Y;
+                    MouseMessagesType Type = (MouseMessagesType)wParam;
 
-                if (nCode >= 0 && MouseMessagesType.WM_MBUTTONDOWN == (MouseMessagesType)wParam)
-                {
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Middle, false, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_MBUTTONUP == (MouseMessagesType)wParam)
-                {
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Middle, true, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONDOWN == (MouseMessagesType)wParam)
-                {
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_LBUTTONUP == (MouseMessagesType)wParam)
-                {
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONDOWN == (MouseMessagesType)wParam)
-                {
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_RBUTTONUP == (MouseMessagesType)wParam)
-                {
-                    WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_MOVE == (MouseMessagesType)wParam)
-                {
-                    WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
-                }
-                else if (nCode >= 0 && MouseMessagesType.WM_WHEEL == (MouseMessagesType)wParam)
-                {
-                    int mouseData = HookStruct.MouseData;
-                    int delta = (mouseData >> 16) & 0xFFFF;
+                    if (MouseMessagesType.WM_MBUTTONDOWN == Type)
+                    {
+                        WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Middle, false, 1, CefEventFlags.None);
+                    }
+                    else if (MouseMessagesType.WM_MBUTTONUP == Type)
+                    {
+                        WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Middle, true, 1, CefEventFlags.None);
+                    }
+                    else if (MouseMessagesType.WM_LBUTTONDOWN == Type)
+                    {
+                        WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
+                    }
+                    else if (MouseMessagesType.WM_LBUTTONUP == Type)
+                    {
+                        WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
+                    }
+                    else if (MouseMessagesType.WM_RBUTTONDOWN == Type)
+                    {
+                        WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
+                    }
+                    else if (MouseMessagesType.WM_RBUTTONUP == Type)
+                    {
+                        WVHost.SendMouseClickEvent(X, Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
+                    }
+                    else if (MouseMessagesType.WM_MOVE == Type)
+                    {
+                        WVHost.SendMouseMoveEvent(X, Y, false, CefEventFlags.None);
+                    }
+                    else if (MouseMessagesType.WM_WHEEL == Type)
+                    {
+                        int mouseData = HookStruct.MouseData;
+                        int delta = (mouseData >> 16) & 0xFFFF;
 
-                    int amount = delta >> 15 == 1 ? delta - 0xFFFF - 1 : delta;
+                        int amount = delta >> 15 == 1 ? delta - 0xFFFF - 1 : delta;
 
-                    int deltaX = mouseData & 0xFFFF;
-                    int deltaY = amount;
+                        int deltaX = mouseData & 0xFFFF;
+                        int deltaY = amount;
 
-                    MouseEvent MouseEvent = new(X, Y, CefEventFlags.None);
-                    WVHost.SendMouseWheelEvent(MouseEvent, deltaX, deltaY);
+                        MouseEvent MouseEvent = new(X, Y, CefEventFlags.None);
+                        WVHost.SendMouseWheelEvent(MouseEvent, deltaX, deltaY);
+                    }
                 }
 
                 return IntPtr.Zero;
