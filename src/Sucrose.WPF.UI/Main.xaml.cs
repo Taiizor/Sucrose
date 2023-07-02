@@ -1,9 +1,9 @@
-﻿using Sucrose.Common.Manage;
-using Sucrose.Grpc.Client.Services;
-using Sucrose.Grpc.Common;
-using Sucrose.Grpc.Services;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using SCMI = Sucrose.Common.Manage.Internal;
+using SGCSWCS = Sucrose.Grpc.Client.Services.WebsiterClientService;
+using SGCWWC = Sucrose.Grpc.Common.Websiter.WebsiterClient;
+using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 
 namespace Sucrose.WPF.UI
 {
@@ -30,41 +30,40 @@ namespace Sucrose.WPF.UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GeneralServerService.ChannelCreate(Internal.ServerManager.GetSetting<string>("Host"), Internal.ServerManager.GetSettingStable<int>("Port"));
-            Websiter.WebsiterClient client = new(GeneralServerService.ChannelInstance);
-            //WebsiterChangeResponse response = WebsiterClientService.ChangeAddress(client, "https://www.vegalya.com", true);
+            SGSGSS.ChannelCreate(SCMI.ServerManager.GetSetting<string>("Host"), SCMI.ServerManager.GetSettingStable<int>("Port"));
+            SGCWWC client = new(SGSGSS.ChannelInstance);
 
             switch ((sender as Button).Content)
             {
                 case "Design 1":
-                    WebsiterClientService.ChangeAddress(client, Uri1, true);
+                    SGCSWCS.ChangeAddress(client, Uri1, true);
                     break;
                 case "Design 2":
-                    WebsiterClientService.ChangeAddress(client, Uri2, true);
+                    SGCSWCS.ChangeAddress(client, Uri2, true);
                     break;
                 case "Design 3":
-                    WebsiterClientService.ChangeAddress(client, Uri3, true);
+                    SGCSWCS.ChangeAddress(client, Uri3, true);
                     break;
                 case "Design 4":
-                    WebsiterClientService.ChangeAddress(client, Uri4, false);
+                    SGCSWCS.ChangeAddress(client, Uri4, false);
                     break;
                 case "Design 5":
-                    WebsiterClientService.ChangeAddress(client, Uri5, true);
+                    SGCSWCS.ChangeAddress(client, Uri5, true);
                     break;
                 case "Design 6":
-                    WebsiterClientService.ChangeAddress(client, Uri6, true);
+                    SGCSWCS.ChangeAddress(client, Uri6, true);
                     break;
                 case "Design 7":
-                    WebsiterClientService.ChangeAddress(client, Uri7, false);
+                    SGCSWCS.ChangeAddress(client, Uri7, false);
                     break;
                 case "Design 8":
-                    WebsiterClientService.ChangeAddress(client, Uri8, true);
+                    SGCSWCS.ChangeAddress(client, Uri8, true);
                     break;
                 case "Design 9":
-                    WebsiterClientService.ChangeAddress(client, Uri9, true);
+                    SGCSWCS.ChangeAddress(client, Uri9, true);
                     break;
                 case "Design 10":
-                    WebsiterClientService.ChangeAddress(client, Uri10, true);
+                    SGCSWCS.ChangeAddress(client, Uri10, true);
                     break;
                 default:
                     break;

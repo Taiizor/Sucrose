@@ -1,17 +1,20 @@
-﻿using Skylark.Enum;
-using Skylark.Wing.Helper;
-using Sucrose.Common.Manage;
-using Sucrose.Common.Services;
-using Sucrose.Grpc.Common;
-using Sucrose.Grpc.Services;
-using Sucrose.Memory;
-using Sucrose.MessageBox;
-using Sucrose.Tray.Command;
-using System.Runtime.ExceptionServices;
+﻿using System.Runtime.ExceptionServices;
 using System.Windows;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
+using SCMI = Sucrose.Common.Manage.Internal;
+using SCSTISS = Sucrose.Common.Services.TrayIconServerService;
+using SELLT = Skylark.Enum.LevelLogType;
+using SEWTT = Skylark.Enum.WindowsThemeType;
+using SGCTI = Sucrose.Grpc.Common.TrayIcon;
 using SGMR = Sucrose.Globalization.Manage.Resources;
+using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
+using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
+using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
+using SMC = Sucrose.Memory.Constant;
+using SMR = Sucrose.Memory.Readonly;
+using STCI = Sucrose.Tray.Command.Interface;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.WPF.TI
 {
@@ -20,13 +23,13 @@ namespace Sucrose.WPF.TI
     /// </summary>
     public partial class App : Application
     {
-        private static WindowsThemeType Theme { get; set; } = Internal.GeneralSettingManager.GetSetting(Constant.ThemeType, WindowsTheme.GetTheme());
+        private static string Culture { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static string Culture { get; set; } = Internal.GeneralSettingManager.GetSetting(Constant.CultureName, SGMR.CultureInfo.Name);
+        private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static bool Visible { get; set; } = Internal.TrayIconSettingManager.GetSetting(Constant.Visible, true);
+        private static bool Visible { get; set; } = SCMI.TrayIconSettingManager.GetSetting(SMC.Visible, true);
 
-        private static Mutex Mutex { get; } = new(true, Readonly.TrayIconMutex);
+        private static Mutex Mutex { get; } = new(true, SMR.TrayIconMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -42,7 +45,7 @@ namespace Sucrose.WPF.TI
 
         protected void Close()
         {
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Application has been closed.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application has been closed.");
 
             Environment.Exit(0);
             Current.Shutdown();
@@ -55,16 +58,16 @@ namespace Sucrose.WPF.TI
             {
                 HasStart = false;
 
-                string Path = Internal.TrayIconLogManager.LogFile();
+                string Path = SCMI.TrayIconLogManager.LogFile();
 
                 switch (Theme)
                 {
-                    case WindowsThemeType.Dark:
-                        DarkErrorMessageBox DarkMessageBox = new(Culture, Message, Path);
+                    case SEWTT.Dark:
+                        SMBDEMB DarkMessageBox = new(Culture, Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        LightErrorMessageBox LightMessageBox = new(Culture, Message, Path);
+                        SMBLEMB LightMessageBox = new(Culture, Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }
@@ -79,36 +82,34 @@ namespace Sucrose.WPF.TI
 
         protected void Configure()
         {
-            Internal.TrayIconLogManager.Log(LevelLogType.Info, "Configuration initializing..");
+            SCMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initializing..");
 
-            Internal.TrayIconManager.Start(Theme, Culture);
+            SCMI.TrayIconManager.Start(Theme, Culture);
 
-            GeneralServerService.ServerCreate(TrayIcon.BindService(new TrayIconServerService()));
+            SGSGSS.ServerCreate(SGCTI.BindService(new SCSTISS()));
 
-            Internal.TrayIconSettingManager.SetSetting(Constant.Host, GeneralServerService.Host);
-            Internal.TrayIconSettingManager.SetSetting(Constant.Port, GeneralServerService.Port);
+            SCMI.TrayIconSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
+            SCMI.TrayIconSettingManager.SetSetting(SMC.Port, SGSGSS.Port);
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Info, "Configuration initialized..");
+            SCMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initialized..");
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Info, "Server initializing..");
+            SCMI.TrayIconLogManager.Log(SELLT.Info, "Server initializing..");
 
-            GeneralServerService.ServerInstance.Start();
+            SGSGSS.ServerInstance.Start();
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Info, "Server initialized..");
+            SCMI.TrayIconLogManager.Log(SELLT.Info, "Server initialized..");
 
             HasStart = true;
-
-            Convert.ToInt32("53X");
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
 
-            GeneralServerService.ServerInstance.KillAsync().Wait();
-            //GeneralServerService.ServerInstance.ShutdownAsync().Wait();
+            SGSGSS.ServerInstance.KillAsync().Wait();
+            //SGSGSS.ServerInstance.ShutdownAsync().Wait();
 
-            Internal.TrayIconManager.Dispose();
+            SCMI.TrayIconManager.Dispose();
 
             Close();
         }
@@ -117,29 +118,29 @@ namespace Sucrose.WPF.TI
         {
             base.OnStartup(e);
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application initializing..");
+            SCMI.TrayIconLogManager.Log(SELLT.Info, "Application initializing..");
 
             if (Mutex.WaitOne(TimeSpan.Zero, true) && Visible)
             {
-                Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application mutex is being releasing.");
+                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 
                 Mutex.ReleaseMutex();
 
-                Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application mutex is being released.");
+                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being released.");
 
                 Configure();
 
-                Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application initialized..");
+                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application initialized..");
             }
             else
             {
-                Internal.TrayIconLogManager.Log(LevelLogType.Warning, "Application could not be initialized!");
+                SCMI.TrayIconLogManager.Log(SELLT.Warning, "Application could not be initialized!");
 
-                Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application Interface opening..");
+                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opening..");
 
-                Interface.Command();
+                STCI.Command();
 
-                Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application Interface opened..");
+                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opened..");
 
                 Close();
             }
@@ -149,11 +150,11 @@ namespace Sucrose.WPF.TI
         {
             Exception Exception = e.Exception;
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"THREAD EXCEPTION START");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"THREAD EXCEPTION FINISH");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"THREAD EXCEPTION START");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"THREAD EXCEPTION FINISH");
 
             //Close();
             Message(Exception.Message);
@@ -163,11 +164,11 @@ namespace Sucrose.WPF.TI
         {
             Exception Exception = e.Exception;
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"FIRST CHANCE EXCEPTION START");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"FIRST CHANCE EXCEPTION FINISH");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION START");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION FINISH");
 
             //Close();
             //Message(Exception.Message);
@@ -177,11 +178,11 @@ namespace Sucrose.WPF.TI
         {
             Exception Exception = (Exception)e.ExceptionObject;
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"GLOBAL UNHANDLED EXCEPTION START");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"GLOBAL UNHANDLED EXCEPTION FINISH");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION START");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION FINISH");
 
             //Close();
             Message(Exception.Message);
@@ -191,11 +192,11 @@ namespace Sucrose.WPF.TI
         {
             Exception Exception = e.Exception;
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"DISPATCHER UNHANDLED EXCEPTION START");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"DISPATCHER UNHANDLED EXCEPTION FINISH");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION START");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION FINISH");
 
             e.Handled = true;
 
@@ -207,11 +208,11 @@ namespace Sucrose.WPF.TI
         {
             Exception Exception = e.Exception;
 
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"UNOBSERVED TASK EXCEPTION START");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.TrayIconLogManager.Log(LevelLogType.Error, $"UNOBSERVED TASK EXCEPTION FINISH");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION START");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.TrayIconLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION FINISH");
 
             e.SetObserved();
 

@@ -43,6 +43,9 @@ namespace Sucrose.CommandLine.Helper
                             {
                                 switch (Command)
                                 {
+                                    case SSECT.Log:
+                                        Process.Start(ParseArgumentValue<string>(Values[0]));
+                                        break;
                                     case SSECT.Test:
                                         Console.WriteLine("Test değerleri:");
 

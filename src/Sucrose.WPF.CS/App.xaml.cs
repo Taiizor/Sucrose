@@ -1,20 +1,23 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
 using Grpc.Core;
-using Skylark.Enum;
-using Skylark.Wing.Helper;
-using Sucrose.Common.Manage;
-using Sucrose.Common.Services;
-using Sucrose.Grpc.Common;
-using Sucrose.Grpc.Services;
-using Sucrose.Memory;
-using Sucrose.MessageBox;
 using System.IO;
 using System.Runtime.ExceptionServices;
 using System.Windows;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
+using SCMI = Sucrose.Common.Manage.Internal;
+using SCSWSS = Sucrose.Common.Services.WebsiterServerService;
+using SELLT = Skylark.Enum.LevelLogType;
+using SEWTT = Skylark.Enum.WindowsThemeType;
+using SGCW = Sucrose.Grpc.Common.Websiter;
 using SGMR = Sucrose.Globalization.Manage.Resources;
+using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
+using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
+using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
+using SMC = Sucrose.Memory.Constant;
+using SMR = Sucrose.Memory.Readonly;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.WPF.CS
 {
@@ -23,11 +26,11 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class App : Application
     {
-        private static WindowsThemeType Theme { get; set; } = Internal.GeneralSettingManager.GetSetting(Constant.ThemeType, WindowsTheme.GetTheme());
+        private static string Culture { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static string Culture { get; set; } = Internal.GeneralSettingManager.GetSetting(Constant.CultureName, SGMR.CultureInfo.Name);
+        private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex { get; } = new(true, Readonly.CefSharpMutex);
+        private static Mutex Mutex { get; } = new(true, SMR.CefSharpMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -46,7 +49,7 @@ namespace Sucrose.WPF.CS
 
             CefSettings Settings = new()
             {
-                CachePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, Readonly.CefSharp, Readonly.CacheFolder)
+                CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CefSharp, SMR.CacheFolder)
             };
 
             Settings.CefCommandLineArgs.Add("enable-media-stream");
@@ -76,16 +79,16 @@ namespace Sucrose.WPF.CS
             {
                 HasStart = false;
 
-                string Path = Internal.CefSharpLogManager.LogFile();
+                string Path = SCMI.CefSharpLogManager.LogFile();
 
                 switch (Theme)
                 {
-                    case WindowsThemeType.Dark:
-                        DarkErrorMessageBox DarkMessageBox = new(Culture, Message, Path);
+                    case SEWTT.Dark:
+                        SMBDEMB DarkMessageBox = new(Culture, Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        LightErrorMessageBox LightMessageBox = new(Culture, Message, Path);
+                        SMBLEMB LightMessageBox = new(Culture, Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }
@@ -102,8 +105,8 @@ namespace Sucrose.WPF.CS
         {
             base.OnExit(e);
 
-            GeneralServerService.ServerInstance.KillAsync().Wait();
-            //GeneralServerService.ServerInstance.ShutdownAsync().Wait();
+            SGSGSS.ServerInstance.KillAsync().Wait();
+            //SGSGSS.ServerInstance.ShutdownAsync().Wait();
 
             Close();
         }
@@ -114,15 +117,15 @@ namespace Sucrose.WPF.CS
 
             if (Mutex.WaitOne(TimeSpan.Zero, true))
             {
-                GeneralServerService.ServerCreate(new List<ServerServiceDefinition>
+                SGSGSS.ServerCreate(new List<ServerServiceDefinition>
                 {
-                    Websiter.BindService(new WebsiterServerService())
+                    SGCW.BindService(new SCSWSS())
                 });
 
-                Internal.ServerManager.SetSetting(Constant.Host, GeneralServerService.Host);
-                Internal.ServerManager.SetSetting(Constant.Port, GeneralServerService.Port);
+                SCMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
+                SCMI.ServerManager.SetSetting(SMC.Port, SGSGSS.Port);
 
-                GeneralServerService.ServerInstance.Start();
+                SGSGSS.ServerInstance.Start();
 
                 Main Browser = new();
                 Browser.Show();
@@ -139,11 +142,11 @@ namespace Sucrose.WPF.CS
         {
             Exception Exception = e.Exception;
 
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"THREAD EXCEPTION START");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"THREAD EXCEPTION FINISH");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"THREAD EXCEPTION START");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"THREAD EXCEPTION FINISH");
 
             //Close();
             Message(Exception.Message);
@@ -153,11 +156,11 @@ namespace Sucrose.WPF.CS
         {
             Exception Exception = e.Exception;
 
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"FIRST CHANCE EXCEPTION START");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"FIRST CHANCE EXCEPTION FINISH");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION START");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION FINISH");
 
             //Close();
             //Message(Exception.Message);
@@ -167,11 +170,11 @@ namespace Sucrose.WPF.CS
         {
             Exception Exception = (Exception)e.ExceptionObject;
 
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"GLOBAL UNHANDLED EXCEPTION START");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"GLOBAL UNHANDLED EXCEPTION FINISH");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION START");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION FINISH");
 
             //Close();
             Message(Exception.Message);
@@ -181,11 +184,11 @@ namespace Sucrose.WPF.CS
         {
             Exception Exception = e.Exception;
 
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"DISPATCHER UNHANDLED EXCEPTION START");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"DISPATCHER UNHANDLED EXCEPTION FINISH");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION START");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION FINISH");
 
             e.Handled = true;
 
@@ -197,11 +200,11 @@ namespace Sucrose.WPF.CS
         {
             Exception Exception = e.Exception;
 
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"UNOBSERVED TASK EXCEPTION START");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Application crashed: {Exception.Message}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Inner exception: {Exception.InnerException}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"Stack trace: {Exception.StackTrace}.");
-            Internal.CefSharpLogManager.Log(LevelLogType.Error, $"UNOBSERVED TASK EXCEPTION FINISH");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION START");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
+            SCMI.CefSharpLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION FINISH");
 
             e.SetObserved();
 

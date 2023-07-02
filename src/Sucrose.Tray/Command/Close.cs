@@ -4,7 +4,7 @@ using WinForms = System.Windows.Forms.Application;
 
 namespace Sucrose.Tray.Command
 {
-    public static class Close
+    internal static class Close
     {
         public static void Command()
         {

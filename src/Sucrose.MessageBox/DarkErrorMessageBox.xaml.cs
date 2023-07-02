@@ -1,10 +1,12 @@
-﻿using Skylark.Helper;
-using Skylark.Wing.Helper;
+﻿using Skylark.Wing.Helper;
 using Skylark.Wing.Native;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
 using SGHMBL = Sucrose.Globalization.Helper.MessageBoxLocalization;
+using SMR = Sucrose.Memory.Readonly;
+using SSECT = Sucrose.Space.Enum.CommandsType;
+using SSHC = Sucrose.Space.Helper.Command;
+using SSMI = Sucrose.Space.Manage.Internal;
 
 namespace Sucrose.MessageBox
 {
@@ -32,7 +34,7 @@ namespace Sucrose.MessageBox
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(Path);
+            SSHC.Run(SSMI.Application, $"{SMR.StartCommand}{SSECT.Log}{SMR.ValueSeparator}{Path}");
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

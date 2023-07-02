@@ -6,7 +6,7 @@
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
         <StartupObject>Sucrose.WPF.CS.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
         <Title>$(AssemblyName) - New Generation Wallpaper Engine</Title>
         <Description>$(Title)</Description>
@@ -69,6 +69,7 @@
         <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
+    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
     <Import Project="..\Sucrose.MessageBox\Sucrose.MessageBox.projitems" Label="Shared" />
 

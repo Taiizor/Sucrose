@@ -2,6 +2,7 @@
 {
     public enum CommandsType
     {
+        Log,
         Test,
         Report,
         Startup,

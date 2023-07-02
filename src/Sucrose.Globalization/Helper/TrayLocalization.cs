@@ -1,5 +1,5 @@
-﻿using Sucrose.Globalization.Manage;
-using System.Globalization;
+﻿using System.Globalization;
+using SGMR = Sucrose.Globalization.Manage.Resources;
 
 namespace Sucrose.Globalization.Helper
 {
@@ -7,7 +7,7 @@ namespace Sucrose.Globalization.Helper
     {
         public static string GetValue(string Key)
         {
-            return GetValue(Key, Resources.CultureInfo);
+            return GetValue(Key, SGMR.CultureInfo);
         }
 
         public static string GetValue(string Key, string Culture)
@@ -17,7 +17,7 @@ namespace Sucrose.Globalization.Helper
 
         public static string GetValue(string Key, CultureInfo Culture)
         {
-            return Resources.TrayManager.GetString(Key, Culture);
+            return SGMR.TrayManager.GetString(Key, Culture);
         }
     }
 }

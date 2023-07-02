@@ -223,6 +223,7 @@ Global
 		Sucrose.Tray\Sucrose.Tray.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.MessageBox\Sucrose.MessageBox.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
+		Sucrose.Space\Sucrose.Space.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{38624e0d-4bfd-4b82-b22a-3c57cdcdd1bf}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{3b13e30a-f789-484a-bc78-534eec688625}*SharedItemsImports = 13
 		Sucrose.Common\Sucrose.Common.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5

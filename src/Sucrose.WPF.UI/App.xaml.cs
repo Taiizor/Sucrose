@@ -1,5 +1,5 @@
-﻿using Sucrose.Memory;
-using System.Windows;
+﻿using System.Windows;
+using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.WPF.UI
 {
@@ -8,7 +8,7 @@ namespace Sucrose.WPF.UI
     /// </summary>
     public partial class App : Application
     {
-        private static readonly Mutex Mutex = new(true, Readonly.UserInterfaceMutex);
+        private static readonly Mutex Mutex = new(true, SMR.UserInterfaceMutex);
 
         public App()
         {

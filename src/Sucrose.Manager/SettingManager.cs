@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
-using Sucrose.Manager.Converter;
-using Sucrose.Memory;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading;
+using SMCIPAC = Sucrose.Manager.Converter.IPAddressConverter;
+using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Manager
 {
@@ -17,7 +17,7 @@ namespace Sucrose.Manager
 
         public SettingManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
-            _settingsFilePath = Path.Combine(Readonly.AppDataPath, Readonly.AppName, settingsFileName);
+            _settingsFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, settingsFileName);
 
             Directory.CreateDirectory(Path.GetDirectoryName(_settingsFilePath));
 
@@ -27,9 +27,9 @@ namespace Sucrose.Manager
                 Formatting = formatting,
                 Converters =
                 {
+                    //new SMCEC(),
+                    new SMCIPAC(),
                     //new StringEnumConverter(),
-                    new IPAddressConverter(),
-                    //new EnumConverter()
                 }
             };
 

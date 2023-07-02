@@ -2,7 +2,7 @@
 
 namespace Sucrose.Space.Helper
 {
-    internal class Command
+    internal static class Command
     {
         public static void Run(string Application)
         {
