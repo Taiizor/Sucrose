@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading;
 using SELLT = Skylark.Enum.LevelLogType;
 using SELT = Skylark.Enum.LogType;
@@ -20,7 +19,7 @@ namespace Sucrose.Manager
         {
             this.logType = logType;
 
-            threadId = new Random().Next(1000, 9999);
+            threadId = SMR.Randomise.Next(1000, 9999);
 
             logFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder, string.Format(logFileName, SMV.LogFileDate));
 

@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using Skylark.Wing.Native;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 using SGHMBL = Sucrose.Globalization.Helper.MessageBoxLocalization;
@@ -25,7 +26,7 @@ namespace Sucrose.MessageBox
         {
             bool Value = true;
 
-            PInvoke.DwmSetWindowAttribute(new WindowInteropHelper(this).Handle, WMMWindowAttribute.DWMWA_USE_IMMERSIVE_DARK_MODE, ref Value, Marshal.SizeOf(Value));
+            Methods.DwmSetWindowAttribute(new WindowInteropHelper(this).Handle, Methods.DWMWindowAttribute.DWMWA_USE_IMMERSIVE_DARK_MODE, ref Value, Marshal.SizeOf(Value));
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

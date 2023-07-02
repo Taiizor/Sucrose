@@ -9,8 +9,6 @@
     <Import_RootNamespace>Sucrose.MessageBox</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)PInvoke.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WMMWindowAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

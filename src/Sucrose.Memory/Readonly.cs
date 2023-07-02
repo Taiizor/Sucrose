@@ -4,6 +4,8 @@ namespace Sucrose.Memory
 {
     public static class Readonly
     {
+        public static readonly Random Randomise = new();
+
         public static readonly string LogFolder = "Log";
 
         public static readonly string AppName = "Sucrose";
