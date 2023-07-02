@@ -50,5 +50,10 @@ namespace Sucrose.Manager
                 _lock.ExitWriteLock();
             }
         }
+
+        public string LogFile()
+        {
+            return logFilePath;
+        }
     }
 }

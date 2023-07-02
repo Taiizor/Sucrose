@@ -129,4 +129,13 @@
   <data name="WindowTitle" xml:space="preserve">
     <value>Sucrose Watchdog</value>
   </data>
+  <data name="ShowButton" xml:space="preserve">
+    <value>Montrer</value>
+  </data>
+  <data name="StackTrace" xml:space="preserve">
+    <value>Trace de la Pile:</value>
+  </data>
+  <data name="HideButton" xml:space="preserve">
+    <value>Cacher</value>
+  </data>
 </root>

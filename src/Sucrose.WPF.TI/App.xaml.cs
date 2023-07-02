@@ -55,14 +55,16 @@ namespace Sucrose.WPF.TI
             {
                 HasStart = false;
 
+                string Path = Internal.TrayIconLogManager.LogFile();
+
                 switch (Theme)
                 {
                     case WindowsThemeType.Dark:
-                        DarkErrorMessageBox DarkMessageBox = new(Culture, Message);
+                        DarkErrorMessageBox DarkMessageBox = new(Culture, Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        LightErrorMessageBox LightMessageBox = new(Culture, Message);
+                        LightErrorMessageBox LightMessageBox = new(Culture, Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }
@@ -95,6 +97,8 @@ namespace Sucrose.WPF.TI
             Internal.TrayIconLogManager.Log(LevelLogType.Info, "Server initialized..");
 
             HasStart = true;
+
+            Convert.ToInt32("53X");
         }
 
         protected override void OnExit(ExitEventArgs e)
