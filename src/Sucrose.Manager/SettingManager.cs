@@ -46,7 +46,7 @@ namespace Sucrose.Manager
                 {
                     string json = File.ReadAllText(_settingsFilePath);
 
-                    Settings? settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                    Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
                     if (settings.Properties.TryGetValue(key, out object value))
                     {

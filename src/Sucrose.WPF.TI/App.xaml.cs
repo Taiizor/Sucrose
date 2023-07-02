@@ -131,7 +131,11 @@ namespace Sucrose.WPF.TI
             {
                 Internal.TrayIconLogManager.Log(LevelLogType.Warning, "Application could not be initialized!");
 
+                Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application Interface opening..");
+
                 Interface.Command();
+
+                Internal.TrayIconLogManager.Log(LevelLogType.Info, "Application Interface opened..");
 
                 Close();
             }

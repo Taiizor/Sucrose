@@ -49,8 +49,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.309" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.1.215" />
+        <PackageReference Include="Skylark" Version="3.0.1.311" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.218" />
     </ItemGroup>
 
     <ItemGroup>

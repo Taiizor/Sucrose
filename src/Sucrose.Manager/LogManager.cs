@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.IO;
 using System.Threading;
 using SELLT = Skylark.Enum.LevelLogType;
@@ -10,13 +10,18 @@ namespace Sucrose.Manager
 {
     public class LogManager
     {
+        private int threadId;
+        private SELT logType;
         private string logFilePath;
-        private SELT logType = SELT.All;
         private static object lockObject = new();
         private readonly ReaderWriterLockSlim _lock;
 
         public LogManager(string logFileName, SELT logType = SELT.All)
         {
+            this.logType = logType;
+
+            threadId = new Random().Next(1000, 9999);
+
             logFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder, string.Format(logFileName, SMV.LogFileDate));
 
             Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
@@ -38,7 +43,7 @@ namespace Sucrose.Manager
                 lock (lockObject)
                 {
                     using StreamWriter writer = File.AppendText(logFilePath);
-                    writer.WriteLine($"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}/{level}] ~ [{message}]");
+                    writer.WriteLine($"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
                 }
             }
             finally
