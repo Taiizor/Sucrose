@@ -1,5 +1,4 @@
 ﻿using Sucrose.Player.Event;
-using Sucrose.Player.Helper;
 using Sucrose.Player.Manage;
 using System.Windows;
 
@@ -14,20 +13,17 @@ namespace Sucrose.Player.CefSharp
         {
             InitializeComponent();
 
-            Content = Internal.MediaPlayer;
+            Content = Internal.CefPlayer;
 
-            Internal.MediaPlayer.Source = new Uri(@"https://prod-streaming-video-msn-com.akamaized.net/ba33094e-efb2-480f-ad77-1a103af156d2/3b215666-f0b7-4538-9ea2-0637d5ed2ea3.mp4");
+            Internal.CefPlayer.Address = @"http://www.bokowsky.net/de/knowledge-base/video/videos/big_buck_bunny_240p.ogg"; //.webm - .mp4 - .ogg
 
-            Internal.MediaPlayer.MediaOpened += Handler.MediaPlayerOpened;
-            Internal.MediaPlayer.MediaFailed += Handler.MediaPlayerFailed;
-            Internal.MediaPlayer.MediaEnded += Handler.MediaPlayerEnded;
+            Internal.CefPlayer.BrowserSettings = Internal.CefSettings;
 
-            Closing += (s, e) => Internal.MediaPlayer.Close();
+            Internal.CefPlayer.FrameLoadEnd += Handler.CefPlayerFrameLoadEnd;
+            Internal.CefPlayer.Loaded += Handler.CefPlayerLoaded;
+
+            Closing += (s, e) => Internal.EdgePlayer.Dispose();
             Loaded += (s, e) => Handler.WindowLoaded(this);
-
-            MediaElementHelper.SetVolume(100);
-
-            Internal.MediaPlayer.Play();
         }
     }
 }

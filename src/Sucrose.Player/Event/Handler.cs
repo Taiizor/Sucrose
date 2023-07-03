@@ -1,4 +1,5 @@
-﻿using Microsoft.Web.WebView2.Core;
+﻿using CefSharp;
+using Microsoft.Web.WebView2.Core;
 using Skylark.Wing.Helper;
 using Sucrose.Player.Manage;
 using System.Diagnostics;
@@ -36,16 +37,31 @@ namespace Sucrose.Player.Event
             Internal.MediaPlayer.Play();
         }
 
-        public static void EdgePlayerInitializationCompleted(object? sender, CoreWebView2InitializationCompletedEventArgs e)
+        public static void EdgePlayerInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
             Internal.EdgePlayer.CoreWebView2.DOMContentLoaded += EdgePlayerDOMContentLoaded;
         }
 
-        public static void EdgePlayerDOMContentLoaded(object? sender, CoreWebView2DOMContentLoadedEventArgs e)
+        public static void EdgePlayerDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
             Internal.EdgePlayer.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].requestFullscreen();");
             Internal.EdgePlayer.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
             Internal.EdgePlayer.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
+        }
+
+        public static void CefPlayerFrameLoadEnd(object? sender, FrameLoadEndEventArgs e)
+        {
+            //Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].webkitRequestFullscreen();");
+            //Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].requestFullscreen();");
+            Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
+            Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
+
+            Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style = \"position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;\";");
+        }
+
+        public static void CefPlayerLoaded(object sender, RoutedEventArgs e)
+        {
+            Internal.CefPlayer.ShowDevTools();
         }
     }
 }

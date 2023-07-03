@@ -1,7 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using CefSharp;
+using System.Windows.Controls;
 using System.Windows.Media;
-using MediaPlayer = System.Windows.Controls.MediaElement;
+using CefPlayer = CefSharp.Wpf.ChromiumWebBrowser;
 using EdgePlayer = Microsoft.Web.WebView2.Wpf.WebView2;
+using MediaPlayer = System.Windows.Controls.MediaElement;
 
 namespace Sucrose.Player.Manage
 {
@@ -16,6 +18,16 @@ namespace Sucrose.Player.Manage
         public static EdgePlayer EdgePlayer = new()
         {
             //
+        };
+
+        public static CefPlayer CefPlayer = new()
+        {
+            //BrowserSettings = CefSettings
+        };
+
+        public static BrowserSettings CefSettings = new()
+        {
+            WindowlessFrameRate = 144
         };
     }
 }

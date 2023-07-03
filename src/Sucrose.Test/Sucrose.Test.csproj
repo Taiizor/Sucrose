@@ -1,18 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
 
-  <Import Project="..\Sucrose.Player\Sucrose.Player.projitems" Label="Shared" />
+    <ItemGroup>
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.220" />
+        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1905-prerelease" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1905-prerelease" />
-    <PackageReference Include="Skylark.Wing" Version="3.0.1.220" />
-  </ItemGroup>
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="CefSharp.Wpf" Version="114.2.120" />
+    </ItemGroup>
+
+    <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.120" />
+    </ItemGroup>
+
+    <Import Project="..\Sucrose.Player\Sucrose.Player.projitems" Label="Shared" />
 
 </Project>

@@ -25,6 +25,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CefSharp\CefSharp.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Handler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\CefSharpHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\WebView2Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\MediaElementHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
