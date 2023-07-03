@@ -31,39 +31,39 @@ namespace Sucrose.WPF.UI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SGSGSS.ChannelCreate(SCMI.ServerManager.GetSetting<string>("Host"), SCMI.ServerManager.GetSettingStable<int>("Port"));
-            SGCWWC client = new(SGSGSS.ChannelInstance);
+            SGCWWC Client = new(SGSGSS.ChannelInstance);
 
             switch ((sender as Button).Content)
             {
                 case "Design 1":
-                    SGCSWCS.ChangeAddress(client, Uri1, true);
+                    SGCSWCS.ChangeAddress(Client, Uri1, true);
                     break;
                 case "Design 2":
-                    SGCSWCS.ChangeAddress(client, Uri2, true);
+                    SGCSWCS.ChangeAddress(Client, Uri2, true);
                     break;
                 case "Design 3":
-                    SGCSWCS.ChangeAddress(client, Uri3, true);
+                    SGCSWCS.ChangeAddress(Client, Uri3, true);
                     break;
                 case "Design 4":
-                    SGCSWCS.ChangeAddress(client, Uri4, false);
+                    SGCSWCS.ChangeAddress(Client, Uri4, false);
                     break;
                 case "Design 5":
-                    SGCSWCS.ChangeAddress(client, Uri5, true);
+                    SGCSWCS.ChangeAddress(Client, Uri5, true);
                     break;
                 case "Design 6":
-                    SGCSWCS.ChangeAddress(client, Uri6, true);
+                    SGCSWCS.ChangeAddress(Client, Uri6, true);
                     break;
                 case "Design 7":
-                    SGCSWCS.ChangeAddress(client, Uri7, false);
+                    SGCSWCS.ChangeAddress(Client, Uri7, false);
                     break;
                 case "Design 8":
-                    SGCSWCS.ChangeAddress(client, Uri8, true);
+                    SGCSWCS.ChangeAddress(Client, Uri8, true);
                     break;
                 case "Design 9":
-                    SGCSWCS.ChangeAddress(client, Uri9, true);
+                    SGCSWCS.ChangeAddress(Client, Uri9, true);
                     break;
                 case "Design 10":
-                    SGCSWCS.ChangeAddress(client, Uri10, true);
+                    SGCSWCS.ChangeAddress(Client, Uri10, true);
                     break;
                 default:
                     break;

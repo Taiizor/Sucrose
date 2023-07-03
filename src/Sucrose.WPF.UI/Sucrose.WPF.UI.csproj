@@ -17,10 +17,11 @@
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
         <AssemblyName>Sucrose.WPF.UI</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
+        <UseWindowsForms>false</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
-        <DefineConstants>$(DefineConstants);GENERAL;SERVER</DefineConstants>
+        <DefineConstants>$(DefineConstants);GENERAL;USER_INTERFACE;SERVER</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -48,6 +49,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.219" />
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
@@ -55,7 +60,10 @@
         <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
+    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.MessageBox\Sucrose.MessageBox.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />

@@ -1,12 +1,12 @@
-﻿using Skylark.Wing.Helper;
-using Skylark.Wing.Native;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Windows;
 using SGHMBL = Sucrose.Globalization.Helper.MessageBoxLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
 using SSMI = Sucrose.Space.Manage.Internal;
+using SWHWI = Skylark.Wing.Helper.WindowInterop;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.MessageBox
 {
@@ -46,7 +46,7 @@ namespace Sucrose.MessageBox
         {
             bool Value = true;
 
-            Methods.DwmSetWindowAttribute(WindowInterop.Handle(this), Methods.DWMWindowAttribute.DWMWA_USE_IMMERSIVE_DARK_MODE, ref Value, Marshal.SizeOf(Value));
+            SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), SWNM.DWMWindowAttribute.DWMWA_USE_IMMERSIVE_DARK_MODE, ref Value, Marshal.SizeOf(Value));
         }
     }
 }

@@ -9,19 +9,17 @@
     <Import_RootNamespace>Sucrose.MessageBox</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)LightErrorMessageBox.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)LightErrorMessageBox.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LightErrorMessageBox.xaml.cs" />
   </ItemGroup>
 </Project>

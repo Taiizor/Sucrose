@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sucrose.MessageBox"
         mc:Ignorable="d"
-        ResizeMode="CanResizeWithGrip" MinHeight="250" MinWidth="400"
-        Title="Sucrose.MessageBox ErrorMessageBox" Height="250" Width="400" WindowStartupLocation="CenterScreen">
+        ResizeMode="CanResizeWithGrip" MinHeight="250" MinWidth="500"
+        Title="Sucrose.MessageBox ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#F0F0F0" />

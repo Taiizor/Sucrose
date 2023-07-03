@@ -1,5 +1,13 @@
 ﻿using System.Windows;
+using SCMI = Sucrose.Common.Manage.Internal;
+using SEWTT = Skylark.Enum.WindowsThemeType;
+using SGMR = Sucrose.Globalization.Manage.Resources;
+using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
+using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
+using SMC = Sucrose.Memory.Constant;
 using SMR = Sucrose.Memory.Readonly;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWW = Sucrose.Watchdog.Watch;
 
 namespace Sucrose.WPF.UI
 {
@@ -8,11 +16,59 @@ namespace Sucrose.WPF.UI
     /// </summary>
     public partial class App : Application
     {
+        private static string Culture { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+
+        private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+
         private static readonly Mutex Mutex = new(true, SMR.UserInterfaceMutex);
+
+        private static bool HasStart { get; set; } = false;
 
         public App()
         {
-            AppDomain.CurrentDomain.UnhandledException += GlobalUnhandledExceptionHandler;
+            AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_FirstChanceException(Exception);
+
+                //Close();
+                //Message(Exception.Message);
+            };
+
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            {
+                Exception Exception = (Exception)e.ExceptionObject;
+
+                SWW.Watch_GlobalUnhandledExceptionHandler(Exception);
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            TaskScheduler.UnobservedTaskException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_UnobservedTaskException(Exception);
+
+                e.SetObserved();
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            Current.DispatcherUnhandledException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_DispatcherUnhandledException(Exception);
+
+                e.Handled = true;
+
+                //Close();
+                Message(Exception.Message);
+            };
         }
 
         protected void Close()
@@ -20,6 +76,34 @@ namespace Sucrose.WPF.UI
             Environment.Exit(0);
             Current.Shutdown();
             Shutdown();
+        }
+
+        protected void Message(string Message)
+        {
+            if (HasStart)
+            {
+                HasStart = false;
+
+                string Path = SCMI.UserInterfaceLogManager.LogFile();
+
+                switch (Theme)
+                {
+                    case SEWTT.Dark:
+                        SMBDEMB DarkMessageBox = new(Culture, Message, Path);
+                        DarkMessageBox.ShowDialog();
+                        break;
+                    default:
+                        SMBLEMB LightMessageBox = new(Culture, Message, Path);
+                        LightMessageBox.ShowDialog();
+                        break;
+                }
+
+                Close();
+            }
+            else
+            {
+                Close();
+            }
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -38,24 +122,12 @@ namespace Sucrose.WPF.UI
                 Mutex.ReleaseMutex();
                 Main Interface = new();
                 Interface.Show();
+                HasStart = true;
             }
             else
             {
                 Close();
             }
-        }
-
-        protected void GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
-        {
-            Exception ex = (Exception)e.ExceptionObject;
-            MessageBox.Show(ex.Message + "\n" + ex.InnerException + "\n" + ex.StackTrace + "\n" + ex.Data + "\n" + ex.TargetSite + "\n" + ex.HResult + "\n" + ex.Source + "\n" + ex.HelpLink);
-            //var logger = NLog.LogManager.GetCurrentClassLogger();
-            //logger.Error($"UNHANDELED EXCEPTION START");
-            //logger.Error($"Application crashed: {ex.Message}.");
-            //logger.Error($"Inner exception: {ex.InnerException}.");
-            //logger.Error($"Stack trace: {ex.StackTrace}.");
-            //logger.Error($"UNHANDELED EXCEPTION FINISH");
-            Close();
         }
     }
 }

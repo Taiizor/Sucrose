@@ -2,13 +2,10 @@
 using CefSharp.Wpf;
 using Grpc.Core;
 using System.IO;
-using System.Runtime.ExceptionServices;
 using System.Windows;
-using System.Windows.Threading;
 using Application = System.Windows.Application;
 using SCMI = Sucrose.Common.Manage.Internal;
 using SCSWSS = Sucrose.Common.Services.WebsiterServerService;
-using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCW = Sucrose.Grpc.Common.Websiter;
 using SGMR = Sucrose.Globalization.Manage.Resources;
@@ -18,6 +15,7 @@ using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
 using SMC = Sucrose.Memory.Constant;
 using SMR = Sucrose.Memory.Readonly;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWW = Sucrose.Watchdog.Watch;
 
 namespace Sucrose.WPF.CS
 {
@@ -37,11 +35,60 @@ namespace Sucrose.WPF.CS
         public App()
         {
             System.Windows.Forms.Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
-            AppDomain.CurrentDomain.UnhandledException += App_GlobalUnhandledExceptionHandler;
-            System.Windows.Forms.Application.ThreadException += Application_ThreadException;
-            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
-            AppDomain.CurrentDomain.FirstChanceException += App_FirstChanceException;
-            Current.DispatcherUnhandledException += App_DispatcherUnhandledException;
+
+            System.Windows.Forms.Application.ThreadException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_ThreadException(Exception);
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_FirstChanceException(Exception);
+
+                //Close();
+                //Message(Exception.Message);
+            };
+
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            {
+                Exception Exception = (Exception)e.ExceptionObject;
+
+                SWW.Watch_GlobalUnhandledExceptionHandler(Exception);
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            TaskScheduler.UnobservedTaskException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_UnobservedTaskException(Exception);
+
+                e.SetObserved();
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            Current.DispatcherUnhandledException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_DispatcherUnhandledException(Exception);
+
+                e.Handled = true;
+
+                //Close();
+                Message(Exception.Message);
+            };
 
 #if NET48_OR_GREATER && DEBUG
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
@@ -136,80 +183,6 @@ namespace Sucrose.WPF.CS
             {
                 Close();
             }
-        }
-
-        private void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"THREAD EXCEPTION START");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"THREAD EXCEPTION FINISH");
-
-            //Close();
-            Message(Exception.Message);
-        }
-
-        private void App_FirstChanceException(object sender, FirstChanceExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION START");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION FINISH");
-
-            //Close();
-            //Message(Exception.Message);
-        }
-
-        protected void App_GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
-        {
-            Exception Exception = (Exception)e.ExceptionObject;
-
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION START");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION FINISH");
-
-            //Close();
-            Message(Exception.Message);
-        }
-
-        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION START");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION FINISH");
-
-            e.Handled = true;
-
-            //Close();
-            Message(Exception.Message);
-        }
-
-        private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION START");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.CefSharpLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION FINISH");
-
-            e.SetObserved();
-
-            //Close();
-            Message(Exception.Message);
         }
     }
 }

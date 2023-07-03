@@ -1,6 +1,4 @@
-﻿using System.Runtime.ExceptionServices;
-using System.Windows;
-using System.Windows.Threading;
+﻿using System.Windows;
 using Application = System.Windows.Application;
 using SCMI = Sucrose.Common.Manage.Internal;
 using SCSTISS = Sucrose.Common.Services.TrayIconServerService;
@@ -15,6 +13,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMR = Sucrose.Memory.Readonly;
 using STCI = Sucrose.Tray.Command.Interface;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWW = Sucrose.Watchdog.Watch;
 
 namespace Sucrose.WPF.TI
 {
@@ -36,11 +35,60 @@ namespace Sucrose.WPF.TI
         public App()
         {
             System.Windows.Forms.Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
-            AppDomain.CurrentDomain.UnhandledException += App_GlobalUnhandledExceptionHandler;
-            System.Windows.Forms.Application.ThreadException += Application_ThreadException;
-            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
-            AppDomain.CurrentDomain.FirstChanceException += App_FirstChanceException;
-            Current.DispatcherUnhandledException += App_DispatcherUnhandledException;
+
+            System.Windows.Forms.Application.ThreadException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_ThreadException(Exception);
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_FirstChanceException(Exception);
+
+                //Close();
+                //Message(Exception.Message);
+            };
+
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            {
+                Exception Exception = (Exception)e.ExceptionObject;
+
+                SWW.Watch_GlobalUnhandledExceptionHandler(Exception);
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            TaskScheduler.UnobservedTaskException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_UnobservedTaskException(Exception);
+
+                e.SetObserved();
+
+                //Close();
+                Message(Exception.Message);
+            };
+
+            Current.DispatcherUnhandledException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_DispatcherUnhandledException(Exception);
+
+                e.Handled = true;
+
+                //Close();
+                Message(Exception.Message);
+            };
         }
 
         protected void Close()
@@ -144,80 +192,6 @@ namespace Sucrose.WPF.TI
 
                 Close();
             }
-        }
-
-        private void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"THREAD EXCEPTION START");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"THREAD EXCEPTION FINISH");
-
-            //Close();
-            Message(Exception.Message);
-        }
-
-        private void App_FirstChanceException(object sender, FirstChanceExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION START");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"FIRST CHANCE EXCEPTION FINISH");
-
-            //Close();
-            //Message(Exception.Message);
-        }
-
-        protected void App_GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
-        {
-            Exception Exception = (Exception)e.ExceptionObject;
-
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION START");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"GLOBAL UNHANDLED EXCEPTION FINISH");
-
-            //Close();
-            Message(Exception.Message);
-        }
-
-        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION START");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"DISPATCHER UNHANDLED EXCEPTION FINISH");
-
-            e.Handled = true;
-
-            //Close();
-            Message(Exception.Message);
-        }
-
-        private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
-        {
-            Exception Exception = e.Exception;
-
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION START");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application crashed: {Exception.Message}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Inner exception: {Exception.InnerException}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Stack trace: {Exception.StackTrace}.");
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"UNOBSERVED TASK EXCEPTION FINISH");
-
-            e.SetObserved();
-
-            //Close();
-            Message(Exception.Message);
         }
     }
 }
