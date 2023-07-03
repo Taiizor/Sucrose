@@ -30,13 +30,13 @@ namespace Sucrose.Watchdog
             WatchLog(Exception, "GLOBAL UNHANDLED");
         }
 
-        private static void WatchLog(Exception Exception, string Name)
+        private static void WatchLog(Exception Exception, string Type)
         {
-            WriteLog($"{Name} EXCEPTION START");
+            WriteLog($"{Type} EXCEPTION START");
             WriteLog($"Application crashed: {Exception.Message}.");
             WriteLog($"Inner exception: {Exception.InnerException}.");
             WriteLog($"Stack trace: {Exception.StackTrace}.");
-            WriteLog($"{Name} EXCEPTION FINISH");
+            WriteLog($"{Type} EXCEPTION FINISH");
         }
 
         private static void WriteLog(string Text)
