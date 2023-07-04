@@ -16,19 +16,23 @@ namespace Sucrose.Memory
 
         public static readonly string CefSharp = "CefSharp";
 
+        public static readonly string WebView2 = "WebView2";
+
         public static readonly char ValueSeparatorChar = '|';
+
+        public static readonly string MediaElement = "MediaElement";
 
         public static readonly string StartCommand = $"{StartCommandChar}";
 
-        public static readonly string WPFApplication = "Sucrose.WPF.UI.exe";
+        public static readonly string WPFUserInterface = "Sucrose.WPF.UI.exe";
+
+        public static readonly string CommandLine = "Sucrose.CommandLine.exe";
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
         public static readonly string LogDescription = "SucroseWatchdog Thread";
 
-        public static readonly string ConsoleApplication = "Sucrose.CommandLine.exe";
-
-        public static readonly string WinFormsApplication = "Sucrose.WinForms.UI.exe";
+        public static readonly string WinFormsUserInterface = "Sucrose.WinForms.UI.exe";
 
         public static readonly string CefSharpMutex = "{Sucrose-Wallpaper-Engine-Cef-Sharp}";
 

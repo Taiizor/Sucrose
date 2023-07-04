@@ -1,11 +1,15 @@
 ﻿using System.IO;
-using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Windows;
 using SPMEEH = Sucrose.Player.ME.Event.Handler;
 using SPMEHMEH = Sucrose.Player.ME.Helper.MediaElementHelper;
 using SPMEMI = Sucrose.Player.ME.Manage.Internal;
 using SPSEH = Sucrose.Player.Shared.Event.Handler;
+using SMR = Sucrose.Memory.Readonly;
+using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
+#if NET48_OR_GREATER
+using System.Net.Http;
+#endif
 
 namespace Sucrose.Player.ME
 {
@@ -25,7 +29,15 @@ namespace Sucrose.Player.ME
             if (IsUrl(Source))
             {
 #if NET48_OR_GREATER
-                string LocalSource = @"Video.mp4";
+                string CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.MediaElement);
+
+                if (!Directory.Exists(CachePath))
+                {
+                    Directory.CreateDirectory(CachePath);
+                }
+
+                //string LocalSource = @Path.Combine(CachePath, Path.ChangeExtension(Path.GetRandomFileName(), Path.GetExtension(Source)));
+                string LocalSource = @Path.Combine(CachePath, $"{SSECCE.TextToMD5(Source)}{Path.GetExtension(Source)}");
 
                 using HttpClient Client = new();
                 using HttpResponseMessage Response = Client.GetAsync(Source).Result;

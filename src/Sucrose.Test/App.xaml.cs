@@ -30,6 +30,7 @@ namespace Sucrose.Test
             settings.CefCommandLineArgs.Add("use-fake-ui-for-media-stream", "1");
             settings.CefCommandLineArgs.Add("enable-speech-input", "1");
             settings.CefCommandLineArgs.Add("enable-usermedia-screen-capture", "1");
+            settings.CefCommandLineArgs.Add("enable-usermedia-screen-capturing", "1");
             settings.CefCommandLineArgs.Add("debug-plugin-loading", "1");
             settings.CefCommandLineArgs.Add("allow-outdated-plugins", "1");
             settings.CefCommandLineArgs.Add("always-authorize-plugins", "1");

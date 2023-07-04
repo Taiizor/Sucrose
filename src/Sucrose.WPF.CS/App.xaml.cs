@@ -96,7 +96,7 @@ namespace Sucrose.WPF.CS
 
             CefSettings Settings = new()
             {
-                CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CefSharp, SMR.CacheFolder)
+                CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
             };
 
             Settings.CefCommandLineArgs.Add("enable-media-stream");

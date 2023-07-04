@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
-using SMR = Sucrose.Memory.Readonly;
+﻿using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
+using SSHC = Sucrose.Space.Helper.Command;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
 namespace Sucrose.CommandLine.Helper
@@ -44,10 +44,10 @@ namespace Sucrose.CommandLine.Helper
                                 switch (Command)
                                 {
                                     case SSECT.Log:
-                                        Process.Start(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Run(ParseArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Test:
-                                        Console.WriteLine("Test değerleri:");
+                                        Console.WriteLine("Test values:");
 
                                         foreach (string value in Values)
                                         {
@@ -68,13 +68,13 @@ namespace Sucrose.CommandLine.Helper
                                         }
                                         break;
                                     case SSECT.Report:
-                                        Process.Start(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Run(ParseArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Startup:
                                         SWHWS.SetStartup(ParseArgumentValue<string>(Values[0]), ParseArgumentValue<string>(Values[1]), ParseArgumentValue<bool>(Values[2]));
                                         break;
                                     case SSECT.Interface:
-                                        Process.Start(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Run(ParseArgumentValue<string>(Values[0]));
                                         break;
                                     default:
                                         break;

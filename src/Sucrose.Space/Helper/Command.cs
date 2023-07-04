@@ -13,8 +13,9 @@ namespace Sucrose.Space.Helper
         {
             ProcessStartInfo ProcessInfo = new(Application, Arguments)
             {
-                CreateNoWindow = true,
-                UseShellExecute = false
+                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = true,
+                CreateNoWindow = true
             };
 
             Process Process = new()

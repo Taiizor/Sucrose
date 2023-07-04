@@ -29,7 +29,7 @@ namespace Sucrose.MessageBox
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
-            SSHC.Run(SSMI.Application, $"{SMR.StartCommand}{SSECT.Log}{SMR.ValueSeparator}{Path}");
+            SSHC.Run(SSMI.CommandLine, $"{SMR.StartCommand}{SSECT.Log}{SMR.ValueSeparator}{Path}");
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

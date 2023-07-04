@@ -17,7 +17,7 @@
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
         <AssemblyName>Sucrose.Player.ME.Live</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
-        <UseWindowsForms>false</UseWindowsForms>
+        <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
@@ -49,11 +49,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="System.Net.Http" />
-    </ItemGroup>
-
-    <ItemGroup>
+        <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.220" />
+    </ItemGroup>
+    
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Net.Http" />
     </ItemGroup>
 
     <ItemGroup>

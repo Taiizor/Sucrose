@@ -9,7 +9,7 @@ namespace Sucrose.Tray.Command
     {
         public static void Command()
         {
-            SSHC.Run(SSMI.Application, $"{SMR.StartCommand}{SSECT.Report}{SMR.ValueSeparator}{SMR.ReportWebsite}");
+            SSHC.Run(SSMI.CommandLine, $"{SMR.StartCommand}{SSECT.Report}{SMR.ValueSeparator}{SMR.ReportWebsite}");
         }
     }
 }

@@ -29,6 +29,18 @@ namespace Sucrose.Player.ME.Live
 
         public App()
         {
+            System.Windows.Forms.Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
+
+            System.Windows.Forms.Application.ThreadException += (s, e) =>
+            {
+                Exception Exception = e.Exception;
+
+                SWW.Watch_ThreadException(Exception);
+
+                //Close();
+                Message(Exception.Message);
+            };
+
             AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
             {
                 Exception Exception = e.Exception;
