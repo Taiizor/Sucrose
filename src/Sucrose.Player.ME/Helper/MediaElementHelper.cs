@@ -1,6 +1,6 @@
-﻿using Sucrose.Player.Manage;
+﻿using Sucrose.Player.ME.Manage;
 
-namespace Sucrose.Player.Helper
+namespace Sucrose.Player.ME.Helper
 {
     internal static class MediaElementHelper
     {

@@ -39,9 +39,17 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.MessageBox", "Sucro
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Watchdog", "Sucrose.Watchdog\Sucrose.Watchdog.shproj", "{FC456E42-E6B9-40E5-807B-8F75EF203AF4}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Player", "Sucrose.Player\Sucrose.Player.shproj", "{B24A5246-035A-4B1C-A82C-B4FEE9FF4583}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Test", "Sucrose.Test\Sucrose.Test.csproj", "{25B2FF97-CE6A-4794-B066-73678BCAD6C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Test", "Sucrose.Test\Sucrose.Test.csproj", "{25B2FF97-CE6A-4794-B066-73678BCAD6C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Player", "Player", "{5B4A4BA0-D823-4720-8C8C-10E5ECBB4474}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Player.Shared", "Sucrose.Player.Shared\Sucrose.Player.Shared.shproj", "{7B8D569E-C903-4932-9A9C-E9ED3D5471F5}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Player.CS", "Sucrose.Player.CS\Sucrose.Player.CS.shproj", "{9DD0F057-2DD3-47B6-A426-D45A4580381C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Player.ME", "Sucrose.Player.ME\Sucrose.Player.ME.shproj", "{3318971F-0544-4459-911F-D108CD659469}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Player.WV", "Sucrose.Player.WV\Sucrose.Player.WV.shproj", "{CE50F9F4-4948-4A6E-BE8E-436F6AB1C813}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -235,6 +243,12 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B8D569E-C903-4932-9A9C-E9ED3D5471F5} = {5B4A4BA0-D823-4720-8C8C-10E5ECBB4474}
+		{9DD0F057-2DD3-47B6-A426-D45A4580381C} = {5B4A4BA0-D823-4720-8C8C-10E5ECBB4474}
+		{3318971F-0544-4459-911F-D108CD659469} = {5B4A4BA0-D823-4720-8C8C-10E5ECBB4474}
+		{CE50F9F4-4948-4A6E-BE8E-436F6AB1C813} = {5B4A4BA0-D823-4720-8C8C-10E5ECBB4474}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DA4A105-4BC7-4943-9328-F7274E75FCB3}
 	EndGlobalSection
@@ -244,11 +258,15 @@ Global
 		Sucrose.Space\Sucrose.Space.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Tray\Sucrose.Tray.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
-		Sucrose.Player\Sucrose.Player.projitems*{25b2ff97-ce6a-4794-b066-73678bcad6c7}*SharedItemsImports = 5
+		Sucrose.Player.CS\Sucrose.Player.CS.projitems*{25b2ff97-ce6a-4794-b066-73678bcad6c7}*SharedItemsImports = 5
+		Sucrose.Player.ME\Sucrose.Player.ME.projitems*{25b2ff97-ce6a-4794-b066-73678bcad6c7}*SharedItemsImports = 5
+		Sucrose.Player.Shared\Sucrose.Player.Shared.projitems*{25b2ff97-ce6a-4794-b066-73678bcad6c7}*SharedItemsImports = 5
+		Sucrose.Player.WV\Sucrose.Player.WV.projitems*{25b2ff97-ce6a-4794-b066-73678bcad6c7}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.MessageBox\Sucrose.MessageBox.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
+		Sucrose.Player.ME\Sucrose.Player.ME.projitems*{3318971f-0544-4459-911f-d108cd659469}*SharedItemsImports = 13
 		Sucrose.Space\Sucrose.Space.projitems*{38624e0d-4bfd-4b82-b22a-3c57cdcdd1bf}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{3b13e30a-f789-484a-bc78-534eec688625}*SharedItemsImports = 13
 		Sucrose.Common\Sucrose.Common.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
@@ -256,9 +274,11 @@ Global
 		Sucrose.Space\Sucrose.Space.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{4a57580b-4ae3-4a25-a887-766d1b3709c7}*SharedItemsImports = 13
+		Sucrose.Player.Shared\Sucrose.Player.Shared.projitems*{7b8d569e-c903-4932-9a9c-e9ed3d5471f5}*SharedItemsImports = 13
+		Sucrose.Player.CS\Sucrose.Player.CS.projitems*{9dd0f057-2dd3-47b6-a426-d45a4580381c}*SharedItemsImports = 13
 		Sucrose.MessageBox\Sucrose.MessageBox.projitems*{a7a7402e-bc6f-4af8-b0f4-e9d701458a56}*SharedItemsImports = 13
-		Sucrose.Player\Sucrose.Player.projitems*{b24a5246-035a-4b1c-a82c-b4fee9ff4583}*SharedItemsImports = 13
 		Sucrose.Tray\Sucrose.Tray.projitems*{bf2bfa28-f6cf-4075-9d3b-025a2f6eb967}*SharedItemsImports = 13
+		Sucrose.Player.WV\Sucrose.Player.WV.projitems*{ce50f9f4-4948-4a6e-be8e-436f6ab1c813}*SharedItemsImports = 13
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{fc456e42-e6b9-40e5-807b-8f75ef203af4}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

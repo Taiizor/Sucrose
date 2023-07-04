@@ -1,7 +1,7 @@
 ﻿using CefSharp;
-using Sucrose.Player.Manage;
+using Sucrose.Player.CS.Manage;
 
-namespace Sucrose.Player.Helper
+namespace Sucrose.Player.CS.Helper
 {
     internal static class CefSharpHelper
     {

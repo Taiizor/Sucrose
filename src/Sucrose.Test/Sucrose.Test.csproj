@@ -20,7 +20,9 @@
     <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
         <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.120" />
     </ItemGroup>
-
-    <Import Project="..\Sucrose.Player\Sucrose.Player.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Player.ME\Sucrose.Player.ME.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Player.CS\Sucrose.Player.CS.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Player.WV\Sucrose.Player.WV.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Player.Shared\Sucrose.Player.Shared.projitems" Label="Shared" />
 
 </Project>

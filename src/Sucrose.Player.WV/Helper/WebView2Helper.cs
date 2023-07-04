@@ -1,6 +1,6 @@
-﻿using Sucrose.Player.Manage;
+﻿using Sucrose.Player.WV.Manage;
 
-namespace Sucrose.Player.Helper
+namespace Sucrose.Player.WV.Helper
 {
     internal static class WebView2Helper
     {
