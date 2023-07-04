@@ -34,6 +34,8 @@ namespace Sucrose.Memory
 
         public static readonly string TrayIconMutex = "{Sucrose-Wallpaper-Engine-Tray-Icon}";
 
+        public static readonly string MediaElementMutex = "{Sucrose-Wallpaper-Engine-Media-Element}";
+
         public static readonly string UserInterfaceMutex = "{Sucrose-Wallpaper-Engine-User-Interface}";
 
         public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";

@@ -12,7 +12,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.312" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.220" />
     </ItemGroup>
 
@@ -21,5 +20,9 @@
     </ItemGroup>
 
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
+
+    <ItemGroup>
+        <Folder Include="Properties\" />
+    </ItemGroup>
 
 </Project>

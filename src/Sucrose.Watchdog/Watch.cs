@@ -45,6 +45,8 @@ namespace Sucrose.Watchdog
             SCMI.CefSharpLogManager.Log(SELLT.Error, Text);
 #elif TRAY_ICON
             SCMI.TrayIconLogManager.Log(SELLT.Error, Text);
+#elif MEDIA_ELEMENT
+            SCMI.MediaElementLogManager.Log(SELLT.Error, Text);
 #elif USER_INTERFACE
             SCMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
 #endif

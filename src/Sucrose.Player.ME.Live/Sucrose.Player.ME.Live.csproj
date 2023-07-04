@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+        <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
+        <StartupObject>Sucrose.Player.ME.Live.App</StartupObject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <Company>Taiizor</Company>
+        <Title>$(AssemblyName) - New Generation Wallpaper Engine</Title>
+        <Description>$(Title)</Description>
+        <Product>$(Title)</Product>
+        <InformationalVersion>$(Version)</InformationalVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
+        <AssemblyName>Sucrose.Player.ME.Live</AssemblyName>
+        <RootNamespace>$(AssemblyName)</RootNamespace>
+        <UseWindowsForms>false</UseWindowsForms>
+        <UseWPF>true</UseWPF>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <DefineConstants>$(DefineConstants);GENERAL;MEDIA_ELEMENT</DefineConstants>
+        <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+        <OutputPath>..\Sucrose\WPF\Browser</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+        <RetainVMGarbageCollection>true</RetainVMGarbageCollection>
+        <ThreadPoolMinThreads>1</ThreadPoolMinThreads>
+        <ThreadPoolMaxThreads>100</ThreadPoolMaxThreads>
+        <!-- Supported as of .NET Core SDK 3.0 Preview 1 -->
+        <TieredCompilation>true</TieredCompilation>
+        <InvariantGlobalization>false</InvariantGlobalization>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
+            <TargetPath>$(AssemblyName).exe.config</TargetPath>
+        </AppConfigWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.220" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
+        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
+        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
+        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Player.ME\Sucrose.Player.ME.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.MessageBox\Sucrose.MessageBox.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Player.Shared\Sucrose.Player.Shared.projitems" Label="Shared" />
+
+    <ItemGroup>
+        <Folder Include="Properties\" />
+    </ItemGroup>
+
+</Project>

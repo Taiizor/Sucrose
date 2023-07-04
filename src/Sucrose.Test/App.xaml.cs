@@ -52,7 +52,7 @@ namespace Sucrose.Test
 
 
 
-            Sucrose.Player.WV.WebView2 Player = new();
+            Window Player = new();
             Player.Show();
 
             Engine.WallpaperWindow(Player, 0, ScreenType.DisplayBound);

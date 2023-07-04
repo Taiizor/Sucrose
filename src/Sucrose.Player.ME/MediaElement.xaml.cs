@@ -17,7 +17,7 @@ namespace Sucrose.Player.ME
 
             Content = SPMEMI.MediaPlayer;
 
-            SPMEMI.MediaPlayer.Source = new Uri(@"https://prod-streaming-video-msn-com.akamaized.net/ba33094e-efb2-480f-ad77-1a103af156d2/3b215666-f0b7-4538-9ea2-0637d5ed2ea3.mp4");
+            SPMEMI.MediaPlayer.Source = new Uri(@"https://prod-streaming-video-msn-com.akamaized.net/ba33094e-efb2-480f-ad77-1a103af156d2/3b215666-f0b7-4538-9ea2-0637d5ed2ea3.mp4", UriKind.RelativeOrAbsolute);
 
             SPMEMI.MediaPlayer.MediaOpened += SPMEEH.MediaPlayerOpened;
             SPMEMI.MediaPlayer.MediaFailed += SPMEEH.MediaPlayerFailed;
@@ -28,7 +28,7 @@ namespace Sucrose.Player.ME
 
             SPMEHMEH.SetVolume(100);
 
-            SPMEMI.MediaPlayer.Play();
+            SPMEHMEH.Play();
         }
     }
 }
