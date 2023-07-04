@@ -28,7 +28,7 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\Sucrose\WPF\Browser</OutputPath>
+        <OutputPath>..\Sucrose\WPF\UserInterface</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -68,5 +68,17 @@
     <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
+
+    <PropertyGroup>
+        <SourceDirectory>$(OutputPath)\$(TargetFramework)</SourceDirectory>
+        <DestinationDirectory>..\Sucrose\Package\$(TargetFramework)\$(AssemblyName)\</DestinationDirectory>
+    </PropertyGroup>
+
+    <Target Name="CopyFiles" BeforeTargets="Build">
+        <ItemGroup>
+            <FilesToCopy Include="$(SourceDirectory)\**\*.*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(DestinationDirectory)%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
 
 </Project>

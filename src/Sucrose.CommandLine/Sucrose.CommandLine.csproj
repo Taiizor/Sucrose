@@ -2,8 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
-        <!--<OutputPath>..\Sucrose\CommandLine</OutputPath>-->
-        <OutputPath>..\Sucrose\WPF\Browser</OutputPath>
+        <OutputPath>..\Sucrose\CommandLine</OutputPath>
         <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>

@@ -51,7 +51,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Player.ME", "Sucros
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Player.WV", "Sucrose.Player.WV\Sucrose.Player.WV.shproj", "{CE50F9F4-4948-4A6E-BE8E-436F6AB1C813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Player.ME.Live", "Sucrose.Player.ME.Live\Sucrose.Player.ME.Live.csproj", "{4A5580E7-6380-4BE1-B88F-82D12A3B5DFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Player.ME.Live", "Sucrose.Player.ME.Live\Sucrose.Player.ME.Live.csproj", "{4A5580E7-6380-4BE1-B88F-82D12A3B5DFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,8 +127,8 @@ Global
 		{26A36D29-9383-449E-8FE1-A58415ADE7A2}.Release|ARM64.Build.0 = Release|ARM64
 		{26A36D29-9383-449E-8FE1-A58415ADE7A2}.Release|x64.ActiveCfg = Release|x64
 		{26A36D29-9383-449E-8FE1-A58415ADE7A2}.Release|x64.Build.0 = Release|x64
-		{26A36D29-9383-449E-8FE1-A58415ADE7A2}.Release|x86.ActiveCfg = Release|x86
-		{26A36D29-9383-449E-8FE1-A58415ADE7A2}.Release|x86.Build.0 = Release|x86
+		{26A36D29-9383-449E-8FE1-A58415ADE7A2}.Release|x86.ActiveCfg = Release|Any CPU
+		{26A36D29-9383-449E-8FE1-A58415ADE7A2}.Release|x86.Build.0 = Release|Any CPU
 		{403A332A-B17E-43CC-9208-FB9985B7728E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{403A332A-B17E-43CC-9208-FB9985B7728E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{403A332A-B17E-43CC-9208-FB9985B7728E}.Debug|ARM64.ActiveCfg = Debug|Any CPU
