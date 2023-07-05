@@ -1,13 +1,13 @@
 ﻿using System.Windows;
 using Application = System.Windows.Application;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
-using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
 namespace Sucrose.Player.ME.Live

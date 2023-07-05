@@ -1,9 +1,9 @@
 ﻿using CefSharp;
 using System.Windows;
-using SPCSMI = Sucrose.Player.CS.Manage.Internal;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SPCSHCSH = Sucrose.Player.CS.Helper.CefSharpHelper;
+using SPCSMI = Sucrose.Player.CS.Manage.Internal;
 
 namespace Sucrose.Player.CS.Event
 {

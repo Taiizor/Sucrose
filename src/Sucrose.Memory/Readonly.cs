@@ -24,6 +24,8 @@ namespace Sucrose.Memory
 
         public static readonly string StartCommand = $"{StartCommandChar}";
 
+        public static readonly string EngineLive = "Sucrose.Engine.Live.exe";
+
         public static readonly string WPFUserInterface = "Sucrose.WPF.UI.exe";
 
         public static readonly string CommandLine = "Sucrose.CommandLine.exe";
@@ -31,6 +33,8 @@ namespace Sucrose.Memory
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
         public static readonly string LogDescription = "SucroseWatchdog Thread";
+
+        public static readonly string WebViewLive = "Sucrose.Player.WV.Live.exe";
 
         public static readonly string EngineMutex = "{Sucrose-Wallpaper-Engine}";
 

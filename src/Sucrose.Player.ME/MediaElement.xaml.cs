@@ -1,20 +1,19 @@
-﻿using System.Text.RegularExpressions;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Media;
+using System.Windows.Threading;
+using SEDST = Skylark.Enum.DuplicateScreenType;
+using SEEST = Skylark.Enum.ExpandScreenType;
+using SEST = Skylark.Enum.ScreenType;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMEEH = Sucrose.Player.ME.Event.Handler;
 using SPMEHMEH = Sucrose.Player.ME.Helper.MediaElementHelper;
 using SPMEMI = Sucrose.Player.ME.Manage.Internal;
 using SPSEH = Sucrose.Player.Shared.Event.Handler;
-using SEST = Skylark.Enum.ScreenType;
-using SEDST = Skylark.Enum.DuplicateScreenType;
-using SEEST = Skylark.Enum.ExpandScreenType;
+using SPSHS = Sucrose.Player.Shared.Helper.Source;
 using SSEDT = Sucrose.Space.Enum.DisplayType;
 using SSEST = Sucrose.Space.Enum.StretchType;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
 using SWE = Skylark.Wing.Engine;
-using SPSHS = Sucrose.Player.Shared.Helper.Source;
-using System.Windows.Threading;
-using System.Windows.Media;
 
 namespace Sucrose.Player.ME
 {

@@ -4,6 +4,7 @@
     {
         Log,
         Kill,
+        Live,
         Test,
         Report,
         Startup,

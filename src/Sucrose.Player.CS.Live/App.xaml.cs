@@ -1,17 +1,17 @@
-﻿using System.Windows;
+﻿using CefSharp;
+using CefSharp.Wpf;
+using System.IO;
+using System.Windows;
 using Application = System.Windows.Application;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
-using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
-using CefSharp.Wpf;
-using CefSharp;
-using System.IO;
 
 namespace Sucrose.Player.CS.Live
 {
@@ -188,7 +188,7 @@ namespace Sucrose.Player.CS.Live
         {
             base.OnExit(e);
 
-            //
+            Cef.Shutdown();
 
             Close();
         }

@@ -1,18 +1,18 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using SPCSEH = Sucrose.Player.CS.Event.Handler;
-using SPCSMI = Sucrose.Player.CS.Manage.Internal;
-using SPSEH = Sucrose.Player.Shared.Event.Handler;
-using SEST = Skylark.Enum.ScreenType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
+using SEST = Skylark.Enum.ScreenType;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SPCSEH = Sucrose.Player.CS.Event.Handler;
+using SPCSHCSH = Sucrose.Player.CS.Helper.CefSharpHelper;
+using SPCSMI = Sucrose.Player.CS.Manage.Internal;
+using SPSEH = Sucrose.Player.Shared.Event.Handler;
+using SPSHS = Sucrose.Player.Shared.Helper.Source;
 using SSEDT = Sucrose.Space.Enum.DisplayType;
 using SSEST = Sucrose.Space.Enum.StretchType;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
 using SWE = Skylark.Wing.Engine;
-using SPSHS = Sucrose.Player.Shared.Helper.Source;
-using SPCSHCSH = Sucrose.Player.CS.Helper.CefSharpHelper;
 
 namespace Sucrose.Player.CS
 {

@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Windows;
-using SPMEMI = Sucrose.Player.ME.Manage.Internal;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SPMEMI = Sucrose.Player.ME.Manage.Internal;
 
 namespace Sucrose.Player.ME.Event
 {

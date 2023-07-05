@@ -10,6 +10,10 @@ using STCR = Sucrose.Tray.Command.Report;
 using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
 using STRLR = Sucrose.Tray.Renderer.LightRenderer;
 using STSSS = Sucrose.Tray.Separator.StripSeparator;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMC = Sucrose.Memory.Constant;
+using SSMI = Sucrose.Space.Manage.Internal;
+using SSECT = Sucrose.Space.Enum.CommandsType;
 
 namespace Sucrose.Tray.Manager
 {
@@ -52,20 +56,17 @@ namespace Sucrose.Tray.Manager
             STSSS Separator1 = new(ThemeType);
             ContextMenu.Items.Add(Separator1.Strip);
 
-            if (SSHC.Work(SMR.MediaElementLive))
+            if (SSHC.Work(SMMI.EngineSettingManager.GetSetting(SMC.App, SMR.EngineLive)))
             {
-                ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, CommandWallpaper);
-                ContextMenu.Items.Add(SGHTL.GetValue("WallStartText"), null, null); //WallStopText
+                ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, CommandEngine);
+                //ContextMenu.Items.Add(SGHTL.GetValue("WallStartText"), null, null); //WallStopText
 
-                if (true) //Engine is run and working
-                {
-                    ContextMenu.Items.Add(SGHTL.GetValue("WallChangeText"), null, null);
-                    ContextMenu.Items.Add(SGHTL.GetValue("WallCustomizeText"), null, null);
-                }
+                ContextMenu.Items.Add(SGHTL.GetValue("WallChangeText"), null, null);
+                ContextMenu.Items.Add(SGHTL.GetValue("WallCustomizeText"), null, null);
             }
             else
             {
-                ContextMenu.Items.Add(SGHTL.GetValue("WallOpenText"), null, null);
+                ContextMenu.Items.Add(SGHTL.GetValue("WallOpenText"), null, CommandEngine);
             }
 
             STSSS Separator2 = new(ThemeType);
@@ -132,9 +133,18 @@ namespace Sucrose.Tray.Manager
             STCI.Command();
         }
 
-        private void CommandWallpaper(object sender, EventArgs e)
+        private void CommandEngine(object sender, EventArgs e)
         {
-            SSHC.Kill(SMR.MediaElementLive);
+            string Live = SMMI.EngineSettingManager.GetSetting(SMC.App, SMR.EngineLive);
+
+            if (SSHC.Work(Live))
+            {
+                SSHC.Kill(Live);
+            }
+            else
+            {
+                SSHC.Run(SSMI.CommandLine, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.TextEngineLive[Live]}");
+            }
         }
 
         private void CommandReport(object sender, EventArgs e)

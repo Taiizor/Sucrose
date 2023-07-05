@@ -1,5 +1,5 @@
-﻿using System.Text.RegularExpressions;
-using System.IO;
+﻿using System.IO;
+using System.Text.RegularExpressions;
 #if NET48_OR_GREATER
 using System.Net.Http;
 using SMR = Sucrose.Memory.Readonly;
