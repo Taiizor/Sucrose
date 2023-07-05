@@ -9,10 +9,13 @@ using SEST = Skylark.Enum.ScreenType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SSEDT = Sucrose.Space.Enum.DisplayType;
+using SSEST = Sucrose.Space.Enum.StretchType;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SWE = Skylark.Wing.Engine;
 using System.Windows.Threading;
+using System.Windows.Media;
+using Skylark.Enum;
 #if NET48_OR_GREATER
 using System.Net.Http;
 using SMR = Sucrose.Memory.Readonly;
@@ -125,6 +128,13 @@ namespace Sucrose.Player.ME
         private void Timer_Tick(object sender, EventArgs e)
         {
             SPMEHMEH.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+
+            SSEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSEST.Fill);
+
+            if ((int)Stretch < Enum.GetValues(typeof(SSEST)).Length)
+            {
+                SPMEMI.MediaPlayer.Stretch = (Stretch)Stretch;
+            }
 
             Uri Video = GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, new Uri(@"", UriKind.RelativeOrAbsolute)));
 

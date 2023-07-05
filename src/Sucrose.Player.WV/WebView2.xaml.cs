@@ -1,10 +1,10 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using System.IO;
 using System.Windows;
+using SMR = Sucrose.Memory.Readonly;
 using SPSEH = Sucrose.Player.Shared.Event.Handler;
 using SPWVEH = Sucrose.Player.WV.Event.Handler;
 using SPWVMI = Sucrose.Player.WV.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Player.WV
 {

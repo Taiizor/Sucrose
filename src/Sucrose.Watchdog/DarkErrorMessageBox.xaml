@@ -1,17 +1,17 @@
-﻿<Window x:Class="Sucrose.MessageBox.LightErrorMessageBox"
+﻿<Window x:Class="Sucrose.Watchdog.DarkErrorMessageBox"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sucrose.MessageBox"
+        xmlns:local="clr-namespace:Sucrose.Watchdog"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip" MinHeight="250" MinWidth="500"
-        Title="Sucrose.MessageBox ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Sucrose.Watchdog ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#F0F0F0" />
-            <Setter Property="Foreground" Value="#333333" />
-            <Setter Property="BorderBrush" Value="#DDDDDD" />
+            <Setter Property="Background" Value="#FF292929" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#FF707070" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Padding" Value="5" />
             <Setter Property="Template">
@@ -25,8 +25,8 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#E5E5E5" />
-                                <Setter TargetName="border" Property="BorderBrush" Value="#888888" />
+                                <Setter TargetName="border" Property="Background" Value="#FF393939" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF848484" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -36,20 +36,20 @@
     </Window.Resources>
     <Grid>
         <Grid.Background>
-            <SolidColorBrush Color="#F5F5F5" />
+            <SolidColorBrush Color="#FF2B2B2B" />
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Border Background="#F0F0F0" BorderBrush="#DDDDDD" BorderThickness="1" CornerRadius="5" Margin="20">
+        <Border Background="#FF292929" BorderBrush="#FF707070" BorderThickness="1" CornerRadius="5" Margin="20">
             <Border.Effect>
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Border.Effect>
             <StackPanel Margin="20">
-                <TextBlock x:Name="Error_Title" Text="Error" Foreground="#333333" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
-                <TextBlock x:Name="Error_Message" Text="Message" TextWrapping="Wrap" FontSize="14" Foreground="#333333" />
+                <TextBlock x:Name="Error_Title" Text="Error" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
+                <TextBlock x:Name="Error_Message" Text="Message" TextWrapping="Wrap" FontSize="14" Foreground="White" />
             </StackPanel>
         </Border>
 

@@ -1,19 +1,19 @@
 ﻿using System.Windows;
 using Application = System.Windows.Application;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using STMI = Sucrose.Tray.Manage.Internal;
 using SCSTISS = Sucrose.Common.Services.TrayIconServerService;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCTI = Sucrose.Grpc.Common.TrayIcon;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
-using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
-using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
 using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using STCI = Sucrose.Tray.Command.Interface;
+using STMI = Sucrose.Tray.Manage.Internal;
+using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
 namespace Sucrose.WPF.TI
@@ -112,11 +112,11 @@ namespace Sucrose.WPF.TI
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SMBDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SMBLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Culture, Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

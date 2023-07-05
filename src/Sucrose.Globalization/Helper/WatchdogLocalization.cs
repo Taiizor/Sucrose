@@ -3,7 +3,7 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 
 namespace Sucrose.Globalization.Helper
 {
-    public static class MessageBoxLocalization
+    public static class WatchdogLocalization
     {
         public static string GetValue(string Key)
         {
@@ -17,7 +17,7 @@ namespace Sucrose.Globalization.Helper
 
         public static string GetValue(string Key, CultureInfo Culture)
         {
-            return SGMR.MessageBoxManager.GetString(Key, Culture);
+            return SGMR.WatchdogManager.GetString(Key, Culture);
         }
     }
 }

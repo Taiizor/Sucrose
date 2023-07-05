@@ -1,12 +1,12 @@
 ﻿using System.Windows;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
-using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
 using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
 namespace Sucrose.WPF.UI
@@ -89,11 +89,11 @@ namespace Sucrose.WPF.UI
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SMBDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SMBLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Culture, Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

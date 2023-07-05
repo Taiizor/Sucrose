@@ -1,11 +1,11 @@
 ﻿using System.Windows;
-using SGHMBL = Sucrose.Globalization.Helper.MessageBoxLocalization;
+using SGHWL = Sucrose.Globalization.Helper.WatchdogLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
 using SSMI = Sucrose.Space.Manage.Internal;
 
-namespace Sucrose.MessageBox
+namespace Sucrose.Watchdog
 {
     /// <summary>
     /// Interaction logic for LightErrorMessageBox.xaml
@@ -20,11 +20,11 @@ namespace Sucrose.MessageBox
 
             Path = LogPath;
 
-            Title = SGHMBL.GetValue("WindowTitle", Culture);
-            Error_Title.Text = SGHMBL.GetValue("ErrorTitle", Culture);
-            Show_Button.Content = SGHMBL.GetValue("ShowButton", Culture);
-            Close_Button.Content = SGHMBL.GetValue("CloseButton", Culture);
-            Error_Message.Text = SGHMBL.GetValue("ErrorMessage", Culture) + Environment.NewLine + ErrorMessage;
+            Title = SGHWL.GetValue("WindowTitle", Culture);
+            Error_Title.Text = SGHWL.GetValue("ErrorTitle", Culture);
+            Show_Button.Content = SGHWL.GetValue("ShowButton", Culture);
+            Close_Button.Content = SGHWL.GetValue("CloseButton", Culture);
+            Error_Message.Text = SGHWL.GetValue("ErrorMessage", Culture) + Environment.NewLine + ErrorMessage;
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)

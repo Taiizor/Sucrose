@@ -2,14 +2,14 @@
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGHTL = Sucrose.Globalization.Helper.TrayLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
+using SMR = Sucrose.Memory.Readonly;
+using SSHC = Sucrose.Space.Helper.Command;
 using STCC = Sucrose.Tray.Command.Close;
 using STCI = Sucrose.Tray.Command.Interface;
 using STCR = Sucrose.Tray.Command.Report;
 using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
 using STRLR = Sucrose.Tray.Renderer.LightRenderer;
 using STSSS = Sucrose.Tray.Separator.StripSeparator;
-using SSHC = Sucrose.Space.Helper.Command;
-using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Tray.Manager
 {

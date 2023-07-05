@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Resources;
 using SGSG = Sucrose.Globalization.Strings.General;
-using SGSMB = Sucrose.Globalization.Strings.MessageBox;
+using SGSW = Sucrose.Globalization.Strings.Watchdog;
 using SGST = Sucrose.Globalization.Strings.Tray;
 
 namespace Sucrose.Globalization.Manage
@@ -14,6 +14,6 @@ namespace Sucrose.Globalization.Manage
 
         public static readonly ResourceManager GeneralManager = new($"{typeof(SGSG)}", typeof(SGSG).Assembly);
 
-        public static readonly ResourceManager MessageBoxManager = new($"{typeof(SGSMB)}", typeof(SGSMB).Assembly);
+        public static readonly ResourceManager WatchdogManager = new($"{typeof(SGSW)}", typeof(SGSW).Assembly);
     }
 }

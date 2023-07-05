@@ -4,15 +4,15 @@ using Grpc.Core;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SCSWSS = Sucrose.Common.Services.WebsiterServerService;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCW = Sucrose.Grpc.Common.Websiter;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
-using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
-using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
+using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
+using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWW = Sucrose.Watchdog.Watch;
@@ -131,11 +131,11 @@ namespace Sucrose.WPF.CS
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SMBDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SMBLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Culture, Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

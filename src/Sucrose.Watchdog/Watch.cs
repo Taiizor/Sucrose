@@ -1,5 +1,5 @@
-﻿using SMMI = Sucrose.Manager.Manage.Internal;
-using SELLT = Skylark.Enum.LevelLogType;
+﻿using SELLT = Skylark.Enum.LevelLogType;
+using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Watchdog
 {

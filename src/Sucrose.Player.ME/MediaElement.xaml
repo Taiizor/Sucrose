@@ -10,5 +10,6 @@
     ResizeMode="NoResize"
     Title="MediaPlayer"
     WindowStyle="None"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Left="-9999">
 </Window>

@@ -3,8 +3,8 @@ using Application = System.Windows.Application;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
-using SMBLEMB = Sucrose.MessageBox.LightErrorMessageBox;
+using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
+using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SMC = Sucrose.Memory.Constant;
 using SMR = Sucrose.Memory.Readonly;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -102,11 +102,11 @@ namespace Sucrose.Player.ME.Live
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SMBDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SMBLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Culture, Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

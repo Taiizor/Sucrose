@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Globalization.Strings
 {
-    internal class MessageBox
+    internal class Watchdog
     {
     }
 }
