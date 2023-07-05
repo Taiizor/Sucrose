@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Application = System.Windows.Application;
-using SCMI = Sucrose.Common.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using STMI = Sucrose.Tray.Manage.Internal;
 using SCSTISS = Sucrose.Common.Services.TrayIconServerService;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -22,11 +23,11 @@ namespace Sucrose.WPF.TI
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static bool Visible { get; set; } = SCMI.TrayIconSettingManager.GetSetting(SMC.Visible, true);
+        private static bool Visible { get; set; } = SMMI.TrayIconSettingManager.GetSetting(SMC.Visible, true);
 
         private static Mutex Mutex { get; } = new(true, SMR.TrayIconMutex);
 
@@ -93,7 +94,7 @@ namespace Sucrose.WPF.TI
 
         protected void Close()
         {
-            SCMI.TrayIconLogManager.Log(SELLT.Error, $"Application has been closed.");
+            SMMI.TrayIconLogManager.Log(SELLT.Error, $"Application has been closed.");
 
             Environment.Exit(0);
             Current.Shutdown();
@@ -106,7 +107,7 @@ namespace Sucrose.WPF.TI
             {
                 HasStart = false;
 
-                string Path = SCMI.TrayIconLogManager.LogFile();
+                string Path = SMMI.TrayIconLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -130,22 +131,22 @@ namespace Sucrose.WPF.TI
 
         protected void Configure()
         {
-            SCMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initializing..");
+            SMMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initializing..");
 
-            SCMI.TrayIconManager.Start(Theme, Culture);
+            STMI.TrayIconManager.Start(Theme, Culture);
 
             SGSGSS.ServerCreate(SGCTI.BindService(new SCSTISS()));
 
-            SCMI.TrayIconSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
-            SCMI.TrayIconSettingManager.SetSetting(SMC.Port, SGSGSS.Port);
+            SMMI.TrayIconSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
+            SMMI.TrayIconSettingManager.SetSetting(SMC.Port, SGSGSS.Port);
 
-            SCMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initialized..");
+            SMMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initialized..");
 
-            SCMI.TrayIconLogManager.Log(SELLT.Info, "Server initializing..");
+            SMMI.TrayIconLogManager.Log(SELLT.Info, "Server initializing..");
 
             SGSGSS.ServerInstance.Start();
 
-            SCMI.TrayIconLogManager.Log(SELLT.Info, "Server initialized..");
+            SMMI.TrayIconLogManager.Log(SELLT.Info, "Server initialized..");
 
             HasStart = true;
         }
@@ -157,7 +158,7 @@ namespace Sucrose.WPF.TI
             SGSGSS.ServerInstance.KillAsync().Wait();
             //SGSGSS.ServerInstance.ShutdownAsync().Wait();
 
-            SCMI.TrayIconManager.Dispose();
+            STMI.TrayIconManager.Dispose();
 
             Close();
         }
@@ -166,29 +167,29 @@ namespace Sucrose.WPF.TI
         {
             base.OnStartup(e);
 
-            SCMI.TrayIconLogManager.Log(SELLT.Info, "Application initializing..");
+            SMMI.TrayIconLogManager.Log(SELLT.Info, "Application initializing..");
 
             if (Mutex.WaitOne(TimeSpan.Zero, true) && Visible)
             {
-                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
+                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 
                 Mutex.ReleaseMutex();
 
-                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being released.");
+                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being released.");
 
                 Configure();
 
-                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application initialized..");
+                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application initialized..");
             }
             else
             {
-                SCMI.TrayIconLogManager.Log(SELLT.Warning, "Application could not be initialized!");
+                SMMI.TrayIconLogManager.Log(SELLT.Warning, "Application could not be initialized!");
 
-                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opening..");
+                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opening..");
 
                 STCI.Command();
 
-                SCMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opened..");
+                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opened..");
 
                 Close();
             }

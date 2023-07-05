@@ -1,4 +1,4 @@
-﻿using Sucrose.Common.Manage;
+﻿using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.WPF.CS
 {
@@ -6,20 +6,20 @@ namespace Sucrose.WPF.CS
     {
         public static string Uri
         {
-            get => Internal.WebsiteManager.GetSetting("Uri", "https://www.vegalya.com");
-            set => Internal.WebsiteManager.SetSetting("Uri", value);
+            get => SMMI.WebsiteManager.GetSetting("Uri", "https://www.vegalya.com");
+            set => SMMI.WebsiteManager.SetSetting("Uri", value);
         }
 
         public static bool Hook
         {
-            get => Internal.WebsiteManager.GetSetting("Hook", true);
-            set => Internal.WebsiteManager.SetSetting("Hook", value);
+            get => SMMI.WebsiteManager.GetSetting("Hook", true);
+            set => SMMI.WebsiteManager.SetSetting("Hook", value);
         }
 
         public static bool State
         {
-            get => Internal.WebsiteManager.GetSetting("State", true);
-            set => Internal.WebsiteManager.SetSetting("State", value);
+            get => SMMI.WebsiteManager.GetSetting("State", true);
+            set => SMMI.WebsiteManager.SetSetting("State", value);
         }
     }
 }

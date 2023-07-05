@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using SCMI = Sucrose.Common.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SGCSWCS = Sucrose.Grpc.Client.Services.WebsiterClientService;
 using SGCWWC = Sucrose.Grpc.Common.Websiter.WebsiterClient;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
@@ -30,7 +30,7 @@ namespace Sucrose.WPF.UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SGSGSS.ChannelCreate(SCMI.ServerManager.GetSetting<string>("Host"), SCMI.ServerManager.GetSettingStable<int>("Port"));
+            SGSGSS.ChannelCreate(SMMI.ServerManager.GetSetting<string>("Host"), SMMI.ServerManager.GetSettingStable<int>("Port"));
             SGCWWC Client = new(SGSGSS.ChannelInstance);
 
             switch ((sender as Button).Content)

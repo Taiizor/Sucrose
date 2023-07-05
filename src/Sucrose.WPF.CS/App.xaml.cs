@@ -4,7 +4,7 @@ using Grpc.Core;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SCMI = Sucrose.Common.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SCSWSS = Sucrose.Common.Services.WebsiterServerService;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCW = Sucrose.Grpc.Common.Websiter;
@@ -24,9 +24,9 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static Mutex Mutex { get; } = new(true, SMR.CefSharpMutex);
 
@@ -126,7 +126,7 @@ namespace Sucrose.WPF.CS
             {
                 HasStart = false;
 
-                string Path = SCMI.CefSharpLogManager.LogFile();
+                string Path = SMMI.CefSharpLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -169,8 +169,8 @@ namespace Sucrose.WPF.CS
                     SGCW.BindService(new SCSWSS())
                 });
 
-                SCMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
-                SCMI.ServerManager.SetSetting(SMC.Port, SGSGSS.Port);
+                SMMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
+                SMMI.ServerManager.SetSetting(SMC.Port, SGSGSS.Port);
 
                 SGSGSS.ServerInstance.Start();
 

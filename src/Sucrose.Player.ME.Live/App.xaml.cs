@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using Application = System.Windows.Application;
-using SCMI = Sucrose.Common.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
@@ -17,9 +17,9 @@ namespace Sucrose.Player.ME.Live
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static Mutex Mutex { get; } = new(true, SMR.EngineMutex);
 
@@ -97,7 +97,7 @@ namespace Sucrose.Player.ME.Live
             {
                 HasStart = false;
 
-                string Path = SCMI.MediaElementLogManager.LogFile();
+                string Path = SMMI.MediaElementLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -121,7 +121,7 @@ namespace Sucrose.Player.ME.Live
 
         protected void Configure()
         {
-            SCMI.EngineSettingManager.SetSetting(SMC.App, SMR.MediaElementLive);
+            SMMI.EngineSettingManager.SetSetting(SMC.App, SMR.MediaElementLive);
 
             MediaElement Player = new();
             Player.Show();

@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using SCMI = Sucrose.Common.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMBDEMB = Sucrose.MessageBox.DarkErrorMessageBox;
@@ -16,9 +16,9 @@ namespace Sucrose.WPF.UI
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static readonly Mutex Mutex = new(true, SMR.UserInterfaceMutex);
 
@@ -84,7 +84,7 @@ namespace Sucrose.WPF.UI
             {
                 HasStart = false;
 
-                string Path = SCMI.UserInterfaceLogManager.LogFile();
+                string Path = SMMI.UserInterfaceLogManager.LogFile();
 
                 switch (Theme)
                 {

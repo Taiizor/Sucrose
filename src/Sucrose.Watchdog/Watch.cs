@@ -1,4 +1,4 @@
-﻿using SCMI = Sucrose.Common.Manage.Internal;
+﻿using SMMI = Sucrose.Manager.Manage.Internal;
 using SELLT = Skylark.Enum.LevelLogType;
 
 namespace Sucrose.Watchdog
@@ -42,13 +42,13 @@ namespace Sucrose.Watchdog
         private static void WriteLog(string Text)
         {
 #if CEFSHARP
-            SCMI.CefSharpLogManager.Log(SELLT.Error, Text);
+            SMMI.CefSharpLogManager.Log(SELLT.Error, Text);
 #elif TRAY_ICON
-            SCMI.TrayIconLogManager.Log(SELLT.Error, Text);
+            SMMI.TrayIconLogManager.Log(SELLT.Error, Text);
 #elif MEDIA_ELEMENT
-            SCMI.MediaElementLogManager.Log(SELLT.Error, Text);
+            SMMI.MediaElementLogManager.Log(SELLT.Error, Text);
 #elif USER_INTERFACE
-            SCMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
+            SMMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
 #endif
         }
     }

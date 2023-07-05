@@ -1,7 +1,7 @@
 ﻿#if TRAY_ICON
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-using Sucrose.Common.Manage;
+using Sucrose.Tray.Manage;
 using Sucrose.Grpc.Common;
 using static Sucrose.Grpc.Common.TrayIcon;
 

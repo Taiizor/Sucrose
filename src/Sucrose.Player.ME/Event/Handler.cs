@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using SPMEMI = Sucrose.Player.ME.Manage.Internal;
-using SCMI = Sucrose.Common.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 
 namespace Sucrose.Player.ME.Event
@@ -20,7 +20,7 @@ namespace Sucrose.Player.ME.Event
 
         public static void MediaPlayerEnded(object sender, EventArgs e)
         {
-            if (SCMI.EngineSettingManager.GetSetting(SMC.Loop, true))
+            if (SMMI.EngineSettingManager.GetSetting(SMC.Loop, true))
             {
                 SPMEMI.MediaPlayer.Position = TimeSpan.Zero;
                 SPMEMI.MediaPlayer.Play();

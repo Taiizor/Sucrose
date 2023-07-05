@@ -8,13 +8,11 @@ using SPSEH = Sucrose.Player.Shared.Event.Handler;
 using SEST = Skylark.Enum.ScreenType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
-using SSEPT = Sucrose.Space.Enum.PlayerType;
 using SSEDT = Sucrose.Space.Enum.DisplayType;
-using SCMI = Sucrose.Common.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SWE = Skylark.Wing.Engine;
 using System.Windows.Threading;
-using NUglify;
 #if NET48_OR_GREATER
 using System.Net.Http;
 using SMR = Sucrose.Memory.Readonly;
@@ -36,7 +34,7 @@ namespace Sucrose.Player.ME
 
             Content = SPMEMI.MediaPlayer;
 
-            SPMEMI.MediaPlayer.Source = GetSource(SCMI.EngineSettingManager.GetSetting(SMC.Video, @""));
+            SPMEMI.MediaPlayer.Source = GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, @""));
 
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Interval = new TimeSpan(0, 0, 1);
@@ -49,7 +47,7 @@ namespace Sucrose.Player.ME
             Closing += (s, e) => SPMEMI.MediaPlayer.Close();
             Loaded += (s, e) => SPSEH.WindowLoaded(this);
 
-            SPMEHMEH.SetVolume(SCMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SPMEHMEH.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
 
             SPMEHMEH.Play();
         }
@@ -110,25 +108,25 @@ namespace Sucrose.Player.ME
 
         private void MediaElement_ContentRendered(object sender, EventArgs e)
         {
-            switch (SCMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSEDT.Screen))
+            switch (SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSEDT.Screen))
             {
                 case SSEDT.Expand:
-                    SWE.WallpaperWindow(this, SCMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default), SCMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperWindow(this, SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
                     break;
                 case SSEDT.Duplicate:
-                    SWE.WallpaperWindow(this, SCMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default), SCMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperWindow(this, SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
                     break;
                 default:
-                    SWE.WallpaperWindow(this, SCMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0), SCMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperWindow(this, SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
                     break;
             }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            SPMEHMEH.SetVolume(SCMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SPMEHMEH.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
 
-            Uri Video = GetSource(SCMI.EngineSettingManager.GetSetting(SMC.Video, new Uri(@"", UriKind.RelativeOrAbsolute)));
+            Uri Video = GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, new Uri(@"", UriKind.RelativeOrAbsolute)));
 
             if (SPMEMI.MediaPlayer.Source != Video)
             {
