@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using Application = System.Windows.Application;
 using SCSTISS = Sucrose.Common.Services.TrayIconServerService;
 using SELLT = Skylark.Enum.LevelLogType;
@@ -23,13 +24,13 @@ namespace Sucrose.WPF.TI
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static bool Visible { get; set; } = SMMI.TrayIconSettingManager.GetSetting(SMC.Visible, true);
+        private static bool Visible => SMMI.TrayIconSettingManager.GetSetting(SMC.Visible, true);
 
-        private static Mutex Mutex { get; } = new(true, SMR.TrayIconMutex);
+        private static Mutex Mutex => new(true, SMR.TrayIconMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -90,6 +91,8 @@ namespace Sucrose.WPF.TI
                 //Close();
                 Message(Exception.Message);
             };
+
+            SGMR.CultureInfo = new CultureInfo(Culture, true);
         }
 
         protected void Close()
@@ -112,11 +115,11 @@ namespace Sucrose.WPF.TI
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SWLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }
@@ -133,7 +136,7 @@ namespace Sucrose.WPF.TI
         {
             SMMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initializing..");
 
-            STMI.TrayIconManager.Start(Theme, Culture);
+            STMI.TrayIconManager.Start();
 
             SGSGSS.ServerCreate(SGCTI.BindService(new SCSTISS()));
 

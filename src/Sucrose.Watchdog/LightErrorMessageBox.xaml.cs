@@ -14,17 +14,17 @@ namespace Sucrose.Watchdog
     {
         private static string Path = string.Empty;
 
-        public LightErrorMessageBox(string Culture, string ErrorMessage, string LogPath)
+        public LightErrorMessageBox(string ErrorMessage, string LogPath)
         {
             InitializeComponent();
 
             Path = LogPath;
 
-            Title = SGHWL.GetValue("WindowTitle", Culture);
-            Error_Title.Text = SGHWL.GetValue("ErrorTitle", Culture);
-            Show_Button.Content = SGHWL.GetValue("ShowButton", Culture);
-            Close_Button.Content = SGHWL.GetValue("CloseButton", Culture);
-            Error_Message.Text = SGHWL.GetValue("ErrorMessage", Culture) + Environment.NewLine + ErrorMessage;
+            Title = SGHWL.GetValue("WindowTitle");
+            Error_Title.Text = SGHWL.GetValue("ErrorTitle");
+            Show_Button.Content = SGHWL.GetValue("ShowButton");
+            Close_Button.Content = SGHWL.GetValue("CloseButton");
+            Error_Message.Text = SGHWL.GetValue("ErrorMessage") + Environment.NewLine + ErrorMessage;
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)

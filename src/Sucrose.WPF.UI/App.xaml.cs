@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
@@ -16,11 +17,11 @@ namespace Sucrose.WPF.UI
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static readonly Mutex Mutex = new(true, SMR.UserInterfaceMutex);
+        private static Mutex Mutex => new(true, SMR.UserInterfaceMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -69,6 +70,8 @@ namespace Sucrose.WPF.UI
                 //Close();
                 Message(Exception.Message);
             };
+
+            SGMR.CultureInfo = new CultureInfo(Culture, true);
         }
 
         protected void Close()
@@ -89,11 +92,11 @@ namespace Sucrose.WPF.UI
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SWLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

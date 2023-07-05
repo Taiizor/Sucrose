@@ -14,22 +14,22 @@ using STCR = Sucrose.Tray.Command.Report;
 using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
 using STRLR = Sucrose.Tray.Renderer.LightRenderer;
 using STSSS = Sucrose.Tray.Separator.StripSeparator;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Tray.Manager
 {
     public class TrayIconManager
     {
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+
         private ContextMenuStrip ContextMenu { get; set; } = new();
 
         private NotifyIcon TrayIcon { get; set; } = new();
 
-        private SEWTT ThemeType { get; set; }
-
-        public void Start(SEWTT ThemeType, string CultureName)
+        public void Start()
         {
-            SGMR.CultureInfo = new CultureInfo(CultureName, true);
-            this.ThemeType = ThemeType;
-
             TrayIcon.Text = SGHTL.GetValue("TrayText");
             TrayIcon.Icon = new Icon(SGHTL.GetValue("TrayIcon"));
 
@@ -42,7 +42,9 @@ namespace Sucrose.Tray.Manager
 
         public void Initialize()
         {
-            if (ThemeType == SEWTT.Dark)
+            SGMR.CultureInfo = new CultureInfo(Culture, true);
+
+            if (Theme == SEWTT.Dark)
             {
                 ContextMenu.Renderer = new STRDR();
             }
@@ -53,7 +55,7 @@ namespace Sucrose.Tray.Manager
 
             ContextMenu.Items.Add(SGHTL.GetValue("OpenText"), Image.FromFile(SGHTL.GetValue("OpenIcon")), CommandInterface);
 
-            STSSS Separator1 = new(ThemeType);
+            STSSS Separator1 = new(Theme);
             ContextMenu.Items.Add(Separator1.Strip);
 
             if (SSHC.Work(SMMI.EngineSettingManager.GetSetting(SMC.App, SMR.EngineLive)))
@@ -61,7 +63,7 @@ namespace Sucrose.Tray.Manager
                 ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, CommandEngine);
                 //ContextMenu.Items.Add(SGHTL.GetValue("WallStartText"), null, null); //WallStopText
 
-                ContextMenu.Items.Add(SGHTL.GetValue("WallChangeText"), null, null);
+                //ContextMenu.Items.Add(SGHTL.GetValue("WallChangeText"), null, null);
                 ContextMenu.Items.Add(SGHTL.GetValue("WallCustomizeText"), null, null);
             }
             else
@@ -69,13 +71,13 @@ namespace Sucrose.Tray.Manager
                 ContextMenu.Items.Add(SGHTL.GetValue("WallOpenText"), null, CommandEngine);
             }
 
-            STSSS Separator2 = new(ThemeType);
+            STSSS Separator2 = new(Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
             ContextMenu.Items.Add(SGHTL.GetValue("SettingsText"), Image.FromFile(SGHTL.GetValue("SettingsIcon")), null);
             ContextMenu.Items.Add(SGHTL.GetValue("ReportText"), Image.FromFile(SGHTL.GetValue("ReportIcon")), CommandReport);
 
-            STSSS Separator3 = new(ThemeType);
+            STSSS Separator3 = new(Theme);
             ContextMenu.Items.Add(Separator3.Strip);
 
             ContextMenu.Items.Add(SGHTL.GetValue("ExitText"), Image.FromFile(SGHTL.GetValue("ExitIcon")), CommandClose);

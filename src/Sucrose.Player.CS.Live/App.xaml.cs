@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
+using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
@@ -20,11 +21,11 @@ namespace Sucrose.Player.CS.Live
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex { get; } = new(true, SMR.EngineMutex);
+        private static Mutex Mutex => new(true, SMR.EngineMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -85,6 +86,8 @@ namespace Sucrose.Player.CS.Live
                 //Close();
                 Message(Exception.Message);
             };
+
+            SGMR.CultureInfo = new CultureInfo(Culture, true);
         }
 
         protected void Close()
@@ -105,11 +108,11 @@ namespace Sucrose.Player.CS.Live
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SWLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

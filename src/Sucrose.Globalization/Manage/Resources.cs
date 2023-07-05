@@ -8,7 +8,17 @@ namespace Sucrose.Globalization.Manage
 {
     public static class Resources
     {
-        public static CultureInfo CultureInfo = CultureInfo.CurrentUICulture;
+        public static CultureInfo CultureInfo
+        {
+            get => CultureInfo.CurrentUICulture;
+            set
+            {
+                CultureInfo.CurrentCulture = value;
+                CultureInfo.CurrentUICulture = value;
+                CultureInfo.DefaultThreadCurrentCulture = value;
+                CultureInfo.DefaultThreadCurrentUICulture = value;
+            }
+        }
 
         public static readonly ResourceManager TrayManager = new($"{typeof(SGST)}", typeof(SGST).Assembly);
 

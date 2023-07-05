@@ -1,6 +1,7 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
 using Grpc.Core;
+using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
@@ -24,11 +25,11 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex { get; } = new(true, SMR.CefSharpMutex);
+        private static Mutex Mutex => new(true, SMR.CefSharpMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -90,6 +91,8 @@ namespace Sucrose.WPF.CS
                 Message(Exception.Message);
             };
 
+            SGMR.CultureInfo = new CultureInfo(Culture, true);
+
 #if NET48_OR_GREATER && DEBUG
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
 #endif
@@ -131,11 +134,11 @@ namespace Sucrose.WPF.CS
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SWDEMB DarkMessageBox = new(Culture, Message, Path);
+                        SWDEMB DarkMessageBox = new(Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SWLEMB LightMessageBox = new(Culture, Message, Path);
+                        SWLEMB LightMessageBox = new(Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

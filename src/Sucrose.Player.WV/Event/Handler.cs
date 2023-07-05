@@ -39,7 +39,7 @@ namespace Sucrose.Player.WV.Event
 
             SPWVMI.EdgePlayer.CoreWebView2.DOMContentLoaded += EdgePlayerDOMContentLoaded;
 
-            SPWVMI.EdgePlayer.CoreWebView2.OpenDevToolsWindow();
+            //SPWVMI.EdgePlayer.CoreWebView2.OpenDevToolsWindow();
         }
     }
 }
