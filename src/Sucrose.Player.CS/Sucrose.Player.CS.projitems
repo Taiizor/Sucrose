@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CefSharp.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomContextMenuHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Handler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\CefSharpHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />

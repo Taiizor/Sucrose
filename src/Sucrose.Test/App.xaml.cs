@@ -2,7 +2,6 @@
 using CefSharp.Wpf;
 using Skylark.Enum;
 using Skylark.Wing;
-using Sucrose.Player.CS;
 using System.IO;
 using System.Windows;
 
@@ -54,7 +53,7 @@ namespace Sucrose.Test
 
 
 
-            Sucrose.Player.CS.CefSharp Player = new();
+            Sucrose.Player.WV.WebView2 Player = new();
             Player.Show();
 
             Engine.WallpaperWindow(Player, 0, ScreenType.DisplayBound);

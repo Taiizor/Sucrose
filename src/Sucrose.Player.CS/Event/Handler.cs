@@ -1,6 +1,9 @@
 ﻿using CefSharp;
-using Sucrose.Player.CS.Manage;
 using System.Windows;
+using SPCSMI = Sucrose.Player.CS.Manage.Internal;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMC = Sucrose.Memory.Constant;
+using SPCSHCSH = Sucrose.Player.CS.Helper.CefSharpHelper;
 
 namespace Sucrose.Player.CS.Event
 {
@@ -8,17 +11,19 @@ namespace Sucrose.Player.CS.Event
     {
         public static void CefPlayerFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
-            //Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].webkitRequestFullscreen();");
-            //Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].requestFullscreen();");
-            Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
-            Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
+            //SPCSMI.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].webkitRequestFullscreen();");
+            //SPCSMI.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].requestFullscreen();");
+            SPCSMI.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
+            SPCSMI.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
 
-            Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style = \"position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;\";");
+            SPCSMI.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style = \"position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; object-fit: fill;\";");
+
+            SPCSHCSH.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
         }
 
         public static void CefPlayerLoaded(object sender, RoutedEventArgs e)
         {
-            Internal.CefPlayer.ShowDevTools();
+            SPCSMI.CefPlayer.ShowDevTools();
         }
     }
 }
