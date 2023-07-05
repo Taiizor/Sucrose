@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 
 namespace Sucrose.Space.Helper
 {
@@ -24,6 +25,39 @@ namespace Sucrose.Space.Helper
             };
 
             Process.Start();
+        }
+
+        public static bool Work(string Application)
+        {
+            if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)).Any())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool Kill(string Application)
+        {
+            try
+            {
+                foreach (Process Process in Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)))
+                {
+                    //Process.CloseMainWindow();
+                    //Process.Close();
+                    Process.Kill();
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

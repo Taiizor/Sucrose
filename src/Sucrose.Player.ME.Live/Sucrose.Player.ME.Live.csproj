@@ -21,7 +21,7 @@
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
-        <DefineConstants>$(DefineConstants);GENERAL;MEDIA_ELEMENT</DefineConstants>
+        <DefineConstants>$(DefineConstants);GENERAL;ENGINE;MEDIA_ELEMENT</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -49,8 +49,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.220" />
+        <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
     </ItemGroup>
     
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
@@ -58,10 +58,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
         <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 

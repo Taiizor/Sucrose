@@ -1,7 +1,7 @@
 ﻿#if TRAY_ICON
 using STMTIM = Sucrose.Tray.Manager.TrayIconManager;
 #endif
-#if SERVER || TRAY_ICON || USER_INTERFACE || MEDIA_ELEMENT || GENERAL
+#if SERVER || ENGINE || TRAY_ICON || USER_INTERFACE || MEDIA_ELEMENT || GENERAL
 using SMLM = Sucrose.Manager.LogManager;
 using SMSM = Sucrose.Manager.SettingManager;
 #endif
@@ -12,6 +12,10 @@ namespace Sucrose.Common.Manage
     {
 #if GENERAL
         public static SMSM GeneralSettingManager = new("General.json");
+#endif
+
+#if ENGINE
+        public static SMSM EngineSettingManager = new("Engine.json");
 #endif
 
 #if TRAY_ICON

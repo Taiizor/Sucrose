@@ -9,6 +9,9 @@
     <Import_RootNamespace>Sucrose.Space</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\DisplayType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\PlayerType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />

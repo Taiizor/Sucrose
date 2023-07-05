@@ -32,13 +32,15 @@ namespace Sucrose.Memory
 
         public static readonly string LogDescription = "SucroseWatchdog Thread";
 
+        public static readonly string EngineMutex = "{Sucrose-Wallpaper-Engine}";
+
+        public static readonly string MediaElementLive = "Sucrose.Player.ME.Live.exe";
+
         public static readonly string WinFormsUserInterface = "Sucrose.WinForms.UI.exe";
 
-        public static readonly string CefSharpMutex = "{Sucrose-Wallpaper-Engine-Cef-Sharp}";
+        public static readonly string CefSharpMutex = "{Sucrose-Wallpaper-Engine-Cef-Sharp}"; //EngineMutex
 
         public static readonly string TrayIconMutex = "{Sucrose-Wallpaper-Engine-Tray-Icon}";
-
-        public static readonly string MediaElementMutex = "{Sucrose-Wallpaper-Engine-Media-Element}";
 
         public static readonly string UserInterfaceMutex = "{Sucrose-Wallpaper-Engine-User-Interface}";
 

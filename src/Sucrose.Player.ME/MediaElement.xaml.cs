@@ -5,10 +5,20 @@ using SPMEEH = Sucrose.Player.ME.Event.Handler;
 using SPMEHMEH = Sucrose.Player.ME.Helper.MediaElementHelper;
 using SPMEMI = Sucrose.Player.ME.Manage.Internal;
 using SPSEH = Sucrose.Player.Shared.Event.Handler;
-using SMR = Sucrose.Memory.Readonly;
-using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
+using SEST = Skylark.Enum.ScreenType;
+using SEDST = Skylark.Enum.DuplicateScreenType;
+using SEEST = Skylark.Enum.ExpandScreenType;
+using SSEPT = Sucrose.Space.Enum.PlayerType;
+using SSEDT = Sucrose.Space.Enum.DisplayType;
+using SCMI = Sucrose.Common.Manage.Internal;
+using SMC = Sucrose.Memory.Constant;
+using SWE = Skylark.Wing.Engine;
+using System.Windows.Threading;
+using NUglify;
 #if NET48_OR_GREATER
 using System.Net.Http;
+using SMR = Sucrose.Memory.Readonly;
+using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 #endif
 
 namespace Sucrose.Player.ME
@@ -18,14 +28,39 @@ namespace Sucrose.Player.ME
     /// </summary>
     public sealed partial class MediaElement : Window
     {
+        private readonly DispatcherTimer Timer = new();
+
         public MediaElement()
         {
             InitializeComponent();
 
             Content = SPMEMI.MediaPlayer;
 
-            string Source = @"https://prod-streaming-video-msn-com.akamaized.net/ba33094e-efb2-480f-ad77-1a103af156d2/3b215666-f0b7-4538-9ea2-0637d5ed2ea3.mp4";
+            SPMEMI.MediaPlayer.Source = GetSource(SCMI.EngineSettingManager.GetSetting(SMC.Video, @""));
 
+            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Interval = new TimeSpan(0, 0, 1);
+            Timer.Start();
+
+            SPMEMI.MediaPlayer.MediaOpened += SPMEEH.MediaPlayerOpened;
+            SPMEMI.MediaPlayer.MediaFailed += SPMEEH.MediaPlayerFailed;
+            SPMEMI.MediaPlayer.MediaEnded += SPMEEH.MediaPlayerEnded;
+
+            Closing += (s, e) => SPMEMI.MediaPlayer.Close();
+            Loaded += (s, e) => SPSEH.WindowLoaded(this);
+
+            SPMEHMEH.SetVolume(SCMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+
+            SPMEHMEH.Play();
+        }
+
+        private static Uri GetSource(Uri Source)
+        {
+            return GetSource(Source.ToString());
+        }
+
+        private static Uri GetSource(string Source)
+        {
             if (IsUrl(Source))
             {
 #if NET48_OR_GREATER
@@ -39,42 +74,66 @@ namespace Sucrose.Player.ME
                 //string LocalSource = @Path.Combine(CachePath, Path.ChangeExtension(Path.GetRandomFileName(), Path.GetExtension(Source)));
                 string LocalSource = @Path.Combine(CachePath, $"{SSECCE.TextToMD5(Source)}{Path.GetExtension(Source)}");
 
-                using HttpClient Client = new();
-                using HttpResponseMessage Response = Client.GetAsync(Source).Result;
-                using Stream Content = Response.Content.ReadAsStreamAsync().Result;
-                using FileStream Stream = new(LocalSource, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                if (File.Exists(LocalSource))
+                {
+                    return new Uri(@LocalSource, UriKind.RelativeOrAbsolute);
+                }
+                else
+                {
+                    using HttpClient Client = new();
+                    using HttpResponseMessage Response = Client.GetAsync(Source).Result;
+                    using Stream Content = Response.Content.ReadAsStreamAsync().Result;
+                    using FileStream Stream = new(LocalSource, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
 
-                Content.CopyTo(Stream);
+                    Content.CopyTo(Stream);
 
-                SPMEMI.MediaPlayer.Source = new Uri(@Path.GetFullPath(LocalSource), UriKind.RelativeOrAbsolute);
+                    return new Uri(@Path.GetFullPath(LocalSource), UriKind.RelativeOrAbsolute);
+                }
 #else
-                SPMEMI.MediaPlayer.Source = new Uri(@Source, UriKind.RelativeOrAbsolute);
+                return new Uri(@Source, UriKind.RelativeOrAbsolute);
 #endif
             }
             else
             {
-                SPMEMI.MediaPlayer.Source = new Uri(@Path.GetFullPath(Source), UriKind.RelativeOrAbsolute);
+                return new Uri(@Source, UriKind.RelativeOrAbsolute);
             }
-
-            SPMEMI.MediaPlayer.MediaOpened += SPMEEH.MediaPlayerOpened;
-            SPMEMI.MediaPlayer.MediaFailed += SPMEEH.MediaPlayerFailed;
-            SPMEMI.MediaPlayer.MediaEnded += SPMEEH.MediaPlayerEnded;
-
-            Closing += (s, e) => SPMEMI.MediaPlayer.Close();
-            Loaded += (s, e) => SPSEH.WindowLoaded(this);
-
-            SPMEHMEH.SetVolume(100);
-
-            SPMEHMEH.Play();
         }
 
-        public static bool IsUrl(string Address)
+        private static bool IsUrl(string Address)
         {
             string Pattern = @"^(http|https|ftp)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$";
 
             Regex Regex = new(Pattern, RegexOptions.IgnoreCase);
 
             return Regex.IsMatch(Address);
+        }
+
+        private void MediaElement_ContentRendered(object sender, EventArgs e)
+        {
+            switch (SCMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSEDT.Screen))
+            {
+                case SSEDT.Expand:
+                    SWE.WallpaperWindow(this, SCMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default), SCMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    break;
+                case SSEDT.Duplicate:
+                    SWE.WallpaperWindow(this, SCMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default), SCMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    break;
+                default:
+                    SWE.WallpaperWindow(this, SCMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0), SCMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    break;
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            SPMEHMEH.SetVolume(SCMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+
+            Uri Video = GetSource(SCMI.EngineSettingManager.GetSetting(SMC.Video, new Uri(@"", UriKind.RelativeOrAbsolute)));
+
+            if (SPMEMI.MediaPlayer.Source != Video)
+            {
+                SPMEMI.MediaPlayer.Source = Video;
+            }
         }
     }
 }

@@ -46,6 +46,9 @@ namespace Sucrose.CommandLine.Helper
                                     case SSECT.Log:
                                         SSHC.Run(ParseArgumentValue<string>(Values[0]));
                                         break;
+                                    case SSECT.Kill:
+                                        SSHC.Kill(ParseArgumentValue<string>(Values[0]));
+                                        break;
                                     case SSECT.Test:
                                         Console.WriteLine("Test values:");
 

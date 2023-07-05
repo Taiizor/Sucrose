@@ -3,6 +3,7 @@
     public enum CommandsType
     {
         Log,
+        Kill,
         Test,
         Report,
         Startup,

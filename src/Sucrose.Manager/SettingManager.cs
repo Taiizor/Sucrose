@@ -72,7 +72,7 @@ namespace Sucrose.Manager
                 {
                     string json = File.ReadAllText(_settingsFilePath);
 
-                    Settings settings = JsonConvert.DeserializeObject<Settings>(json);
+                    Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
                     if (settings.Properties.TryGetValue(key, out object value))
                     {
@@ -151,6 +151,10 @@ namespace Sucrose.Manager
             if (typeof(T) == typeof(IPAddress))
             {
                 return (T)(object)IPAddress.Parse(value.ToString());
+            }
+            else if (typeof(T) == typeof(Uri))
+            {
+                return (T)(object)new Uri(value.ToString());
             }
             else if (typeof(T).IsEnum)
             {

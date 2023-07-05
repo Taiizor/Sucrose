@@ -1,6 +1,4 @@
-﻿using Skylark.Enum;
-using Skylark.Wing;
-using System.Windows;
+﻿using System.Windows;
 using Application = System.Windows.Application;
 using SCMI = Sucrose.Common.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -23,7 +21,7 @@ namespace Sucrose.Player.ME.Live
 
         private static SEWTT Theme { get; set; } = SCMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex { get; } = new(true, SMR.MediaElementMutex);
+        private static Mutex Mutex { get; } = new(true, SMR.EngineMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -121,6 +119,16 @@ namespace Sucrose.Player.ME.Live
             }
         }
 
+        protected void Configure()
+        {
+            SCMI.EngineSettingManager.SetSetting(SMC.App, SMR.MediaElementLive);
+
+            MediaElement Player = new();
+            Player.Show();
+
+            HasStart = true;
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
@@ -136,12 +144,7 @@ namespace Sucrose.Player.ME.Live
 
             if (Mutex.WaitOne(TimeSpan.Zero, true))
             {
-                MediaElement Player = new();
-                Player.Show();
-
-                Engine.WallpaperWindow(Player, 0, ScreenType.DisplayBound);
-
-                HasStart = true;
+                Configure();
             }
             else
             {
