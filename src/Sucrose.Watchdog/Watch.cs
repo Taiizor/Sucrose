@@ -47,6 +47,8 @@ namespace Sucrose.Watchdog
             SMMI.TrayIconLogManager.Log(SELLT.Error, Text);
 #elif USER_INTERFACE
             SMMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
+#elif WEBVIEW_PLAYER
+            SMMI.WebViewPlayerLogManager.Log(SELLT.Error, Text);
 #elif CEFSHARP_PLAYER
             SMMI.CefSharpPlayerLogManager.Log(SELLT.Error, Text);
 #elif MEDIA_ELEMENT_PLAYER

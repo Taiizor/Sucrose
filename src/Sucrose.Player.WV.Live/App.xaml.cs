@@ -1,23 +1,19 @@
-﻿using CefSharp;
-using CefSharp.Wpf;
-using Grpc.Core;
+﻿using Microsoft.Web.WebView2.Core;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SCSWSS = Sucrose.Common.Services.WebsiterServerService;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGCW = Sucrose.Grpc.Common.Websiter;
 using SGMR = Sucrose.Globalization.Manage.Resources;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPWVMI = Sucrose.Player.WV.Manage.Internal;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
-namespace Sucrose.WPF.CS
+namespace Sucrose.Player.WV.Live
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -28,7 +24,7 @@ namespace Sucrose.WPF.CS
 
         private static SEWTT Theme { get; set; } = SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex { get; } = new(true, SMR.CefSharpMutex);
+        private static Mutex Mutex { get; } = new(true, SMR.EngineMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -89,28 +85,6 @@ namespace Sucrose.WPF.CS
                 //Close();
                 Message(Exception.Message);
             };
-
-#if NET48_OR_GREATER && DEBUG
-            CefRuntime.SubscribeAnyCpuAssemblyResolver();
-#endif
-
-            CefSettings Settings = new()
-            {
-                CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
-            };
-
-            Settings.CefCommandLineArgs.Add("enable-media-stream");
-            Settings.CefCommandLineArgs.Add("use-fake-ui-for-media-stream");
-            Settings.CefCommandLineArgs.Add("enable-usermedia-screen-capturing");
-
-            //Example of checking if a call to Cef.Initialize has already been made, we require this for
-            //our .Net 5.0 Single File Publish example, you don't typically need to perform this check
-            //if you call Cef.Initialze within your WPF App constructor.
-            if (!Cef.IsInitialized)
-            {
-                //Perform dependency check to make sure all relevant resources are in our output directory.
-                Cef.Initialize(Settings, performDependencyCheck: true, browserProcessHandler: null);
-            }
         }
 
         protected void Close()
@@ -126,7 +100,7 @@ namespace Sucrose.WPF.CS
             {
                 HasStart = false;
 
-                string Path = SMMI.CefSharpLogManager.LogFile();
+                string Path = SMMI.WebViewPlayerLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -148,12 +122,31 @@ namespace Sucrose.WPF.CS
             }
         }
 
+        protected void Configure()
+        {
+            CoreWebView2EnvironmentOptions Options = new()
+            {
+                Language = Culture,
+                AdditionalBrowserArguments = "--enable-media-stream --enable-accelerated-video-decode --allow-running-insecure-content --use-fake-ui-for-media-stream --enable-speech-input --enable-usermedia-screen-capture --debug-plugin-loading --allow-outdated-plugins --always-authorize-plugins --enable-npapi"
+            };
+
+            Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
+
+            SPWVMI.EdgePlayer.EnsureCoreWebView2Async(Environment.Result);
+
+            SMMI.EngineSettingManager.SetSetting(SMC.App, SMR.WebViewLive);
+
+            WebView Player = new();
+            Player.Show();
+
+            HasStart = true;
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
 
-            SGSGSS.ServerInstance.KillAsync().Wait();
-            //SGSGSS.ServerInstance.ShutdownAsync().Wait();
+            //
 
             Close();
         }
@@ -164,20 +157,7 @@ namespace Sucrose.WPF.CS
 
             if (Mutex.WaitOne(TimeSpan.Zero, true))
             {
-                SGSGSS.ServerCreate(new List<ServerServiceDefinition>
-                {
-                    SGCW.BindService(new SCSWSS())
-                });
-
-                SMMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
-                SMMI.ServerManager.SetSetting(SMC.Port, SGSGSS.Port);
-
-                SGSGSS.ServerInstance.Start();
-
-                Main Browser = new();
-                Browser.Show();
-
-                HasStart = true;
+                Configure();
             }
             else
             {

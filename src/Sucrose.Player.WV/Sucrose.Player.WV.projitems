@@ -10,12 +10,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Event\Handler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\WebView2Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\WebViewHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebView2.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebView.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)WebView2.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)WebView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

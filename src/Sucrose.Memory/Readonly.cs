@@ -22,6 +22,8 @@ namespace Sucrose.Memory
 
         public static readonly string MediaElement = "MediaElement";
 
+        public static readonly string VideoContent = "VideoContent.html";
+
         public static readonly string StartCommand = $"{StartCommandChar}";
 
         public static readonly string EngineLive = "Sucrose.Engine.Live.exe";

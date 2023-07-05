@@ -44,7 +44,7 @@ namespace Sucrose.Manager
             {
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = File.ReadAllText(_settingsFilePath);
+                    string json = ReadFile();
 
                     Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -70,7 +70,7 @@ namespace Sucrose.Manager
             {
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = File.ReadAllText(_settingsFilePath);
+                    string json = ReadFile();
 
                     Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -96,7 +96,7 @@ namespace Sucrose.Manager
             {
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = File.ReadAllText(_settingsFilePath);
+                    string json = ReadFile();
 
                     Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -124,7 +124,7 @@ namespace Sucrose.Manager
 
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = File.ReadAllText(_settingsFilePath);
+                    string json = ReadFile();
                     settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
                 }
                 else
@@ -134,15 +134,43 @@ namespace Sucrose.Manager
 
                 settings.Properties[key] = ConvertToType<T>(value);
 
-                string serializedSettings = JsonConvert.SerializeObject(settings, _serializerSettings);
-
-                using FileStream fileStream = new(_settingsFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
-                using StreamWriter writer = new(fileStream);
-                writer.Write(serializedSettings);
+                WriteFile(JsonConvert.SerializeObject(settings, _serializerSettings));
             }
             finally
             {
                 _lock.ExitWriteLock();
+            }
+        }
+
+        private string ReadFile()
+        {
+            try
+            {
+                //return File.ReadAllText(_settingsFilePath);
+
+                using FileStream fileStream = new(_settingsFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using StreamReader reader = new(fileStream);
+                return reader.ReadToEnd();
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+
+        private void WriteFile(string serializedSettings)
+        {
+            try
+            {
+                //File.WriteAllText(_settingsFilePath, serializedSettings);
+
+                using FileStream fileStream = new(_settingsFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+                using StreamWriter writer = new(fileStream);
+                writer.Write(serializedSettings);
+            }
+            catch
+            {
+                //
             }
         }
 

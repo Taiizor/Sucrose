@@ -16,14 +16,42 @@ namespace Sucrose.Player.CS.Helper
             SPCSMI.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].play();");
         }
 
-        public static void Stop()
+        public static async Task<bool> GetEnd()
         {
-            SPCSMI.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].stop();"); //Not Working
+            JavascriptResponse Response;
+            string Current = string.Empty;
+            string Duration = string.Empty;
+
+            Response = await SPCSMI.CefPlayer.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].duration");
+
+            if (Response.Success)
+            {
+                Duration = Response.Result.ToString();
+            }
+
+            Response = await SPCSMI.CefPlayer.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].currentTime");
+
+            if (Response.Success)
+            {
+                Current = Response.Result.ToString();
+            }
+
+            return Current.Equals(Duration);
         }
 
-        public static void SetLoop(bool State)
+        public static async void SetLoop(bool State)
         {
-            SPCSMI.CefPlayer.ExecuteScriptAsync($"document.getElementsByTagName('video')[0].loop = {State.ToString().ToLower()};"); //Not Working
+            SPCSMI.CefPlayer.ExecuteScriptAsync($"document.getElementsByTagName('video')[0].loop = {State.ToString().ToLower()};");
+
+            if (State)
+            {
+                bool Ended = await GetEnd();
+
+                if (Ended)
+                {
+                    Play();
+                }
+            }
         }
 
         public static void SetVolume(int Volume)

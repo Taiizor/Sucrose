@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using System.Resources;
 using SGSG = Sucrose.Globalization.Strings.General;
-using SGSW = Sucrose.Globalization.Strings.Watchdog;
 using SGST = Sucrose.Globalization.Strings.Tray;
+using SGSW = Sucrose.Globalization.Strings.Watchdog;
 
 namespace Sucrose.Globalization.Manage
 {

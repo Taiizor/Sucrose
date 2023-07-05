@@ -21,6 +21,8 @@ namespace Sucrose.Manager.Manage
 
         public static SMLM UserInterfaceLogManager = new("UserInterface-{0}.log");
 
+        public static SMLM WebViewPlayerLogManager = new("WebViewPlayer-{0}.log");
+
         public static SMLM CefSharpPlayerLogManager = new("CefSharpPlayer-{0}.log");
 
         public static SMLM MediaElementPlayerLogManager = new("MediaElementPlayer-{0}.log");
