@@ -34,6 +34,8 @@ namespace Sucrose.Memory
 
         public static readonly string EngineMutex = "{Sucrose-Wallpaper-Engine}";
 
+        public static readonly string CefSharpLive = "Sucrose.Player.CS.Live.exe";
+
         public static readonly string MediaElementLive = "Sucrose.Player.ME.Live.exe";
 
         public static readonly string WinFormsUserInterface = "Sucrose.WinForms.UI.exe";

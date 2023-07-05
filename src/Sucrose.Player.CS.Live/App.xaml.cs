@@ -10,7 +10,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWW = Sucrose.Watchdog.Watch;
 
-namespace Sucrose.Player.ME.Live
+namespace Sucrose.Player.CS.Live
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -97,7 +97,7 @@ namespace Sucrose.Player.ME.Live
             {
                 HasStart = false;
 
-                string Path = SMMI.MediaElementPlayerLogManager.LogFile();
+                string Path = SMMI.CefSharpLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -121,9 +121,9 @@ namespace Sucrose.Player.ME.Live
 
         protected void Configure()
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.App, SMR.MediaElementLive);
+            SMMI.EngineSettingManager.SetSetting(SMC.App, SMR.CefSharpLive);
 
-            MediaElement Player = new();
+            CefSharp Player = new();
             Player.Show();
 
             HasStart = true;

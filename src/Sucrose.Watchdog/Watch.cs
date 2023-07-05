@@ -45,10 +45,12 @@ namespace Sucrose.Watchdog
             SMMI.CefSharpLogManager.Log(SELLT.Error, Text);
 #elif TRAY_ICON
             SMMI.TrayIconLogManager.Log(SELLT.Error, Text);
-#elif MEDIA_ELEMENT
-            SMMI.MediaElementLogManager.Log(SELLT.Error, Text);
 #elif USER_INTERFACE
             SMMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
+#elif CEFSHARP_PLAYER
+            SMMI.CefSharpPlayerLogManager.Log(SELLT.Error, Text);
+#elif MEDIA_ELEMENT_PLAYER
+            SMMI.MediaElementPlayerLogManager.Log(SELLT.Error, Text);
 #endif
         }
     }

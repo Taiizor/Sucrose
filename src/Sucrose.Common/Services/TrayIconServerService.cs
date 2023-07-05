@@ -1,4 +1,5 @@
 ﻿#if TRAY_ICON
+
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Sucrose.Grpc.Common;
@@ -30,4 +31,5 @@ namespace Sucrose.Common.Services
         }
     }
 }
+
 #endif

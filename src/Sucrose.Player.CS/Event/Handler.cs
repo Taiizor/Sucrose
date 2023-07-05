@@ -6,7 +6,7 @@ namespace Sucrose.Player.CS.Event
 {
     internal static class Handler
     {
-        public static void CefPlayerFrameLoadEnd(object? sender, FrameLoadEndEventArgs e)
+        public static void CefPlayerFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
             //Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].webkitRequestFullscreen();");
             //Internal.CefPlayer.ExecuteScriptAsync("document.getElementsByTagName('video')[0].requestFullscreen();");
