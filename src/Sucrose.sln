@@ -53,7 +53,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Player.CS.Live", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Player.WV.Live", "Sucrose.Player.WV.Live\Sucrose.Player.WV.Live.csproj", "{38CB7C76-0E36-45CE-AB9A-C000C2C2B457}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Discord", "Sucrose.Discord\Sucrose.Discord.csproj", "{53D088B1-E054-4296-BA6B-943F632945CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Discord", "Sucrose.Discord\Sucrose.Discord.csproj", "{53D088B1-E054-4296-BA6B-943F632945CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Test", "Sucrose.Test\Sucrose.Test.csproj", "{648BA35E-7B50-4BFF-95D7-862B0E5791A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -291,6 +293,22 @@ Global
 		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|x64.Build.0 = Release|Any CPU
 		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|x86.ActiveCfg = Release|Any CPU
 		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|x86.Build.0 = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|x64.Build.0 = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Debug|x86.Build.0 = Debug|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|ARM64.Build.0 = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|x64.ActiveCfg = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|x64.Build.0 = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|x86.ActiveCfg = Release|Any CPU
+		{648BA35E-7B50-4BFF-95D7-862B0E5791A7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

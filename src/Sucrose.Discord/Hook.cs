@@ -78,21 +78,21 @@ namespace Sucrose.Discord
                         },
                         new Button()
                         {
-                            Label = SGHDL.GetValue("Download"),
+                            Label = SGHDL.GetValue("DownloadButton"),
                             Url = SMR.DownloadWebsite
                         }
                     },
-                    Party = new Party()
-                    {
-                        ID = Secrets.CreateFriendlySecret(SMR.Randomise),
-                        Max = 1,
-                        Size = 1,
-                    },
+                    //Party = new Party()
+                    //{
+                    //    ID = Secrets.CreateFriendlySecret(SMR.Randomise),
+                    //    Max = 1,
+                    //    Size = 1,
+                    //},
                     Assets = new Assets()
                     {
-                        LargeImageKey = "logo-3840x3840",
+                        LargeImageKey = SGHDL.GetValue("LargestImage"),
                         LargeImageText = SDMI.Largest[SMR.Randomise.Next(SDMI.Largest.Count - 1)],
-                        SmallImageKey = "logo-1024x1024",
+                        SmallImageKey = SGHDL.GetValue("SmallestImage"),
                         SmallImageText = SDMI.Smallest[SMR.Randomise.Next(SDMI.Largest.Count - 1)]
                     }
                 });

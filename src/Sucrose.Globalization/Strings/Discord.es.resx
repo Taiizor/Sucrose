@@ -126,4 +126,76 @@
   <data name="Details" xml:space="preserve">
     <value>Motor de Papel Tapiz</value>
   </data>
+  <data name="LargestText1" xml:space="preserve">
+    <value>El poder del helado de plátano</value>
+  </data>
+  <data name="LargestText2" xml:space="preserve">
+    <value>El monstruo sonriente del sombrero</value>
+  </data>
+  <data name="LargestText3" xml:space="preserve">
+    <value>Los gorriones que pintan las nubes</value>
+  </data>
+  <data name="LargestText4" xml:space="preserve">
+    <value>Las aventuras secretas de los pingüinos corredores</value>
+  </data>
+  <data name="LargestText5" xml:space="preserve">
+    <value>Los conejos perdidos en el campo de margaritas</value>
+  </data>
+  <data name="SmallestText1" xml:space="preserve">
+    <value>Huellas misteriosas</value>
+  </data>
+  <data name="SmallestText2" xml:space="preserve">
+    <value>Los peces globo voladores</value>
+  </data>
+  <data name="SmallestText3" xml:space="preserve">
+    <value>Las flores que ríen</value>
+  </data>
+  <data name="SmallestText4" xml:space="preserve">
+    <value>Las nubes de algodón de azúcar</value>
+  </data>
+  <data name="SmallestText6" xml:space="preserve">
+    <value>Los piratas de los hongos brillantes</value>
+  </data>
+  <data name="SmallestText5" xml:space="preserve">
+    <value>Los dragones de pizza congelada</value>
+  </data>
+  <data name="LargestText6" xml:space="preserve">
+    <value>Los girasoles que cantan</value>
+  </data>
+  <data name="StatementText1" xml:space="preserve">
+    <value>Un universo lleno de caos</value>
+  </data>
+  <data name="StatementText2" xml:space="preserve">
+    <value>En medio de aventuras infinitas</value>
+  </data>
+  <data name="StatementText3" xml:space="preserve">
+    <value>Un mundo extraño y mágico</value>
+  </data>
+  <data name="StatementText4" xml:space="preserve">
+    <value>Que desafía los límites de la imaginación</value>
+  </data>
+  <data name="StatementText5" xml:space="preserve">
+    <value>Una realidad fuera de lo común</value>
+  </data>
+  <data name="StatementText6" xml:space="preserve">
+    <value>En las profundidades de la imaginación</value>
+  </data>
+  <data name="StatementText7" xml:space="preserve">
+    <value>Un viaje de descubrimiento mágico</value>
+  </data>
+  <data name="StatementText8" xml:space="preserve">
+    <value>En la puerta de tierras desconocidas</value>
+  </data>
+  <data name="StatementText9" xml:space="preserve">
+    <value>Un mundo de sueños complicado</value>
+  </data>
+  <data name="StatementText10" xml:space="preserve">
+    <value>Una aventura que desafía los límites</value>
+  </data>
+  <data name="StatementText12" xml:space="preserve">
+    <value>Dentro de un cuento fantástico</value>
+  </data>
+  <data name="StatementText11" xml:space="preserve">
+    <value>Una experiencia dinámica y sorprendente</value>
+  </data>
 </root>

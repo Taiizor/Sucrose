@@ -17,7 +17,7 @@ namespace Sucrose.Globalization.Helper
 
         public static string GetValue(string Key, CultureInfo Culture)
         {
-            return SGMR.DiscordManager.GetString(Key, Culture);
+            return SGMR.DiscordManager.GetString(Key, Culture) ?? Key;
         }
     }
 }

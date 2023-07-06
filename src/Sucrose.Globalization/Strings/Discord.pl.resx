@@ -126,4 +126,76 @@
   <data name="Details" xml:space="preserve">
     <value>Silnik Tapet</value>
   </data>
+  <data name="StatementText11" xml:space="preserve">
+    <value>Dynamiczne i zaskakujące doświadczenie</value>
+  </data>
+  <data name="StatementText12" xml:space="preserve">
+    <value>Wewnątrz fantastycznej opowieści</value>
+  </data>
+  <data name="StatementText10" xml:space="preserve">
+    <value>Przygoda, która przekracza granice</value>
+  </data>
+  <data name="StatementText9" xml:space="preserve">
+    <value>Skomplikowany świat marzeń</value>
+  </data>
+  <data name="StatementText8" xml:space="preserve">
+    <value>Przed bramą nieznanych krain</value>
+  </data>
+  <data name="StatementText7" xml:space="preserve">
+    <value>Magiczna podróż odkrywcza</value>
+  </data>
+  <data name="StatementText6" xml:space="preserve">
+    <value>W głębi wyobraźni</value>
+  </data>
+  <data name="StatementText5" xml:space="preserve">
+    <value>Niezwykła rzeczywistość</value>
+  </data>
+  <data name="StatementText4" xml:space="preserve">
+    <value>Wyzwalająca granice wyobraźni</value>
+  </data>
+  <data name="StatementText3" xml:space="preserve">
+    <value>Dziwny i magiczny świat</value>
+  </data>
+  <data name="StatementText2" xml:space="preserve">
+    <value>Pośród nieskończonych przygód</value>
+  </data>
+  <data name="StatementText1" xml:space="preserve">
+    <value>Wszechświat pełen chaosu</value>
+  </data>
+  <data name="LargestText6" xml:space="preserve">
+    <value>Wiatraki śpiewające piosenki</value>
+  </data>
+  <data name="SmallestText5" xml:space="preserve">
+    <value>Zamrożone smoki-pizze</value>
+  </data>
+  <data name="SmallestText6" xml:space="preserve">
+    <value>Błyszczący piraci grzybowi</value>
+  </data>
+  <data name="SmallestText4" xml:space="preserve">
+    <value>Chmurki z cukrowej waty</value>
+  </data>
+  <data name="SmallestText3" xml:space="preserve">
+    <value>Kwiaty śmiejące się wesoło</value>
+  </data>
+  <data name="SmallestText2" xml:space="preserve">
+    <value>Latające balonowe rybki</value>
+  </data>
+  <data name="SmallestText1" xml:space="preserve">
+    <value>Tajemnicze ślady stóp</value>
+  </data>
+  <data name="LargestText5" xml:space="preserve">
+    <value>Króliki zagubione w polu rumianku</value>
+  </data>
+  <data name="LargestText4" xml:space="preserve">
+    <value>Tajemnicze przygody biegnących pingwinów</value>
+  </data>
+  <data name="LargestText3" xml:space="preserve">
+    <value>Wróbelki, które malują chmury</value>
+  </data>
+  <data name="LargestText2" xml:space="preserve">
+    <value>Uśmiechnięty potwór z kapelusza</value>
+  </data>
+  <data name="LargestText1" xml:space="preserve">
+    <value>Moc lodów bananowych</value>
+  </data>
 </root>

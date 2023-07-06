@@ -17,7 +17,7 @@ namespace Sucrose.Globalization.Helper
 
         public static string GetValue(string Key, CultureInfo Culture)
         {
-            return SGMR.GeneralManager.GetString(Key, Culture);
+            return SGMR.GeneralManager.GetString(Key, Culture) ?? Key;
         }
     }
 }

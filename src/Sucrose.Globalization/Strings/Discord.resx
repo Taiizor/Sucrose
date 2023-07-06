@@ -127,75 +127,81 @@
     <value>Download</value>
   </data>
   <data name="LargestText1" xml:space="preserve">
-    <value></value>
+    <value>The Power of Banana Ice Cream</value>
   </data>
   <data name="LargestText2" xml:space="preserve">
-    <value></value>
+    <value>The Smiling Hat Monster</value>
   </data>
   <data name="LargestText3" xml:space="preserve">
-    <value></value>
+    <value>Sparrows Coloring the Clouds</value>
   </data>
   <data name="LargestText4" xml:space="preserve">
-    <value></value>
+    <value>The Secret Adventures of Running Penguins</value>
   </data>
   <data name="LargestText5" xml:space="preserve">
-    <value></value>
+    <value>Rabbits Lost in a Daisy Field</value>
   </data>
   <data name="SmallestText1" xml:space="preserve">
-    <value></value>
+    <value>Mysterious Footprints</value>
   </data>
   <data name="SmallestText2" xml:space="preserve">
-    <value></value>
+    <value>Flying Balloon Fish</value>
   </data>
   <data name="SmallestText3" xml:space="preserve">
-    <value></value>
+    <value>Laughing Flowers</value>
   </data>
   <data name="SmallestText4" xml:space="preserve">
-    <value></value>
+    <value>Cotton Candy Clouds</value>
   </data>
   <data name="SmallestText5" xml:space="preserve">
-    <value></value>
+    <value>Frozen Pizza Dragons</value>
   </data>
   <data name="SmallestText6" xml:space="preserve">
-    <value></value>
+    <value>Glowing Mushroom Pirates</value>
   </data>
   <data name="LargestText6" xml:space="preserve">
-    <value></value>
+    <value>Singing Windmills</value>
   </data>
   <data name="StatementText1" xml:space="preserve">
-    <value></value>
+    <value>A Universe Filled with Chaos</value>
   </data>
   <data name="StatementText2" xml:space="preserve">
-    <value></value>
+    <value>In the Midst of Endless Adventures</value>
   </data>
   <data name="StatementText3" xml:space="preserve">
-    <value></value>
+    <value>A Strange and Enchanting World</value>
   </data>
   <data name="StatementText4" xml:space="preserve">
-    <value></value>
+    <value>Challenging the Limits of Imagination</value>
   </data>
   <data name="StatementText5" xml:space="preserve">
-    <value></value>
+    <value>An Extraordinary Reality</value>
   </data>
   <data name="StatementText6" xml:space="preserve">
-    <value></value>
+    <value>In the Depths of Imagination</value>
   </data>
   <data name="StatementText7" xml:space="preserve">
-    <value></value>
+    <value>A Magical Journey of Discovery</value>
   </data>
   <data name="StatementText8" xml:space="preserve">
-    <value></value>
+    <value>At the Doorstep of Unknown Realms</value>
   </data>
   <data name="StatementText9" xml:space="preserve">
-    <value></value>
+    <value>In a Complex Dream World</value>
   </data>
   <data name="StatementText10" xml:space="preserve">
-    <value></value>
+    <value>An Adventure Pushing Boundaries</value>
   </data>
   <data name="StatementText11" xml:space="preserve">
-    <value></value>
+    <value>Dynamic and Surprising Experience</value>
   </data>
   <data name="StatementText12" xml:space="preserve">
-    <value></value>
+    <value>Within a Fantastic Tale</value>
+  </data>
+  <data name="LargestImage" xml:space="preserve">
+    <value>logo-3840x3840</value>
+  </data>
+  <data name="SmallestImage" xml:space="preserve">
+    <value>logo-1024x1024</value>
   </data>
 </root>

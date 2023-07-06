@@ -126,4 +126,76 @@
   <data name="Details" xml:space="preserve">
     <value>Moteur de Fond d'écran</value>
   </data>
+  <data name="LargestText1" xml:space="preserve">
+    <value>Le pouvoir de la glace à la banane</value>
+  </data>
+  <data name="LargestText2" xml:space="preserve">
+    <value>Le monstre chapeau souriant</value>
+  </data>
+  <data name="LargestText3" xml:space="preserve">
+    <value>Les moineaux qui colorent les nuages</value>
+  </data>
+  <data name="LargestText4" xml:space="preserve">
+    <value>Les aventures secrètes des pingouins qui courent</value>
+  </data>
+  <data name="LargestText5" xml:space="preserve">
+    <value>Les lapins perdus dans un champ de marguerites</value>
+  </data>
+  <data name="SmallestText1" xml:space="preserve">
+    <value>Des empreintes de pas mystérieuses</value>
+  </data>
+  <data name="SmallestText2" xml:space="preserve">
+    <value>Les poissons-ballons volants</value>
+  </data>
+  <data name="SmallestText3" xml:space="preserve">
+    <value>Les fleurs riantes</value>
+  </data>
+  <data name="SmallestText4" xml:space="preserve">
+    <value>Les nuages de coton sucré</value>
+  </data>
+  <data name="SmallestText6" xml:space="preserve">
+    <value>Les pirates des champignons brillants</value>
+  </data>
+  <data name="SmallestText5" xml:space="preserve">
+    <value>Les dragons de pizza gelés</value>
+  </data>
+  <data name="LargestText6" xml:space="preserve">
+    <value>Les roses des vents chantantes</value>
+  </data>
+  <data name="StatementText1" xml:space="preserve">
+    <value>Un univers rempli de chaos</value>
+  </data>
+  <data name="StatementText2" xml:space="preserve">
+    <value>Au cœur d'aventures infinies</value>
+  </data>
+  <data name="StatementText3" xml:space="preserve">
+    <value>Un monde étrange et enchanteur</value>
+  </data>
+  <data name="StatementText4" xml:space="preserve">
+    <value>Qui repousse les limites de l'imagination</value>
+  </data>
+  <data name="StatementText5" xml:space="preserve">
+    <value>Une réalité hors du commun</value>
+  </data>
+  <data name="StatementText6" xml:space="preserve">
+    <value>Dans les profondeurs de l'imagination</value>
+  </data>
+  <data name="StatementText7" xml:space="preserve">
+    <value>Un voyage de découverte magique</value>
+  </data>
+  <data name="StatementText8" xml:space="preserve">
+    <value>Aux portes de terres inconnues</value>
+  </data>
+  <data name="StatementText9" xml:space="preserve">
+    <value>Un monde onirique complexe</value>
+  </data>
+  <data name="StatementText10" xml:space="preserve">
+    <value>Une aventure qui repousse les limites</value>
+  </data>
+  <data name="StatementText12" xml:space="preserve">
+    <value>Au sein d'un conte fantastique</value>
+  </data>
+  <data name="StatementText11" xml:space="preserve">
+    <value>Une expérience dynamique et surprenante</value>
+  </data>
 </root>
