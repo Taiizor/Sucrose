@@ -11,6 +11,8 @@ namespace Sucrose.Manager.Manage
 
         public static SMSM EngineSettingManager = new("Engine.json");
 
+        public static SMSM DiscordSettingManager = new("Discord.json");
+
         public static SMSM GeneralSettingManager = new("General.json");
 
         public static SMLM TrayIconLogManager = new("TrayIcon-{0}.log");

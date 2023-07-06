@@ -51,7 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Player.ME.Live", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Player.CS.Live", "Sucrose.Player.CS.Live\Sucrose.Player.CS.Live.csproj", "{CC05E0D5-A4D3-4632-A6C1-21766B8CC448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Player.WV.Live", "Sucrose.Player.WV.Live\Sucrose.Player.WV.Live.csproj", "{38CB7C76-0E36-45CE-AB9A-C000C2C2B457}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Player.WV.Live", "Sucrose.Player.WV.Live\Sucrose.Player.WV.Live.csproj", "{38CB7C76-0E36-45CE-AB9A-C000C2C2B457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Discord", "Sucrose.Discord\Sucrose.Discord.csproj", "{53D088B1-E054-4296-BA6B-943F632945CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -273,6 +275,22 @@ Global
 		{38CB7C76-0E36-45CE-AB9A-C000C2C2B457}.Release|x64.Build.0 = Release|x64
 		{38CB7C76-0E36-45CE-AB9A-C000C2C2B457}.Release|x86.ActiveCfg = Release|x86
 		{38CB7C76-0E36-45CE-AB9A-C000C2C2B457}.Release|x86.Build.0 = Release|x86
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|x64.Build.0 = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Debug|x86.Build.0 = Debug|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|ARM64.Build.0 = Release|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|x64.ActiveCfg = Release|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|x64.Build.0 = Release|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|x86.ActiveCfg = Release|Any CPU
+		{53D088B1-E054-4296-BA6B-943F632945CF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

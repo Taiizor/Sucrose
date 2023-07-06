@@ -12,6 +12,8 @@
 
         public const string Video = "Video";
 
+        public const string State = "State";
+
         public const string Volume = "Volume";
 
         public const string Visible = "Visible";

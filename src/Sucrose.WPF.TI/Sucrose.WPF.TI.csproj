@@ -57,6 +57,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
+        <ProjectReference Include="..\Sucrose.Discord\Sucrose.Discord.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>

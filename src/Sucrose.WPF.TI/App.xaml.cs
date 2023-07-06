@@ -2,6 +2,7 @@
 using System.Windows;
 using Application = System.Windows.Application;
 using SCSTISS = Sucrose.Common.Services.TrayIconServerService;
+using SDH = Sucrose.Discord.Hook;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCTI = Sucrose.Grpc.Common.TrayIcon;
@@ -33,6 +34,8 @@ namespace Sucrose.WPF.TI
         private static Mutex Mutex => new(true, SMR.TrayIconMutex);
 
         private static bool HasStart { get; set; } = false;
+
+        private static SDH Discord { get; set; } = new();
 
         public App()
         {
@@ -151,12 +154,21 @@ namespace Sucrose.WPF.TI
 
             SMMI.TrayIconLogManager.Log(SELLT.Info, "Server initialized..");
 
+            SMMI.TrayIconLogManager.Log(SELLT.Info, "Discord hook initializing..");
+
+            Discord.Initialize();
+            Discord.SetPresence();
+
+            SMMI.TrayIconLogManager.Log(SELLT.Info, "Discord hook initialized..");
+
             HasStart = true;
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
+
+            Discord.Dispose();
 
             SGSGSS.ServerInstance.KillAsync().Wait();
             //SGSGSS.ServerInstance.ShutdownAsync().Wait();

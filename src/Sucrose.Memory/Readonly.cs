@@ -40,11 +40,15 @@ namespace Sucrose.Memory
 
         public static readonly string EngineMutex = "{Sucrose-Wallpaper-Engine}";
 
+        public static readonly string DiscordApplication = "1126294965950103612";
+
         public static readonly string CefSharpLive = "Sucrose.Player.CS.Live.exe";
 
         public static readonly string MediaElementLive = "Sucrose.Player.ME.Live.exe";
 
         public static readonly string WinFormsUserInterface = "Sucrose.WinForms.UI.exe";
+
+        public static readonly string BrowseWebsite = "https://github.com/Taiizor/Sucrose";
 
         public static readonly string CefSharpMutex = "{Sucrose-Wallpaper-Engine-Cef-Sharp}"; //EngineMutex
 
@@ -53,6 +57,8 @@ namespace Sucrose.Memory
         public static readonly string UserInterfaceMutex = "{Sucrose-Wallpaper-Engine-User-Interface}";
 
         public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";
+
+        public static readonly string DownloadWebsite = "https://github.com/Taiizor/Sucrose/releases/latest";
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
     }
