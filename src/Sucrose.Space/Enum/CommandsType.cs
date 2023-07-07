@@ -6,6 +6,7 @@
         Kill,
         Live,
         Test,
+        Temp,
         Report,
         Startup,
         Interface

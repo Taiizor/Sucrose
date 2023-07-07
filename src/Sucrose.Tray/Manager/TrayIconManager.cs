@@ -4,12 +4,12 @@ using SGHTL = Sucrose.Globalization.Helper.TrayLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSHL = Sucrose.Space.Helper.Live;
 using STCC = Sucrose.Tray.Command.Close;
 using STCE = Sucrose.Tray.Command.Engine;
 using STCI = Sucrose.Tray.Command.Interface;
 using STCR = Sucrose.Tray.Command.Report;
 using STHC = Sucrose.Tray.Helper.Calculate;
-using STHL = Sucrose.Tray.Helper.Lives;
 using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
 using STRLR = Sucrose.Tray.Renderer.LightRenderer;
 using STSSS = Sucrose.Tray.Separator.StripSeparator;
@@ -40,7 +40,7 @@ namespace Sucrose.Tray.Manager
 
             TrayIcon.Visible = Visible;
 
-            STCE.Command();
+            STCE.Command(false);
         }
 
         public void Initialize()
@@ -61,7 +61,7 @@ namespace Sucrose.Tray.Manager
             STSSS Separator1 = new(Theme);
             ContextMenu.Items.Add(Separator1.Strip);
 
-            if (STHL.RunLive())
+            if (SSHL.Run())
             {
                 ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, CommandEngine);
                 //ContextMenu.Items.Add(SGHTL.GetValue("WallStartText"), null, null); //WallStopText

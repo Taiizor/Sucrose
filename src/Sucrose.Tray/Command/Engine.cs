@@ -3,8 +3,8 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
+using SSHL = Sucrose.Space.Helper.Live;
 using SSMI = Sucrose.Space.Manage.Internal;
-using STHL = Sucrose.Tray.Helper.Lives;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Tray.Command
@@ -13,11 +13,11 @@ namespace Sucrose.Tray.Command
     {
         private static string Live => SMMI.EngineSettingManager.GetSetting(SMC.App, SMR.EngineLive);
 
-        public static void Command()
+        public static void Command(bool State = true)
         {
-            if (STHL.RunLive())
+            if (State && SSHL.Run())
             {
-                STHL.KillLive();
+                SSHL.Kill();
 
                 SWUD.RefreshDesktop();
             }

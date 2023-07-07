@@ -2,11 +2,11 @@
 using SSHC = Sucrose.Space.Helper.Command;
 using SSMI = Sucrose.Space.Manage.Internal;
 
-namespace Sucrose.Tray.Helper
+namespace Sucrose.Space.Helper
 {
-    internal static class Lives
+    internal static class Live
     {
-        public static bool RunLive()
+        public static bool Run()
         {
             foreach (KeyValuePair<SSEET, string> Pair in SSMI.EngineLive)
             {
@@ -19,7 +19,7 @@ namespace Sucrose.Tray.Helper
             return false;
         }
 
-        public static bool RunLive(SSEET Live)
+        public static bool Run(SSEET Live)
         {
             if (SSHC.Work(SSMI.EngineLive[Live]))
             {
@@ -29,7 +29,7 @@ namespace Sucrose.Tray.Helper
             return false;
         }
 
-        public static bool RunLive(string Live)
+        public static bool Run(string Live)
         {
             if (SSHC.Work(SSMI.TextEngineLive[Live]))
             {
@@ -39,7 +39,7 @@ namespace Sucrose.Tray.Helper
             return false;
         }
 
-        public static void KillLive()
+        public static void Kill()
         {
             foreach (KeyValuePair<SSEET, string> Pair in SSMI.EngineLive)
             {
@@ -50,12 +50,12 @@ namespace Sucrose.Tray.Helper
             }
         }
 
-        public static void KillLive(SSEET Live)
+        public static void Kill(SSEET Live)
         {
             SSHC.Kill(SSMI.EngineLive[Live]);
         }
 
-        public static void KillLive(string Live)
+        public static void Kill(string Live)
         {
             SSHC.Kill(SSMI.TextEngineLive[Live]);
         }

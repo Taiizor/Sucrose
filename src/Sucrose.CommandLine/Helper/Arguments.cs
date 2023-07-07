@@ -2,6 +2,7 @@
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
+using SSHT = Sucrose.Space.Helper.Temporary;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
 namespace Sucrose.CommandLine.Helper
@@ -73,6 +74,9 @@ namespace Sucrose.CommandLine.Helper
                                                 Console.WriteLine(SCLHP.ArgumentValue<string>(Value));
                                             }
                                         }
+                                        break;
+                                    case SSECT.Temp:
+                                        SSHT.Delete(SCLHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Report:
                                         SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
