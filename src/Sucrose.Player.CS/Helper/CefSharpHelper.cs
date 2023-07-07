@@ -22,18 +22,39 @@ namespace Sucrose.Player.CS.Helper
             string Current = string.Empty;
             string Duration = string.Empty;
 
-            Response = await SPCSMI.CefPlayer.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].duration");
-
-            if (Response.Success)
+            if (SPCSMI.CefPlayer.CanExecuteJavascriptInMainFrame)
             {
-                Duration = Response.Result.ToString();
+                Response = await SPCSMI.CefPlayer.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].duration");
+
+                if (Response.Success)
+                {
+                    Duration = Response.Result.ToString();
+                }
+
+                Response = await SPCSMI.CefPlayer.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].currentTime");
+
+                if (Response.Success)
+                {
+                    Current = Response.Result.ToString();
+                }
             }
-
-            Response = await SPCSMI.CefPlayer.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].currentTime");
-
-            if (Response.Success)
+            else
             {
-                Current = Response.Result.ToString();
+                IFrame Frame = SPCSMI.CefPlayer.GetMainFrame();
+
+                Response = await Frame.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].duration");
+
+                if (Response.Success)
+                {
+                    Duration = Response.Result.ToString();
+                }
+
+                Response = await Frame.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].currentTime");
+
+                if (Response.Success)
+                {
+                    Current = Response.Result.ToString();
+                }
             }
 
             return Current.Equals(Duration);
