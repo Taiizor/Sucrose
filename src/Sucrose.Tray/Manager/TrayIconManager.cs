@@ -11,6 +11,7 @@ using SSMI = Sucrose.Space.Manage.Internal;
 using STCC = Sucrose.Tray.Command.Close;
 using STCI = Sucrose.Tray.Command.Interface;
 using STCR = Sucrose.Tray.Command.Report;
+using STHC = Sucrose.Tray.Helper.Calculate;
 using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
 using STRLR = Sucrose.Tray.Renderer.LightRenderer;
 using STSSS = Sucrose.Tray.Separator.StripSeparator;
@@ -114,11 +115,7 @@ namespace Sucrose.Tray.Manager
 
                 Initialize();
 
-                Point MousePosition = Control.MousePosition;
-
-                MousePosition.Offset(-(ContextMenu.Size.Width / 2), -(30 + ContextMenu.Size.Height));
-
-                ContextMenu.Show(MousePosition);
+                ContextMenu.Show(STHC.MenuPosition(ContextMenu));
             }
         }
 
