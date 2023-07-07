@@ -30,9 +30,9 @@ namespace Sucrose.Player.WV.Event
             }
             else
             {
-                string Path = SPSHS.GetContentPath();
+                string Path = SPSHS.GetVideoContentPath();
 
-                SPSHS.WriteContent(Path, Video);
+                SPSHS.WriteVideoContent(Path, Video);
 
                 SPWVMI.EdgePlayer.Source = SPSHS.GetSource(Path);
             }

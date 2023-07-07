@@ -75,6 +75,7 @@
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <PackageReference Include="CefSharp.Wpf" Version="114.2.120" />
+        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
 
     <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
@@ -91,6 +92,7 @@
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Player.CS\Sucrose.Player.CS.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Player.Shared\Sucrose.Player.Shared.projitems" Label="Shared" />
 
     <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System.IO;
-using System.Text.RegularExpressions;
 using SMR = Sucrose.Memory.Readonly;
+using STSHV = Sucrose.Theme.Shared.Helper.Various;
 #if NET48_OR_GREATER
 using System.Net.Http;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
@@ -27,29 +27,29 @@ namespace Sucrose.Player.Shared.Helper
             }
         }
 
-        public static string GetContent(Uri Source)
+        public static string GetVideoContent(Uri Source)
         {
-            return GetContent(Source.ToString());
+            return GetVideoContent(Source.ToString());
         }
 
-        public static string GetContent(string Source)
+        public static string GetVideoContent(string Source)
         {
             return $"<html><head><meta name=\"viewport\" content=\"width=device-width\"></head><body><video autoplay name=\"media\" src=\"{Source}\"></video></body></html>";
         }
 
-        public static void WriteContent(string ContentPath, Uri Content)
+        public static void WriteVideoContent(string VideoContentPath, Uri Content)
         {
-            WriteContent(ContentPath, Content.ToString());
+            WriteVideoContent(VideoContentPath, Content.ToString());
         }
 
-        public static void WriteContent(string ContentPath, string Content)
+        public static void WriteVideoContent(string VideoContentPath, string Content)
         {
-            File.WriteAllText(ContentPath, GetContent(Content));
+            File.WriteAllText(VideoContentPath, GetVideoContent(Content));
         }
 
-        public static string GetContentPath()
+        public static string GetVideoContentPath()
         {
-            return Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2, SMR.VideoContent);
+            return Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Content, SMR.VideoContent);
         }
 
         public static Uri GetSource(Uri Source)
@@ -59,10 +59,10 @@ namespace Sucrose.Player.Shared.Helper
 
         public static Uri GetSource(string Source, UriKind Kind = UriKind.RelativeOrAbsolute)
         {
-            if (IsUrl(Source))
+            if (STSHV.IsUrl(Source))
             {
 #if NET48_OR_GREATER
-                string CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.MediaElement);
+                string CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Content);
 
                 if (!Directory.Exists(CachePath))
                 {
@@ -95,15 +95,6 @@ namespace Sucrose.Player.Shared.Helper
             {
                 return new Uri(@Source, Kind);
             }
-        }
-
-        public static bool IsUrl(string Address)
-        {
-            string Pattern = @"^(http|https|ftp)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$";
-
-            Regex Regex = new(Pattern, RegexOptions.IgnoreCase);
-
-            return Regex.IsMatch(Address);
         }
     }
 }

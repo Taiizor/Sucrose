@@ -1,11 +1,12 @@
-﻿using SMR = Sucrose.Memory.Readonly;
+﻿using SCLHP = Sucrose.CommandLine.Helper.Parse;
+using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
 namespace Sucrose.CommandLine.Helper
 {
-    internal class Arguments
+    internal static class Arguments
     {
         public static void Parse(string[] Arguments)
         {
@@ -44,43 +45,43 @@ namespace Sucrose.CommandLine.Helper
                                 switch (Command)
                                 {
                                     case SSECT.Log:
-                                        SSHC.Run(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Kill:
-                                        SSHC.Kill(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Kill(SCLHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Live:
-                                        SSHC.Run(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Test:
-                                        Console.WriteLine("Test values:");
+                                        Console.WriteLine("Test Values:");
 
-                                        foreach (string value in Values)
+                                        foreach (string Value in Values)
                                         {
-                                            Type Types = GetType(value);
+                                            Type Types = GetType(Value);
 
                                             if (Types == typeof(int))
                                             {
-                                                Console.WriteLine(ParseArgumentValue<int>(value));
+                                                Console.WriteLine(SCLHP.ArgumentValue<int>(Value));
                                             }
                                             else if (Types == typeof(bool))
                                             {
-                                                Console.WriteLine(ParseArgumentValue<bool>(value));
+                                                Console.WriteLine(SCLHP.ArgumentValue<bool>(Value));
                                             }
                                             else if (Types == typeof(string))
                                             {
-                                                Console.WriteLine(ParseArgumentValue<string>(value));
+                                                Console.WriteLine(SCLHP.ArgumentValue<string>(Value));
                                             }
                                         }
                                         break;
                                     case SSECT.Report:
-                                        SSHC.Run(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Startup:
-                                        SWHWS.SetStartup(ParseArgumentValue<string>(Values[0]), ParseArgumentValue<string>(Values[1]), ParseArgumentValue<bool>(Values[2]));
+                                        SWHWS.SetStartup(SCLHP.ArgumentValue<string>(Values[0]), SCLHP.ArgumentValue<string>(Values[1]), SCLHP.ArgumentValue<bool>(Values[2]));
                                         break;
                                     case SSECT.Interface:
-                                        SSHC.Run(ParseArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     default:
                                         break;
@@ -92,60 +93,14 @@ namespace Sucrose.CommandLine.Helper
             }
         }
 
-        private static T ParseArgumentValue<T>(string argValue)
+        private static Type GetType(string Variable)
         {
-            if (typeof(T) == typeof(int))
-            {
-                if (int.TryParse(argValue, out int intValue))
-                {
-                    return (T)(object)intValue;
-                }
-            }
-            else if (typeof(T) == typeof(bool))
-            {
-                if (bool.TryParse(argValue, out bool boolValue))
-                {
-                    return (T)(object)boolValue;
-                }
-            }
-
-            return (T)(object)argValue;
-        }
-
-        private static T ParseArgumentValue2<T>(string argValue)
-        {
-            Type TargetType = typeof(T);
-
-            if (TargetType == typeof(int))
-            {
-                if (int.TryParse(argValue, out int intValue))
-                {
-                    return (T)(object)intValue;
-                }
-            }
-            else if (TargetType == typeof(bool))
-            {
-                if (bool.TryParse(argValue, out bool boolValue))
-                {
-                    return (T)(object)boolValue;
-                }
-            }
-            else if (TargetType == typeof(string))
-            {
-                return (T)(object)argValue;
-            }
-
-            return default;
-        }
-
-        private static Type GetType(string variable)
-        {
-            if (bool.TryParse(variable, out bool _))
+            if (bool.TryParse(Variable, out bool _))
             {
                 return typeof(bool);
             }
 
-            if (int.TryParse(variable, out int _))
+            if (int.TryParse(Variable, out int _))
             {
                 return typeof(int);
             }

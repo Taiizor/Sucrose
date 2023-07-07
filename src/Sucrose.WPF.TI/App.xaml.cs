@@ -29,8 +29,6 @@ namespace Sucrose.WPF.TI
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static bool Visible => SMMI.TrayIconSettingManager.GetSetting(SMC.Visible, true);
-
         private static Mutex Mutex => new(true, SMR.TrayIconMutex);
 
         private static bool HasStart { get; set; } = false;
@@ -100,7 +98,7 @@ namespace Sucrose.WPF.TI
 
         protected void Close()
         {
-            SMMI.TrayIconLogManager.Log(SELLT.Error, $"Application has been closed.");
+            SMMI.TrayIconLogManager.Log(SELLT.Info, $"Application has been closed.");
 
             Environment.Exit(0);
             Current.Shutdown();
@@ -184,7 +182,7 @@ namespace Sucrose.WPF.TI
 
             SMMI.TrayIconLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && Visible)
+            if (Mutex.WaitOne(TimeSpan.Zero, true))
             {
                 SMMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 

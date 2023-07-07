@@ -73,6 +73,10 @@
         <Reference Include="System.Net.Http" />
     </ItemGroup>
 
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    </ItemGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
@@ -83,6 +87,7 @@
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Player.ME\Sucrose.Player.ME.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Player.Shared\Sucrose.Player.Shared.projitems" Label="Shared" />
 
     <ItemGroup>

@@ -2,6 +2,7 @@
 using System.Threading;
 using SELLT = Skylark.Enum.LevelLogType;
 using SELT = Skylark.Enum.LogType;
+using SMHW = Sucrose.Manager.Helper.Writer;
 using SMR = Sucrose.Memory.Readonly;
 using SMV = Sucrose.Memory.Valuable;
 
@@ -41,14 +42,18 @@ namespace Sucrose.Manager
             {
                 lock (lockObject)
                 {
-                    using StreamWriter writer = File.AppendText(logFilePath);
-                    writer.WriteLine($"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                    SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
                 }
             }
             finally
             {
                 _lock.ExitWriteLock();
             }
+        }
+
+        public bool CheckFile()
+        {
+            return File.Exists(logFilePath);
         }
 
         public string LogFile()

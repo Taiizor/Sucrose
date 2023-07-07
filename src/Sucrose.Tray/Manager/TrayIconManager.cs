@@ -4,14 +4,12 @@ using SGHTL = Sucrose.Globalization.Helper.TrayLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
-using SSECT = Sucrose.Space.Enum.CommandsType;
-using SSHC = Sucrose.Space.Helper.Command;
-using SSMI = Sucrose.Space.Manage.Internal;
 using STCC = Sucrose.Tray.Command.Close;
+using STCE = Sucrose.Tray.Command.Engine;
 using STCI = Sucrose.Tray.Command.Interface;
 using STCR = Sucrose.Tray.Command.Report;
 using STHC = Sucrose.Tray.Helper.Calculate;
+using STHL = Sucrose.Tray.Helper.Lives;
 using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
 using STRLR = Sucrose.Tray.Renderer.LightRenderer;
 using STSSS = Sucrose.Tray.Separator.StripSeparator;
@@ -24,6 +22,8 @@ namespace Sucrose.Tray.Manager
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+
+        private static bool Visible => SMMI.TrayIconSettingManager.GetSetting(SMC.Visible, true);
 
         private ContextMenuStrip ContextMenu { get; set; } = new();
 
@@ -38,7 +38,9 @@ namespace Sucrose.Tray.Manager
             TrayIcon.ContextMenuStrip = ContextMenu;
             TrayIcon.MouseDoubleClick += MouseDoubleClick;
 
-            TrayIcon.Visible = true;
+            TrayIcon.Visible = Visible;
+
+            STCE.Command();
         }
 
         public void Initialize()
@@ -59,7 +61,7 @@ namespace Sucrose.Tray.Manager
             STSSS Separator1 = new(Theme);
             ContextMenu.Items.Add(Separator1.Strip);
 
-            if (SSHC.Work(SMMI.EngineSettingManager.GetSetting(SMC.App, SMR.EngineLive)))
+            if (STHL.RunLive())
             {
                 ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, CommandEngine);
                 //ContextMenu.Items.Add(SGHTL.GetValue("WallStartText"), null, null); //WallStopText
@@ -67,7 +69,7 @@ namespace Sucrose.Tray.Manager
                 //ContextMenu.Items.Add(SGHTL.GetValue("WallChangeText"), null, null);
                 ContextMenu.Items.Add(SGHTL.GetValue("WallCustomizeText"), null, null);
             }
-            else
+            else if (SMMI.EngineSettingManager.CheckFile())
             {
                 ContextMenu.Items.Add(SGHTL.GetValue("WallOpenText"), null, CommandEngine);
             }
@@ -134,16 +136,7 @@ namespace Sucrose.Tray.Manager
 
         private void CommandEngine(object sender, EventArgs e)
         {
-            string Live = SMMI.EngineSettingManager.GetSetting(SMC.App, SMR.EngineLive);
-
-            if (SSHC.Work(Live))
-            {
-                SSHC.Kill(Live);
-            }
-            else
-            {
-                SSHC.Run(SSMI.CommandLine, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.TextEngineLive[Live]}");
-            }
+            STCE.Command();
         }
 
         private void CommandReport(object sender, EventArgs e)

@@ -10,6 +10,8 @@ namespace Sucrose.Memory
 
         public static readonly string AppName = "Sucrose";
 
+        public static readonly string Content = "Content";
+
         public static readonly char StartCommandChar = '-';
 
         public static readonly string CacheFolder = "Cache";

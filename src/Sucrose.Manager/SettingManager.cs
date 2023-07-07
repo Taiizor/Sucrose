@@ -5,6 +5,8 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using SMCIPAC = Sucrose.Manager.Converter.IPAddressConverter;
+using SMHR = Sucrose.Manager.Helper.Reader;
+using SMHW = Sucrose.Manager.Helper.Writer;
 using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Manager
@@ -44,7 +46,7 @@ namespace Sucrose.Manager
             {
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = ReadFile();
+                    string json = SMHR.Read(_settingsFilePath);
 
                     Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -70,7 +72,7 @@ namespace Sucrose.Manager
             {
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = ReadFile();
+                    string json = SMHR.Read(_settingsFilePath);
 
                     Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -96,7 +98,7 @@ namespace Sucrose.Manager
             {
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = ReadFile();
+                    string json = SMHR.Read(_settingsFilePath);
 
                     Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -124,7 +126,7 @@ namespace Sucrose.Manager
 
                 if (File.Exists(_settingsFilePath))
                 {
-                    string json = ReadFile();
+                    string json = SMHR.Read(_settingsFilePath);
                     settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
                 }
                 else
@@ -134,7 +136,7 @@ namespace Sucrose.Manager
 
                 settings.Properties[key] = ConvertToType<T>(value);
 
-                WriteFile(JsonConvert.SerializeObject(settings, _serializerSettings));
+                SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
             }
             finally
             {
@@ -142,36 +144,9 @@ namespace Sucrose.Manager
             }
         }
 
-        private string ReadFile()
+        public bool CheckFile()
         {
-            try
-            {
-                //return File.ReadAllText(_settingsFilePath);
-
-                using FileStream fileStream = new(_settingsFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                using StreamReader reader = new(fileStream);
-                return reader.ReadToEnd();
-            }
-            catch
-            {
-                return string.Empty;
-            }
-        }
-
-        private void WriteFile(string serializedSettings)
-        {
-            try
-            {
-                //File.WriteAllText(_settingsFilePath, serializedSettings);
-
-                using FileStream fileStream = new(_settingsFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
-                using StreamWriter writer = new(fileStream);
-                writer.Write(serializedSettings);
-            }
-            catch
-            {
-                //
-            }
+            return File.Exists(_settingsFilePath);
         }
 
         private T ConvertToType<T>(object value)

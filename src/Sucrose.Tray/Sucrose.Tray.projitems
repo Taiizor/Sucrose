@@ -41,10 +41,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Command\Engine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Close.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Report.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Interface.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Calculate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Lives.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\TrayIconManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Renderer\DarkRenderer.cs" />
