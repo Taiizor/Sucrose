@@ -36,8 +36,6 @@ namespace Sucrose.Player.ME
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
 
-            SPMEMI.MediaPlayer.MediaOpened += SPMEEH.MediaPlayerOpened;
-            SPMEMI.MediaPlayer.MediaFailed += SPMEEH.MediaPlayerFailed;
             SPMEMI.MediaPlayer.MediaEnded += SPMEEH.MediaPlayerEnded;
 
             Closing += (s, e) => SPMEMI.MediaPlayer.Close();
