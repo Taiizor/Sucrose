@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using SEAT = Skylark.Enum.AssemblyType;
-using SHA = Skylark.Helper.Assemblies;
-using SMR = Sucrose.Memory.Readonly;
-using SMC = Sucrose.Memory.Constant;
-using SSEET = Sucrose.Space.Enum.EngineType;
 using SEWT = Skylark.Enum.WallpaperType;
+using SHA = Skylark.Helper.Assemblies;
+using SMC = Sucrose.Memory.Constant;
+using SMR = Sucrose.Memory.Readonly;
+using SSEET = Sucrose.Space.Enum.EngineType;
 
 namespace Sucrose.Space.Manage
 {

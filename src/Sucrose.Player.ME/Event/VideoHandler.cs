@@ -5,7 +5,7 @@ using SPMEMI = Sucrose.Player.ME.Manage.Internal;
 
 namespace Sucrose.Player.ME.Event
 {
-    internal static class Handler
+    internal static class VideoHandler
     {
         public static void MediaPlayerOpened(object sender, RoutedEventArgs e)
         {

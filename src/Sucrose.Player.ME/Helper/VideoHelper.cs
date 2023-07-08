@@ -2,7 +2,7 @@
 
 namespace Sucrose.Player.ME.Helper
 {
-    internal static class MediaElementHelper
+    internal static class VideoHelper
     {
         public static void Pause()
         {

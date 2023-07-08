@@ -1,13 +1,13 @@
 ﻿using System.Windows;
-using SWHWO = Skylark.Wing.Helper.WindowOperations;
-using SWHWI = Skylark.Wing.Helper.WindowInterop;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SSEDT = Sucrose.Space.Enum.DisplayType;
 using SWE = Skylark.Wing.Engine;
+using SWHWI = Skylark.Wing.Helper.WindowInterop;
+using SWHWO = Skylark.Wing.Helper.WindowOperations;
 
 namespace Sucrose.Player.Shared.Event
 {

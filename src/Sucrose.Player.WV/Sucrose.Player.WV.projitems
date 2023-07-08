@@ -9,15 +9,18 @@
     <Import_RootNamespace>Sucrose.Player.WV</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Event\Handler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\WebViewHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Event\VideoHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\VideoHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\VideoEngine.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)WebView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)View\VideoEngine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)View\" />
   </ItemGroup>
 </Project>

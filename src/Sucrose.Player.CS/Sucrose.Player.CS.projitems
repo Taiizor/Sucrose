@@ -9,16 +9,16 @@
     <Import_RootNamespace>Sucrose.Player.CS</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)CefSharp.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)View\VideoEngine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)CefSharp.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CustomContextMenuHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Event\Handler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Event\VideoHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\CefSharpHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\VideoEngine.xaml.cs" />
   </ItemGroup>
 </Project>

@@ -2,13 +2,13 @@
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPSHS = Sucrose.Player.Shared.Helper.Source;
-using SPWVHWVH = Sucrose.Player.WV.Helper.WebViewHelper;
+using SPWVHVH = Sucrose.Player.WV.Helper.VideoHelper;
 using SPWVMI = Sucrose.Player.WV.Manage.Internal;
 using SSEST = Sucrose.Space.Enum.StretchType;
 
 namespace Sucrose.Player.WV.Event
 {
-    internal static class Handler
+    internal static class VideoHandler
     {
         public static void EdgePlayerDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
@@ -16,8 +16,8 @@ namespace Sucrose.Player.WV.Event
             SPWVMI.EdgePlayer.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
             SPWVMI.EdgePlayer.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
 
-            SPWVHWVH.SetStretch(SMMI.EngineSettingManager.GetSettingStable(SMC.StretchType, SSEST.Fill));
-            SPWVHWVH.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SPWVHVH.SetStretch(SMMI.EngineSettingManager.GetSettingStable(SMC.StretchType, SSEST.Fill));
+            SPWVHVH.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
         }
 
         public static void EdgePlayerInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)

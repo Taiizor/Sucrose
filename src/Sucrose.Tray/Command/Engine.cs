@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using SEWT = Skylark.Enum.WallpaperType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -7,9 +8,9 @@ using SSEET = Sucrose.Space.Enum.EngineType;
 using SSHC = Sucrose.Space.Helper.Command;
 using SSHL = Sucrose.Space.Helper.Live;
 using SSMI = Sucrose.Space.Manage.Internal;
-using SWUD = Skylark.Wing.Utility.Desktop;
+using STCI = Sucrose.Tray.Command.Interface;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
-using SEWT = Skylark.Enum.WallpaperType;
+using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Tray.Command
 {
@@ -39,7 +40,7 @@ namespace Sucrose.Tray.Command
 
                 SWUD.RefreshDesktop();
             }
-            else if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
+            else if (!SSHL.Run() && SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {
                 string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
 
@@ -71,6 +72,10 @@ namespace Sucrose.Tray.Command
                             break;
                     }
                 }
+            }
+            else if (!SMMI.EngineSettingManager.CheckFile() || string.IsNullOrEmpty(Folder))
+            {
+                STCI.Command();
             }
         }
     }

@@ -59,20 +59,27 @@ namespace Sucrose.Space.Helper
             }
         }
 
+        public static int WorkCount(string Application)
+        {
+            return Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)).Count();
+        }
+
         public static bool Kill(string Application)
         {
             try
             {
+                bool Result = false;
+
                 foreach (Process Process in Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)))
                 {
                     //Process.CloseMainWindow();
                     //Process.Close();
                     Process.Kill();
 
-                    return true;
+                    Result = true;
                 }
 
-                return false;
+                return Result;
             }
             catch
             {

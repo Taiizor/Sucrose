@@ -3,18 +3,20 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
+using SEWT = Skylark.Enum.WallpaperType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPWVMI = Sucrose.Player.WV.Manage.Internal;
+using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using SPSHR = Sucrose.Player.Shared.Helper.Run;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
-using STSHI = Sucrose.Theme.Shared.Helper.Info;
-using SEWT = Skylark.Enum.WallpaperType;
+using SPWVVVE = Sucrose.Player.WV.View.VideoEngine;
 
 namespace Sucrose.Player.WV.Live
 {
@@ -158,7 +160,7 @@ namespace Sucrose.Player.WV.Live
                         switch (Info.Type)
                         {
                             case SEWT.Video:
-                                WebView Player = new(FilePath);
+                                SPWVVVE Player = new(FilePath);
                                 Player.Show();
 
                                 HasStart = true;
@@ -197,8 +199,10 @@ namespace Sucrose.Player.WV.Live
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true))
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SPSHR.Check())
             {
+                Mutex.ReleaseMutex();
+
                 Configure();
             }
             else

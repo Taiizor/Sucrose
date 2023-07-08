@@ -4,7 +4,7 @@ using SSEST = Sucrose.Space.Enum.StretchType;
 
 namespace Sucrose.Player.CS.Helper
 {
-    internal static class CefSharpHelper
+    internal static class VideoHelper
     {
         public static void Pause()
         {

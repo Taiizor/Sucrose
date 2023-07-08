@@ -3,7 +3,7 @@ using SSEST = Sucrose.Space.Enum.StretchType;
 
 namespace Sucrose.Player.WV.Helper
 {
-    internal static class WebViewHelper
+    internal static class VideoHelper
     {
         public static async void Pause()
         {
