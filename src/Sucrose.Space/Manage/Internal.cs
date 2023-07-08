@@ -42,7 +42,7 @@ namespace Sucrose.Space.Manage
         {
             { SEWT.Web, SSEET.WebViewLive },
             { SEWT.Url, SSEET.WebViewLive },
-            { SEWT.Video, SSEET.CefSharpLive },
+            { SEWT.Video, SSEET.WebViewLive },
             { SEWT.YouTube, SSEET.WebViewLive },
             { SEWT.Application, SSEET.AppLive },
             { SEWT.Gif, SSEET.MediaElementLive }
@@ -54,7 +54,7 @@ namespace Sucrose.Space.Manage
             { SMC.WApp, SSEET.WebViewLive },
             { SMC.UApp, SSEET.WebViewLive },
             { SMC.YApp, SSEET.WebViewLive },
-            { SMC.VApp, SSEET.CefSharpLive },
+            { SMC.VApp, SSEET.WebViewLive },
             { SMC.GApp, SSEET.MediaElementLive }
         };
     }

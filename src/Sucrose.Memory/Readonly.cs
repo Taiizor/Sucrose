@@ -52,6 +52,8 @@ namespace Sucrose.Memory
 
         public static readonly string WinFormsTrayIcon = "Sucrose.WinForms.TI.exe";
 
+        public static readonly string SucroseProperties = "SucroseProperties.json";
+
         public static readonly string MediaElementLive = "Sucrose.Player.ME.Live.exe";
 
         public static readonly string WinFormsUserInterface = "Sucrose.WinForms.UI.exe";
