@@ -24,13 +24,15 @@ namespace Sucrose.Player.ME
     {
         private readonly DispatcherTimer Timer = new();
 
-        public MediaElement()
+        public MediaElement(string Video)
         {
             InitializeComponent();
 
+            ContentRendered += (s, e) => SPSEH.ContentRendered(this);
+
             Content = SPMEMI.MediaPlayer;
 
-            SPMEMI.MediaPlayer.Source = SPSHS.GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, @""));
+            SPMEMI.MediaPlayer.Source = SPSHS.GetSource(Video);
 
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Interval = new TimeSpan(0, 0, 1);
@@ -57,13 +59,6 @@ namespace Sucrose.Player.ME
             if ((int)Stretch < Enum.GetValues(typeof(SSEST)).Length)
             {
                 SPMEMI.MediaPlayer.Stretch = (Stretch)Stretch;
-            }
-
-            Uri Video = SPSHS.GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, new Uri(@"", UriKind.RelativeOrAbsolute)));
-
-            if (SPMEMI.MediaPlayer.Source != Video)
-            {
-                SPMEMI.MediaPlayer.Source = Video;
             }
         }
 

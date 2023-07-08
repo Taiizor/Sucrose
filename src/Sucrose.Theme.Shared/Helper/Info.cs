@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Globalization;
+using System.IO;
 using SEWT = Skylark.Enum.WallpaperType;
 
 namespace Sucrose.Theme.Shared.Helper
@@ -49,6 +50,11 @@ namespace Sucrose.Theme.Shared.Helper
         public static Info FromJson(string Json)
         {
             return JsonConvert.DeserializeObject<Info>(Json, Converter.Settings);
+        }
+
+        public static Info ReadJson(string Json)
+        {
+            return JsonConvert.DeserializeObject<Info>(File.ReadAllText(Json), Converter.Settings);
         }
     }
 

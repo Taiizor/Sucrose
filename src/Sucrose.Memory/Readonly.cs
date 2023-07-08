@@ -32,7 +32,7 @@ namespace Sucrose.Memory
 
         public static readonly string StartCommand = $"{StartCommandChar}";
 
-        public static readonly string EngineLive = "Sucrose.Engine.Live.exe";
+        public static readonly string AppLive = "Sucrose.Player.AP.Live.exe";
 
         public static readonly string WPFUserInterface = "Sucrose.WPF.UI.exe";
 

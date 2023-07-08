@@ -24,11 +24,15 @@ namespace Sucrose.Player.WV
     {
         private readonly DispatcherTimer Timer = new();
 
-        public WebView()
+        public WebView(string Video)
         {
             InitializeComponent();
 
+            ContentRendered += (s, e) => SPSEH.ContentRendered(this);
+
             Content = SPWVMI.EdgePlayer;
+
+            SPWVMI.Video = Video;
 
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Interval = new TimeSpan(0, 0, 1);
@@ -58,34 +62,34 @@ namespace Sucrose.Player.WV
                 SPWVHWVH.SetStretch(Stretch);
             }
 
-            if (SPWVMI.EdgePlayer.IsInitialized)
-            {
-                Uri Video = SPSHS.GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, @""));
+//            if (SPWVMI.EdgePlayer.IsInitialized)
+//            {
+//                Uri Video = SPSHS.GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, @""));
 
-                if (SPSHS.GetExtension(Video))
-                {
-                    if (SPWVMI.EdgePlayer.Source != Video)
-                    {
-                        SPWVMI.EdgePlayer.Source = Video;
-                    }
-                }
-                else
-                {
-                    string Source = await SPWVHWVH.GetVideo();
-                    string Local = Video.ToString();
+//                if (SPSHS.GetExtension(Video))
+//                {
+//                    if (SPWVMI.EdgePlayer.Source != Video)
+//                    {
+//                        SPWVMI.EdgePlayer.Source = Video;
+//                    }
+//                }
+//                else
+//                {
+//                    string Source = await SPWVHWVH.GetVideo();
+//                    string Local = Video.ToString();
 
-#if NET48_OR_GREATER
-                    Source = Source.Substring(1, Source.Length - 2);
-#else
-                    Source = Source[1..^1];
-#endif
+//#if NET48_OR_GREATER
+//                    Source = Source.Substring(1, Source.Length - 2);
+//#else
+//                    Source = Source[1..^1];
+//#endif
 
-                    if (Source != Local)
-                    {
-                        SPWVHWVH.SetVideo(Local);
-                    }
-                }
-            }
+//                    if (Source != Local)
+//                    {
+//                        SPWVHWVH.SetVideo(Local);
+//                    }
+//                }
+//            }
         }
 
         private void WebView_ContentRendered(object sender, EventArgs e)

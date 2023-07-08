@@ -23,15 +23,17 @@ namespace Sucrose.Player.CS
     {
         private readonly DispatcherTimer Timer = new();
 
-        public CefSharp()
+        public CefSharp(string Video)
         {
             InitializeComponent();
+
+            ContentRendered += (s, e) => SPSEH.ContentRendered(this);
 
             SPCSMI.CefPlayer.MenuHandler = new CustomContextMenuHandler();
 
             Content = SPCSMI.CefPlayer;
 
-            SPCSMI.CefPlayer.Address = SPSHS.GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, @"")).ToString();
+            SPCSMI.CefPlayer.Address = SPSHS.GetSource(Video).ToString();
             //SPCSMI.CefPlayer.Address = @"http://www.bokowsky.net/de/knowledge-base/video/videos/big_buck_bunny_240p.ogg"; //.webm - .mp4 - .ogg
 
             SPCSMI.CefPlayer.BrowserSettings = SPCSMI.CefSettings;
@@ -58,13 +60,6 @@ namespace Sucrose.Player.CS
             if ((int)Stretch < Enum.GetValues(typeof(SSEST)).Length)
             {
                 SPCSHCSH.SetStretch(Stretch);
-            }
-
-            string Video = SPSHS.GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, @"")).ToString();
-
-            if (SPCSMI.CefPlayer.Address != Video)
-            {
-                SPCSMI.CefPlayer.Address = Video;
             }
         }
 

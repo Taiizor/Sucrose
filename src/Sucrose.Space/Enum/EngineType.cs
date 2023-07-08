@@ -2,7 +2,7 @@
 {
     public enum EngineType
     {
-        EngineLive,
+        AppLive,
         WebViewLive,
         CefSharpLive,
         MediaElementLive

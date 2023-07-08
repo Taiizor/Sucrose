@@ -22,7 +22,7 @@ namespace Sucrose.Player.WV.Event
 
         public static void EdgePlayerInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            Uri Video = SPSHS.GetSource(SMMI.EngineSettingManager.GetSetting(SMC.Video, @""));
+            Uri Video = SPSHS.GetSource(SPWVMI.Video);
 
             if (SPSHS.GetExtension(Video))
             {

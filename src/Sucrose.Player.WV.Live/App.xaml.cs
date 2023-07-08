@@ -13,6 +13,8 @@ using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
+using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using SEWT = Skylark.Enum.WallpaperType;
 
 namespace Sucrose.Player.WV.Live
 {
@@ -21,9 +23,13 @@ namespace Sucrose.Player.WV.Live
     /// </summary>
     public partial class App : Application
     {
+        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+
+        private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
         private static Mutex Mutex => new(true, SMR.EngineMutex);
 
@@ -127,22 +133,55 @@ namespace Sucrose.Player.WV.Live
 
         protected void Configure()
         {
-            CoreWebView2EnvironmentOptions Options = new()
+            if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {
-                Language = Culture,
-                AdditionalBrowserArguments = "--enable-media-stream --enable-accelerated-video-decode --allow-running-insecure-content --use-fake-ui-for-media-stream --enable-speech-input --enable-usermedia-screen-capture --debug-plugin-loading --allow-outdated-plugins --always-authorize-plugins --enable-npapi"
-            };
+                string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
 
-            Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
+                if (File.Exists(InfoPath))
+                {
+                    CoreWebView2EnvironmentOptions Options = new()
+                    {
+                        Language = Culture,
+                        AdditionalBrowserArguments = "--enable-media-stream --enable-accelerated-video-decode --allow-running-insecure-content --use-fake-ui-for-media-stream --enable-speech-input --enable-usermedia-screen-capture --debug-plugin-loading --allow-outdated-plugins --always-authorize-plugins --enable-npapi"
+                    };
 
-            SPWVMI.EdgePlayer.EnsureCoreWebView2Async(Environment.Result);
+                    Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
-            SMMI.EngineSettingManager.SetSetting(SMC.App, SMR.WebViewLive);
+                    SPWVMI.EdgePlayer.EnsureCoreWebView2Async(Environment.Result);
 
-            WebView Player = new();
-            Player.Show();
+                    STSHI Info = STSHI.ReadJson(InfoPath);
 
-            HasStart = true;
+                    string FilePath = Path.Combine(Directory, Folder, Info.FileName);
+
+                    if (File.Exists(FilePath))
+                    {
+                        switch (Info.Type)
+                        {
+                            case SEWT.Video:
+                                WebView Player = new(FilePath);
+                                Player.Show();
+
+                                HasStart = true;
+                                break;
+                            default:
+                                Close();
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
 
         protected override void OnExit(ExitEventArgs e)

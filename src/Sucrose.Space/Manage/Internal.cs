@@ -2,7 +2,9 @@
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SMR = Sucrose.Memory.Readonly;
+using SMC = Sucrose.Memory.Constant;
 using SSEET = Sucrose.Space.Enum.EngineType;
+using SEWT = Skylark.Enum.WallpaperType;
 
 namespace Sucrose.Space.Manage
 {
@@ -22,7 +24,7 @@ namespace Sucrose.Space.Manage
 
         public static Dictionary<SSEET, string> EngineLive => new()
         {
-            { SSEET.EngineLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.EngineLive) },
+            { SSEET.AppLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.AppLive), SMR.AppLive) },
             { SSEET.WebViewLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.WebViewLive) },
             { SSEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) },
             { SSEET.MediaElementLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.MediaElementLive), SMR.MediaElementLive) }
@@ -30,10 +32,30 @@ namespace Sucrose.Space.Manage
 
         public static Dictionary<string, string> TextEngineLive => new()
         {
-            { SMR.EngineLive, EngineLive[SSEET.EngineLive] },
+            { SMR.AppLive, EngineLive[SSEET.AppLive] },
             { SMR.WebViewLive, EngineLive[SSEET.WebViewLive] },
             { SMR.CefSharpLive, EngineLive[SSEET.CefSharpLive] },
             { SMR.MediaElementLive, EngineLive[SSEET.MediaElementLive] }
+        };
+
+        public static Dictionary<SEWT, SSEET> WallpaperLive => new()
+        {
+            { SEWT.Web, SSEET.WebViewLive },
+            { SEWT.Url, SSEET.WebViewLive },
+            { SEWT.Video, SSEET.CefSharpLive },
+            { SEWT.YouTube, SSEET.WebViewLive },
+            { SEWT.Application, SSEET.AppLive },
+            { SEWT.Gif, SSEET.MediaElementLive }
+        };
+
+        public static Dictionary<string, SSEET> TextWallpaperLive => new()
+        {
+            { SMC.AApp, SSEET.AppLive },
+            { SMC.WApp, SSEET.WebViewLive },
+            { SMC.UApp, SSEET.WebViewLive },
+            { SMC.YApp, SSEET.WebViewLive },
+            { SMC.VApp, SSEET.CefSharpLive },
+            { SMC.GApp, SSEET.MediaElementLive }
         };
     }
 }

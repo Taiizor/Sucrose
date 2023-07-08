@@ -68,6 +68,10 @@
         <PackageReference Include="Skylark.Wing" Version="3.0.1.222" />
     </ItemGroup>
 
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    </ItemGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\Sucrose.Discord\Sucrose.Discord.csproj" />
@@ -77,6 +81,7 @@
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />

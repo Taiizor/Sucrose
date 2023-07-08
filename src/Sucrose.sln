@@ -365,6 +365,7 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Sucrose.Common\Sucrose.Common.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
+		Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Tray\Sucrose.Tray.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{075ececa-f607-4d7b-8449-3b1b6c0f73e2}*SharedItemsImports = 5
 		Sucrose.Common\Sucrose.Common.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5

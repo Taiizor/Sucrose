@@ -12,7 +12,7 @@ using STSHV = Sucrose.Theme.Shared.Helper.Various;
 
 namespace Sucrose.Theme.Shared.Helper
 {
-    internal class Zip
+    internal static class Zip
     {
         public static SECT Extract(string Archive, string Destination)
         {
