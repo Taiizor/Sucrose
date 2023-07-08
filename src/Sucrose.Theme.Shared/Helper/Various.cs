@@ -14,6 +14,16 @@ namespace Sucrose.Theme.Shared.Helper
             return Regex.IsMatch(Address);
         }
 
+        public static bool IsYouTube(string Address)
+        {
+            return IsYouTubeUrl(Address) || IsYouTubePlaylistUrl(Address);
+        }
+
+        public static bool IsYouTubeMusic(string Address)
+        {
+            return IsYouTubeMusicUrl(Address) || IsYouTubeMusicPlaylistUrl(Address);
+        }
+
         public static bool IsYouTubeUrl(string Address)
         {
             if (IsUrl(Address))

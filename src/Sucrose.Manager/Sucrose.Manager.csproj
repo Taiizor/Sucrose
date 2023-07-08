@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.312" />
+        <PackageReference Include="Skylark" Version="3.0.1.314" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 

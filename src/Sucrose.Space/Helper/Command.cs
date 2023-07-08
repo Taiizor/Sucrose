@@ -7,16 +7,36 @@ namespace Sucrose.Space.Helper
     {
         public static void Run(string Application)
         {
-            Run(Application, string.Empty);
+            ProcessStartInfo ProcessInfo = new(Application)
+            {
+                UseShellExecute = true
+            };
+
+            Process Process = new()
+            {
+                StartInfo = ProcessInfo
+            };
+
+            Process.Start();
         }
 
         public static void Run(string Application, string Arguments)
         {
+            Run(Application, Arguments, ProcessWindowStyle.Hidden);
+        }
+
+        public static void Run(string Application, string Arguments, ProcessWindowStyle Style)
+        {
+            Run(Application, Arguments, Style, true);
+        }
+
+        public static void Run(string Application, string Arguments, ProcessWindowStyle Style, bool Window)
+        {
             ProcessStartInfo ProcessInfo = new(Application, Arguments)
             {
-                WindowStyle = ProcessWindowStyle.Hidden,
+                CreateNoWindow = Window,
                 UseShellExecute = true,
-                CreateNoWindow = true
+                WindowStyle = Style
             };
 
             Process Process = new()

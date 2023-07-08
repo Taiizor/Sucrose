@@ -1,20 +1,32 @@
 ﻿using System.IO;
+using SSHC = Sucrose.Space.Helper.Command;
+using SSHL = Sucrose.Space.Helper.Live;
 
 namespace Sucrose.Space.Helper
 {
     internal static class Temporary
     {
-        public static void Delete(string Path)
+        public static void Delete(string Path, string Application)
         {
             try
             {
+                SSHL.Kill();
+                SSHC.Kill(Application);
+
                 Directory.Delete(Path, true);
+
+                SSHC.Run(Application);
             }
             catch
             {
                 try
                 {
+                    SSHL.Kill();
+                    SSHC.Kill(Application);
+
                     File.Delete(Path);
+
+                    SSHC.Run(Application);
                 }
                 catch
                 {

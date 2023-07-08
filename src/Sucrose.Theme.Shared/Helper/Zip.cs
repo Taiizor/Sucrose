@@ -1,11 +1,14 @@
 ﻿using System.IO;
 using System.IO.Compression;
+using SEAET = Skylark.Enum.AppExtensionType;
 using SECT = Skylark.Enum.CompatibilityType;
+using SEVET = Skylark.Enum.VideoExtensionType;
+using SEWET = Skylark.Enum.WebExtensionType;
 using SEWT = Skylark.Enum.WallpaperType;
 using SHV = Skylark.Helper.Versionly;
-using STSHV = Sucrose.Theme.Shared.Helper.Various;
-using STSHI = Sucrose.Theme.Shared.Helper.Info;
 using SMR = Sucrose.Memory.Readonly;
+using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using STSHV = Sucrose.Theme.Shared.Helper.Various;
 
 namespace Sucrose.Theme.Shared.Helper
 {
@@ -111,25 +114,57 @@ namespace Sucrose.Theme.Shared.Helper
                 }
 
                 // Info içindeki Type değerine göre dosya veya url kontrolü
-                if (Info.Type == SEWT.Web && !CheckFile(Archive, Info.FileName))
+                if (Info.Type == SEWT.Web)
                 {
-                    return SECT.FileName;
+                    if (!CheckFile(Archive, Info.FileName))
+                    {
+                        return SECT.FileName;
+                    }
+                    else if (!CheckWebExtension(Info.FileName))
+                    {
+                        return SECT.InvalidExtension;
+                    }
                 }
                 else if (Info.Type == SEWT.Url && !STSHV.IsUrl(Info.FileName))
                 {
-                    return SECT.FileName;
+                    return SECT.InvalidUrl;
                 }
-                else if (Info.Type == SEWT.Gif && !STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
+                else if (Info.Type == SEWT.Gif)
                 {
-                    return SECT.FileName;
+                    if (!STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
+                    {
+                        return SECT.FileName;
+                    }
+                    else if (!CheckGifExtension(Info.FileName))
+                    {
+                        return SECT.InvalidExtension;
+                    }
                 }
-                else if (Info.Type == SEWT.Video && !STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
+                else if (Info.Type == SEWT.Video)
                 {
-                    return SECT.FileName; //FileNameExtension or FileExtension
+                    if (!STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
+                    {
+                        return SECT.FileName;
+                    }
+                    else if (!CheckVideoExtension(Info.FileName))
+                    {
+                        return SECT.InvalidExtension;
+                    }
                 }
-                else if (Info.Type == SEWT.Application && !CheckFile(Archive, Info.FileName))
+                else if (Info.Type == SEWT.YouTube && !STSHV.IsYouTube(Info.FileName) && !STSHV.IsYouTubeMusic(Info.FileName))
                 {
-                    return SECT.FileName; //FileNameExtension or FileExtension
+                    return SECT.InvalidUrl;
+                }
+                else if (Info.Type == SEWT.Application)
+                {
+                    if (!CheckFile(Archive, Info.FileName))
+                    {
+                        return SECT.FileName;
+                    }
+                    else if (!CheckAppExtension(Info.FileName))
+                    {
+                        return SECT.InvalidExtension;
+                    }
                 }
 
                 return SECT.Pass;
@@ -155,6 +190,65 @@ namespace Sucrose.Theme.Shared.Helper
             catch
             {
                 return string.Empty;
+            }
+        }
+
+        private static bool CheckAppExtension(string File)
+        {
+            try
+            {
+                string Extension = Path.GetExtension(File).Replace(".", "");
+
+                return Enum.TryParse<SEAET>(Extension, true, out _);
+                //return Enum.IsDefined(typeof(SEAET), Extension.ToUpperInvariant());
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool CheckGifExtension(string File)
+        {
+            try
+            {
+                string Extension = Path.GetExtension(File).Replace(".", "");
+
+                return Extension.Equals("GIF", StringComparison.OrdinalIgnoreCase);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool CheckWebExtension(string File)
+        {
+            try
+            {
+                string Extension = Path.GetExtension(File).Replace(".", "");
+
+                return Enum.TryParse<SEWET>(Extension, true, out _);
+                //return Enum.IsDefined(typeof(SEWET), Extension.ToUpperInvariant());
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool CheckVideoExtension(string File)
+        {
+            try
+            {
+                string Extension = Path.GetExtension(File).Replace(".", "");
+
+                return Enum.TryParse<SEVET>(Extension, true, out _);
+                //return Enum.IsDefined(typeof(SEVET), Extension.ToUpperInvariant());
+            }
+            catch
+            {
+                return false;
             }
         }
 

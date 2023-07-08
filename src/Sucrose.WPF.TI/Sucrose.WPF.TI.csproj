@@ -65,16 +65,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark" Version="3.0.1.312" />
-        <PackageReference Include="Skylark.Wing" Version="3.0.1.221" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.222" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
-        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
         <ProjectReference Include="..\Sucrose.Discord\Sucrose.Discord.csproj" />
-        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
     <Import Project="..\Sucrose.Tray\Sucrose.Tray.projitems" Label="Shared" />

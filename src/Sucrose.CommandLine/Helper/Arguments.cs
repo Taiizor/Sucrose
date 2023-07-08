@@ -78,7 +78,7 @@ namespace Sucrose.CommandLine.Helper
                                         }
                                         break;
                                     case SSECT.Temp:
-                                        SSHT.Delete(SCLHP.ArgumentValue<string>(Values[0]));
+                                        SSHT.Delete(SCLHP.ArgumentValue<string>(Values[0]), SCLHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSECT.Import:
                                         SSHI.Start(SCLHP.ArgumentValue<string>(Values[0]), SCLHP.ArgumentValue<string>(Values[1]));

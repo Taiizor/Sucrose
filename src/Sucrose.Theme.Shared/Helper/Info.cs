@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Skylark.Enum;
 using System.Globalization;
+using SEWT = Skylark.Enum.WallpaperType;
 
 namespace Sucrose.Theme.Shared.Helper
 {
@@ -35,7 +35,7 @@ namespace Sucrose.Theme.Shared.Helper
         public string Contact { get; set; }
 
         [JsonProperty("Type", Required = Required.Always)]
-        public WallpaperType Type { get; set; }
+        public SEWT Type { get; set; }
 
         [JsonProperty("FileName", Required = Required.Always)]
         public string FileName { get; set; }
