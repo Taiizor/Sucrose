@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace Sucrose.Theme.Shared.Helper
 {
-    internal partial class ThemeFile
+    internal partial class Info
     {
         [JsonProperty("AppVersion", Required = Required.Always)]
         public Version AppVersion { get; set; }
@@ -44,17 +44,17 @@ namespace Sucrose.Theme.Shared.Helper
         public string Arguments { get; set; }
     }
 
-    internal partial class ThemeFile
+    internal partial class Info
     {
-        public static ThemeFile FromJson(string Json)
+        public static Info FromJson(string Json)
         {
-            return JsonConvert.DeserializeObject<ThemeFile>(Json, Converter.Settings);
+            return JsonConvert.DeserializeObject<Info>(Json, Converter.Settings);
         }
     }
 
     internal static class Serialize
     {
-        public static string ToJson(this ThemeFile self)
+        public static string ToJson(this Info self)
         {
             return JsonConvert.SerializeObject(self, Converter.Settings);
         }

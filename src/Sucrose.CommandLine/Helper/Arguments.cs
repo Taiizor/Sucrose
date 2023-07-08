@@ -2,6 +2,8 @@
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
+using SSHE = Sucrose.Space.Helper.Export;
+using SSHI = Sucrose.Space.Helper.Import;
 using SSHT = Sucrose.Space.Helper.Temporary;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
@@ -77,6 +79,12 @@ namespace Sucrose.CommandLine.Helper
                                         break;
                                     case SSECT.Temp:
                                         SSHT.Delete(SCLHP.ArgumentValue<string>(Values[0]));
+                                        break;
+                                    case SSECT.Import:
+                                        SSHI.Start(SCLHP.ArgumentValue<string>(Values[0]), SCLHP.ArgumentValue<string>(Values[1]));
+                                        break;
+                                    case SSECT.Export:
+                                        SSHE.Start(SCLHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Report:
                                         SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));

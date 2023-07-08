@@ -9,7 +9,7 @@
     <Import_RootNamespace>Sucrose.Theme.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\ThemeFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Info.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Various.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Zip.cs" />
   </ItemGroup>

@@ -4,6 +4,8 @@ using SECT = Skylark.Enum.CompatibilityType;
 using SEWT = Skylark.Enum.WallpaperType;
 using SHV = Skylark.Helper.Versionly;
 using STSHV = Sucrose.Theme.Shared.Helper.Various;
+using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Theme.Shared.Helper
 {
@@ -76,13 +78,13 @@ namespace Sucrose.Theme.Shared.Helper
                 }
 
                 // Arşivde SucroseInfo.json dosyası var mı?
-                if (!CheckFile(Archive, "SucroseInfo.json"))
+                if (!CheckFile(Archive, SMR.SucroseInfo))
                 {
                     return SECT.InfoFile;
                 }
 
                 // Arşivdeki SucroseInfo.json dosyasını okuma
-                ThemeFile Info = ThemeFile.FromJson(ReadFile(Archive, "SucroseInfo.json"));
+                STSHI Info = STSHI.FromJson(ReadFile(Archive, SMR.SucroseInfo));
 
                 // Info içindeki Thumbnail dosyası var mı?
                 if (!CheckFile(Archive, Info.Thumbnail))

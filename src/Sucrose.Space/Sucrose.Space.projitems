@@ -15,6 +15,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\PlayerType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Command.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Import.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Export.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Live.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Temporary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />

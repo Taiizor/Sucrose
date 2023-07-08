@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Media;
+using System.Runtime.InteropServices;
 using System.Windows;
 using SGHWL = Sucrose.Globalization.Helper.WatchdogLocalization;
 using SMR = Sucrose.Memory.Readonly;
@@ -22,6 +23,8 @@ namespace Sucrose.Watchdog
             InitializeComponent();
 
             Path = LogPath;
+
+            SystemSounds.Hand.Play();
 
             Title = SGHWL.GetValue("WindowTitle");
             Error_Title.Text = SGHWL.GetValue("ErrorTitle");

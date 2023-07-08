@@ -24,6 +24,10 @@ namespace Sucrose.Memory
 
         public static readonly string MediaElement = "MediaElement";
 
+        public static readonly string SucroseInfo = "SucroseInfo.json";
+
+        public static readonly string WPFTrayIcon = "Sucrose.WPF.TI.exe";
+
         public static readonly string VideoContent = "VideoContent.html";
 
         public static readonly string StartCommand = $"{StartCommandChar}";
@@ -46,6 +50,8 @@ namespace Sucrose.Memory
 
         public static readonly string CefSharpLive = "Sucrose.Player.CS.Live.exe";
 
+        public static readonly string WinFormsTrayIcon = "Sucrose.WinForms.TI.exe";
+
         public static readonly string MediaElementLive = "Sucrose.Player.ME.Live.exe";
 
         public static readonly string WinFormsUserInterface = "Sucrose.WinForms.UI.exe";
@@ -61,6 +67,8 @@ namespace Sucrose.Memory
         public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";
 
         public static readonly string DownloadWebsite = "https://github.com/Taiizor/Sucrose/releases/latest";
+
+        public static readonly string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
     }

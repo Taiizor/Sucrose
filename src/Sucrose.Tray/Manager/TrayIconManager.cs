@@ -59,10 +59,11 @@ namespace Sucrose.Tray.Manager
             ContextMenu.Items.Add(SGHTL.GetValue("OpenText"), Image.FromFile(SGHTL.GetValue("OpenIcon")), CommandInterface);
 
             STSSS Separator1 = new(Theme);
-            ContextMenu.Items.Add(Separator1.Strip);
 
             if (SSHL.Run())
             {
+                ContextMenu.Items.Add(Separator1.Strip);
+
                 ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, CommandEngine);
                 //ContextMenu.Items.Add(SGHTL.GetValue("WallStartText"), null, null); //WallStopText
 
@@ -71,6 +72,8 @@ namespace Sucrose.Tray.Manager
             }
             else if (SMMI.EngineSettingManager.CheckFile())
             {
+                ContextMenu.Items.Add(Separator1.Strip);
+
                 ContextMenu.Items.Add(SGHTL.GetValue("WallOpenText"), null, CommandEngine);
             }
 
