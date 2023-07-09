@@ -35,7 +35,7 @@ namespace Sucrose.Manager
                 }
             };
 
-            _lock = new ReaderWriterLockSlim();
+            _lock = new ReaderWriterLockSlim(); //ReaderWriterLock
         }
 
         public T GetSetting<T>(string key, T back = default)

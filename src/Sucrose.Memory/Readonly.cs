@@ -34,6 +34,8 @@ namespace Sucrose.Memory
 
         public static readonly string WebViewLive = "Sucrose.Live.WV.exe";
 
+        public static readonly string Commandog = "Sucrose.Commandog.exe";
+
         public static readonly string StartCommand = $"{StartCommandChar}";
 
         public static readonly string CefSharpLive = "Sucrose.Live.CS.exe";
@@ -41,8 +43,6 @@ namespace Sucrose.Memory
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Live}";
 
         public static readonly string WPFUserInterface = "Sucrose.WPF.UI.exe";
-
-        public static readonly string CommandLine = "Sucrose.CommandLine.exe";
 
         public static readonly string MediaElementLive = "Sucrose.Live.ME.exe";
 

@@ -12,7 +12,7 @@ namespace Sucrose.Space.Manage
     {
         public static string Folder => Path.Combine(Path.GetDirectoryName(SHA.Assemble(SEAT.Executing).Location), @"..\");
 
-        public static string CommandLine => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CommandLine), SMR.CommandLine);
+        public static string Commandog => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Commandog), SMR.Commandog);
 
         public static string WPFTrayIcon => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WPFTrayIcon), SMR.WPFTrayIcon);
 

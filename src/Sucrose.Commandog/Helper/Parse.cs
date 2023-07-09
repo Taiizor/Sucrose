@@ -1,4 +1,4 @@
-﻿namespace Sucrose.CommandLine.Helper
+﻿namespace Sucrose.Commandog.Helper
 {
     internal static class Parse
     {

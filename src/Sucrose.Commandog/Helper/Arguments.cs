@@ -1,4 +1,5 @@
-﻿using SCLHP = Sucrose.CommandLine.Helper.Parse;
+﻿using SCHP = Sucrose.Commandog.Helper.Parse;
+using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
@@ -7,7 +8,7 @@ using SSHI = Sucrose.Space.Helper.Import;
 using SSHT = Sucrose.Space.Helper.Temporary;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
-namespace Sucrose.CommandLine.Helper
+namespace Sucrose.Commandog.Helper
 {
     internal static class Arguments
     {
@@ -48,52 +49,52 @@ namespace Sucrose.CommandLine.Helper
                                 switch (Command)
                                 {
                                     case SSECT.Log:
-                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Kill:
-                                        SSHC.Kill(SCLHP.ArgumentValue<string>(Values[0]));
+                                        SSHC.Kill(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Live:
-                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Test:
                                         Console.WriteLine("Test Values:");
 
                                         foreach (string Value in Values)
                                         {
-                                            Type Types = GetType(Value);
+                                            Type Types = SCHM.GetType(Value);
 
                                             if (Types == typeof(int))
                                             {
-                                                Console.WriteLine(SCLHP.ArgumentValue<int>(Value));
+                                                Console.WriteLine(SCHP.ArgumentValue<int>(Value));
                                             }
                                             else if (Types == typeof(bool))
                                             {
-                                                Console.WriteLine(SCLHP.ArgumentValue<bool>(Value));
+                                                Console.WriteLine(SCHP.ArgumentValue<bool>(Value));
                                             }
                                             else if (Types == typeof(string))
                                             {
-                                                Console.WriteLine(SCLHP.ArgumentValue<string>(Value));
+                                                Console.WriteLine(SCHP.ArgumentValue<string>(Value));
                                             }
                                         }
                                         break;
                                     case SSECT.Temp:
-                                        SSHT.Delete(SCLHP.ArgumentValue<string>(Values[0]), SCLHP.ArgumentValue<string>(Values[1]));
+                                        SSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSECT.Import:
-                                        SSHI.Start(SCLHP.ArgumentValue<string>(Values[0]), SCLHP.ArgumentValue<string>(Values[1]));
+                                        SSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSECT.Export:
-                                        SSHE.Start(SCLHP.ArgumentValue<string>(Values[0]));
+                                        SSHE.Start(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Report:
-                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Startup:
-                                        SWHWS.SetStartup(SCLHP.ArgumentValue<string>(Values[0]), SCLHP.ArgumentValue<string>(Values[1]), SCLHP.ArgumentValue<bool>(Values[2]));
+                                        SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;
                                     case SSECT.Interface:
-                                        SSHC.Run(SCLHP.ArgumentValue<string>(Values[0]));
+                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     default:
                                         break;
@@ -103,21 +104,6 @@ namespace Sucrose.CommandLine.Helper
                     }
                 }
             }
-        }
-
-        private static Type GetType(string Variable)
-        {
-            if (bool.TryParse(Variable, out bool _))
-            {
-                return typeof(bool);
-            }
-
-            if (int.TryParse(Variable, out int _))
-            {
-                return typeof(int);
-            }
-
-            return typeof(string);
         }
     }
 }

@@ -25,8 +25,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Manager", "Sucrose.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Memory", "Sucrose.Memory\Sucrose.Memory.csproj", "{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.CommandLine", "Sucrose.CommandLine\Sucrose.CommandLine.csproj", "{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Space", "Sucrose.Space\Sucrose.Space.shproj", "{3B13E30A-F789-484A-BC78-534EEC688625}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Globalization", "Sucrose.Globalization\Sucrose.Globalization.csproj", "{9DCE4879-A41F-458A-AA42-44BD0F3E7831}"
@@ -69,11 +67,13 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Engine.ME", "Sucros
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Engine.WV", "Sucrose.Engine.WV\Sucrose.Engine.WV.shproj", "{EA173B89-9D19-4724-A6BC-F219FABBF302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Live.CS", "Sucrose.Live.CS\Sucrose.Live.CS.csproj", "{096A27B0-0422-4302-A607-DDBB72D5EF44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.CS", "Sucrose.Live.CS\Sucrose.Live.CS.csproj", "{096A27B0-0422-4302-A607-DDBB72D5EF44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Live.ME", "Sucrose.Live.ME\Sucrose.Live.ME.csproj", "{5F285038-256A-4DF7-8FC2-58B6D7C7CECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.ME", "Sucrose.Live.ME\Sucrose.Live.ME.csproj", "{5F285038-256A-4DF7-8FC2-58B6D7C7CECC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Live.WV", "Sucrose.Live.WV\Sucrose.Live.WV.csproj", "{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.WV", "Sucrose.Live.WV\Sucrose.Live.WV.csproj", "{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Commandog", "Sucrose.Commandog\Sucrose.Commandog.csproj", "{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,22 +199,6 @@ Global
 		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x64.Build.0 = Release|Any CPU
 		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x86.ActiveCfg = Release|Any CPU
 		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C}.Release|x86.Build.0 = Release|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x64.Build.0 = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Debug|x86.Build.0 = Debug|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|ARM64.ActiveCfg = Release|ARM64
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|ARM64.Build.0 = Release|ARM64
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x64.ActiveCfg = Release|x64
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x64.Build.0 = Release|x64
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x86.ActiveCfg = Release|x86
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF}.Release|x86.Build.0 = Release|x86
 		{9DCE4879-A41F-458A-AA42-44BD0F3E7831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DCE4879-A41F-458A-AA42-44BD0F3E7831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DCE4879-A41F-458A-AA42-44BD0F3E7831}.Debug|ARM64.ActiveCfg = Debug|Any CPU
@@ -327,6 +311,22 @@ Global
 		{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545}.Release|x64.Build.0 = Release|x64
 		{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545}.Release|x86.ActiveCfg = Release|x86
 		{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545}.Release|x86.Build.0 = Release|x86
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|x64.Build.0 = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Debug|x86.Build.0 = Debug|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|ARM64.ActiveCfg = Release|ARM64
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|ARM64.Build.0 = Release|ARM64
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|x64.ActiveCfg = Release|x64
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|x64.Build.0 = Release|x64
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|x86.ActiveCfg = Release|x86
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -340,7 +340,6 @@ Global
 		{403A332A-B17E-43CC-9208-FB9985B7728E} = {A28DEA75-D2C7-41A1-AD6A-E56926F8A8A8}
 		{BD34975C-0706-432B-A6A1-4D548772FB77} = {1DD66D11-65BD-40CB-BF05-4E7951DDFED3}
 		{1CD4C1B0-3E82-49F1-B747-F9B71E19F10C} = {1DD66D11-65BD-40CB-BF05-4E7951DDFED3}
-		{38624E0D-4BFD-4B82-B22A-3C57CDCDD1BF} = {E9FDFBCD-9AC8-4C03-8E94-17B50D0AD090}
 		{3B13E30A-F789-484A-BC78-534EEC688625} = {232CD10B-4CA0-403C-B469-82A002F7C130}
 		{9DCE4879-A41F-458A-AA42-44BD0F3E7831} = {1DD66D11-65BD-40CB-BF05-4E7951DDFED3}
 		{075ECECA-F607-4D7B-8449-3B1B6C0F73E2} = {02D54F9E-8518-40C9-B2CD-2A4F8CA339A3}
@@ -358,6 +357,7 @@ Global
 		{096A27B0-0422-4302-A607-DDBB72D5EF44} = {04361DC9-3E9F-481A-9489-068DE8688332}
 		{5F285038-256A-4DF7-8FC2-58B6D7C7CECC} = {04361DC9-3E9F-481A-9489-068DE8688332}
 		{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545} = {04361DC9-3E9F-481A-9489-068DE8688332}
+		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A} = {E9FDFBCD-9AC8-4C03-8E94-17B50D0AD090}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DA4A105-4BC7-4943-9328-F7274E75FCB3}
@@ -377,7 +377,6 @@ Global
 		Sucrose.Common\Sucrose.Common.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{26a36d29-9383-449e-8fe1-a58415ade7a2}*SharedItemsImports = 5
-		Sucrose.Space\Sucrose.Space.projitems*{38624e0d-4bfd-4b82-b22a-3c57cdcdd1bf}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{3b13e30a-f789-484a-bc78-534eec688625}*SharedItemsImports = 13
 		Sucrose.Common\Sucrose.Common.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{403a332a-b17e-43cc-9208-fb9985b7728e}*SharedItemsImports = 5
@@ -390,6 +389,7 @@ Global
 		Sucrose.Space\Sucrose.Space.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
+		Sucrose.Space\Sucrose.Space.projitems*{84cf09b6-1e35-4111-a556-2a54cc5e3f1a}*SharedItemsImports = 5
 		Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems*{9470698b-1d6a-4302-be6d-f0d07fc69ea5}*SharedItemsImports = 13
 		Sucrose.Tray\Sucrose.Tray.projitems*{bf2bfa28-f6cf-4075-9d3b-025a2f6eb967}*SharedItemsImports = 13
 		Sucrose.Engine.CS\Sucrose.Engine.CS.projitems*{c3f88a4a-b2fa-49bd-8fa8-d58ecca09ff7}*SharedItemsImports = 13

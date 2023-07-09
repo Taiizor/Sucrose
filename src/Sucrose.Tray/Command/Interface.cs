@@ -10,9 +10,9 @@ namespace Sucrose.Tray.Command
         public static void Command()
         {
 #if TRAY_ICON_WPF
-            SSHC.Run(SSMI.CommandLine, $"{SMR.StartCommand}{SSECT.Interface}{SMR.ValueSeparator}{SSMI.WPFUserInterface}");
+            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Interface}{SMR.ValueSeparator}{SSMI.WPFUserInterface}");
 #elif TRAY_ICON_WinForms
-            SSHC.Run(SSMI.CommandLine, $"{SMR.StartCommand}{SSECT.Interface}{SMR.ValueSeparator}{SSMI.WinFormsUserInterface}");
+            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Interface}{SMR.ValueSeparator}{SSMI.WinFormsUserInterface}");
 #endif
         }
     }

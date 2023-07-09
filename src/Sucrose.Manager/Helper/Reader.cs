@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using SMHC = Sucrose.Manager.Helper.Cleaner;
 
 namespace Sucrose.Manager.Helper
 {
@@ -8,11 +9,9 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                //return File.ReadAllText(filePath);
-
                 using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
                 using StreamReader reader = new(fileStream);
-                return reader.ReadToEnd();
+                return SMHC.Clean(reader.ReadToEnd());
             }
             catch
             {
@@ -24,7 +23,7 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                return File.ReadAllText(filePath);
+                return SMHC.Clean(File.ReadAllText(filePath));
             }
             catch
             {

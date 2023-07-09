@@ -37,7 +37,7 @@ namespace Sucrose.Watchdog
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
-            SSHC.Run(SSMI.CommandLine, $"{SMR.StartCommand}{SSECT.Log}{SMR.ValueSeparator}{Path}");
+            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Log}{SMR.ValueSeparator}{Path}");
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

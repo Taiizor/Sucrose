@@ -26,7 +26,7 @@ namespace Sucrose.Manager
 
             Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
 
-            _lock = new ReaderWriterLockSlim();
+            _lock = new ReaderWriterLockSlim(); //ReaderWriterLock
         }
 
         public void Log(SELLT level, string message)
