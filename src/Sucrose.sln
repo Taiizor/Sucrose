@@ -73,7 +73,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.ME", "Sucrose.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.WV", "Sucrose.Live.WV\Sucrose.Live.WV.csproj", "{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Commandog", "Sucrose.Commandog\Sucrose.Commandog.csproj", "{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Commandog", "Sucrose.Commandog\Sucrose.Commandog.csproj", "{84CF09B6-1E35-4111-A556-2A54CC5E3F1A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Resources", "Sucrose.Resources\Sucrose.Resources.shproj", "{9293996D-47C3-4275-ABD9-F0E812128CAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -358,6 +360,7 @@ Global
 		{5F285038-256A-4DF7-8FC2-58B6D7C7CECC} = {04361DC9-3E9F-481A-9489-068DE8688332}
 		{CDC3BFDE-D487-4C5F-9069-52F4C8FBA545} = {04361DC9-3E9F-481A-9489-068DE8688332}
 		{84CF09B6-1E35-4111-A556-2A54CC5E3F1A} = {E9FDFBCD-9AC8-4C03-8E94-17B50D0AD090}
+		{9293996D-47C3-4275-ABD9-F0E812128CAA} = {232CD10B-4CA0-403C-B469-82A002F7C130}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DA4A105-4BC7-4943-9328-F7274E75FCB3}
@@ -390,6 +393,7 @@ Global
 		Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{84cf09b6-1e35-4111-a556-2a54cc5e3f1a}*SharedItemsImports = 5
+		Sucrose.Resources\Sucrose.Resources.projitems*{9293996d-47c3-4275-abd9-f0e812128caa}*SharedItemsImports = 13
 		Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems*{9470698b-1d6a-4302-be6d-f0d07fc69ea5}*SharedItemsImports = 13
 		Sucrose.Tray\Sucrose.Tray.projitems*{bf2bfa28-f6cf-4075-9d3b-025a2f6eb967}*SharedItemsImports = 13
 		Sucrose.Engine.CS\Sucrose.Engine.CS.projitems*{c3f88a4a-b2fa-49bd-8fa8-d58ecca09ff7}*SharedItemsImports = 13

@@ -1,0 +1,10 @@
+﻿<Application>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/DarkTheme.xaml" /> <!--Only One-->
+                <ResourceDictionary Source="Themes/LightTheme.xaml" /> <!--Only One-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
