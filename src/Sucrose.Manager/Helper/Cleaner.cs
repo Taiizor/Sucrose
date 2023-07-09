@@ -6,6 +6,15 @@
         {
             try
             {
+                if (Content.StartsWith("{{"))
+                {
+#if NET48_OR_GREATER || NETSTANDARD2_0
+                    Content = Content.Substring(1);
+#else
+                    Content = Content[1..];
+#endif
+                }
+
                 if (Content.EndsWith("}}"))
                 {
 #if NET48_OR_GREATER || NETSTANDARD2_0

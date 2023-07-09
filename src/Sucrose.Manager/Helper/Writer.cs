@@ -24,7 +24,7 @@ namespace Sucrose.Manager.Helper
             try
             {
                 using StreamWriter writer = File.AppendText(filePath);
-                writer.Write(SMHC.Clean(fileContent));
+                writer.WriteLine(SMHC.Clean(fileContent));
             }
             catch
             {
