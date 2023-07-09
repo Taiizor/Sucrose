@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using SGHL = Sucrose.Globalization.Helper.Localization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 
 namespace Sucrose.Globalization.Helper
@@ -17,7 +18,7 @@ namespace Sucrose.Globalization.Helper
 
         public static string GetValue(string Key, CultureInfo Culture)
         {
-            return SGMR.DiscordManager.GetString(Key, Culture) ?? Key;
+            return SGMR.DiscordManager.GetString(Key, Culture) ?? SGHL.FlexKey(Key);
         }
     }
 }
