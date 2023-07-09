@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Sucrose.Player.ME.Live.App</StartupObject>
+        <StartupObject>Sucrose.Live.ME.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
@@ -15,21 +15,21 @@
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
-        <AssemblyName>Sucrose.Player.ME.Live</AssemblyName>
+        <AssemblyName>Sucrose.Live.ME</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
-        <DefineConstants>$(DefineConstants);ENGINE;MEDIA_ELEMENT_PLAYER</DefineConstants>
+        <DefineConstants>$(DefineConstants);ENGINE;LIVE_MEDIAELEMENT</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\Sucrose\Player\MediaElement\$(Platform)</OutputPath>
+        <OutputPath>..\Sucrose\Live\MediaElement\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -68,7 +68,7 @@
         <PackageReference Include="Skylark.Wing" Version="3.0.1.222" />
         <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
     </ItemGroup>
-    
+
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <Reference Include="System.Net.Http" />
     </ItemGroup>
@@ -93,12 +93,12 @@
     <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
-    
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
     </PropertyGroup>
-        
+
     <Target Name="CopyFiles" BeforeTargets="Build">
         <ItemGroup>
             <FilesToCopy Include="$(SourceDirectory)\**\*.*" />

@@ -1,7 +1,7 @@
-﻿<Application x:Class="Sucrose.Player.CS.Live.App"
+﻿<Application x:Class="Sucrose.Live.CS.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Sucrose.Player.CS.Live">
+             xmlns:local="clr-namespace:Sucrose.Live.CS">
     <Application.Resources>
 
     </Application.Resources>

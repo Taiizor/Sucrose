@@ -1,13 +1,11 @@
-﻿using Microsoft.Web.WebView2.Core;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
+using SEMEVV = Sucrose.Engine.ME.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWT = Skylark.Enum.WallpaperType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using SEWVVV = Sucrose.Engine.WV.View.Video;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -18,7 +16,7 @@ using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
-namespace Sucrose.Player.WV.Live
+namespace Sucrose.Live.ME
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -33,7 +31,7 @@ namespace Sucrose.Player.WV.Live
 
         private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
-        private static Mutex Mutex => new(true, SMR.EngineMutex);
+        private static Mutex Mutex => new(true, SMR.LiveMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -111,7 +109,7 @@ namespace Sucrose.Player.WV.Live
             {
                 HasStart = false;
 
-                string Path = SMMI.WebViewPlayerLogManager.LogFile();
+                string Path = SMMI.MediaElementPlayerLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -141,16 +139,6 @@ namespace Sucrose.Player.WV.Live
 
                 if (File.Exists(InfoPath))
                 {
-                    CoreWebView2EnvironmentOptions Options = new()
-                    {
-                        Language = Culture,
-                        AdditionalBrowserArguments = "--enable-media-stream --enable-accelerated-video-decode --allow-running-insecure-content --use-fake-ui-for-media-stream --enable-speech-input --enable-usermedia-screen-capture --debug-plugin-loading --allow-outdated-plugins --always-authorize-plugins --enable-npapi"
-                    };
-
-                    Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
-
-                    SEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
-
                     STSHI Info = STSHI.ReadJson(InfoPath);
 
                     string FilePath = Path.Combine(Directory, Folder, Info.FileName);
@@ -160,7 +148,7 @@ namespace Sucrose.Player.WV.Live
                         switch (Info.Type)
                         {
                             case SEWT.Video:
-                                SEWVVV Engine = new(FilePath);
+                                SEMEVV Engine = new(FilePath);
                                 Engine.Show();
 
                                 HasStart = true;

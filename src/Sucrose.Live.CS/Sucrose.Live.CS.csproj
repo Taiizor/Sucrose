@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Sucrose.Player.WV.Live.App</StartupObject>
+        <StartupObject>Sucrose.Live.CS.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
@@ -15,21 +15,21 @@
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
-        <AssemblyName>Sucrose.Player.WV.Live</AssemblyName>
+        <AssemblyName>Sucrose.Live.CS</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
-        <DefineConstants>$(DefineConstants);ENGINE;WEBVIEW_PLAYER</DefineConstants>
+        <DefineConstants>$(DefineConstants);ENGINE;LIVE_CEFSHARP</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\Sucrose\Player\WebView\$(Platform)</OutputPath>
+        <OutputPath>..\Sucrose\Live\CefSharp\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -67,15 +67,19 @@
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.0.1.222" />
         <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
-        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1905-prerelease" />
     </ItemGroup>
-    
+
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <Reference Include="System.Net.Http" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="CefSharp.Wpf" Version="114.2.120" />
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.120" />
     </ItemGroup>
 
     <ItemGroup>
@@ -87,19 +91,19 @@
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Engine.WV\Sucrose.Engine.WV.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Engine.CS\Sucrose.Engine.CS.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
-    
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
     </PropertyGroup>
-        
+
     <Target Name="CopyFiles" BeforeTargets="Build">
         <ItemGroup>
             <FilesToCopy Include="$(SourceDirectory)\**\*.*" />

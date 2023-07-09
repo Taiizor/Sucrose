@@ -1,14 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+    
     <PropertyGroup>
+        <OutputType>Exe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
-        <OutputPath>..\Sucrose\CommandLine\$(Platform)</OutputPath>
-        <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
+        <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
+        <StartupObject>Sucrose.CommandLine.Program</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <Company>Taiizor</Company>
+        <Title>$(AssemblyName) - New Generation Wallpaper Engine</Title>
+        <Description>$(Title)</Description>
+        <Product>$(Title)</Product>
+        <InformationalVersion>$(Version)</InformationalVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
+        <AssemblyName>Sucrose.CommandLine</AssemblyName>
+        <RootNamespace>$(AssemblyName)</RootNamespace>
+        <UseWindowsForms>true</UseWindowsForms>
+        <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
-        <OutputType>Exe</OutputType>
-        <Nullable>disable</Nullable>
+        <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
+        <DefineConstants>$(DefineConstants);ENGINE;LIVE_WEBVIEW</DefineConstants>
+        <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+        <OutputPath>..\Sucrose\CommandLine\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -36,6 +57,12 @@
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-arm64</RuntimeIdentifier>
         <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
     </PropertyGroup>
+
+    <ItemGroup>
+        <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
+            <TargetPath>$(AssemblyName).exe.config</TargetPath>
+        </AppConfigWithTargetPath>
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.0.1.222" />

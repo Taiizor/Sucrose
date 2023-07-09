@@ -1,13 +1,13 @@
-﻿using CefSharp;
-using CefSharp.Wpf;
+﻿using Microsoft.Web.WebView2.Core;
 using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SECSVV = Sucrose.Engine.CS.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWT = Skylark.Enum.WallpaperType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+using SEWVVV = Sucrose.Engine.WV.View.Video;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -18,7 +18,7 @@ using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
-namespace Sucrose.Player.CS.Live
+namespace Sucrose.Live.WV
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -33,7 +33,7 @@ namespace Sucrose.Player.CS.Live
 
         private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
-        private static Mutex Mutex => new(true, SMR.EngineMutex);
+        private static Mutex Mutex => new(true, SMR.LiveMutex);
 
         private static bool HasStart { get; set; } = false;
 
@@ -111,7 +111,7 @@ namespace Sucrose.Player.CS.Live
             {
                 HasStart = false;
 
-                string Path = SMMI.CefSharpLogManager.LogFile();
+                string Path = SMMI.WebViewPlayerLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -141,57 +141,15 @@ namespace Sucrose.Player.CS.Live
 
                 if (File.Exists(InfoPath))
                 {
-#if NET48_OR_GREATER && DEBUG
-                    CefRuntime.SubscribeAnyCpuAssemblyResolver();
-#endif
-
-                    CefSettings Settings = new()
+                    CoreWebView2EnvironmentOptions Options = new()
                     {
-                        CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
+                        Language = Culture,
+                        AdditionalBrowserArguments = "--enable-media-stream --enable-accelerated-video-decode --allow-running-insecure-content --use-fake-ui-for-media-stream --enable-speech-input --enable-usermedia-screen-capture --debug-plugin-loading --allow-outdated-plugins --always-authorize-plugins --enable-npapi"
                     };
 
-                    Settings.CefCommandLineArgs.Add("enable-gpu", "1"); // GPU kullanımını etkinleştirir
-                    Settings.CefCommandLineArgs.Add("enable-gpu-vsync", "1"); // GPU dikey senkronizasyonunu etkinleştirir
-                    Settings.CefCommandLineArgs.Add("disable-gpu-compositing", "1"); // GPU bileşimini devre dışı bırakır
-                    Settings.CefCommandLineArgs.Add("disable-direct-write", "1"); // Doğrudan yazmayı devre dışı bırakır
-                                                                                  //Settings.CefCommandLineArgs.Add("disable-frame-rate-limit", "1"); // Kare hızı limitini devre dışı bırakır
-                    Settings.CefCommandLineArgs.Add("enable-begin-frame-scheduling", "1"); // Başlangıç çerçevesi zamanlamasını etkinleştirir
-                    Settings.CefCommandLineArgs.Add("disable-breakpad", "1"); // Crash dump raporlamasını devre dışı bırakır
-                    Settings.CefCommandLineArgs.Add("disable-extensions", "1"); // Uzantıları devre dışı bırakır
+                    Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
-                    Settings.CefCommandLineArgs.Add("multi-threaded-message-loop", "1"); // Çoklu iş parçacıklı mesaj döngüsünü etkinleştirir
-                    Settings.CefCommandLineArgs.Add("no-sandbox", "1"); // Sandbox'u devre dışı bırakır
-                    Settings.CefCommandLineArgs.Add("off-screen-rendering-enabled", "1"); // Ekran dışı işlemeyi etkinleştirir
-
-                    Settings.CefCommandLineArgs.Add("disable-back-forward-cache", "1"); // Geri önbelleği devre dışı bırakır
-
-                    Settings.CefCommandLineArgs.Add("disable-web-security", "1"); // Web güvenliğini devre dışı bırakır
-                    Settings.CefCommandLineArgs.Add("disable-geolocation", "1"); // Konum hizmetlerini devre dışı bırakır
-
-                    Settings.CefCommandLineArgs.Add("disable-surfaces", "1"); // Yüzeyleri devre dışı bırakır
-
-                    Settings.CefCommandLineArgs.Add("autoplay-policy", "no-user-gesture-required"); // Otomatik oynatma politikasını ayarlar
-
-                    Settings.CefCommandLineArgs.Add("enable-media-stream", "1"); // Ortam akışını etkinleştirir
-                    Settings.CefCommandLineArgs.Add("enable-accelerated-video-decode", "1"); // Hızlandırılmış video çözümlemeyi etkinleştirir
-
-                    Settings.CefCommandLineArgs.Add("allow-running-insecure-content", "1"); // Güvenli olmayan içeriğin çalışmasına izin verir
-                    Settings.CefCommandLineArgs.Add("use-fake-ui-for-media-stream", "1"); // Ortam akışı için sahte UI kullanır
-                    Settings.CefCommandLineArgs.Add("enable-usermedia-screen-capture", "1"); // Kullanıcı ortam akışı ekran yakalama özelliğini etkinleştirir
-                    Settings.CefCommandLineArgs.Add("enable-usermedia-screen-capturing", "1"); // Kullanıcı ortam akışı ekran yakalama özelliğini etkinleştirir
-                    Settings.CefCommandLineArgs.Add("debug-plugin-loading", "1"); // Eklenti yüklemeyi hata ayıklar
-                    Settings.CefCommandLineArgs.Add("allow-outdated-plugins", "1"); // Eski eklentilerin çalışmasına izin verir
-                    Settings.CefCommandLineArgs.Add("always-authorize-plugins", "1"); // Her zaman eklentileri yetkilendirir
-                    Settings.CefCommandLineArgs.Add("enable-npapi", "1"); // NPAPI eklentilerini etkinleştirir
-
-                    //Example of checking if a call to Cef.Initialize has already been made, we require this for
-                    //our .Net 5.0 Single File Publish example, you don't typically need to perform this check
-                    //if you call Cef.Initialze within your WPF App constructor.
-                    if (!Cef.IsInitialized)
-                    {
-                        //Perform dependency check to make sure all relevant resources are in our output directory.
-                        Cef.Initialize(Settings, performDependencyCheck: true, browserProcessHandler: null);
-                    }
+                    SEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
 
                     STSHI Info = STSHI.ReadJson(InfoPath);
 
@@ -202,8 +160,7 @@ namespace Sucrose.Player.CS.Live
                         switch (Info.Type)
                         {
                             case SEWT.Video:
-
-                                SECSVV Engine = new(FilePath);
+                                SEWVVV Engine = new(FilePath);
                                 Engine.Show();
 
                                 HasStart = true;
@@ -233,7 +190,7 @@ namespace Sucrose.Player.CS.Live
         {
             base.OnExit(e);
 
-            Cef.Shutdown();
+            //
 
             Close();
         }
