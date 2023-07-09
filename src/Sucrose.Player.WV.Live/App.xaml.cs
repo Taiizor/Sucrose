@@ -3,20 +3,20 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
+using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWT = Skylark.Enum.WallpaperType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+using SEWVVV = Sucrose.Engine.WV.View.Video;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SPWVMI = Sucrose.Player.WV.Manage.Internal;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
-using SPSHR = Sucrose.Player.Shared.Helper.Run;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
-using SPWVVVE = Sucrose.Player.WV.View.VideoEngine;
 
 namespace Sucrose.Player.WV.Live
 {
@@ -149,7 +149,7 @@ namespace Sucrose.Player.WV.Live
 
                     Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
-                    SPWVMI.EdgePlayer.EnsureCoreWebView2Async(Environment.Result);
+                    SEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
 
                     STSHI Info = STSHI.ReadJson(InfoPath);
 
@@ -160,8 +160,8 @@ namespace Sucrose.Player.WV.Live
                         switch (Info.Type)
                         {
                             case SEWT.Video:
-                                SPWVVVE Player = new(FilePath);
-                                Player.Show();
+                                SEWVVV Engine = new(FilePath);
+                                Engine.Show();
 
                                 HasStart = true;
                                 break;
@@ -199,7 +199,7 @@ namespace Sucrose.Player.WV.Live
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SPSHR.Check())
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SESHR.Check())
             {
                 Mutex.ReleaseMutex();
 

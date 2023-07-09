@@ -2,14 +2,14 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
+using SEMEVV = Sucrose.Engine.ME.View.Video;
+using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWT = Skylark.Enum.WallpaperType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SPMEVVE = Sucrose.Player.ME.View.VideoEngine;
-using SPSHR = Sucrose.Player.Shared.Helper.Run;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -148,8 +148,8 @@ namespace Sucrose.Player.ME.Live
                         switch (Info.Type)
                         {
                             case SEWT.Video:
-                                SPMEVVE Player = new(FilePath);
-                                Player.Show();
+                                SEMEVV Engine = new(FilePath);
+                                Engine.Show();
 
                                 HasStart = true;
                                 break;
@@ -187,7 +187,7 @@ namespace Sucrose.Player.ME.Live
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SPSHR.Check())
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SESHR.Check())
             {
                 Mutex.ReleaseMutex();
 

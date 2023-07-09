@@ -86,9 +86,9 @@
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Player.ME\Sucrose.Player.ME.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Engine.ME\Sucrose.Engine.ME.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Player.Shared\Sucrose.Player.Shared.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
