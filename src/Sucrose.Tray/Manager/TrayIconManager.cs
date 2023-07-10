@@ -4,6 +4,7 @@ using SGHTL = Sucrose.Globalization.Helper.TrayLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSHA = Sucrose.Space.Helper.Assets;
 using SSHL = Sucrose.Space.Helper.Live;
 using STCC = Sucrose.Tray.Command.Close;
 using STCE = Sucrose.Tray.Command.Engine;
@@ -32,7 +33,7 @@ namespace Sucrose.Tray.Manager
         public void Start()
         {
             TrayIcon.Text = SGHTL.GetValue("TrayText");
-            TrayIcon.Icon = new Icon(SGHTL.GetValue("TrayIcon"));
+            TrayIcon.Icon = new Icon(SSHA.Get(SGHTL.GetValue("TrayIcon")));
 
             TrayIcon.MouseClick += MouseClick;
             TrayIcon.ContextMenuStrip = ContextMenu;
@@ -56,7 +57,7 @@ namespace Sucrose.Tray.Manager
                 ContextMenu.Renderer = new STRLR();
             }
 
-            ContextMenu.Items.Add(SGHTL.GetValue("OpenText"), Image.FromFile(SGHTL.GetValue("OpenIcon")), CommandInterface);
+            ContextMenu.Items.Add(SGHTL.GetValue("OpenText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("OpenIcon"))), CommandInterface);
 
             STSSS Separator1 = new(Theme);
 
@@ -80,13 +81,13 @@ namespace Sucrose.Tray.Manager
             STSSS Separator2 = new(Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(SGHTL.GetValue("SettingsText"), Image.FromFile(SGHTL.GetValue("SettingsIcon")), null);
-            ContextMenu.Items.Add(SGHTL.GetValue("ReportText"), Image.FromFile(SGHTL.GetValue("ReportIcon")), CommandReport);
+            ContextMenu.Items.Add(SGHTL.GetValue("SettingsText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("SettingsIcon"))), null);
+            ContextMenu.Items.Add(SGHTL.GetValue("ReportText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("ReportIcon"))), CommandReport);
 
             STSSS Separator3 = new(Theme);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add(SGHTL.GetValue("ExitText"), Image.FromFile(SGHTL.GetValue("ExitIcon")), CommandClose);
+            ContextMenu.Items.Add(SGHTL.GetValue("ExitText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("ExitIcon"))), CommandClose);
         }
 
         public bool Dispose()

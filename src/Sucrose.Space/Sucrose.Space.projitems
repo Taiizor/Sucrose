@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\PlayerType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Assets.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Import.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Export.cs" />

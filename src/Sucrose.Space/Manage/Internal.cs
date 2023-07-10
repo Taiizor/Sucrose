@@ -10,7 +10,11 @@ namespace Sucrose.Space.Manage
 {
     internal static class Internal
     {
-        public static string Folder => Path.Combine(Path.GetDirectoryName(SHA.Assemble(SEAT.Executing).Location), @"..\");
+        public static string This => Path.GetDirectoryName(App);
+
+        public static string Folder => Path.Combine(This, @"..\");
+
+        public static string App => SHA.Assemble(SEAT.Executing).Location;
 
         public static string Commandog => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Commandog), SMR.Commandog);
 

@@ -6,7 +6,8 @@ using SSHC = Sucrose.Space.Helper.Command;
 using SSHE = Sucrose.Space.Helper.Export;
 using SSHI = Sucrose.Space.Helper.Import;
 using SSHT = Sucrose.Space.Helper.Temporary;
-using SWHWMS = Skylark.Wing.Helper.WindowsMachineStartup;
+using SWHWSM = Skylark.Wing.Helper.WindowsStartupMachine;
+using SWHWSP = Skylark.Wing.Helper.WindowsStartupPriority;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
 namespace Sucrose.Commandog.Helper
@@ -94,8 +95,14 @@ namespace Sucrose.Commandog.Helper
                                     case SSECT.Startup:
                                         SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;
-                                    case SSECT.Startup2:
-                                        SWHWMS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
+                                    case SSECT.StartupM:
+                                        SWHWSM.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
+                                        break;
+                                    case SSECT.StartupP:
+                                        SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
+                                        break;
+                                    case SSECT.Scheduler:
+                                        //görev zamanlayıcı burada olcak. görev yoksa eklicek varsa devre dışı bırakacak (olmadı silecek)
                                         break;
                                     case SSECT.Interface:
                                         SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
