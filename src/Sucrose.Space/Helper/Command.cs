@@ -59,9 +59,19 @@ namespace Sucrose.Space.Helper
             }
         }
 
+        public static bool Work(params string[] Applications)
+        {
+            return Applications.Any(Work);
+        }
+
         public static int WorkCount(string Application)
         {
             return Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)).Count();
+        }
+
+        public static int WorkCount(params string[] Applications)
+        {
+            return Applications.Sum(WorkCount);
         }
 
         public static bool Kill(string Application)
@@ -85,6 +95,11 @@ namespace Sucrose.Space.Helper
             {
                 return false;
             }
+        }
+
+        public static bool Kill(params string[] Applications)
+        {
+            return Applications.Any(Kill);
         }
     }
 }

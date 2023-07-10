@@ -1,11 +1,12 @@
-﻿using SCHP = Sucrose.Commandog.Helper.Parse;
-using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
+﻿using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
+using SCHP = Sucrose.Commandog.Helper.Parse;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
 using SSHE = Sucrose.Space.Helper.Export;
 using SSHI = Sucrose.Space.Helper.Import;
 using SSHT = Sucrose.Space.Helper.Temporary;
+using SWHWMS = Skylark.Wing.Helper.WindowsMachineStartup;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
 namespace Sucrose.Commandog.Helper
@@ -92,6 +93,9 @@ namespace Sucrose.Commandog.Helper
                                         break;
                                     case SSECT.Startup:
                                         SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
+                                        break;
+                                    case SSECT.Startup2:
+                                        SWHWMS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;
                                     case SSECT.Interface:
                                         SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
