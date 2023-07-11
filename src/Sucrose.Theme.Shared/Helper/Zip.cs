@@ -4,7 +4,7 @@ using SEAET = Skylark.Enum.AppExtensionType;
 using SECT = Skylark.Enum.CompatibilityType;
 using SEVET = Skylark.Enum.VideoExtensionType;
 using SEWET = Skylark.Enum.WebExtensionType;
-using SEWT = Skylark.Enum.WallpaperType;
+using SSEWT = Sucrose.Space.Enum.WallpaperType;
 using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
@@ -108,13 +108,13 @@ namespace Sucrose.Theme.Shared.Helper
                 }
 
                 // Info içindeki Type değeri bu uygulamanın Type enum değerinden büyük mü?
-                if ((int)Info.Type >= Enum.GetValues(typeof(SEWT)).Length)
+                if ((int)Info.Type >= Enum.GetValues(typeof(SSEWT)).Length)
                 {
                     return SECT.Type;
                 }
 
                 // Info içindeki Type değerine göre dosya veya url kontrolü
-                if (Info.Type == SEWT.Web)
+                if (Info.Type == SSEWT.Web)
                 {
                     if (!CheckFile(Archive, Info.FileName))
                     {
@@ -125,11 +125,11 @@ namespace Sucrose.Theme.Shared.Helper
                         return SECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SEWT.Url && !STSHV.IsUrl(Info.FileName))
+                else if (Info.Type == SSEWT.Url && !STSHV.IsUrl(Info.FileName))
                 {
                     return SECT.InvalidUrl;
                 }
-                else if (Info.Type == SEWT.Gif)
+                else if (Info.Type == SSEWT.Gif)
                 {
                     if (!STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
                     {
@@ -140,7 +140,7 @@ namespace Sucrose.Theme.Shared.Helper
                         return SECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SEWT.Video)
+                else if (Info.Type == SSEWT.Video)
                 {
                     if (!STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
                     {
@@ -151,11 +151,11 @@ namespace Sucrose.Theme.Shared.Helper
                         return SECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SEWT.YouTube && !STSHV.IsYouTube(Info.FileName) && !STSHV.IsYouTubeMusic(Info.FileName))
+                else if (Info.Type == SSEWT.YouTube && !STSHV.IsYouTube(Info.FileName) && !STSHV.IsYouTubeMusic(Info.FileName))
                 {
                     return SECT.InvalidUrl;
                 }
-                else if (Info.Type == SEWT.Application)
+                else if (Info.Type == SSEWT.Application)
                 {
                     if (!CheckFile(Archive, Info.FileName))
                     {

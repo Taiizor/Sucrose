@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using SEWT = Skylark.Enum.WallpaperType;
+using SSEWT = Sucrose.Space.Enum.WallpaperType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -18,17 +18,17 @@ namespace Sucrose.Tray.Command
     {
         private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
-        private static SSEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, SSMI.WallpaperLive[SEWT.Application]);
+        private static SSEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, (SSEET)SSMI.ApplicationEngine);
 
-        private static SSEET YApp => SMMI.EngineSettingManager.GetSetting(SMC.YApp, SSMI.WallpaperLive[SEWT.YouTube]);
+        private static SSEET YApp => SMMI.EngineSettingManager.GetSetting(SMC.YApp, (SSEET)SSMI.YouTubeEngine);
 
-        private static SSEET VApp => SMMI.EngineSettingManager.GetSetting(SMC.VApp, SSMI.WallpaperLive[SEWT.Video]);
+        private static SSEET VApp => SMMI.EngineSettingManager.GetSetting(SMC.VApp, (SSEET)SSMI.VideoEngine);
 
-        private static SSEET GApp => SMMI.EngineSettingManager.GetSetting(SMC.GApp, SSMI.WallpaperLive[SEWT.Gif]);
+        private static SSEET GApp => SMMI.EngineSettingManager.GetSetting(SMC.GApp, (SSEET)SSMI.GifEngine);
 
-        private static SSEET UApp => SMMI.EngineSettingManager.GetSetting(SMC.UApp, SSMI.WallpaperLive[SEWT.Url]);
+        private static SSEET UApp => SMMI.EngineSettingManager.GetSetting(SMC.UApp, (SSEET)SSMI.UrlEngine);
 
-        private static SSEET WApp => SMMI.EngineSettingManager.GetSetting(SMC.WApp, SSMI.WallpaperLive[SEWT.Web]);
+        private static SSEET WApp => SMMI.EngineSettingManager.GetSetting(SMC.WApp, (SSEET)SSMI.WebEngine);
 
         private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
@@ -50,22 +50,22 @@ namespace Sucrose.Tray.Command
 
                     switch (Info.Type)
                     {
-                        case SEWT.Web:
+                        case SSEWT.Web:
                             SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[WApp]}");
                             break;
-                        case SEWT.Url:
+                        case SSEWT.Url:
                             SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[UApp]}");
                             break;
-                        case SEWT.Gif:
+                        case SSEWT.Gif:
                             SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[GApp]}");
                             break;
-                        case SEWT.Video:
+                        case SSEWT.Video:
                             SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[VApp]}");
                             break;
-                        case SEWT.YouTube:
+                        case SSEWT.YouTube:
                             SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[YApp]}");
                             break;
-                        case SEWT.Application:
+                        case SSEWT.Application:
                             SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[AApp]}");
                             break;
                         default:

@@ -12,8 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\DisplayType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\EngineType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enum\PlayerType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\WallpaperType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Assets.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Import.cs" />

@@ -6,7 +6,7 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SECSVV = Sucrose.Engine.CS.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
-using SEWT = Skylark.Enum.WallpaperType;
+using SSEWT = Sucrose.Space.Enum.WallpaperType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
@@ -201,7 +201,7 @@ namespace Sucrose.Live.CS
                     {
                         switch (Info.Type)
                         {
-                            case SEWT.Video:
+                            case SSEWT.Video:
 
                                 SECSVV Engine = new(FilePath);
                                 Engine.Show();

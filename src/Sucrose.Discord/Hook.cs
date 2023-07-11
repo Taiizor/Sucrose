@@ -22,11 +22,11 @@ namespace Sucrose.Discord
 
             SDMI.Client = new DiscordRpcClient(SMR.DiscordApplication)
             {
-                Logger = new DiscordRPC.Logging.ConsoleLogger()
-                {
-                    Level = DiscordRPC.Logging.LogLevel.Trace,
-                    Coloured = true
-                }
+                //Logger = new DiscordRPC.Logging.ConsoleLogger()
+                //{
+                //    Level = DiscordRPC.Logging.LogLevel.Trace,
+                //    Coloured = true
+                //}
             };
         }
 
