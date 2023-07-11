@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSHL = Sucrose.Space.Helper.Live;
 
 namespace Sucrose.Space.Helper
@@ -11,22 +11,22 @@ namespace Sucrose.Space.Helper
             try
             {
                 SSHL.Kill();
-                SSHC.Kill(Application);
+                SSHP.Kill(Application);
 
                 Directory.Delete(Path, true);
 
-                SSHC.Run(Application);
+                SSHP.Run(Application);
             }
             catch
             {
                 try
                 {
                     SSHL.Kill();
-                    SSHC.Kill(Application);
+                    SSHP.Kill(Application);
 
                     File.Delete(Path);
 
-                    SSHC.Run(Application);
+                    SSHP.Run(Application);
                 }
                 catch
                 {

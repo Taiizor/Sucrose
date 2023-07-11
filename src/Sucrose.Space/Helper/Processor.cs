@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Sucrose.Space.Helper
 {
-    internal static class Command
+    internal static class Processor
     {
         public static void Run(string Application)
         {

@@ -5,7 +5,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSEET = Sucrose.Space.Enum.EngineType;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSHL = Sucrose.Space.Helper.Live;
 using SSMI = Sucrose.Space.Manage.Internal;
 using STCI = Sucrose.Tray.Command.Interface;
@@ -51,22 +51,22 @@ namespace Sucrose.Tray.Command
                     switch (Info.Type)
                     {
                         case SSEWT.Web:
-                            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[WApp]}");
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[WApp]}");
                             break;
                         case SSEWT.Url:
-                            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[UApp]}");
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[UApp]}");
                             break;
                         case SSEWT.Gif:
-                            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[GApp]}");
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[GApp]}");
                             break;
                         case SSEWT.Video:
-                            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[VApp]}");
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[VApp]}");
                             break;
                         case SSEWT.YouTube:
-                            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[YApp]}");
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[YApp]}");
                             break;
                         case SSEWT.Application:
-                            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[AApp]}");
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[AApp]}");
                             break;
                         default:
                             break;

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using SMR = Sucrose.Memory.Readonly;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSHL = Sucrose.Space.Helper.Live;
 
 namespace Sucrose.Space.Helper
@@ -12,14 +12,14 @@ namespace Sucrose.Space.Helper
             try
             {
                 SSHL.Kill();
-                SSHC.Kill(Application);
+                SSHP.Kill(Application);
 
                 foreach (string Setting in Settings(Destination))
                 {
                     File.Copy(Setting, Path.Combine(SMR.AppDataPath, SMR.AppName, Path.GetFileName(Setting)), true);
                 }
 
-                SSHC.Run(Application);
+                SSHP.Run(Application);
             }
             catch
             {

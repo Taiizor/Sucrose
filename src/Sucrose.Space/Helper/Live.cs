@@ -1,5 +1,5 @@
 ﻿using SSEET = Sucrose.Space.Enum.EngineType;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 
 namespace Sucrose.Space.Helper
@@ -10,7 +10,7 @@ namespace Sucrose.Space.Helper
         {
             foreach (KeyValuePair<SSEET, string> Pair in SSMI.EngineLive)
             {
-                if (SSHC.Work(Pair.Value))
+                if (SSHP.Work(Pair.Value))
                 {
                     return true;
                 }
@@ -21,7 +21,7 @@ namespace Sucrose.Space.Helper
 
         public static bool Run(SSEET Live)
         {
-            if (SSHC.Work(SSMI.EngineLive[Live]))
+            if (SSHP.Work(SSMI.EngineLive[Live]))
             {
                 return true;
             }
@@ -31,7 +31,7 @@ namespace Sucrose.Space.Helper
 
         public static bool Run(string Live)
         {
-            if (SSHC.Work(SSMI.TextEngineLive[Live]))
+            if (SSHP.Work(SSMI.TextEngineLive[Live]))
             {
                 return true;
             }
@@ -43,21 +43,21 @@ namespace Sucrose.Space.Helper
         {
             foreach (KeyValuePair<SSEET, string> Pair in SSMI.EngineLive)
             {
-                if (SSHC.Work(Pair.Value))
+                if (SSHP.Work(Pair.Value))
                 {
-                    SSHC.Kill(Pair.Value);
+                    SSHP.Kill(Pair.Value);
                 }
             }
         }
 
         public static void Kill(SSEET Live)
         {
-            SSHC.Kill(SSMI.EngineLive[Live]);
+            SSHP.Kill(SSMI.EngineLive[Live]);
         }
 
         public static void Kill(string Live)
         {
-            SSHC.Kill(SSMI.TextEngineLive[Live]);
+            SSHP.Kill(SSMI.TextEngineLive[Live]);
         }
     }
 }

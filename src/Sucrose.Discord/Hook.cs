@@ -6,7 +6,7 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 
 namespace Sucrose.Discord
 {
@@ -32,7 +32,7 @@ namespace Sucrose.Discord
 
         public void Initialize()
         {
-            if (State && SSHC.Work(SDMI.Name[0], SDMI.Name[1]))
+            if (State && SSHP.Work(SDMI.Name[0], SDMI.Name[1]))
             {
                 SDMI.Client.Initialize();
             }

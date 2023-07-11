@@ -3,7 +3,7 @@ using SCHP = Sucrose.Commandog.Helper.Parse;
 using SCHS = Sucrose.Commandog.Helper.Scheduler;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSHE = Sucrose.Space.Helper.Export;
 using SSHI = Sucrose.Space.Helper.Import;
 using SSHT = Sucrose.Space.Helper.Temporary;
@@ -52,13 +52,13 @@ namespace Sucrose.Commandog.Helper
                                 switch (Command)
                                 {
                                     case SSECT.Log:
-                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Kill:
-                                        SSHC.Kill(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSHP.Kill(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Live:
-                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Test:
                                         Console.WriteLine("Test Values:");
@@ -91,7 +91,7 @@ namespace Sucrose.Commandog.Helper
                                         SSHE.Start(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Report:
-                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSECT.Startup:
                                         SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
@@ -122,7 +122,7 @@ namespace Sucrose.Commandog.Helper
                                         }
                                         break;
                                     case SSECT.Interface:
-                                        SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     default:
                                         break;

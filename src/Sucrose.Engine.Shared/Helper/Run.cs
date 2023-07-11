@@ -1,5 +1,5 @@
 ﻿using SSEET = Sucrose.Space.Enum.EngineType;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 
 namespace Sucrose.Engine.Shared.Helper
@@ -12,9 +12,9 @@ namespace Sucrose.Engine.Shared.Helper
 
             foreach (KeyValuePair<SSEET, string> Pair in SSMI.EngineLive)
             {
-                if (SSHC.Work(Pair.Value))
+                if (SSHP.Work(Pair.Value))
                 {
-                    Result += SSHC.WorkCount(SSMI.EngineLive[Pair.Key]);
+                    Result += SSHP.WorkCount(SSMI.EngineLive[Pair.Key]);
                 }
             }
 

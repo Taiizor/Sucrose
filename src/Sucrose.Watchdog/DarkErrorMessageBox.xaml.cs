@@ -4,7 +4,7 @@ using System.Windows;
 using SGHWL = Sucrose.Globalization.Helper.WatchdogLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
-using SSHC = Sucrose.Space.Helper.Command;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -37,7 +37,7 @@ namespace Sucrose.Watchdog
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
-            SSHC.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Log}{SMR.ValueSeparator}{Path}");
+            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Log}{SMR.ValueSeparator}{Path}");
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

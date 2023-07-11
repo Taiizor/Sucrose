@@ -58,15 +58,5 @@ namespace Sucrose.Space.Manage
             { SMR.CefSharpLive, EngineLive[SSEET.CefSharpLive] },
             { SMR.MediaElementLive, EngineLive[SSEET.MediaElementLive] }
         };
-
-        public static Dictionary<SSEWT, SSEET> WallpaperLive => new()
-        {
-            { SSEWT.Web, SSEET.WebViewLive },
-            { SSEWT.Url, SSEET.WebViewLive },
-            { SSEWT.Video, SSEET.WebViewLive },
-            { SSEWT.YouTube, SSEET.WebViewLive },
-            { SSEWT.Application, SSEET.AppLive },
-            { SSEWT.Gif, SSEET.MediaElementLive }
-        };
     }
 }
