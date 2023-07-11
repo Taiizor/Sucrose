@@ -1,5 +1,6 @@
 ﻿using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
 using SCHP = Sucrose.Commandog.Helper.Parse;
+using SCHS = Sucrose.Commandog.Helper.Scheduler;
 using SMR = Sucrose.Memory.Readonly;
 using SSECT = Sucrose.Space.Enum.CommandsType;
 using SSHC = Sucrose.Space.Helper.Command;
@@ -102,7 +103,23 @@ namespace Sucrose.Commandog.Helper
                                         SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
                                         break;
                                     case SSECT.Scheduler:
-                                        //görev zamanlayıcı burada olcak. görev yoksa eklicek varsa devre dışı bırakacak (olmadı silecek)
+                                        switch (SCHP.ArgumentValue<string>(Values[0]))
+                                        {
+                                            case "Create":
+                                                SCHS.Create(SCHP.ArgumentValue<string>(Values[1]));
+                                                break;
+                                            case "Enable":
+                                                SCHS.EnableTask();
+                                                break;
+                                            case "Disable":
+                                                SCHS.DisableTask();
+                                                break;
+                                            case "Delete":
+                                                SCHS.DeleteTask();
+                                                break;
+                                            default:
+                                                break;
+                                        }
                                         break;
                                     case SSECT.Interface:
                                         SSHC.Run(SCHP.ArgumentValue<string>(Values[0]));

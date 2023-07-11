@@ -65,6 +65,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="TaskScheduler" Version="2.10.1" />
         <PackageReference Include="Skylark.Wing" Version="3.0.1.224" />
     </ItemGroup>
 

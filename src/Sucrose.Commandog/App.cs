@@ -37,6 +37,7 @@ namespace Sucrose.Commandog
         protected static void Close()
         {
             Environment.Exit(0);
+            Application.Exit();
         }
 
         protected static void Message(string Message)
