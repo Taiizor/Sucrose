@@ -8,7 +8,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
-        <Title>$(AssemblyName) - New Generation Wallpaper Engine</Title>
+        <Title>Sucrose Wallpaper Engine</Title>
         <Description>$(Title)</Description>
         <Product>$(Title)</Product>
         <InformationalVersion>$(Version)</InformationalVersion>
