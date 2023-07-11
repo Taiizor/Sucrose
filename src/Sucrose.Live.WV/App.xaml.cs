@@ -35,7 +35,7 @@ namespace Sucrose.Live.WV
 
         private static Mutex Mutex => new(true, SMR.LiveMutex);
 
-        private static bool HasStart { get; set; } = false;
+        private static bool HasError { get; set; } = true;
 
         public App()
         {
@@ -107,9 +107,9 @@ namespace Sucrose.Live.WV
 
         protected void Message(string Message)
         {
-            if (HasStart)
+            if (HasError)
             {
-                HasStart = false;
+                HasError = false;
 
                 string Path = SMMI.WebViewPlayerLogManager.LogFile();
 
@@ -162,8 +162,6 @@ namespace Sucrose.Live.WV
                             case SEWT.Video:
                                 SEWVVV Engine = new(FilePath);
                                 Engine.Show();
-
-                                HasStart = true;
                                 break;
                             default:
                                 Close();

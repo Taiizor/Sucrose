@@ -31,7 +31,7 @@ namespace Sucrose.WPF.CS
 
         private static Mutex Mutex => new(true, SMR.CefSharpMutex);
 
-        private static bool HasStart { get; set; } = false;
+        private static bool HasError { get; set; } = true;
 
         public App()
         {
@@ -125,9 +125,9 @@ namespace Sucrose.WPF.CS
 
         protected void Message(string Message)
         {
-            if (HasStart)
+            if (HasError)
             {
-                HasStart = false;
+                HasError = false;
 
                 string Path = SMMI.CefSharpLogManager.LogFile();
 
@@ -179,8 +179,6 @@ namespace Sucrose.WPF.CS
 
                 Main Browser = new();
                 Browser.Show();
-
-                HasStart = true;
             }
             else
             {

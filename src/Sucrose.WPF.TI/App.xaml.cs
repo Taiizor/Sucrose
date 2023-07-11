@@ -31,7 +31,7 @@ namespace Sucrose.WPF.TI
 
         private static Mutex Mutex => new(true, SMR.TrayIconMutex);
 
-        private static bool HasStart { get; set; } = false;
+        private static bool HasError { get; set; } = true;
 
         private static SDH Discord { get; set; } = new();
 
@@ -107,9 +107,9 @@ namespace Sucrose.WPF.TI
 
         protected void Message(string Message)
         {
-            if (HasStart)
+            if (HasError)
             {
-                HasStart = false;
+                HasError = false;
 
                 string Path = SMMI.TrayIconLogManager.LogFile();
 
@@ -158,8 +158,6 @@ namespace Sucrose.WPF.TI
             Discord.SetPresence();
 
             SMMI.TrayIconLogManager.Log(SELLT.Info, "Discord hook initialized..");
-
-            HasStart = true;
         }
 
         protected override void OnExit(ExitEventArgs e)

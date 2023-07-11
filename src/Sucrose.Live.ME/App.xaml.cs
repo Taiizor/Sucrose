@@ -33,7 +33,7 @@ namespace Sucrose.Live.ME
 
         private static Mutex Mutex => new(true, SMR.LiveMutex);
 
-        private static bool HasStart { get; set; } = false;
+        private static bool HasError { get; set; } = true;
 
         public App()
         {
@@ -105,9 +105,9 @@ namespace Sucrose.Live.ME
 
         protected void Message(string Message)
         {
-            if (HasStart)
+            if (HasError)
             {
-                HasStart = false;
+                HasError = false;
 
                 string Path = SMMI.MediaElementPlayerLogManager.LogFile();
 
@@ -150,8 +150,6 @@ namespace Sucrose.Live.ME
                             case SEWT.Video:
                                 SEMEVV Engine = new(FilePath);
                                 Engine.Show();
-
-                                HasStart = true;
                                 break;
                             default:
                                 Close();

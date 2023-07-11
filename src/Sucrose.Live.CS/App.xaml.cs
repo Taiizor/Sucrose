@@ -35,7 +35,7 @@ namespace Sucrose.Live.CS
 
         private static Mutex Mutex => new(true, SMR.LiveMutex);
 
-        private static bool HasStart { get; set; } = false;
+        private static bool HasError { get; set; } = true;
 
         public App()
         {
@@ -107,9 +107,9 @@ namespace Sucrose.Live.CS
 
         protected void Message(string Message)
         {
-            if (HasStart)
+            if (HasError)
             {
-                HasStart = false;
+                HasError = false;
 
                 string Path = SMMI.CefSharpLogManager.LogFile();
 
@@ -205,8 +205,6 @@ namespace Sucrose.Live.CS
 
                                 SECSVV Engine = new(FilePath);
                                 Engine.Show();
-
-                                HasStart = true;
                                 break;
                             default:
                                 Close();

@@ -23,7 +23,7 @@ namespace Sucrose.WPF.UI
 
         private static Mutex Mutex => new(true, SMR.UserInterfaceMutex);
 
-        private static bool HasStart { get; set; } = false;
+        private static bool HasError { get; set; } = true;
 
         public App()
         {
@@ -83,9 +83,9 @@ namespace Sucrose.WPF.UI
 
         protected void Message(string Message)
         {
-            if (HasStart)
+            if (HasError)
             {
-                HasStart = false;
+                HasError = false;
 
                 string Path = SMMI.UserInterfaceLogManager.LogFile();
 
@@ -126,8 +126,6 @@ namespace Sucrose.WPF.UI
 
                 Main Interface = new();
                 Interface.Show();
-
-                HasStart = true;
             }
             else
             {
