@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Threading;
-using SELLT = Skylark.Enum.LevelLogType;
+﻿using SELLT = Skylark.Enum.LevelLogType;
 using SELT = Skylark.Enum.LogType;
 using SMHW = Sucrose.Manager.Helper.Writer;
 using SMR = Sucrose.Memory.Readonly;

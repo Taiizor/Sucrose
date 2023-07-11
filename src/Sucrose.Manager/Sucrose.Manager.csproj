@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;netstandard2.1;net48;net481;net6.0;net7.0;net8.0</TargetFrameworks>
         <OutputPath>..\Sucrose\Manager</OutputPath>
+        <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
     </PropertyGroup>

@@ -1,5 +1,4 @@
-﻿using System.IO;
-using SMHC = Sucrose.Manager.Helper.Cleaner;
+﻿using SMHC = Sucrose.Manager.Helper.Cleaner;
 
 namespace Sucrose.Manager.Helper
 {

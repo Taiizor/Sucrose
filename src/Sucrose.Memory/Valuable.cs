@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sucrose.Memory
+﻿namespace Sucrose.Memory
 {
     public static class Valuable
     {

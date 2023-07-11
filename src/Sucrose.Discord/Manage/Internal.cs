@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using System.Collections.Generic;
 using SGHDL = Sucrose.Globalization.Helper.DiscordLocalization;
 
 namespace Sucrose.Discord.Manage
@@ -7,6 +6,12 @@ namespace Sucrose.Discord.Manage
     internal static class Internal
     {
         public static DiscordRpcClient Client;
+
+        public static readonly List<string> Name = new()
+        {
+            "Discord.exe",
+            "DiscordPTB.exe"
+        };
 
         public static readonly List<string> Largest = new()
         {

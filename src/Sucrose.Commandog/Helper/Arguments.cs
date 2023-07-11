@@ -6,9 +6,9 @@ using SSHC = Sucrose.Space.Helper.Command;
 using SSHE = Sucrose.Space.Helper.Export;
 using SSHI = Sucrose.Space.Helper.Import;
 using SSHT = Sucrose.Space.Helper.Temporary;
+using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 using SWHWSM = Skylark.Wing.Helper.WindowsStartupMachine;
 using SWHWSP = Skylark.Wing.Helper.WindowsStartupPriority;
-using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 
 namespace Sucrose.Commandog.Helper
 {

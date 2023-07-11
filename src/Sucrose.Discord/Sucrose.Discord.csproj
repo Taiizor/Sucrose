@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;netstandard2.1;net48;net481;net6.0;net7.0;net8.0</TargetFrameworks>
         <OutputPath>..\Sucrose\Discord</OutputPath>
+        <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
     </PropertyGroup>
@@ -12,9 +13,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
         <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
+
+    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
 
 </Project>

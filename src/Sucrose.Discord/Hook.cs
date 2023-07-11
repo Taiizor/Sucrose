@@ -6,14 +6,15 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSHC = Sucrose.Space.Helper.Command;
 
 namespace Sucrose.Discord
 {
     public class Hook
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
-        private static bool State => SMMI.DiscordSettingManager.GetSetting(SMC.State, true);
+        private bool State => SMMI.DiscordSettingManager.GetSetting(SMC.State, true);
 
         public Hook()
         {
@@ -21,17 +22,17 @@ namespace Sucrose.Discord
 
             SDMI.Client = new DiscordRpcClient(SMR.DiscordApplication)
             {
-                //Logger = new ConsoleLogger()
-                //{
-                //    Level = LogLevel.Trace,
-                //    Coloured = true
-                //}
+                Logger = new DiscordRPC.Logging.ConsoleLogger()
+                {
+                    Level = DiscordRPC.Logging.LogLevel.Trace,
+                    Coloured = true
+                }
             };
         }
 
         public void Initialize()
         {
-            if (State)
+            if (State && SSHC.Work(SDMI.Name[0], SDMI.Name[1]))
             {
                 SDMI.Client.Initialize();
             }
@@ -84,15 +85,15 @@ namespace Sucrose.Discord
                     },
                     //Party = new Party()
                     //{
-                    //    ID = Secrets.CreateFriendlySecret(SMR.Randomise),
                     //    Max = 1,
                     //    Size = 1,
+                    //    ID = Secrets.CreateFriendlySecret(SMR.Randomise),
                     //},
                     Assets = new Assets()
                     {
                         LargeImageKey = SGHDL.GetValue("LargestImage"),
-                        LargeImageText = SDMI.Largest[SMR.Randomise.Next(SDMI.Largest.Count - 1)],
                         SmallImageKey = SGHDL.GetValue("SmallestImage"),
+                        LargeImageText = SDMI.Largest[SMR.Randomise.Next(SDMI.Largest.Count - 1)],
                         SmallImageText = SDMI.Smallest[SMR.Randomise.Next(SDMI.Largest.Count - 1)]
                     }
                 });

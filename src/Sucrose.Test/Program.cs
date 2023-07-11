@@ -7,6 +7,7 @@ namespace Sucrose.Test
         static void Main()
         {
             Hook DH = new();
+
             DH.Initialize();
             DH.SetPresence();
 
