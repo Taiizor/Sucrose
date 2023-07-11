@@ -5,6 +5,11 @@ namespace Sucrose.Watchdog
 {
     internal static class Watch
     {
+        public static void Watch_CatchException(Exception Exception)
+        {
+            WatchLog(Exception, "CATCH");
+        }
+
         public static void Watch_ThreadException(Exception Exception)
         {
             WatchLog(Exception, "THREAD");
@@ -45,6 +50,8 @@ namespace Sucrose.Watchdog
             SMMI.CefSharpLogManager.Log(SELLT.Error, Text);
 #elif TRAY_ICON
             SMMI.TrayIconLogManager.Log(SELLT.Error, Text);
+#elif COMMANDOG
+            SMMI.CommandogLogManager.Log(SELLT.Error, Text);
 #elif USER_INTERFACE
             SMMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
 #elif WEBVIEW_PLAYER

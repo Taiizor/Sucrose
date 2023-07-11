@@ -394,6 +394,7 @@ Global
 		Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{84cf09b6-1e35-4111-a556-2a54cc5e3f1a}*SharedItemsImports = 5
+		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{84cf09b6-1e35-4111-a556-2a54cc5e3f1a}*SharedItemsImports = 5
 		Sucrose.Resources\Sucrose.Resources.projitems*{9293996d-47c3-4275-abd9-f0e812128caa}*SharedItemsImports = 13
 		Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems*{9470698b-1d6a-4302-be6d-f0d07fc69ea5}*SharedItemsImports = 13
 		Sucrose.Tray\Sucrose.Tray.projitems*{bf2bfa28-f6cf-4075-9d3b-025a2f6eb967}*SharedItemsImports = 13
