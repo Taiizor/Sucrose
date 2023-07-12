@@ -79,6 +79,19 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\..\Library\Sucrose.Globalization\Sucrose.Globalization.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\..\Shared\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Engine\Sucrose.Engine.WV\Sucrose.Engine.WV.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Theme\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Engine\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems" Label="Shared" />
+
+    <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
 
