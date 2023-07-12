@@ -46,9 +46,7 @@ namespace Sucrose.Watchdog
 
         private static void WriteLog(string Text)
         {
-#if CEFSHARP
-            SMMI.CefSharpLogManager.Log(SELLT.Error, Text);
-#elif TRAY_ICON
+#if TRAY_ICON
             SMMI.TrayIconLogManager.Log(SELLT.Error, Text);
 #elif COMMANDOG
             SMMI.CommandogLogManager.Log(SELLT.Error, Text);

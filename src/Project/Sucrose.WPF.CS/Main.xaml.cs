@@ -20,15 +20,15 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class Main : Window
     {
-        private static WinAPI.MouseEventCallback? MouseEventCall;
+        private static WinAPI.MouseEventCallback MouseEventCall;
         private static IntPtr MouseHook = IntPtr.Zero;
 
-        private static WinAPI.WinEventDelegate? ForegroundDelegate;
+        private static WinAPI.WinEventDelegate ForegroundDelegate;
         private static IntPtr ForegroundHook = IntPtr.Zero;
 
         private readonly DispatcherTimer Timer = new();
 
-        private static IBrowserHost? WVHost = null;
+        private static IBrowserHost WVHost = null;
 
         public Main()
         {

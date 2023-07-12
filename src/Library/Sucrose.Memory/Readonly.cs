@@ -60,8 +60,6 @@
 
         public static readonly string BrowseWebsite = "https://github.com/Taiizor/Sucrose";
 
-        public static readonly string CefSharpMutex = "{Sucrose-Wallpaper-Engine-Cef-Sharp}"; //LiveMutex
-
         public static readonly string TrayIconMutex = "{Sucrose-Wallpaper-Engine-Tray-Icon}";
 
         public static readonly string UserInterfaceMutex = "{Sucrose-Wallpaper-Engine-User-Interface}";

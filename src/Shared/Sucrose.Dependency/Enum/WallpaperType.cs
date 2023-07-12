@@ -2,9 +2,9 @@
 {
     internal enum WallpaperType
     {
-        Web,
-        Url,
         Gif,
+        Url,
+        Web,
         Video,
         YouTube,
         Application

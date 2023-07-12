@@ -29,7 +29,7 @@ namespace Sucrose.WPF.CS
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex => new(true, SMR.CefSharpMutex);
+        private static Mutex Mutex => new(true, SMR.LiveMutex);
 
         private static bool HasError { get; set; } = true;
 
@@ -129,7 +129,7 @@ namespace Sucrose.WPF.CS
             {
                 HasError = false;
 
-                string Path = SMMI.CefSharpLogManager.LogFile();
+                string Path = SMMI.CefSharpLiveLogManager.LogFile();
 
                 switch (Theme)
                 {
