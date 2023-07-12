@@ -26,6 +26,8 @@
 
         public static readonly string AuroraLive = "Sucrose.Live.AA.exe";
 
+        public static readonly string NebulaLive = "Sucrose.Live.NA.exe";
+
         public static readonly string VexanaLive = "Sucrose.Live.VA.exe";
 
         public static readonly string WPFTrayIcon = "Sucrose.WPF.TI.exe";
@@ -43,8 +45,6 @@
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Live}";
 
         public static readonly string WPFUserInterface = "Sucrose.WPF.UI.exe";
-
-        public static readonly string MediaElementLive = "Sucrose.Live.ME.exe";
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 

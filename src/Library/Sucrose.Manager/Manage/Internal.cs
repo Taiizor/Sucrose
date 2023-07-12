@@ -23,12 +23,16 @@ namespace Sucrose.Manager.Manage
 
         public static SMLM CommandogLogManager = new("Commandog-{0}.log");
 
+        public static SMLM AuroraLiveLogManager = new("AuroraLive-{0}.log");
+
+        public static SMLM NebulaLiveLogManager = new("NebulaLive-{0}.log");
+
+        public static SMLM VexanaLiveLogManager = new("VexanaLive-{0}.log");
+
+        public static SMLM WebViewLiveLogManager = new("WebViewLive-{0}.log");
+
+        public static SMLM CefSharpLiveLogManager = new("CefSharpLive-{0}.log");
+
         public static SMLM UserInterfaceLogManager = new("UserInterface-{0}.log");
-
-        public static SMLM WebViewPlayerLogManager = new("WebViewPlayer-{0}.log");
-
-        public static SMLM CefSharpPlayerLogManager = new("CefSharpPlayer-{0}.log");
-
-        public static SMLM MediaElementPlayerLogManager = new("MediaElementPlayer-{0}.log");
     }
 }

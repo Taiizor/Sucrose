@@ -20,7 +20,7 @@ namespace Sucrose.Space.Manage
 
         public static SDEWET WebEngine = SDEWET.WebView;
 
-        public static SDEVET VideoEngine = SDEVET.WebView;
+        public static SDEVET VideoEngine = SDEVET.Nebula;
 
         public static SDEYTET YouTubeEngine = SDEYTET.WebView;
 
@@ -45,19 +45,19 @@ namespace Sucrose.Space.Manage
         public static Dictionary<SDEET, string> EngineLive => new()
         {
             { SDEET.AuroraLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.AuroraLive), SMR.AuroraLive) },
+            { SDEET.NebulaLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.NebulaLive), SMR.NebulaLive) },
             { SDEET.VexanaLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.VexanaLive), SMR.VexanaLive) },
             { SDEET.WebViewLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.WebViewLive) },
-            { SDEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) },
-            { SDEET.MediaElementLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.MediaElementLive), SMR.MediaElementLive) }
+            { SDEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) }
         };
 
         public static Dictionary<string, string> TextEngineLive => new()
         {
             { SMR.AuroraLive, EngineLive[SDEET.AuroraLive] },
+            { SMR.NebulaLive, EngineLive[SDEET.NebulaLive] },
             { SMR.VexanaLive, EngineLive[SDEET.VexanaLive] },
             { SMR.WebViewLive, EngineLive[SDEET.WebViewLive] },
-            { SMR.CefSharpLive, EngineLive[SDEET.CefSharpLive] },
-            { SMR.MediaElementLive, EngineLive[SDEET.MediaElementLive] }
+            { SMR.CefSharpLive, EngineLive[SDEET.CefSharpLive] }
         };
     }
 }

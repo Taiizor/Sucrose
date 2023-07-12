@@ -2,15 +2,15 @@
 using System.Windows.Media;
 using System.Windows.Threading;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
-using SEMEEV = Sucrose.Engine.ME.Event.Video;
-using SEMEHV = Sucrose.Engine.ME.Helper.Video;
-using SEMEMI = Sucrose.Engine.ME.Manage.Internal;
+using SENAEV = Sucrose.Engine.NA.Event.Video;
+using SENAHV = Sucrose.Engine.NA.Helper.Video;
+using SENAMI = Sucrose.Engine.NA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
-namespace Sucrose.Engine.ME.View
+namespace Sucrose.Engine.NA.View
 {
     /// <summary>
     /// Interaction logic for Video.xaml
@@ -25,35 +25,35 @@ namespace Sucrose.Engine.ME.View
 
             ContentRendered += (s, e) => SESEH.ContentRendered(this);
 
-            Content = SEMEMI.MediaEngine;
+            Content = SENAMI.MediaEngine;
 
-            SEMEMI.MediaEngine.Source = SESHS.GetSource(Video);
+            SENAMI.MediaEngine.Source = SESHS.GetSource(Video);
 
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
 
-            SEMEMI.MediaEngine.MediaEnded += SEMEEV.MediaEngineEnded;
+            SENAMI.MediaEngine.MediaEnded += SENAEV.MediaEngineEnded;
 
-            Closing += (s, e) => SEMEMI.MediaEngine.Close();
+            Closing += (s, e) => SENAMI.MediaEngine.Close();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
 
-            SEMEHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SENAHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
 
-            SEMEHV.Play();
+            SENAHV.Play();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            SEMEHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SENAHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 
-            SEMEHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SENAHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
 
             SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
 
             if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
             {
-                SEMEMI.MediaEngine.Stretch = (Stretch)Stretch;
+                SENAMI.MediaEngine.Stretch = (Stretch)Stretch;
             }
         }
     }

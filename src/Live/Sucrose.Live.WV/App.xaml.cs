@@ -111,7 +111,7 @@ namespace Sucrose.Live.WV
             {
                 HasError = false;
 
-                string Path = SMMI.WebViewPlayerLogManager.LogFile();
+                string Path = SMMI.WebViewLiveLogManager.LogFile();
 
                 switch (Theme)
                 {

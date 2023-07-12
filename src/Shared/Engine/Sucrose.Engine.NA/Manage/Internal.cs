@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using MediaEngine = System.Windows.Controls.MediaElement;
 
-namespace Sucrose.Engine.ME.Manage
+namespace Sucrose.Engine.NA.Manage
 {
     internal static class Internal
     {

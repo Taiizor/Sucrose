@@ -111,7 +111,7 @@ namespace Sucrose.Live.CS
             {
                 HasError = false;
 
-                string Path = SMMI.CefSharpLogManager.LogFile();
+                string Path = SMMI.CefSharpLiveLogManager.LogFile();
 
                 switch (Theme)
                 {

@@ -52,14 +52,18 @@ namespace Sucrose.Watchdog
             SMMI.TrayIconLogManager.Log(SELLT.Error, Text);
 #elif COMMANDOG
             SMMI.CommandogLogManager.Log(SELLT.Error, Text);
+#elif LIVE_AURORA
+            SMMI.AuroraLiveLogManager.Log(SELLT.Error, Text);
+#elif LIVE_NEBULA
+            SMMI.NebulaLiveLogManager.Log(SELLT.Error, Text);
+#elif LIVE_VEXANA
+            SMMI.VexanaLiveLogManager.Log(SELLT.Error, Text);
+#elif LIVE_WEBVIEW
+            SMMI.WebViewLiveLogManager.Log(SELLT.Error, Text);
+#elif LIVE_CEFSHARP
+            SMMI.CefSharpLiveLogManager.Log(SELLT.Error, Text);
 #elif USER_INTERFACE
             SMMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
-#elif WEBVIEW_PLAYER
-            SMMI.WebViewPlayerLogManager.Log(SELLT.Error, Text);
-#elif CEFSHARP_PLAYER
-            SMMI.CefSharpPlayerLogManager.Log(SELLT.Error, Text);
-#elif MEDIA_ELEMENT_PLAYER
-            SMMI.MediaElementPlayerLogManager.Log(SELLT.Error, Text);
 #endif
         }
     }

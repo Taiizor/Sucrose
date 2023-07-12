@@ -3,10 +3,10 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>55f13a9c-c4c1-4786-be4e-e9dd8d1b737f</SharedGUID>
+    <SharedGUID>337fa919-25a4-4356-9c61-cd657675cb72</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Engine.ME</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Engine.NA</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)View\Video.xaml">

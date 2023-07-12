@@ -3,10 +3,10 @@
     internal enum EngineType
     {
         AuroraLive,
+        NebulaLive,
         VexanaLive,
         WebViewLive,
-        CefSharpLive,
-        MediaElementLive //FreyaLive, AureliaLive, NovaraLive, 
+        CefSharpLive
     }
 
     internal enum GifEngineType
@@ -28,9 +28,9 @@
 
     internal enum VideoEngineType
     {
+        Nebula = EngineType.NebulaLive,
         WebView = EngineType.WebViewLive,
-        CefSharp = EngineType.CefSharpLive,
-        MediaElement = EngineType.MediaElementLive
+        CefSharp = EngineType.CefSharpLive
     }
 
     internal enum YouTubeEngineType

@@ -1,9 +1,9 @@
 ﻿using System.Windows;
-using SEMEMI = Sucrose.Engine.ME.Manage.Internal;
+using SENAMI = Sucrose.Engine.NA.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
-namespace Sucrose.Engine.ME.Event
+namespace Sucrose.Engine.NA.Event
 {
     internal static class Video
     {
@@ -21,8 +21,8 @@ namespace Sucrose.Engine.ME.Event
         {
             if (SMMI.EngineSettingManager.GetSetting(SMC.Loop, true))
             {
-                SEMEMI.MediaEngine.Position = TimeSpan.Zero;
-                SEMEMI.MediaEngine.Play();
+                SENAMI.MediaEngine.Position = TimeSpan.Zero;
+                SENAMI.MediaEngine.Play();
             }
         }
     }

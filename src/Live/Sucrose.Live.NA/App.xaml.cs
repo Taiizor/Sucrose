@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
-using SEMEVV = Sucrose.Engine.ME.View.Video;
+using SENAVV = Sucrose.Engine.NA.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
@@ -16,7 +16,7 @@ using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
-namespace Sucrose.Live.ME
+namespace Sucrose.Live.NA
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -109,7 +109,7 @@ namespace Sucrose.Live.ME
             {
                 HasError = false;
 
-                string Path = SMMI.MediaElementPlayerLogManager.LogFile();
+                string Path = SMMI.NebulaLiveLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -148,7 +148,7 @@ namespace Sucrose.Live.ME
                         switch (Info.Type)
                         {
                             case SDEWT.Video:
-                                SEMEVV Engine = new(FilePath);
+                                SENAVV Engine = new(FilePath);
                                 Engine.Show();
                                 break;
                             default:
