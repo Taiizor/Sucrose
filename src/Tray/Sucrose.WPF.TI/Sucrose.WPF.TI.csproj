@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Sucrose.Live.ME.App</StartupObject>
+        <StartupObject>Sucrose.WPF.TI.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
@@ -15,21 +15,21 @@
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
-        <AssemblyName>Sucrose.Live.ME</AssemblyName>
+        <AssemblyName>Sucrose.WPF.TI</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
-        <DefineConstants>$(DefineConstants);ENGINE;LIVE_MEDIAELEMENT</DefineConstants>
+        <DefineConstants>$(DefineConstants);GENERAL;TRAY_ICON;TRAY_ICON_WPF</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\Sucrose\Live\MediaElement\$(Platform)</OutputPath>
+        <OutputPath>..\..\Sucrose\WPF\TrayIcon\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -66,24 +66,12 @@
 
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.0.1.225" />
-        <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
-    </ItemGroup>
-
-    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <Reference Include="System.Net.Http" />
+        <PackageReference Include="DiscordRichPresence" Version="1.1.3.18" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
-
-    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Engine.ME\Sucrose.Engine.ME.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
@@ -91,7 +79,7 @@
 
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
-        <DestinationDirectory>..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
+        <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
     </PropertyGroup>
 
     <Target Name="CopyFiles" BeforeTargets="Build">
@@ -100,5 +88,5 @@
         </ItemGroup>
         <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(DestinationDirectory)%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
     </Target>
-
+    
 </Project>
