@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SEMEEV = Sucrose.Engine.ME.Event.Video;
 using SEMEHV = Sucrose.Engine.ME.Helper.Video;
 using SEMEMI = Sucrose.Engine.ME.Manage.Internal;
@@ -8,7 +9,6 @@ using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.ME.View
 {

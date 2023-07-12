@@ -1,6 +1,6 @@
 ﻿using CefSharp;
-using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
+using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 
 namespace Sucrose.Engine.CS.Helper
 {

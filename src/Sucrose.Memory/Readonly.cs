@@ -22,9 +22,11 @@
 
         public static readonly string MediaElement = "MediaElement";
 
-        public static readonly string AppLive = "Sucrose.Live.AP.exe";
-
         public static readonly string SucroseInfo = "SucroseInfo.json";
+
+        public static readonly string AuroraLive = "Sucrose.Live.AA.exe";
+
+        public static readonly string VexanaLive = "Sucrose.Live.VA.exe";
 
         public static readonly string WPFTrayIcon = "Sucrose.WPF.TI.exe";
 

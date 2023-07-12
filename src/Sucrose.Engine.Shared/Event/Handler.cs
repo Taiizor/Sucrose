@@ -1,10 +1,10 @@
 ﻿using System.Windows;
+using SDEDT = Sucrose.Dependency.Enum.DisplayType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SDEDT = Sucrose.Dependency.Enum.DisplayType;
 using SWE = Skylark.Wing.Engine;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;

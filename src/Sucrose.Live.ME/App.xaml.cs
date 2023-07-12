@@ -2,9 +2,9 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
+using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SEMEVV = Sucrose.Engine.ME.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
-using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;

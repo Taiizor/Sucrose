@@ -1,10 +1,10 @@
 ﻿using System.Globalization;
 using System.Resources;
+using SGSC = Sucrose.Globalization.Strings.Commandog;
 using SGSD = Sucrose.Globalization.Strings.Discord;
 using SGSG = Sucrose.Globalization.Strings.General;
 using SGST = Sucrose.Globalization.Strings.Tray;
 using SGSW = Sucrose.Globalization.Strings.Watchdog;
-using SGSC = Sucrose.Globalization.Strings.Commandog;
 
 namespace Sucrose.Globalization.Manage
 {

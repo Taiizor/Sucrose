@@ -2,15 +2,16 @@
 {
     internal enum EngineType
     {
-        AppLive,
+        AuroraLive,
+        VexanaLive,
         WebViewLive,
         CefSharpLive,
-        MediaElementLive
+        MediaElementLive //FreyaLive, AureliaLive, NovaraLive, 
     }
 
     internal enum GifEngineType
     {
-        Unknown = EngineType.MediaElementLive
+        Vexana = EngineType.VexanaLive
     }
 
     internal enum UrlEngineType
@@ -40,6 +41,6 @@
 
     internal enum ApplicationEngineType
     {
-        App = EngineType.AppLive
+        Aurora = EngineType.AuroraLive
     }
 }

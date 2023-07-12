@@ -1,13 +1,13 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using System.Windows;
 using System.Windows.Threading;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SEWVEV = Sucrose.Engine.WV.Event.Video;
 using SEWVHV = Sucrose.Engine.WV.Helper.Video;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.WV.View
 {

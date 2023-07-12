@@ -1,10 +1,10 @@
 ﻿using CefSharp;
 using System.Windows;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SECSHV = Sucrose.Engine.CS.Helper.Video;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.CS.Event
 {

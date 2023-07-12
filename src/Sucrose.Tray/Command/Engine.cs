@@ -1,12 +1,12 @@
 ﻿using System.IO;
+using SDECT = Sucrose.Dependency.Enum.CommandsType;
+using SDEET = Sucrose.Dependency.Enum.EngineType;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SDECT = Sucrose.Dependency.Enum.CommandsType;
-using SDEET = Sucrose.Dependency.Enum.EngineType;
-using SSHP = Sucrose.Space.Helper.Processor;
 using SSHL = Sucrose.Space.Helper.Live;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 using STCI = Sucrose.Tray.Command.Interface;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
