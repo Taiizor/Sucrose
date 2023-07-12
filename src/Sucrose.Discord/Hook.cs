@@ -32,11 +32,11 @@ namespace Sucrose.Discord
             };
 
             SDMI.Client.OnReady += Client_OnReady;
-            SDMI.Client.OnClose += Client_OnClose;
-            SDMI.Client.OnError += Client_OnError;
+            //SDMI.Client.OnClose += Client_OnClose;
+            //SDMI.Client.OnError += Client_OnError;
 
-            SDMI.Client.OnConnectionFailed += Client_OnConnectionFailed;
-            SDMI.Client.OnConnectionEstablished += Client_OnConnectionEstablished;
+            //SDMI.Client.OnConnectionFailed += Client_OnConnectionFailed;
+            //SDMI.Client.OnConnectionEstablished += Client_OnConnectionEstablished;
         }
 
         public void Initialize()
@@ -124,12 +124,12 @@ namespace Sucrose.Discord
 
         private void Client_OnConnectionFailed(object sender, ConnectionFailedMessage args)
         {
-            //Console.WriteLine("DiscordRPC connection error.");
+            Console.WriteLine("DiscordRPC connection error.");
         }
 
         private void Client_OnConnectionEstablished(object sender, ConnectionEstablishedMessage args)
         {
-            //Console.WriteLine("DiscordRPC connection established.");
+            Console.WriteLine("DiscordRPC connection established.");
             //SetPresence();
         }
 
@@ -140,12 +140,12 @@ namespace Sucrose.Discord
 
         private void Client_OnClose(object sender, CloseMessage args)
         {
-            //Console.WriteLine("DiscordRPC connection closed. Code: " + args.Code + ", Reason: " + args.Reason);
+            Console.WriteLine("DiscordRPC connection closed. Code: " + args.Code + ", Reason: " + args.Reason);
         }
 
         private void Client_OnError(object sender, ErrorMessage args)
         {
-            //Console.WriteLine("DiscordRPC error: " + args.Message);
+            Console.WriteLine("DiscordRPC error: " + args.Message);
         }
     }
 }

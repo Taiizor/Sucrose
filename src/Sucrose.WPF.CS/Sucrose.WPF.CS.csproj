@@ -78,10 +78,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
-        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
-        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
-        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />

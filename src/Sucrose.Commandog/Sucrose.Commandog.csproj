@@ -69,11 +69,6 @@
         <PackageReference Include="Skylark.Wing" Version="3.0.1.225" />
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
-    </ItemGroup>
-
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />

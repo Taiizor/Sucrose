@@ -78,12 +78,6 @@
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
-        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
-    </ItemGroup>
-
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />

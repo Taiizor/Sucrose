@@ -29,7 +29,7 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\Sucrose\WPF\UserInterface\$(Platform)</OutputPath>
+        <OutputPath>..\..\Sucrose\WPF\UserInterface\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -69,17 +69,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
-        <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
-        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
-        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
+        <ProjectReference Include="..\..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
+        <ProjectReference Include="..\..\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
 
-    <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
-    <Import Project="..\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
+    <Import Project="..\..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
+    <Import Project="..\..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
+    <Import Project="..\..\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
@@ -87,7 +84,7 @@
 
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
-        <DestinationDirectory>..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
+        <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
     </PropertyGroup>
 
     <Target Name="CopyFiles" BeforeTargets="Build">
