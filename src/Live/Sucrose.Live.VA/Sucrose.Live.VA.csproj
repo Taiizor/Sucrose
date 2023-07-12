@@ -1,0 +1,110 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+        <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
+        <StartupObject>Sucrose.Live.VA.App</StartupObject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <Company>Taiizor</Company>
+        <Title>Sucrose Wallpaper Engine</Title>
+        <Description>$(Title)</Description>
+        <Product>$(Title)</Product>
+        <InformationalVersion>$(Version)</InformationalVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
+        <AssemblyName>Sucrose.Live.VA</AssemblyName>
+        <RootNamespace>$(AssemblyName)</RootNamespace>
+        <UseWindowsForms>true</UseWindowsForms>
+        <UseWPF>true</UseWPF>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
+        <DefineConstants>$(DefineConstants);ENGINE;LIVE_VEXANA</DefineConstants>
+        <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+        <OutputPath>..\..\Sucrose\Live\Vexana\$(Platform)</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+        <RetainVMGarbageCollection>true</RetainVMGarbageCollection>
+        <ThreadPoolMinThreads>1</ThreadPoolMinThreads>
+        <ThreadPoolMaxThreads>100</ThreadPoolMaxThreads>
+        <!-- Supported as of .NET Core SDK 3.0 Preview 1 -->
+        <TieredCompilation>true</TieredCompilation>
+        <InvariantGlobalization>false</InvariantGlobalization>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'x86'">
+        <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x86</RuntimeIdentifier>
+        <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'x64'">
+        <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+        <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'arm64'">
+        <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-arm64</RuntimeIdentifier>
+        <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
+            <TargetPath>$(AssemblyName).exe.config</TargetPath>
+        </AppConfigWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="XamlAnimatedGif" Version="2.2.0" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.1.225" />
+        <PackageReference Include="Skylark.Standard" Version="3.0.1.3" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\..\Library\Sucrose.Globalization\Sucrose.Globalization.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\..\Shared\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Engine\Sucrose.Engine.VA\Sucrose.Engine.VA.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Theme\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Engine\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems" Label="Shared" />
+
+    <ItemGroup>
+        <Folder Include="Properties\" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
+        <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
+    </PropertyGroup>
+
+    <Target Name="CopyFiles" BeforeTargets="Build">
+        <ItemGroup>
+            <FilesToCopy Include="$(SourceDirectory)\**\*.*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(DestinationDirectory)%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+
+</Project>
