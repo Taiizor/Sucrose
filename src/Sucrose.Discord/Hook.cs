@@ -1,4 +1,5 @@
 ﻿using DiscordRPC;
+using DiscordRPC.Message;
 using System.Globalization;
 using Button = DiscordRPC.Button;
 using SDMI = Sucrose.Discord.Manage.Internal;
@@ -11,7 +12,7 @@ using SSHP = Sucrose.Space.Helper.Processor;
 
 namespace Sucrose.Discord
 {
-    public class Hook
+    internal class Hook
     {
         private string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
@@ -29,6 +30,13 @@ namespace Sucrose.Discord
                 //    Coloured = true
                 //}
             };
+
+            SDMI.Client.OnReady += Client_OnReady;
+            SDMI.Client.OnClose += Client_OnClose;
+            SDMI.Client.OnError += Client_OnError;
+
+            SDMI.Client.OnConnectionFailed += Client_OnConnectionFailed;
+            SDMI.Client.OnConnectionEstablished += Client_OnConnectionEstablished;
         }
 
         public void Initialize()
@@ -112,6 +120,32 @@ namespace Sucrose.Discord
             {
                 SDMI.Client.Dispose();
             }
+        }
+
+        private void Client_OnConnectionFailed(object sender, ConnectionFailedMessage args)
+        {
+            //Console.WriteLine("DiscordRPC connection error.");
+        }
+
+        private void Client_OnConnectionEstablished(object sender, ConnectionEstablishedMessage args)
+        {
+            //Console.WriteLine("DiscordRPC connection established.");
+            //SetPresence();
+        }
+
+        private void Client_OnReady(object sender, ReadyMessage args)
+        {
+            SetPresence();
+        }
+
+        private void Client_OnClose(object sender, CloseMessage args)
+        {
+            //Console.WriteLine("DiscordRPC connection closed. Code: " + args.Code + ", Reason: " + args.Reason);
+        }
+
+        private void Client_OnError(object sender, ErrorMessage args)
+        {
+            //Console.WriteLine("DiscordRPC error: " + args.Message);
         }
     }
 }

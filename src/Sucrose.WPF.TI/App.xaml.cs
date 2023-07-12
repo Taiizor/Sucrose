@@ -155,7 +155,6 @@ namespace Sucrose.WPF.TI
             SMMI.TrayIconLogManager.Log(SELLT.Info, "Discord hook initializing..");
 
             Discord.Initialize();
-            Discord.SetPresence();
 
             SMMI.TrayIconLogManager.Log(SELLT.Info, "Discord hook initialized..");
         }

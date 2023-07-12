@@ -9,7 +9,6 @@ namespace Sucrose.Test
             Hook DH = new();
 
             DH.Initialize();
-            DH.SetPresence();
 
             Console.ReadKey();
 

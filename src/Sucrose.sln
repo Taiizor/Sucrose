@@ -387,6 +387,9 @@ Global
 		Sucrose.Space\Sucrose.Space.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{5f285038-256a-4df7-8fc2-58b6d7c7cecc}*SharedItemsImports = 5
+		Sucrose.Dependency\Sucrose.Dependency.projitems*{648ba35e-7b50-4bff-95d7-862b0e5791a7}*SharedItemsImports = 5
+		Sucrose.Discord\Sucrose.Discord.projitems*{648ba35e-7b50-4bff-95d7-862b0e5791a7}*SharedItemsImports = 5
+		Sucrose.Space\Sucrose.Space.projitems*{648ba35e-7b50-4bff-95d7-862b0e5791a7}*SharedItemsImports = 5
 		Sucrose.Dependency\Sucrose.Dependency.projitems*{84cf09b6-1e35-4111-a556-2a54cc5e3f1a}*SharedItemsImports = 5
 		Sucrose.Space\Sucrose.Space.projitems*{84cf09b6-1e35-4111-a556-2a54cc5e3f1a}*SharedItemsImports = 5
 		Sucrose.Watchdog\Sucrose.Watchdog.projitems*{84cf09b6-1e35-4111-a556-2a54cc5e3f1a}*SharedItemsImports = 5

@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.IO.Compression;
+using SDECT = Sucrose.Dependency.Enum.CompatibilityType;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SEAET = Skylark.Enum.AppExtensionType;
-using SDECT = Sucrose.Dependency.Enum.CompatibilityType;
 using SEVET = Skylark.Enum.VideoExtensionType;
 using SEWET = Skylark.Enum.WebExtensionType;
 using SHV = Skylark.Helper.Versionly;
