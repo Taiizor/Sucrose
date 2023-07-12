@@ -2,7 +2,7 @@
 using System.IO.Compression;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SEAET = Skylark.Enum.AppExtensionType;
-using SECT = Skylark.Enum.CompatibilityType;
+using SDECT = Sucrose.Dependency.Enum.CompatibilityType;
 using SEVET = Skylark.Enum.VideoExtensionType;
 using SEWET = Skylark.Enum.WebExtensionType;
 using SHV = Skylark.Helper.Versionly;
@@ -14,7 +14,7 @@ namespace Sucrose.Theme.Shared.Helper
 {
     internal static class Zip
     {
-        public static SECT Extract(string Archive, string Destination)
+        public static SDECT Extract(string Archive, string Destination)
         {
             try
             {
@@ -25,15 +25,15 @@ namespace Sucrose.Theme.Shared.Helper
                 ZipFile.ExtractToDirectory(Archive, Destination, true);
 #endif
 
-                return SECT.Pass;
+                return SDECT.Pass;
             }
             catch
             {
-                return SECT.UnforeseenConsequences;
+                return SDECT.UnforeseenConsequences;
             }
         }
 
-        public static SECT Compress(string Source, string Destination)
+        public static SDECT Compress(string Source, string Destination)
         {
             try
             {
@@ -50,40 +50,40 @@ namespace Sucrose.Theme.Shared.Helper
                 ZipFile.CreateFromDirectory(Source, Destination, CompressionLevel.SmallestSize, false);
 #endif
 
-                return SECT.Pass;
+                return SDECT.Pass;
             }
             catch
             {
-                return SECT.UnforeseenConsequences;
+                return SDECT.UnforeseenConsequences;
             }
         }
 
-        public static SECT Check(string Archive)
+        public static SDECT Check(string Archive)
         {
             try
             {
                 // Seçilen dosya var mı?
                 if (!File.Exists(Archive))
                 {
-                    return SECT.NotFound;
+                    return SDECT.NotFound;
                 }
 
                 // Seçilen dosya .zip uzantılı değil mi?
                 if (Path.GetExtension(Archive) != ".zip")
                 {
-                    return SECT.Extension;
+                    return SDECT.Extension;
                 }
 
                 // Seçilen dosya gerçekten ZIP dosyası mı?
                 if (!CheckArchive(Archive))
                 {
-                    return SECT.ZipType;
+                    return SDECT.ZipType;
                 }
 
                 // Arşivde SucroseInfo.json dosyası var mı?
                 if (!CheckFile(Archive, SMR.SucroseInfo))
                 {
-                    return SECT.InfoFile;
+                    return SDECT.InfoFile;
                 }
 
                 // Arşivdeki SucroseInfo.json dosyasını okuma
@@ -92,86 +92,86 @@ namespace Sucrose.Theme.Shared.Helper
                 // Info içindeki Thumbnail dosyası var mı?
                 if (!CheckFile(Archive, Info.Thumbnail))
                 {
-                    return SECT.Thumbnail;
+                    return SDECT.Thumbnail;
                 }
 
                 // Info içindeki Preview dosyası var mı?
                 if (!CheckFile(Archive, Info.Preview))
                 {
-                    return SECT.Preview;
+                    return SDECT.Preview;
                 }
 
                 // Info içindeki AppVersion sürümü bu uygulamanın düşük mü?
                 if (Info.AppVersion.CompareTo(SHV.Executing()) > 0)
                 {
-                    return SECT.AppVersion;
+                    return SDECT.AppVersion;
                 }
 
                 // Info içindeki Type değeri bu uygulamanın Type enum değerinden büyük mü?
                 if ((int)Info.Type >= Enum.GetValues(typeof(SDEWT)).Length)
                 {
-                    return SECT.Type;
+                    return SDECT.Type;
                 }
 
                 // Info içindeki Type değerine göre dosya veya url kontrolü
                 if (Info.Type == SDEWT.Web)
                 {
-                    if (!CheckFile(Archive, Info.FileName))
+                    if (!CheckFile(Archive, Info.Source))
                     {
-                        return SECT.FileName;
+                        return SDECT.Source;
                     }
-                    else if (!CheckWebExtension(Info.FileName))
+                    else if (!CheckWebExtension(Info.Source))
                     {
-                        return SECT.InvalidExtension;
+                        return SDECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SDEWT.Url && !STSHV.IsUrl(Info.FileName))
+                else if (Info.Type == SDEWT.Url && !STSHV.IsUrl(Info.Source))
                 {
-                    return SECT.InvalidUrl;
+                    return SDECT.InvalidUrl;
                 }
                 else if (Info.Type == SDEWT.Gif)
                 {
-                    if (!STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
+                    if (!STSHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
                     {
-                        return SECT.FileName;
+                        return SDECT.Source;
                     }
-                    else if (!CheckGifExtension(Info.FileName))
+                    else if (!CheckGifExtension(Info.Source))
                     {
-                        return SECT.InvalidExtension;
+                        return SDECT.InvalidExtension;
                     }
                 }
                 else if (Info.Type == SDEWT.Video)
                 {
-                    if (!STSHV.IsUrl(Info.FileName) && !CheckFile(Archive, Info.FileName))
+                    if (!STSHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
                     {
-                        return SECT.FileName;
+                        return SDECT.Source;
                     }
-                    else if (!CheckVideoExtension(Info.FileName))
+                    else if (!CheckVideoExtension(Info.Source))
                     {
-                        return SECT.InvalidExtension;
+                        return SDECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SDEWT.YouTube && !STSHV.IsYouTube(Info.FileName) && !STSHV.IsYouTubeMusic(Info.FileName))
+                else if (Info.Type == SDEWT.YouTube && !STSHV.IsYouTube(Info.Source) && !STSHV.IsYouTubeMusic(Info.Source))
                 {
-                    return SECT.InvalidUrl;
+                    return SDECT.InvalidUrl;
                 }
                 else if (Info.Type == SDEWT.Application)
                 {
-                    if (!CheckFile(Archive, Info.FileName))
+                    if (!CheckFile(Archive, Info.Source))
                     {
-                        return SECT.FileName;
+                        return SDECT.Source;
                     }
-                    else if (!CheckAppExtension(Info.FileName))
+                    else if (!CheckAppExtension(Info.Source))
                     {
-                        return SECT.InvalidExtension;
+                        return SDECT.InvalidExtension;
                     }
                 }
 
-                return SECT.Pass;
+                return SDECT.Pass;
             }
             catch
             {
-                return SECT.UnforeseenConsequences;
+                return SDECT.UnforeseenConsequences;
             }
         }
 

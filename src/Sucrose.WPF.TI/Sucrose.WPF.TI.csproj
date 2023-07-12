@@ -66,6 +66,7 @@
 
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.0.1.225" />
+        <PackageReference Include="DiscordRichPresence" Version="1.1.3.18" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
@@ -74,12 +75,14 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Sucrose.Grpc\Sucrose.Grpc.csproj" />
-        <ProjectReference Include="..\Sucrose.Discord\Sucrose.Discord.csproj" />
+        <ProjectReference Include="..\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
     <Import Project="..\Sucrose.Tray\Sucrose.Tray.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Common\Sucrose.Common.projitems" Label="Shared" />
+    <Import Project="..\Sucrose.Discord\Sucrose.Discord.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
     <Import Project="..\Sucrose.Theme.Shared\Sucrose.Theme.Shared.projitems" Label="Shared" />

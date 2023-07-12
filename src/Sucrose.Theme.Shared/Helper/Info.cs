@@ -38,8 +38,8 @@ namespace Sucrose.Theme.Shared.Helper
         [JsonProperty("Type", Required = Required.Always)]
         public SDEWT Type { get; set; }
 
-        [JsonProperty("FileName", Required = Required.Always)]
-        public string FileName { get; set; }
+        [JsonProperty("Source", Required = Required.Always)]
+        public string Source { get; set; }
 
         [JsonProperty("Arguments", Required = Required.AllowNull)]
         public string Arguments { get; set; }

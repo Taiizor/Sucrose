@@ -195,7 +195,7 @@ namespace Sucrose.Live.CS
 
                     STSHI Info = STSHI.ReadJson(InfoPath);
 
-                    string FilePath = Path.Combine(Directory, Folder, Info.FileName);
+                    string FilePath = Path.Combine(Directory, Folder, Info.Source);
 
                     if (File.Exists(FilePath))
                     {

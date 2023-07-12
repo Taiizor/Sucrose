@@ -1,5 +1,6 @@
 ﻿using DiscordRPC;
 using System.Globalization;
+using Button = DiscordRPC.Button;
 using SDMI = Sucrose.Discord.Manage.Internal;
 using SGHDL = Sucrose.Globalization.Helper.DiscordLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
