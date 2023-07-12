@@ -1,31 +1,31 @@
 ﻿using System.IO;
 using SEAT = Skylark.Enum.AssemblyType;
-using SSEWT = Sucrose.Space.Enum.WallpaperType;
+using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SHA = Skylark.Helper.Assemblies;
 using SMR = Sucrose.Memory.Readonly;
-using SSEET = Sucrose.Space.Enum.EngineType;
-using SSEVET = Sucrose.Space.Enum.VideoEngineType;
-using SSEWET = Sucrose.Space.Enum.WebEngineType;
-using SSEUET = Sucrose.Space.Enum.UrlEngineType;
-using SSEGET = Sucrose.Space.Enum.GifEngineType;
-using SSEAET = Sucrose.Space.Enum.ApplicationEngineType;
-using SSEYTET = Sucrose.Space.Enum.YouTubeEngineType;
+using SDEET = Sucrose.Dependency.Enum.EngineType;
+using SDEVET = Sucrose.Dependency.Enum.VideoEngineType;
+using SDEWET = Sucrose.Dependency.Enum.WebEngineType;
+using SDEUET = Sucrose.Dependency.Enum.UrlEngineType;
+using SDEGET = Sucrose.Dependency.Enum.GifEngineType;
+using SDEAET = Sucrose.Dependency.Enum.ApplicationEngineType;
+using SDEYTET = Sucrose.Dependency.Enum.YouTubeEngineType;
 
 namespace Sucrose.Space.Manage
 {
     internal static class Internal
     {
-        public static SSEGET GifEngine = SSEGET.Unknown;
+        public static SDEGET GifEngine = SDEGET.Unknown;
 
-        public static SSEUET UrlEngine = SSEUET.WebView;
+        public static SDEUET UrlEngine = SDEUET.WebView;
 
-        public static SSEWET WebEngine = SSEWET.WebView;
+        public static SDEWET WebEngine = SDEWET.WebView;
 
-        public static SSEVET VideoEngine = SSEVET.WebView;
+        public static SDEVET VideoEngine = SDEVET.WebView;
 
-        public static SSEAET ApplicationEngine = SSEAET.App;
+        public static SDEAET ApplicationEngine = SDEAET.App;
 
-        public static SSEYTET YouTubeEngine = SSEYTET.WebView;
+        public static SDEYTET YouTubeEngine = SDEYTET.WebView;
 
         public static string This => Path.GetDirectoryName(App);
 
@@ -43,20 +43,20 @@ namespace Sucrose.Space.Manage
 
         public static string WinFormsUserInterface => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WinFormsUserInterface), SMR.WinFormsUserInterface);
 
-        public static Dictionary<SSEET, string> EngineLive => new()
+        public static Dictionary<SDEET, string> EngineLive => new()
         {
-            { SSEET.AppLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.AppLive), SMR.AppLive) },
-            { SSEET.WebViewLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.WebViewLive) },
-            { SSEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) },
-            { SSEET.MediaElementLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.MediaElementLive), SMR.MediaElementLive) }
+            { SDEET.AppLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.AppLive), SMR.AppLive) },
+            { SDEET.WebViewLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.WebViewLive) },
+            { SDEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) },
+            { SDEET.MediaElementLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.MediaElementLive), SMR.MediaElementLive) }
         };
 
         public static Dictionary<string, string> TextEngineLive => new()
         {
-            { SMR.AppLive, EngineLive[SSEET.AppLive] },
-            { SMR.WebViewLive, EngineLive[SSEET.WebViewLive] },
-            { SMR.CefSharpLive, EngineLive[SSEET.CefSharpLive] },
-            { SMR.MediaElementLive, EngineLive[SSEET.MediaElementLive] }
+            { SMR.AppLive, EngineLive[SDEET.AppLive] },
+            { SMR.WebViewLive, EngineLive[SDEET.WebViewLive] },
+            { SMR.CefSharpLive, EngineLive[SDEET.CefSharpLive] },
+            { SMR.MediaElementLive, EngineLive[SDEET.MediaElementLive] }
         };
     }
 }

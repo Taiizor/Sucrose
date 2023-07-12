@@ -4,7 +4,7 @@ using SEWVHV = Sucrose.Engine.WV.Helper.Video;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSEST = Sucrose.Space.Enum.StretchType;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.WV.Event
 {
@@ -16,7 +16,7 @@ namespace Sucrose.Engine.WV.Event
             SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
             SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
 
-            SEWVHV.SetStretch(SMMI.EngineSettingManager.GetSettingStable(SMC.StretchType, SSEST.Fill));
+            SEWVHV.SetStretch(SMMI.EngineSettingManager.GetSettingStable(SMC.StretchType, SDEST.Fill));
             SEWVHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
         }
 

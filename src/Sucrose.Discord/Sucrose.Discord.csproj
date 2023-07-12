@@ -19,4 +19,6 @@
 
     <Import Project="..\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
 
+    <Import Project="..\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
+
 </Project>

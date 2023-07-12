@@ -1,5 +1,5 @@
 ﻿using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using SSEST = Sucrose.Space.Enum.StretchType;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.WV.Helper
 {
@@ -53,20 +53,20 @@ namespace Sucrose.Engine.WV.Helper
             await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"document.getElementsByTagName('video')[0].volume = {(Volume / 100d).ToString().Replace(" ", ".").Replace(",", ".")};");
         }
 
-        public static async void SetStretch(SSEST Stretch)
+        public static async void SetStretch(SDEST Stretch)
         {
             switch (Stretch)
             {
-                case SSEST.None:
+                case SDEST.None:
                     await SEWVMI.WebEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"none\";");
                     break;
-                case SSEST.Fill:
+                case SDEST.Fill:
                     await SEWVMI.WebEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"fill\";");
                     break;
-                case SSEST.Uniform:
+                case SDEST.Uniform:
                     await SEWVMI.WebEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"contain\";");
                     break;
-                case SSEST.UniformToFill:
+                case SDEST.UniformToFill:
                     await SEWVMI.WebEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"cover\";");
                     break;
                 default:

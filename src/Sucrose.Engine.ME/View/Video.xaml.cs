@@ -8,7 +8,7 @@ using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSEST = Sucrose.Space.Enum.StretchType;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.ME.View
 {
@@ -49,9 +49,9 @@ namespace Sucrose.Engine.ME.View
 
             SEMEHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
 
-            SSEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSEST.Fill);
+            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
 
-            if ((int)Stretch < Enum.GetValues(typeof(SSEST)).Length)
+            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
             {
                 SEMEMI.MediaEngine.Stretch = (Stretch)Stretch;
             }

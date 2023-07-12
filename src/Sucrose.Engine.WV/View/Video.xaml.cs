@@ -7,7 +7,7 @@ using SEWVHV = Sucrose.Engine.WV.Helper.Video;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSEST = Sucrose.Space.Enum.StretchType;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.WV.View
 {
@@ -49,9 +49,9 @@ namespace Sucrose.Engine.WV.View
 
             SEWVHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
 
-            SSEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSEST.Fill);
+            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
 
-            if ((int)Stretch < Enum.GetValues(typeof(SSEST)).Length)
+            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
             {
                 SEWVHV.SetStretch(Stretch);
             }

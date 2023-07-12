@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0c43a85b-788f-4e02-a7a4-5e020b8eb1cb</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Sucrose.Dependency</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\DisplayType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\EngineType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\WallpaperType.cs" />
+  </ItemGroup>
+</Project>

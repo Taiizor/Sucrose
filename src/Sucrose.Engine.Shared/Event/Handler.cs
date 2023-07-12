@@ -4,7 +4,7 @@ using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSEDT = Sucrose.Space.Enum.DisplayType;
+using SDEDT = Sucrose.Dependency.Enum.DisplayType;
 using SWE = Skylark.Wing.Engine;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
@@ -27,12 +27,12 @@ namespace Sucrose.Engine.Shared.Event
 
         public static void ContentRendered(Window Window)
         {
-            switch (SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSEDT.Screen))
+            switch (SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SDEDT.Screen))
             {
-                case SSEDT.Expand:
+                case SDEDT.Expand:
                     SWE.WallpaperWindow(Window, SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
                     break;
-                case SSEDT.Duplicate:
+                case SDEDT.Duplicate:
                     SWE.WallpaperWindow(Window, SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
                     break;
                 default:

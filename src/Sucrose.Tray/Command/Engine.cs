@@ -1,10 +1,10 @@
 ﻿using System.IO;
-using SSEWT = Sucrose.Space.Enum.WallpaperType;
+using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SSECT = Sucrose.Space.Enum.CommandsType;
-using SSEET = Sucrose.Space.Enum.EngineType;
+using SDECT = Sucrose.Dependency.Enum.CommandsType;
+using SDEET = Sucrose.Dependency.Enum.EngineType;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSHL = Sucrose.Space.Helper.Live;
 using SSMI = Sucrose.Space.Manage.Internal;
@@ -18,17 +18,17 @@ namespace Sucrose.Tray.Command
     {
         private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
-        private static SSEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, (SSEET)SSMI.ApplicationEngine);
+        private static SDEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, (SDEET)SSMI.ApplicationEngine);
 
-        private static SSEET YApp => SMMI.EngineSettingManager.GetSetting(SMC.YApp, (SSEET)SSMI.YouTubeEngine);
+        private static SDEET YApp => SMMI.EngineSettingManager.GetSetting(SMC.YApp, (SDEET)SSMI.YouTubeEngine);
 
-        private static SSEET VApp => SMMI.EngineSettingManager.GetSetting(SMC.VApp, (SSEET)SSMI.VideoEngine);
+        private static SDEET VApp => SMMI.EngineSettingManager.GetSetting(SMC.VApp, (SDEET)SSMI.VideoEngine);
 
-        private static SSEET GApp => SMMI.EngineSettingManager.GetSetting(SMC.GApp, (SSEET)SSMI.GifEngine);
+        private static SDEET GApp => SMMI.EngineSettingManager.GetSetting(SMC.GApp, (SDEET)SSMI.GifEngine);
 
-        private static SSEET UApp => SMMI.EngineSettingManager.GetSetting(SMC.UApp, (SSEET)SSMI.UrlEngine);
+        private static SDEET UApp => SMMI.EngineSettingManager.GetSetting(SMC.UApp, (SDEET)SSMI.UrlEngine);
 
-        private static SSEET WApp => SMMI.EngineSettingManager.GetSetting(SMC.WApp, (SSEET)SSMI.WebEngine);
+        private static SDEET WApp => SMMI.EngineSettingManager.GetSetting(SMC.WApp, (SDEET)SSMI.WebEngine);
 
         private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
@@ -50,23 +50,23 @@ namespace Sucrose.Tray.Command
 
                     switch (Info.Type)
                     {
-                        case SSEWT.Web:
-                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[WApp]}");
+                        case SDEWT.Web:
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[WApp]}");
                             break;
-                        case SSEWT.Url:
-                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[UApp]}");
+                        case SDEWT.Url:
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[UApp]}");
                             break;
-                        case SSEWT.Gif:
-                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[GApp]}");
+                        case SDEWT.Gif:
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[GApp]}");
                             break;
-                        case SSEWT.Video:
-                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[VApp]}");
+                        case SDEWT.Video:
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[VApp]}");
                             break;
-                        case SSEWT.YouTube:
-                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[YApp]}");
+                        case SDEWT.YouTube:
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[YApp]}");
                             break;
-                        case SSEWT.Application:
-                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[AApp]}");
+                        case SDEWT.Application:
+                            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Live}{SMR.ValueSeparator}{SSMI.EngineLive[AApp]}");
                             break;
                         default:
                             break;

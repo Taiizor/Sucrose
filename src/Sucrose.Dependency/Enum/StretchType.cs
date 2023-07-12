@@ -1,6 +1,6 @@
-﻿namespace Sucrose.Space.Enum
+﻿namespace Sucrose.Dependency.Enum
 {
-    public enum StretchType
+    internal enum StretchType
     {
         None,
         Fill,

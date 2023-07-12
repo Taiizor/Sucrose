@@ -1,5 +1,5 @@
 ﻿using SMR = Sucrose.Memory.Readonly;
-using SSECT = Sucrose.Space.Enum.CommandsType;
+using SDECT = Sucrose.Dependency.Enum.CommandsType;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 
@@ -10,9 +10,9 @@ namespace Sucrose.Tray.Command
         public static void Command()
         {
 #if TRAY_ICON_WPF
-            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Interface}{SMR.ValueSeparator}{SSMI.WPFUserInterface}");
+            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Interface}{SMR.ValueSeparator}{SSMI.WPFUserInterface}");
 #elif TRAY_ICON_WinForms
-            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSECT.Interface}{SMR.ValueSeparator}{SSMI.WinFormsUserInterface}");
+            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Interface}{SMR.ValueSeparator}{SSMI.WinFormsUserInterface}");
 #endif
         }
     }

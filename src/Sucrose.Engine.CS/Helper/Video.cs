@@ -1,6 +1,6 @@
 ﻿using CefSharp;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
-using SSEST = Sucrose.Space.Enum.StretchType;
+using SDEST = Sucrose.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.CS.Helper
 {
@@ -80,20 +80,20 @@ namespace Sucrose.Engine.CS.Helper
             SECSMI.CefEngine.ExecuteScriptAsync($"document.getElementsByTagName('video')[0].volume = {(Volume / 100d).ToString().Replace(" ", ".").Replace(",", ".")};");
         }
 
-        public static void SetStretch(SSEST Stretch)
+        public static void SetStretch(SDEST Stretch)
         {
             switch (Stretch)
             {
-                case SSEST.None:
+                case SDEST.None:
                     SECSMI.CefEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"none\";");
                     break;
-                case SSEST.Fill:
+                case SDEST.Fill:
                     SECSMI.CefEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"fill\";");
                     break;
-                case SSEST.Uniform:
+                case SDEST.Uniform:
                     SECSMI.CefEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"contain\";");
                     break;
-                case SSEST.UniformToFill:
+                case SDEST.UniformToFill:
                     SECSMI.CefEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style.objectFit = \"cover\";");
                     break;
                 default:

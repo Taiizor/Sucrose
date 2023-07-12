@@ -1,6 +1,6 @@
-﻿namespace Sucrose.Space.Enum
+﻿namespace Sucrose.Dependency.Enum
 {
-    public enum CommandsType
+    internal enum CommandsType
     {
         Log,
         Kill,

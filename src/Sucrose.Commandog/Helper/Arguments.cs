@@ -2,7 +2,7 @@
 using SCHP = Sucrose.Commandog.Helper.Parse;
 using SCHS = Sucrose.Commandog.Helper.Scheduler;
 using SMR = Sucrose.Memory.Readonly;
-using SSECT = Sucrose.Space.Enum.CommandsType;
+using SDECT = Sucrose.Dependency.Enum.CommandsType;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSHE = Sucrose.Space.Helper.Export;
 using SSHI = Sucrose.Space.Helper.Import;
@@ -47,20 +47,20 @@ namespace Sucrose.Commandog.Helper
                             }
 #endif
 
-                            if (Enum.TryParse(Name, true, out SSECT Command))
+                            if (Enum.TryParse(Name, true, out SDECT Command))
                             {
                                 switch (Command)
                                 {
-                                    case SSECT.Log:
+                                    case SDECT.Log:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SSECT.Kill:
+                                    case SDECT.Kill:
                                         SSHP.Kill(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SSECT.Live:
+                                    case SDECT.Live:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SSECT.Test:
+                                    case SDECT.Test:
                                         Console.WriteLine("Test Values:");
 
                                         foreach (string Value in Values)
@@ -81,28 +81,28 @@ namespace Sucrose.Commandog.Helper
                                             }
                                         }
                                         break;
-                                    case SSECT.Temp:
+                                    case SDECT.Temp:
                                         SSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
-                                    case SSECT.Import:
+                                    case SDECT.Import:
                                         SSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
-                                    case SSECT.Export:
+                                    case SDECT.Export:
                                         SSHE.Start(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SSECT.Report:
+                                    case SDECT.Report:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SSECT.Startup:
+                                    case SDECT.Startup:
                                         SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;
-                                    case SSECT.StartupM:
+                                    case SDECT.StartupM:
                                         SWHWSM.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;
-                                    case SSECT.StartupP:
+                                    case SDECT.StartupP:
                                         SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
                                         break;
-                                    case SSECT.Scheduler:
+                                    case SDECT.Scheduler:
                                         switch (SCHP.ArgumentValue<string>(Values[0]))
                                         {
                                             case "Create":
@@ -121,7 +121,7 @@ namespace Sucrose.Commandog.Helper
                                                 break;
                                         }
                                         break;
-                                    case SSECT.Interface:
+                                    case SDECT.Interface:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     default:

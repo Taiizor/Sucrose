@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Converters;
 using System.Globalization;
 using System.IO;
-using SSEWT = Sucrose.Space.Enum.WallpaperType;
+using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 
 namespace Sucrose.Theme.Shared.Helper
 {
@@ -36,7 +36,7 @@ namespace Sucrose.Theme.Shared.Helper
         public string Contact { get; set; }
 
         [JsonProperty("Type", Required = Required.Always)]
-        public SSEWT Type { get; set; }
+        public SDEWT Type { get; set; }
 
         [JsonProperty("FileName", Required = Required.Always)]
         public string FileName { get; set; }
