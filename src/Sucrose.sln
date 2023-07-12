@@ -354,6 +354,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{0c43a85b-788f-4e02-a7a4-5e020b8eb1cb}*SharedItemsImports = 13
+		Shared\Sucrose.Common\Sucrose.Common.projitems*{16d9cab2-fdc3-4f64-941e-dc42860d8b43}*SharedItemsImports = 5
+		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{16d9cab2-fdc3-4f64-941e-dc42860d8b43}*SharedItemsImports = 5
+		Shared\Sucrose.Space\Sucrose.Space.projitems*{16d9cab2-fdc3-4f64-941e-dc42860d8b43}*SharedItemsImports = 5
+		Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems*{16d9cab2-fdc3-4f64-941e-dc42860d8b43}*SharedItemsImports = 5
 		Shared\Sucrose.Discord\Sucrose.Discord.projitems*{1fdcbc92-d904-4da0-838c-13893cd373f8}*SharedItemsImports = 13
 		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
 		Shared\Sucrose.Space\Sucrose.Space.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
