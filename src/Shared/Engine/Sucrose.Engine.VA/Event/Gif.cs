@@ -1,25 +1,48 @@
-﻿using System.Windows;
-using XamlAnimatedGif;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
+﻿using System.IO;
+using System.Windows.Media.Imaging;
 using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
-using SEVAHG = Sucrose.Engine.VA.Helper.Gif;
 
 namespace Sucrose.Engine.VA.Event
 {
     internal static class Gif
     {
-        public static void AnimationLoadedEvent(object sender, RoutedEventArgs e)
+        public static async void ImageTimer_Tick(object sender, EventArgs e)
         {
-            SEVAMI.ImageAnimator = AnimationBehavior.GetAnimator(SEVAMI.ImageEngine);
+            SEVAMI.ImageTimer.Stop();
+
+            if (SEVAMI.ImageLoop || SEVAMI.ImageFirst)
+            {
+                SEVAMI.ImageFirst = false;
+
+                foreach (string Image in SEVAMI.ImageResult.List)
+                {
+                    while (!SEVAMI.ImageState)
+                    {
+                        await Task.Delay(1000);
+                    }
+
+                    SetImage(Image);
+
+                    string[] Split = Path.GetFileNameWithoutExtension(Image).Split('_');
+
+                    //Thread.Sleep(Convert.ToInt32(Split.Last()));
+                    await Task.Delay(Convert.ToInt32(Split.Last()));
+
+                    //Thread.Sleep(Convert.ToInt32(Result.Total / Result.List.Count));
+                    //await Task.Delay(Convert.ToInt32(Result.Total / Result.List.Count));
+                }
+            }
+
+            SEVAMI.ImageTimer.Start();
         }
 
-        public static void AnimationCompletedEvent(object sender, AnimationCompletedEventArgs e)
+        public static void SetImage(string Path)
         {
-            if (SMMI.EngineSettingManager.GetSetting(SMC.Loop, true) && SEVAMI.ImageAnimator.IsComplete)
-            {
-                SEVAHG.Play();
-            }
+            Uri Uri = new(Path);
+
+            BitmapImage Image = new(Uri);
+
+            SEVAMI.ImageEngine.Source = Image;
         }
     }
 }

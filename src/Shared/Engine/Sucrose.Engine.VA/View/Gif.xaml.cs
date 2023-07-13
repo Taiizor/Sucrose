@@ -2,14 +2,14 @@
 using System.Windows.Media;
 using System.Windows.Threading;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
-using SEVAEG = Sucrose.Engine.VA.Event.Gif;
-using SEVAHG = Sucrose.Engine.VA.Helper.Gif;
-using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
+using SEVAEG = Sucrose.Engine.VA.Event.Gif;
+using SEVAHG = Sucrose.Engine.VA.Helper.Gif;
+using SEVAHP = Sucrose.Engine.VA.Helper.Parse;
+using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using XamlAnimatedGif;
 
 namespace Sucrose.Engine.VA.View
 {
@@ -28,19 +28,17 @@ namespace Sucrose.Engine.VA.View
 
             Content = SEVAMI.ImageEngine;
 
-            AnimationBehavior.SetSourceUri(SEVAMI.ImageEngine, SESHS.GetSource(Gif));
+            SEVAMI.ImageResult = SEVAHP.Gif(SESHS.GetSource(Gif).ToString());
 
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
 
-            AnimationBehavior.AddLoadedHandler(SEVAMI.ImageEngine, SEVAEG.AnimationLoadedEvent);
-            AnimationBehavior.AddAnimationCompletedHandler(SEVAMI.ImageEngine, SEVAEG.AnimationCompletedEvent);
-
-            Closing += (s, e) => SEVAMI.ImageAnimator.Dispose();
+            Closing += (s, e) => SEVAMI.ImageTimer.Stop();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
 
-            AnimationBehavior.SetAutoStart(SEVAMI.ImageEngine, true);
+            SEVAMI.ImageTimer.Tick += new EventHandler(SEVAEG.ImageTimer_Tick);
+            SEVAMI.ImageTimer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)

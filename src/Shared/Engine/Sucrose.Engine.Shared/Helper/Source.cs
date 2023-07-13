@@ -1,10 +1,8 @@
 ﻿using System.IO;
-using SMR = Sucrose.Memory.Readonly;
-using STSHV = Sucrose.Theme.Shared.Helper.Various;
-#if NET48_OR_GREATER
 using System.Net.Http;
+using SMR = Sucrose.Memory.Readonly;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
-#endif
+using STSHV = Sucrose.Theme.Shared.Helper.Various;
 
 namespace Sucrose.Engine.Shared.Helper
 {
@@ -61,7 +59,6 @@ namespace Sucrose.Engine.Shared.Helper
         {
             if (STSHV.IsUrl(Source))
             {
-#if NET48_OR_GREATER
                 string CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Content);
 
                 if (!Directory.Exists(CachePath))
@@ -87,9 +84,6 @@ namespace Sucrose.Engine.Shared.Helper
 
                     return new Uri(@Path.GetFullPath(LocalSource), Kind);
                 }
-#else
-                return new Uri(@Source, Kind);
-#endif
             }
             else
             {

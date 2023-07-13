@@ -6,6 +6,8 @@
 
         public static readonly string LogFolder = "Log";
 
+        public static readonly string GifFolder = "Gif";
+
         public static readonly string AppName = "Sucrose";
 
         public static readonly string Content = "Content";

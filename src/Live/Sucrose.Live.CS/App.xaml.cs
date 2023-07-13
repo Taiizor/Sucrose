@@ -13,6 +13,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using STSHV = Sucrose.Theme.Shared.Helper.Various;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
@@ -195,15 +196,19 @@ namespace Sucrose.Live.CS
 
                     STSHI Info = STSHI.ReadJson(InfoPath);
 
-                    string FilePath = Path.Combine(Directory, Folder, Info.Source);
+                    string Source = Info.Source;
 
-                    if (File.Exists(FilePath))
+                    if (!STSHV.IsUrl(Source))
+                    {
+                        Source = Path.Combine(Directory, Folder, Source);
+                    }
+
+                    if (STSHV.IsUrl(Source) || File.Exists(Source))
                     {
                         switch (Info.Type)
                         {
                             case SDEWT.Video:
-
-                                SECSVV Engine = new(FilePath);
+                                SECSVV Engine = new(Source);
                                 Engine.Show();
                                 break;
                             default:

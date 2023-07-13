@@ -1,6 +1,4 @@
-﻿using System.Windows.Media.Animation;
-using XamlAnimatedGif;
-using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
+﻿using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
 
 namespace Sucrose.Engine.VA.Helper
 {
@@ -8,26 +6,17 @@ namespace Sucrose.Engine.VA.Helper
     {
         public static void Pause()
         {
-            SEVAMI.ImageAnimator.Pause();
+            SEVAMI.ImageState = false;
         }
 
         public static void Play()
         {
-            SEVAMI.ImageAnimator.Play();
+            SEVAMI.ImageState = true;
         }
 
         public static void SetLoop(bool State)
         {
-            if (State)
-            {
-                AnimationBehavior.SetRepeatBehavior(SEVAMI.ImageEngine, RepeatBehavior.Forever);
-
-                Play();
-            }
-            else
-            {
-                AnimationBehavior.SetRepeatBehavior(SEVAMI.ImageEngine, new RepeatBehavior(1));
-            }
+            SEVAMI.ImageLoop = State;
         }
     }
 }

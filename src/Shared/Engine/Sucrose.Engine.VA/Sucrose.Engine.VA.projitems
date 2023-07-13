@@ -16,8 +16,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Event\Gif.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Parse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Gif.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Struct\Gif.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Gif.xaml.cs" />
   </ItemGroup>
 </Project>
