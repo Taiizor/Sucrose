@@ -7,8 +7,8 @@ using SEST = Skylark.Enum.ScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SWE = Skylark.Wing.Engine;
-using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
+using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
 using SWNM = Skylark.Wing.Native.Methods;
 
@@ -30,12 +30,12 @@ namespace Sucrose.Engine.Shared.Event
 
         public static void ApplicationLoaded(Process Process)
         {
-            IntPtr Handle = SWHPI.Handle(Process);
+            IntPtr Handle = SWHPI.MainWindowHandle(Process);
 
-            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+            SWHWO.RemoveWindowFromTaskbar(Handle);
 
-            int exStyle = SWNM.GetWindowLong(Handle, (int)SWNM.GWL.GWL_EXSTYLE);
-            SWNM.SetWindowLong(Handle, (int)SWNM.GWL.GWL_EXSTYLE, exStyle | (int)SWNM.WindowStyles.WS_EX_NOACTIVATE);
+            int currentStyle = SWNM.GetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE);
+            SWNM.SetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE, currentStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
         }
 
         public static void ContentRendered(Window Window)

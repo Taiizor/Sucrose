@@ -15,7 +15,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Event\Video.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Event\Application.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Application.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Application.xaml.cs" />
