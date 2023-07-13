@@ -8,20 +8,9 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                using Mutex Mutex = new(false, Path.GetFileName(filePath));
-
-                try
-                {
-                    Mutex.WaitOne();
-
-                    using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
-                    using StreamReader reader = new(fileStream);
-                    return SMHC.Clean(reader.ReadToEnd());
-                }
-                finally
-                {
-                    Mutex.ReleaseMutex();
-                }
+                using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
+                using StreamReader reader = new(fileStream);
+                return SMHC.Clean(reader.ReadToEnd());
             }
             catch
             {
@@ -33,18 +22,7 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                using Mutex Mutex = new(false, Path.GetFileName(filePath));
-
-                try
-                {
-                    Mutex.WaitOne();
-
-                    return SMHC.Clean(File.ReadAllText(filePath));
-                }
-                finally
-                {
-                    Mutex.ReleaseMutex();
-                }
+                return SMHC.Clean(File.ReadAllText(filePath));
             }
             catch
             {

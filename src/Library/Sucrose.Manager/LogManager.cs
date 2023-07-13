@@ -29,18 +29,29 @@ namespace Sucrose.Manager
 
         public void Log(SELLT level, string message)
         {
-            if (logType == SELT.None)
-            {
-                return;
-            }
-
             _lock.EnterWriteLock();
 
             try
             {
                 lock (lockObject)
                 {
-                    SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                    if (logType == SELT.None)
+                    {
+                        return;
+                    }
+
+                    using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
+
+                    try
+                    {
+                        Mutex.WaitOne();
+
+                        SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                    }
+                    finally
+                    {
+                        Mutex.ReleaseMutex();
+                    }
                 }
             }
             finally

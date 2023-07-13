@@ -8,20 +8,9 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                using Mutex Mutex = new(false, Path.GetFileName(filePath));
-
-                try
-                {
-                    Mutex.WaitOne();
-
-                    using FileStream fileStream = new(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-                    using StreamWriter writer = new(fileStream);
-                    writer.Write(SMHC.Clean(fileContent));
-                }
-                finally
-                {
-                    Mutex.ReleaseMutex();
-                }
+                using FileStream fileStream = new(filePath, FileMode.Truncate, FileAccess.Write, FileShare.None);
+                using StreamWriter writer = new(fileStream);
+                writer.Write(SMHC.Clean(fileContent));
             }
             catch
             {
@@ -33,19 +22,8 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                using Mutex Mutex = new(false, Path.GetFileName(filePath));
-
-                try
-                {
-                    Mutex.WaitOne();
-
-                    using StreamWriter writer = File.AppendText(filePath);
-                    writer.WriteLine(SMHC.Clean(fileContent));
-                }
-                finally
-                {
-                    Mutex.ReleaseMutex();
-                }
+                using StreamWriter writer = File.AppendText(filePath);
+                writer.WriteLine(SMHC.Clean(fileContent));
             }
             catch
             {
@@ -57,18 +35,7 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                using Mutex Mutex = new(false, Path.GetFileName(filePath));
-
-                try
-                {
-                    Mutex.WaitOne();
-
-                    File.WriteAllText(filePath, SMHC.Clean(fileContent));
-                }
-                finally
-                {
-                    Mutex.ReleaseMutex();
-                }
+                File.WriteAllText(filePath, SMHC.Clean(fileContent));
             }
             catch
             {

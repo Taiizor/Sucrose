@@ -44,16 +44,27 @@ namespace Sucrose.Manager
             {
                 lock (lockObject)
                 {
-                    if (File.Exists(_settingsFilePath))
+                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
+
+                    try
                     {
-                        string json = SMHR.Read(_settingsFilePath);
+                        Mutex.WaitOne();
 
-                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                        if (settings.Properties.TryGetValue(key, out object value))
+                        if (CheckFile())
                         {
-                            return ConvertToType<T>(value);
+                            string json = SMHR.Read(_settingsFilePath);
+
+                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                            if (settings.Properties.TryGetValue(key, out object value))
+                            {
+                                return ConvertToType<T>(value);
+                            }
                         }
+                    }
+                    finally
+                    {
+                        Mutex.ReleaseMutex();
                     }
                 }
             }
@@ -73,16 +84,27 @@ namespace Sucrose.Manager
             {
                 lock (lockObject)
                 {
-                    if (File.Exists(_settingsFilePath))
+                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
+
+                    try
                     {
-                        string json = SMHR.Read(_settingsFilePath);
+                        Mutex.WaitOne();
 
-                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                        if (settings.Properties.TryGetValue(key, out object value))
+                        if (CheckFile())
                         {
-                            return JsonConvert.DeserializeObject<T>(value.ToString());
+                            string json = SMHR.Read(_settingsFilePath);
+
+                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                            if (settings.Properties.TryGetValue(key, out object value))
+                            {
+                                return JsonConvert.DeserializeObject<T>(value.ToString());
+                            }
                         }
+                    }
+                    finally
+                    {
+                        Mutex.ReleaseMutex();
                     }
                 }
             }
@@ -102,16 +124,27 @@ namespace Sucrose.Manager
             {
                 lock (lockObject)
                 {
-                    if (File.Exists(_settingsFilePath))
+                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
+
+                    try
                     {
-                        string json = SMHR.Read(_settingsFilePath);
+                        Mutex.WaitOne();
 
-                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                        if (settings.Properties.TryGetValue(key, out object value))
+                        if (CheckFile())
                         {
-                            return ConvertToType<T>(value);
+                            string json = SMHR.Read(_settingsFilePath);
+
+                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                            if (settings.Properties.TryGetValue(key, out object value))
+                            {
+                                return ConvertToType<T>(value);
+                            }
                         }
+                    }
+                    finally
+                    {
+                        Mutex.ReleaseMutex();
                     }
                 }
             }
@@ -131,21 +164,32 @@ namespace Sucrose.Manager
             {
                 lock (lockObject)
                 {
-                    Settings settings;
+                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
 
-                    if (File.Exists(_settingsFilePath))
+                    try
                     {
-                        string json = SMHR.Read(_settingsFilePath);
-                        settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                        Mutex.WaitOne();
+
+                        Settings settings;
+
+                        if (CheckFile())
+                        {
+                            string json = SMHR.Read(_settingsFilePath);
+                            settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                        }
+                        else
+                        {
+                            settings = new Settings();
+                        }
+
+                        settings.Properties[key] = ConvertToType<T>(value);
+
+                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
                     }
-                    else
+                    finally
                     {
-                        settings = new Settings();
+                        Mutex.ReleaseMutex();
                     }
-
-                    settings.Properties[key] = ConvertToType<T>(value);
-
-                    SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
                 }
             }
             finally

@@ -28,7 +28,7 @@ namespace Sucrose.Engine.AA.View
 
             SEAAMI.Application = Application;
             SEAAMI.ApplicationName = Path.GetFileName(Application);
-            //SMMI.AuroraSettingManager.SetSetting(SMC.App, SEAAMI.ApplicationName);
+            SMMI.AuroraSettingManager.SetSetting(SMC.App, SEAAMI.ApplicationName);
 
             SSHP.Run(SEAAMI.Application, Arguments, ProcessWindowStyle.Maximized);
 
@@ -48,6 +48,7 @@ namespace Sucrose.Engine.AA.View
             }
 
             SESEH.ApplicationLoaded(SEAAMI.ApplicationProcess);
+            SESEH.ApplicationRendered(SEAAMI.ApplicationProcess);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -60,6 +61,13 @@ namespace Sucrose.Engine.AA.View
             {
                 //SEAAMI.MediaEngine.Stretch = (Stretch)Stretch; //Açılan uygulama boyutu değiştirilecek ya da hiç olmayacak
             }
+
+            if (!SSHP.Work(SEAAMI.Application))
+            {
+                Close();
+            }
+
+            SESEH.ApplicationLoaded(SEAAMI.ApplicationProcess);
         }
     }
 }
