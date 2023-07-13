@@ -46,6 +46,10 @@
 
         public const string CultureName = "CultureName";
 
+        public const string CefArguments = "CefArguments";
+
+        public const string WebArguments = "WebArguments";
+
         public const string ExpandScreenType = "ExpandScreenType";
 
         public const string DuplicateScreenType = "DuplicateScreenType";

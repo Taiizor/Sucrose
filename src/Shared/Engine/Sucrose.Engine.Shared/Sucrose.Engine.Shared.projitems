@@ -12,5 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Event\Handler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Run.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Source.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Setting\Browser.cs" />
   </ItemGroup>
 </Project>

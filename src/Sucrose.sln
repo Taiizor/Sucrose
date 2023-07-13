@@ -81,7 +81,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.NA", "Live\Suc
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Engine.VA", "Shared\Engine\Sucrose.Engine.VA\Sucrose.Engine.VA.shproj", "{02C20F6F-926E-48BD-98E9-9325C607DA7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Live.VA", "Live\Sucrose.Live.VA\Sucrose.Live.VA.csproj", "{DCEF99BB-8AD2-4858-8544-85BFDBDF3027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.VA", "Live\Sucrose.Live.VA\Sucrose.Live.VA.csproj", "{DCEF99BB-8AD2-4858-8544-85BFDBDF3027}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

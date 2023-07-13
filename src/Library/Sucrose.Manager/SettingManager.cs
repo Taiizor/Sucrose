@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Net;
 using SMCIPAC = Sucrose.Manager.Converter.IPAddressConverter;
 using SMHR = Sucrose.Manager.Helper.Reader;
@@ -147,17 +148,47 @@ namespace Sucrose.Manager
 
         private T ConvertToType<T>(object value)
         {
-            if (typeof(T) == typeof(IPAddress))
+            Type type = typeof(T);
+
+            if (type == typeof(IPAddress))
             {
                 return (T)(object)IPAddress.Parse(value.ToString());
             }
-            else if (typeof(T) == typeof(Uri))
+            else if (type == typeof(Uri))
             {
                 return (T)(object)new Uri(value.ToString());
             }
-            else if (typeof(T).IsEnum)
+            else if (type.IsEnum)
             {
-                return (T)Enum.Parse(typeof(T), value.ToString());
+                return (T)Enum.Parse(type, value.ToString());
+            }
+            else if (type == typeof(KeyValuePair<string, string>))
+            {
+                string[] parts = value.ToString().Split(':');
+
+                return (T)(object)new KeyValuePair<string, string>(parts[0].Trim(), parts[1].Trim());
+            }
+            else if (type == typeof(List<string>))
+            {
+                if (value is List<string> list)
+                {
+                    return (T)(object)list;
+                }
+                else if (value is JArray jArray)
+                {
+                    return (T)(object)jArray.Select(jValue => (string)jValue).ToList();
+                }
+            }
+            else if (type == typeof(Dictionary<string, string>))
+            {
+                try
+                {
+                    return JsonConvert.DeserializeObject<T>(value.ToString());
+                }
+                catch
+                {
+                    return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(value));
+                }
             }
 
             return (T)value;

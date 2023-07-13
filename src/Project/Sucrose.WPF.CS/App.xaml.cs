@@ -13,6 +13,7 @@ using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSHP = Sucrose.Space.Helper.Processor;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
@@ -151,6 +152,22 @@ namespace Sucrose.WPF.CS
             }
         }
 
+        protected void Configure()
+        {
+            SGSGSS.ServerCreate(new List<ServerServiceDefinition>
+            {
+                SGCW.BindService(new SCSWSS())
+            });
+
+            SMMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
+            SMMI.ServerManager.SetSetting(SMC.Port, SGSGSS.Port);
+
+            SGSGSS.ServerInstance.Start();
+
+            Main Browser = new();
+            Browser.Show();
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
@@ -165,20 +182,11 @@ namespace Sucrose.WPF.CS
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true))
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSHP.WorkCount("Sucrose.WPF.CS.exe") <= 1)
             {
-                SGSGSS.ServerCreate(new List<ServerServiceDefinition>
-                {
-                    SGCW.BindService(new SCSWSS())
-                });
+                Mutex.ReleaseMutex();
 
-                SMMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
-                SMMI.ServerManager.SetSetting(SMC.Port, SGSGSS.Port);
-
-                SGSGSS.ServerInstance.Start();
-
-                Main Browser = new();
-                Browser.Show();
+                Configure();
             }
             else
             {

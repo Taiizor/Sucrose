@@ -11,6 +11,7 @@ using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSHP = Sucrose.Space.Helper.Processor;
 using STCI = Sucrose.Tray.Command.Interface;
 using STMI = Sucrose.Tray.Manage.Internal;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
@@ -179,7 +180,7 @@ namespace Sucrose.WPF.TI
 
             SMMI.TrayIconLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true))
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSHP.WorkCount(SMR.WPFTrayIcon, SMR.WinFormsTrayIcon) <= 1)
             {
                 SMMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 

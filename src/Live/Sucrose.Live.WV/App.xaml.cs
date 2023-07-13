@@ -5,6 +5,7 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using SEWVVV = Sucrose.Engine.WV.View.Video;
@@ -144,9 +145,19 @@ namespace Sucrose.Live.WV
                 {
                     CoreWebView2EnvironmentOptions Options = new()
                     {
-                        Language = Culture,
-                        AdditionalBrowserArguments = "--enable-media-stream --enable-accelerated-video-decode --allow-running-insecure-content --use-fake-ui-for-media-stream --enable-speech-input --enable-usermedia-screen-capture --debug-plugin-loading --allow-outdated-plugins --always-authorize-plugins --enable-npapi"
+                        Language = Culture
                     };
+
+                    SESMI.BrowserSettings.WebView = SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
+
+                    if (!SESMI.BrowserSettings.WebView.Any())
+                    {
+                        SESMI.BrowserSettings.WebView = SESMI.WebArguments;
+
+                        SMMI.EngineSettingManager.SetSetting(SMC.WebArguments, SESMI.BrowserSettings.WebView);
+                    }
+
+                    Options.AdditionalBrowserArguments = string.Join(" ", SESMI.BrowserSettings.WebView);
 
                     Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
