@@ -42,6 +42,11 @@ namespace Sucrose.Engine.Shared.Helper
 
         public static void WriteVideoContent(string VideoContentPath, string Content)
         {
+            if (!Directory.Exists(Path.GetDirectoryName(VideoContentPath)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(VideoContentPath));
+            }
+
             File.WriteAllText(VideoContentPath, GetVideoContent(Content));
         }
 
