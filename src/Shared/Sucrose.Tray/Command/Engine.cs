@@ -32,13 +32,19 @@ namespace Sucrose.Tray.Command
 
         private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
+        private static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
+
         public static void Command(bool State = true)
         {
             if (State && SSHL.Run())
             {
                 SSHL.Kill();
 
+                SSHP.Kill(App);
+
                 SWUD.RefreshDesktop();
+
+                SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
             }
             else if (!SSHL.Run() && SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {

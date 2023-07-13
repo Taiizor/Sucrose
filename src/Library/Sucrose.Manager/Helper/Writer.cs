@@ -8,9 +8,20 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                using FileStream fileStream = new(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read);
-                using StreamWriter writer = new(fileStream);
-                writer.Write(SMHC.Clean(fileContent));
+                using Mutex Mutex = new(false, Path.GetFileName(filePath));
+
+                try
+                {
+                    Mutex.WaitOne();
+
+                    using FileStream fileStream = new(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                    using StreamWriter writer = new(fileStream);
+                    writer.Write(SMHC.Clean(fileContent));
+                }
+                finally
+                {
+                    Mutex.ReleaseMutex();
+                }
             }
             catch
             {
@@ -22,8 +33,19 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                using StreamWriter writer = File.AppendText(filePath);
-                writer.WriteLine(SMHC.Clean(fileContent));
+                using Mutex Mutex = new(false, Path.GetFileName(filePath));
+
+                try
+                {
+                    Mutex.WaitOne();
+
+                    using StreamWriter writer = File.AppendText(filePath);
+                    writer.WriteLine(SMHC.Clean(fileContent));
+                }
+                finally
+                {
+                    Mutex.ReleaseMutex();
+                }
             }
             catch
             {
@@ -35,7 +57,18 @@ namespace Sucrose.Manager.Helper
         {
             try
             {
-                File.WriteAllText(filePath, SMHC.Clean(fileContent));
+                using Mutex Mutex = new(false, Path.GetFileName(filePath));
+
+                try
+                {
+                    Mutex.WaitOne();
+
+                    File.WriteAllText(filePath, SMHC.Clean(fileContent));
+                }
+                finally
+                {
+                    Mutex.ReleaseMutex();
+                }
             }
             catch
             {

@@ -10,6 +10,7 @@ namespace Sucrose.Manager
 {
     public class SettingManager
     {
+        private static object lockObject = new();
         private readonly string _settingsFilePath;
         private readonly ReaderWriterLockSlim _lock;
         private readonly JsonSerializerSettings _serializerSettings;
@@ -41,15 +42,18 @@ namespace Sucrose.Manager
 
             try
             {
-                if (File.Exists(_settingsFilePath))
+                lock (lockObject)
                 {
-                    string json = SMHR.Read(_settingsFilePath);
-
-                    Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                    if (settings.Properties.TryGetValue(key, out object value))
+                    if (File.Exists(_settingsFilePath))
                     {
-                        return ConvertToType<T>(value);
+                        string json = SMHR.Read(_settingsFilePath);
+
+                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                        if (settings.Properties.TryGetValue(key, out object value))
+                        {
+                            return ConvertToType<T>(value);
+                        }
                     }
                 }
             }
@@ -67,15 +71,18 @@ namespace Sucrose.Manager
 
             try
             {
-                if (File.Exists(_settingsFilePath))
+                lock (lockObject)
                 {
-                    string json = SMHR.Read(_settingsFilePath);
-
-                    Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                    if (settings.Properties.TryGetValue(key, out object value))
+                    if (File.Exists(_settingsFilePath))
                     {
-                        return JsonConvert.DeserializeObject<T>(value.ToString());
+                        string json = SMHR.Read(_settingsFilePath);
+
+                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                        if (settings.Properties.TryGetValue(key, out object value))
+                        {
+                            return JsonConvert.DeserializeObject<T>(value.ToString());
+                        }
                     }
                 }
             }
@@ -93,15 +100,18 @@ namespace Sucrose.Manager
 
             try
             {
-                if (File.Exists(_settingsFilePath))
+                lock (lockObject)
                 {
-                    string json = SMHR.Read(_settingsFilePath);
-
-                    Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                    if (settings.Properties.TryGetValue(key, out object value))
+                    if (File.Exists(_settingsFilePath))
                     {
-                        return ConvertToType<T>(value);
+                        string json = SMHR.Read(_settingsFilePath);
+
+                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                        if (settings.Properties.TryGetValue(key, out object value))
+                        {
+                            return ConvertToType<T>(value);
+                        }
                     }
                 }
             }
@@ -119,21 +129,24 @@ namespace Sucrose.Manager
 
             try
             {
-                Settings settings;
-
-                if (File.Exists(_settingsFilePath))
+                lock (lockObject)
                 {
-                    string json = SMHR.Read(_settingsFilePath);
-                    settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-                }
-                else
-                {
-                    settings = new Settings();
-                }
+                    Settings settings;
 
-                settings.Properties[key] = ConvertToType<T>(value);
+                    if (File.Exists(_settingsFilePath))
+                    {
+                        string json = SMHR.Read(_settingsFilePath);
+                        settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                    }
+                    else
+                    {
+                        settings = new Settings();
+                    }
 
-                SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
+                    settings.Properties[key] = ConvertToType<T>(value);
+
+                    SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
+                }
             }
             finally
             {

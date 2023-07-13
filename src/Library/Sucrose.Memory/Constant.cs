@@ -2,6 +2,8 @@
 {
     public static class Constant
     {
+        public const string App = "App";
+
         public const string Host = "Host";
 
         public const string Port = "Port";

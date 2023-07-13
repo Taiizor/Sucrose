@@ -9,6 +9,8 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM WebsiteManager = new("Website.json");
 
+        public static readonly SMSM AuroraSettingManager = new("Aurora.json");
+
         public static readonly SMSM EngineSettingManager = new("Engine.json");
 
         public static readonly SMSM DiscordSettingManager = new("Discord.json");

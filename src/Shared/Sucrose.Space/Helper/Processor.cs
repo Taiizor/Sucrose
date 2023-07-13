@@ -47,6 +47,11 @@ namespace Sucrose.Space.Helper
             Process.Start();
         }
 
+        public static Process Get(string Application)
+        {
+            return Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)).FirstOrDefault();
+        }
+
         public static bool Work(string Application)
         {
             if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)).Any())
