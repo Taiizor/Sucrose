@@ -32,6 +32,7 @@ namespace Sucrose.Engine.Shared.Event
         {
             IntPtr Handle = SWHPI.MainWindowHandle(Process);
 
+            //ShowInTaskbar = false : causing issue with windows10-windows11 Taskview.
             SWHWO.RemoveWindowFromTaskbar(Handle);
 
             int currentStyle = SWNM.GetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE);

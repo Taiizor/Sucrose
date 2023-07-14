@@ -1,6 +1,6 @@
 ﻿using SEAAMI = Sucrose.Engine.AA.Manage.Internal;
-using SWHWAPI = Skylark.Wing.Helper.WinAPI;
-using SWNM = Skylark.Wing.Native.Methods;
+using SWHACAM = Skylark.Wing.Helper.AudioController.AudioManager;
+using SWHVPCAM = Skylark.Wing.Helper.VideoPlayerController.AudioManager;
 
 namespace Sucrose.Engine.AA.Helper
 {
@@ -8,9 +8,14 @@ namespace Sucrose.Engine.AA.Helper
     {
         public static void SetVolume(int Volume)
         {
-            int NewVolume = Volume * SWNM.MAX_VOLUME / 100;
-
-            SWHWAPI.waveOutSetVolume(SEAAMI.ApplicationHandle, (uint)((NewVolume << 16) | NewVolume));
+            try
+            {
+                SWHVPCAM.SetApplicationVolume(SEAAMI.ApplicationProcess.Id, Volume);
+            }
+            catch
+            {
+                SWHACAM.SetApplicationVolume(SEAAMI.ApplicationProcess.Id, Volume);
+            }
         }
     }
 }
