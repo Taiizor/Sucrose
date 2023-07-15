@@ -37,7 +37,7 @@ namespace Sucrose.Engine.AA.View
             {
                 SEAAMI.ApplicationProcess = SSHP.Get(SEAAMI.Application);
 
-                Task.Delay(500).Wait();
+                Task.Delay(100).Wait();
             } while (SEAAMI.ApplicationProcess == null || !SSHP.Work(SEAAMI.Application));
 
             SEAAMI.ApplicationHandle = SWHPI.MainWindowHandle(SEAAMI.ApplicationProcess);
