@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using SEAAHA = Sucrose.Engine.AA.Helper.Application;
+using SEAAHR = Sucrose.Engine.AA.Helper.Ready;
 using SEAAMI = Sucrose.Engine.AA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SMC = Sucrose.Memory.Constant;
@@ -37,10 +38,10 @@ namespace Sucrose.Engine.AA.View
             {
                 SEAAMI.ApplicationProcess = SSHP.Get(SEAAMI.Application);
 
-                Task.Delay(100).Wait();
-            } while (SEAAMI.ApplicationProcess == null || !SSHP.Work(SEAAMI.Application));
+                SEAAMI.ApplicationHandle = SWHPI.MainWindowHandle(SEAAMI.ApplicationProcess);
 
-            SEAAMI.ApplicationHandle = SWHPI.MainWindowHandle(SEAAMI.ApplicationProcess);
+                Task.Delay(100).Wait();
+            } while (SEAAHR.Check());
 
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Interval = new TimeSpan(0, 0, 1);
