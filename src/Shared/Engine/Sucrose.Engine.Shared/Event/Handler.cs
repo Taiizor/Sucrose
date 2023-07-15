@@ -35,8 +35,12 @@ namespace Sucrose.Engine.Shared.Event
             //ShowInTaskbar = false : causing issue with windows10-windows11 Taskview.
             SWHWO.RemoveWindowFromTaskbar(Handle);
 
+            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+
             int currentStyle = SWNM.GetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE);
             SWNM.SetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE, currentStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
+
+            SWHWO.BorderlessWinStyle(Handle);
         }
 
         public static void ContentRendered(Window Window)
@@ -69,6 +73,8 @@ namespace Sucrose.Engine.Shared.Event
                     SWE.WallpaperProcess(Process, SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
                     break;
             }
+
+            SWNM.ShowWindow(SWHPI.MainWindowHandle(Process), (int)SWNM.SHOWWINDOW.SW_SHOW);
         }
     }
 }
