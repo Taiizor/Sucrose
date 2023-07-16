@@ -13,7 +13,6 @@ namespace Sucrose.Engine.WV.Event
         {
             SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100)});");
             SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("toggleFullScreen();");
-            SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playVideo();");
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)

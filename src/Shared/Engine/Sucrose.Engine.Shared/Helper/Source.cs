@@ -1,8 +1,15 @@
 ﻿using System.IO;
 using System.Net.Http;
+using SDEDT = Sucrose.Dependency.Enum.DisplayType;
+using SEEST = Skylark.Enum.ExpandScreenType;
+using SEST = Skylark.Enum.ScreenType;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
+using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using STSHV = Sucrose.Theme.Shared.Helper.Various;
+using SWHSM = Skylark.Wing.Helper.ScreenManage;
 
 namespace Sucrose.Engine.Shared.Helper
 {
@@ -37,7 +44,37 @@ namespace Sucrose.Engine.Shared.Helper
 
         public static string GetYouTubeContent(string Video, string Playlist)
         {
-            string Content = @"<html><head><meta charset=""UTF-8""><meta name=""viewport"" content=""width=device-width,initial-scale=1""><meta http-equiv=""X-UA-Compatible"" content=""ie=edge""><meta http-equiv=""Permissions-Policy"" content=""interest-cohort=()""><style>body{padding:0;margin:0;overflow:hidden}iframe{margin:0;position:absolute;left:0;top:0;overflow:hidden}#player{width:100%;height:100vh}</style></head><body><div id=""player""></div><script>var tag=document.createElement(""script"");tag.src=""https://www.youtube.com/iframe_api"";var firstScriptTag=document.getElementsByTagName(""script"")[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);var player,videoId=""{Video}"",playlistId=""{Playlist}"";function onYouTubeIframeAPIReady(){var e={height:""100%"",width:""100%"",playerVars:{autoplay:1,loop:1,controls:0,disablekb:1,modestbranding:1,rel:0,iv_load_policy:3,playsinline:0,cc_load_policy:0,version:3},events:{onStateChange:onPlayerStateChange,onReady:onPlayerReady,onError:onPlayerError}};videoId&&(e.videoId=videoId,e.playerVars.playlist=videoId),player=new YT.Player(""player"",e)}function onPlayerReady(e){playlistId&&(player.loadPlaylist({list:playlistId,listType:""playlist"",index:0,startSeconds:0,suggestedQuality:""highres""}),toggleFullScreen())}var shuffleMode=!0,prevIndex=-1,first=!0;function onPlayerStateChange(e){if(playlistId)if(e.data===YT.PlayerState.ENDED)if(shuffleMode){var l=player.getPlaylist();player.playVideoAt(Math.floor(Math.random()*l.length))}else{var t=player.getPlaylistIndex();t===prevIndex?(prevIndex=-1,player.playVideoAt(0)):prevIndex=t}else first&&-1===e.data&&(first=!1,shuffleMode)&&(l=player.getPlaylist(),player.playVideoAt(Math.floor(Math.random()*l.length)))}function onPlayerError(e){if(playlistId&&e.data){var l=player.getPlaylist(),t=player.getPlaylistIndex();t+1<l.length?player.playVideoAt(t+1):0<l.length&&player.playVideoAt(0)}}function playVideo(){player.playVideo()}function pauseVideo(){player.pauseVideo()}function setVolume(e){player.setVolume(e)}function setShuffle(e){shuffleMode=e}function setLoop(e){player.setLoop(e),e&&checkVideoEnded()&&playVideo()}function checkVideoEnded(){return player.getPlayerState()===YT.PlayerState.ENDED}function checkPlayingStatus(){return player.getPlayerState()===YT.PlayerState.PLAYING}function toggleFullScreen(){var e=document.getElementById(""player"");e.requestFullscreen?e.requestFullscreen():e.mozRequestFullScreen?e.mozRequestFullScreen():e.webkitRequestFullscreen?e.webkitRequestFullscreen():e.msRequestFullscreen&&e.msRequestFullscreen()}</script></body></html>";
+            string Content = @"<html><head><meta charset=""UTF-8""><meta http-equiv=""X-UA-Compatible"" content=""IE=edge,chrome=1""><meta name=""viewport"" content=""width=device-width,initial-scale=1""><meta http-equiv=""Permissions-Policy"" content=""interest-cohort=()""><style>body{padding:0;margin:0;overflow:hidden}iframe{margin:0;position:absolute;left:0;top:0;overflow:hidden}#player{width:100%;height:100vh}</style></head><body><div id=""player""></div><script>var tag=document.createElement(""script"");tag.src=""https://www.youtube.com/iframe_api"";var firstScriptTag=document.getElementsByTagName(""script"")[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);var player,videoId=""{Video}"",playlistId=""{Playlist}"";function onYouTubeIframeAPIReady(){var e={height:""{Height}"",width:""{Width}"",playerVars:{autoplay:1,loop:1,controls:0,disablekb:1,modestbranding:1,rel:0,iv_load_policy:3,playsinline:0,cc_load_policy:0,version:3,suggestedQuality:""highres""},events:{onStateChange:onPlayerStateChange,onReady:onPlayerReady,onError:onPlayerError}};videoId&&(e.videoId=videoId,e.playerVars.playlist=videoId),player=new YT.Player(""player"",e)}function onPlayerReady(e){playlistId&&player.loadPlaylist({list:playlistId,listType:""playlist"",index:0,startSeconds:0,suggestedQuality:""highres""}),e.target.setPlaybackQuality(""highres""),toggleFullScreen()}var shuffleMode=!0,prevIndex=-1,first=!0;function onPlayerStateChange(e){if(playlistId)if(e.data===YT.PlayerState.ENDED)if(shuffleMode){var t=player.getPlaylist();player.playVideoAt(Math.floor(Math.random()*t.length))}else{var l=player.getPlaylistIndex();l===prevIndex?(prevIndex=-1,player.playVideoAt(0)):prevIndex=l}else first&&-1===e.data&&(first=!1,shuffleMode)&&(t=player.getPlaylist(),player.playVideoAt(Math.floor(Math.random()*t.length)))}function onPlayerError(e){if(playlistId&&e.data){var t=player.getPlaylist(),l=player.getPlaylistIndex();l+1<t.length?player.playVideoAt(l+1):0<t.length&&player.playVideoAt(0)}}function playVideo(){player.playVideo()}function pauseVideo(){player.pauseVideo()}function setVolume(e){player.setVolume(e)}function setShuffle(e){shuffleMode=e}function setLoop(e){player.setLoop(e),e&&checkVideoEnded()&&playVideo()}function checkVideoEnded(){return player.getPlayerState()===YT.PlayerState.ENDED}function checkPlayingStatus(){return player.getPlayerState()===YT.PlayerState.PLAYING}function toggleFullScreen(){var e=document.getElementById(""player"");e.requestFullscreen?e.requestFullscreen():e.mozRequestFullScreen?e.mozRequestFullScreen():e.webkitRequestFullscreen?e.webkitRequestFullscreen():e.msRequestFullscreen&&e.msRequestFullscreen()}</script></body></html>";
+
+            SEST Screen = SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
+            SDEDT Display = SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SDEDT.Screen);
+
+            switch (Display)
+            {
+                case SDEDT.Expand:
+                    SSMMS EMonitor = SWHSM.OwnerScreen(SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default)); Content = Screen switch
+                    {
+                        SEST.WorkingArea => Content.Replace("{Height}", $"{EMonitor.rcWork.Height}").Replace("{Width}", $"{EMonitor.rcWork.Width}"),
+                        _ => Content.Replace("{Height}", $"{EMonitor.rcMonitor.Height}").Replace("{Width}", $"{EMonitor.rcMonitor.Width}"),
+                    };
+                    break;
+                case SDEDT.Duplicate:
+                    SSMMS DMonitor = SWHSM.OwnerScreen(0);
+                    Content = Screen switch
+                    {
+                        SEST.WorkingArea => Content.Replace("{Height}", $"{DMonitor.rcWork.Height}").Replace("{Width}", $"{DMonitor.rcWork.Width}"),
+                        _ => Content.Replace("{Height}", $"{DMonitor.rcMonitor.Height}").Replace("{Width}", $"{DMonitor.rcMonitor.Width}"),
+                    };
+                    break;
+                default:
+                    SSMMS SMonitor = SWHSM.OwnerScreen(SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0));
+                    Content = Screen switch
+                    {
+                        SEST.WorkingArea => Content.Replace("{Height}", $"{SMonitor.rcWork.Height}").Replace("{Width}", $"{SMonitor.rcWork.Width}"),
+                        _ => Content.Replace("{Height}", $"{SMonitor.rcMonitor.Height}").Replace("{Width}", $"{SMonitor.rcMonitor.Width}"),
+                    };
+                    break;
+            }
 
             return Content.Replace("{Video}", Video).Replace("{Playlist}", Playlist);
         }

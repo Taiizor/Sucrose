@@ -14,7 +14,6 @@ namespace Sucrose.Engine.CS.Event
         {
             SECSMI.CefEngine.ExecuteScriptAsync($"setVolume({SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100)});");
             SECSMI.CefEngine.ExecuteScriptAsync("toggleFullScreen();");
-            SECSMI.CefEngine.ExecuteScriptAsync("playVideo();");
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)
