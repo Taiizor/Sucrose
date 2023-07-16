@@ -28,7 +28,9 @@ namespace Sucrose.Engine.WV.Helper
         {
             string State = await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkVideoEnded();");
 
-            return bool.Parse(State);
+            bool.TryParse(State, out bool Result);
+
+            return Result;
         }
 
         public static async Task<bool> GetPlay()

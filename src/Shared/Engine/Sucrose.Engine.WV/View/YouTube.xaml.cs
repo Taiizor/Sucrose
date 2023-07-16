@@ -38,6 +38,8 @@ namespace Sucrose.Engine.WV.View
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            SEWVHYT.Play2();
+
             SEWVHYT.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 
             SEWVHYT.SetShuffle(SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true));

@@ -6,6 +6,7 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 using SECSVV = Sucrose.Engine.CS.View.Video;
+using SECSVYT = Sucrose.Engine.CS.View.YouTube;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -191,6 +192,10 @@ namespace Sucrose.Live.CS
                             case SDEWT.Video:
                                 SECSVV Video = new(Source);
                                 Video.Show();
+                                break;
+                            case SDEWT.YouTube:
+                                SECSVYT YouTube = new(Source);
+                                YouTube.Show();
                                 break;
                             default:
                                 Close();

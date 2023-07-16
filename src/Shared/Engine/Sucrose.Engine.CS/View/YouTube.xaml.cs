@@ -1,25 +1,23 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
-using SECSEV = Sucrose.Engine.CS.Event.Video;
+using SECSEYT = Sucrose.Engine.CS.Event.YouTube;
 using SECSHCCM = Sucrose.Engine.CS.Handler.CustomContextMenu;
-using SECSHV = Sucrose.Engine.CS.Helper.Video;
+using SECSHYT = Sucrose.Engine.CS.Helper.YouTube;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Engine.CS.View
 {
     /// <summary>
-    /// Interaction logic for Video.xaml
+    /// Interaction logic for YouTube.xaml
     /// </summary>
-    public sealed partial class Video : Window
+    public sealed partial class YouTube : Window
     {
         private readonly DispatcherTimer Timer = new();
 
-        public Video(string Video)
+        public YouTube(string YouTube)
         {
             InitializeComponent();
 
@@ -29,7 +27,7 @@ namespace Sucrose.Engine.CS.View
 
             Content = SECSMI.CefEngine;
 
-            SECSMI.CefEngine.Address = SESHS.GetSource(Video).ToString();
+            SECSMI.YouTube = YouTube;
 
             SECSMI.CefEngine.BrowserSettings = SECSMI.CefSettings;
 
@@ -37,8 +35,8 @@ namespace Sucrose.Engine.CS.View
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
 
-            SECSMI.CefEngine.FrameLoadEnd += SECSEV.CefEngineFrameLoadEnd;
-            SECSMI.CefEngine.Loaded += SECSEV.CefEngineLoaded;
+            SECSMI.CefEngine.FrameLoadEnd += SECSEYT.CefEngineFrameLoadEnd;
+            SECSMI.CefEngine.Loaded += SECSEYT.CefEngineLoaded;
 
             Closing += (s, e) => SECSMI.CefEngine.Dispose();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
@@ -46,16 +44,13 @@ namespace Sucrose.Engine.CS.View
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            SECSHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SECSHYT.Play2();
 
-            SECSHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SECSHYT.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 
-            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
+            SECSHYT.SetShuffle(SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true));
 
-            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
-            {
-                SECSHV.SetStretch(Stretch);
-            }
+            SECSHYT.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
         }
     }
 }

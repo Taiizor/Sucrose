@@ -1,8 +1,8 @@
 ﻿using CefSharp;
 
-namespace Sucrose.Engine.CS
+namespace Sucrose.Engine.CS.Handler
 {
-    internal class CustomContextMenuHandler : IContextMenuHandler
+    internal class CustomContextMenu : IContextMenuHandler
     {
         public void OnBeforeContextMenu(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model)
         {
