@@ -157,8 +157,8 @@ namespace Sucrose.Live.AA
                             switch (Info.Type)
                             {
                                 case SDEWT.Application:
-                                    SEAAVA Engine = new(Source, Info.Arguments);
-                                    Engine.Show();
+                                    SEAAVA Application = new(Source, Info.Arguments);
+                                    Application.Show();
                                     break;
                                 default:
                                     Close();

@@ -11,5 +11,7 @@ namespace Sucrose.Engine.AA.Manage
         public static string ApplicationName = string.Empty;
 
         public static IntPtr ApplicationHandle = IntPtr.Zero;
+
+        public static string ApplicationArguments = string.Empty;
     }
 }

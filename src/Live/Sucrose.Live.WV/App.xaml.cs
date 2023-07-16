@@ -9,6 +9,7 @@ using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using SEWVVV = Sucrose.Engine.WV.View.Video;
+using SEWVVYT = Sucrose.Engine.WV.View.YouTube;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -177,8 +178,12 @@ namespace Sucrose.Live.WV
                         switch (Info.Type)
                         {
                             case SDEWT.Video:
-                                SEWVVV Engine = new(Source);
-                                Engine.Show();
+                                SEWVVV Video = new(Source);
+                                Video.Show();
+                                break;
+                            case SDEWT.YouTube:
+                                SEWVVYT YouTube = new(Source);
+                                YouTube.Show();
                                 break;
                             default:
                                 Close();

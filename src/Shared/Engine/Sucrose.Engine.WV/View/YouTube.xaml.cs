@@ -1,9 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SEWVEV = Sucrose.Engine.WV.Event.Video;
-using SEWVHV = Sucrose.Engine.WV.Helper.Video;
+using SEWVEYT = Sucrose.Engine.WV.Event.YouTube;
+using SEWVHYT = Sucrose.Engine.WV.Helper.YouTube;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -11,13 +10,13 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 namespace Sucrose.Engine.WV.View
 {
     /// <summary>
-    /// Interaction logic for Video.xaml
+    /// Interaction logic for YouTube.xaml
     /// </summary>
-    public sealed partial class Video : Window
+    public sealed partial class YouTube : Window
     {
         private readonly DispatcherTimer Timer = new();
 
-        public Video(string Video)
+        public YouTube(string YouTube)
         {
             InitializeComponent();
 
@@ -25,13 +24,13 @@ namespace Sucrose.Engine.WV.View
 
             Content = SEWVMI.WebEngine;
 
-            SEWVMI.Video = Video;
+            SEWVMI.YouTube = YouTube;
 
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
 
-            SEWVMI.WebEngine.CoreWebView2InitializationCompleted += SEWVEV.WebEngineInitializationCompleted;
+            SEWVMI.WebEngine.CoreWebView2InitializationCompleted += SEWVEYT.WebEngineInitializationCompleted;
 
             Closing += (s, e) => SEWVMI.WebEngine.Dispose();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
@@ -39,16 +38,11 @@ namespace Sucrose.Engine.WV.View
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            SEWVHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SEWVHYT.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 
-            SEWVHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SEWVHYT.SetShuffle(SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true));
 
-            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
-
-            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
-            {
-                SEWVHV.SetStretch(Stretch);
-            }
+            SEWVHYT.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
         }
     }
 }

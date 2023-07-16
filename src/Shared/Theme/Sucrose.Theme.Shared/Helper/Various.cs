@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.Specialized;
+using System.Text.RegularExpressions;
+using System.Web;
 
 namespace Sucrose.Theme.Shared.Helper
 {
@@ -12,6 +14,16 @@ namespace Sucrose.Theme.Shared.Helper
             Regex Regex = new(Pattern, RegexOptions.IgnoreCase);
 
             return Regex.IsMatch(Address);
+        }
+
+        public static bool IsYouTubeVideo(string Address)
+        {
+            return IsYouTubeUrl(Address) || IsYouTubeMusicUrl(Address);
+        }
+
+        public static bool IsYouTubePlaylist(string Address)
+        {
+            return IsYouTubePlaylistUrl(Address) || IsYouTubeMusicPlaylistUrl(Address);
         }
 
         public static bool IsYouTube(string Address)
@@ -74,6 +86,28 @@ namespace Sucrose.Theme.Shared.Helper
             {
                 return false;
             }
+        }
+
+        public static string GetYouTubeVideoId(string Address)
+        {
+            if (Uri.TryCreate(Address, UriKind.Absolute, out Uri Url))
+            {
+                NameValueCollection QueryParameters = HttpUtility.ParseQueryString(Url.Query);
+                return QueryParameters["v"];
+            }
+
+            return string.Empty;
+        }
+
+        public static string GetYouTubePlaylistId(string Address)
+        {
+            if (Uri.TryCreate(Address, UriKind.Absolute, out Uri Url))
+            {
+                NameValueCollection QueryParameters = HttpUtility.ParseQueryString(Url.Query);
+                return QueryParameters["list"];
+            }
+
+            return string.Empty;
         }
     }
 }

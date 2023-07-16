@@ -25,6 +25,7 @@ namespace Sucrose.Engine.AA.View
             InitializeComponent();
 
             SEAAMI.Application = Application;
+            SEAAMI.ApplicationArguments = Arguments;
             SEAAMI.ApplicationName = Path.GetFileName(Application);
             SMMI.AuroraSettingManager.SetSetting(SMC.App, SEAAMI.ApplicationName);
 
@@ -32,13 +33,16 @@ namespace Sucrose.Engine.AA.View
             Closed += (s, e) => SSHP.Kill(SEAAMI.Application);
             Loaded += (s, e) => SESEH.WindowLoaded(this);
 
-            SSHP.Run(SEAAMI.Application, Arguments, ProcessWindowStyle.Normal);
+            SSHP.Run(SEAAMI.Application, SEAAMI.ApplicationArguments, ProcessWindowStyle.Normal);
 
             do
             {
-                SEAAMI.ApplicationProcess = SSHP.Get(SEAAMI.Application);
+                if (SSHP.Work(SEAAMI.Application))
+                {
+                    SEAAMI.ApplicationProcess = SSHP.Get(SEAAMI.Application);
 
-                SEAAMI.ApplicationHandle = SWHPI.MainWindowHandle(SEAAMI.ApplicationProcess);
+                    SEAAMI.ApplicationHandle = SWHPI.MainWindowHandle(SEAAMI.ApplicationProcess);
+                }
 
                 Task.Delay(100).Wait();
             } while (SEAAHR.Check());

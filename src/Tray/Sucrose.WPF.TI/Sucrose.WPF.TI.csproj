@@ -70,6 +70,10 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Web" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
 

@@ -30,6 +30,8 @@
 
         public const string Volume = "Volume";
 
+        public const string Shuffle = "Shuffle";
+
         public const string Visible = "Visible";
 
         public const string ThemeType = "ThemeType";

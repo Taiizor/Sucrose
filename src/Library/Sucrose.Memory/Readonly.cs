@@ -44,6 +44,8 @@
 
         public static readonly string CefSharpLive = "Sucrose.Live.CS.exe";
 
+        public static readonly string YouTubeContent = "YouTubeContent.html";
+
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Live}";
 
         public static readonly string WPFUserInterface = "Sucrose.WPF.UI.exe";

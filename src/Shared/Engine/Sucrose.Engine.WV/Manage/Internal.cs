@@ -6,9 +6,8 @@ namespace Sucrose.Engine.WV.Manage
     {
         public static string Video = string.Empty;
 
-        public static WebEngine WebEngine = new()
-        {
-            //
-        };
+        public static WebEngine WebEngine = new();
+
+        public static string YouTube = string.Empty;
     }
 }

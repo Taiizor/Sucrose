@@ -154,8 +154,8 @@ namespace Sucrose.Live.VA
                         switch (Info.Type)
                         {
                             case SDEWT.Gif:
-                                SEVAVG Engine = new(Source);
-                                Engine.Show();
+                                SEVAVG Gif = new(Source);
+                                Gif.Show();
                                 break;
                             default:
                                 Close();

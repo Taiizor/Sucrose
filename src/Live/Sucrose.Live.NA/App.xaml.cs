@@ -154,8 +154,8 @@ namespace Sucrose.Live.NA
                         switch (Info.Type)
                         {
                             case SDEWT.Video:
-                                SENAVV Engine = new(Source);
-                                Engine.Show();
+                                SENAVV Video = new(Source);
+                                Video.Show();
                                 break;
                             default:
                                 Close();

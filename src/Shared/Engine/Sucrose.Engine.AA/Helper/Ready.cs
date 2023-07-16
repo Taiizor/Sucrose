@@ -1,5 +1,4 @@
 ﻿using SEAAMI = Sucrose.Engine.AA.Manage.Internal;
-using SSHP = Sucrose.Space.Helper.Processor;
 
 namespace Sucrose.Engine.AA.Helper
 {
@@ -7,7 +6,7 @@ namespace Sucrose.Engine.AA.Helper
     {
         public static bool Check()
         {
-            return SEAAMI.ApplicationHandle == IntPtr.Zero || SEAAMI.ApplicationProcess == null || !SSHP.Work(SEAAMI.Application);
+            return SEAAMI.ApplicationHandle == IntPtr.Zero || SEAAMI.ApplicationProcess == null;
         }
     }
 }

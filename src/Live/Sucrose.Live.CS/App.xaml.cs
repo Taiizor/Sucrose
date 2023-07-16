@@ -189,8 +189,8 @@ namespace Sucrose.Live.CS
                         switch (Info.Type)
                         {
                             case SDEWT.Video:
-                                SECSVV Engine = new(Source);
-                                Engine.Show();
+                                SECSVV Video = new(Source);
+                                Video.Show();
                                 break;
                             default:
                                 Close();

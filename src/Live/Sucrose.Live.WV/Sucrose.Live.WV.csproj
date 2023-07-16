@@ -71,6 +71,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Web" />
         <Reference Include="System.Net.Http" />
     </ItemGroup>
 
