@@ -1,15 +1,24 @@
 {
   "Categories": {
     "Abstract": {},
+    "Ambience": {
+      "Calming Ocean Sunset-1": [
+        "Taiizor/Wallpaper|develop|Ambiences",
+        "ocean.jpg",
+        "sunset.gif"
+      ]
+    },
     "Animals": {},
 	"Animation": {
       "Big Buck Bunny-1": [
+        "Taiizor/Sucrose|develop|wall",
         "logo.jpg",
         "wakeup.gif"
       ]
     },
     "Anime": {
       "Agatsuma Zenitsu-1": [
+        "Taiizor/Sucrose|develop|wall",
         "cover.jpg",
         "live.gif"
       ]
@@ -30,10 +39,12 @@
     "Food and Drinks": {},
     "Game": {
       "Night City-1": [
+        "Taiizor/Sucrose|develop|wall",
         "ncity.jpg",
         "nsky.gif"
       ],
       "Night City-2": [
+        "Taiizor/Sucrose|develop|wall",
         "skycity.jpg",
         "livesky.gif"
       ]
@@ -47,12 +58,12 @@
     "Minimalist": {},
     "Music": {},
     "Nature": {},
-    "Nature Landscapes": {},
     "Nightscapes": {},
     "Patterns and Textures": {},
     "Retro": {},
     "Space and Planets": {
       "Floating in Space-1": [
+        "Taiizor/Sucrose|develop|wall",
         "thumbnail.jpg",
         "preview.gif"
       ]
