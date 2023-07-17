@@ -24,6 +24,11 @@ namespace Sucrose.Engine.WV.Helper
             }
         }
 
+        public static async void First()
+        {
+            await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playFirst();");
+        }
+
         public static async Task<bool> GetEnd()
         {
             string State = await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkVideoEnded();");

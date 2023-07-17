@@ -44,6 +44,8 @@ namespace Sucrose.Engine.CS.View
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            SECSHYT.First();
+
             SECSHYT.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 
             SECSHYT.SetShuffle(SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true));

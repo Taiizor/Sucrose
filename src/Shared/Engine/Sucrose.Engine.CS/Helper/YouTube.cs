@@ -25,6 +25,11 @@ namespace Sucrose.Engine.CS.Helper
             }
         }
 
+        public static void First()
+        {
+            SECSMI.CefEngine.ExecuteScriptAsync("playFirst();");
+        }
+
         public static async Task<bool> GetEnd()
         {
             JavascriptResponse Response;
