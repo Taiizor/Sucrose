@@ -130,10 +130,6 @@ namespace Sucrose.Live.WV
 
                 Close();
             }
-            else
-            {
-                Close();
-            }
         }
 
         protected void Configure()

@@ -146,10 +146,6 @@ namespace Sucrose.WPF.CS
 
                 Close();
             }
-            else
-            {
-                Close();
-            }
         }
 
         protected void Configure()

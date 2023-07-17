@@ -126,10 +126,6 @@ namespace Sucrose.Live.NA
 
                 Close();
             }
-            else
-            {
-                Close();
-            }
         }
 
         protected void Configure()

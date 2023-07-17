@@ -130,10 +130,6 @@ namespace Sucrose.Live.CS
 
                 Close();
             }
-            else
-            {
-                Close();
-            }
         }
 
         protected void Configure()

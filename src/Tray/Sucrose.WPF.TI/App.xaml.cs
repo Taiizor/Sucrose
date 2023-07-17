@@ -128,10 +128,6 @@ namespace Sucrose.WPF.TI
 
                 Close();
             }
-            else
-            {
-                Close();
-            }
         }
 
         protected void Configure()

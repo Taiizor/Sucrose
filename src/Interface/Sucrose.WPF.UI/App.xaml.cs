@@ -103,10 +103,6 @@ namespace Sucrose.WPF.UI
 
                 Close();
             }
-            else
-            {
-                Close();
-            }
         }
 
         protected override void OnExit(ExitEventArgs e)

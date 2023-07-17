@@ -201,7 +201,112 @@
   <data name="LargestImage" xml:space="preserve">
     <value>logo-3840x3840</value>
   </data>
-  <data name="SmallestImage" xml:space="preserve">
-    <value>logo-1024x1024</value>
+  <data name="SmallestImage1" xml:space="preserve">
+    <value>robot-1</value>
+  </data>
+  <data name="SmallestImage2" xml:space="preserve">
+    <value>robot-2</value>
+  </data>
+  <data name="SmallestImage3" xml:space="preserve">
+    <value>robot-3</value>
+  </data>
+  <data name="SmallestImage4" xml:space="preserve">
+    <value>robot-4</value>
+  </data>
+  <data name="SmallestImage5" xml:space="preserve">
+    <value>robot-5</value>
+  </data>
+  <data name="SmallestImage6" xml:space="preserve">
+    <value>robot-6</value>
+  </data>
+  <data name="SmallestImage7" xml:space="preserve">
+    <value>robot-7</value>
+  </data>
+  <data name="SmallestImage8" xml:space="preserve">
+    <value>robot-8</value>
+  </data>
+  <data name="SmallestImage9" xml:space="preserve">
+    <value>robot-9</value>
+  </data>
+  <data name="SmallestImage10" xml:space="preserve">
+    <value>robot-10</value>
+  </data>
+  <data name="SmallestImage11" xml:space="preserve">
+    <value>robot-11</value>
+  </data>
+  <data name="SmallestImage12" xml:space="preserve">
+    <value>monster-1</value>
+  </data>
+  <data name="SmallestImage13" xml:space="preserve">
+    <value>monster-2</value>
+  </data>
+  <data name="SmallestImage14" xml:space="preserve">
+    <value>monster-3</value>
+  </data>
+  <data name="SmallestImage15" xml:space="preserve">
+    <value>monster-4</value>
+  </data>
+  <data name="SmallestImage16" xml:space="preserve">
+    <value>monster-5</value>
+  </data>
+  <data name="SmallestImage17" xml:space="preserve">
+    <value>monster-6</value>
+  </data>
+  <data name="SmallestImage18" xml:space="preserve">
+    <value>monster-7</value>
+  </data>
+  <data name="SmallestImage19" xml:space="preserve">
+    <value>monster-8</value>
+  </data>
+  <data name="SmallestImage20" xml:space="preserve">
+    <value>monster-9</value>
+  </data>
+  <data name="SmallestImage21" xml:space="preserve">
+    <value>monster-10</value>
+  </data>
+  <data name="SmallestImage22" xml:space="preserve">
+    <value>kitty-1</value>
+  </data>
+  <data name="SmallestImage23" xml:space="preserve">
+    <value>kitty-2</value>
+  </data>
+  <data name="SmallestImage24" xml:space="preserve">
+    <value>kitty-3</value>
+  </data>
+  <data name="SmallestImage25" xml:space="preserve">
+    <value>kitty-4</value>
+  </data>
+  <data name="SmallestImage26" xml:space="preserve">
+    <value>kitty-5</value>
+  </data>
+  <data name="SmallestImage27" xml:space="preserve">
+    <value>kitty-6</value>
+  </data>
+  <data name="SmallestImage28" xml:space="preserve">
+    <value>kitty-7</value>
+  </data>
+  <data name="SmallestImage29" xml:space="preserve">
+    <value>kitty-8</value>
+  </data>
+  <data name="SmallestImage30" xml:space="preserve">
+    <value>kitty-9</value>
+  </data>
+  <data name="SmallestImage31" xml:space="preserve">
+    <value>kitty-10</value>
+  </data>
+  <data name="SmallestImage32" xml:space="preserve">
+    <value>kitty-11</value>
+  </data>
+  <data name="SmallestImage33" xml:space="preserve">
+    <value>kitty-12</value>
+  </data>
+  <data name="SmallestImage34" xml:space="preserve">
+    <value>kitty-13</value>
+  </data>
+  <data name="SmallestImage35" xml:space="preserve">
+    <value>kitty-14</value>
+  </data>
+  <data name="SmallestImage36" xml:space="preserve">
+    <value>kitty-15</value>
   </data>
 </root>

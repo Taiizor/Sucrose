@@ -62,10 +62,6 @@ namespace Sucrose.Commandog
 
                 Close();
             }
-            else
-            {
-                Close();
-            }
         }
     }
 }

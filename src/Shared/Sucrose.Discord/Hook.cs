@@ -5,6 +5,7 @@ using Button = DiscordRPC.Button;
 using SDMI = Sucrose.Discord.Manage.Internal;
 using SGHDL = Sucrose.Globalization.Helper.DiscordLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
+using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -15,6 +16,10 @@ namespace Sucrose.Discord
     internal class Hook
     {
         private string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+
+        private bool Refresh => SMMI.DiscordSettingManager.GetSetting(SMC.Refresh, true);
+
+        private int Delay => SMMI.DiscordSettingManager.GetSettingStable(SMC.Delay, 60);
 
         private bool State => SMMI.DiscordSettingManager.GetSetting(SMC.State, true);
 
@@ -44,6 +49,8 @@ namespace Sucrose.Discord
             if (State && SSHP.Work(SDMI.Name[0], SDMI.Name[1]))
             {
                 SDMI.Client.Initialize();
+
+                AutoRefresh();
             }
         }
 
@@ -75,8 +82,8 @@ namespace Sucrose.Discord
                     //Timestamps = Timestamps.FromTimeSpan(60),
                     Timestamps = new Timestamps()
                     {
-                        Start = Timestamps.Now.Start,
-                        End = Timestamps.Now.End
+                        End = SDMI.End,
+                        Start = SDMI.Start
                     },
                     State = SDMI.Statement[SMR.Randomise.Next(SDMI.Statement.Count - 1)],
                     Buttons = new Button[]
@@ -101,12 +108,19 @@ namespace Sucrose.Discord
                     Assets = new Assets()
                     {
                         LargeImageKey = SGHDL.GetValue("LargestImage"),
-                        SmallImageKey = SGHDL.GetValue("SmallestImage"),
-                        LargeImageText = SDMI.Largest[SMR.Randomise.Next(SDMI.Largest.Count - 1)],
-                        SmallImageText = SDMI.Smallest[SMR.Randomise.Next(SDMI.Largest.Count - 1)]
+                        LargeImageText = SDMI.LargestText[SMR.Randomise.Next(SDMI.LargestText.Count - 1)],
+                        SmallImageText = SDMI.SmallestText[SMR.Randomise.Next(SDMI.LargestText.Count - 1)],
+                        SmallImageKey = SDMI.SmallestImage[SMR.Randomise.Next(SDMI.SmallestImage.Count - 1)]
                     }
                 });
             }
+        }
+
+        public void AutoRefresh()
+        {
+            SDMI.Timer.Interval = new TimeSpan(0, 0, SHS.Clamp(Delay, 60, 3600));
+            SDMI.Timer.Tick += new EventHandler(Timer_Tick);
+            SDMI.Timer.Start();
         }
 
         public void ClearPresence()
@@ -119,6 +133,16 @@ namespace Sucrose.Discord
             if (SDMI.Client.IsInitialized)
             {
                 SDMI.Client.Dispose();
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (Refresh)
+            {
+                SGMR.CultureInfo = new CultureInfo(Culture, true);
+
+                SetPresence();
             }
         }
 

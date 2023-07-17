@@ -26,9 +26,13 @@
 
         public const string State = "State";
 
+        public const string Delay = "Delay";
+
         public const string Folder = "Folder";
 
         public const string Volume = "Volume";
+
+        public const string Refresh = "Refresh";
 
         public const string Shuffle = "Shuffle";
 
