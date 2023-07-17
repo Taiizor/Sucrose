@@ -8,7 +8,13 @@
         "sunset.gif"
       ]
     },
-    "Animals": {},
+    "Animals": {
+      "Cat vs Ball of Wool-1": [
+        "src/Animation",
+        "thumbnail.jpg",
+        "preview.gif"
+      ]
+    },
 	"Animation": {
       "Big Buck Bunny-1": [
         "src/Animation",
