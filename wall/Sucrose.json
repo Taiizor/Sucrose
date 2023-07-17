@@ -10,7 +10,7 @@
     },
     "Animals": {
       "Cat vs Ball of Wool-1": [
-        "src/Animation",
+        "src/Animal",
         "thumbnail.jpg",
         "preview.gif"
       ]
@@ -68,6 +68,13 @@
     "Nightscapes": {},
     "Patterns and Textures": {},
     "Retro": {},
+    "Sky": {
+      "Storm in Sky-1": [
+        "src/Sky",
+        "thundersky.jpg",
+        "livestorm.gif"
+      ]
+    },
     "Space": {
       "Floating in Space-1": [
         "src/Space",
