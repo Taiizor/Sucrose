@@ -2,6 +2,12 @@
   "Categories": {
     "Abstract": {},
     "Animals": {},
+	"Animation": {
+      "Big Buck Bunny-1": [
+        "logo.jpg",
+        "wakeup.gif"
+      ]
+    },
     "Anime": {
       "Agatsuma Zenitsu-1": [
         "cover.jpg",

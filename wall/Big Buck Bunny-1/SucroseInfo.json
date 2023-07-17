@@ -1,0 +1,14 @@
+{
+  "AppVersion": "1.0.0.0",
+  "Version": "1.0.0.0",
+  "Title": "Big Buck Bunny",
+  "Thumbnail": "logo.jpg",
+  "Preview": "wakeup.gif",
+  "Description": "Big Buck Bunny 60fps 4K - Official Blender Foundation Short Film",
+  "Author": "Blender ",
+  "License": null,
+  "Contact": "https://www.youtube.com/@BlenderOfficial",
+  "Type": 4,
+  "Source": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+  "Arguments": null
+}
