@@ -73,7 +73,13 @@
     "Superheroes": {},
     "Technology": {},
     "Underwater and Marine": {},
-    "Vehicles": {},
+    "Vehicles": {
+      "Nissan Skyline-1": [
+        "src/Vehicle",
+        "thumbnail.jpg",
+        "preview.gif"
+      ]
+    },
     "Vintage": {}
   }
 }
