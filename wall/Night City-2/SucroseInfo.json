@@ -1,0 +1,14 @@
+{
+  "AppVersion": "1.0.0.0",
+  "Version": "1.0.0.0",
+  "Title": "Night City",
+  "Thumbnail": "skycity.jpg",
+  "Preview": "livesky.gif",
+  "Description": "Night City - Cyberpunk 2077",
+  "Author": "Trika",
+  "License": null,
+  "Contact": "https://www.youtube.com/@AnecProductions",
+  "Type": 4,
+  "Source": "https://www.youtube.com/watch?v=ChSVeNrGzkE",
+  "Arguments": null
+}

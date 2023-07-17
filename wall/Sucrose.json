@@ -3,7 +3,7 @@
     "Abstract": {},
     "Animals": {},
     "Anime": {
-      "Agatsuma Zenitsu": [
+      "Agatsuma Zenitsu-1": [
         "cover.jpg",
         "live.gif"
       ]
@@ -18,17 +18,25 @@
     "Colorful Gradients": {},
     "Comic Books": {},
     "Digital Art": {},
-    "Dynamic Cityscapes": {},
     "Enchanted Forests": {},
     "Fantasy": {},
     "Film and TV": {},
     "Food and Drinks": {},
-    "Game": {},
+    "Game": {
+      "Night City-1": [
+        "ncity.jpg",
+        "nsky.gif"
+      ],
+      "Night City-2": [
+        "skycity.jpg",
+        "livesky.gif"
+      ]
+    },
     "Geometric Patterns": {},
     "Holidays and Seasons": {},
     "Horror and Halloween": {},
     "Inspirational Quotes": {},
-    "Kids and Cartoon Characters": {},
+    "Kids and Cartoon": {},
     "Line Art": {},
     "Minimalist": {},
     "Music": {},
@@ -38,7 +46,7 @@
     "Patterns and Textures": {},
     "Retro": {},
     "Space and Planets": {
-      "Floating in Space": [
+      "Floating in Space-1": [
         "thumbnail.jpg",
         "preview.gif"
       ]
@@ -46,7 +54,7 @@
     "Sports": {},
     "Superheroes": {},
     "Technology": {},
-    "Underwater and Marine Life": {},
+    "Underwater and Marine": {},
     "Vehicles": {},
     "Vintage": {}
   }
