@@ -85,7 +85,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.VA", "Live\Suc
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Engine.AA", "Shared\Engine\Sucrose.Engine.AA\Sucrose.Engine.AA.shproj", "{3B1EC692-D1BF-4016-BB68-3EE2FC60FA65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Live.AA", "Live\Sucrose.Live.AA\Sucrose.Live.AA.csproj", "{D9F61FE5-A129-4CE4-8018-326EB958167A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.AA", "Live\Sucrose.Live.AA\Sucrose.Live.AA.csproj", "{D9F61FE5-A129-4CE4-8018-326EB958167A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -407,6 +407,9 @@ Global
 		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
 		Shared\Sucrose.Space\Sucrose.Space.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
 		Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
+		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
+		Shared\Sucrose.Discord\Sucrose.Discord.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
+		Shared\Sucrose.Space\Sucrose.Space.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
 		Shared\Engine\Sucrose.Engine.CS\Sucrose.Engine.CS.projitems*{2f85908f-6390-479b-88b7-2fad244091db}*SharedItemsImports = 5
 		Shared\Engine\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems*{2f85908f-6390-479b-88b7-2fad244091db}*SharedItemsImports = 5
 		Shared\Sucrose.Common\Sucrose.Common.projitems*{2f85908f-6390-479b-88b7-2fad244091db}*SharedItemsImports = 5
