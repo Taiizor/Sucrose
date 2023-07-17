@@ -1,0 +1,14 @@
+{
+  "AppVersion": "1.0.0.0",
+  "Version": "1.0.0.0",
+  "Title": "Floating in Space",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Floating in Space",
+  "Author": "SOM",
+  "License": null,
+  "Contact": "https://www.youtube.com/@som8960",
+  "Type": 4,
+  "Source": "https://www.youtube.com/watch?v=3IWBkDQG9D8",
+  "Arguments": null
+}

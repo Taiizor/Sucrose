@@ -1,0 +1,53 @@
+{
+  "Categories": {
+    "Abstract": {},
+    "Animals": {},
+    "Anime": {
+      "Agatsuma Zenitsu": [
+        "cover.jpg",
+        "live.gif"
+      ]
+    },
+    "Architecture and Buildings": {},
+    "Art and Abstract": {},
+    "Artworks": {},
+    "Black and White": {},
+    "Cartoon and Comics": {},
+    "Cities and Places": {},
+    "Clouds and Skies": {},
+    "Colorful Gradients": {},
+    "Comic Books": {},
+    "Digital Art": {},
+    "Dynamic Cityscapes": {},
+    "Enchanted Forests": {},
+    "Fantasy": {},
+    "Film and TV": {},
+    "Food and Drinks": {},
+    "Game": {},
+    "Geometric Patterns": {},
+    "Holidays and Seasons": {},
+    "Horror and Halloween": {},
+    "Inspirational Quotes": {},
+    "Kids and Cartoon Characters": {},
+    "Line Art": {},
+    "Minimalist": {},
+    "Music": {},
+    "Nature": {},
+    "Nature Landscapes": {},
+    "Nightscapes": {},
+    "Patterns and Textures": {},
+    "Retro": {},
+    "Space and Planets": {
+      "Floating in Space": [
+        "thumbnail.jpg",
+        "preview.gif"
+      ]
+    },
+    "Sports": {},
+    "Superheroes": {},
+    "Technology": {},
+    "Underwater and Marine Life": {},
+    "Vehicles": {},
+    "Vintage": {}
+  }
+}
