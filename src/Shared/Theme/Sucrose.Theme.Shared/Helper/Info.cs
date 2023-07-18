@@ -57,28 +57,4 @@ namespace Sucrose.Theme.Shared.Helper
             return JsonConvert.DeserializeObject<Info>(File.ReadAllText(Json), Converter.Settings);
         }
     }
-
-    internal static class Serialize
-    {
-        public static string ToJson(this Info self)
-        {
-            return JsonConvert.SerializeObject(self, Converter.Settings);
-        }
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new()
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters =
-            {
-                new IsoDateTimeConverter
-                {
-                    DateTimeStyles = DateTimeStyles.AssumeUniversal
-                }
-            },
-        };
-    }
 }

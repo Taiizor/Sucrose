@@ -50,6 +50,10 @@
         /// </summary>
         InvalidUrl,
         /// <summary>
+        /// Geçersiz tetikleme zamanı!
+        /// </summary>
+        TriggerTime,
+        /// <summary>
         /// Geçersiz dosya!
         /// </summary>
         InvalidFile,

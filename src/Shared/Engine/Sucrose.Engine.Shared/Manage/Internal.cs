@@ -1,9 +1,12 @@
 ﻿using SESSB = Sucrose.Engine.Shared.Setting.Browser;
+using STSHP = Sucrose.Theme.Shared.Helper.Properties;
 
 namespace Sucrose.Engine.Shared.Manage
 {
     internal static class Internal
     {
+        public static STSHP Properties = new();
+
         public static SESSB BrowserSettings = new()
         {
             WebView = WebArguments,

@@ -8,6 +8,7 @@ using SEWET = Skylark.Enum.WebExtensionType;
 using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using STSHP = Sucrose.Theme.Shared.Helper.Properties;
 using STSHV = Sucrose.Theme.Shared.Helper.Various;
 
 namespace Sucrose.Theme.Shared.Helper
@@ -164,6 +165,19 @@ namespace Sucrose.Theme.Shared.Helper
                     else if (!CheckAppExtension(Info.Source))
                     {
                         return SDECT.InvalidExtension;
+                    }
+                }
+
+                // Arşivde SucroseProperties.json dosyası var mı?
+                if (CheckFile(Archive, SMR.SucroseProperties))
+                {
+                    // Arşivdeki SucroseProperties.json dosyasını okuma
+                    STSHP Properties = STSHP.FromJson(ReadFile(Archive, SMR.SucroseProperties));
+
+                    // Properties içindeki TriggerTime değeri 1'den küçük mü?
+                    if (Properties.TriggerTime <= 0)
+                    {
+                        return SDECT.TriggerTime;
                     }
                 }
 

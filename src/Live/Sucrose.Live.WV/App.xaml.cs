@@ -15,6 +15,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using STSHP = Sucrose.Theme.Shared.Helper.Properties;
 using STSHV = Sucrose.Theme.Shared.Helper.Various;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -137,6 +138,7 @@ namespace Sucrose.Live.WV
             if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {
                 string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
+                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
 
                 if (File.Exists(InfoPath))
                 {
@@ -171,6 +173,11 @@ namespace Sucrose.Live.WV
 
                     if (STSHV.IsUrl(Source) || File.Exists(Source))
                     {
+                        if (File.Exists(PropertiesPath))
+                        {
+                            SESMI.Properties = STSHP.ReadJson(PropertiesPath);
+                        }
+
                         switch (Info.Type)
                         {
                             case SDEWT.Video:
