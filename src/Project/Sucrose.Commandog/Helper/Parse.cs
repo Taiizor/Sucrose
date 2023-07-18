@@ -18,6 +18,10 @@
                     return (T)(object)BoolValue;
                 }
             }
+            else if (typeof(T).IsEnum)
+            {
+                return (T)Enum.Parse(typeof(T), ArgValue);
+            }
 
             return (T)(object)ArgValue;
         }
@@ -43,6 +47,10 @@
             else if (TargetType == typeof(string))
             {
                 return (T)(object)ArgValue;
+            }
+            else if (TargetType.IsEnum)
+            {
+                return (T)Enum.Parse(TargetType, ArgValue);
             }
 
             return default;

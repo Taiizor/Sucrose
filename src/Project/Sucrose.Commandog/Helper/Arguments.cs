@@ -2,6 +2,7 @@
 using SCHP = Sucrose.Commandog.Helper.Parse;
 using SCHS = Sucrose.Commandog.Helper.Scheduler;
 using SDECT = Sucrose.Dependency.Enum.CommandsType;
+using SDESCT = Sucrose.Dependency.Enum.SchedulerCommandsType;
 using SMR = Sucrose.Memory.Readonly;
 using SSHE = Sucrose.Space.Helper.Export;
 using SSHI = Sucrose.Space.Helper.Import;
@@ -103,18 +104,18 @@ namespace Sucrose.Commandog.Helper
                                         SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
                                         break;
                                     case SDECT.Scheduler:
-                                        switch (SCHP.ArgumentValue<string>(Values[0]))
+                                        switch (SCHP.ArgumentValue<SDESCT>(Values[0]))
                                         {
-                                            case "Create":
-                                                SCHS.Create(SCHP.ArgumentValue<string>(Values[1]));
+                                            case SDESCT.Create:
+                                                SCHS.CreateTask(SCHP.ArgumentValue<string>(Values[1]));
                                                 break;
-                                            case "Enable":
+                                            case SDESCT.Enable:
                                                 SCHS.EnableTask();
                                                 break;
-                                            case "Disable":
+                                            case SDESCT.Disable:
                                                 SCHS.DisableTask();
                                                 break;
-                                            case "Delete":
+                                            case SDESCT.Delete:
                                                 SCHS.DeleteTask();
                                                 break;
                                             default:

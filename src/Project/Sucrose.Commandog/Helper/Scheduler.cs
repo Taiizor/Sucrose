@@ -12,6 +12,33 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
+            TaskDefinition Definition = Service.NewTask();
+
+            Definition.RegistrationInfo.Description = SGHCL.GetValue("TaskDescription");
+
+            Definition.Actions.Add(new ExecAction(Application));
+
+            LogonTrigger Trigger = new()
+            {
+                UserId = WindowsIdentity.GetCurrent().Name
+            };
+
+            Definition.Triggers.Add(Trigger);
+
+            TaskSettings Settings = Definition.Settings;
+
+            Settings.StopIfGoingOnBatteries = false;
+            Settings.DisallowStartIfOnBatteries = false;
+
+            Settings.ExecutionTimeLimit = TimeSpan.Zero;
+
+            Service.RootFolder.RegisterTaskDefinition(SGHCL.GetValue("TaskName"), Definition);
+        }
+
+        public static void CreateTask(string Application)
+        {
+            using TaskService Service = new();
+
             TaskFolder Folder = Service.RootFolder.CreateFolder(SMR.AppName, exceptionOnExists: false);
 
             TaskDefinition Definition = Service.NewTask();

@@ -16,4 +16,12 @@
         Scheduler,
         Interface
     }
+
+    internal enum SchedulerCommandsType
+    {
+        Create,
+        Enable,
+        Delete,
+        Disable
+    }
 }
