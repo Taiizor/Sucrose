@@ -1,4 +1,5 @@
-﻿using SESSB = Sucrose.Engine.Shared.Setting.Browser;
+﻿using System.Windows.Threading;
+using SESSB = Sucrose.Engine.Shared.Setting.Browser;
 using STSHP = Sucrose.Theme.Shared.Helper.Properties;
 
 namespace Sucrose.Engine.Shared.Manage
@@ -85,5 +86,9 @@ namespace Sucrose.Engine.Shared.Manage
             { "always-authorize-plugins", "1" },
             { "enable-npapi", "1" }
         };
+
+        public static readonly DispatcherTimer GeneralTimer = new();
+
+        public static readonly DispatcherTimer PropertiesTimer = new();
     }
 }

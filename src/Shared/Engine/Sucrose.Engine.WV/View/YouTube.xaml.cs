@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using System.Windows.Threading;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWVEYT = Sucrose.Engine.WV.Event.YouTube;
 using SEWVHYT = Sucrose.Engine.WV.Helper.YouTube;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
@@ -14,8 +14,6 @@ namespace Sucrose.Engine.WV.View
     /// </summary>
     public sealed partial class YouTube : Window
     {
-        private readonly DispatcherTimer Timer = new();
-
         public YouTube(string YouTube)
         {
             InitializeComponent();
@@ -26,9 +24,9 @@ namespace Sucrose.Engine.WV.View
 
             SEWVMI.YouTube = YouTube;
 
-            Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Interval = new TimeSpan(0, 0, 1);
-            Timer.Start();
+            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SESMI.GeneralTimer.Start();
 
             SEWVMI.WebEngine.CoreWebView2InitializationCompleted += SEWVEYT.WebEngineInitializationCompleted;
 
@@ -36,7 +34,7 @@ namespace Sucrose.Engine.WV.View
             Loaded += (s, e) => SESEH.WindowLoaded(this);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             SEWVHYT.First();
 

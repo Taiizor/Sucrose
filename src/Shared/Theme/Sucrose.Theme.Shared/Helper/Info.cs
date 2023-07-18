@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Globalization;
 using System.IO;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 

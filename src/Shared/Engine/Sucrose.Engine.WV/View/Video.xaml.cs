@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using System.Windows.Threading;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWVEV = Sucrose.Engine.WV.Event.Video;
 using SEWVHV = Sucrose.Engine.WV.Helper.Video;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
@@ -15,8 +15,6 @@ namespace Sucrose.Engine.WV.View
     /// </summary>
     public sealed partial class Video : Window
     {
-        private readonly DispatcherTimer Timer = new();
-
         public Video(string Video)
         {
             InitializeComponent();
@@ -27,9 +25,9 @@ namespace Sucrose.Engine.WV.View
 
             SEWVMI.Video = Video;
 
-            Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Interval = new TimeSpan(0, 0, 1);
-            Timer.Start();
+            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SESMI.GeneralTimer.Start();
 
             SEWVMI.WebEngine.CoreWebView2InitializationCompleted += SEWVEV.WebEngineInitializationCompleted;
 
@@ -37,7 +35,7 @@ namespace Sucrose.Engine.WV.View
             Loaded += (s, e) => SESEH.WindowLoaded(this);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             SEWVHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 

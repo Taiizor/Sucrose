@@ -1,12 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Threading;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SENAEV = Sucrose.Engine.NA.Event.Video;
 using SENAHV = Sucrose.Engine.NA.Helper.Video;
 using SENAMI = Sucrose.Engine.NA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
@@ -17,8 +17,6 @@ namespace Sucrose.Engine.NA.View
     /// </summary>
     public sealed partial class Video : Window
     {
-        private readonly DispatcherTimer Timer = new();
-
         public Video(string Video)
         {
             InitializeComponent();
@@ -29,9 +27,9 @@ namespace Sucrose.Engine.NA.View
 
             SENAMI.MediaEngine.Source = SESHS.GetSource(Video);
 
-            Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Interval = new TimeSpan(0, 0, 1);
-            Timer.Start();
+            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SESMI.GeneralTimer.Start();
 
             SENAMI.MediaEngine.MediaEnded += SENAEV.MediaEngineEnded;
 
@@ -43,7 +41,7 @@ namespace Sucrose.Engine.NA.View
             SENAHV.Play();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             SENAHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 

@@ -1,10 +1,10 @@
 ﻿using System.Windows;
-using System.Windows.Threading;
 using SECSEYT = Sucrose.Engine.CS.Event.YouTube;
 using SECSHCCM = Sucrose.Engine.CS.Handler.CustomContextMenu;
 using SECSHYT = Sucrose.Engine.CS.Helper.YouTube;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
@@ -15,8 +15,6 @@ namespace Sucrose.Engine.CS.View
     /// </summary>
     public sealed partial class YouTube : Window
     {
-        private readonly DispatcherTimer Timer = new();
-
         public YouTube(string YouTube)
         {
             InitializeComponent();
@@ -31,9 +29,9 @@ namespace Sucrose.Engine.CS.View
 
             SECSMI.CefEngine.BrowserSettings = SECSMI.CefSettings;
 
-            Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Interval = new TimeSpan(0, 0, 1);
-            Timer.Start();
+            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SESMI.GeneralTimer.Start();
 
             SECSMI.CefEngine.FrameLoadEnd += SECSEYT.CefEngineFrameLoadEnd;
             SECSMI.CefEngine.Loaded += SECSEYT.CefEngineLoaded;
@@ -42,7 +40,7 @@ namespace Sucrose.Engine.CS.View
             Loaded += (s, e) => SESEH.WindowLoaded(this);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             SECSHYT.First();
 

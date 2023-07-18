@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Threading;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SECSEV = Sucrose.Engine.CS.Event.Video;
 using SECSHCCM = Sucrose.Engine.CS.Handler.CustomContextMenu;
@@ -7,6 +6,7 @@ using SECSHV = Sucrose.Engine.CS.Helper.Video;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
@@ -17,8 +17,6 @@ namespace Sucrose.Engine.CS.View
     /// </summary>
     public sealed partial class Video : Window
     {
-        private readonly DispatcherTimer Timer = new();
-
         public Video(string Video)
         {
             InitializeComponent();
@@ -33,9 +31,9 @@ namespace Sucrose.Engine.CS.View
 
             SECSMI.CefEngine.BrowserSettings = SECSMI.CefSettings;
 
-            Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Interval = new TimeSpan(0, 0, 1);
-            Timer.Start();
+            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SESMI.GeneralTimer.Start();
 
             SECSMI.CefEngine.FrameLoadEnd += SECSEV.CefEngineFrameLoadEnd;
             SECSMI.CefEngine.Loaded += SECSEV.CefEngineLoaded;
@@ -44,7 +42,7 @@ namespace Sucrose.Engine.CS.View
             Loaded += (s, e) => SESEH.WindowLoaded(this);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             SECSHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
 

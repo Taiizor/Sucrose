@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Windows;
-using System.Windows.Threading;
 using SEAAHA = Sucrose.Engine.AA.Helper.Application;
 using SEAAHR = Sucrose.Engine.AA.Helper.Ready;
 using SEAAMI = Sucrose.Engine.AA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSHP = Sucrose.Space.Helper.Processor;
@@ -18,8 +18,6 @@ namespace Sucrose.Engine.AA.View
     /// </summary>
     public sealed partial class Application : Window
     {
-        private readonly DispatcherTimer Timer = new();
-
         public Application(string Application, string Arguments)
         {
             InitializeComponent();
@@ -47,9 +45,9 @@ namespace Sucrose.Engine.AA.View
                 Task.Delay(100).Wait();
             } while (SEAAHR.Check());
 
-            Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Interval = new TimeSpan(0, 0, 1);
-            Timer.Start();
+            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SESMI.GeneralTimer.Start();
 
             SESEH.ApplicationLoaded(SEAAMI.ApplicationProcess);
             SESEH.ApplicationRendered(SEAAMI.ApplicationProcess);
@@ -57,7 +55,7 @@ namespace Sucrose.Engine.AA.View
             SEAAHA.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             SEAAHA.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
 
