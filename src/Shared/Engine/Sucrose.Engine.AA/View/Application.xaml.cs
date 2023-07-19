@@ -5,6 +5,7 @@ using SEAAHA = Sucrose.Engine.AA.Helper.Application;
 using SEAAHR = Sucrose.Engine.AA.Helper.Ready;
 using SEAAMI = Sucrose.Engine.AA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -14,7 +15,7 @@ using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 namespace Sucrose.Engine.AA.View
 {
     /// <summary>
-    /// Interaction logic for Video.xaml
+    /// Interaction logic for Application.xaml
     /// </summary>
     public sealed partial class Application : Window
     {
@@ -52,12 +53,12 @@ namespace Sucrose.Engine.AA.View
             SESEH.ApplicationLoaded(SEAAMI.ApplicationProcess);
             SESEH.ApplicationRendered(SEAAMI.ApplicationProcess);
 
-            SEAAHA.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SEAAHA.SetVolume(SESHD.GetVolume());
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SEAAHA.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SEAAHA.SetVolume(SESHD.GetVolume());
 
             if (!SSHP.Work(SEAAMI.Application))
             {

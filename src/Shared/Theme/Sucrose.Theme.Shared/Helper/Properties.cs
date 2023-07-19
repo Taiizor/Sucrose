@@ -11,8 +11,8 @@ namespace Sucrose.Theme.Shared.Helper
         [JsonProperty("StretchMode", Required = Required.Default)]
         public string StretchMode { get; set; }
 
-        [JsonProperty("ComputerTime", Required = Required.Default)]
-        public string ComputerTime { get; set; }
+        [JsonProperty("ComputerDate", Required = Required.Default)]
+        public string ComputerDate { get; set; }
     }
 
     internal partial class Properties

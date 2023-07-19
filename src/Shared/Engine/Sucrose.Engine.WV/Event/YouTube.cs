@@ -1,8 +1,7 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using STSHV = Sucrose.Theme.Shared.Helper.Various;
 
 namespace Sucrose.Engine.WV.Event
@@ -11,7 +10,7 @@ namespace Sucrose.Engine.WV.Event
     {
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
-            SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100)});");
+            SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SESHD.GetVolume()});");
             SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("toggleFullScreen();");
         }
 

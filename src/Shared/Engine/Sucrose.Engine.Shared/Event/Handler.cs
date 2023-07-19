@@ -1,11 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using SDEDT = Sucrose.Dependency.Enum.DisplayType;
-using SEDST = Skylark.Enum.DuplicateScreenType;
-using SEEST = Skylark.Enum.ExpandScreenType;
-using SEST = Skylark.Enum.ScreenType;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SWE = Skylark.Wing.Engine;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
@@ -45,32 +41,32 @@ namespace Sucrose.Engine.Shared.Event
 
         public static void ContentRendered(Window Window)
         {
-            switch (SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SDEDT.Screen))
+            switch (SESHD.GetDisplayType())
             {
                 case SDEDT.Expand:
-                    SWE.WallpaperWindow(Window, SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperWindow(Window, SESHD.GetExpandScreenType(), SESHD.GetScreenType());
                     break;
                 case SDEDT.Duplicate:
-                    SWE.WallpaperWindow(Window, SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperWindow(Window, SESHD.GetDuplicateScreenType(), SESHD.GetScreenType());
                     break;
                 default:
-                    SWE.WallpaperWindow(Window, SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperWindow(Window, SESHD.GetScreenIndex(), SESHD.GetScreenType());
                     break;
             }
         }
 
         public static void ApplicationRendered(Process Process)
         {
-            switch (SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SDEDT.Screen))
+            switch (SESHD.GetDisplayType())
             {
                 case SDEDT.Expand:
-                    SWE.WallpaperProcess(Process, SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperProcess(Process, SESHD.GetExpandScreenType(), SESHD.GetScreenType());
                     break;
                 case SDEDT.Duplicate:
-                    //SWE.WallpaperProcess(Process, SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    //SWE.WallpaperProcess(Process, SESHD.GetDuplicateScreenType(), SESHD.GetScreenType());
                     break;
                 default:
-                    SWE.WallpaperProcess(Process, SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0), SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound));
+                    SWE.WallpaperProcess(Process, SESHD.GetScreenIndex(), SESHD.GetScreenType());
                     break;
             }
 

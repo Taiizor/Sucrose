@@ -54,9 +54,17 @@
         /// </summary>
         TriggerTime,
         /// <summary>
+        /// Geçersiz uzatma modu değeri!
+        /// </summary>
+        StretchMode,
+        /// <summary>
         /// Geçersiz dosya!
         /// </summary>
         InvalidFile,
+        /// <summary>
+        /// Geçersiz bilgisayar zamanı değeri!
+        /// </summary>
+        ComputerDate,
         /// <summary>
         /// Geçersiz dosya uzantısı!
         /// </summary>

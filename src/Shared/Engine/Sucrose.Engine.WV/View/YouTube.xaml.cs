@@ -1,11 +1,10 @@
 ﻿using System.Windows;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWVEYT = Sucrose.Engine.WV.Event.YouTube;
 using SEWVHYT = Sucrose.Engine.WV.Helper.YouTube;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Engine.WV.View
 {
@@ -38,11 +37,11 @@ namespace Sucrose.Engine.WV.View
         {
             SEWVHYT.First();
 
-            SEWVHYT.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SEWVHYT.SetLoop(SESHD.GetLoop());
 
-            SEWVHYT.SetShuffle(SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true));
+            SEWVHYT.SetVolume(SESHD.GetVolume());
 
-            SEWVHYT.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SEWVHYT.SetShuffle(SESHD.GetShuffle());
         }
     }
 }

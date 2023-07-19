@@ -179,6 +179,18 @@ namespace Sucrose.Theme.Shared.Helper
                     {
                         return SDECT.TriggerTime;
                     }
+
+                    // Properties içindeki StretchMode değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Properties.StretchMode) && !Properties.StretchMode.Contains("{0}"))
+                    {
+                        return SDECT.StretchMode;
+                    }
+
+                    // Properties içindeki ComputerDate değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Properties.ComputerDate) && !Properties.ComputerDate.Contains("{0}"))
+                    {
+                        return SDECT.ComputerDate;
+                    }
                 }
 
                 return SDECT.Pass;

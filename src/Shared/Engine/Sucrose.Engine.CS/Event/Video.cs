@@ -1,10 +1,8 @@
 ﻿using CefSharp;
 using System.Windows;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SECSHV = Sucrose.Engine.CS.Helper.Video;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 
 namespace Sucrose.Engine.CS.Event
 {
@@ -19,8 +17,8 @@ namespace Sucrose.Engine.CS.Event
 
             SECSMI.CefEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style = \"position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;\";");
 
-            SECSHV.SetStretch(SMMI.EngineSettingManager.GetSettingStable(SMC.StretchType, SDEST.Fill));
-            SECSHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SECSHV.SetStretch(SESHD.GetStretch());
+            SECSHV.SetVolume(SESHD.GetVolume());
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)

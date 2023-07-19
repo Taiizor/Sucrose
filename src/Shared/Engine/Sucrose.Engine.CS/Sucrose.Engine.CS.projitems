@@ -9,6 +9,10 @@
     <Import_RootNamespace>Sucrose.Engine.CS</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)View\Web.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)View\YouTube.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -19,12 +23,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Event\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Handler\CustomContextMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Web.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\YouTube.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Video.xaml.cs" />
   </ItemGroup>

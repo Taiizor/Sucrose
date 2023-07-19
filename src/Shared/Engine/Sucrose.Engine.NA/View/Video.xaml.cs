@@ -1,14 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SENAEV = Sucrose.Engine.NA.Event.Video;
 using SENAHV = Sucrose.Engine.NA.Helper.Video;
 using SENAMI = Sucrose.Engine.NA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Engine.NA.View
 {
@@ -36,23 +34,18 @@ namespace Sucrose.Engine.NA.View
             Closing += (s, e) => SENAMI.MediaEngine.Close();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
 
-            SENAHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SENAHV.SetVolume(SESHD.GetVolume());
 
             SENAHV.Play();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SENAHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SENAHV.SetLoop(SESHD.GetLoop());
 
-            SENAHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SENAHV.SetVolume(SESHD.GetVolume());
 
-            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
-
-            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
-            {
-                SENAMI.MediaEngine.Stretch = (Stretch)Stretch;
-            }
+            SENAMI.MediaEngine.Stretch = (Stretch)SESHD.GetStretch();
         }
     }
 }

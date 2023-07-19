@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using SENAMI = Sucrose.Engine.NA.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 
 namespace Sucrose.Engine.NA.Event
 {
@@ -19,7 +18,7 @@ namespace Sucrose.Engine.NA.Event
 
         public static void MediaEngineEnded(object sender, EventArgs e)
         {
-            if (SMMI.EngineSettingManager.GetSetting(SMC.Loop, true))
+            if (SESHD.GetLoop())
             {
                 SENAMI.MediaEngine.Position = TimeSpan.Zero;
                 SENAMI.MediaEngine.Play();

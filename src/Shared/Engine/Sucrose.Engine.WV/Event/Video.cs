@@ -1,10 +1,8 @@
 ﻿using Microsoft.Web.WebView2.Core;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SEWVHV = Sucrose.Engine.WV.Helper.Video;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Engine.WV.Event
 {
@@ -16,8 +14,8 @@ namespace Sucrose.Engine.WV.Event
             SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
             SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
 
-            SEWVHV.SetStretch(SMMI.EngineSettingManager.GetSettingStable(SMC.StretchType, SDEST.Fill));
-            SEWVHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SEWVHV.SetStretch(SESHD.GetStretch());
+            SEWVHV.SetVolume(SESHD.GetVolume());
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)

@@ -4,9 +4,8 @@ using SECSHCCM = Sucrose.Engine.CS.Handler.CustomContextMenu;
 using SECSHYT = Sucrose.Engine.CS.Helper.YouTube;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Engine.CS.View
 {
@@ -44,11 +43,11 @@ namespace Sucrose.Engine.CS.View
         {
             SECSHYT.First();
 
-            SECSHYT.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SECSHYT.SetLoop(SESHD.GetLoop());
 
-            SECSHYT.SetShuffle(SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true));
+            SECSHYT.SetVolume(SESHD.GetVolume());
 
-            SECSHYT.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SECSHYT.SetShuffle(SESHD.GetShuffle());
         }
     }
 }

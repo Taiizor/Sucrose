@@ -1,9 +1,8 @@
 ﻿using CefSharp;
 using System.Windows;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using STSHV = Sucrose.Theme.Shared.Helper.Various;
 
 namespace Sucrose.Engine.CS.Event
@@ -12,7 +11,7 @@ namespace Sucrose.Engine.CS.Event
     {
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
-            SECSMI.CefEngine.ExecuteScriptAsync($"setVolume({SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100)});");
+            SECSMI.CefEngine.ExecuteScriptAsync($"setVolume({SESHD.GetVolume()});");
             SECSMI.CefEngine.ExecuteScriptAsync("toggleFullScreen();");
         }
 

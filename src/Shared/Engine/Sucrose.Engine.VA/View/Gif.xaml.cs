@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
@@ -8,8 +7,7 @@ using SEVAEG = Sucrose.Engine.VA.Event.Gif;
 using SEVAHG = Sucrose.Engine.VA.Helper.Gif;
 using SEVAHP = Sucrose.Engine.VA.Helper.Parse;
 using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 
 namespace Sucrose.Engine.VA.View
 {
@@ -41,14 +39,9 @@ namespace Sucrose.Engine.VA.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SEVAHG.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SEVAHG.SetLoop(SESHD.GetLoop());
 
-            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
-
-            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
-            {
-                SEVAMI.ImageEngine.Stretch = (Stretch)Stretch;
-            }
+            SEVAMI.ImageEngine.Stretch = (Stretch)SESHD.GetStretch();
         }
     }
 }

@@ -1,12 +1,10 @@
 ﻿using System.Windows;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWVEV = Sucrose.Engine.WV.Event.Video;
 using SEWVHV = Sucrose.Engine.WV.Helper.Video;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Engine.WV.View
 {
@@ -37,16 +35,11 @@ namespace Sucrose.Engine.WV.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SEWVHV.SetLoop(SMMI.EngineSettingManager.GetSetting(SMC.Loop, true));
+            SEWVHV.SetLoop(SESHD.GetLoop());
 
-            SEWVHV.SetVolume(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100));
+            SEWVHV.SetVolume(SESHD.GetVolume());
 
-            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
-
-            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
-            {
-                SEWVHV.SetStretch(Stretch);
-            }
+            SEWVHV.SetStretch(SESHD.GetStretch());
         }
     }
 }
