@@ -14,7 +14,16 @@ namespace Sucrose.Manager.Helper
             }
             catch
             {
-                //
+                try
+                {
+                    using FileStream fileStream = new(filePath, FileMode.Truncate, FileAccess.Write, FileShare.None);
+                    using StreamWriter writer = new(fileStream);
+                    writer.Write(SMHC.Clean(fileContent));
+                }
+                catch
+                {
+                    //
+                }
             }
         }
 
@@ -27,7 +36,15 @@ namespace Sucrose.Manager.Helper
             }
             catch
             {
-                //
+                try
+                {
+                    using StreamWriter writer = File.AppendText(filePath);
+                    writer.WriteLine(SMHC.Clean(fileContent));
+                }
+                catch
+                {
+                    //
+                }
             }
         }
 
@@ -39,7 +56,14 @@ namespace Sucrose.Manager.Helper
             }
             catch
             {
-                //
+                try
+                {
+                    File.WriteAllText(filePath, SMHC.Clean(fileContent));
+                }
+                catch
+                {
+                    //
+                }
             }
         }
     }

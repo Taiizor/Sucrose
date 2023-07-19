@@ -14,7 +14,16 @@ namespace Sucrose.Manager.Helper
             }
             catch
             {
-                return string.Empty;
+                try
+                {
+                    using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
+                    using StreamReader reader = new(fileStream);
+                    return SMHC.Clean(reader.ReadToEnd());
+                }
+                catch
+                {
+                    return string.Empty;
+                }
             }
         }
 
@@ -26,7 +35,14 @@ namespace Sucrose.Manager.Helper
             }
             catch
             {
-                return string.Empty;
+                try
+                {
+                    return SMHC.Clean(File.ReadAllText(filePath));
+                }
+                catch
+                {
+                    return string.Empty;
+                }
             }
         }
     }
