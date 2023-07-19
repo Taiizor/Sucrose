@@ -1,4 +1,5 @@
-﻿using SDEDT = Sucrose.Dependency.Enum.DisplayType;
+﻿using Newtonsoft.Json.Linq;
+using SDEDT = Sucrose.Dependency.Enum.DisplayType;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
@@ -39,11 +40,6 @@ namespace Sucrose.Engine.Shared.Helper
             }
         }
 
-        public static DateTime GetDate()
-        {
-            return DateTime.Now;
-        }
-
         public static SEST GetScreenType()
         {
             return SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
@@ -57,6 +53,21 @@ namespace Sucrose.Engine.Shared.Helper
         public static SDEDT GetDisplayType()
         {
             return SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SDEDT.Screen);
+        }
+
+        public static JObject GetComputerDate()
+        {
+            DateTime Date = DateTime.Now;
+
+            return new
+            (
+                new JProperty("Year", Date.Year),
+                new JProperty("Month", Date.Month),
+                new JProperty("Day", Date.Day),
+                new JProperty("Hour", Date.Hour),
+                new JProperty("Minute", Date.Minute),
+                new JProperty("Second", Date.Second)
+            );
         }
 
         public static SEEST GetExpandScreenType()

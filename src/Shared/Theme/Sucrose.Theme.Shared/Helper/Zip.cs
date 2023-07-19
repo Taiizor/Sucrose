@@ -180,6 +180,24 @@ namespace Sucrose.Theme.Shared.Helper
                         return SDECT.TriggerTime;
                     }
 
+                    // Properties içindeki LoopMode değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Properties.LoopMode) && !Properties.LoopMode.Contains("{0}"))
+                    {
+                        return SDECT.LoopMode;
+                    }
+
+                    // Properties içindeki VolumeLevel değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Properties.VolumeLevel) && !Properties.VolumeLevel.Contains("{0}"))
+                    {
+                        return SDECT.VolumeLevel;
+                    }
+
+                    // Properties içindeki ShuffleMode değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Properties.ShuffleMode) && !Properties.ShuffleMode.Contains("{0}"))
+                    {
+                        return SDECT.ShuffleMode;
+                    }
+
                     // Properties içindeki StretchMode değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Properties.StretchMode) && !Properties.StretchMode.Contains("{0}"))
                     {

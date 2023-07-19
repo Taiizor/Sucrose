@@ -34,6 +34,10 @@
         /// </summary>
         NotFound,
         /// <summary>
+        /// Geçersiz döngü modu değeri!
+        /// </summary>
+        LoopMode,
+        /// <summary>
         /// Seçilen dosya .zip uzantılı değil!
         /// </summary>
         Extension,
@@ -57,6 +61,14 @@
         /// Geçersiz uzatma modu değeri!
         /// </summary>
         StretchMode,
+        /// <summary>
+        /// Geçersiz ses seviyesi değeri!
+        /// </summary>
+        VolumeLevel,
+        /// <summary>
+        /// Geçersiz karıştırma modu değeri!
+        /// </summary>
+        ShuffleMode,
         /// <summary>
         /// Geçersiz dosya!
         /// </summary>

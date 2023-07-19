@@ -9,6 +9,7 @@ using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using SEWVVV = Sucrose.Engine.WV.View.Video;
+using SEWVVW = Sucrose.Engine.WV.View.Web;
 using SEWVVYT = Sucrose.Engine.WV.View.YouTube;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
@@ -176,10 +177,15 @@ namespace Sucrose.Live.WV
                         if (File.Exists(PropertiesPath))
                         {
                             SESMI.Properties = STSHP.ReadJson(PropertiesPath);
+                            SESMI.Properties.State = true;
                         }
 
                         switch (Info.Type)
                         {
+                            case SDEWT.Web:
+                                SEWVVW Web = new(Source);
+                                Web.Show();
+                                break;
                             case SDEWT.Video:
                                 SEWVVV Video = new(Source);
                                 Video.Show();

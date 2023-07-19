@@ -1,5 +1,4 @@
-﻿using CefSharp;
-using System.Windows;
+﻿using System.Windows;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 
@@ -11,7 +10,7 @@ namespace Sucrose.Engine.CS.Event
         {
             SECSMI.CefEngine.Address = SESHS.GetSource(SECSMI.Web).ToString();
 
-            SECSMI.CefEngine.ShowDevTools();
+            //SECSMI.CefEngine.ShowDevTools();
         }
     }
 }

@@ -5,6 +5,8 @@ namespace Sucrose.Engine.CS.Manage
 {
     internal static class Internal
     {
+        public static string Url = string.Empty;
+
         public static string Web = string.Empty;
 
         public static CefEngine CefEngine = new();

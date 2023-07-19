@@ -40,7 +40,10 @@ namespace Sucrose.Tray.Command
             {
                 SSHL.Kill();
 
-                SSHP.Kill(App);
+                if (!string.IsNullOrEmpty(App))
+                {
+                    SSHP.Kill(App);
+                }
 
                 SWUD.RefreshDesktop();
 

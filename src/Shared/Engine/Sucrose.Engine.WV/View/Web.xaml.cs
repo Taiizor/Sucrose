@@ -1,13 +1,11 @@
-﻿using CefSharp;
-using System.Windows;
-using SECSEW = Sucrose.Engine.CS.Event.Web;
-using SECSHCCM = Sucrose.Engine.CS.Handler.CustomContextMenu;
-using SECSMI = Sucrose.Engine.CS.Manage.Internal;
+﻿using System.Windows;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHP = Sucrose.Engine.Shared.Helper.Properties;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
+using SEWVEW = Sucrose.Engine.WV.Event.Web;
+using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 
-namespace Sucrose.Engine.CS.View
+namespace Sucrose.Engine.WV.View
 {
     /// <summary>
     /// Interaction logic for Web.xaml
@@ -20,24 +18,20 @@ namespace Sucrose.Engine.CS.View
 
             ContentRendered += (s, e) => SESEH.ContentRendered(this);
 
-            SECSMI.CefEngine.MenuHandler = new SECSHCCM();
+            Content = SEWVMI.WebEngine;
 
-            Content = SECSMI.CefEngine;
-
-            SECSMI.Web = Web;
-
-            SECSMI.CefEngine.BrowserSettings = SECSMI.CefSettings;
+            SEWVMI.Web = Web;
 
             if (SESMI.Properties.State)
             {
-                SESMI.PropertiesTimer.Tick += (s, e) => SESHP.ExecuteNormal(SECSMI.CefEngine.ExecuteScriptAsync);
+                SESMI.PropertiesTimer.Tick += (s, e) => SESHP.ExecuteTask(SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
                 SESMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SESMI.Properties.TriggerTime);
                 SESMI.PropertiesTimer.Start();
             }
 
-            SECSMI.CefEngine.Loaded += SECSEW.CefEngineLoaded;
+            SEWVMI.WebEngine.CoreWebView2InitializationCompleted += SEWVEW.WebEngineInitializationCompleted;
 
-            Closing += (s, e) => SECSMI.CefEngine.Dispose();
+            Closing += (s, e) => SEWVMI.WebEngine.Dispose();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
         }
     }

@@ -8,6 +8,14 @@ namespace Sucrose.Engine.Shared.Manage
     {
         public static STSHP Properties = new();
 
+        public delegate void ExecuteNormal(string Script);
+
+        public delegate Task<string> ExecuteTask(string script);
+
+        public static readonly DispatcherTimer GeneralTimer = new();
+
+        public static readonly DispatcherTimer PropertiesTimer = new();
+
         public static SESSB BrowserSettings = new()
         {
             WebView = WebArguments,
@@ -86,9 +94,5 @@ namespace Sucrose.Engine.Shared.Manage
             { "always-authorize-plugins", "1" },
             { "enable-npapi", "1" }
         };
-
-        public static readonly DispatcherTimer GeneralTimer = new();
-
-        public static readonly DispatcherTimer PropertiesTimer = new();
     }
 }

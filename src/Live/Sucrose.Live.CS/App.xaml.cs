@@ -189,6 +189,7 @@ namespace Sucrose.Live.CS
                         if (File.Exists(PropertiesPath))
                         {
                             SESMI.Properties = STSHP.ReadJson(PropertiesPath);
+                            SESMI.Properties.State = true;
                         }
 
                         switch (Info.Type)
