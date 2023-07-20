@@ -20,6 +20,8 @@ namespace Sucrose.Engine.WV.Event
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
+            SEWVMI.Initialized = true;
+
             Uri Video = SESHS.GetSource(SEWVMI.Video);
 
             if (SESHS.GetExtension(Video))

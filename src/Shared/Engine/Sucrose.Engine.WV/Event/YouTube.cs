@@ -16,6 +16,8 @@ namespace Sucrose.Engine.WV.Event
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
+            SEWVMI.Initialized = true;
+
             string Video = STSHV.GetYouTubeVideoId(SEWVMI.YouTube);
             string Playlist = STSHV.GetYouTubePlaylistId(SEWVMI.YouTube);
 

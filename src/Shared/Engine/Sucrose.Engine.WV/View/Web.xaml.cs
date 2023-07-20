@@ -22,7 +22,7 @@ namespace Sucrose.Engine.WV.View
 
             SEWVMI.Web = Web;
 
-            if (SESMI.Properties.State)
+            if (SEWVMI.Initialized && SESMI.Properties.State)
             {
                 SESMI.PropertiesTimer.Tick += (s, e) => SESHP.ExecuteTask(SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
                 SESMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SESMI.Properties.TriggerTime);

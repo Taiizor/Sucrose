@@ -42,11 +42,14 @@ namespace Sucrose.Engine.CS.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SECSHV.SetLoop(SESHD.GetLoop());
+            if (SECSMI.CefEngine.IsBrowserInitialized)
+            {
+                SECSHV.SetLoop(SESHD.GetLoop());
 
-            SECSHV.SetVolume(SESHD.GetVolume());
+                SECSHV.SetVolume(SESHD.GetVolume());
 
-            SECSHV.SetStretch(SESHD.GetStretch());
+                SECSHV.SetStretch(SESHD.GetStretch());
+            }
         }
     }
 }

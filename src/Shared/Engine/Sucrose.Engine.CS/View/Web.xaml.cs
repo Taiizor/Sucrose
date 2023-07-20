@@ -28,7 +28,7 @@ namespace Sucrose.Engine.CS.View
 
             SECSMI.CefEngine.BrowserSettings = SECSMI.CefSettings;
 
-            if (SESMI.Properties.State)
+            if (SECSMI.CefEngine.IsBrowserInitialized && SESMI.Properties.State)
             {
                 SESMI.PropertiesTimer.Tick += (s, e) => SESHP.ExecuteNormal(SECSMI.CefEngine.ExecuteScriptAsync);
                 SESMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SESMI.Properties.TriggerTime);

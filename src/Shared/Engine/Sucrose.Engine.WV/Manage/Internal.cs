@@ -4,6 +4,8 @@ namespace Sucrose.Engine.WV.Manage
 {
     internal static class Internal
     {
+        public static bool Initialized = false;
+
         public static string Url = string.Empty;
 
         public static string Web = string.Empty;

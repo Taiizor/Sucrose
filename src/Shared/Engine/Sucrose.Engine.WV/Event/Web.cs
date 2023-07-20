@@ -8,6 +8,8 @@ namespace Sucrose.Engine.WV.Event
     {
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
+            SEWVMI.Initialized = true;
+
             SEWVMI.WebEngine.Source = SESHS.GetSource(SEWVMI.Web);
 
             //SEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();

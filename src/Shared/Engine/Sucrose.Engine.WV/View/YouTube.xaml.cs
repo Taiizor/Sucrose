@@ -35,13 +35,16 @@ namespace Sucrose.Engine.WV.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SEWVHYT.First();
+            if (SEWVMI.Initialized)
+            {
+                SEWVHYT.First();
 
-            SEWVHYT.SetLoop(SESHD.GetLoop());
+                SEWVHYT.SetLoop(SESHD.GetLoop());
 
-            SEWVHYT.SetVolume(SESHD.GetVolume());
+                SEWVHYT.SetVolume(SESHD.GetVolume());
 
-            SEWVHYT.SetShuffle(SESHD.GetShuffle());
+                SEWVHYT.SetShuffle(SESHD.GetShuffle());
+            }
         }
     }
 }
