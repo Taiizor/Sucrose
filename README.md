@@ -42,8 +42,8 @@
 
   [![Build](https://img.shields.io/visual-studio-app-center/builds/Taiizor/Sucrose-Windows/develop/d2b0955197957ea68a10db87b87f1892063258b9?style=for-the-badge)](https://github.com/Taiizor/Sucrose)
 
-  [![Windows Support](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
-  <!--[![Xbox Support](https://img.shields.io/badge/Xbox-107C10?style=for-the-badge&logo=xbox&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
+  <!--[![Windows Support](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
+  [![Xbox Support](https://img.shields.io/badge/Xbox-107C10?style=for-the-badge&logo=xbox&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
   [![MacOS Support](https://img.shields.io/badge/MACOS-adb8c5?style=for-the-badge&logo=macos&logoColor=white)](https://github.com/Taiizor/Sucrose/releases/latest)-->
 
   <!--[![Ubuntu Support](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/Taiizor/Sucrose/releases/latest)
@@ -84,11 +84,26 @@
 - Power-saving mode to pause wallpapers when running on battery (laptops).
 
 ## Download
-##### Microsoft Store (Windows 10 1809 or above)
 
-[<img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Get it from Microsoft" width="142px" height="52px">](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
+<!--**Microsoft Store**
 
-##### [Installer (Windows 10 1903 or above)](https://github.com/Taiizor/Sucrose/releases/latest)
+<a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+  <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Microsoft Store' width='160'/>
+</a>
+
+<p></p>-->
+
+**GitHub**
+
+<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.0.0/Sucrose_1.0.0.0_x64.exe'>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
+</a>
+<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.0.0/Sucrose_1.0.0.0_x86.exe'>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
+</a>
+<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.0.0/Sucrose_1.0.0.0_arm64.exe'>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
+</a>
 
 ## Support
 We appreciate any contribution to Sucrose. Here are some ways to support the project:
@@ -107,6 +122,3 @@ We appreciate any contribution to Sucrose. Here are some ways to support the pro
 
 #### Spread the Word
 - Star this repository and share your experiences with Sucrose on social media.
-
-## License
-Sucrose is licensed under [GPL-v3.](https://github.com/Taiizor/Sucrose/blob/develop/LICENSE)
