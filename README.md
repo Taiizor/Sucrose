@@ -40,8 +40,6 @@
   [![Code Size](https://img.shields.io/github/languages/code-size/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
   [![Repo Size](https://img.shields.io/github/repo-size/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
 
-  [![Build](https://img.shields.io/visual-studio-app-center/builds/Taiizor/Sucrose-Windows/develop/d2b0955197957ea68a10db87b87f1892063258b9?style=for-the-badge)](https://github.com/Taiizor/Sucrose)
-
   <!--[![Windows Support](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
   [![Xbox Support](https://img.shields.io/badge/Xbox-107C10?style=for-the-badge&logo=xbox&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
   [![MacOS Support](https://img.shields.io/badge/MACOS-adb8c5?style=for-the-badge&logo=macos&logoColor=white)](https://github.com/Taiizor/Sucrose/releases/latest)-->
