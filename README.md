@@ -1,9 +1,10 @@
-<div align="center">
-  <img height=150 src=".images/Logo.png" />
-</div>
+<p align="center">
+  <img alt="Sucrose Logo" height=150 src=".images/Logo.png" />
+  <h2 align="center">Sucrose - Wallpaper Engine</h2>
+</p>
 
 <p align="center">
-  <span><b>Sucrose</b> is a wallpaper engine. It allows you to have a fun and good time with the various types of wallpapers it offers.</span>
+  <span><b>Sucrose</b> is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.</span>
 </p>
 
 <h4 align="center">
@@ -53,89 +54,59 @@
 
 </div>
 
----
+## Features
 
-# What is Sucrose?
+*Take a moment, preview GIF clips may take some time to load.*
 
-![View](.screenshots/View.png)
+#### Wallpaper Varieties
+| Theme Type | Example |  Interactive | Resolution | Performance |
+|--|--|--|--|--|
+| Gif | <img src=".screenshots/View.png" width="256" height="144"/><br>Sample Gif Theme | No | Variable | Fixed |
+| Url | <img src=".screenshots/View12.png" width="256" height="144"/><br>Sample Url Theme | Yes | Fixed | Variable |
+| Web | <img src=".screenshots/View6.png" width="256" height="144"/><br>Sample Web Theme | Yes | Fixed | Variable |
+| Video | <img src=".screenshots/View2.png" width="256" height="144"/><br>Sample Video Theme | No | Variable | Fixed |
+| YouTube | <img src=".screenshots/View5.png" width="256" height="144"/><br>Sample YouTube Theme | No | Fixed | Variable |
+| Application | <img src=".screenshots/View3.png" width="256" height="144"/><br>Sample Application Theme | No | Fixed | Variable |
 
-<details>
+#### Interactive Features
+- **Audio Visualization:** Display real-time audio visualization on your wallpapers.
+- **Hardware Monitoring:** Show CPU, GPU, RAM usage and more on your wallpapers.
+- **Interactivity:** Allow users to interact with themes using mouse and keyboard actions.
+- **JavaScript Integration:** Send computer data to JavaScript functions in themes for customization.
 
-  <summary>View More Screenshots</summary>
+#### Create and Share Themes
+- Create your own custom themes and share them with friends or the Sucrose community.
+- Explore a gallery of user-submitted themes and download them directly from the Sucrose store.
 
-  ![View2](.screenshots/View2.png)
-  ![View3](.screenshots/View3.png)
-  ![View4](.screenshots/View4.png)
-  ![View5](.screenshots/View5.png)
-  ![View6](.screenshots/View6.png)
-  ![View7](.screenshots/View7.png)
-  ![View8](.screenshots/View8.png)
-  ![View9](.screenshots/View9.png)
-  ![View10](.screenshots/View10.png)
-  ![View11](.screenshots/View11.png)
-  ![View12](.screenshots/View12.png)
+#### Performance
+- Optimize CPU and GPU usage for smooth performance.
+- Auto-pause wallpapers when fullscreen applications/games run to conserve resources.
+- Power-saving mode to pause wallpapers when running on battery (laptops).
 
-</details>
+## Download
+##### Microsoft Store (Windows 10 1809 or above)
 
-<!--
-Sucrose it allows you to have a fun and good time with the various types of games it offers. Some Sucrose's game types in summary are:
+[<img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Get it from Microsoft" width="142px" height="52px">](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
 
--   Race
--   Sport
--   Puzzle
--   Action
--   Platform
--   Strategy
--   Adventure
--   And many more game types!
+##### [Installer (Windows 10 1903 or above)](https://github.com/Taiizor/Sucrose/releases/latest)
 
-Sucrose is currently under heavy development. You can give your suggestions and feedback on our [Discussions](https://github.com/Taiizor/Sucrose/discussions) page. If you feel comfortable in writing code using C# (.NET), we highly encourage you to [contribute to this project](https://github.com/Taiizor/Sucrose/graphs/contributors).
+## Support
+We appreciate any contribution to Sucrose. Here are some ways to support the project:
 
----
+#### Developer
+- Contribute to the codebase and help improve Sucrose.
 
-## System Requirements
+#### Designer
+- Improve the UI/UX of Sucrose for a better user experience.
 
-- **Windows 11**
-- **Windows 10 2004 and above**
+#### Localization
+- Help translate Sucrose into more languages to reach a broader audience.
 
----
+#### Feedback & Bug Reports
+- Suggest new features or report bugs to help us improve Sucrose.
 
-## Installation
+#### Spread the Word
+- Star this repository and share your experiences with Sucrose on social media.
 
-Soferity: Game Portal is available for you to install via [Microsoft Store](https://www.microsoft.com/store/apps/9P1JZMGT34M2), [GitHub](https://github.com/Taiizor/Sucrose/releases/latest).
-
-All the distribution methods mentioned above are supported, however installing the app from the **Microsoft Store** is **recommended** as it is easier to install and will automatically remain up to date.
-
-**Microsoft Store**
-
-<a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
-  <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Microsoft Store' width='160'/>
-</a>
-
-<p></p>
-
-**GitHub**
-
-<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.9/GamePortal_1.0.9.0_x64.msix'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
-</a>
-<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.9/GamePortal_1.0.9.0_x86.msix'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
-</a>
-
-<p></p>
-
-**If Windows Prompts about Untrusted Application**
-
-* Simply right click the MSIX and click Properties
-* Go to Digital Signatures Tab
-* Select Taiizor(BAEB534D-BC36-4432-8EEF-E0088D896FB9) and click Details
-* In next popup select View Certificate
-* In next popup select Install Certificate
-* In next step select Local machine (If a user account prompt appear click yes)
-* Select Place all certificates in Following store and click browse select Trusted People and click OK and Next
-* Click Finish
-* Confirmation windows will appear After that Try Installing the MSIX
-
----
--->
+## License
+Sucrose is licensed under [GPL-v3.](https://github.com/Taiizor/Sucrose/blob/develop/LICENSE)
