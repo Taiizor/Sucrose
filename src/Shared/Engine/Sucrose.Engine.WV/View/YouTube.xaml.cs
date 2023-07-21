@@ -35,7 +35,7 @@ namespace Sucrose.Engine.WV.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            if (SEWVMI.Initialized)
+            if (SESMI.Initialized)
             {
                 SEWVHYT.First();
 

@@ -6,6 +6,8 @@ namespace Sucrose.Engine.Shared.Manage
 {
     internal static class Internal
     {
+        public static bool Initialized = false;
+
         public static STSHP Properties = new();
 
         public delegate void ExecuteNormal(string Script);

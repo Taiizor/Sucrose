@@ -33,6 +33,7 @@ namespace Sucrose.Engine.CS.View
             SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
             SESMI.GeneralTimer.Start();
 
+            SECSMI.CefEngine.IsBrowserInitializedChanged += SECSEV.CefEngineInitializedChanged;
             SECSMI.CefEngine.FrameLoadEnd += SECSEV.CefEngineFrameLoadEnd;
             SECSMI.CefEngine.Loaded += SECSEV.CefEngineLoaded;
 
@@ -42,7 +43,7 @@ namespace Sucrose.Engine.CS.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            if (SECSMI.CefEngine.IsBrowserInitialized)
+            if (SESMI.Initialized)
             {
                 SECSHV.SetLoop(SESHD.GetLoop());
 

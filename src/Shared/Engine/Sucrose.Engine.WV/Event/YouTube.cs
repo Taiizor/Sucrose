@@ -1,6 +1,7 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
 using STSHV = Sucrose.Theme.Shared.Helper.Various;
 
@@ -16,7 +17,7 @@ namespace Sucrose.Engine.WV.Event
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            SEWVMI.Initialized = true;
+            SESMI.Initialized = e.IsSuccess;
 
             string Video = STSHV.GetYouTubeVideoId(SEWVMI.YouTube);
             string Playlist = STSHV.GetYouTubePlaylistId(SEWVMI.YouTube);

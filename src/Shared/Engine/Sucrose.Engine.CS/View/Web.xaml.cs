@@ -28,13 +28,14 @@ namespace Sucrose.Engine.CS.View
 
             SECSMI.CefEngine.BrowserSettings = SECSMI.CefSettings;
 
-            if (SECSMI.CefEngine.IsBrowserInitialized && SESMI.Properties.State)
+            if (SESMI.Properties.State)
             {
                 SESMI.PropertiesTimer.Tick += (s, e) => SESHP.ExecuteNormal(SECSMI.CefEngine.ExecuteScriptAsync);
                 SESMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SESMI.Properties.TriggerTime);
                 SESMI.PropertiesTimer.Start();
             }
 
+            SECSMI.CefEngine.IsBrowserInitializedChanged += SECSEW.CefEngineInitializedChanged;
             SECSMI.CefEngine.Loaded += SECSEW.CefEngineLoaded;
 
             Closing += (s, e) => SECSMI.CefEngine.Dispose();
