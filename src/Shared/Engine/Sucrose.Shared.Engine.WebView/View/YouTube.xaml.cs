@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
+using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEYT = Sucrose.Shared.Engine.WebView.Event.YouTube;
 using SSEWVHYT = Sucrose.Shared.Engine.WebView.Helper.YouTube;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
@@ -17,33 +17,33 @@ namespace Sucrose.Shared.Engine.WebView.View
         {
             InitializeComponent();
 
-            ContentRendered += (s, e) => SESEH.ContentRendered(this);
+            ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 
             Content = SSEWVMI.WebEngine;
 
             SSEWVMI.YouTube = YouTube;
 
-            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
-            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
-            SESMI.GeneralTimer.Start();
+            SSEMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SSEMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SSEMI.GeneralTimer.Start();
 
             SSEWVMI.WebEngine.CoreWebView2InitializationCompleted += SSEWVEYT.WebEngineInitializationCompleted;
 
             Closing += (s, e) => SSEWVMI.WebEngine.Dispose();
-            Loaded += (s, e) => SESEH.WindowLoaded(this);
+            Loaded += (s, e) => SSEEH.WindowLoaded(this);
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            if (SESMI.Initialized)
+            if (SSEMI.Initialized)
             {
                 SSEWVHYT.First();
 
-                SSEWVHYT.SetLoop(SESHD.GetLoop());
+                SSEWVHYT.SetLoop(SSEHD.GetLoop());
 
-                SSEWVHYT.SetVolume(SESHD.GetVolume());
+                SSEWVHYT.SetVolume(SSEHD.GetVolume());
 
-                SSEWVHYT.SetShuffle(SESHD.GetShuffle());
+                SSEWVHYT.SetShuffle(SSEHD.GetShuffle());
             }
         }
     }

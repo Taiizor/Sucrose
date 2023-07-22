@@ -1,14 +1,14 @@
 ﻿using System.Diagnostics;
 using System.Windows;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SWE = Skylark.Wing.Engine;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
 using SWNM = Skylark.Wing.Native.Methods;
 
-namespace Sucrose.Engine.Shared.Event
+namespace Sucrose.Shared.Engine.Event
 {
     internal static class Handler
     {
@@ -16,10 +16,10 @@ namespace Sucrose.Engine.Shared.Event
         {
             IntPtr Handle = SWHWI.Handle(Window);
 
-            //ShowInTaskbar = false : causing issue with windows10-windows11 Taskview.
+            //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
             SWHWO.RemoveWindowFromTaskbar(Handle);
 
-            //this hides the window from taskbar and also fixes crash when win10-win11 taskview is launched. 
+            //this hides the window from taskbar and also fixes crash when Win10-Win11 taskview is launched. 
             Window.ShowInTaskbar = true;
             Window.ShowInTaskbar = false;
         }
@@ -28,7 +28,7 @@ namespace Sucrose.Engine.Shared.Event
         {
             IntPtr Handle = SWHPI.MainWindowHandle(Process);
 
-            //ShowInTaskbar = false : causing issue with windows10-windows11 Taskview.
+            //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
             SWHWO.RemoveWindowFromTaskbar(Handle);
 
             SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
@@ -41,32 +41,32 @@ namespace Sucrose.Engine.Shared.Event
 
         public static void ContentRendered(Window Window)
         {
-            switch (SESHD.GetDisplayType())
+            switch (SSEHD.GetDisplayType())
             {
                 case SSDEDT.Expand:
-                    SWE.WallpaperWindow(Window, SESHD.GetExpandScreenType(), SESHD.GetScreenType());
+                    SWE.WallpaperWindow(Window, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
                     break;
                 case SSDEDT.Duplicate:
-                    SWE.WallpaperWindow(Window, SESHD.GetDuplicateScreenType(), SESHD.GetScreenType());
+                    SWE.WallpaperWindow(Window, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
                     break;
                 default:
-                    SWE.WallpaperWindow(Window, SESHD.GetScreenIndex(), SESHD.GetScreenType());
+                    SWE.WallpaperWindow(Window, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
                     break;
             }
         }
 
         public static void ApplicationRendered(Process Process)
         {
-            switch (SESHD.GetDisplayType())
+            switch (SSEHD.GetDisplayType())
             {
                 case SSDEDT.Expand:
-                    SWE.WallpaperProcess(Process, SESHD.GetExpandScreenType(), SESHD.GetScreenType());
+                    SWE.WallpaperProcess(Process, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
                     break;
                 case SSDEDT.Duplicate:
-                    //SWE.WallpaperProcess(Process, SESHD.GetDuplicateScreenType(), SESHD.GetScreenType());
+                    //SWE.WallpaperProcess(Process, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
                     break;
                 default:
-                    SWE.WallpaperProcess(Process, SESHD.GetScreenIndex(), SESHD.GetScreenType());
+                    SWE.WallpaperProcess(Process, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
                     break;
             }
 

@@ -1,12 +1,12 @@
 ﻿using System.Windows;
-using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
-using SESHS = Sucrose.Engine.Shared.Helper.Source;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SSECSEV = Sucrose.Shared.Engine.CefSharp.Event.Video;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHV = Sucrose.Shared.Engine.CefSharp.Helper.Video;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHS = Sucrose.Shared.Engine.Helper.Source;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
 {
@@ -19,37 +19,37 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         {
             InitializeComponent();
 
-            ContentRendered += (s, e) => SESEH.ContentRendered(this);
+            ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 
             SSECSMI.CefEngine.MenuHandler = new SSECSHCCM();
 
             Content = SSECSMI.CefEngine;
 
-            SSECSMI.CefEngine.Address = SESHS.GetSource(Video).ToString();
+            SSECSMI.CefEngine.Address = SSEHS.GetSource(Video).ToString();
 
             SSECSMI.CefEngine.BrowserSettings = SSECSMI.CefSettings;
 
-            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
-            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
-            SESMI.GeneralTimer.Start();
+            SSEMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SSEMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SSEMI.GeneralTimer.Start();
 
             SSECSMI.CefEngine.IsBrowserInitializedChanged += SSECSEV.CefEngineInitializedChanged;
             SSECSMI.CefEngine.FrameLoadEnd += SSECSEV.CefEngineFrameLoadEnd;
             SSECSMI.CefEngine.Loaded += SSECSEV.CefEngineLoaded;
 
             Closing += (s, e) => SSECSMI.CefEngine.Dispose();
-            Loaded += (s, e) => SESEH.WindowLoaded(this);
+            Loaded += (s, e) => SSEEH.WindowLoaded(this);
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            if (SESMI.Initialized)
+            if (SSEMI.Initialized)
             {
-                SSECSHV.SetLoop(SESHD.GetLoop());
+                SSECSHV.SetLoop(SSEHD.GetLoop());
 
-                SSECSHV.SetVolume(SESHD.GetVolume());
+                SSECSHV.SetVolume(SSEHD.GetVolume());
 
-                SSECSHV.SetStretch(SESHD.GetStretch());
+                SSECSHV.SetStretch(SSEHD.GetStretch());
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
+using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEV = Sucrose.Shared.Engine.WebView.Event.Video;
 using SSEWVHV = Sucrose.Shared.Engine.WebView.Helper.Video;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
@@ -17,31 +17,31 @@ namespace Sucrose.Shared.Engine.WebView.View
         {
             InitializeComponent();
 
-            ContentRendered += (s, e) => SESEH.ContentRendered(this);
+            ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 
             Content = SSEWVMI.WebEngine;
 
             SSEWVMI.Video = Video;
 
-            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
-            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
-            SESMI.GeneralTimer.Start();
+            SSEMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SSEMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SSEMI.GeneralTimer.Start();
 
             SSEWVMI.WebEngine.CoreWebView2InitializationCompleted += SSEWVEV.WebEngineInitializationCompleted;
 
             Closing += (s, e) => SSEWVMI.WebEngine.Dispose();
-            Loaded += (s, e) => SESEH.WindowLoaded(this);
+            Loaded += (s, e) => SSEEH.WindowLoaded(this);
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            if (SESMI.Initialized)
+            if (SSEMI.Initialized)
             {
-                SSEWVHV.SetLoop(SESHD.GetLoop());
+                SSEWVHV.SetLoop(SSEHD.GetLoop());
 
-                SSEWVHV.SetVolume(SESHD.GetVolume());
+                SSEWVHV.SetVolume(SSEHD.GetVolume());
 
-                SSEWVHV.SetStretch(SESHD.GetStretch());
+                SSEWVHV.SetStretch(SSEHD.GetStretch());
             }
         }
     }

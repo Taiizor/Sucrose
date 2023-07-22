@@ -2,13 +2,13 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSENVV = Sucrose.Shared.Engine.Nebula.View.Video;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -187,7 +187,7 @@ namespace Sucrose.Live.Nebula
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SESHR.Check())
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
                 Mutex.ReleaseMutex();
 

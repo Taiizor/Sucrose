@@ -3,14 +3,14 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SESHR = Sucrose.Engine.Shared.Helper.Run;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
 using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
@@ -148,16 +148,16 @@ namespace Sucrose.Live.WebView
                         Language = Culture
                     };
 
-                    SESMI.BrowserSettings.WebView = SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
+                    SSEMI.BrowserSettings.WebView = SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
 
-                    if (!SESMI.BrowserSettings.WebView.Any())
+                    if (!SSEMI.BrowserSettings.WebView.Any())
                     {
-                        SESMI.BrowserSettings.WebView = SESMI.WebArguments;
+                        SSEMI.BrowserSettings.WebView = SSEMI.WebArguments;
 
-                        SMMI.EngineSettingManager.SetSetting(SMC.WebArguments, SESMI.BrowserSettings.WebView);
+                        SMMI.EngineSettingManager.SetSetting(SMC.WebArguments, SSEMI.BrowserSettings.WebView);
                     }
 
-                    Options.AdditionalBrowserArguments = string.Join(" ", SESMI.BrowserSettings.WebView);
+                    Options.AdditionalBrowserArguments = string.Join(" ", SSEMI.BrowserSettings.WebView);
 
                     Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
@@ -176,8 +176,8 @@ namespace Sucrose.Live.WebView
                     {
                         if (File.Exists(PropertiesPath))
                         {
-                            SESMI.Properties = SSTHP.ReadJson(PropertiesPath);
-                            SESMI.Properties.State = true;
+                            SSEMI.Properties = SSTHP.ReadJson(PropertiesPath);
+                            SSEMI.Properties.State = true;
                         }
 
                         switch (Info.Type)
@@ -228,7 +228,7 @@ namespace Sucrose.Live.WebView
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SESHR.Check())
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
                 Mutex.ReleaseMutex();
 

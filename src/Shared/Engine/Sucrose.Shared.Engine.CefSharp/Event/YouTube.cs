@@ -1,9 +1,9 @@
 ﻿using CefSharp;
 using System.Windows;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
-using SESHS = Sucrose.Engine.Shared.Helper.Source;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHS = Sucrose.Shared.Engine.Helper.Source;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
@@ -12,12 +12,12 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
     {
         public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            SESMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
+            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
-            SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({SESHD.GetVolume()});");
+            SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({SSEHD.GetVolume()});");
             SSECSMI.CefEngine.ExecuteScriptAsync("toggleFullScreen();");
         }
 
@@ -26,11 +26,11 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
             string Video = SSTHV.GetYouTubeVideoId(SSECSMI.YouTube);
             string Playlist = SSTHV.GetYouTubePlaylistId(SSECSMI.YouTube);
 
-            string Path = SESHS.GetYouTubeContentPath();
+            string Path = SSEHS.GetYouTubeContentPath();
 
-            SESHS.WriteYouTubeContent(Path, Video, Playlist);
+            SSEHS.WriteYouTubeContent(Path, Video, Playlist);
 
-            SSECSMI.CefEngine.Address = SESHS.GetSource(Path).ToString();
+            SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
 
             //SSECSMI.CefEngine.ShowDevTools();
         }

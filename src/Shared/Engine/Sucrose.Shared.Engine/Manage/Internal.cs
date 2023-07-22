@@ -1,8 +1,8 @@
 ﻿using System.Windows.Threading;
-using SESSB = Sucrose.Engine.Shared.Setting.Browser;
+using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 
-namespace Sucrose.Engine.Shared.Manage
+namespace Sucrose.Shared.Engine.Manage
 {
     internal static class Internal
     {
@@ -18,7 +18,7 @@ namespace Sucrose.Engine.Shared.Manage
 
         public static readonly DispatcherTimer PropertiesTimer = new();
 
-        public static SESSB BrowserSettings = new()
+        public static SSESB BrowserSettings = new()
         {
             WebView = WebArguments,
             CefSharp = CefArguments

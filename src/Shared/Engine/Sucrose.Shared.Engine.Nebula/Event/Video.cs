@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSENMI = Sucrose.Shared.Engine.Nebula.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.Nebula.Event
@@ -18,7 +18,7 @@ namespace Sucrose.Shared.Engine.Nebula.Event
 
         public static void MediaEngineEnded(object sender, EventArgs e)
         {
-            if (SESHD.GetLoop())
+            if (SSEHD.GetLoop())
             {
                 SSENMI.MediaEngine.Position = TimeSpan.Zero;
                 SSENMI.MediaEngine.Play();

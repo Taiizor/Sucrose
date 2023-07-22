@@ -7,7 +7,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 
-namespace Sucrose.Engine.Shared.Helper
+namespace Sucrose.Shared.Engine.Helper
 {
     internal static class Data
     {

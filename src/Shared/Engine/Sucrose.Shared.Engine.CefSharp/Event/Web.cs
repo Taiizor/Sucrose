@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using SESHS = Sucrose.Engine.Shared.Helper.Source;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSEHS = Sucrose.Shared.Engine.Helper.Source;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {
@@ -9,12 +9,12 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
     {
         public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            SESMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
+            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)
         {
-            SSECSMI.CefEngine.Address = SESHS.GetSource(SSECSMI.Web).ToString();
+            SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
 
             //SSECSMI.CefEngine.ShowDevTools();
         }

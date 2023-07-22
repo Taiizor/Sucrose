@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SESHP = Sucrose.Engine.Shared.Helper.Properties;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
+using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEW = Sucrose.Shared.Engine.WebView.Event.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
@@ -16,23 +16,23 @@ namespace Sucrose.Shared.Engine.WebView.View
         {
             InitializeComponent();
 
-            ContentRendered += (s, e) => SESEH.ContentRendered(this);
+            ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 
             Content = SSEWVMI.WebEngine;
 
             SSEWVMI.Web = Web;
 
-            if (SESMI.Properties.State)
+            if (SSEMI.Properties.State)
             {
-                SESMI.PropertiesTimer.Tick += (s, e) => SESHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
-                SESMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SESMI.Properties.TriggerTime);
-                SESMI.PropertiesTimer.Start();
+                SSEMI.PropertiesTimer.Tick += (s, e) => SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                SSEMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SSEMI.Properties.TriggerTime);
+                SSEMI.PropertiesTimer.Start();
             }
 
             SSEWVMI.WebEngine.CoreWebView2InitializationCompleted += SSEWVEW.WebEngineInitializationCompleted;
 
             Closing += (s, e) => SSEWVMI.WebEngine.Dispose();
-            Loaded += (s, e) => SESEH.WindowLoaded(this);
+            Loaded += (s, e) => SSEEH.WindowLoaded(this);
         }
     }
 }

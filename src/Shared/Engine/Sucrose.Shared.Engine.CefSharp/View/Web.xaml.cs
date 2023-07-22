@@ -1,11 +1,11 @@
 ﻿using CefSharp;
 using System.Windows;
-using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SESHP = Sucrose.Engine.Shared.Helper.Properties;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SSECSEW = Sucrose.Shared.Engine.CefSharp.Event.Web;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
 {
@@ -18,7 +18,7 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         {
             InitializeComponent();
 
-            ContentRendered += (s, e) => SESEH.ContentRendered(this);
+            ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 
             SSECSMI.CefEngine.MenuHandler = new SSECSHCCM();
 
@@ -28,18 +28,18 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
             SSECSMI.CefEngine.BrowserSettings = SSECSMI.CefSettings;
 
-            if (SESMI.Properties.State)
+            if (SSEMI.Properties.State)
             {
-                SESMI.PropertiesTimer.Tick += (s, e) => SESHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
-                SESMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SESMI.Properties.TriggerTime);
-                SESMI.PropertiesTimer.Start();
+                SSEMI.PropertiesTimer.Tick += (s, e) => SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                SSEMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SSEMI.Properties.TriggerTime);
+                SSEMI.PropertiesTimer.Start();
             }
 
             SSECSMI.CefEngine.IsBrowserInitializedChanged += SSECSEW.CefEngineInitializedChanged;
             SSECSMI.CefEngine.Loaded += SSECSEW.CefEngineLoaded;
 
             Closing += (s, e) => SSECSMI.CefEngine.Dispose();
-            Loaded += (s, e) => SESEH.WindowLoaded(this);
+            Loaded += (s, e) => SSEEH.WindowLoaded(this);
         }
     }
 }

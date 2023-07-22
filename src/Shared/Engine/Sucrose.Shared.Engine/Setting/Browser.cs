@@ -1,4 +1,4 @@
-﻿namespace Sucrose.Engine.Shared.Setting
+﻿namespace Sucrose.Shared.Engine.Setting
 {
     internal class Browser
     {

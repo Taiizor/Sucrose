@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using SESEH = Sucrose.Engine.Shared.Event.Handler;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
-using SESHS = Sucrose.Engine.Shared.Helper.Source;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
+using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHS = Sucrose.Shared.Engine.Helper.Source;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENEV = Sucrose.Shared.Engine.Nebula.Event.Video;
 using SSENHV = Sucrose.Shared.Engine.Nebula.Helper.Video;
 using SSENMI = Sucrose.Shared.Engine.Nebula.Manage.Internal;
@@ -19,33 +19,33 @@ namespace Sucrose.Shared.Engine.Nebula.View
         {
             InitializeComponent();
 
-            ContentRendered += (s, e) => SESEH.ContentRendered(this);
+            ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 
             Content = SSENMI.MediaEngine;
 
-            SSENMI.MediaEngine.Source = SESHS.GetSource(Video);
+            SSENMI.MediaEngine.Source = SSEHS.GetSource(Video);
 
-            SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
-            SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
-            SESMI.GeneralTimer.Start();
+            SSEMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
+            SSEMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
+            SSEMI.GeneralTimer.Start();
 
             SSENMI.MediaEngine.MediaEnded += SSENEV.MediaEngineEnded;
 
             Closing += (s, e) => SSENMI.MediaEngine.Close();
-            Loaded += (s, e) => SESEH.WindowLoaded(this);
+            Loaded += (s, e) => SSEEH.WindowLoaded(this);
 
-            SSENHV.SetVolume(SESHD.GetVolume());
+            SSENHV.SetVolume(SSEHD.GetVolume());
 
             SSENHV.Play();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SSENHV.SetLoop(SESHD.GetLoop());
+            SSENHV.SetLoop(SSEHD.GetLoop());
 
-            SSENHV.SetVolume(SESHD.GetVolume());
+            SSENHV.SetVolume(SSEHD.GetVolume());
 
-            SSENMI.MediaEngine.Stretch = (Stretch)SESHD.GetStretch();
+            SSENMI.MediaEngine.Stretch = (Stretch)SSEHD.GetStretch();
         }
     }
 }

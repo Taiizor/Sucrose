@@ -1,9 +1,9 @@
 ﻿using CefSharp;
 using System.Windows;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SSECSHV = Sucrose.Shared.Engine.CefSharp.Helper.Video;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {
@@ -11,7 +11,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
     {
         public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            SESMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
+            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
@@ -23,8 +23,8 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
             SSECSMI.CefEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].style = \"position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;\";");
 
-            SSECSHV.SetStretch(SESHD.GetStretch());
-            SSECSHV.SetVolume(SESHD.GetVolume());
+            SSECSHV.SetStretch(SSEHD.GetStretch());
+            SSECSHV.SetVolume(SSEHD.GetVolume());
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)

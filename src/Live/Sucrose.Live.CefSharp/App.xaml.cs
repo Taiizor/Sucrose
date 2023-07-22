@@ -4,8 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SESHR = Sucrose.Engine.Shared.Helper.Run;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
@@ -15,6 +13,8 @@ using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
 using SSECSVW = Sucrose.Shared.Engine.CefSharp.View.Web;
 using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -152,16 +152,16 @@ namespace Sucrose.Live.CefSharp
                         CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
                     };
 
-                    SESMI.BrowserSettings.CefSharp = SMMI.EngineSettingManager.GetSetting(SMC.CefArguments, new Dictionary<string, string>());
+                    SSEMI.BrowserSettings.CefSharp = SMMI.EngineSettingManager.GetSetting(SMC.CefArguments, new Dictionary<string, string>());
 
-                    if (!SESMI.BrowserSettings.CefSharp.Any())
+                    if (!SSEMI.BrowserSettings.CefSharp.Any())
                     {
-                        SESMI.BrowserSettings.CefSharp = SESMI.CefArguments;
+                        SSEMI.BrowserSettings.CefSharp = SSEMI.CefArguments;
 
-                        SMMI.EngineSettingManager.SetSetting(SMC.CefArguments, SESMI.BrowserSettings.CefSharp);
+                        SMMI.EngineSettingManager.SetSetting(SMC.CefArguments, SSEMI.BrowserSettings.CefSharp);
                     }
 
-                    foreach (KeyValuePair<string, string> Argument in SESMI.BrowserSettings.CefSharp)
+                    foreach (KeyValuePair<string, string> Argument in SSEMI.BrowserSettings.CefSharp)
                     {
                         Settings.CefCommandLineArgs.Add(Argument.Key, Argument.Value);
                     }
@@ -188,8 +188,8 @@ namespace Sucrose.Live.CefSharp
                     {
                         if (File.Exists(PropertiesPath))
                         {
-                            SESMI.Properties = SSTHP.ReadJson(PropertiesPath);
-                            SESMI.Properties.State = true;
+                            SSEMI.Properties = SSTHP.ReadJson(PropertiesPath);
+                            SSEMI.Properties.State = true;
                         }
 
                         switch (Info.Type)
@@ -240,7 +240,7 @@ namespace Sucrose.Live.CefSharp
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SESHR.Check())
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
                 Mutex.ReleaseMutex();
 

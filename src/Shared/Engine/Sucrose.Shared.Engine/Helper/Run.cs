@@ -2,7 +2,7 @@
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
-namespace Sucrose.Engine.Shared.Helper
+namespace Sucrose.Shared.Engine.Helper
 {
     internal static class Run
     {
