@@ -7,11 +7,11 @@ using SEVET = Skylark.Enum.VideoExtensionType;
 using SEWET = Skylark.Enum.WebExtensionType;
 using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
-using STSHI = Sucrose.Theme.Shared.Helper.Info;
-using STSHP = Sucrose.Theme.Shared.Helper.Properties;
-using STSHV = Sucrose.Theme.Shared.Helper.Various;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
-namespace Sucrose.Theme.Shared.Helper
+namespace Sucrose.Shared.Theme.Helper
 {
     internal static class Zip
     {
@@ -88,7 +88,7 @@ namespace Sucrose.Theme.Shared.Helper
                 }
 
                 // Arşivdeki SucroseInfo.json dosyasını okuma
-                STSHI Info = STSHI.FromJson(ReadFile(Archive, SMR.SucroseInfo));
+                SSTHI Info = SSTHI.FromJson(ReadFile(Archive, SMR.SucroseInfo));
 
                 // Info içindeki Thumbnail dosyası var mı?
                 if (!CheckFile(Archive, Info.Thumbnail))
@@ -126,13 +126,13 @@ namespace Sucrose.Theme.Shared.Helper
                         return SDECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SDEWT.Url && !STSHV.IsUrl(Info.Source))
+                else if (Info.Type == SDEWT.Url && !SSTHV.IsUrl(Info.Source))
                 {
                     return SDECT.InvalidUrl;
                 }
                 else if (Info.Type == SDEWT.Gif)
                 {
-                    if (!STSHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
+                    if (!SSTHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
                     {
                         return SDECT.Source;
                     }
@@ -143,7 +143,7 @@ namespace Sucrose.Theme.Shared.Helper
                 }
                 else if (Info.Type == SDEWT.Video)
                 {
-                    if (!STSHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
+                    if (!SSTHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
                     {
                         return SDECT.Source;
                     }
@@ -152,7 +152,7 @@ namespace Sucrose.Theme.Shared.Helper
                         return SDECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SDEWT.YouTube && !STSHV.IsYouTube(Info.Source) && !STSHV.IsYouTubeMusic(Info.Source))
+                else if (Info.Type == SDEWT.YouTube && !SSTHV.IsYouTube(Info.Source) && !SSTHV.IsYouTubeMusic(Info.Source))
                 {
                     return SDECT.InvalidUrl;
                 }
@@ -172,7 +172,7 @@ namespace Sucrose.Theme.Shared.Helper
                 if (CheckFile(Archive, SMR.SucroseProperties))
                 {
                     // Arşivdeki SucroseProperties.json dosyasını okuma
-                    STSHP Properties = STSHP.FromJson(ReadFile(Archive, SMR.SucroseProperties));
+                    SSTHP Properties = SSTHP.FromJson(ReadFile(Archive, SMR.SucroseProperties));
 
                     // Properties içindeki TriggerTime değeri 1'den küçük mü?
                     if (Properties.TriggerTime <= 0)

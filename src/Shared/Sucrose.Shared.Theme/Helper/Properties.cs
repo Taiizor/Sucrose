@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 
-namespace Sucrose.Theme.Shared.Helper
+namespace Sucrose.Shared.Theme.Helper
 {
     internal partial class Properties
     {

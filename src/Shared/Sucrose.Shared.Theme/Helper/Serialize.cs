@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Sucrose.Theme.Shared.Helper
+namespace Sucrose.Shared.Theme.Helper
 {
     internal static class Serialize
     {

@@ -2,7 +2,7 @@
 using System.IO;
 using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
 
-namespace Sucrose.Theme.Shared.Helper
+namespace Sucrose.Shared.Theme.Helper
 {
     internal partial class Info
     {

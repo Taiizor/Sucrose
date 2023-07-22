@@ -10,8 +10,8 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using STSHI = Sucrose.Theme.Shared.Helper.Info;
-using STSHV = Sucrose.Theme.Shared.Helper.Various;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
@@ -136,16 +136,16 @@ namespace Sucrose.Live.VA
 
                 if (File.Exists(InfoPath))
                 {
-                    STSHI Info = STSHI.ReadJson(InfoPath);
+                    SSTHI Info = SSTHI.ReadJson(InfoPath);
 
                     string Source = Info.Source;
 
-                    if (!STSHV.IsUrl(Source))
+                    if (!SSTHV.IsUrl(Source))
                     {
                         Source = Path.Combine(Directory, Folder, Source);
                     }
 
-                    if (STSHV.IsUrl(Source) || File.Exists(Source))
+                    if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {
                         switch (Info.Type)
                         {

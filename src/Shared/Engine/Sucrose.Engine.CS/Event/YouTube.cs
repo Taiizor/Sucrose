@@ -4,7 +4,7 @@ using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
-using STSHV = Sucrose.Theme.Shared.Helper.Various;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
 namespace Sucrose.Engine.CS.Event
 {
@@ -23,8 +23,8 @@ namespace Sucrose.Engine.CS.Event
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)
         {
-            string Video = STSHV.GetYouTubeVideoId(SECSMI.YouTube);
-            string Playlist = STSHV.GetYouTubePlaylistId(SECSMI.YouTube);
+            string Video = SSTHV.GetYouTubeVideoId(SECSMI.YouTube);
+            string Playlist = SSTHV.GetYouTubePlaylistId(SECSMI.YouTube);
 
             string Path = SESHS.GetYouTubeContentPath();
 

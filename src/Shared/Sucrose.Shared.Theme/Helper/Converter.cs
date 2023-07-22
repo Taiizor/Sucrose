@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Converters;
 using System.Globalization;
 
-namespace Sucrose.Theme.Shared.Helper
+namespace Sucrose.Shared.Theme.Helper
 {
     internal static class Converter
     {

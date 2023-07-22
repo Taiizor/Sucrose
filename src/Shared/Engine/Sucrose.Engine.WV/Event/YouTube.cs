@@ -3,7 +3,7 @@ using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using STSHV = Sucrose.Theme.Shared.Helper.Various;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
 namespace Sucrose.Engine.WV.Event
 {
@@ -19,8 +19,8 @@ namespace Sucrose.Engine.WV.Event
         {
             SESMI.Initialized = e.IsSuccess;
 
-            string Video = STSHV.GetYouTubeVideoId(SEWVMI.YouTube);
-            string Playlist = STSHV.GetYouTubePlaylistId(SEWVMI.YouTube);
+            string Video = SSTHV.GetYouTubeVideoId(SEWVMI.YouTube);
+            string Playlist = SSTHV.GetYouTubePlaylistId(SEWVMI.YouTube);
 
             string Path = SESHS.GetYouTubeContentPath();
 

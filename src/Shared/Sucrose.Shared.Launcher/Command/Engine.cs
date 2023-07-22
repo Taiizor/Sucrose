@@ -9,7 +9,7 @@ using SSHL = Sucrose.Space.Helper.Live;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSMI = Sucrose.Space.Manage.Internal;
-using STSHI = Sucrose.Theme.Shared.Helper.Info;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Shared.Launcher.Command
@@ -55,7 +55,7 @@ namespace Sucrose.Shared.Launcher.Command
 
                 if (File.Exists(InfoPath))
                 {
-                    STSHI Info = STSHI.ReadJson(InfoPath);
+                    SSTHI Info = SSTHI.ReadJson(InfoPath);
 
                     switch (Info.Type)
                     {

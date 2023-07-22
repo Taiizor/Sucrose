@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Sucrose.Theme.Shared.Helper
+namespace Sucrose.Shared.Theme.Helper
 {
     internal static class Various
     {

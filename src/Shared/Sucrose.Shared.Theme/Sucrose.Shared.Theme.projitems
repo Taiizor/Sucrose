@@ -3,16 +3,16 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>f0f66e64-f024-4916-9da1-55f57c8780c4</SharedGUID>
+    <SharedGUID>3f10435e-c82e-4480-895a-fcff79025276</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Theme.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Theme</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\Serialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Converter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Info.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Properties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Serialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Various.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Zip.cs" />
   </ItemGroup>

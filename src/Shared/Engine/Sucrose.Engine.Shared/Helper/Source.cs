@@ -6,7 +6,7 @@ using SEST = Skylark.Enum.ScreenType;
 using SMR = Sucrose.Memory.Readonly;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
-using STSHV = Sucrose.Theme.Shared.Helper.Various;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SWHSM = Skylark.Wing.Helper.ScreenManage;
 
 namespace Sucrose.Engine.Shared.Helper
@@ -119,7 +119,7 @@ namespace Sucrose.Engine.Shared.Helper
 
         public static Uri GetSource(string Source, UriKind Kind = UriKind.RelativeOrAbsolute)
         {
-            if (STSHV.IsUrl(Source))
+            if (SSTHV.IsUrl(Source))
             {
                 string CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Content);
 
