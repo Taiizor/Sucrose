@@ -2,10 +2,10 @@
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
+using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
-using SWW = Sucrose.Watchdog.Watch;
+using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Commandog
 {
@@ -24,7 +24,7 @@ namespace Sucrose.Commandog
             }
             catch (Exception Exception)
             {
-                SWW.Watch_CatchException(Exception);
+                SSWW.Watch_CatchException(Exception);
 
                 Message(Exception.Message);
             }
@@ -51,11 +51,11 @@ namespace Sucrose.Commandog
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SWDEMB DarkMessageBox = new(Message, Path);
+                        SSWDEMB DarkMessageBox = new(Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SWLEMB LightMessageBox = new(Message, Path);
+                        SSWLEMB LightMessageBox = new(Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

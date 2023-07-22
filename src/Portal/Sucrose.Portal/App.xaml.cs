@@ -5,10 +5,10 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
+using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
-using SWW = Sucrose.Watchdog.Watch;
+using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Portal
 {
@@ -31,7 +31,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = e.Exception;
 
-                SWW.Watch_FirstChanceException(Exception);
+                SSWW.Watch_FirstChanceException(Exception);
 
                 //Close();
                 //Message(Exception.Message);
@@ -41,7 +41,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                SWW.Watch_GlobalUnhandledExceptionHandler(Exception);
+                SSWW.Watch_GlobalUnhandledExceptionHandler(Exception);
 
                 //Close();
                 Message(Exception.Message);
@@ -51,7 +51,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = e.Exception;
 
-                SWW.Watch_UnobservedTaskException(Exception);
+                SSWW.Watch_UnobservedTaskException(Exception);
 
                 e.SetObserved();
 
@@ -63,7 +63,7 @@ namespace Sucrose.Portal
             {
                 Exception Exception = e.Exception;
 
-                SWW.Watch_DispatcherUnhandledException(Exception);
+                SSWW.Watch_DispatcherUnhandledException(Exception);
 
                 e.Handled = true;
 
@@ -92,11 +92,11 @@ namespace Sucrose.Portal
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SWDEMB DarkMessageBox = new(Message, Path);
+                        SSWDEMB DarkMessageBox = new(Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SWLEMB LightMessageBox = new(Message, Path);
+                        SSWLEMB LightMessageBox = new(Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }

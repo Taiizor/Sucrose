@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f2e262d6-f321-4ae4-a80e-dad0162d0eb7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Sucrose.Shared.Watchdog</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)LightErrorMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LightErrorMessageBox.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Watch.cs" />
+  </ItemGroup>
+</Project>

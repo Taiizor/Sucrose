@@ -1,12 +1,12 @@
-﻿<Window x:Class="Sucrose.Watchdog.LightErrorMessageBox"
+﻿<Window x:Class="Sucrose.Shared.Watchdog.LightErrorMessageBox"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sucrose.Watchdog"
+        xmlns:local="clr-namespace:Sucrose.Shared.Watchdog"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip" MinHeight="250" MinWidth="500"
-        Title="Sucrose.Watchdog ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Sucrose.Shared.Watchdog ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#F0F0F0" />

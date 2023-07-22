@@ -18,10 +18,10 @@ using SMR = Sucrose.Memory.Readonly;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
+using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
-using SWW = Sucrose.Watchdog.Watch;
+using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Live.CS
 {
@@ -50,7 +50,7 @@ namespace Sucrose.Live.CS
             {
                 Exception Exception = e.Exception;
 
-                SWW.Watch_ThreadException(Exception);
+                SSWW.Watch_ThreadException(Exception);
 
                 //Close();
                 Message(Exception.Message);
@@ -60,7 +60,7 @@ namespace Sucrose.Live.CS
             {
                 Exception Exception = e.Exception;
 
-                SWW.Watch_FirstChanceException(Exception);
+                SSWW.Watch_FirstChanceException(Exception);
 
                 //Close();
                 //Message(Exception.Message);
@@ -70,7 +70,7 @@ namespace Sucrose.Live.CS
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                SWW.Watch_GlobalUnhandledExceptionHandler(Exception);
+                SSWW.Watch_GlobalUnhandledExceptionHandler(Exception);
 
                 //Close();
                 Message(Exception.Message);
@@ -80,7 +80,7 @@ namespace Sucrose.Live.CS
             {
                 Exception Exception = e.Exception;
 
-                SWW.Watch_UnobservedTaskException(Exception);
+                SSWW.Watch_UnobservedTaskException(Exception);
 
                 e.SetObserved();
 
@@ -92,7 +92,7 @@ namespace Sucrose.Live.CS
             {
                 Exception Exception = e.Exception;
 
-                SWW.Watch_DispatcherUnhandledException(Exception);
+                SSWW.Watch_DispatcherUnhandledException(Exception);
 
                 e.Handled = true;
 
@@ -121,11 +121,11 @@ namespace Sucrose.Live.CS
                 switch (Theme)
                 {
                     case SEWTT.Dark:
-                        SWDEMB DarkMessageBox = new(Message, Path);
+                        SSWDEMB DarkMessageBox = new(Message, Path);
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SWLEMB LightMessageBox = new(Message, Path);
+                        SSWLEMB LightMessageBox = new(Message, Path);
                         LightMessageBox.ShowDialog();
                         break;
                 }
