@@ -1,22 +1,22 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
-using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
+using SSEVMI = Sucrose.Shared.Engine.Vexana.Manage.Internal;
 
-namespace Sucrose.Engine.VA.Event
+namespace Sucrose.Shared.Engine.Vexana.Event
 {
     internal static class Gif
     {
         public static async void ImageTimer_Tick(object sender, EventArgs e)
         {
-            SEVAMI.ImageTimer.Stop();
+            SSEVMI.ImageTimer.Stop();
 
-            if (SEVAMI.ImageLoop || SEVAMI.ImageFirst)
+            if (SSEVMI.ImageLoop || SSEVMI.ImageFirst)
             {
-                SEVAMI.ImageFirst = false;
+                SSEVMI.ImageFirst = false;
 
-                foreach (string Image in SEVAMI.ImageResult.List)
+                foreach (string Image in SSEVMI.ImageResult.List)
                 {
-                    while (!SEVAMI.ImageState)
+                    while (!SSEVMI.ImageState)
                     {
                         await Task.Delay(1000);
                     }
@@ -33,7 +33,7 @@ namespace Sucrose.Engine.VA.Event
                 }
             }
 
-            SEVAMI.ImageTimer.Start();
+            SSEVMI.ImageTimer.Start();
         }
 
         public static void SetImage(string Path)
@@ -42,7 +42,7 @@ namespace Sucrose.Engine.VA.Event
 
             BitmapImage Image = new(Uri);
 
-            SEVAMI.ImageEngine.Source = Image;
+            SSEVMI.ImageEngine.Source = Image;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sucrose.Engine.VA.Struct
+namespace Sucrose.Shared.Engine.Vexana.Struct
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Gif

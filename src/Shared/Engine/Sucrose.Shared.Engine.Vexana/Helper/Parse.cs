@@ -1,16 +1,16 @@
 ﻿using System.Drawing.Imaging;
 using System.IO;
-using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
-using SEVASG = Sucrose.Engine.VA.Struct.Gif;
 using SMR = Sucrose.Memory.Readonly;
+using SSEVMI = Sucrose.Shared.Engine.Vexana.Manage.Internal;
+using SSEVSG = Sucrose.Shared.Engine.Vexana.Struct.Gif;
 
-namespace Sucrose.Engine.VA.Helper
+namespace Sucrose.Shared.Engine.Vexana.Helper
 {
     internal static class Parse
     {
-        public static SEVASG Gif(string GifPath)
+        public static SSEVSG Gif(string GifPath)
         {
-            SEVASG Result = SEVAMI.ImageResult;
+            SSEVSG Result = SSEVMI.ImageResult;
 
             string CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.GifFolder);
 

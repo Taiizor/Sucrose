@@ -4,12 +4,12 @@ using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
-using SEVAEG = Sucrose.Engine.VA.Event.Gif;
-using SEVAHG = Sucrose.Engine.VA.Helper.Gif;
-using SEVAHP = Sucrose.Engine.VA.Helper.Parse;
-using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
+using SSEVEG = Sucrose.Shared.Engine.Vexana.Event.Gif;
+using SSEVHG = Sucrose.Shared.Engine.Vexana.Helper.Gif;
+using SSEVHP = Sucrose.Shared.Engine.Vexana.Helper.Parse;
+using SSEVMI = Sucrose.Shared.Engine.Vexana.Manage.Internal;
 
-namespace Sucrose.Engine.VA.View
+namespace Sucrose.Shared.Engine.Vexana.View
 {
     /// <summary>
     /// Interaction logic for Gif.xaml
@@ -22,26 +22,26 @@ namespace Sucrose.Engine.VA.View
 
             ContentRendered += (s, e) => SESEH.ContentRendered(this);
 
-            Content = SEVAMI.ImageEngine;
+            Content = SSEVMI.ImageEngine;
 
-            SEVAMI.ImageResult = SEVAHP.Gif(SESHS.GetSource(Gif).ToString());
+            SSEVMI.ImageResult = SSEVHP.Gif(SESHS.GetSource(Gif).ToString());
 
             SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
             SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
             SESMI.GeneralTimer.Start();
 
-            Closing += (s, e) => SEVAMI.ImageTimer.Stop();
+            Closing += (s, e) => SSEVMI.ImageTimer.Stop();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
 
-            SEVAMI.ImageTimer.Tick += new EventHandler(SEVAEG.ImageTimer_Tick);
-            SEVAMI.ImageTimer.Start();
+            SSEVMI.ImageTimer.Tick += new EventHandler(SSEVEG.ImageTimer_Tick);
+            SSEVMI.ImageTimer.Start();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SEVAHG.SetLoop(SESHD.GetLoop());
+            SSEVHG.SetLoop(SESHD.GetLoop());
 
-            SEVAMI.ImageEngine.Stretch = (Stretch)SESHD.GetStretch();
+            SSEVMI.ImageEngine.Stretch = (Stretch)SESHD.GetStretch();
         }
     }
 }

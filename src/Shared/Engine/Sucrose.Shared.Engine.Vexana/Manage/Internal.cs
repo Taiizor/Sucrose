@@ -1,9 +1,9 @@
 ﻿using System.Windows.Media;
 using System.Windows.Threading;
 using ImageEngine = System.Windows.Controls.Image;
-using SEVASG = Sucrose.Engine.VA.Struct.Gif;
+using SSEVSG = Sucrose.Shared.Engine.Vexana.Struct.Gif;
 
-namespace Sucrose.Engine.VA.Manage
+namespace Sucrose.Shared.Engine.Vexana.Manage
 {
     internal static class Internal
     {
@@ -13,7 +13,7 @@ namespace Sucrose.Engine.VA.Manage
 
         public static bool ImageState = true;
 
-        public static SEVASG ImageResult = new()
+        public static SSEVSG ImageResult = new()
         {
             Min = 100,
             Max = 100,

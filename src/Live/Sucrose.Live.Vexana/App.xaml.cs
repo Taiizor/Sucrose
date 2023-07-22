@@ -3,13 +3,13 @@ using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
-using SEVAVG = Sucrose.Engine.VA.View.Gif;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
@@ -150,7 +150,7 @@ namespace Sucrose.Live.Vexana
                         switch (Info.Type)
                         {
                             case SSDEWT.Gif:
-                                SEVAVG Gif = new(Source);
+                                SSEVVG Gif = new(Source);
                                 Gif.Show();
                                 break;
                             default:
