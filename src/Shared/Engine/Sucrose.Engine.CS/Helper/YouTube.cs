@@ -1,4 +1,5 @@
 ﻿using CefSharp;
+using SECSHE = Sucrose.Engine.CS.Helper.Evaluate;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 
 namespace Sucrose.Engine.CS.Helper
@@ -32,29 +33,7 @@ namespace Sucrose.Engine.CS.Helper
 
         public static async Task<bool> GetEnd()
         {
-            JavascriptResponse Response;
-            string State = string.Empty;
-
-            if (SECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
-            {
-                Response = await SECSMI.CefEngine.EvaluateScriptAsync($"checkVideoEnded();");
-
-                if (Response.Success)
-                {
-                    State = Response.Result.ToString();
-                }
-            }
-            else
-            {
-                IFrame Frame = SECSMI.CefEngine.GetMainFrame();
-
-                Response = await Frame.EvaluateScriptAsync($"checkVideoEnded();");
-
-                if (Response.Success)
-                {
-                    State = Response.Result.ToString();
-                }
-            }
+            string State = await SECSHE.ScriptString($"checkVideoEnded();");
 
             bool.TryParse(State, out bool Result);
 
@@ -63,29 +42,7 @@ namespace Sucrose.Engine.CS.Helper
 
         public static async Task<bool> GetPlay()
         {
-            JavascriptResponse Response;
-            string State = string.Empty;
-
-            if (SECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
-            {
-                Response = await SECSMI.CefEngine.EvaluateScriptAsync($"checkPlayingStatus();");
-
-                if (Response.Success)
-                {
-                    State = Response.Result.ToString();
-                }
-            }
-            else
-            {
-                IFrame Frame = SECSMI.CefEngine.GetMainFrame();
-
-                Response = await Frame.EvaluateScriptAsync($"checkPlayingStatus();");
-
-                if (Response.Success)
-                {
-                    State = Response.Result.ToString();
-                }
-            }
+            string State = await SECSHE.ScriptString($"checkPlayingStatus();");
 
             bool.TryParse(State, out bool Result);
 

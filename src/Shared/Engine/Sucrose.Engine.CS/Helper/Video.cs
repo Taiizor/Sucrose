@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using SDEST = Sucrose.Dependency.Enum.StretchType;
+using SECSHE = Sucrose.Engine.CS.Helper.Evaluate;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 
 namespace Sucrose.Engine.CS.Helper
@@ -18,44 +19,8 @@ namespace Sucrose.Engine.CS.Helper
 
         public static async Task<bool> GetEnd()
         {
-            JavascriptResponse Response;
-            string Current = string.Empty;
-            string Duration = string.Empty;
-
-            if (SECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
-            {
-                Response = await SECSMI.CefEngine.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].duration");
-
-                if (Response.Success)
-                {
-                    Duration = Response.Result.ToString();
-                }
-
-                Response = await SECSMI.CefEngine.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].currentTime");
-
-                if (Response.Success)
-                {
-                    Current = Response.Result.ToString();
-                }
-            }
-            else
-            {
-                IFrame Frame = SECSMI.CefEngine.GetMainFrame();
-
-                Response = await Frame.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].duration");
-
-                if (Response.Success)
-                {
-                    Duration = Response.Result.ToString();
-                }
-
-                Response = await Frame.EvaluateScriptAsync($"document.getElementsByTagName('video')[0].currentTime");
-
-                if (Response.Success)
-                {
-                    Current = Response.Result.ToString();
-                }
-            }
+            string Duration = await SECSHE.ScriptString($"document.getElementsByTagName('video')[0].duration");
+            string Current = await SECSHE.ScriptString($"document.getElementsByTagName('video')[0].currentTime");
 
             return Current.Equals(Duration);
         }
