@@ -1,0 +1,16 @@
+﻿<hc:Window x:Class="HandyControlProject1.Views.RootView"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:viewModels="clr-namespace:HandyControlProject1.ViewModels"
+           xmlns:hc="https://handyorg.github.io/handycontrol"
+           mc:Ignorable="d"
+           d:DataContext="{d:DesignInstance Type=viewModels:RootViewModel}"
+           Title="{Binding Title}" 
+           WindowStartupLocation="CenterScreen"
+           ShowTitle="True"
+           Height="450" 
+           Width="800">
+    <TextBlock Text="Hello World" HorizontalAlignment="Center" VerticalAlignment="Center" />
+</hc:Window>
