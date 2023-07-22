@@ -10,7 +10,7 @@ using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
-namespace Sucrose.WPF.UI
+namespace Sucrose.Portal
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -87,7 +87,7 @@ namespace Sucrose.WPF.UI
             {
                 HasError = false;
 
-                string Path = SMMI.UserInterfaceLogManager.LogFile();
+                string Path = SMMI.PortalLogManager.LogFile();
 
                 switch (Theme)
                 {

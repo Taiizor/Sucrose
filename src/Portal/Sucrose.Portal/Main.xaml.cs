@@ -5,7 +5,7 @@ using SGCWWC = Sucrose.Grpc.Common.Websiter.WebsiterClient;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
-namespace Sucrose.WPF.UI
+namespace Sucrose.Portal
 {
     /// <summary>
     /// Interaction logic for Main.xaml

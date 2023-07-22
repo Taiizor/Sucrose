@@ -99,13 +99,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlProject2", "Por
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlProject3", "Portal\HandyControlProject3\HandyControlProject3.csproj", "{83689BFD-C476-4853-9B90-A05D04932316}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.WPF.UI", "Portal\Sucrose.WPF.UI\Sucrose.WPF.UI.csproj", "{10581DD2-898F-47E7-9329-4C3BC93D650E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiDesktopApp1", "Portal\UiDesktopApp1\UiDesktopApp1.csproj", "{9C8A231C-DDB9-4D5D-8A8B-F9AAE989B063}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiDesktopApp2", "Portal\UiDesktopApp2\UiDesktopApp2.csproj", "{1281296D-5686-45CF-94D6-89CB3D7B24FC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiDesktopApp3", "Portal\UiDesktopApp3\UiDesktopApp3.csproj", "{0A9478DB-50FC-4CA3-962B-0FEBBB2ACBFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Portal", "Portal\Sucrose.Portal\Sucrose.Portal.csproj", "{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -471,22 +471,6 @@ Global
 		{83689BFD-C476-4853-9B90-A05D04932316}.Release|x64.Build.0 = Release|Any CPU
 		{83689BFD-C476-4853-9B90-A05D04932316}.Release|x86.ActiveCfg = Release|Any CPU
 		{83689BFD-C476-4853-9B90-A05D04932316}.Release|x86.Build.0 = Release|Any CPU
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|ARM64.Build.0 = Debug|ARM64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|x64.ActiveCfg = Debug|x64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|x64.Build.0 = Debug|x64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|x86.ActiveCfg = Debug|x86
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Debug|x86.Build.0 = Debug|x86
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|ARM64.ActiveCfg = Release|ARM64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|ARM64.Build.0 = Release|ARM64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|x64.ActiveCfg = Release|x64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|x64.Build.0 = Release|x64
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|x86.ActiveCfg = Release|x86
-		{10581DD2-898F-47E7-9329-4C3BC93D650E}.Release|x86.Build.0 = Release|x86
 		{9C8A231C-DDB9-4D5D-8A8B-F9AAE989B063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C8A231C-DDB9-4D5D-8A8B-F9AAE989B063}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C8A231C-DDB9-4D5D-8A8B-F9AAE989B063}.Debug|ARM64.ActiveCfg = Debug|Any CPU
@@ -535,6 +519,22 @@ Global
 		{0A9478DB-50FC-4CA3-962B-0FEBBB2ACBFA}.Release|x64.Build.0 = Release|Any CPU
 		{0A9478DB-50FC-4CA3-962B-0FEBBB2ACBFA}.Release|x86.ActiveCfg = Release|Any CPU
 		{0A9478DB-50FC-4CA3-962B-0FEBBB2ACBFA}.Release|x86.Build.0 = Release|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|x64.Build.0 = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Debug|x86.Build.0 = Debug|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|ARM64.ActiveCfg = Release|ARM64
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|ARM64.Build.0 = Release|ARM64
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|x64.ActiveCfg = Release|x64
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|x64.Build.0 = Release|x64
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|x86.ActiveCfg = Release|x86
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -578,10 +578,10 @@ Global
 		{6437D950-09EB-45F5-94EA-0D65E4F2C8BE} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
 		{590F17B8-E462-4ABA-B6BF-288CC2336850} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
 		{83689BFD-C476-4853-9B90-A05D04932316} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
-		{10581DD2-898F-47E7-9329-4C3BC93D650E} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
 		{9C8A231C-DDB9-4D5D-8A8B-F9AAE989B063} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
 		{1281296D-5686-45CF-94D6-89CB3D7B24FC} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
 		{0A9478DB-50FC-4CA3-962B-0FEBBB2ACBFA} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
+		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DA4A105-4BC7-4943-9328-F7274E75FCB3}
@@ -589,10 +589,6 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\Engine\Sucrose.Engine.VA\Sucrose.Engine.VA.projitems*{02c20f6f-926e-48bd-98e9-9325c607da7a}*SharedItemsImports = 13
 		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{0c43a85b-788f-4e02-a7a4-5e020b8eb1cb}*SharedItemsImports = 13
-		Shared\Sucrose.Common\Sucrose.Common.projitems*{10581dd2-898f-47e7-9329-4c3bc93d650e}*SharedItemsImports = 5
-		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{10581dd2-898f-47e7-9329-4c3bc93d650e}*SharedItemsImports = 5
-		Shared\Sucrose.Space\Sucrose.Space.projitems*{10581dd2-898f-47e7-9329-4c3bc93d650e}*SharedItemsImports = 5
-		Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems*{10581dd2-898f-47e7-9329-4c3bc93d650e}*SharedItemsImports = 5
 		Shared\Sucrose.Discord\Sucrose.Discord.projitems*{1fdcbc92-d904-4da0-838c-13893cd373f8}*SharedItemsImports = 13
 		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
 		Shared\Sucrose.Space\Sucrose.Space.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
@@ -632,6 +628,10 @@ Global
 		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
 		Shared\Sucrose.Space\Sucrose.Space.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
 		Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
+		Shared\Sucrose.Common\Sucrose.Common.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
+		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
+		Shared\Sucrose.Space\Sucrose.Space.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
+		Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
 		Shared\Engine\Sucrose.Engine.CS\Sucrose.Engine.CS.projitems*{c3f88a4a-b2fa-49bd-8fa8-d58ecca09ff7}*SharedItemsImports = 13
 		Shared\Engine\Sucrose.Engine.AA\Sucrose.Engine.AA.projitems*{d9f61fe5-a129-4ce4-8018-326eb958167a}*SharedItemsImports = 5
 		Shared\Engine\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems*{d9f61fe5-a129-4ce4-8018-326eb958167a}*SharedItemsImports = 5

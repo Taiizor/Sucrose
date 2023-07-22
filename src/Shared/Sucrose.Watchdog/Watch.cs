@@ -46,7 +46,9 @@ namespace Sucrose.Watchdog
 
         private static void WriteLog(string Text)
         {
-#if LAUNCHER
+#if PORTAL
+            SMMI.PortalLogManager.Log(SELLT.Error, Text);
+#elif LAUNCHER
             SMMI.LauncherLogManager.Log(SELLT.Error, Text);
 #elif COMMANDOG
             SMMI.CommandogLogManager.Log(SELLT.Error, Text);
@@ -60,8 +62,6 @@ namespace Sucrose.Watchdog
             SMMI.WebViewLiveLogManager.Log(SELLT.Error, Text);
 #elif LIVE_CEFSHARP
             SMMI.CefSharpLiveLogManager.Log(SELLT.Error, Text);
-#elif USER_INTERFACE
-            SMMI.UserInterfaceLogManager.Log(SELLT.Error, Text);
 #endif
         }
     }
