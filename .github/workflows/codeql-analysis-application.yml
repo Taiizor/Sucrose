@@ -9,7 +9,7 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: "CodeQL"
+name: "CodeQL Application"
 
 on:
   push:
@@ -36,21 +36,24 @@ jobs:
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
         configuration: [
-            Release|x64
+            Release
         ]
         solution: [
+            src/Portal/Sucrose.Portal/Sucrose.Portal.csproj,
+
+            src/Project/Sucrose.WPF.CS/Sucrose.WPF.CS.csproj,
+            src/Project/Sucrose.Commandog/Sucrose.Commandog.csproj,
+
             src/Launcher/Sucrose.Launcher/Sucrose.Launcher.csproj,
 
             src/Live/Sucrose.Live.Aurora/Sucrose.Live.Aurora.csproj,
             src/Live/Sucrose.Live.Nebula/Sucrose.Live.Nebula.csproj,
             src/Live/Sucrose.Live.Vexana/Sucrose.Live.Vexana.csproj,
             src/Live/Sucrose.Live.WebView/Sucrose.Live.WebView.csproj,
-            src/Live/Sucrose.Live.CefSharp/Sucrose.Live.CefSharp.csproj,
-
-            src/Portal/Sucrose.Portal/Sucrose.Portal.csproj,
-
-            src/Project/Sucrose.WPF.CS/Sucrose.WPF.CS.csproj,
-            src/Project/Sucrose.Commandog/Sucrose.Commandog.csproj
+            src/Live/Sucrose.Live.CefSharp/Sucrose.Live.CefSharp.csproj
+        ]
+        platform: [
+            x64
         ]
 
     steps:
@@ -76,10 +79,10 @@ jobs:
         dotnet-quality: preview
 
     - name: Restore the Sucrose
-      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }} -p:UseSharedCompilation=false
+      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }} -p:Runtime=${{ matrix.platform }} -p:UseSharedCompilation=false
 
     - name: Build the Sucrose
-      run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} -p:UseSharedCompilation=false --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0618,CS0649,CS8632,CA1416,NU5104,NETSDK1138,SYSLIB0003
+      run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} -p:Runtime=${{ matrix.platform }} -p:UseSharedCompilation=false --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0618,CS0649,CS8632,CA1416,NU5104,NETSDK1138,SYSLIB0003
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
