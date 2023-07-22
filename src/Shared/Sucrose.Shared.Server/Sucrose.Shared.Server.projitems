@@ -3,10 +3,10 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>8a29863a-0fb5-49cf-bcc2-0dda25ce239f</SharedGUID>
+    <SharedGUID>f46507e3-5e5d-429f-97bb-1559dd4c2b38</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Shared.Common</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Server</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\LauncherServerService.cs" />

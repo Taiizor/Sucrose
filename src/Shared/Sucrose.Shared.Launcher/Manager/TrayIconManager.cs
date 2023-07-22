@@ -4,8 +4,6 @@ using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSSHA = Sucrose.Shared.Space.Helper.Assets;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
@@ -14,6 +12,8 @@ using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
 using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
+using SSSHA = Sucrose.Shared.Space.Helper.Assets;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Shared.Launcher.Manager

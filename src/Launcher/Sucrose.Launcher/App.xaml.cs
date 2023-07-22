@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows;
 using Application = System.Windows.Application;
-using SSCSLSS = Sucrose.Shared.Common.Services.LauncherServerService;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCL = Sucrose.Grpc.Common.Launcher;
@@ -11,13 +10,14 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDH = Sucrose.Shared.Discord.Hook;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSSLSS = Sucrose.Shared.Server.Services.LauncherServerService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Launcher
 {
@@ -136,7 +136,7 @@ namespace Sucrose.Launcher
 
             SSLMI.TrayIconManager.Start();
 
-            SGSGSS.ServerCreate(SGCL.BindService(new SSCSLSS()));
+            SGSGSS.ServerCreate(SGCL.BindService(new SSSSLSS()));
 
             SMMI.LauncherSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
             SMMI.LauncherSettingManager.SetSetting(SMC.Port, SGSGSS.Port);

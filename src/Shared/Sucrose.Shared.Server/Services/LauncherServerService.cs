@@ -6,7 +6,7 @@ using Sucrose.Grpc.Common;
 using Sucrose.Shared.Launcher.Manage;
 using static Sucrose.Grpc.Common.Launcher;
 
-namespace Sucrose.Shared.Common.Services
+namespace Sucrose.Shared.Server.Services
 {
     public class LauncherServerService : LauncherBase
     {

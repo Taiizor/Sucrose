@@ -1,13 +1,13 @@
 ﻿using System.IO;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
-using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SWUD = Skylark.Wing.Utility.Desktop;

@@ -5,7 +5,6 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SSCSWSS = Sucrose.Shared.Common.Services.WebsiterServerService;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCW = Sucrose.Grpc.Common.Websiter;
 using SGMR = Sucrose.Globalization.Manage.Resources;
@@ -14,10 +13,11 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSSWSS = Sucrose.Shared.Server.Services.WebsiterServerService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.WPF.CS
 {
@@ -152,7 +152,7 @@ namespace Sucrose.WPF.CS
         {
             SGSGSS.ServerCreate(new List<ServerServiceDefinition>
             {
-                SGCW.BindService(new SSCSWSS())
+                SGCW.BindService(new SSSSWSS())
             });
 
             SMMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
