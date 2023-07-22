@@ -13,7 +13,7 @@ using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SSHP = Sucrose.Space.Helper.Processor;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
@@ -178,7 +178,7 @@ namespace Sucrose.WPF.CS
         {
             base.OnStartup(e);
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSHP.WorkCount("Sucrose.WPF.CS.exe") <= 1)
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount("Sucrose.WPF.CS.exe") <= 1)
             {
                 Mutex.ReleaseMutex();
 

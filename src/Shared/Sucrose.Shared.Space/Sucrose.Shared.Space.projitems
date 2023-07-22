@@ -3,17 +3,17 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>3b13e30a-f789-484a-bc78-534eec688625</SharedGUID>
+    <SharedGUID>c20e255e-fb63-42c8-8cf9-1432f7e580fe</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Space</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Space</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Assets.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\Processor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\Import.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Export.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Import.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Live.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Processor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Temporary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
   </ItemGroup>

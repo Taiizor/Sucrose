@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 
-namespace Sucrose.Space.Helper
+namespace Sucrose.Shared.Space.Helper
 {
     internal static class Processor
     {

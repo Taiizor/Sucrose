@@ -4,8 +4,8 @@ using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSHA = Sucrose.Space.Helper.Assets;
-using SSHL = Sucrose.Space.Helper.Live;
+using SSSHA = Sucrose.Shared.Space.Helper.Assets;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
@@ -33,7 +33,7 @@ namespace Sucrose.Shared.Launcher.Manager
         public void Start()
         {
             TrayIcon.Text = SGHLL.GetValue("TrayText");
-            TrayIcon.Icon = new Icon(SSHA.Get(SGHLL.GetValue("TrayIcon")));
+            TrayIcon.Icon = new Icon(SSSHA.Get(SGHLL.GetValue("TrayIcon")));
 
             TrayIcon.MouseClick += MouseClick;
             TrayIcon.ContextMenuStrip = ContextMenu;
@@ -57,11 +57,11 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Renderer = new SSLRLR();
             }
 
-            ContextMenu.Items.Add(SGHLL.GetValue("OpenText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("OpenIcon"))), CommandInterface);
+            ContextMenu.Items.Add(SGHLL.GetValue("OpenText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("OpenIcon"))), CommandInterface);
 
             SSLSSS Separator1 = new(Theme);
 
-            if (SSHL.Run())
+            if (SSSHL.Run())
             {
                 ContextMenu.Items.Add(Separator1.Strip);
 
@@ -81,13 +81,13 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLSSS Separator2 = new(Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(SGHLL.GetValue("SettingsText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("SettingsIcon"))), null);
-            ContextMenu.Items.Add(SGHLL.GetValue("ReportText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("ReportIcon"))), CommandReport);
+            ContextMenu.Items.Add(SGHLL.GetValue("SettingsText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("SettingsIcon"))), null);
+            ContextMenu.Items.Add(SGHLL.GetValue("ReportText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("ReportIcon"))), CommandReport);
 
             SSLSSS Separator3 = new(Theme);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add(SGHLL.GetValue("ExitText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("ExitIcon"))), CommandClose);
+            ContextMenu.Items.Add(SGHLL.GetValue("ExitText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("ExitIcon"))), CommandClose);
         }
 
         public bool Dispose()

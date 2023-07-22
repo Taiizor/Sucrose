@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using SMR = Sucrose.Memory.Readonly;
 
-namespace Sucrose.Space.Helper
+namespace Sucrose.Shared.Space.Helper
 {
     internal static class Export
     {

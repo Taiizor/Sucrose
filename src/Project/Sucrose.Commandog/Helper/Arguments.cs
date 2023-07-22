@@ -4,10 +4,10 @@ using SCHS = Sucrose.Commandog.Helper.Scheduler;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
 using SMR = Sucrose.Memory.Readonly;
-using SSHE = Sucrose.Space.Helper.Export;
-using SSHI = Sucrose.Space.Helper.Import;
-using SSHP = Sucrose.Space.Helper.Processor;
-using SSHT = Sucrose.Space.Helper.Temporary;
+using SSSHE = Sucrose.Shared.Space.Helper.Export;
+using SSSHI = Sucrose.Shared.Space.Helper.Import;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 using SWHWSM = Skylark.Wing.Helper.WindowsStartupMachine;
 using SWHWSP = Skylark.Wing.Helper.WindowsStartupPriority;
@@ -53,13 +53,13 @@ namespace Sucrose.Commandog.Helper
                                 switch (Command)
                                 {
                                     case SSDECT.Log:
-                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSDECT.Kill:
-                                        SSHP.Kill(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSSHP.Kill(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSDECT.Live:
-                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSDECT.Test:
                                         Console.WriteLine("Test Values:");
@@ -83,16 +83,16 @@ namespace Sucrose.Commandog.Helper
                                         }
                                         break;
                                     case SSDECT.Temp:
-                                        SSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                        SSSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSDECT.Import:
-                                        SSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                        SSSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSDECT.Export:
-                                        SSHE.Start(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSSHE.Start(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSDECT.Report:
-                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSDECT.Startup:
                                         SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
@@ -123,7 +123,7 @@ namespace Sucrose.Commandog.Helper
                                         }
                                         break;
                                     case SSDECT.Interface:
-                                        SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     default:
                                         break;

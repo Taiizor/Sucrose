@@ -1,8 +1,8 @@
 ﻿using System.IO;
-using SSHL = Sucrose.Space.Helper.Live;
-using SSHP = Sucrose.Space.Helper.Processor;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
-namespace Sucrose.Space.Helper
+namespace Sucrose.Shared.Space.Helper
 {
     internal static class Temporary
     {
@@ -10,23 +10,23 @@ namespace Sucrose.Space.Helper
         {
             try
             {
-                SSHL.Kill();
-                SSHP.Kill(Application);
+                SSSHL.Kill();
+                SSSHP.Kill(Application);
 
                 Directory.Delete(Path, true);
 
-                SSHP.Run(Application);
+                SSSHP.Run(Application);
             }
             catch
             {
                 try
                 {
-                    SSHL.Kill();
-                    SSHP.Kill(Application);
+                    SSSHL.Kill();
+                    SSSHP.Kill(Application);
 
                     File.Delete(Path);
 
-                    SSHP.Run(Application);
+                    SSSHP.Run(Application);
                 }
                 catch
                 {

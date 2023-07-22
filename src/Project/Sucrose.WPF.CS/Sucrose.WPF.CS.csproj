@@ -82,8 +82,8 @@
         <ProjectReference Include="..\..\gRPC\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
         <ProjectReference Include="..\..\Library\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
-
-    <Import Project="..\..\Shared\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
+    
+    <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Common\Sucrose.Shared.Common.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />

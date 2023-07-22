@@ -11,7 +11,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDH = Sucrose.Shared.Discord.Hook;
-using SSHP = Sucrose.Space.Helper.Processor;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
@@ -176,7 +176,7 @@ namespace Sucrose.Launcher
 
             SMMI.LauncherLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSHP.WorkCount(SMR.Launcher) <= 1)
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Launcher) <= 1)
             {
                 SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 

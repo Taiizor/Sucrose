@@ -1,16 +1,16 @@
 ﻿using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
-using SSHP = Sucrose.Space.Helper.Processor;
-using SSMI = Sucrose.Space.Manage.Internal;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
-namespace Sucrose.Space.Helper
+namespace Sucrose.Shared.Space.Helper
 {
     internal static class Live
     {
         public static bool Run()
         {
-            foreach (KeyValuePair<SSDEET, string> Pair in SSMI.EngineLive)
+            foreach (KeyValuePair<SSDEET, string> Pair in SSSMI.EngineLive)
             {
-                if (SSHP.Work(Pair.Value))
+                if (SSSHP.Work(Pair.Value))
                 {
                     return true;
                 }
@@ -21,7 +21,7 @@ namespace Sucrose.Space.Helper
 
         public static bool Run(SSDEET Live)
         {
-            if (SSHP.Work(SSMI.EngineLive[Live]))
+            if (SSSHP.Work(SSSMI.EngineLive[Live]))
             {
                 return true;
             }
@@ -31,7 +31,7 @@ namespace Sucrose.Space.Helper
 
         public static bool Run(string Live)
         {
-            if (SSHP.Work(SSMI.TextEngineLive[Live]))
+            if (SSSHP.Work(SSSMI.TextEngineLive[Live]))
             {
                 return true;
             }
@@ -41,23 +41,23 @@ namespace Sucrose.Space.Helper
 
         public static void Kill()
         {
-            foreach (KeyValuePair<SSDEET, string> Pair in SSMI.EngineLive)
+            foreach (KeyValuePair<SSDEET, string> Pair in SSSMI.EngineLive)
             {
-                if (SSHP.Work(Pair.Value))
+                if (SSSHP.Work(Pair.Value))
                 {
-                    SSHP.Kill(Pair.Value);
+                    SSSHP.Kill(Pair.Value);
                 }
             }
         }
 
         public static void Kill(SSDEET Live)
         {
-            SSHP.Kill(SSMI.EngineLive[Live]);
+            SSSHP.Kill(SSSMI.EngineLive[Live]);
         }
 
         public static void Kill(string Live)
         {
-            SSHP.Kill(SSMI.TextEngineLive[Live]);
+            SSSHP.Kill(SSSMI.TextEngineLive[Live]);
         }
     }
 }

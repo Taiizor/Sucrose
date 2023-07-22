@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using SMR = Sucrose.Memory.Readonly;
-using SSHL = Sucrose.Space.Helper.Live;
-using SSHP = Sucrose.Space.Helper.Processor;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
-namespace Sucrose.Space.Helper
+namespace Sucrose.Shared.Space.Helper
 {
     internal static class Import
     {
@@ -11,15 +11,15 @@ namespace Sucrose.Space.Helper
         {
             try
             {
-                SSHL.Kill();
-                SSHP.Kill(Application);
+                SSSHL.Kill();
+                SSSHP.Kill(Application);
 
                 foreach (string Setting in Settings(Destination))
                 {
                     File.Copy(Setting, Path.Combine(SMR.AppDataPath, SMR.AppName, Path.GetFileName(Setting)), true);
                 }
 
-                SSHP.Run(Application);
+                SSSHP.Run(Application);
             }
             catch
             {

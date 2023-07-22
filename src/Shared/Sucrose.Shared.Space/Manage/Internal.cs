@@ -10,7 +10,7 @@ using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SMR = Sucrose.Memory.Readonly;
 
-namespace Sucrose.Space.Manage
+namespace Sucrose.Shared.Space.Manage
 {
     internal static class Internal
     {

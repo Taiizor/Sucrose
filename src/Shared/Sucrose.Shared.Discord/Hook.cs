@@ -9,7 +9,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
-using SSHP = Sucrose.Space.Helper.Processor;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
 namespace Sucrose.Shared.Discord
 {
@@ -46,7 +46,7 @@ namespace Sucrose.Shared.Discord
 
         public void Initialize()
         {
-            if (State && SSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
+            if (State && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
             {
                 SSDMI.Client.Initialize();
 

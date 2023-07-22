@@ -9,7 +9,7 @@ using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSHP = Sucrose.Space.Helper.Processor;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 
 namespace Sucrose.Engine.AA.View
@@ -28,17 +28,17 @@ namespace Sucrose.Engine.AA.View
             SEAAMI.ApplicationName = Path.GetFileName(Application);
             SMMI.AuroraSettingManager.SetSetting(SMC.App, SEAAMI.ApplicationName);
 
-            Closing += (s, e) => SSHP.Kill(SEAAMI.Application);
-            Closed += (s, e) => SSHP.Kill(SEAAMI.Application);
+            Closing += (s, e) => SSSHP.Kill(SEAAMI.Application);
+            Closed += (s, e) => SSSHP.Kill(SEAAMI.Application);
             Loaded += (s, e) => SESEH.WindowLoaded(this);
 
-            SSHP.Run(SEAAMI.Application, SEAAMI.ApplicationArguments, ProcessWindowStyle.Normal);
+            SSSHP.Run(SEAAMI.Application, SEAAMI.ApplicationArguments, ProcessWindowStyle.Normal);
 
             do
             {
-                if (SSHP.Work(SEAAMI.Application))
+                if (SSSHP.Work(SEAAMI.Application))
                 {
-                    SEAAMI.ApplicationProcess = SSHP.Get(SEAAMI.Application);
+                    SEAAMI.ApplicationProcess = SSSHP.Get(SEAAMI.Application);
 
                     SEAAMI.ApplicationHandle = SWHPI.MainWindowHandle(SEAAMI.ApplicationProcess);
                 }
@@ -60,7 +60,7 @@ namespace Sucrose.Engine.AA.View
         {
             SEAAHA.SetVolume(SESHD.GetVolume());
 
-            if (!SSHP.Work(SEAAMI.Application))
+            if (!SSSHP.Work(SEAAMI.Application))
             {
                 Close();
             }
