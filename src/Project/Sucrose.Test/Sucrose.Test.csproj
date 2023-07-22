@@ -2,11 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <OutputType>Exe</OutputType>
         <Nullable>disable</Nullable>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,8 +20,8 @@
         <ProjectReference Include="..\..\Library\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
-    <Import Project="..\..\Shared\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Sucrose.Discord\Sucrose.Discord.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Discord\Sucrose.Shared.Discord.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
 
 </Project>

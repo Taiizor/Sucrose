@@ -1,4 +1,4 @@
-﻿using Sucrose.Discord;
+﻿using Sucrose.Shared.Discord;
 
 namespace Sucrose.Test
 {

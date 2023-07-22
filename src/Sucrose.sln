@@ -588,9 +588,9 @@ Global
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
-		Shared\Sucrose.Dependency\Sucrose.Dependency.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
-		Shared\Sucrose.Discord\Sucrose.Discord.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
-		Shared\Sucrose.Space\Sucrose.Space.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
+		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
+		Shared\Sucrose.Shared.Discord\Sucrose.Shared.Discord.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
+		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{2f2fd603-7a1e-498f-896b-06b1c6cd4556}*SharedItemsImports = 5
 		Shared\Engine\Sucrose.Shared.Engine.Aurora\Sucrose.Shared.Engine.Aurora.projitems*{324086b2-c652-43ec-8433-bdbfc9345111}*SharedItemsImports = 13
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{3f10435e-c82e-4480-895a-fcff79025276}*SharedItemsImports = 13
 		Shared\Sucrose.Shared.Discord\Sucrose.Shared.Discord.projitems*{55d4e156-3828-40a7-bb35-0377f917455b}*SharedItemsImports = 13
