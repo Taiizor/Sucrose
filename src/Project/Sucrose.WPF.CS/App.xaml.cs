@@ -5,7 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SCSWSS = Sucrose.Common.Services.WebsiterServerService;
+using SSCSWSS = Sucrose.Shared.Common.Services.WebsiterServerService;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCW = Sucrose.Grpc.Common.Websiter;
 using SGMR = Sucrose.Globalization.Manage.Resources;
@@ -152,7 +152,7 @@ namespace Sucrose.WPF.CS
         {
             SGSGSS.ServerCreate(new List<ServerServiceDefinition>
             {
-                SGCW.BindService(new SCSWSS())
+                SGCW.BindService(new SSCSWSS())
             });
 
             SMMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);

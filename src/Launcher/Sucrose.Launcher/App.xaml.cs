@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using Application = System.Windows.Application;
-using SCSLSS = Sucrose.Common.Services.LauncherServerService;
+using SSCSLSS = Sucrose.Shared.Common.Services.LauncherServerService;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCL = Sucrose.Grpc.Common.Launcher;
@@ -136,7 +136,7 @@ namespace Sucrose.Launcher
 
             SSLMI.TrayIconManager.Start();
 
-            SGSGSS.ServerCreate(SGCL.BindService(new SCSLSS()));
+            SGSGSS.ServerCreate(SGCL.BindService(new SSCSLSS()));
 
             SMMI.LauncherSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
             SMMI.LauncherSettingManager.SetSetting(SMC.Port, SGSGSS.Port);

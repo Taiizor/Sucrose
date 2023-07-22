@@ -3,17 +3,17 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>9293996d-47c3-4275-abd9-f0e812128caa</SharedGUID>
+    <SharedGUID>91ba7265-e2ab-4c03-b772-dc1ebc87dc27</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Resources</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Resources</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\LightTheme.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\DarkTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\DarkTheme.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\LightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

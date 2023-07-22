@@ -5,7 +5,7 @@ using Sucrose.Grpc.Common;
 using Sucrose.WPF.CS;
 using static Sucrose.Grpc.Common.Websiter;
 
-namespace Sucrose.Common.Services
+namespace Sucrose.Shared.Common.Services
 {
     public class WebsiterServerService : WebsiterBase
     {
