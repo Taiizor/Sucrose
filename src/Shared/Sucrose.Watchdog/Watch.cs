@@ -46,8 +46,8 @@ namespace Sucrose.Watchdog
 
         private static void WriteLog(string Text)
         {
-#if TRAY_ICON
-            SMMI.TrayIconLogManager.Log(SELLT.Error, Text);
+#if LAUNCHER
+            SMMI.LauncherLogManager.Log(SELLT.Error, Text);
 #elif COMMANDOG
             SMMI.CommandogLogManager.Log(SELLT.Error, Text);
 #elif LIVE_AURORA

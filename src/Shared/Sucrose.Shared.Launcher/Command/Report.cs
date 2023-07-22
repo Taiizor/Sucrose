@@ -3,13 +3,13 @@ using SMR = Sucrose.Memory.Readonly;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 
-namespace Sucrose.Tray.Command
+namespace Sucrose.Shared.Launcher.Command
 {
-    internal static class Interface
+    internal static class Report
     {
         public static void Command()
         {
-            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Interface}{SMR.ValueSeparator}{SSMI.Portal}");
+            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Report}{SMR.ValueSeparator}{SMR.ReportWebsite}");
         }
     }
 }

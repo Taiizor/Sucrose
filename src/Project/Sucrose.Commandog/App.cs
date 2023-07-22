@@ -46,7 +46,7 @@ namespace Sucrose.Commandog
             {
                 HasError = false;
 
-                string Path = SMMI.TrayIconLogManager.LogFile();
+                string Path = SMMI.CommandogLogManager.LogFile();
 
                 switch (Theme)
                 {

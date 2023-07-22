@@ -6,17 +6,17 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSHA = Sucrose.Space.Helper.Assets;
 using SSHL = Sucrose.Space.Helper.Live;
-using STCC = Sucrose.Tray.Command.Close;
-using STCE = Sucrose.Tray.Command.Engine;
-using STCI = Sucrose.Tray.Command.Interface;
-using STCR = Sucrose.Tray.Command.Report;
-using STHC = Sucrose.Tray.Helper.Calculate;
-using STRDR = Sucrose.Tray.Renderer.DarkRenderer;
-using STRLR = Sucrose.Tray.Renderer.LightRenderer;
-using STSSS = Sucrose.Tray.Separator.StripSeparator;
+using SSLCC = Sucrose.Shared.Launcher.Command.Close;
+using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
+using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
+using SSLCR = Sucrose.Shared.Launcher.Command.Report;
+using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
+using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
+using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
+using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
-namespace Sucrose.Tray.Manager
+namespace Sucrose.Shared.Launcher.Manager
 {
     public class TrayIconManager
     {
@@ -41,7 +41,7 @@ namespace Sucrose.Tray.Manager
 
             TrayIcon.Visible = Visible;
 
-            STCE.Command(false);
+            SSLCE.Command(false);
         }
 
         public void Initialize()
@@ -50,16 +50,16 @@ namespace Sucrose.Tray.Manager
 
             if (Theme == SEWTT.Dark)
             {
-                ContextMenu.Renderer = new STRDR();
+                ContextMenu.Renderer = new SSLRDR();
             }
             else
             {
-                ContextMenu.Renderer = new STRLR();
+                ContextMenu.Renderer = new SSLRLR();
             }
 
             ContextMenu.Items.Add(SGHTL.GetValue("OpenText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("OpenIcon"))), CommandInterface);
 
-            STSSS Separator1 = new(Theme);
+            SSLSSS Separator1 = new(Theme);
 
             if (SSHL.Run())
             {
@@ -78,13 +78,13 @@ namespace Sucrose.Tray.Manager
                 ContextMenu.Items.Add(SGHTL.GetValue("WallOpenText"), null, CommandEngine);
             }
 
-            STSSS Separator2 = new(Theme);
+            SSLSSS Separator2 = new(Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
             ContextMenu.Items.Add(SGHTL.GetValue("SettingsText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("SettingsIcon"))), null);
             ContextMenu.Items.Add(SGHTL.GetValue("ReportText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("ReportIcon"))), CommandReport);
 
-            STSSS Separator3 = new(Theme);
+            SSLSSS Separator3 = new(Theme);
             ContextMenu.Items.Add(Separator3.Strip);
 
             ContextMenu.Items.Add(SGHTL.GetValue("ExitText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("ExitIcon"))), CommandClose);
@@ -121,7 +121,7 @@ namespace Sucrose.Tray.Manager
 
                 Initialize();
 
-                ContextMenu.Show(STHC.MenuPosition(ContextMenu));
+                ContextMenu.Show(SSLHC.MenuPosition(ContextMenu));
             }
         }
 
@@ -129,28 +129,28 @@ namespace Sucrose.Tray.Manager
         {
             if (e.Button == MouseButtons.Left)
             {
-                STCI.Command();
+                SSLCI.Command();
             }
         }
 
         private void CommandInterface(object sender, EventArgs e)
         {
-            STCI.Command();
+            SSLCI.Command();
         }
 
         private void CommandEngine(object sender, EventArgs e)
         {
-            STCE.Command();
+            SSLCE.Command();
         }
 
         private void CommandReport(object sender, EventArgs e)
         {
-            STCR.Command();
+            SSLCR.Command();
         }
 
         private void CommandClose(object sender, EventArgs e)
         {
-            STCC.Command();
+            SSLCC.Command();
         }
     }
 }

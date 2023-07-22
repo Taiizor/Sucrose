@@ -2,7 +2,7 @@
 using SMMI = Sucrose.Manager.Manage.Internal;
 using WinForms = System.Windows.Forms.Application;
 
-namespace Sucrose.Tray.Command
+namespace Sucrose.Shared.Launcher.Command
 {
     internal static class Close
     {

@@ -3,7 +3,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 
-namespace Sucrose.Tray.Command
+namespace Sucrose.Shared.Launcher.Command
 {
     internal static class Interface
     {

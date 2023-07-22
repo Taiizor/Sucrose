@@ -24,6 +24,10 @@
 
         public static readonly string MediaElement = "MediaElement";
 
+        public static readonly string Portal = "Sucrose.Portal.exe";
+
+        public static readonly string Launcher = "Sucrose.Launcher.exe";
+
         public static readonly string SucroseInfo = "SucroseInfo.json";
 
         public static readonly string AuroraLive = "Sucrose.Live.AA.exe";
@@ -31,8 +35,6 @@
         public static readonly string NebulaLive = "Sucrose.Live.NA.exe";
 
         public static readonly string VexanaLive = "Sucrose.Live.VA.exe";
-
-        public static readonly string WPFTrayIcon = "Sucrose.WPF.TI.exe";
 
         public static readonly string VideoContent = "VideoContent.html";
 
@@ -48,25 +50,19 @@
 
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Live}";
 
-        public static readonly string WPFUserInterface = "Sucrose.WPF.UI.exe";
-
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
         public static readonly string LogDescription = "SucroseWatchdog Thread";
 
         public static readonly string DiscordApplication = "1126294965950103612";
 
-        public static readonly string WinFormsTrayIcon = "Sucrose.WinForms.TI.exe";
-
         public static readonly string SucroseProperties = "SucroseProperties.json";
 
-        public static readonly string WinFormsUserInterface = "Sucrose.WinForms.UI.exe";
+        public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
 
         public static readonly string BrowseWebsite = "https://github.com/Taiizor/Sucrose";
 
-        public static readonly string TrayIconMutex = "{Sucrose-Wallpaper-Engine-Tray-Icon}";
-
-        public static readonly string UserInterfaceMutex = "{Sucrose-Wallpaper-Engine-User-Interface}";
+        public static readonly string LauncherMutex = "{Sucrose-Wallpaper-Engine-Launcher}";
 
         public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";
 

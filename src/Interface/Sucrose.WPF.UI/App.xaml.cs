@@ -21,7 +21,7 @@ namespace Sucrose.WPF.UI
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex => new(true, SMR.UserInterfaceMutex);
+        private static Mutex Mutex => new(true, SMR.Portal);
 
         private static bool HasError { get; set; } = true;
 

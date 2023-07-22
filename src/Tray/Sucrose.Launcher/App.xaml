@@ -1,7 +1,7 @@
-﻿<Application x:Class="Sucrose.WPF.TI.App"
+﻿<Application x:Class="Sucrose.Launcher.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Sucrose.WPF.TI">
+             xmlns:local="clr-namespace:Sucrose.Launcher">
     <Application.Resources>
 
     </Application.Resources>

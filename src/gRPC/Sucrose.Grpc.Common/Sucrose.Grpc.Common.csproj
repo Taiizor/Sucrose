@@ -9,11 +9,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Proto\TrayIcon.proto" />
+      <None Remove="Proto\Launcher.proto" />
     </ItemGroup>
 
     <ItemGroup>
-        <Protobuf Include="Proto\TrayIcon.proto" />
+        <Protobuf Include="Proto\Launcher.proto" />
         <Protobuf Include="Proto\Websiter.proto" />
     </ItemGroup>
 

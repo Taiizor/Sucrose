@@ -17,9 +17,9 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM GeneralSettingManager = new("General.json");
 
-        public static readonly SMLM TrayIconLogManager = new("TrayIcon-{0}.log");
+        public static readonly SMLM LauncherLogManager = new("Launcher-{0}.log");
 
-        public static readonly SMSM TrayIconSettingManager = new("TrayIcon.json");
+        public static readonly SMSM LauncherSettingManager = new("Launcher.json");
 
         public static readonly SMLM CommandogLogManager = new("Commandog-{0}.log");
 

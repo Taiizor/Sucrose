@@ -9,7 +9,7 @@
     <Import_RootNamespace>Sucrose.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Services\TrayIconServerService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\LauncherServerService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebsiterServerService.cs" />
   </ItemGroup>
 </Project>

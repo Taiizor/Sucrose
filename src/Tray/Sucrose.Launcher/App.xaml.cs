@@ -1,25 +1,25 @@
 ﻿using System.Globalization;
 using System.Windows;
 using Application = System.Windows.Application;
-using SCSTISS = Sucrose.Common.Services.TrayIconServerService;
+using SCSLSS = Sucrose.Common.Services.LauncherServerService;
 using SDH = Sucrose.Discord.Hook;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGCTI = Sucrose.Grpc.Common.TrayIcon;
+using SGCL = Sucrose.Grpc.Common.Launcher;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSHP = Sucrose.Space.Helper.Processor;
-using STCI = Sucrose.Tray.Command.Interface;
-using STMI = Sucrose.Tray.Manage.Internal;
+using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
+using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SWDEMB = Sucrose.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SWLEMB = Sucrose.Watchdog.LightErrorMessageBox;
 using SWW = Sucrose.Watchdog.Watch;
 
-namespace Sucrose.WPF.TI
+namespace Sucrose.Launcher
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -30,7 +30,7 @@ namespace Sucrose.WPF.TI
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex => new(true, SMR.TrayIconMutex);
+        private static Mutex Mutex => new(true, SMR.LauncherMutex);
 
         private static bool HasError { get; set; } = true;
 
@@ -99,7 +99,7 @@ namespace Sucrose.WPF.TI
 
         protected void Close()
         {
-            SMMI.TrayIconLogManager.Log(SELLT.Info, $"Application has been closed.");
+            SMMI.LauncherLogManager.Log(SELLT.Info, $"Application has been closed.");
 
             Environment.Exit(0);
             Current.Shutdown();
@@ -112,7 +112,7 @@ namespace Sucrose.WPF.TI
             {
                 HasError = false;
 
-                string Path = SMMI.TrayIconLogManager.LogFile();
+                string Path = SMMI.LauncherLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -132,28 +132,28 @@ namespace Sucrose.WPF.TI
 
         protected void Configure()
         {
-            SMMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initializing..");
+            SMMI.LauncherLogManager.Log(SELLT.Info, "Configuration initializing..");
 
-            STMI.TrayIconManager.Start();
+            SSLMI.TrayIconManager.Start();
 
-            SGSGSS.ServerCreate(SGCTI.BindService(new SCSTISS()));
+            SGSGSS.ServerCreate(SGCL.BindService(new SCSLSS()));
 
-            SMMI.TrayIconSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
-            SMMI.TrayIconSettingManager.SetSetting(SMC.Port, SGSGSS.Port);
+            SMMI.LauncherSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
+            SMMI.LauncherSettingManager.SetSetting(SMC.Port, SGSGSS.Port);
 
-            SMMI.TrayIconLogManager.Log(SELLT.Info, "Configuration initialized..");
+            SMMI.LauncherLogManager.Log(SELLT.Info, "Configuration initialized..");
 
-            SMMI.TrayIconLogManager.Log(SELLT.Info, "Server initializing..");
+            SMMI.LauncherLogManager.Log(SELLT.Info, "Server initializing..");
 
             SGSGSS.ServerInstance.Start();
 
-            SMMI.TrayIconLogManager.Log(SELLT.Info, "Server initialized..");
+            SMMI.LauncherLogManager.Log(SELLT.Info, "Server initialized..");
 
-            SMMI.TrayIconLogManager.Log(SELLT.Info, "Discord hook initializing..");
+            SMMI.LauncherLogManager.Log(SELLT.Info, "Discord hook initializing..");
 
             Discord.Initialize();
 
-            SMMI.TrayIconLogManager.Log(SELLT.Info, "Discord hook initialized..");
+            SMMI.LauncherLogManager.Log(SELLT.Info, "Discord hook initialized..");
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -165,7 +165,7 @@ namespace Sucrose.WPF.TI
             SGSGSS.ServerInstance.KillAsync().Wait();
             //SGSGSS.ServerInstance.ShutdownAsync().Wait();
 
-            STMI.TrayIconManager.Dispose();
+            SSLMI.TrayIconManager.Dispose();
 
             Close();
         }
@@ -174,29 +174,29 @@ namespace Sucrose.WPF.TI
         {
             base.OnStartup(e);
 
-            SMMI.TrayIconLogManager.Log(SELLT.Info, "Application initializing..");
+            SMMI.LauncherLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSHP.WorkCount(SMR.WPFTrayIcon, SMR.WinFormsTrayIcon) <= 1)
+            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSHP.WorkCount(SMR.Launcher) <= 1)
             {
-                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
+                SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 
                 Mutex.ReleaseMutex();
 
-                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application mutex is being released.");
+                SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being released.");
 
                 Configure();
 
-                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application initialized..");
+                SMMI.LauncherLogManager.Log(SELLT.Info, "Application initialized..");
             }
             else
             {
-                SMMI.TrayIconLogManager.Log(SELLT.Warning, "Application could not be initialized!");
+                SMMI.LauncherLogManager.Log(SELLT.Warning, "Application could not be initialized!");
 
-                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opening..");
+                SMMI.LauncherLogManager.Log(SELLT.Info, "Application Interface opening..");
 
-                STCI.Command();
+                SSLCI.Command();
 
-                SMMI.TrayIconLogManager.Log(SELLT.Info, "Application Interface opened..");
+                SMMI.LauncherLogManager.Log(SELLT.Info, "Application Interface opened..");
 
                 Close();
             }
