@@ -45,7 +45,7 @@ jobs:
 
             src/Library/Sucrose.Memory/Sucrose.Memory.csproj,
             src/Library/Sucrose.Manager/Sucrose.Manager.csproj,
-            src/Library/Sucrose.Globalization/Sucrose.Globalization.csproj,
+            src/Library/Sucrose.Globalization/Sucrose.Globalization.csproj
         ]
 
     steps:
@@ -67,7 +67,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 8.0.100-preview.6.23330.14
+        dotnet-version: 8.0.x
         dotnet-quality: preview
 
     - name: Restore the Sucrose
