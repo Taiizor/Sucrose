@@ -140,6 +140,7 @@ namespace Sucrose.Live.WebView
             if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {
                 string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
+                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
                 string CompatiblePath = Path.Combine(Directory, Folder, SMR.SucroseCompatible);
 
                 if (File.Exists(InfoPath))
@@ -175,6 +176,12 @@ namespace Sucrose.Live.WebView
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {
+                        if (File.Exists(PropertiesPath))
+                        {
+                            SSEMI.Properties = SSTHP.ReadJson(PropertiesPath);
+                            SSEMI.Properties.State = true;
+                        }
+
                         if (File.Exists(CompatiblePath))
                         {
                             SSEMI.Compatible = SSTHC.ReadJson(CompatiblePath);

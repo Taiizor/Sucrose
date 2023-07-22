@@ -19,7 +19,7 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static readonly DispatcherTimer GeneralTimer = new();
 
-        public static readonly DispatcherTimer PropertiesTimer = new();
+        public static readonly DispatcherTimer CompatibleTimer = new();
 
         public static SSESB BrowserSettings = new()
         {

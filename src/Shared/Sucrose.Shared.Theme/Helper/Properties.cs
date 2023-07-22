@@ -5,8 +5,13 @@ namespace Sucrose.Shared.Theme.Helper
 {
     internal partial class Properties
     {
-        [JsonProperty("Test", Required = Required.Always)]
-        public int Test { get; set; }
+        public bool State { get; set; }
+
+        [JsonProperty("PropertyListener", Required = Required.Always)]
+        public string PropertyListener { get; set; }
+
+        [JsonProperty("PropertyList", Required = Required.Always)]
+        public Dictionary<string, object> PropertyList { get; set; }
     }
 
     internal partial class Properties

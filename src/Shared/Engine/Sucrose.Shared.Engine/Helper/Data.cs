@@ -59,15 +59,15 @@ namespace Sucrose.Shared.Engine.Helper
         {
             DateTime Date = DateTime.Now;
 
-            return new
-            (
-                new JProperty("Year", Date.Year),
-                new JProperty("Month", Date.Month),
-                new JProperty("Day", Date.Day),
-                new JProperty("Hour", Date.Hour),
-                new JProperty("Minute", Date.Minute),
-                new JProperty("Second", Date.Second)
-            );
+            return new JObject
+            {
+                { "Year", Date.Year },
+                { "Month", Date.Month },
+                { "Day", Date.Day },
+                { "Hour", Date.Hour },
+                { "Minute", Date.Minute },
+                { "Second", Date.Second }
+            };
         }
 
         public static SEEST GetExpandScreenType()

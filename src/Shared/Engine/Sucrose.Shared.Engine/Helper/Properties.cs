@@ -1,6 +1,6 @@
-﻿using SESMIEN = Sucrose.Shared.Engine.Manage.Internal.ExecuteNormal;
+﻿using Newtonsoft.Json;
+using SESMIEN = Sucrose.Shared.Engine.Manage.Internal.ExecuteNormal;
 using SESMIET = Sucrose.Shared.Engine.Manage.Internal.ExecuteTask;
-using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.Helper
@@ -11,29 +11,17 @@ namespace Sucrose.Shared.Engine.Helper
         {
             if (SSEMI.Initialized)
             {
-                if (!string.IsNullOrEmpty(SSEMI.Compatible.LoopMode))
+                if (SSEMI.Properties.PropertyList.Any())
                 {
-                    Function(string.Format(SSEMI.Compatible.LoopMode, SSEHD.GetLoop()));
-                }
+                    foreach (KeyValuePair<string, object> Pair in SSEMI.Properties.PropertyList)
+                    {
+                        string Key = Pair.Key;
+                        object Value = Pair.Value;
 
-                if (!string.IsNullOrEmpty(SSEMI.Compatible.VolumeLevel))
-                {
-                    Function(string.Format(SSEMI.Compatible.VolumeLevel, SSEHD.GetVolume()));
-                }
+                        string Script = JsonConvert.SerializeObject(Value, Formatting.Indented);
 
-                if (!string.IsNullOrEmpty(SSEMI.Compatible.ShuffleMode))
-                {
-                    Function(string.Format(SSEMI.Compatible.ShuffleMode, SSEHD.GetShuffle()));
-                }
-
-                if (!string.IsNullOrEmpty(SSEMI.Compatible.StretchMode))
-                {
-                    Function(string.Format(SSEMI.Compatible.StretchMode, SSEHD.GetStretch()));
-                }
-
-                if (!string.IsNullOrEmpty(SSEMI.Compatible.ComputerDate))
-                {
-                    Function(string.Format(SSEMI.Compatible.ComputerDate, SSEHD.GetComputerDate()));
+                        Function(string.Format(SSEMI.Properties.PropertyListener, Key, Script));
+                    }
                 }
             }
         }
