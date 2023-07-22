@@ -1,9 +1,9 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
-using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
-namespace Sucrose.Engine.WV.Event
+namespace Sucrose.Shared.Engine.WebView.Event
 {
     internal static class Web
     {
@@ -11,9 +11,9 @@ namespace Sucrose.Engine.WV.Event
         {
             SESMI.Initialized = e.IsSuccess;
 
-            SEWVMI.WebEngine.Source = SESHS.GetSource(SEWVMI.Web);
+            SSEWVMI.WebEngine.Source = SESHS.GetSource(SSEWVMI.Web);
 
-            //SEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();
+            //SSEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();
         }
     }
 }

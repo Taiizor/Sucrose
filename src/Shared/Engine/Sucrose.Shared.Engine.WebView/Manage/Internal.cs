@@ -1,6 +1,6 @@
 ﻿using WebEngine = Microsoft.Web.WebView2.Wpf.WebView2;
 
-namespace Sucrose.Engine.WV.Manage
+namespace Sucrose.Shared.Engine.WebView.Manage
 {
     internal static class Internal
     {

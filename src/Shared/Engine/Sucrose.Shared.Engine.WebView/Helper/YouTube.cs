@@ -1,17 +1,17 @@
-﻿using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+﻿using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
-namespace Sucrose.Engine.WV.Helper
+namespace Sucrose.Shared.Engine.WebView.Helper
 {
     internal static class YouTube
     {
         public static async void Pause()
         {
-            await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("pauseVideo();");
+            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("pauseVideo();");
         }
 
         public static async void Play()
         {
-            await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playVideo();");
+            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playVideo();");
         }
 
         public static async void Play2()
@@ -26,12 +26,12 @@ namespace Sucrose.Engine.WV.Helper
 
         public static async void First()
         {
-            await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playFirst();");
+            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playFirst();");
         }
 
         public static async Task<bool> GetEnd()
         {
-            string State = await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkVideoEnded();");
+            string State = await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkVideoEnded();");
 
             bool.TryParse(State, out bool Result);
 
@@ -40,7 +40,7 @@ namespace Sucrose.Engine.WV.Helper
 
         public static async Task<bool> GetPlay()
         {
-            string State = await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkPlayingStatus();");
+            string State = await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkPlayingStatus();");
 
             bool.TryParse(State, out bool Result);
 
@@ -49,17 +49,17 @@ namespace Sucrose.Engine.WV.Helper
 
         public static async void SetLoop(bool State)
         {
-            await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
+            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
         }
 
         public static async void SetVolume(int Volume)
         {
-            await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({Volume});");
+            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({Volume});");
         }
 
         public static async void SetShuffle(bool State)
         {
-            await SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
+            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
         }
     }
 }

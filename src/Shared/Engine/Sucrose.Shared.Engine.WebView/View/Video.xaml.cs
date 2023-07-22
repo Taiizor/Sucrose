@@ -2,11 +2,11 @@
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
-using SEWVEV = Sucrose.Engine.WV.Event.Video;
-using SEWVHV = Sucrose.Engine.WV.Helper.Video;
-using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+using SSEWVEV = Sucrose.Shared.Engine.WebView.Event.Video;
+using SSEWVHV = Sucrose.Shared.Engine.WebView.Helper.Video;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
-namespace Sucrose.Engine.WV.View
+namespace Sucrose.Shared.Engine.WebView.View
 {
     /// <summary>
     /// Interaction logic for Video.xaml
@@ -19,17 +19,17 @@ namespace Sucrose.Engine.WV.View
 
             ContentRendered += (s, e) => SESEH.ContentRendered(this);
 
-            Content = SEWVMI.WebEngine;
+            Content = SSEWVMI.WebEngine;
 
-            SEWVMI.Video = Video;
+            SSEWVMI.Video = Video;
 
             SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
             SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
             SESMI.GeneralTimer.Start();
 
-            SEWVMI.WebEngine.CoreWebView2InitializationCompleted += SEWVEV.WebEngineInitializationCompleted;
+            SSEWVMI.WebEngine.CoreWebView2InitializationCompleted += SSEWVEV.WebEngineInitializationCompleted;
 
-            Closing += (s, e) => SEWVMI.WebEngine.Dispose();
+            Closing += (s, e) => SSEWVMI.WebEngine.Dispose();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
         }
 
@@ -37,11 +37,11 @@ namespace Sucrose.Engine.WV.View
         {
             if (SESMI.Initialized)
             {
-                SEWVHV.SetLoop(SESHD.GetLoop());
+                SSEWVHV.SetLoop(SESHD.GetLoop());
 
-                SEWVHV.SetVolume(SESHD.GetVolume());
+                SSEWVHV.SetVolume(SESHD.GetVolume());
 
-                SEWVHV.SetStretch(SESHD.GetStretch());
+                SSEWVHV.SetStretch(SESHD.GetStretch());
             }
         }
     }

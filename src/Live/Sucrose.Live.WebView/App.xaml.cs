@@ -6,10 +6,10 @@ using Application = System.Windows.Application;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
-using SEWVVV = Sucrose.Engine.WV.View.Video;
-using SEWVVW = Sucrose.Engine.WV.View.Web;
-using SEWVVYT = Sucrose.Engine.WV.View.YouTube;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
+using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
+using SSEWVVYT = Sucrose.Shared.Engine.WebView.View.YouTube;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -161,7 +161,7 @@ namespace Sucrose.Live.WebView
 
                     Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
-                    SEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
+                    SSEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
 
                     SSTHI Info = SSTHI.ReadJson(InfoPath);
 
@@ -183,15 +183,15 @@ namespace Sucrose.Live.WebView
                         switch (Info.Type)
                         {
                             case SSDEWT.Web:
-                                SEWVVW Web = new(Source);
+                                SSEWVVW Web = new(Source);
                                 Web.Show();
                                 break;
                             case SSDEWT.Video:
-                                SEWVVV Video = new(Source);
+                                SSEWVVV Video = new(Source);
                                 Video.Show();
                                 break;
                             case SSDEWT.YouTube:
-                                SEWVVYT YouTube = new(Source);
+                                SSEWVVYT YouTube = new(Source);
                                 YouTube.Show();
                                 break;
                             default:

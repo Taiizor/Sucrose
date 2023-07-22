@@ -3,12 +3,16 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>ea173b89-9d19-4724-a6bc-f219fabbf302</SharedGUID>
+    <SharedGUID>fe860c2d-99bb-407a-9e3c-8f26812864d8</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Engine.WV</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Engine.WebView</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)View\Video.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)View\Web.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -17,20 +21,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)View\Video.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Event\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\YouTube.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Event\Video.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Video.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Video.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Web.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\YouTube.xaml.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\Video.xaml.cs" />
   </ItemGroup>
 </Project>

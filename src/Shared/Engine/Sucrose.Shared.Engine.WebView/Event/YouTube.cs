@@ -2,35 +2,35 @@
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
-using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
-namespace Sucrose.Engine.WV.Event
+namespace Sucrose.Shared.Engine.WebView.Event
 {
     internal static class YouTube
     {
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
-            SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SESHD.GetVolume()});");
-            SEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("toggleFullScreen();");
+            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SESHD.GetVolume()});");
+            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("toggleFullScreen();");
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
             SESMI.Initialized = e.IsSuccess;
 
-            string Video = SSTHV.GetYouTubeVideoId(SEWVMI.YouTube);
-            string Playlist = SSTHV.GetYouTubePlaylistId(SEWVMI.YouTube);
+            string Video = SSTHV.GetYouTubeVideoId(SSEWVMI.YouTube);
+            string Playlist = SSTHV.GetYouTubePlaylistId(SSEWVMI.YouTube);
 
             string Path = SESHS.GetYouTubeContentPath();
 
             SESHS.WriteYouTubeContent(Path, Video, Playlist);
 
-            SEWVMI.WebEngine.Source = SESHS.GetSource(Path);
+            SSEWVMI.WebEngine.Source = SESHS.GetSource(Path);
 
-            SEWVMI.WebEngine.CoreWebView2.DOMContentLoaded += WebEngineDOMContentLoaded;
+            SSEWVMI.WebEngine.CoreWebView2.DOMContentLoaded += WebEngineDOMContentLoaded;
 
-            //SEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();
+            //SSEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();
         }
     }
 }
