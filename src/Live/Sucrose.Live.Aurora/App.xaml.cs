@@ -2,22 +2,22 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SENAVV = Sucrose.Engine.NA.View.Video;
+using SEAAVA = Sucrose.Engine.AA.View.Application;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
-namespace Sucrose.Live.NA
+namespace Sucrose.Live.Aurora
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -110,7 +110,7 @@ namespace Sucrose.Live.NA
             {
                 HasError = false;
 
-                string Path = SMMI.NebulaLiveLogManager.LogFile();
+                string Path = SMMI.AuroraLiveLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -140,27 +140,31 @@ namespace Sucrose.Live.NA
 
                     string Source = Info.Source;
 
-                    if (!SSTHV.IsUrl(Source))
+                    if (SSTHV.IsUrl(Source))
                     {
-                        Source = Path.Combine(Directory, Folder, Source);
-                    }
-
-                    if (SSTHV.IsUrl(Source) || File.Exists(Source))
-                    {
-                        switch (Info.Type)
-                        {
-                            case SSDEWT.Video:
-                                SENAVV Video = new(Source);
-                                Video.Show();
-                                break;
-                            default:
-                                Close();
-                                break;
-                        }
+                        Close();
                     }
                     else
                     {
-                        Close();
+                        Source = Path.Combine(Directory, Folder, Source);
+
+                        if (File.Exists(Source))
+                        {
+                            switch (Info.Type)
+                            {
+                                case SSDEWT.Application:
+                                    SEAAVA Application = new(Source, Info.Arguments);
+                                    Application.Show();
+                                    break;
+                                default:
+                                    Close();
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            Close();
+                        }
                     }
                 }
                 else

@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Sucrose.Live.CS.App</StartupObject>
+        <StartupObject>Sucrose.Live.Nebula.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
@@ -15,21 +15,21 @@
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
-        <AssemblyName>Sucrose.Live.CS</AssemblyName>
+        <AssemblyName>Sucrose.Live.Nebula</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
-        <DefineConstants>$(DefineConstants);ENGINE;LIVE_CEFSHARP</DefineConstants>
+        <DefineConstants>$(DefineConstants);ENGINE;LIVE_NEBULA</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\..\Sucrose\Live\CefSharp\$(Platform)</OutputPath>
+        <OutputPath>..\..\Sucrose\Live\Nebula\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -75,12 +75,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf" Version="114.2.120" />
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.120" />
     </ItemGroup>
 
     <ItemGroup>
@@ -90,7 +85,7 @@
 
     <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Engine\Sucrose.Engine.CS\Sucrose.Engine.CS.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Engine\Sucrose.Engine.NA\Sucrose.Engine.NA.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Engine\Sucrose.Engine.Shared\Sucrose.Engine.Shared.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />

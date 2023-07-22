@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using System.IO.Compression;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
-using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SEAET = Skylark.Enum.AppExtensionType;
 using SEVET = Skylark.Enum.VideoExtensionType;
 using SEWET = Skylark.Enum.WebExtensionType;
 using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;

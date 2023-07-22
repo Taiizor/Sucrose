@@ -1,29 +1,23 @@
-﻿using CefSharp;
-using CefSharp.Wpf;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SECSVV = Sucrose.Engine.CS.View.Video;
-using SECSVW = Sucrose.Engine.CS.View.Web;
-using SECSVYT = Sucrose.Engine.CS.View.YouTube;
+using SENAVV = Sucrose.Engine.NA.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
-using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
-namespace Sucrose.Live.CS
+namespace Sucrose.Live.Nebula
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -116,7 +110,7 @@ namespace Sucrose.Live.CS
             {
                 HasError = false;
 
-                string Path = SMMI.CefSharpLiveLogManager.LogFile();
+                string Path = SMMI.NebulaLiveLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -139,42 +133,9 @@ namespace Sucrose.Live.CS
             if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {
                 string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
-                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
 
                 if (File.Exists(InfoPath))
                 {
-#if NET48_OR_GREATER && DEBUG
-                    CefRuntime.SubscribeAnyCpuAssemblyResolver();
-#endif
-
-                    CefSettings Settings = new()
-                    {
-                        CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
-                    };
-
-                    SESMI.BrowserSettings.CefSharp = SMMI.EngineSettingManager.GetSetting(SMC.CefArguments, new Dictionary<string, string>());
-
-                    if (!SESMI.BrowserSettings.CefSharp.Any())
-                    {
-                        SESMI.BrowserSettings.CefSharp = SESMI.CefArguments;
-
-                        SMMI.EngineSettingManager.SetSetting(SMC.CefArguments, SESMI.BrowserSettings.CefSharp);
-                    }
-
-                    foreach (KeyValuePair<string, string> Argument in SESMI.BrowserSettings.CefSharp)
-                    {
-                        Settings.CefCommandLineArgs.Add(Argument.Key, Argument.Value);
-                    }
-
-                    //Example of checking if a call to Cef.Initialize has already been made, we require this for
-                    //our .Net 5.0 Single File Publish example, you don't typically need to perform this check
-                    //if you call Cef.Initialze within your WPF App constructor.
-                    if (!Cef.IsInitialized)
-                    {
-                        //Perform dependency check to make sure all relevant resources are in our output directory.
-                        Cef.Initialize(Settings, performDependencyCheck: true, browserProcessHandler: null);
-                    }
-
                     SSTHI Info = SSTHI.ReadJson(InfoPath);
 
                     string Source = Info.Source;
@@ -186,25 +147,11 @@ namespace Sucrose.Live.CS
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {
-                        if (File.Exists(PropertiesPath))
-                        {
-                            SESMI.Properties = SSTHP.ReadJson(PropertiesPath);
-                            SESMI.Properties.State = true;
-                        }
-
                         switch (Info.Type)
                         {
-                            case SSDEWT.Web:
-                                SECSVW Web = new(Source);
-                                Web.Show();
-                                break;
                             case SSDEWT.Video:
-                                SECSVV Video = new(Source);
+                                SENAVV Video = new(Source);
                                 Video.Show();
-                                break;
-                            case SSDEWT.YouTube:
-                                SECSVYT YouTube = new(Source);
-                                YouTube.Show();
                                 break;
                             default:
                                 Close();
@@ -231,7 +178,7 @@ namespace Sucrose.Live.CS
         {
             base.OnExit(e);
 
-            Cef.Shutdown();
+            //
 
             Close();
         }

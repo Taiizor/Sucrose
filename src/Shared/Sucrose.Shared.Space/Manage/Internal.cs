@@ -1,4 +1,7 @@
 ﻿using System.IO;
+using SEAT = Skylark.Enum.AssemblyType;
+using SHA = Skylark.Helper.Assemblies;
+using SMR = Sucrose.Memory.Readonly;
 using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
 using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSDEGET = Sucrose.Shared.Dependency.Enum.GifEngineType;
@@ -6,9 +9,6 @@ using SSDEUET = Sucrose.Shared.Dependency.Enum.UrlEngineType;
 using SSDEVET = Sucrose.Shared.Dependency.Enum.VideoEngineType;
 using SSDEWET = Sucrose.Shared.Dependency.Enum.WebEngineType;
 using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
-using SEAT = Skylark.Enum.AssemblyType;
-using SHA = Skylark.Helper.Assemblies;
-using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Shared.Space.Manage
 {

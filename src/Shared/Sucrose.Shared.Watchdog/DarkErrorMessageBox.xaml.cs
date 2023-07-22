@@ -1,9 +1,9 @@
 ﻿using System.Media;
 using System.Runtime.InteropServices;
 using System.Windows;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SGHWL = Sucrose.Globalization.Helper.WatchdogLocalization;
 using SMR = Sucrose.Memory.Readonly;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;

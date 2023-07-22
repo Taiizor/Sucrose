@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
+using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SWE = Skylark.Wing.Engine;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;

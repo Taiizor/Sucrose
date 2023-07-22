@@ -26,35 +26,35 @@
 
         public static readonly string Portal = "Sucrose.Portal.exe";
 
-        public static readonly string Launcher = "Sucrose.Launcher.exe";
-
         public static readonly string SucroseInfo = "SucroseInfo.json";
 
-        public static readonly string AuroraLive = "Sucrose.Live.AA.exe";
-
-        public static readonly string NebulaLive = "Sucrose.Live.NA.exe";
-
-        public static readonly string VexanaLive = "Sucrose.Live.VA.exe";
+        public static readonly string Launcher = "Sucrose.Launcher.exe";
 
         public static readonly string VideoContent = "VideoContent.html";
-
-        public static readonly string WebViewLive = "Sucrose.Live.WV.exe";
 
         public static readonly string Commandog = "Sucrose.Commandog.exe";
 
         public static readonly string StartCommand = $"{StartCommandChar}";
 
-        public static readonly string CefSharpLive = "Sucrose.Live.CS.exe";
+        public static readonly string NebulaLive = "Sucrose.Live.Nebula.exe";
+
+        public static readonly string VexanaLive = "Sucrose.Live.Vexena.exe";
+
+        public static readonly string AuroraLive = "Sucrose.Live.Aurora.exe";
 
         public static readonly string YouTubeContent = "YouTubeContent.html";
 
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Live}";
+
+        public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
         public static readonly string LogDescription = "SucroseWatchdog Thread";
 
         public static readonly string DiscordApplication = "1126294965950103612";
+
+        public static readonly string CefSharpLive = "Sucrose.Live.CefSharp.exe";
 
         public static readonly string SucroseProperties = "SucroseProperties.json";
 

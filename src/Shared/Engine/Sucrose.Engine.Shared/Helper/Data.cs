@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json.Linq;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.Shared.Helper
 {

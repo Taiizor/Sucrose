@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Net.Http;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SEST = Skylark.Enum.ScreenType;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
