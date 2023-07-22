@@ -1,8 +1,8 @@
-﻿using SEAAMI = Sucrose.Engine.AA.Manage.Internal;
+﻿using SSEAMI = Sucrose.Shared.Engine.Aurora.Manage.Internal;
 using SWHACAM = Skylark.Wing.Helper.AudioController.AudioManager;
 using SWHVPCAM = Skylark.Wing.Helper.VideoPlayerController.AudioManager;
 
-namespace Sucrose.Engine.AA.Helper
+namespace Sucrose.Shared.Engine.Aurora.Helper
 {
     internal static class Application
     {
@@ -10,11 +10,11 @@ namespace Sucrose.Engine.AA.Helper
         {
             try
             {
-                SWHVPCAM.SetApplicationVolume(SEAAMI.ApplicationProcess.Id, Volume);
+                SWHVPCAM.SetApplicationVolume(SSEAMI.ApplicationProcess.Id, Volume);
             }
             catch
             {
-                SWHACAM.SetApplicationVolume(SEAAMI.ApplicationProcess.Id, Volume);
+                SWHACAM.SetApplicationVolume(SSEAMI.ApplicationProcess.Id, Volume);
             }
         }
     }

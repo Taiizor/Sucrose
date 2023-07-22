@@ -3,10 +3,10 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>3b1ec692-d1bf-4016-bb68-3ee2fc60fa65</SharedGUID>
+    <SharedGUID>324086b2-c652-43ec-8433-bdbfc9345111</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Engine.AA</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Engine.Aurora</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)View\Application.xaml">
@@ -16,8 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Event\Application.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\Ready.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Application.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Ready.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Application.xaml.cs" />
   </ItemGroup>

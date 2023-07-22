@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SEAAVA = Sucrose.Engine.AA.View.Application;
+using SSEAVA = Sucrose.Shared.Engine.Aurora.View.Application;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
@@ -153,7 +153,7 @@ namespace Sucrose.Live.Aurora
                             switch (Info.Type)
                             {
                                 case SSDEWT.Application:
-                                    SEAAVA Application = new(Source, Info.Arguments);
+                                    SSEAVA Application = new(Source, Info.Arguments);
                                     Application.Show();
                                     break;
                                 default:

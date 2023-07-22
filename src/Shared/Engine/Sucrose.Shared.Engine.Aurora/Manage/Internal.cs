@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Sucrose.Engine.AA.Manage
+namespace Sucrose.Shared.Engine.Aurora.Manage
 {
     internal static class Internal
     {

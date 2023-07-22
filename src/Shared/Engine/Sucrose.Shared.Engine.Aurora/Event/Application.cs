@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Sucrose.Engine.AA.Event
+namespace Sucrose.Shared.Engine.Aurora.Event
 {
     internal static class Application
     {
