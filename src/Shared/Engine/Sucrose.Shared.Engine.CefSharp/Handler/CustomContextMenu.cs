@@ -1,6 +1,6 @@
 ﻿using CefSharp;
 
-namespace Sucrose.Engine.CS.Handler
+namespace Sucrose.Shared.Engine.CefSharp.Handler
 {
     internal class CustomContextMenu : IContextMenuHandler
     {

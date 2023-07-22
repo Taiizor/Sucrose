@@ -1,7 +1,7 @@
 ﻿using CefSharp;
-using SECSMI = Sucrose.Engine.CS.Manage.Internal;
+using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 
-namespace Sucrose.Engine.CS.Helper
+namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class Evaluate
     {
@@ -35,13 +35,13 @@ namespace Sucrose.Engine.CS.Helper
         {
             JavascriptResponse Response;
 
-            if (SECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
+            if (SSECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
             {
-                Response = await SECSMI.CefEngine.EvaluateScriptAsync(Script);
+                Response = await SSECSMI.CefEngine.EvaluateScriptAsync(Script);
             }
             else
             {
-                IFrame Frame = SECSMI.CefEngine.GetMainFrame();
+                IFrame Frame = SSECSMI.CefEngine.GetMainFrame();
 
                 Response = await Frame.EvaluateScriptAsync(Script);
             }

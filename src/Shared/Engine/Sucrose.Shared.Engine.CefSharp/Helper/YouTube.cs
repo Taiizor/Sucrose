@@ -1,19 +1,19 @@
 ﻿using CefSharp;
-using SECSHE = Sucrose.Engine.CS.Helper.Evaluate;
-using SECSMI = Sucrose.Engine.CS.Manage.Internal;
+using SSECSHE = Sucrose.Shared.Engine.CefSharp.Helper.Evaluate;
+using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 
-namespace Sucrose.Engine.CS.Helper
+namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class YouTube
     {
         public static void Pause()
         {
-            SECSMI.CefEngine.ExecuteScriptAsync("pauseVideo();");
+            SSECSMI.CefEngine.ExecuteScriptAsync("pauseVideo();");
         }
 
         public static void Play()
         {
-            SECSMI.CefEngine.ExecuteScriptAsync("playVideo();");
+            SSECSMI.CefEngine.ExecuteScriptAsync("playVideo();");
         }
 
         public static async void Play2()
@@ -28,12 +28,12 @@ namespace Sucrose.Engine.CS.Helper
 
         public static void First()
         {
-            SECSMI.CefEngine.ExecuteScriptAsync("playFirst();");
+            SSECSMI.CefEngine.ExecuteScriptAsync("playFirst();");
         }
 
         public static async Task<bool> GetEnd()
         {
-            string State = await SECSHE.ScriptString($"checkVideoEnded();");
+            string State = await SSECSHE.ScriptString($"checkVideoEnded();");
 
             bool.TryParse(State, out bool Result);
 
@@ -42,7 +42,7 @@ namespace Sucrose.Engine.CS.Helper
 
         public static async Task<bool> GetPlay()
         {
-            string State = await SECSHE.ScriptString($"checkPlayingStatus();");
+            string State = await SSECSHE.ScriptString($"checkPlayingStatus();");
 
             bool.TryParse(State, out bool Result);
 
@@ -51,17 +51,17 @@ namespace Sucrose.Engine.CS.Helper
 
         public static void SetLoop(bool State)
         {
-            SECSMI.CefEngine.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
+            SSECSMI.CefEngine.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
         }
 
         public static void SetVolume(int Volume)
         {
-            SECSMI.CefEngine.ExecuteScriptAsync($"setVolume({Volume});");
+            SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({Volume});");
         }
 
         public static void SetShuffle(bool State)
         {
-            SECSMI.CefEngine.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
+            SSECSMI.CefEngine.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
         }
     }
 }

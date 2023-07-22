@@ -1,7 +1,7 @@
 ﻿using CefSharp;
 using CefEngine = CefSharp.Wpf.ChromiumWebBrowser;
 
-namespace Sucrose.Engine.CS.Manage
+namespace Sucrose.Shared.Engine.CefSharp.Manage
 {
     internal static class Internal
     {

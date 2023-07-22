@@ -4,9 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SECSVV = Sucrose.Engine.CS.View.Video;
-using SECSVW = Sucrose.Engine.CS.View.Web;
-using SECSVYT = Sucrose.Engine.CS.View.YouTube;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -15,6 +12,9 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
+using SSECSVW = Sucrose.Shared.Engine.CefSharp.View.Web;
+using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -195,15 +195,15 @@ namespace Sucrose.Live.CefSharp
                         switch (Info.Type)
                         {
                             case SSDEWT.Web:
-                                SECSVW Web = new(Source);
+                                SSECSVW Web = new(Source);
                                 Web.Show();
                                 break;
                             case SSDEWT.Video:
-                                SECSVV Video = new(Source);
+                                SSECSVV Video = new(Source);
                                 Video.Show();
                                 break;
                             case SSDEWT.YouTube:
-                                SECSVYT YouTube = new(Source);
+                                SSECSVYT YouTube = new(Source);
                                 YouTube.Show();
                                 break;
                             default:

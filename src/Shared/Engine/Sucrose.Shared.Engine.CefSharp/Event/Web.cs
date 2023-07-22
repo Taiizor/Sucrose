@@ -1,22 +1,22 @@
 ﻿using System.Windows;
-using SECSMI = Sucrose.Engine.CS.Manage.Internal;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
+using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 
-namespace Sucrose.Engine.CS.Event
+namespace Sucrose.Shared.Engine.CefSharp.Event
 {
     internal static class Web
     {
         public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            SESMI.Initialized = SECSMI.CefEngine.IsBrowserInitialized;
+            SESMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)
         {
-            SECSMI.CefEngine.Address = SESHS.GetSource(SECSMI.Web).ToString();
+            SSECSMI.CefEngine.Address = SESHS.GetSource(SSECSMI.Web).ToString();
 
-            //SECSMI.CefEngine.ShowDevTools();
+            //SSECSMI.CefEngine.ShowDevTools();
         }
     }
 }
