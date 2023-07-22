@@ -1,6 +1,7 @@
 ﻿using System.Windows.Threading;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 
 namespace Sucrose.Shared.Engine.Manage
 {
@@ -9,6 +10,8 @@ namespace Sucrose.Shared.Engine.Manage
         public static bool Initialized = false;
 
         public static SSTHP Properties = new();
+
+        public static SSTHC Compatible = new();
 
         public delegate void ExecuteNormal(string Script);
 

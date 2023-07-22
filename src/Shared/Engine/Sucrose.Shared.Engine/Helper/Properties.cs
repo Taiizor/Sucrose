@@ -11,29 +11,29 @@ namespace Sucrose.Shared.Engine.Helper
         {
             if (SSEMI.Initialized)
             {
-                if (!string.IsNullOrEmpty(SSEMI.Properties.LoopMode))
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.LoopMode))
                 {
-                    Function(string.Format(SSEMI.Properties.LoopMode, SSEHD.GetLoop()));
+                    Function(string.Format(SSEMI.Compatible.LoopMode, SSEHD.GetLoop()));
                 }
 
-                if (!string.IsNullOrEmpty(SSEMI.Properties.VolumeLevel))
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.VolumeLevel))
                 {
-                    Function(string.Format(SSEMI.Properties.VolumeLevel, SSEHD.GetVolume()));
+                    Function(string.Format(SSEMI.Compatible.VolumeLevel, SSEHD.GetVolume()));
                 }
 
-                if (!string.IsNullOrEmpty(SSEMI.Properties.ShuffleMode))
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.ShuffleMode))
                 {
-                    Function(string.Format(SSEMI.Properties.ShuffleMode, SSEHD.GetShuffle()));
+                    Function(string.Format(SSEMI.Compatible.ShuffleMode, SSEHD.GetShuffle()));
                 }
 
-                if (!string.IsNullOrEmpty(SSEMI.Properties.StretchMode))
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.StretchMode))
                 {
-                    Function(string.Format(SSEMI.Properties.StretchMode, SSEHD.GetStretch()));
+                    Function(string.Format(SSEMI.Compatible.StretchMode, SSEHD.GetStretch()));
                 }
 
-                if (!string.IsNullOrEmpty(SSEMI.Properties.ComputerDate))
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.ComputerDate))
                 {
-                    Function(string.Format(SSEMI.Properties.ComputerDate, SSEHD.GetComputerDate()));
+                    Function(string.Format(SSEMI.Compatible.ComputerDate, SSEHD.GetComputerDate()));
                 }
             }
         }

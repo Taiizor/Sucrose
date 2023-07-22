@@ -17,6 +17,7 @@ using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
@@ -139,7 +140,7 @@ namespace Sucrose.Live.CefSharp
             if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {
                 string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
-                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
+                string CompatiblePath = Path.Combine(Directory, Folder, SMR.SucroseCompatible);
 
                 if (File.Exists(InfoPath))
                 {
@@ -186,10 +187,10 @@ namespace Sucrose.Live.CefSharp
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {
-                        if (File.Exists(PropertiesPath))
+                        if (File.Exists(CompatiblePath))
                         {
-                            SSEMI.Properties = SSTHP.ReadJson(PropertiesPath);
-                            SSEMI.Properties.State = true;
+                            SSEMI.Compatible = SSTHC.ReadJson(CompatiblePath);
+                            SSEMI.Compatible.State = true;
                         }
 
                         switch (Info.Type)

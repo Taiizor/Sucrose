@@ -28,10 +28,10 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
             SSECSMI.CefEngine.BrowserSettings = SSECSMI.CefSettings;
 
-            if (SSEMI.Properties.State)
+            if (SSEMI.Compatible.State)
             {
                 SSEMI.PropertiesTimer.Tick += (s, e) => SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
-                SSEMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SSEMI.Properties.TriggerTime);
+                SSEMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SSEMI.Compatible.TriggerTime);
                 SSEMI.PropertiesTimer.Start();
             }
 

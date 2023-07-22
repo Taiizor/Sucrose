@@ -58,6 +58,8 @@
 
         public static readonly string SucroseProperties = "SucroseProperties.json";
 
+        public static readonly string SucroseCompatible = "SucroseCompatible.json";
+
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
 
         public static readonly string BrowseWebsite = "https://github.com/Taiizor/Sucrose";

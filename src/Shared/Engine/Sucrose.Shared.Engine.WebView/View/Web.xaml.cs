@@ -22,10 +22,10 @@ namespace Sucrose.Shared.Engine.WebView.View
 
             SSEWVMI.Web = Web;
 
-            if (SSEMI.Properties.State)
+            if (SSEMI.Compatible.State)
             {
                 SSEMI.PropertiesTimer.Tick += (s, e) => SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
-                SSEMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SSEMI.Properties.TriggerTime);
+                SSEMI.PropertiesTimer.Interval = TimeSpan.FromMilliseconds(SSEMI.Compatible.TriggerTime);
                 SSEMI.PropertiesTimer.Start();
             }
 

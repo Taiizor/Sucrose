@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Converter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Info.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Compatible.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Serialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Various.cs" />

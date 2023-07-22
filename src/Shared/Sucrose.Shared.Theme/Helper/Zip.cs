@@ -9,6 +9,7 @@ using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
 namespace Sucrose.Shared.Theme.Helper
@@ -168,11 +169,11 @@ namespace Sucrose.Shared.Theme.Helper
                     }
                 }
 
-                // Arşivde SucroseProperties.json dosyası var mı?
-                if (CheckFile(Archive, SMR.SucroseProperties))
+                // Arşivde SucroseCompatible.json dosyası var mı?
+                if (CheckFile(Archive, SMR.SucroseCompatible))
                 {
-                    // Arşivdeki SucroseProperties.json dosyasını okuma
-                    SSTHP Properties = SSTHP.FromJson(ReadFile(Archive, SMR.SucroseProperties));
+                    // Arşivdeki SucroseCompatible.json dosyasını okuma
+                    SSTHC Properties = SSTHC.FromJson(ReadFile(Archive, SMR.SucroseCompatible));
 
                     // Properties içindeki TriggerTime değeri 1'den küçük mü?
                     if (Properties.TriggerTime <= 0)
