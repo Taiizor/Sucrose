@@ -1,5 +1,5 @@
-﻿using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
-using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+﻿using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.WV.Helper
 {

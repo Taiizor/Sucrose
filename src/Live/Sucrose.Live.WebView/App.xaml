@@ -1,7 +1,7 @@
-﻿<Application x:Class="Sucrose.Live.WV.App"
+﻿<Application x:Class="Sucrose.Live.WebView.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Sucrose.Live.WV">
+             xmlns:local="clr-namespace:Sucrose.Live.WebView">
     <Application.Resources>
 
     </Application.Resources>

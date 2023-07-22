@@ -1,23 +1,29 @@
-﻿using System.Globalization;
+﻿using Microsoft.Web.WebView2.Core;
+using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
-using SEVAVG = Sucrose.Engine.VA.View.Gif;
+using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SEWVMI = Sucrose.Engine.WV.Manage.Internal;
+using SEWVVV = Sucrose.Engine.WV.View.Video;
+using SEWVVW = Sucrose.Engine.WV.View.Web;
+using SEWVVYT = Sucrose.Engine.WV.View.YouTube;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
-namespace Sucrose.Live.VA
+namespace Sucrose.Live.WebView
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -110,7 +116,7 @@ namespace Sucrose.Live.VA
             {
                 HasError = false;
 
-                string Path = SMMI.VexanaLiveLogManager.LogFile();
+                string Path = SMMI.WebViewLiveLogManager.LogFile();
 
                 switch (Theme)
                 {
@@ -133,9 +139,30 @@ namespace Sucrose.Live.VA
             if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
             {
                 string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
+                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
 
                 if (File.Exists(InfoPath))
                 {
+                    CoreWebView2EnvironmentOptions Options = new()
+                    {
+                        Language = Culture
+                    };
+
+                    SESMI.BrowserSettings.WebView = SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
+
+                    if (!SESMI.BrowserSettings.WebView.Any())
+                    {
+                        SESMI.BrowserSettings.WebView = SESMI.WebArguments;
+
+                        SMMI.EngineSettingManager.SetSetting(SMC.WebArguments, SESMI.BrowserSettings.WebView);
+                    }
+
+                    Options.AdditionalBrowserArguments = string.Join(" ", SESMI.BrowserSettings.WebView);
+
+                    Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
+
+                    SEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
+
                     SSTHI Info = SSTHI.ReadJson(InfoPath);
 
                     string Source = Info.Source;
@@ -147,11 +174,25 @@ namespace Sucrose.Live.VA
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {
+                        if (File.Exists(PropertiesPath))
+                        {
+                            SESMI.Properties = SSTHP.ReadJson(PropertiesPath);
+                            SESMI.Properties.State = true;
+                        }
+
                         switch (Info.Type)
                         {
-                            case SSDEWT.Gif:
-                                SEVAVG Gif = new(Source);
-                                Gif.Show();
+                            case SSDEWT.Web:
+                                SEWVVW Web = new(Source);
+                                Web.Show();
+                                break;
+                            case SSDEWT.Video:
+                                SEWVVV Video = new(Source);
+                                Video.Show();
+                                break;
+                            case SSDEWT.YouTube:
+                                SEWVVYT YouTube = new(Source);
+                                YouTube.Show();
                                 break;
                             default:
                                 Close();

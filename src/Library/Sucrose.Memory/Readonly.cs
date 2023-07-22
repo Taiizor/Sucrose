@@ -38,7 +38,7 @@
 
         public static readonly string NebulaLive = "Sucrose.Live.Nebula.exe";
 
-        public static readonly string VexanaLive = "Sucrose.Live.Vexena.exe";
+        public static readonly string VexanaLive = "Sucrose.Live.Vexana.exe";
 
         public static readonly string AuroraLive = "Sucrose.Live.Aurora.exe";
 

@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SECSVV = Sucrose.Engine.CS.View.Video;
 using SECSVW = Sucrose.Engine.CS.View.Web;
 using SECSVYT = Sucrose.Engine.CS.View.YouTube;
@@ -15,13 +14,14 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Live.CefSharp
 {

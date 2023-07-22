@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SENAVV = Sucrose.Engine.NA.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -10,12 +9,13 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Live.Nebula
 {

@@ -1,13 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
+using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEVAEG = Sucrose.Engine.VA.Event.Gif;
 using SEVAHG = Sucrose.Engine.VA.Helper.Gif;
 using SEVAHP = Sucrose.Engine.VA.Helper.Parse;
 using SEVAMI = Sucrose.Engine.VA.Manage.Internal;
-using SESHD = Sucrose.Engine.Shared.Helper.Data;
 
 namespace Sucrose.Engine.VA.View
 {

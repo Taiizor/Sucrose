@@ -1,7 +1,7 @@
 ﻿using CefSharp;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SECSHE = Sucrose.Engine.CS.Helper.Evaluate;
 using SECSMI = Sucrose.Engine.CS.Manage.Internal;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 
 namespace Sucrose.Engine.CS.Helper
 {
