@@ -1,65 +1,19 @@
 ﻿using System.IO;
-using System.IO.Compression;
-using SEAET = Skylark.Enum.AppExtensionType;
-using SEVET = Skylark.Enum.VideoExtensionType;
-using SEWET = Skylark.Enum.WebExtensionType;
 using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
-using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSTHF = Sucrose.Shared.Theme.Helper.Filter;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
+using SSZHZ = Sucrose.Shared.Zip.Helper.Zip;
 
 namespace Sucrose.Shared.Theme.Helper
 {
     internal static class Zip
     {
-        public static SSDECT Extract(string Archive, string Destination)
-        {
-            try
-            {
-                // ZIP dosyasını açma
-#if NET48_OR_GREATER
-                ZipFile.ExtractToDirectory(Archive, Destination);
-#else
-                ZipFile.ExtractToDirectory(Archive, Destination, true);
-#endif
-
-                return SSDECT.Pass;
-            }
-            catch
-            {
-                return SSDECT.UnforeseenConsequences;
-            }
-        }
-
-        public static SSDECT Compress(string Source, string Destination)
-        {
-            try
-            {
-                // Eğer ZIP dosyası varsa silme
-                if (File.Exists(Destination))
-                {
-                    File.Delete(Destination);
-                }
-
-                // ZIP dosyası oluşturma
-#if NET48_OR_GREATER
-                ZipFile.CreateFromDirectory(Source, Destination, CompressionLevel.Fastest, false);
-#else
-                ZipFile.CreateFromDirectory(Source, Destination, CompressionLevel.SmallestSize, false);
-#endif
-
-                return SSDECT.Pass;
-            }
-            catch
-            {
-                return SSDECT.UnforeseenConsequences;
-            }
-        }
-
         public static SSDECT Check(string Archive)
         {
             try
@@ -77,28 +31,28 @@ namespace Sucrose.Shared.Theme.Helper
                 }
 
                 // Seçilen dosya gerçekten ZIP dosyası mı?
-                if (!CheckArchive(Archive))
+                if (!SSZHZ.CheckArchive(Archive))
                 {
                     return SSDECT.ZipType;
                 }
 
                 // Arşivde SucroseInfo.json dosyası var mı?
-                if (!CheckFile(Archive, SMR.SucroseInfo))
+                if (!SSZHZ.CheckFile(Archive, SMR.SucroseInfo))
                 {
                     return SSDECT.InfoFile;
                 }
 
                 // Arşivdeki SucroseInfo.json dosyasını okuma
-                SSTHI Info = SSTHI.FromJson(ReadFile(Archive, SMR.SucroseInfo));
+                SSTHI Info = SSTHI.FromJson(SSZHZ.ReadFile(Archive, SMR.SucroseInfo));
 
                 // Info içindeki Thumbnail dosyası var mı?
-                if (!CheckFile(Archive, Info.Thumbnail))
+                if (!SSZHZ.CheckFile(Archive, Info.Thumbnail))
                 {
                     return SSDECT.Thumbnail;
                 }
 
                 // Info içindeki Preview dosyası var mı?
-                if (!CheckFile(Archive, Info.Preview))
+                if (!SSZHZ.CheckFile(Archive, Info.Preview))
                 {
                     return SSDECT.Preview;
                 }
@@ -118,11 +72,11 @@ namespace Sucrose.Shared.Theme.Helper
                 // Info içindeki Type değerine göre dosya veya url kontrolü
                 if (Info.Type == SSDEWT.Web)
                 {
-                    if (!CheckFile(Archive, Info.Source))
+                    if (!SSZHZ.CheckFile(Archive, Info.Source))
                     {
                         return SSDECT.Source;
                     }
-                    else if (!CheckWebExtension(Info.Source))
+                    else if (!SSTHF.WebExtension(Info.Source))
                     {
                         return SSDECT.InvalidExtension;
                     }
@@ -133,22 +87,22 @@ namespace Sucrose.Shared.Theme.Helper
                 }
                 else if (Info.Type == SSDEWT.Gif)
                 {
-                    if (!SSTHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
+                    if (!SSTHV.IsUrl(Info.Source) && !SSZHZ.CheckFile(Archive, Info.Source))
                     {
                         return SSDECT.Source;
                     }
-                    else if (!CheckGifExtension(Info.Source))
+                    else if (!SSTHF.GifExtension(Info.Source))
                     {
                         return SSDECT.InvalidExtension;
                     }
                 }
                 else if (Info.Type == SSDEWT.Video)
                 {
-                    if (!SSTHV.IsUrl(Info.Source) && !CheckFile(Archive, Info.Source))
+                    if (!SSTHV.IsUrl(Info.Source) && !SSZHZ.CheckFile(Archive, Info.Source))
                     {
                         return SSDECT.Source;
                     }
-                    else if (!CheckVideoExtension(Info.Source))
+                    else if (!SSTHF.VideoExtension(Info.Source))
                     {
                         return SSDECT.InvalidExtension;
                     }
@@ -159,21 +113,21 @@ namespace Sucrose.Shared.Theme.Helper
                 }
                 else if (Info.Type == SSDEWT.Application)
                 {
-                    if (!CheckFile(Archive, Info.Source))
+                    if (!SSZHZ.CheckFile(Archive, Info.Source))
                     {
                         return SSDECT.Source;
                     }
-                    else if (!CheckAppExtension(Info.Source))
+                    else if (!SSTHF.AppExtension(Info.Source))
                     {
                         return SSDECT.InvalidExtension;
                     }
                 }
 
                 // Arşivde SucroseProperties.json dosyası var mı?
-                if (CheckFile(Archive, SMR.SucroseProperties))
+                if (SSZHZ.CheckFile(Archive, SMR.SucroseProperties))
                 {
                     // Arşivdeki SucroseProperties.json dosyasını okuma
-                    SSTHP Properties = SSTHP.FromJson(ReadFile(Archive, SMR.SucroseProperties));
+                    SSTHP Properties = SSTHP.FromJson(SSZHZ.ReadFile(Archive, SMR.SucroseProperties));
 
                     // Properties içindeki PropertyListener değeri boş değil ve {0} veya {1} içermiyor mu?
                     if (!string.IsNullOrEmpty(Properties.PropertyListener) && (!Properties.PropertyListener.Contains("{0}") || !Properties.PropertyListener.Contains("{1}")))
@@ -183,10 +137,10 @@ namespace Sucrose.Shared.Theme.Helper
                 }
 
                 // Arşivde SucroseCompatible.json dosyası var mı?
-                if (CheckFile(Archive, SMR.SucroseCompatible))
+                if (SSZHZ.CheckFile(Archive, SMR.SucroseCompatible))
                 {
                     // Arşivdeki SucroseCompatible.json dosyasını okuma
-                    SSTHC Compatible = SSTHC.FromJson(ReadFile(Archive, SMR.SucroseCompatible));
+                    SSTHC Compatible = SSTHC.FromJson(SSZHZ.ReadFile(Archive, SMR.SucroseCompatible));
 
                     // Compatible içindeki TriggerTime değeri 1'den küçük mü?
                     if (Compatible.TriggerTime <= 0)
@@ -230,116 +184,6 @@ namespace Sucrose.Shared.Theme.Helper
             catch
             {
                 return SSDECT.UnforeseenConsequences;
-            }
-        }
-
-        private static string ReadFile(string Archive, string File)
-        {
-            try
-            {
-                using ZipArchive Archives = ZipFile.OpenRead(Archive);
-
-                ZipArchiveEntry Entry = Archives.GetEntry(File);
-
-                using StreamReader Reader = new(Entry.Open());
-
-                return Reader.ReadToEnd();
-            }
-            catch
-            {
-                return string.Empty;
-            }
-        }
-
-        private static bool CheckAppExtension(string File)
-        {
-            try
-            {
-                string Extension = Path.GetExtension(File).Replace(".", "");
-
-                return Enum.TryParse<SEAET>(Extension, true, out _);
-                //return Enum.IsDefined(typeof(SEAET), Extension.ToUpperInvariant());
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private static bool CheckGifExtension(string File)
-        {
-            try
-            {
-                string Extension = Path.GetExtension(File).Replace(".", "");
-
-                return Extension.Equals("GIF", StringComparison.OrdinalIgnoreCase);
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private static bool CheckWebExtension(string File)
-        {
-            try
-            {
-                string Extension = Path.GetExtension(File).Replace(".", "");
-
-                return Enum.TryParse<SEWET>(Extension, true, out _);
-                //return Enum.IsDefined(typeof(SEWET), Extension.ToUpperInvariant());
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private static bool CheckVideoExtension(string File)
-        {
-            try
-            {
-                string Extension = Path.GetExtension(File).Replace(".", "");
-
-                return Enum.TryParse<SEVET>(Extension, true, out _);
-                //return Enum.IsDefined(typeof(SEVET), Extension.ToUpperInvariant());
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private static bool CheckFile(string Archive, string File, StringComparison Comparison = StringComparison.Ordinal)
-        {
-            try
-            {
-                using ZipArchive Archives = ZipFile.OpenRead(Archive);
-
-                return Archives.Entries.Any(Entry => string.Equals(Entry.Name, File, Comparison));
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private static bool CheckArchive(string Archive)
-        {
-            try
-            {
-                using FileStream Stream = new(Archive, FileMode.Open, FileAccess.Read, FileShare.Read);
-
-                byte[] ArchiveHeader = new byte[4];
-                Stream.Read(ArchiveHeader, 0, 4);
-
-                byte[] ZipHeader = new byte[] { 0x50, 0x4B, 0x03, 0x04 };
-
-                return ArchiveHeader.SequenceEqual(ZipHeader);
-            }
-            catch
-            {
-                return false;
             }
         }
     }
