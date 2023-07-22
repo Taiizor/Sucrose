@@ -9,7 +9,8 @@ namespace Sucrose.Engine.NA.Manage
         public static MediaEngine MediaEngine = new()
         {
             LoadedBehavior = MediaState.Manual,
-            Stretch = Stretch.Fill
+            Stretch = Stretch.Fill,
+            Volume = 0
         };
     }
 }
