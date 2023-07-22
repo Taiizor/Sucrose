@@ -82,6 +82,10 @@
         /// </summary>
         InvalidExtension,
         /// <summary>
+        /// Geçersiz özellik dinleyici değeri!
+        /// </summary>
+        PropertyListener,
+        /// <summary>
         /// Öngörülemeyen sonuçlar.
         /// </summary>
         UnforeseenConsequences

@@ -1,9 +1,11 @@
 ﻿using System.Globalization;
+using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMR = Sucrose.Memory.Readonly;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
@@ -20,9 +22,13 @@ namespace Sucrose.Shared.Launcher.Manager
 {
     public class TrayIconManager
     {
+        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+
+        private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
         private static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
 
@@ -69,7 +75,13 @@ namespace Sucrose.Shared.Launcher.Manager
                 //ContextMenu.Items.Add(SGHLL.GetValue("WallStartText"), null, null); //WallStopText
 
                 //ContextMenu.Items.Add(SGHLL.GetValue("WallChangeText"), null, null);
-                ContextMenu.Items.Add(SGHLL.GetValue("WallCustomizeText"), null, null);
+
+                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
+
+                if (File.Exists(PropertiesPath))
+                {
+                    ContextMenu.Items.Add(SGHLL.GetValue("WallCustomizeText"), null, null);
+                }
             }
             else if (SMMI.EngineSettingManager.CheckFile())
             {

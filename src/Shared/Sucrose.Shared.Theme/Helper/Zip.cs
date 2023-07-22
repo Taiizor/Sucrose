@@ -7,9 +7,9 @@ using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
 namespace Sucrose.Shared.Theme.Helper
@@ -169,44 +169,57 @@ namespace Sucrose.Shared.Theme.Helper
                     }
                 }
 
+                // Arşivde SucroseProperties.json dosyası var mı?
+                if (CheckFile(Archive, SMR.SucroseProperties))
+                {
+                    // Arşivdeki SucroseProperties.json dosyasını okuma
+                    SSTHP Properties = SSTHP.FromJson(ReadFile(Archive, SMR.SucroseProperties));
+
+                    // Properties içindeki PropertyListener değeri boş değil ve {0} veya {1} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Properties.PropertyListener) && (!Properties.PropertyListener.Contains("{0}") || !Properties.PropertyListener.Contains("{1}")))
+                    {
+                        return SSDECT.PropertyListener;
+                    }
+                }
+
                 // Arşivde SucroseCompatible.json dosyası var mı?
                 if (CheckFile(Archive, SMR.SucroseCompatible))
                 {
                     // Arşivdeki SucroseCompatible.json dosyasını okuma
-                    SSTHC Properties = SSTHC.FromJson(ReadFile(Archive, SMR.SucroseCompatible));
+                    SSTHC Compatible = SSTHC.FromJson(ReadFile(Archive, SMR.SucroseCompatible));
 
-                    // Properties içindeki TriggerTime değeri 1'den küçük mü?
-                    if (Properties.TriggerTime <= 0)
+                    // Compatible içindeki TriggerTime değeri 1'den küçük mü?
+                    if (Compatible.TriggerTime <= 0)
                     {
                         return SSDECT.TriggerTime;
                     }
 
-                    // Properties içindeki LoopMode değeri boş değil ve {0} içermiyor mu?
-                    if (!string.IsNullOrEmpty(Properties.LoopMode) && !Properties.LoopMode.Contains("{0}"))
+                    // Compatible içindeki LoopMode değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.LoopMode) && !Compatible.LoopMode.Contains("{0}"))
                     {
                         return SSDECT.LoopMode;
                     }
 
-                    // Properties içindeki VolumeLevel değeri boş değil ve {0} içermiyor mu?
-                    if (!string.IsNullOrEmpty(Properties.VolumeLevel) && !Properties.VolumeLevel.Contains("{0}"))
+                    // Compatible içindeki VolumeLevel değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.VolumeLevel) && !Compatible.VolumeLevel.Contains("{0}"))
                     {
                         return SSDECT.VolumeLevel;
                     }
 
-                    // Properties içindeki ShuffleMode değeri boş değil ve {0} içermiyor mu?
-                    if (!string.IsNullOrEmpty(Properties.ShuffleMode) && !Properties.ShuffleMode.Contains("{0}"))
+                    // Compatible içindeki ShuffleMode değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.ShuffleMode) && !Compatible.ShuffleMode.Contains("{0}"))
                     {
                         return SSDECT.ShuffleMode;
                     }
 
-                    // Properties içindeki StretchMode değeri boş değil ve {0} içermiyor mu?
-                    if (!string.IsNullOrEmpty(Properties.StretchMode) && !Properties.StretchMode.Contains("{0}"))
+                    // Compatible içindeki StretchMode değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.StretchMode) && !Compatible.StretchMode.Contains("{0}"))
                     {
                         return SSDECT.StretchMode;
                     }
 
-                    // Properties içindeki ComputerDate değeri boş değil ve {0} içermiyor mu?
-                    if (!string.IsNullOrEmpty(Properties.ComputerDate) && !Properties.ComputerDate.Contains("{0}"))
+                    // Compatible içindeki ComputerDate değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.ComputerDate) && !Compatible.ComputerDate.Contains("{0}"))
                     {
                         return SSDECT.ComputerDate;
                     }

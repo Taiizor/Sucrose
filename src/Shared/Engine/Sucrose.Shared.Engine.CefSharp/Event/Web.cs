@@ -26,7 +26,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
         {
             SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
 
-            SSECSMI.CefEngine.ShowDevTools();
+            //SSECSMI.CefEngine.ShowDevTools();
         }
     }
 }
