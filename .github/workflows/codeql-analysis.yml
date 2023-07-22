@@ -39,13 +39,13 @@ jobs:
             Release
         ]
         solution: [
-            src/gRPC/Sucrose.Grpc/Sucrose.Grpc.sln,
-            src/gRPC/Sucrose.Grpc.Client/Sucrose.Grpc.Client.sln,
-            src/gRPC/Sucrose.Grpc.Common/Sucrose.Grpc.Common.sln,
+            src/gRPC/Sucrose.Grpc/Sucrose.Grpc.csproj,
+            src/gRPC/Sucrose.Grpc.Client/Sucrose.Grpc.Client.csproj,
+            src/gRPC/Sucrose.Grpc.Common/Sucrose.Grpc.Common.csproj,
 
-            src/Library/Sucrose.Memory/Sucrose.Memory.sln,
-            src/Library/Sucrose.Manager/Sucrose.Manager.sln,
-            src/Library/Sucrose.Globalization/Sucrose.Globalization.sln,
+            src/Library/Sucrose.Memory/Sucrose.Memory.csproj,
+            src/Library/Sucrose.Manager/Sucrose.Manager.csproj,
+            src/Library/Sucrose.Globalization/Sucrose.Globalization.csproj,
         ]
 
     steps:
