@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Globalization.Strings
 {
-    internal class Tray
+    internal class Launcher
     {
     }
 }

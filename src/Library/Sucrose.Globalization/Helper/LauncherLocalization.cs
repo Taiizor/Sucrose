@@ -4,7 +4,7 @@ using SGMR = Sucrose.Globalization.Manage.Resources;
 
 namespace Sucrose.Globalization.Helper
 {
-    public static class TrayLocalization
+    public static class LauncherLocalization
     {
         public static string GetValue(string Key)
         {
@@ -18,7 +18,7 @@ namespace Sucrose.Globalization.Helper
 
         public static string GetValue(string Key, CultureInfo Culture)
         {
-            return SGMR.TrayManager.GetString(Key, Culture) ?? SGHL.FlexKey(Key);
+            return SGMR.LauncherManager.GetString(Key, Culture) ?? SGHL.FlexKey(Key);
         }
     }
 }

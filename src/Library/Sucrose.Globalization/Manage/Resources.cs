@@ -3,7 +3,7 @@ using System.Resources;
 using SGSC = Sucrose.Globalization.Strings.Commandog;
 using SGSD = Sucrose.Globalization.Strings.Discord;
 using SGSG = Sucrose.Globalization.Strings.General;
-using SGST = Sucrose.Globalization.Strings.Tray;
+using SGSL = Sucrose.Globalization.Strings.Launcher;
 using SGSW = Sucrose.Globalization.Strings.Watchdog;
 
 namespace Sucrose.Globalization.Manage
@@ -22,11 +22,11 @@ namespace Sucrose.Globalization.Manage
             }
         }
 
-        public static readonly ResourceManager TrayManager = new($"{typeof(SGST)}", typeof(SGST).Assembly);
-
         public static readonly ResourceManager DiscordManager = new($"{typeof(SGSD)}", typeof(SGSD).Assembly);
 
         public static readonly ResourceManager GeneralManager = new($"{typeof(SGSG)}", typeof(SGSG).Assembly);
+
+        public static readonly ResourceManager LauncherManager = new($"{typeof(SGSL)}", typeof(SGSL).Assembly);
 
         public static readonly ResourceManager WatchdogManager = new($"{typeof(SGSW)}", typeof(SGSW).Assembly);
 

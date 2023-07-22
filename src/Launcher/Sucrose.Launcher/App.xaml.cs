@@ -2,7 +2,6 @@
 using System.Windows;
 using Application = System.Windows.Application;
 using SCSLSS = Sucrose.Common.Services.LauncherServerService;
-using SDH = Sucrose.Discord.Hook;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCL = Sucrose.Grpc.Common.Launcher;
@@ -11,6 +10,7 @@ using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSDH = Sucrose.Shared.Discord.Hook;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
@@ -34,7 +34,7 @@ namespace Sucrose.Launcher
 
         private static bool HasError { get; set; } = true;
 
-        private static SDH Discord { get; set; } = new();
+        private static SSDH Discord { get; set; } = new();
 
         public App()
         {

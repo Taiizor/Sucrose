@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGHTL = Sucrose.Globalization.Helper.TrayLocalization;
+using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
 using SGMR = Sucrose.Globalization.Manage.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -32,8 +32,8 @@ namespace Sucrose.Shared.Launcher.Manager
 
         public void Start()
         {
-            TrayIcon.Text = SGHTL.GetValue("TrayText");
-            TrayIcon.Icon = new Icon(SSHA.Get(SGHTL.GetValue("TrayIcon")));
+            TrayIcon.Text = SGHLL.GetValue("TrayText");
+            TrayIcon.Icon = new Icon(SSHA.Get(SGHLL.GetValue("TrayIcon")));
 
             TrayIcon.MouseClick += MouseClick;
             TrayIcon.ContextMenuStrip = ContextMenu;
@@ -57,7 +57,7 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Renderer = new SSLRLR();
             }
 
-            ContextMenu.Items.Add(SGHTL.GetValue("OpenText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("OpenIcon"))), CommandInterface);
+            ContextMenu.Items.Add(SGHLL.GetValue("OpenText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("OpenIcon"))), CommandInterface);
 
             SSLSSS Separator1 = new(Theme);
 
@@ -65,29 +65,29 @@ namespace Sucrose.Shared.Launcher.Manager
             {
                 ContextMenu.Items.Add(Separator1.Strip);
 
-                ContextMenu.Items.Add(SGHTL.GetValue("WallCloseText"), null, CommandEngine);
-                //ContextMenu.Items.Add(SGHTL.GetValue("WallStartText"), null, null); //WallStopText
+                ContextMenu.Items.Add(SGHLL.GetValue("WallCloseText"), null, CommandEngine);
+                //ContextMenu.Items.Add(SGHLL.GetValue("WallStartText"), null, null); //WallStopText
 
-                //ContextMenu.Items.Add(SGHTL.GetValue("WallChangeText"), null, null);
-                ContextMenu.Items.Add(SGHTL.GetValue("WallCustomizeText"), null, null);
+                //ContextMenu.Items.Add(SGHLL.GetValue("WallChangeText"), null, null);
+                ContextMenu.Items.Add(SGHLL.GetValue("WallCustomizeText"), null, null);
             }
             else if (SMMI.EngineSettingManager.CheckFile())
             {
                 ContextMenu.Items.Add(Separator1.Strip);
 
-                ContextMenu.Items.Add(SGHTL.GetValue("WallOpenText"), null, CommandEngine);
+                ContextMenu.Items.Add(SGHLL.GetValue("WallOpenText"), null, CommandEngine);
             }
 
             SSLSSS Separator2 = new(Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(SGHTL.GetValue("SettingsText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("SettingsIcon"))), null);
-            ContextMenu.Items.Add(SGHTL.GetValue("ReportText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("ReportIcon"))), CommandReport);
+            ContextMenu.Items.Add(SGHLL.GetValue("SettingsText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("SettingsIcon"))), null);
+            ContextMenu.Items.Add(SGHLL.GetValue("ReportText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("ReportIcon"))), CommandReport);
 
             SSLSSS Separator3 = new(Theme);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add(SGHTL.GetValue("ExitText"), Image.FromFile(SSHA.Get(SGHTL.GetValue("ExitIcon"))), CommandClose);
+            ContextMenu.Items.Add(SGHLL.GetValue("ExitText"), Image.FromFile(SSHA.Get(SGHLL.GetValue("ExitIcon"))), CommandClose);
         }
 
         public bool Dispose()
