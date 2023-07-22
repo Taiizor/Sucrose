@@ -1,4 +1,4 @@
-﻿using SDEET = Sucrose.Dependency.Enum.EngineType;
+﻿using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSHP = Sucrose.Space.Helper.Processor;
 using SSMI = Sucrose.Space.Manage.Internal;
 
@@ -10,7 +10,7 @@ namespace Sucrose.Engine.Shared.Helper
         {
             int Result = 0;
 
-            foreach (KeyValuePair<SDEET, string> Pair in SSMI.EngineLive)
+            foreach (KeyValuePair<SSDEET, string> Pair in SSMI.EngineLive)
             {
                 if (SSHP.Work(Pair.Value))
                 {

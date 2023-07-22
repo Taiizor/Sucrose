@@ -1,8 +1,8 @@
 ﻿using SCHM = Sucrose.Commandog.Helper.Miscellaneous;
 using SCHP = Sucrose.Commandog.Helper.Parse;
 using SCHS = Sucrose.Commandog.Helper.Scheduler;
-using SDECT = Sucrose.Dependency.Enum.CommandsType;
-using SDESCT = Sucrose.Dependency.Enum.SchedulerCommandsType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
 using SMR = Sucrose.Memory.Readonly;
 using SSHE = Sucrose.Space.Helper.Export;
 using SSHI = Sucrose.Space.Helper.Import;
@@ -48,20 +48,20 @@ namespace Sucrose.Commandog.Helper
                             }
 #endif
 
-                            if (Enum.TryParse(Name, true, out SDECT Command))
+                            if (Enum.TryParse(Name, true, out SSDECT Command))
                             {
                                 switch (Command)
                                 {
-                                    case SDECT.Log:
+                                    case SSDECT.Log:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SDECT.Kill:
+                                    case SSDECT.Kill:
                                         SSHP.Kill(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SDECT.Live:
+                                    case SSDECT.Live:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SDECT.Test:
+                                    case SSDECT.Test:
                                         Console.WriteLine("Test Values:");
 
                                         foreach (string Value in Values)
@@ -82,47 +82,47 @@ namespace Sucrose.Commandog.Helper
                                             }
                                         }
                                         break;
-                                    case SDECT.Temp:
+                                    case SSDECT.Temp:
                                         SSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
-                                    case SDECT.Import:
+                                    case SSDECT.Import:
                                         SSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
-                                    case SDECT.Export:
+                                    case SSDECT.Export:
                                         SSHE.Start(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SDECT.Report:
+                                    case SSDECT.Report:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
-                                    case SDECT.Startup:
+                                    case SSDECT.Startup:
                                         SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;
-                                    case SDECT.StartupM:
+                                    case SSDECT.StartupM:
                                         SWHWSM.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;
-                                    case SDECT.StartupP:
+                                    case SSDECT.StartupP:
                                         SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
                                         break;
-                                    case SDECT.Scheduler:
-                                        switch (SCHP.ArgumentValue<SDESCT>(Values[0]))
+                                    case SSDECT.Scheduler:
+                                        switch (SCHP.ArgumentValue<SSDESCT>(Values[0]))
                                         {
-                                            case SDESCT.Create:
+                                            case SSDESCT.Create:
                                                 SCHS.CreateTask(SCHP.ArgumentValue<string>(Values[1]));
                                                 break;
-                                            case SDESCT.Enable:
+                                            case SSDESCT.Enable:
                                                 SCHS.EnableTask();
                                                 break;
-                                            case SDESCT.Disable:
+                                            case SSDESCT.Disable:
                                                 SCHS.DisableTask();
                                                 break;
-                                            case SDESCT.Delete:
+                                            case SSDESCT.Delete:
                                                 SCHS.DeleteTask();
                                                 break;
                                             default:
                                                 break;
                                         }
                                         break;
-                                    case SDECT.Interface:
+                                    case SSDECT.Interface:
                                         SSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     default:

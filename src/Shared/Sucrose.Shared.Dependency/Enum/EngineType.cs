@@ -1,4 +1,4 @@
-﻿namespace Sucrose.Dependency.Enum
+﻿namespace Sucrose.Shared.Dependency.Enum
 {
     internal enum EngineType
     {

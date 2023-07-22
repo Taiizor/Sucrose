@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SEAAVA = Sucrose.Engine.AA.View.Application;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -152,7 +152,7 @@ namespace Sucrose.Live.AA
                         {
                             switch (Info.Type)
                             {
-                                case SDEWT.Application:
+                                case SSDEWT.Application:
                                     SEAAVA Application = new(Source, Info.Arguments);
                                     Application.Show();
                                     break;

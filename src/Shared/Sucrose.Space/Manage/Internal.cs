@@ -1,11 +1,11 @@
 ﻿using System.IO;
-using SDEAET = Sucrose.Dependency.Enum.ApplicationEngineType;
-using SDEET = Sucrose.Dependency.Enum.EngineType;
-using SDEGET = Sucrose.Dependency.Enum.GifEngineType;
-using SDEUET = Sucrose.Dependency.Enum.UrlEngineType;
-using SDEVET = Sucrose.Dependency.Enum.VideoEngineType;
-using SDEWET = Sucrose.Dependency.Enum.WebEngineType;
-using SDEYTET = Sucrose.Dependency.Enum.YouTubeEngineType;
+using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
+using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
+using SSDEGET = Sucrose.Shared.Dependency.Enum.GifEngineType;
+using SSDEUET = Sucrose.Shared.Dependency.Enum.UrlEngineType;
+using SSDEVET = Sucrose.Shared.Dependency.Enum.VideoEngineType;
+using SSDEWET = Sucrose.Shared.Dependency.Enum.WebEngineType;
+using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SMR = Sucrose.Memory.Readonly;
@@ -14,17 +14,17 @@ namespace Sucrose.Space.Manage
 {
     internal static class Internal
     {
-        public static SDEGET GifEngine = SDEGET.Vexana;
+        public static SSDEGET GifEngine = SSDEGET.Vexana;
 
-        public static SDEUET UrlEngine = SDEUET.WebView;
+        public static SSDEUET UrlEngine = SSDEUET.WebView;
 
-        public static SDEWET WebEngine = SDEWET.WebView;
+        public static SSDEWET WebEngine = SSDEWET.WebView;
 
-        public static SDEVET VideoEngine = SDEVET.Nebula;
+        public static SSDEVET VideoEngine = SSDEVET.Nebula;
 
-        public static SDEYTET YouTubeEngine = SDEYTET.WebView;
+        public static SSDEYTET YouTubeEngine = SSDEYTET.WebView;
 
-        public static SDEAET ApplicationEngine = SDEAET.Aurora;
+        public static SSDEAET ApplicationEngine = SSDEAET.Aurora;
 
         public static string This => Path.GetDirectoryName(App);
 
@@ -38,22 +38,22 @@ namespace Sucrose.Space.Manage
 
         public static string Commandog => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Commandog), SMR.Commandog);
 
-        public static Dictionary<SDEET, string> EngineLive => new()
+        public static Dictionary<SSDEET, string> EngineLive => new()
         {
-            { SDEET.AuroraLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.AuroraLive), SMR.AuroraLive) },
-            { SDEET.NebulaLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.NebulaLive), SMR.NebulaLive) },
-            { SDEET.VexanaLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.VexanaLive), SMR.VexanaLive) },
-            { SDEET.WebViewLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.WebViewLive) },
-            { SDEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) }
+            { SSDEET.AuroraLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.AuroraLive), SMR.AuroraLive) },
+            { SSDEET.NebulaLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.NebulaLive), SMR.NebulaLive) },
+            { SSDEET.VexanaLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.VexanaLive), SMR.VexanaLive) },
+            { SSDEET.WebViewLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.WebViewLive) },
+            { SSDEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) }
         };
 
         public static Dictionary<string, string> TextEngineLive => new()
         {
-            { SMR.AuroraLive, EngineLive[SDEET.AuroraLive] },
-            { SMR.NebulaLive, EngineLive[SDEET.NebulaLive] },
-            { SMR.VexanaLive, EngineLive[SDEET.VexanaLive] },
-            { SMR.WebViewLive, EngineLive[SDEET.WebViewLive] },
-            { SMR.CefSharpLive, EngineLive[SDEET.CefSharpLive] }
+            { SMR.AuroraLive, EngineLive[SSDEET.AuroraLive] },
+            { SMR.NebulaLive, EngineLive[SSDEET.NebulaLive] },
+            { SMR.VexanaLive, EngineLive[SSDEET.VexanaLive] },
+            { SMR.WebViewLive, EngineLive[SSDEET.WebViewLive] },
+            { SMR.CefSharpLive, EngineLive[SSDEET.CefSharpLive] }
         };
     }
 }

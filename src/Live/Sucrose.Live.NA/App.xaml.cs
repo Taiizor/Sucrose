@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SENAVV = Sucrose.Engine.NA.View.Video;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -149,7 +149,7 @@ namespace Sucrose.Live.NA
                     {
                         switch (Info.Type)
                         {
-                            case SDEWT.Video:
+                            case SSDEWT.Video:
                                 SENAVV Video = new(Source);
                                 Video.Show();
                                 break;

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
-using SDEDT = Sucrose.Dependency.Enum.DisplayType;
-using SDEST = Sucrose.Dependency.Enum.StretchType;
+using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
@@ -26,17 +26,17 @@ namespace Sucrose.Engine.Shared.Helper
             return SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true);
         }
 
-        public static SDEST GetStretch()
+        public static SSDEST GetStretch()
         {
-            SDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SDEST.Fill);
+            SSDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
 
-            if ((int)Stretch < Enum.GetValues(typeof(SDEST)).Length)
+            if ((int)Stretch < Enum.GetValues(typeof(SSDEST)).Length)
             {
                 return Stretch;
             }
             else
             {
-                return SDEST.None;
+                return SSDEST.None;
             }
         }
 
@@ -50,9 +50,9 @@ namespace Sucrose.Engine.Shared.Helper
             return SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0);
         }
 
-        public static SDEDT GetDisplayType()
+        public static SSDEDT GetDisplayType()
         {
-            return SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SDEDT.Screen);
+            return SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);
         }
 
         public static JObject GetComputerDate()

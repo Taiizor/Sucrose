@@ -76,7 +76,7 @@
 
     <Import Project="..\..\Shared\Sucrose.Space\Sucrose.Space.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Watchdog\Sucrose.Watchdog.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Sucrose.Dependency\Sucrose.Dependency.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
-using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 
 namespace Sucrose.Shared.Theme.Helper
 {
@@ -34,7 +34,7 @@ namespace Sucrose.Shared.Theme.Helper
         public string Contact { get; set; }
 
         [JsonProperty("Type", Required = Required.Always)]
-        public SDEWT Type { get; set; }
+        public SSDEWT Type { get; set; }
 
         [JsonProperty("Source", Required = Required.Always)]
         public string Source { get; set; }

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEVAVG = Sucrose.Engine.VA.View.Gif;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -149,7 +149,7 @@ namespace Sucrose.Live.VA
                     {
                         switch (Info.Type)
                         {
-                            case SDEWT.Gif:
+                            case SSDEWT.Gif:
                                 SEVAVG Gif = new(Source);
                                 Gif.Show();
                                 break;

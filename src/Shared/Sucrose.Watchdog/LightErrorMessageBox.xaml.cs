@@ -1,6 +1,6 @@
 ﻿using System.Media;
 using System.Windows;
-using SDECT = Sucrose.Dependency.Enum.CommandsType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SGHWL = Sucrose.Globalization.Helper.WatchdogLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using SSHP = Sucrose.Space.Helper.Processor;
@@ -32,7 +32,7 @@ namespace Sucrose.Watchdog
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
-            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SDECT.Log}{SMR.ValueSeparator}{Path}");
+            SSHP.Run(SSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Log}{SMR.ValueSeparator}{Path}");
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

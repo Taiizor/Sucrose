@@ -3,10 +3,10 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>0c43a85b-788f-4e02-a7a4-5e020b8eb1cb</SharedGUID>
+    <SharedGUID>7ce7d113-5a37-436b-85fb-9961c9595976</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Dependency</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Dependency</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />

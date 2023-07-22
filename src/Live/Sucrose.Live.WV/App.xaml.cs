@@ -3,7 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SDEWT = Sucrose.Dependency.Enum.WallpaperType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -182,15 +182,15 @@ namespace Sucrose.Live.WV
 
                         switch (Info.Type)
                         {
-                            case SDEWT.Web:
+                            case SSDEWT.Web:
                                 SEWVVW Web = new(Source);
                                 Web.Show();
                                 break;
-                            case SDEWT.Video:
+                            case SSDEWT.Video:
                                 SEWVVV Video = new(Source);
                                 Video.Show();
                                 break;
-                            case SDEWT.YouTube:
+                            case SSDEWT.YouTube:
                                 SEWVVYT YouTube = new(Source);
                                 YouTube.Show();
                                 break;
