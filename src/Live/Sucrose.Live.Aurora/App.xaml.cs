@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SSEAVA = Sucrose.Shared.Engine.Aurora.View.Application;
 using SESHR = Sucrose.Engine.Shared.Helper.Run;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGMR = Sucrose.Globalization.Manage.Resources;
@@ -10,6 +9,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEAVA = Sucrose.Shared.Engine.Aurora.View.Application;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;

@@ -1,14 +1,14 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using SENAEV = Sucrose.Engine.NA.Event.Video;
-using SENAHV = Sucrose.Engine.NA.Helper.Video;
-using SENAMI = Sucrose.Engine.NA.Manage.Internal;
 using SESEH = Sucrose.Engine.Shared.Event.Handler;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
 using SESHS = Sucrose.Engine.Shared.Helper.Source;
 using SESMI = Sucrose.Engine.Shared.Manage.Internal;
+using SSENEV = Sucrose.Shared.Engine.Nebula.Event.Video;
+using SSENHV = Sucrose.Shared.Engine.Nebula.Helper.Video;
+using SSENMI = Sucrose.Shared.Engine.Nebula.Manage.Internal;
 
-namespace Sucrose.Engine.NA.View
+namespace Sucrose.Shared.Engine.Nebula.View
 {
     /// <summary>
     /// Interaction logic for Video.xaml
@@ -21,31 +21,31 @@ namespace Sucrose.Engine.NA.View
 
             ContentRendered += (s, e) => SESEH.ContentRendered(this);
 
-            Content = SENAMI.MediaEngine;
+            Content = SSENMI.MediaEngine;
 
-            SENAMI.MediaEngine.Source = SESHS.GetSource(Video);
+            SSENMI.MediaEngine.Source = SESHS.GetSource(Video);
 
             SESMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
             SESMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
             SESMI.GeneralTimer.Start();
 
-            SENAMI.MediaEngine.MediaEnded += SENAEV.MediaEngineEnded;
+            SSENMI.MediaEngine.MediaEnded += SSENEV.MediaEngineEnded;
 
-            Closing += (s, e) => SENAMI.MediaEngine.Close();
+            Closing += (s, e) => SSENMI.MediaEngine.Close();
             Loaded += (s, e) => SESEH.WindowLoaded(this);
 
-            SENAHV.SetVolume(SESHD.GetVolume());
+            SSENHV.SetVolume(SESHD.GetVolume());
 
-            SENAHV.Play();
+            SSENHV.Play();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            SENAHV.SetLoop(SESHD.GetLoop());
+            SSENHV.SetLoop(SESHD.GetLoop());
 
-            SENAHV.SetVolume(SESHD.GetVolume());
+            SSENHV.SetVolume(SESHD.GetVolume());
 
-            SENAMI.MediaEngine.Stretch = (Stretch)SESHD.GetStretch();
+            SSENMI.MediaEngine.Stretch = (Stretch)SESHD.GetStretch();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using MediaEngine = System.Windows.Controls.MediaElement;
 
-namespace Sucrose.Engine.NA.Manage
+namespace Sucrose.Shared.Engine.Nebula.Manage
 {
     internal static class Internal
     {

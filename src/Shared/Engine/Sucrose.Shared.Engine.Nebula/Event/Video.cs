@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using SENAMI = Sucrose.Engine.NA.Manage.Internal;
 using SESHD = Sucrose.Engine.Shared.Helper.Data;
+using SSENMI = Sucrose.Shared.Engine.Nebula.Manage.Internal;
 
-namespace Sucrose.Engine.NA.Event
+namespace Sucrose.Shared.Engine.Nebula.Event
 {
     internal static class Video
     {
@@ -20,8 +20,8 @@ namespace Sucrose.Engine.NA.Event
         {
             if (SESHD.GetLoop())
             {
-                SENAMI.MediaEngine.Position = TimeSpan.Zero;
-                SENAMI.MediaEngine.Play();
+                SSENMI.MediaEngine.Position = TimeSpan.Zero;
+                SSENMI.MediaEngine.Play();
             }
         }
     }

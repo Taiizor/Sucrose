@@ -1,5 +1,5 @@
-﻿using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
+﻿using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
 {
