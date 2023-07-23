@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Sucrose.Portal.App</StartupObject>
+        <StartupObject>Sucrose.Bundle.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
@@ -15,21 +15,20 @@
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
-        <AssemblyName>Sucrose.Portal</AssemblyName>
+        <AssemblyName>Sucrose.Bundle</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>false</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
-        <DefineConstants>$(DefineConstants);GENERAL;PORTAL;SERVER</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\..\Sucrose\Portal\$(Platform)</OutputPath>
+        <OutputPath>..\..\Sucrose\Bundle\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -65,27 +64,43 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Wing" Version="3.0.2.1" />
+        <COMReference Include="IWshRuntimeLibrary">
+            <WrapperTool>tlbimp</WrapperTool>
+            <VersionMinor>0</VersionMinor>
+            <VersionMajor>1</VersionMajor>
+            <Guid>f935dc20-1cf0-11d0-adb9-00c04fd58a0b</Guid>
+            <Lcid>0</Lcid>
+            <Isolated>false</Isolated>
+            <EmbedInteropTypes>true</EmbedInteropTypes>
+        </COMReference>
     </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\gRPC\Sucrose.Grpc\Sucrose.Grpc.csproj" />
-        <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\..\gRPC\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
-        <ProjectReference Include="..\..\Library\Sucrose.Globalization\Sucrose.Globalization.csproj" />
-    </ItemGroup>
-    
-    <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
 
     <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Resource Include="Assets\**" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**">
+            <LogicalName>Files\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.log" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.txt" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.pdb" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.xml" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.deps.json" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.WPF.CS\**" />
+    </ItemGroup>
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
-        <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
+        <DestinationDirectory>..\..\Sucrose\Package\Bundle\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
     </PropertyGroup>
 
     <Target Name="CopyFiles" BeforeTargets="Build">

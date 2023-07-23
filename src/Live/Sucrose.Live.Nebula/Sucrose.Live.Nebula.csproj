@@ -14,7 +14,7 @@
         <InformationalVersion>$(Version)</InformationalVersion>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
-        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
         <AssemblyName>Sucrose.Live.Nebula</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>true</UseWindowsForms>

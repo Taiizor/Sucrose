@@ -132,6 +132,9 @@ csharp_style_unused_value_assignment_preference = discard_variable:suggestion
 csharp_style_deconstructed_variable_declaration = true:suggestion
 csharp_style_inlined_variable_declaration = true:suggestion
 csharp_style_expression_bodied_local_functions = false:silent
+csharp_style_prefer_readonly_struct = true:suggestion
+csharp_style_prefer_readonly_struct_member = true:suggestion
+csharp_style_prefer_primary_constructors = true:suggestion
 
 [*.vb]
 #### Adlandırma stilleri ####
