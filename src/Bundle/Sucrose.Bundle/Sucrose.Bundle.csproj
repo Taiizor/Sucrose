@@ -16,7 +16,7 @@
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
         <AssemblyName>Sucrose.Bundle</AssemblyName>
-        <RootNamespace>$(AssemblyName)</RootNamespace>
+        <RootNamespace>$(RootNamespace)</RootNamespace>
         <UseWindowsForms>false</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
@@ -69,30 +69,37 @@
     </ItemGroup>
 
     <ItemGroup>
-        <COMReference Include="IWshRuntimeLibrary">
-            <WrapperTool>tlbimp</WrapperTool>
-            <VersionMinor>0</VersionMinor>
-            <VersionMajor>1</VersionMajor>
-            <Guid>f935dc20-1cf0-11d0-adb9-00c04fd58a0b</Guid>
-            <Lcid>0</Lcid>
-            <Isolated>false</Isolated>
-            <EmbedInteropTypes>true</EmbedInteropTypes>
-        </COMReference>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Properties\" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.2.2" />
+        <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098" Condition="$(TargetFramework.StartsWith('net48'))">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>compile; runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
         <Resource Include="Assets\**" />
     </ItemGroup>
-    
-    <!--<ItemGroup>
-        <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**">
-            <LogicalName>Files\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
+
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-    </ItemGroup>-->
+    </ItemGroup>
+    
+    <ItemGroup>
+        <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**">
+            <LogicalName>Packages\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
+        </EmbeddedResource>
+    </ItemGroup>
 
     <ItemGroup>
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.log" />

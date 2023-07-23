@@ -1,8 +1,11 @@
-﻿using Microsoft.Win32;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows;
 using Path = System.IO.Path;
+using SEAT = Skylark.Enum.AssemblyType;
+using SHA = Skylark.Helper.Assemblies;
+using SWHS = Skylark.Wing.Helper.Shortcut;
 
 namespace Sucrose.Bundle
 {
@@ -11,83 +14,106 @@ namespace Sucrose.Bundle
     /// </summary>
     public partial class Main : Window
     {
-        private static readonly string Application = "Sucrose";
+        private static string Extract => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
 
-        private static readonly string Shortcut = "Sucrose Wallpaper Engine.lnk";
+        private static string Start => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", Shortcut);
 
-        //private static readonly string Launcher = Path.Combine(Extract, "Sucrose.Launcher", "Sucrose.Launcher.exe");
+        private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
 
-        private static readonly string Desktop = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
+        private static string Launcher => Path.Combine(Extract, Department, Executable);
 
-        private static readonly string Extract = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
+        private static string Executable => "Sucrose.Launcher.exe";
+
+        private static string Text => "Sucrose Wallpaper Engine";
+
+        private static string Department => "Sucrose.Launcher";
+
+        private static string Shortcut => $"{Text}.lnk";
+
+        private static string Application => "Sucrose";
+
+        private static string Packages => "Packages";
+
+        private static int MaxDelay => 3000;
+
+        private static int MinDelay => 1000;
 
         public Main()
         {
             InitializeComponent();
-            //MessageBox.Show(Launcher);
         }
 
-        private static void CreateShortcut(string shortcutPath, string targetPath)
+        private static async Task ExtractResources(string SourceFolderPath, string TargetFolderPath)
         {
-            IWshRuntimeLibrary.WshShell shell = new();
-            if (shell.CreateShortcut(shortcutPath) is IWshRuntimeLibrary.IWshShortcut shortcut)
+            if (!Directory.Exists(TargetFolderPath))
             {
-                shortcut.TargetPath = targetPath;
-                shortcut.Save();
+                Directory.CreateDirectory(TargetFolderPath);
             }
-        }
-
-        private static void SetRunAtStartup()
-        {
-            string appName = "MyApp";
-            string executablePath = AppContext.BaseDirectory; //Assembly.GetExecutingAssembly().Location
-            RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            key.SetValue(appName, executablePath);
-        }
-
-        private static void ExtractEmbeddedResources(string sourceFolderPath, string targetFolderPath)
-        {
-            if (!Directory.Exists(targetFolderPath))
+            else
             {
-                Directory.CreateDirectory(targetFolderPath);
+                Directory.Delete(TargetFolderPath, recursive: true);
+
+                Directory.CreateDirectory(TargetFolderPath);
             }
 
-            Assembly assembly = Assembly.GetEntryAssembly();
-            string[] resourceNames = assembly.GetManifestResourceNames();
+            await Task.Delay(MaxDelay);
 
-            foreach (string resourceName in resourceNames)
+            Assembly Entry = SHA.Assemble(SEAT.Entry);
+            string[] Resources = Entry.GetManifestResourceNames();
+
+            foreach (string Resource in Resources)
             {
-                if (resourceName.StartsWith($"{sourceFolderPath}\\"))
+                if (Resource.StartsWith($"{SourceFolderPath}\\"))
                 {
-                    string newResourceName = resourceName.Substring($"{sourceFolderPath}\\".Length);
+                    string NewResource = Resource.Substring($"{SourceFolderPath}\\".Length);
 
-                    string outputFilePath = Path.Combine(targetFolderPath, newResourceName);
+                    string ExtractFilePath = Path.Combine(TargetFolderPath, NewResource);
 
-                    if (!Directory.Exists(Path.GetDirectoryName(outputFilePath)))
+                    if (!Directory.Exists(Path.GetDirectoryName(ExtractFilePath)))
                     {
-                        Directory.CreateDirectory(Path.GetDirectoryName(outputFilePath));
+                        Directory.CreateDirectory(Path.GetDirectoryName(ExtractFilePath));
                     }
 
-                    using Stream resourceStream = assembly.GetManifestResourceStream(resourceName);
-                    using FileStream outputFileStream = new(outputFilePath, FileMode.OpenOrCreate);
-                    resourceStream.CopyTo(outputFileStream);
+                    using Stream resourceStream = Entry.GetManifestResourceStream(Resource);
+                    using FileStream outputFileStream = new(ExtractFilePath, FileMode.OpenOrCreate);
+
+                    await resourceStream.CopyToAsync(outputFileStream);
                 }
             }
         }
 
-        private void Window_ContentRendered(object sender, EventArgs e)
+        private static void TerminateProcess(string ProcessName)
         {
-            //Task.Delay(3000).Wait();
+            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(p => p.ProcessName.Contains(ProcessName) && p.Id != Process.GetCurrentProcess().Id);
 
-            //ExtractEmbeddedResources("Files", Extract);
+            foreach (Process Process in TerminateProcesses)
+            {
+                Process.Kill();
+            }
+        }
 
-            //Task.Delay(3000).Wait();
+        private async void Window_ContentRendered(object sender, EventArgs e)
+        {
+            await Task.Delay(MinDelay);
 
-            //CreateShortcut(Shortcut, Launcher);
+            TerminateProcess(Application);
 
-            //Task.Delay(3000).Wait();
+            await Task.Delay(MaxDelay);
 
-            //Close();
+            await ExtractResources(Packages, Extract);
+
+            await Task.Delay(MaxDelay);
+
+            SWHS.Create(Start, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+            SWHS.Create(Desktop, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+
+            await Task.Delay(MinDelay);
+
+            Process.Start(Launcher);
+
+            await Task.Delay(MinDelay);
+
+            Close();
         }
     }
 }
