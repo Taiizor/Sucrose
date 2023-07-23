@@ -11,19 +11,20 @@ namespace Sucrose.Bundle
     /// </summary>
     public partial class Main : Window
     {
-        private static string Application = "Sucrose";
+        private static readonly string Application = "Sucrose";
 
-        private static string Shortcut = "Sucrose Wallpaper Engine.lnk";
+        private static readonly string Shortcut = "Sucrose Wallpaper Engine.lnk";
 
-        private static string Launcher = Path.Combine(Extract, "Sucrose.Launcher", "Sucrose.Launcher.exe");
+        //private static readonly string Launcher = Path.Combine(Extract, "Sucrose.Launcher", "Sucrose.Launcher.exe");
 
-        private static string Desktop = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
+        private static readonly string Desktop = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
 
-        private static string Extract = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
+        private static readonly string Extract = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
 
         public Main()
         {
             InitializeComponent();
+            //MessageBox.Show(Launcher);
         }
 
         private static void CreateShortcut(string shortcutPath, string targetPath)
@@ -39,7 +40,7 @@ namespace Sucrose.Bundle
         private static void SetRunAtStartup()
         {
             string appName = "MyApp";
-            string executablePath = Assembly.GetExecutingAssembly().Location;
+            string executablePath = AppContext.BaseDirectory; //Assembly.GetExecutingAssembly().Location
             RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             key.SetValue(appName, executablePath);
         }
@@ -76,17 +77,17 @@ namespace Sucrose.Bundle
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            Task.Delay(3000).Wait();
+            //Task.Delay(3000).Wait();
 
-            ExtractEmbeddedResources("Files", Extract);
+            //ExtractEmbeddedResources("Files", Extract);
 
-            Task.Delay(3000).Wait();
+            //Task.Delay(3000).Wait();
 
-            CreateShortcut(Shortcut, Launcher);
+            //CreateShortcut(Shortcut, Launcher);
 
-            Task.Delay(3000).Wait();
+            //Task.Delay(3000).Wait();
 
-            Close();
+            //Close();
         }
     }
 }

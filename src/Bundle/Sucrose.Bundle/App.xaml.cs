@@ -22,5 +22,13 @@ namespace Sucrose.Bundle
             Current.Shutdown();
             Shutdown();
         }
+
+        //protected override void OnStartup(StartupEventArgs e)
+        //{
+        //    base.OnStartup(e);
+
+        //    Main Main = new Main();
+        //    Main.Show();
+        //}
     }
 }

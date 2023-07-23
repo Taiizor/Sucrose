@@ -32,6 +32,11 @@
     </PropertyGroup>
 
     <PropertyGroup>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <PublishSingleFile Condition="!$(TargetFramework.StartsWith('net48'))">true</PublishSingleFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
         <ServerGarbageCollection>true</ServerGarbageCollection>
         <RetainVMGarbageCollection>true</RetainVMGarbageCollection>
@@ -83,11 +88,11 @@
         <Resource Include="Assets\**" />
     </ItemGroup>
     
-    <ItemGroup>
+    <!--<ItemGroup>
         <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**">
             <LogicalName>Files\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
-    </ItemGroup>
+    </ItemGroup>-->
 
     <ItemGroup>
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.log" />
@@ -95,12 +100,13 @@
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.pdb" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.xml" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.deps.json" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundle\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.WPF.CS\**" />
     </ItemGroup>
 
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
-        <DestinationDirectory>..\..\Sucrose\Package\Bundle\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
+        <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
     </PropertyGroup>
 
     <Target Name="CopyFiles" BeforeTargets="Build">
