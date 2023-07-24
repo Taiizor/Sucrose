@@ -1,9 +1,7 @@
 ﻿using DiscordRPC;
 using DiscordRPC.Message;
-using System.Globalization;
 using Button = DiscordRPC.Button;
-using SGHDL = Sucrose.Globalization.Helper.DiscordLocalization;
-using SHC = Skylark.Helper.Culture;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -15,8 +13,6 @@ namespace Sucrose.Shared.Discord
 {
     internal class Hook
     {
-        private string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
         private bool Refresh => SMMI.DiscordSettingManager.GetSetting(SMC.Refresh, true);
 
         private int Delay => SMMI.DiscordSettingManager.GetSettingStable(SMC.Delay, 60);
@@ -25,8 +21,6 @@ namespace Sucrose.Shared.Discord
 
         public Hook()
         {
-            SHC.All = new CultureInfo(Culture, true);
-
             SSDMI.Client = new DiscordRpcClient(SMR.DiscordApplication)
             {
                 //Logger = new DiscordRPC.Logging.ConsoleLogger()
@@ -78,7 +72,7 @@ namespace Sucrose.Shared.Discord
             {
                 SSDMI.Client.SetPresence(new RichPresence()
                 {
-                    Details = SGHDL.GetValue("Details"),
+                    Details = SSRER.GetValue("Discord", "Details"),
                     //Timestamps = Timestamps.FromTimeSpan(60),
                     Timestamps = new Timestamps()
                     {
@@ -90,12 +84,12 @@ namespace Sucrose.Shared.Discord
                     {
                         new Button()
                         {
-                            Label = SGHDL.GetValue("BrowseButton"),
+                            Label = SSRER.GetValue("Discord", "BrowseButton"),
                             Url = SMR.BrowseWebsite
                         },
                         new Button()
                         {
-                            Label = SGHDL.GetValue("DownloadButton"),
+                            Label = SSRER.GetValue("Discord", "DownloadButton"),
                             Url = SMR.DownloadWebsite
                         }
                     },
@@ -107,7 +101,7 @@ namespace Sucrose.Shared.Discord
                     //},
                     Assets = new Assets()
                     {
-                        LargeImageKey = SGHDL.GetValue("LargestImage"),
+                        LargeImageKey = SSRER.GetValue("Discord", "LargestImage"),
                         LargeImageText = SSDMI.LargestText[SMR.Randomise.Next(SSDMI.LargestText.Count - 1)],
                         SmallImageText = SSDMI.SmallestText[SMR.Randomise.Next(SSDMI.LargestText.Count - 1)],
                         SmallImageKey = SSDMI.SmallestImage[SMR.Randomise.Next(SSDMI.SmallestImage.Count - 1)]
@@ -140,8 +134,6 @@ namespace Sucrose.Shared.Discord
         {
             if (Refresh)
             {
-                SHC.All = new CultureInfo(Culture, true);
-
                 SetPresence();
             }
         }

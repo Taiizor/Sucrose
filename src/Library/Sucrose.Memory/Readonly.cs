@@ -30,6 +30,8 @@
 
         public static readonly string Portal = "Sucrose.Portal.exe";
 
+        public static readonly string TaskName = "Autorun for Sucrose";
+
         public static readonly string SucroseInfo = "SucroseInfo.json";
 
         public static readonly string Launcher = "Sucrose.Launcher.exe";
@@ -59,6 +61,8 @@
         public static readonly string DiscordApplication = "1126294965950103612";
 
         public static readonly string CefSharpLive = "Sucrose.Live.CefSharp.exe";
+
+        public static readonly string TaskDescription = "Sucrose Wallpaper Engine";
 
         public static readonly string SucroseProperties = "SucroseProperties.json";
 

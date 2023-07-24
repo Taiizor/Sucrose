@@ -53,12 +53,12 @@
             </StackPanel>
         </Border>
 
-        <Button x:Name="Show_Button" Content="{StaticResource Watchdog.ShowButton}" Cursor="Hand" Width="100" Height="25" Margin="20 0 0 20" HorizontalAlignment="Left" Grid.Row="1" Click="ShowButton_Click">
+        <Button x:Name="Show_Button" Content="{DynamicResource Watchdog.ShowButton}" Cursor="Hand" Width="100" Height="25" Margin="20 0 0 20" HorizontalAlignment="Left" Grid.Row="1" Click="ShowButton_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Button.Effect>
         </Button>
-        <Button x:Name="Close_Button" Content="{StaticResource Watchdog.CloseButton}" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click">
+        <Button x:Name="Close_Button" Content="{DynamicResource Watchdog.CloseButton}" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Button.Effect>

@@ -30,32 +30,32 @@
                     </MenuItem>
                 </Menu>
             </StackPanel>
-            <Button HorizontalAlignment="Right" Grid.Column="1" Click="ButtonConfig_OnClick" Name="ButtonConfig" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource ConfigGeometry}"/>
+            <Button HorizontalAlignment="Right" Grid.Column="1" Click="ButtonConfig_OnClick" Name="ButtonConfig" Style="{DynamicResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{DynamicResource ConfigGeometry}"/>
             <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonConfig}" HorizontalOffset="-35" Name="PopupConfig" VerticalOffset="6" StaysOpen="False">
-                <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
+                <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{DynamicResource EffectShadow2}">
                     <StackPanel Button.Click="ButtonSkins_OnClick">
                         <hc:Divider Width="200" Margin="0,10" Content="Application Theme"/>
                         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                            <Button Tag="{x:Static hc:ApplicationTheme.Light}" Style="{StaticResource ButtonCustom}">
+                            <Button Tag="{x:Static hc:ApplicationTheme.Light}" Style="{DynamicResource ButtonCustom}">
                                 <Border Background="White" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                             </Button>
-                            <Button Tag="{x:Static hc:ApplicationTheme.Dark}" Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
+                            <Button Tag="{x:Static hc:ApplicationTheme.Dark}" Style="{DynamicResource ButtonCustom}" Margin="10,0,0,0">
                                 <Border Background="Black" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                             </Button>
                         </StackPanel>
 
                         <hc:Divider Width="200" Margin="0,10" Content="Accent Color"/>
                         <StackPanel Margin="0,0,0,10" HorizontalAlignment="Center" Orientation="Horizontal">
-                            <Button Tag="{Binding ElementName=primaryBorder, Path=Background}" Style="{StaticResource ButtonCustom}">
+                            <Button Tag="{Binding ElementName=primaryBorder, Path=Background}" Style="{DynamicResource ButtonCustom}">
                                 <Border Name="primaryBorder" Background="#2196F3" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                             </Button>
-                            <Button Tag="{Binding ElementName=warningBorder, Path=Background}" Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
+                            <Button Tag="{Binding ElementName=warningBorder, Path=Background}" Style="{DynamicResource ButtonCustom}" Margin="10,0,0,0">
                                 <Border Name="warningBorder" Background="{DynamicResource WarningBrush}" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                             </Button>
-                            <Button Tag="{Binding ElementName=violetBorder, Path=Background}" Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
+                            <Button Tag="{Binding ElementName=violetBorder, Path=Background}" Style="{DynamicResource ButtonCustom}" Margin="10,0,0,0">
                                 <Border Name="violetBorder" Background="#9C27B0" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                             </Button>
-                            <Button Tag="{Binding ElementName=successBorder, Path=Background}" Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
+                            <Button Tag="{Binding ElementName=successBorder, Path=Background}" Style="{DynamicResource ButtonCustom}" Margin="10,0,0,0">
                                 <Border Name="successBorder" Background="{DynamicResource SuccessBrush}" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                             </Button>
                         </StackPanel>

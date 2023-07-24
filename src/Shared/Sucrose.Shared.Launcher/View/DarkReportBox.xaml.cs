@@ -1,6 +1,5 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows;
-using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Create;
@@ -19,10 +18,6 @@ namespace Sucrose.Shared.Launcher.View
         public DarkReportBox()
         {
             InitializeComponent();
-
-            Title = SGHLL.GetValue("ReportWindowTitle");
-            Create_Button.Content = SGHLL.GetValue("CreateLogText");
-            Report_Button.Content = SGHLL.GetValue("OpenReportText");
 
             SourceInitialized += DarkReportBox_SourceInitialized;
         }

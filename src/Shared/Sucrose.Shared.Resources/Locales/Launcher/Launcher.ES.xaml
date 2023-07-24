@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Personalizar Fondo de Pantalla</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Crear Archivo de Registro</system:String>
+    <system:String x:Key="Launcher.ExitText">Cerrar</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Informar un Problema</system:String>
+    <system:String x:Key="Launcher.OpenText">Abrir Sucrose</system:String>
+    <system:String x:Key="Launcher.ReportText">Informar Error</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnóstico de Sucrose</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Guardar Archivo de Registro</system:String>
+    <system:String x:Key="Launcher.SettingsText">Ajustes</system:String>
+    <system:String x:Key="Launcher.TrayText">Motor de Fondos de Pantalla Sucrose</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Cambiar Fondo de Pantalla</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Cerrar Fondos de Pantalla</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Abrir Fondo de Pantalla</system:String>
+    <system:String x:Key="Launcher.WallStartText">Iniciar Fondo de Pantalla</system:String>
+    <system:String x:Key="Launcher.WallStopText">Detener Fondo de Pantalla</system:String>
+</ResourceDictionary>

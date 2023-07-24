@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Personnaliser le Papier Peint</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Créer un Fichier Journal</system:String>
+    <system:String x:Key="Launcher.ExitText">Fermer</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Signaler un Problème</system:String>
+    <system:String x:Key="Launcher.OpenText">Ouvrir Sucrose</system:String>
+    <system:String x:Key="Launcher.ReportText">Signaler Une Erreur</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnostic de Sucrose</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
+    <system:String x:Key="Launcher.SettingsText">Paramètres</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Duvar Kağıdı Motoru</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Changer le Papier Peint</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Fermer les Fonds d'Écran</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Ouvrir le Papier Peint</system:String>
+    <system:String x:Key="Launcher.WallStartText">Démarrer le Papier Peint</system:String>
+    <system:String x:Key="Launcher.WallStopText">Arrêter le Papier Peint</system:String>
+</ResourceDictionary>

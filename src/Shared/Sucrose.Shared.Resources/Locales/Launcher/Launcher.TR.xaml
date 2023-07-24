@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Duvar Kağıdını Özelleştir</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Günlük Dosyası Oluştur</system:String>
+    <system:String x:Key="Launcher.ExitText">Çıkış</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Bir Sorun Bildir</system:String>
+    <system:String x:Key="Launcher.OpenText">Sucrose'yi Aç</system:String>
+    <system:String x:Key="Launcher.ReportText">Hata Bildir</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Tanılama</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
+    <system:String x:Key="Launcher.SettingsText">Ayarlar</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Duvar Kağıdı Motoru</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Duvar Kağıdını Değiştir</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Duvar Kağıdını Kapat</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Duvar Kağıdını Aç</system:String>
+    <system:String x:Key="Launcher.WallStartText">Duvar Kağıdını Başlat</system:String>
+    <system:String x:Key="Launcher.WallStopText">Duvar Kağıdını Durdur</system:String>
+</ResourceDictionary>

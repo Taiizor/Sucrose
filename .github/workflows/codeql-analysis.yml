@@ -44,8 +44,7 @@ jobs:
             src/gRPC/Sucrose.Grpc.Common/Sucrose.Grpc.Common.csproj,
 
             src/Library/Sucrose.Memory/Sucrose.Memory.csproj,
-            src/Library/Sucrose.Manager/Sucrose.Manager.csproj,
-            src/Library/Sucrose.Globalization/Sucrose.Globalization.csproj
+            src/Library/Sucrose.Manager/Sucrose.Manager.csproj
         ]
 
     steps:

@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -38,8 +39,8 @@ namespace Sucrose.Shared.Launcher.Manager
 
         public void Start()
         {
-            TrayIcon.Text = SGHLL.GetValue("TrayText");
-            TrayIcon.Icon = new Icon(SSSHA.Get(SGHLL.GetValue("TrayIcon")));
+            TrayIcon.Text = SSRER.GetValue("Launcher", "TrayText");
+            TrayIcon.Icon = new Icon(SSSHA.Get(SSRER.GetValue("Launcher", "TrayIcon")));
 
             TrayIcon.MouseClick += MouseClick;
             TrayIcon.ContextMenuStrip = ContextMenu;
@@ -52,6 +53,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
         public void Initialize()
         {
+            SSRHR.SetLanguage(Culture);
             SHC.All = new CultureInfo(Culture, true);
 
             if (Theme == SEWTT.Dark)
@@ -63,7 +65,7 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Renderer = new SSLRLR();
             }
 
-            ContextMenu.Items.Add(SGHLL.GetValue("OpenText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("OpenIcon"))), CommandInterface);
+            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
 
             SSLSSS Separator1 = new(Theme);
 
@@ -71,35 +73,35 @@ namespace Sucrose.Shared.Launcher.Manager
             {
                 ContextMenu.Items.Add(Separator1.Strip);
 
-                ContextMenu.Items.Add(SGHLL.GetValue("WallCloseText"), null, CommandEngine);
-                //ContextMenu.Items.Add(SGHLL.GetValue("WallStartText"), null, null); //WallStopText
+                ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
+                //ContextMenu.Items.Add(SSRER.GetValue("WallStartText"), null, null); //WallStopText
 
-                //ContextMenu.Items.Add(SGHLL.GetValue("WallChangeText"), null, null);
+                //ContextMenu.Items.Add(SSRER.GetValue("WallChangeText"), null, null);
 
                 string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
 
                 if (File.Exists(PropertiesPath))
                 {
-                    ContextMenu.Items.Add(SGHLL.GetValue("WallCustomizeText"), null, null);
+                    ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCustomizeText"), null, null);
                 }
             }
             else if (SMMI.EngineSettingManager.CheckFile())
             {
                 ContextMenu.Items.Add(Separator1.Strip);
 
-                ContextMenu.Items.Add(SGHLL.GetValue("WallOpenText"), null, CommandEngine);
+                ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
             }
 
             SSLSSS Separator2 = new(Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(SGHLL.GetValue("SettingsText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("SettingsIcon"))), null);
-            ContextMenu.Items.Add(SGHLL.GetValue("ReportText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("ReportIcon"))), CommandReport);
+            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingsText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingsIcon"))), null);
+            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
 
             SSLSSS Separator3 = new(Theme);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add(SGHLL.GetValue("ExitText"), Image.FromFile(SSSHA.Get(SGHLL.GetValue("ExitIcon"))), CommandClose);
+            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ExitIcon"))), CommandClose);
         }
 
         public bool Dispose()

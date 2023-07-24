@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32.TaskScheduler;
 using System.Security.Principal;
-using SGHCL = Sucrose.Globalization.Helper.CommandogLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using Task = Microsoft.Win32.TaskScheduler.Task;
 
@@ -14,7 +13,7 @@ namespace Sucrose.Commandog.Helper
 
             TaskDefinition Definition = Service.NewTask();
 
-            Definition.RegistrationInfo.Description = SGHCL.GetValue("TaskDescription");
+            Definition.RegistrationInfo.Description = SMR.TaskDescription;
 
             Definition.Actions.Add(new ExecAction(Application));
 
@@ -32,7 +31,7 @@ namespace Sucrose.Commandog.Helper
 
             Settings.ExecutionTimeLimit = TimeSpan.Zero;
 
-            Service.RootFolder.RegisterTaskDefinition(SGHCL.GetValue("TaskName"), Definition);
+            Service.RootFolder.RegisterTaskDefinition(SMR.TaskName, Definition);
         }
 
         public static void CreateTask(string Application)
@@ -43,7 +42,7 @@ namespace Sucrose.Commandog.Helper
 
             TaskDefinition Definition = Service.NewTask();
 
-            Definition.RegistrationInfo.Description = SGHCL.GetValue("TaskDescription");
+            Definition.RegistrationInfo.Description = SMR.TaskDescription;
 
             Definition.Actions.Add(new ExecAction(Application));
 
@@ -61,14 +60,14 @@ namespace Sucrose.Commandog.Helper
 
             Settings.ExecutionTimeLimit = TimeSpan.Zero;
 
-            Folder.RegisterTaskDefinition(SGHCL.GetValue("TaskName"), Definition);
+            Folder.RegisterTaskDefinition(SMR.TaskName, Definition);
         }
 
         public static bool Enable()
         {
             using TaskService Service = new();
 
-            Task Task = Service.GetTask(SGHCL.GetValue("TaskName"));
+            Task Task = Service.GetTask(SMR.TaskName);
 
             if (Task != null)
             {
@@ -97,7 +96,7 @@ namespace Sucrose.Commandog.Helper
 
                 foreach (Task Task in Collection)
                 {
-                    if (Task.Name.Equals(SGHCL.GetValue("TaskName"), StringComparison.OrdinalIgnoreCase))
+                    if (Task.Name.Equals(SMR.TaskName, StringComparison.OrdinalIgnoreCase))
                     {
                         Task.Enabled = true;
                         Task.Definition.Settings.Enabled = true;
@@ -119,7 +118,7 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            Task Task = Service.GetTask(SGHCL.GetValue("TaskName"));
+            Task Task = Service.GetTask(SMR.TaskName);
 
             if (Task != null)
             {
@@ -148,7 +147,7 @@ namespace Sucrose.Commandog.Helper
 
                 foreach (Task Task in Collection)
                 {
-                    if (Task.Name.Equals(SGHCL.GetValue("TaskName"), StringComparison.OrdinalIgnoreCase))
+                    if (Task.Name.Equals(SMR.TaskName, StringComparison.OrdinalIgnoreCase))
                     {
                         Task.Enabled = false;
                         Task.Definition.Settings.Enabled = false;
@@ -170,11 +169,11 @@ namespace Sucrose.Commandog.Helper
         {
             using TaskService Service = new();
 
-            Task Task = Service.GetTask(SGHCL.GetValue("TaskName"));
+            Task Task = Service.GetTask(SMR.TaskName);
 
             if (Task != null)
             {
-                Service.RootFolder.DeleteTask(SGHCL.GetValue("TaskName"));
+                Service.RootFolder.DeleteTask(SMR.TaskName);
 
                 return true;
             }
@@ -197,9 +196,9 @@ namespace Sucrose.Commandog.Helper
 
                 foreach (Task Task in Collection)
                 {
-                    if (Task.Name.Equals(SGHCL.GetValue("TaskName"), StringComparison.OrdinalIgnoreCase))
+                    if (Task.Name.Equals(SMR.TaskName, StringComparison.OrdinalIgnoreCase))
                     {
-                        Folder.DeleteTask(SGHCL.GetValue("TaskName"));
+                        Folder.DeleteTask(SMR.TaskName);
 
                         Result = true;
                     }

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
-using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SMR = Sucrose.Memory.Readonly;
 using SMV = Sucrose.Memory.Valuable;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
@@ -15,10 +15,10 @@ namespace Sucrose.Shared.Launcher.Helper
             {
                 FileName = SMV.LogCompress,
 
-                Filter = SGHLL.GetValue("SaveDialogFilter"),
+                Filter = SSRER.GetValue("Launcher", "SaveDialogFilter"),
                 FilterIndex = 1,
 
-                Title = SGHLL.GetValue("SaveDialogTitle"),
+                Title = SSRER.GetValue("Launcher", "SaveDialogTitle"),
 
                 InitialDirectory = SMR.DesktopPath
             };

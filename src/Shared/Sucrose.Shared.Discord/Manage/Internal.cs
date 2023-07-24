@@ -1,6 +1,6 @@
 ﻿using DiscordRPC;
 using System.Windows.Threading;
-using SGHDL = Sucrose.Globalization.Helper.DiscordLocalization;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 
 namespace Sucrose.Shared.Discord.Manage
 {
@@ -16,38 +16,38 @@ namespace Sucrose.Shared.Discord.Manage
 
         public static List<string> Statement => new()
         {
-            SGHDL.GetValue("StatementText1"),
-            SGHDL.GetValue("StatementText2"),
-            SGHDL.GetValue("StatementText3"),
-            SGHDL.GetValue("StatementText4"),
-            SGHDL.GetValue("StatementText5"),
-            SGHDL.GetValue("StatementText6"),
-            SGHDL.GetValue("StatementText7"),
-            SGHDL.GetValue("StatementText8"),
-            SGHDL.GetValue("StatementText9"),
-            SGHDL.GetValue("StatementText10"),
-            SGHDL.GetValue("StatementText11"),
-            SGHDL.GetValue("StatementText12")
+            SSRER.GetValue("Discord", "StatementText1"),
+            SSRER.GetValue("Discord", "StatementText2"),
+            SSRER.GetValue("Discord", "StatementText3"),
+            SSRER.GetValue("Discord", "StatementText4"),
+            SSRER.GetValue("Discord", "StatementText5"),
+            SSRER.GetValue("Discord", "StatementText6"),
+            SSRER.GetValue("Discord", "StatementText7"),
+            SSRER.GetValue("Discord", "StatementText8"),
+            SSRER.GetValue("Discord", "StatementText9"),
+            SSRER.GetValue("Discord", "StatementText10"),
+            SSRER.GetValue("Discord", "StatementText11"),
+            SSRER.GetValue("Discord", "StatementText12")
         };
 
         public static List<string> LargestText => new()
         {
-            SGHDL.GetValue("LargestText1"),
-            SGHDL.GetValue("LargestText2"),
-            SGHDL.GetValue("LargestText3"),
-            SGHDL.GetValue("LargestText4"),
-            SGHDL.GetValue("LargestText5"),
-            SGHDL.GetValue("LargestText6")
+            SSRER.GetValue("Discord", "LargestText1"),
+            SSRER.GetValue("Discord", "LargestText2"),
+            SSRER.GetValue("Discord", "LargestText3"),
+            SSRER.GetValue("Discord", "LargestText4"),
+            SSRER.GetValue("Discord", "LargestText5"),
+            SSRER.GetValue("Discord", "LargestText6")
         };
 
         public static List<string> SmallestText => new()
         {
-            SGHDL.GetValue("SmallestText1"),
-            SGHDL.GetValue("SmallestText2"),
-            SGHDL.GetValue("SmallestText3"),
-            SGHDL.GetValue("SmallestText4"),
-            SGHDL.GetValue("SmallestText5"),
-            SGHDL.GetValue("SmallestText6")
+            SSRER.GetValue("Discord", "SmallestText1"),
+            SSRER.GetValue("Discord", "SmallestText2"),
+            SSRER.GetValue("Discord", "SmallestText3"),
+            SSRER.GetValue("Discord", "SmallestText4"),
+            SSRER.GetValue("Discord", "SmallestText5"),
+            SSRER.GetValue("Discord", "SmallestText6")
         };
 
         public static readonly List<string> Name = new()
@@ -58,42 +58,42 @@ namespace Sucrose.Shared.Discord.Manage
 
         public static List<string> SmallestImage => new()
         {
-            SGHDL.GetValue("SmallestImage1"),
-            SGHDL.GetValue("SmallestImage2"),
-            SGHDL.GetValue("SmallestImage3"),
-            SGHDL.GetValue("SmallestImage4"),
-            SGHDL.GetValue("SmallestImage5"),
-            SGHDL.GetValue("SmallestImage6"),
-            SGHDL.GetValue("SmallestImage7"),
-            SGHDL.GetValue("SmallestImage8"),
-            SGHDL.GetValue("SmallestImage9"),
-            SGHDL.GetValue("SmallestImage10"),
-            SGHDL.GetValue("SmallestImage11"),
-            SGHDL.GetValue("SmallestImage12"),
-            SGHDL.GetValue("SmallestImage13"),
-            SGHDL.GetValue("SmallestImage14"),
-            SGHDL.GetValue("SmallestImage15"),
-            SGHDL.GetValue("SmallestImage16"),
-            SGHDL.GetValue("SmallestImage17"),
-            SGHDL.GetValue("SmallestImage18"),
-            SGHDL.GetValue("SmallestImage19"),
-            SGHDL.GetValue("SmallestImage20"),
-            SGHDL.GetValue("SmallestImage21"),
-            SGHDL.GetValue("SmallestImage22"),
-            SGHDL.GetValue("SmallestImage23"),
-            SGHDL.GetValue("SmallestImage24"),
-            SGHDL.GetValue("SmallestImage25"),
-            SGHDL.GetValue("SmallestImage26"),
-            SGHDL.GetValue("SmallestImage27"),
-            SGHDL.GetValue("SmallestImage28"),
-            SGHDL.GetValue("SmallestImage29"),
-            SGHDL.GetValue("SmallestImage30"),
-            SGHDL.GetValue("SmallestImage31"),
-            SGHDL.GetValue("SmallestImage32"),
-            SGHDL.GetValue("SmallestImage33"),
-            SGHDL.GetValue("SmallestImage34"),
-            SGHDL.GetValue("SmallestImage35"),
-            SGHDL.GetValue("SmallestImage36")
+            SSRER.GetValue("Discord", "SmallestImage1"),
+            SSRER.GetValue("Discord", "SmallestImage2"),
+            SSRER.GetValue("Discord", "SmallestImage3"),
+            SSRER.GetValue("Discord", "SmallestImage4"),
+            SSRER.GetValue("Discord", "SmallestImage5"),
+            SSRER.GetValue("Discord", "SmallestImage6"),
+            SSRER.GetValue("Discord", "SmallestImage7"),
+            SSRER.GetValue("Discord", "SmallestImage8"),
+            SSRER.GetValue("Discord", "SmallestImage9"),
+            SSRER.GetValue("Discord", "SmallestImage10"),
+            SSRER.GetValue("Discord", "SmallestImage11"),
+            SSRER.GetValue("Discord", "SmallestImage12"),
+            SSRER.GetValue("Discord", "SmallestImage13"),
+            SSRER.GetValue("Discord", "SmallestImage14"),
+            SSRER.GetValue("Discord", "SmallestImage15"),
+            SSRER.GetValue("Discord", "SmallestImage16"),
+            SSRER.GetValue("Discord", "SmallestImage17"),
+            SSRER.GetValue("Discord", "SmallestImage18"),
+            SSRER.GetValue("Discord", "SmallestImage19"),
+            SSRER.GetValue("Discord", "SmallestImage20"),
+            SSRER.GetValue("Discord", "SmallestImage21"),
+            SSRER.GetValue("Discord", "SmallestImage22"),
+            SSRER.GetValue("Discord", "SmallestImage23"),
+            SSRER.GetValue("Discord", "SmallestImage24"),
+            SSRER.GetValue("Discord", "SmallestImage25"),
+            SSRER.GetValue("Discord", "SmallestImage26"),
+            SSRER.GetValue("Discord", "SmallestImage27"),
+            SSRER.GetValue("Discord", "SmallestImage28"),
+            SSRER.GetValue("Discord", "SmallestImage29"),
+            SSRER.GetValue("Discord", "SmallestImage30"),
+            SSRER.GetValue("Discord", "SmallestImage31"),
+            SSRER.GetValue("Discord", "SmallestImage32"),
+            SSRER.GetValue("Discord", "SmallestImage33"),
+            SSRER.GetValue("Discord", "SmallestImage34"),
+            SSRER.GetValue("Discord", "SmallestImage35"),
+            SSRER.GetValue("Discord", "SmallestImage36")
         };
     }
 }

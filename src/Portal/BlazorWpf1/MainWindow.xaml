@@ -14,7 +14,7 @@
     <Grid>
         <b:BlazorWebView
             HostPage="wwwroot/index.html"
-            Services="{StaticResource services}"
+            Services="{DynamicResource services}"
             StartPath="/counter">
             <b:BlazorWebView.RootComponents>
                 <b:RootComponent

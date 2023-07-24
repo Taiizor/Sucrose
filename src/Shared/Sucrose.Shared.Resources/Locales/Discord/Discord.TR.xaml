@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Gözat</system:String>
+    <system:String x:Key="Discord.Details">Duvar Kağıdı Motoru</system:String>
+    <system:String x:Key="Discord.DownloadButton">İndir</system:String>
+    <system:String x:Key="Discord.LargestText1">Muzlu Dondurma Gücü</system:String>
+    <system:String x:Key="Discord.LargestText2">Gülümseyen Şapka Canavarı</system:String>
+    <system:String x:Key="Discord.LargestText3">Bulutları Renklendiren Serçeler</system:String>
+    <system:String x:Key="Discord.LargestText4">Koşan Penguenlerin Gizli Maceraları</system:String>
+    <system:String x:Key="Discord.LargestText5">Papatya Tarlasında Kaybolan Tavşanlar</system:String>
+    <system:String x:Key="Discord.LargestText6">Şarkı Söyleyen Rüzgar Gülleri</system:String>
+    <system:String x:Key="Discord.SmallestText1">Gizemli Ayak İzleri</system:String>
+    <system:String x:Key="Discord.SmallestText2">Uçan Balon Balıkları</system:String>
+    <system:String x:Key="Discord.SmallestText3">Kahkaha Atan Çiçekler</system:String>
+    <system:String x:Key="Discord.SmallestText4">Şekerli Pamuk Bulutları</system:String>
+    <system:String x:Key="Discord.SmallestText5">Donmuş Pizza Ejderhaları</system:String>
+    <system:String x:Key="Discord.SmallestText6">Parlak Mantar Korsanları</system:String>
+    <system:String x:Key="Discord.StatementText1">Kaos Dolu Bir Evren</system:String>
+    <system:String x:Key="Discord.StatementText2">Sonsuz Maceraların Ortasında</system:String>
+    <system:String x:Key="Discord.StatementText3">Garip ve Büyülü Bir Dünya</system:String>
+    <system:String x:Key="Discord.StatementText4">Hayal Gücünün Sınırlarını Zorlayan</system:String>
+    <system:String x:Key="Discord.StatementText5">Sıradışı Bir Gerçeklik</system:String>
+    <system:String x:Key="Discord.StatementText6">Hayal Gücünün Derinliklerinde</system:String>
+    <system:String x:Key="Discord.StatementText7">Büyülü Bir Keşif Yolculuğu</system:String>
+    <system:String x:Key="Discord.StatementText8">Bilinmeyen Diyarların Kapısında</system:String>
+    <system:String x:Key="Discord.StatementText9">Karmaşık Bir Rüya Dünyası</system:String>
+    <system:String x:Key="Discord.StatementText10">Sınırları Zorlayan Bir Macera</system:String>
+    <system:String x:Key="Discord.StatementText11">Dinamik ve Şaşırtıcı Bir Deneyim</system:String>
+    <system:String x:Key="Discord.StatementText12">Fantastik Bir Masalın İçinde</system:String>
+</ResourceDictionary>

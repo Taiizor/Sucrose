@@ -5,8 +5,8 @@
         <ResourceDictionary Source="Discord/Discord.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.xaml" />
 
-        <ResourceDictionary Source="Discord/Discord.TR.xaml" />
-        <ResourceDictionary Source="Watchdog/Watchdog.TR.xaml" />
-        <ResourceDictionary Source="Launcher/Launcher.TR.xaml" />
+        <ResourceDictionary Source="Discord/Discord.DE.xaml" />
+        <ResourceDictionary Source="Watchdog/Watchdog.DE.xaml" />
+        <ResourceDictionary Source="Launcher/Launcher.DE.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
