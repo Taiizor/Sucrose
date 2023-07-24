@@ -1,7 +1,9 @@
 ﻿using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSLVDRB = Sucrose.Shared.Launcher.View.DarkReportBox;
+using SSLVLRB = Sucrose.Shared.Launcher.View.LightReportBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Shared.Launcher.Command
@@ -10,13 +12,11 @@ namespace Sucrose.Shared.Launcher.Command
     {
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static bool ShowBox = true;
-
         public static void Command()
         {
-            if (ShowBox)
+            if (SSLMI.ReportBox)
             {
-                ShowBox = false;
+                SSLMI.ReportBox = false;
 
                 switch (Theme)
                 {
@@ -25,10 +25,12 @@ namespace Sucrose.Shared.Launcher.Command
                         DarkReportBox.ShowDialog();
                         break;
                     default:
+                        SSLVLRB LightReportBox = new();
+                        LightReportBox.ShowDialog();
                         break;
                 }
 
-                ShowBox = true;
+                SSLMI.ReportBox = true;
             }
         }
     }

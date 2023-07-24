@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Separator\StripSeparator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Table\DarkColorTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Table\LightColorTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\LightReportBox.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\DarkReportBox.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +58,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)View\LightReportBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)View\DarkReportBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

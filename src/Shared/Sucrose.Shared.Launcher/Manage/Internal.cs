@@ -4,6 +4,8 @@ namespace Sucrose.Shared.Launcher.Manage
 {
     internal static class Internal
     {
+        public static bool ReportBox = true;
+
         public static SSLMTIM TrayIconManager = new();
     }
 }
