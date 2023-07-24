@@ -3,11 +3,11 @@
 
 <h2>Contribution Steps</h2>
 <ol>
-	<li>Fork the project repository on <a href="https://github.com/sucrose/sucrose">GitHub</a>.</li>
+	<li>Fork the project repository on <a href="https://github.com/Taiizor/Sucrose">GitHub</a>.</li>
 	<li>Clone your forked copy to your local machine:</li>
 </ol>
 
-<pre><code>git clone https://github.com/YOUR_USERNAME/sucrose.git</code></pre>
+<pre><code>git clone https://github.com/Taiizor/Sucrose.git</code></pre>
 
 <ol start="3">
 	<li>Make your changes and edit the code. Commit your changes with a descriptive title and explanation:</li>
@@ -38,4 +38,4 @@ git commit -m "Descriptive title: Change explanation."</code></pre>
 <h2>Contact</h2>
 <p>If you have any questions or need assistance with the contribution process, feel free to reach out to us via GitHub issues or email. We look forward to any contributions and feedback!</p>
 
-<p>Email: example@example.com</p>
+<p>Email: taiizor@vegalya.com</p>
