@@ -116,6 +116,8 @@ namespace Sucrose.Portal
         {
             base.OnStartup(e);
 
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
             if (Mutex.WaitOne(TimeSpan.Zero, true))
             {
                 Mutex.ReleaseMutex();

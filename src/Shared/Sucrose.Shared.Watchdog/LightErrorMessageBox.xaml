@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sucrose.Shared.Watchdog"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip" MinHeight="250" MinWidth="500"
-        Title="Sucrose.Shared.Watchdog ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
+        Title="ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#F0F0F0" />

@@ -150,4 +150,13 @@
   <data name="WallStopText" xml:space="preserve">
     <value>Duvar Kağıdını Durdur</value>
   </data>
+  <data name="CreateLogText" xml:space="preserve">
+    <value>Log Dosyası Oluştur</value>
+  </data>
+  <data name="OpenReportText" xml:space="preserve">
+    <value>Bir Sorun Bildir</value>
+  </data>
+  <data name="ReportWindowTitle" xml:space="preserve">
+    <value>Sucrose Tanılama</value>
+  </data>
 </root>

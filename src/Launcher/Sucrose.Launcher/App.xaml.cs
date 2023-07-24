@@ -174,6 +174,8 @@ namespace Sucrose.Launcher
         {
             base.OnStartup(e);
 
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
             SMMI.LauncherLogManager.Log(SELLT.Info, "Application initializing..");
 
             if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Launcher) <= 1)

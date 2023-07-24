@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Separator\StripSeparator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Table\DarkColorTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Table\LightColorTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\DarkReportBox.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Assets\Error.ico">
@@ -53,5 +54,11 @@
     <None Include="$(MSBuildThisFileDirectory)Assets\WideScreen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)View\DarkReportBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

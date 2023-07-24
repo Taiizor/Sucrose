@@ -178,6 +178,8 @@ namespace Sucrose.WPF.CS
         {
             base.OnStartup(e);
 
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
             if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount("Sucrose.WPF.CS.exe") <= 1)
             {
                 Mutex.ReleaseMutex();

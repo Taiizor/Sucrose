@@ -165,4 +165,13 @@
   <data name="WallStopText" xml:space="preserve">
     <value>Stop Wallpaper</value>
   </data>
+  <data name="CreateLogText" xml:space="preserve">
+    <value>Create Log File</value>
+  </data>
+  <data name="OpenReportText" xml:space="preserve">
+    <value>Report a Problem</value>
+  </data>
+  <data name="ReportWindowTitle" xml:space="preserve">
+    <value>Sucrose Diagnostics</value>
+  </data>
 </root>

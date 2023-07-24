@@ -248,6 +248,8 @@ namespace Sucrose.Live.CefSharp
         {
             base.OnStartup(e);
 
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
             if (Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
                 Mutex.ReleaseMutex();

@@ -187,6 +187,8 @@ namespace Sucrose.Live.Vexana
         {
             base.OnStartup(e);
 
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
             if (Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
                 Mutex.ReleaseMutex();
