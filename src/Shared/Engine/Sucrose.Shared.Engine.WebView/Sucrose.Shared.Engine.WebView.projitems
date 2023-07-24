@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Event\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\YouTube.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />

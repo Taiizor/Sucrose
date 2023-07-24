@@ -1,8 +1,9 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -18,6 +19,8 @@ namespace Sucrose.Shared.Engine.WebView.Event
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
+            SSEWVHW.StartCompatible();
+
             SSEMI.Initialized = e.IsSuccess;
 
             SSEWVMI.WebEngine.Source = SSEHS.GetSource(SSEWVMI.Web);

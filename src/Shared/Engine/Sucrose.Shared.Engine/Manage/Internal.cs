@@ -1,7 +1,7 @@
 ﻿using System.Windows.Threading;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
-using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 
 namespace Sucrose.Shared.Engine.Manage
 {

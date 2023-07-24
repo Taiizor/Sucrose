@@ -9,7 +9,12 @@ namespace Sucrose.Shared.Zip.Helper
         {
             try
             {
+#if NET48_OR_GREATER
                 string Relative = File.Substring(Source.Length);
+#else
+
+                string Relative = File[Source.Length..];
+#endif
 
                 Relative = Relative.TrimStart(Path.DirectorySeparatorChar);
 
