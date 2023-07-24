@@ -3,24 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:res="clr-namespace:Sucrose.Bundle.Properties"
         xmlns:local="clr-namespace:Sucrose.Bundle"
         mc:Ignorable="d"
         ContentRendered="Window_ContentRendered"
-        Title="{x:Static res:Resources.Title}" Height="400" Width="400"
+        Title="{DynamicResource Title}" Height="400" Width="400"
         ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen"
         ShowInTaskbar="False" Topmost="True" AllowsTransparency="True"
         Background="#FF29373B" Icon="\Sucrose.Bundle;component\Assets\ICO.ico">
     <Grid>
-        <Image Source="\Sucrose.Bundle;component\Assets\Background1.jpg" Stretch="UniformToFill" Opacity="0.5" />
+        <Image Source="\Sucrose.Bundle;component\Assets\Background3.jpg" Stretch="UniformToFill" Opacity="0.5" />
 
-        <TextBlock Text="{x:Static res:Resources.Subtitle}" FontSize="30" FontWeight="Light" Foreground="White"
-                           FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,260,0,0"/>
+        <TextBlock Text="{DynamicResource Subtitle}" FontSize="30" FontWeight="Light" Foreground="White"
+                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,260,0,0"/>
 
-        <TextBlock Text="{x:Static res:Resources.Install}" FontSize="16" FontWeight="Light" Foreground="White"
-                           FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,310,0,0"/>
+        <TextBlock Text="{DynamicResource Install}" FontSize="16" FontWeight="Light" Foreground="White"
+                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,310,0,0"/>
 
-        <TextBlock Text="{x:Static res:Resources.Done}" FontSize="16" FontWeight="Light" Foreground="White"
-                           FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,330,0,0"/>
+        <TextBlock Text="{DynamicResource Done}" FontSize="16" FontWeight="Light" Foreground="White"
+                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,330,0,0"/>
     </Grid>
 </Window>

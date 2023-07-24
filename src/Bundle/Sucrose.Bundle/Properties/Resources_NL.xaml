@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Title">Sucrose Bundel</system:String>
+    <system:String x:Key="Subtitle">Sucrose Bundel</system:String>
+    <system:String x:Key="Done">Het zal worden gelanceerd zodra het klaar is.</system:String>
+    <system:String x:Key="Install">Sucrose Wallpaper Engine wordt geïnstalleerd.</system:String>
+</ResourceDictionary>

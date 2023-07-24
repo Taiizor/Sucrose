@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:Sucrose.Bundle"
              StartupUri="Main.xaml">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Sucrose.Bundle;component/Properties/Resources_EN.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

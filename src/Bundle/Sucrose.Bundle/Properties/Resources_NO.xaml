@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Title">Sucrose Bunt</system:String>
+    <system:String x:Key="Subtitle">Sucrose Bunt</system:String>
+    <system:String x:Key="Done">Det vil starte når det er ferdig.</system:String>
+    <system:String x:Key="Install">Sucrose Wallpaper Engine blir installert.</system:String>
+</ResourceDictionary>
