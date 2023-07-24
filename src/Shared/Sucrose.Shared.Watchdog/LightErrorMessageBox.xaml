@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sucrose.Shared.Watchdog"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip" MinHeight="250" MinWidth="500"
-        Title="ErrorMessageBox" Height="250" Width="500" WindowStartupLocation="CenterScreen">
+        Title="{StaticResource Watchdog.WindowTitle}" Height="250" Width="500" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#F0F0F0" />
@@ -48,17 +48,17 @@
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Border.Effect>
             <StackPanel Margin="20">
-                <TextBlock x:Name="Error_Title" Text="Error" Foreground="#333333" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
-                <TextBlock x:Name="Error_Message" Text="Message" TextWrapping="Wrap" FontSize="14" Foreground="#333333" />
+                <TextBlock x:Name="Error_Title" Text="{StaticResource Watchdog.ErrorTitle}" Foreground="#333333" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
+                <TextBlock x:Name="Error_Message" Text="{StaticResource Watchdog.ErrorMessage}" TextWrapping="Wrap" FontSize="14" Foreground="#333333" />
             </StackPanel>
         </Border>
 
-        <Button x:Name="Show_Button" Content="Show" Cursor="Hand" Width="100" Height="25" Margin="20 0 0 20" HorizontalAlignment="Left" Grid.Row="1" Click="ShowButton_Click">
+        <Button x:Name="Show_Button" Content="{StaticResource Watchdog.ShowButton}" Cursor="Hand" Width="100" Height="25" Margin="20 0 0 20" HorizontalAlignment="Left" Grid.Row="1" Click="ShowButton_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Button.Effect>
         </Button>
-        <Button x:Name="Close_Button" Content="Close" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click">
+        <Button x:Name="Close_Button" Content="{StaticResource Watchdog.CloseButton}" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Button.Effect>

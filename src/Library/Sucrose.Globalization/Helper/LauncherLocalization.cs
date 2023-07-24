@@ -8,7 +8,7 @@ namespace Sucrose.Globalization.Helper
     {
         public static string GetValue(string Key)
         {
-            return GetValue(Key, SGMR.CultureInfo);
+            return GetValue(Key, CultureInfo.CurrentUICulture);
         }
 
         public static string GetValue(string Key, string Culture)

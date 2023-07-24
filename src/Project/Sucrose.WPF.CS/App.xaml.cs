@@ -7,11 +7,12 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCW = Sucrose.Grpc.Common.Websiter;
-using SGMR = Sucrose.Globalization.Manage.Resources;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
+using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSSWSS = Sucrose.Shared.Server.Services.WebsiterServerService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
@@ -26,7 +27,7 @@ namespace Sucrose.WPF.CS
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
@@ -92,7 +93,7 @@ namespace Sucrose.WPF.CS
                 Message(Exception.Message);
             };
 
-            SGMR.CultureInfo = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(Culture, true);
 
 #if NET48_OR_GREATER && DEBUG
             CefRuntime.SubscribeAnyCpuAssemblyResolver();
@@ -177,6 +178,8 @@ namespace Sucrose.WPF.CS
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            SSRHR.SetLanguage(Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

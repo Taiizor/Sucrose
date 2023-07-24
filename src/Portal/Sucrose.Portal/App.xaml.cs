@@ -1,14 +1,15 @@
 ﻿using System.Globalization;
 using System.Windows;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGMR = Sucrose.Globalization.Manage.Resources;
+using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal
 {
@@ -17,7 +18,7 @@ namespace Sucrose.Portal
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
@@ -71,7 +72,7 @@ namespace Sucrose.Portal
                 Message(Exception.Message);
             };
 
-            SGMR.CultureInfo = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(Culture, true);
         }
 
         protected void Close()
@@ -109,6 +110,7 @@ namespace Sucrose.Portal
         {
             base.OnExit(e);
 
+            Shutdown();
             Close();
         }
 
@@ -116,7 +118,9 @@ namespace Sucrose.Portal
         {
             base.OnStartup(e);
 
-            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            SSRHR.SetLanguage(Culture);
+
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
 
             if (Mutex.WaitOne(TimeSpan.Zero, true))
             {

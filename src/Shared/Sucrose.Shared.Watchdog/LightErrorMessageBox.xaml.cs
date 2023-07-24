@@ -1,6 +1,5 @@
 ﻿using System.Media;
 using System.Windows;
-using SGHWL = Sucrose.Globalization.Helper.WatchdogLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -23,11 +22,7 @@ namespace Sucrose.Shared.Watchdog
 
             SystemSounds.Hand.Play();
 
-            Title = SGHWL.GetValue("WindowTitle");
-            Error_Title.Text = SGHWL.GetValue("ErrorTitle");
-            Show_Button.Content = SGHWL.GetValue("ShowButton");
-            Close_Button.Content = SGHWL.GetValue("CloseButton");
-            Error_Message.Text = SGHWL.GetValue("ErrorMessage") + Environment.NewLine + ErrorMessage;
+            Error_Message.Text += Environment.NewLine + ErrorMessage;
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)

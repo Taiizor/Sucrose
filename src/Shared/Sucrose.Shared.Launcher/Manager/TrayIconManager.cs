@@ -2,7 +2,7 @@
 using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
-using SGMR = Sucrose.Globalization.Manage.Resources;
+using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -24,7 +24,7 @@ namespace Sucrose.Shared.Launcher.Manager
     {
         private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
@@ -52,7 +52,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
         public void Initialize()
         {
-            SGMR.CultureInfo = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(Culture, true);
 
             if (Theme == SEWTT.Dark)
             {

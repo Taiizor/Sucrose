@@ -5,7 +5,7 @@ using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGMR = Sucrose.Globalization.Manage.Resources;
+using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -15,6 +15,7 @@ using SSECSVW = Sucrose.Shared.Engine.CefSharp.View.Web;
 using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -33,7 +34,7 @@ namespace Sucrose.Live.CefSharp
     {
         private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
@@ -101,7 +102,7 @@ namespace Sucrose.Live.CefSharp
                 Message(Exception.Message);
             };
 
-            SGMR.CultureInfo = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(Culture, true);
         }
 
         protected void Close()
@@ -247,6 +248,8 @@ namespace Sucrose.Live.CefSharp
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            SSRHR.SetLanguage(Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

@@ -45,18 +45,25 @@ namespace Sucrose.Bundle
 
         private static bool CheckLanguage(string Lang)
         {
-            return LoadComponent(new Uri($"/Sucrose.Bundle;component/Properties/Resources_{Lang}.xaml", UriKind.Relative)) is ResourceDictionary;
+            try
+            {
+                return LoadComponent(new Uri($"/Sucrose.Bundle;component/Properties/Resources_{Lang}.xaml", UriKind.Relative)) is ResourceDictionary;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static void RemoveResource()
         {
-            List<ResourceDictionary> resourcesToRemove = Current.Resources.MergedDictionaries
+            List<ResourceDictionary> Resources = Current.Resources.MergedDictionaries
                 .Where(Resource => !string.IsNullOrEmpty(Resource.Source?.ToString()) && Resource.Source.ToString().Contains("/Properties/Resources_"))
                 .ToList();
 
-            foreach (ResourceDictionary resource in resourcesToRemove)
+            foreach (ResourceDictionary Resource in Resources)
             {
-                Current.Resources.MergedDictionaries.Remove(resource);
+                Application.Current.Resources.MergedDictionaries.Remove(Resource);
             }
         }
 

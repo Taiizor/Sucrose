@@ -3,7 +3,7 @@ using DiscordRPC.Message;
 using System.Globalization;
 using Button = DiscordRPC.Button;
 using SGHDL = Sucrose.Globalization.Helper.DiscordLocalization;
-using SGMR = Sucrose.Globalization.Manage.Resources;
+using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -15,7 +15,7 @@ namespace Sucrose.Shared.Discord
 {
     internal class Hook
     {
-        private string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
         private bool Refresh => SMMI.DiscordSettingManager.GetSetting(SMC.Refresh, true);
 
@@ -25,7 +25,7 @@ namespace Sucrose.Shared.Discord
 
         public Hook()
         {
-            SGMR.CultureInfo = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(Culture, true);
 
             SSDMI.Client = new DiscordRpcClient(SMR.DiscordApplication)
             {
@@ -140,7 +140,7 @@ namespace Sucrose.Shared.Discord
         {
             if (Refresh)
             {
-                SGMR.CultureInfo = new CultureInfo(Culture, true);
+                SHC.All = new CultureInfo(Culture, true);
 
                 SetPresence();
             }

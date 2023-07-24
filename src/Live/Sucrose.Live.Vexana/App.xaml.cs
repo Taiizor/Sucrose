@@ -3,13 +3,14 @@ using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGMR = Sucrose.Globalization.Manage.Resources;
+using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
@@ -26,7 +27,7 @@ namespace Sucrose.Live.Vexana
     {
         private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
@@ -94,7 +95,7 @@ namespace Sucrose.Live.Vexana
                 Message(Exception.Message);
             };
 
-            SGMR.CultureInfo = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(Culture, true);
         }
 
         protected void Close()
@@ -186,6 +187,8 @@ namespace Sucrose.Live.Vexana
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            SSRHR.SetLanguage(Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

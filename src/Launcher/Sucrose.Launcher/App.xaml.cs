@@ -4,14 +4,15 @@ using Application = System.Windows.Application;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCL = Sucrose.Grpc.Common.Launcher;
-using SGMR = Sucrose.Globalization.Manage.Resources;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
+using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDH = Sucrose.Shared.Discord.Hook;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSSLSS = Sucrose.Shared.Server.Services.LauncherServerService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
@@ -26,7 +27,7 @@ namespace Sucrose.Launcher
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SGMR.CultureInfo.Name);
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
@@ -94,7 +95,7 @@ namespace Sucrose.Launcher
                 Message(Exception.Message);
             };
 
-            SGMR.CultureInfo = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(Culture, true);
         }
 
         protected void Close()
@@ -173,6 +174,8 @@ namespace Sucrose.Launcher
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            SSRHR.SetLanguage(Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
