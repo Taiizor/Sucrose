@@ -1,12 +1,12 @@
 ﻿using DiscordRPC;
 using DiscordRPC.Message;
 using Button = DiscordRPC.Button;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
 namespace Sucrose.Shared.Discord

@@ -1,8 +1,6 @@
 ﻿using System.Globalization;
 using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -15,6 +13,8 @@ using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
 using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHA = Sucrose.Shared.Space.Helper.Assets;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;

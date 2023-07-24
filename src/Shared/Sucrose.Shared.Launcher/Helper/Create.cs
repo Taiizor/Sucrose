@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SMR = Sucrose.Memory.Readonly;
 using SMV = Sucrose.Memory.Valuable;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 
 namespace Sucrose.Shared.Launcher.Helper

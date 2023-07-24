@@ -72,6 +72,7 @@ namespace Sucrose.Shared.Zip.Extension
 
                         using Stream EntryStream = Entry.Open();
                         using FileStream FileStream = File.OpenRead(file);
+
                         FileStream.CopyTo(EntryStream);
                     }
                 }
