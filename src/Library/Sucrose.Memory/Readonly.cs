@@ -22,6 +22,8 @@
 
         public static readonly char ValueSeparatorChar = '|';
 
+        public static readonly string SettingFolder = "Setting";
+
         public static readonly string MediaElement = "MediaElement";
 
         public static readonly string Portal = "Sucrose.Portal.exe";
@@ -69,6 +71,8 @@
         public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";
 
         public static readonly string DownloadWebsite = "https://github.com/Taiizor/Sucrose/releases/latest";
+
+        public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         public static readonly string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 

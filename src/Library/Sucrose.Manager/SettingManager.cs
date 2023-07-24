@@ -17,7 +17,7 @@ namespace Sucrose.Manager
 
         public SettingManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
-            _settingsFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, settingsFileName);
+            _settingsFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder, settingsFileName);
 
             Directory.CreateDirectory(Path.GetDirectoryName(_settingsFilePath));
 

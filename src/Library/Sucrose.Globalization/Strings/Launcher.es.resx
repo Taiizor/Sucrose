@@ -123,4 +123,10 @@
   <data name="ReportText" xml:space="preserve">
     <value>Informar Error</value>
   </data>
+  <data name="SaveDialogTitle" xml:space="preserve">
+    <value>Guardar Archivo de Registro</value>
+  </data>
+  <data name="SaveDialogFilter" xml:space="preserve">
+    <value>Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*</value>
+  </data>
 </root>

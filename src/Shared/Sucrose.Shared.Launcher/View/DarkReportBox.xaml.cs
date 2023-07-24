@@ -3,6 +3,7 @@ using System.Windows;
 using SGHLL = Sucrose.Globalization.Helper.LauncherLocalization;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSLHC = Sucrose.Shared.Launcher.Helper.Create;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
@@ -28,7 +29,7 @@ namespace Sucrose.Shared.Launcher.View
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            //
+            SSLHC.Start();
         }
 
         private void ReportButton_Click(object sender, RoutedEventArgs e)

@@ -5,6 +5,22 @@ namespace Sucrose.Shared.Zip.Helper
 {
     internal static class Zip
     {
+        public static string EntryName(string File, string Source)
+        {
+            try
+            {
+                string Relative = File.Substring(Source.Length);
+
+                Relative = Relative.TrimStart(Path.DirectorySeparatorChar);
+
+                return Path.Combine(Path.GetFileName(Path.GetDirectoryName(File)), Relative);
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+
         public static string ReadFile(string Archive, string File)
         {
             try

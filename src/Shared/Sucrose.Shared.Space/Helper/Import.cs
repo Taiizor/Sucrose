@@ -16,7 +16,7 @@ namespace Sucrose.Shared.Space.Helper
 
                 foreach (string Setting in Settings(Destination))
                 {
-                    File.Copy(Setting, Path.Combine(SMR.AppDataPath, SMR.AppName, Path.GetFileName(Setting)), true);
+                    File.Copy(Setting, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder, Path.GetFileName(Setting)), true);
                 }
 
                 SSSHP.Run(Application);

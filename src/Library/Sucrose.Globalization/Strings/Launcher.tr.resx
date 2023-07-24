@@ -159,4 +159,10 @@
   <data name="ReportWindowTitle" xml:space="preserve">
     <value>Sucrose Tanılama</value>
   </data>
+  <data name="SaveDialogTitle" xml:space="preserve">
+    <value>Günlük Dosyasını Kaydet</value>
+  </data>
+  <data name="SaveDialogFilter" xml:space="preserve">
+    <value>ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</value>
+  </data>
 </root>
