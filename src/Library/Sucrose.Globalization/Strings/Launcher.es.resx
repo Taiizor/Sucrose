@@ -129,4 +129,40 @@
   <data name="SaveDialogFilter" xml:space="preserve">
     <value>Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*</value>
   </data>
+  <data name="OpenText" xml:space="preserve">
+    <value>Abrir Sucrose</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Ajustes</value>
+  </data>
+  <data name="TrayText" xml:space="preserve">
+    <value>Motor de Fondos de Pantalla Sucrose</value>
+  </data>
+  <data name="WallChangeText" xml:space="preserve">
+    <value>Cambiar Fondo de Pantalla</value>
+  </data>
+  <data name="WallCloseText" xml:space="preserve">
+    <value>Cerrar Fondos de Pantalla</value>
+  </data>
+  <data name="CreateLogText" xml:space="preserve">
+    <value>Crear Archivo de Registro</value>
+  </data>
+  <data name="OpenReportText" xml:space="preserve">
+    <value>Informar un Problema</value>
+  </data>
+  <data name="ReportWindowTitle" xml:space="preserve">
+    <value>Diagnóstico de Sucrose</value>
+  </data>
+  <data name="WallCustomizeText" xml:space="preserve">
+    <value>Personalizar Fondo de Pantalla</value>
+  </data>
+  <data name="WallOpenText" xml:space="preserve">
+    <value>Abrir Fondo de Pantalla</value>
+  </data>
+  <data name="WallStartText" xml:space="preserve">
+    <value>Iniciar Fondo de Pantalla</value>
+  </data>
+  <data name="WallStopText" xml:space="preserve">
+    <value>Detener Fondo de Pantalla</value>
+  </data>
 </root>

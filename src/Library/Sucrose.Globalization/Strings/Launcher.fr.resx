@@ -129,4 +129,40 @@
   <data name="SaveDialogFilter" xml:space="preserve">
     <value>Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</value>
   </data>
+  <data name="OpenText" xml:space="preserve">
+    <value>Ouvrir Sucrose</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="TrayText" xml:space="preserve">
+    <value>Moteur de Papier Peint Sucrose</value>
+  </data>
+  <data name="WallChangeText" xml:space="preserve">
+    <value>Changer le Papier Peint</value>
+  </data>
+  <data name="WallCloseText" xml:space="preserve">
+    <value>Fermer les Fonds d'Écran</value>
+  </data>
+  <data name="CreateLogText" xml:space="preserve">
+    <value>Créer un Fichier Journal</value>
+  </data>
+  <data name="OpenReportText" xml:space="preserve">
+    <value>Signaler un Problème</value>
+  </data>
+  <data name="ReportWindowTitle" xml:space="preserve">
+    <value>Diagnostic de Sucrose</value>
+  </data>
+  <data name="WallCustomizeText" xml:space="preserve">
+    <value>Personnaliser le Papier Peint</value>
+  </data>
+  <data name="WallOpenText" xml:space="preserve">
+    <value>Ouvrir le Papier Peint</value>
+  </data>
+  <data name="WallStartText" xml:space="preserve">
+    <value>Démarrer le Papier Peint</value>
+  </data>
+  <data name="WallStopText" xml:space="preserve">
+    <value>Arrêter le Papier Peint</value>
+  </data>
 </root>

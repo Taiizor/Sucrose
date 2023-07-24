@@ -129,4 +129,40 @@
   <data name="SaveDialogFilter" xml:space="preserve">
     <value>ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*</value>
   </data>
+  <data name="OpenText" xml:space="preserve">
+    <value>Sucrose Öffnen</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="TrayText" xml:space="preserve">
+    <value>Sucrose Wallpaper Engine</value>
+  </data>
+  <data name="WallChangeText" xml:space="preserve">
+    <value>Hintergrund Åndern</value>
+  </data>
+  <data name="WallCloseText" xml:space="preserve">
+    <value>Wallpaper Schließen</value>
+  </data>
+  <data name="CreateLogText" xml:space="preserve">
+    <value>Protokolldatei Erstellen</value>
+  </data>
+  <data name="OpenReportText" xml:space="preserve">
+    <value>Ein Problem Melden</value>
+  </data>
+  <data name="ReportWindowTitle" xml:space="preserve">
+    <value>Sucrose Diagnostik</value>
+  </data>
+  <data name="WallCustomizeText" xml:space="preserve">
+    <value>Hintergrund Anpassen</value>
+  </data>
+  <data name="WallOpenText" xml:space="preserve">
+    <value>Hintergrund Öffnen</value>
+  </data>
+  <data name="WallStartText" xml:space="preserve">
+    <value>Hintergrund Starten</value>
+  </data>
+  <data name="WallStopText" xml:space="preserve">
+    <value>Hintergrund Stoppen</value>
+  </data>
 </root>

@@ -129,4 +129,40 @@
   <data name="SaveDialogFilter" xml:space="preserve">
     <value>Pliki ZIP (*.zip)|*.zip|Wszystkie pliki (*.*)|*.*</value>
   </data>
+  <data name="OpenText" xml:space="preserve">
+    <value>Otwórz Sucrose</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="TrayText" xml:space="preserve">
+    <value>Silnik Tapet Sucrose</value>
+  </data>
+  <data name="WallChangeText" xml:space="preserve">
+    <value>Zmień Tapetę</value>
+  </data>
+  <data name="WallCloseText" xml:space="preserve">
+    <value>Zamknij Tapetę</value>
+  </data>
+  <data name="CreateLogText" xml:space="preserve">
+    <value>Utwórz Plik Dziennika</value>
+  </data>
+  <data name="OpenReportText" xml:space="preserve">
+    <value>Zgłoś Problem</value>
+  </data>
+  <data name="ReportWindowTitle" xml:space="preserve">
+    <value>Diagnostyka Sucrose</value>
+  </data>
+  <data name="WallCustomizeText" xml:space="preserve">
+    <value>Dostosuj Tapetę</value>
+  </data>
+  <data name="WallOpenText" xml:space="preserve">
+    <value>Otwórz Tapetę</value>
+  </data>
+  <data name="WallStartText" xml:space="preserve">
+    <value>Uruchom Tapetę</value>
+  </data>
+  <data name="WallStopText" xml:space="preserve">
+    <value>Zatrzymaj Tapetę</value>
+  </data>
 </root>

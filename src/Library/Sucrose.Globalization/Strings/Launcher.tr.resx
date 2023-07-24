@@ -129,9 +129,6 @@
   <data name="SettingsText" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
-  <data name="TrayText" xml:space="preserve">
-    <value>Sucrose Duvar Kağıdı Motoru</value>
-  </data>
   <data name="WallChangeText" xml:space="preserve">
     <value>Duvar Kağıdını Değiştir</value>
   </data>
@@ -151,7 +148,7 @@
     <value>Duvar Kağıdını Durdur</value>
   </data>
   <data name="CreateLogText" xml:space="preserve">
-    <value>Log Dosyası Oluştur</value>
+    <value>Günlük Dosyası Oluştur</value>
   </data>
   <data name="OpenReportText" xml:space="preserve">
     <value>Bir Sorun Bildir</value>
@@ -164,5 +161,8 @@
   </data>
   <data name="SaveDialogFilter" xml:space="preserve">
     <value>ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</value>
+  </data>
+  <data name="TrayText" xml:space="preserve">
+    <value>Sucrose Duvar Kağıdı Motoru</value>
   </data>
 </root>
