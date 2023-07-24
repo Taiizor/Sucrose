@@ -1,30 +1,47 @@
+---
 name: Bug report
-description: File a bug report
-labels: ["bug"]
-body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
-        Seriously consider creating and linking to a test repo which takes absolutely minimal setup to illustrate how reproduce the problem.
-  - type: textarea
-    id: bug-explanation
-    attributes:
-      label: Bug explanation
-      description: |
-        - Tell us what is the problem and what did you expect to happen.
-        - Explain the different steps to reproduce the bug.
-        - Provide a minimal and reproducible example either with code snippets or ideally an example repository.
-        
-        You can attach some screenshots or/and videos to better illustrate the problem.
-      placeholder: Explain the problem...
-    validations:
-      required: true
-  - type: input
-    id: version
-    attributes:
-      label: Version
-      description: What version of our package are you running?
-      placeholder: "Example: 1.2.3"
-    validations:
-      required: true
+about: Create a report to help us improve
+title: ''
+labels: bug
+assignees: ''
+
+---
+
+<!-- 
+I ACKNOWLEDGE THE FOLLOWING BEFORE PROCEEDING:
+1. Issue may be deleted if it is not following the template
+2. Only post one issue per one bug report
+3. Try not to make duplicates issues, do a quick search before posting
+4. Add a title that describes the issue clearly
+5. Check the wiki to see if the question is already answered:
+https://github.com/Taiizor/Sucrose/wiki/Common-Problems
+--->
+
+**Bug Description**
+A clear and concise description of what the bug is.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
+
+**Expected Behavior**
+A clear and concise description of what you expected to happen.
+
+**Screenshots/Video**
+If applicable, add screenshots/video to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [e.g. Windows 10 1909]
+- Which wallpaper was running at the time if any.
+
+**Additional Context**
+Add any other context about the problem here.
+
+**Log File (Important)**
+Share the diagnostic files by:
+Open Sucrose settings (Gear icon) top-right -> System -> Log File -> Save
+or 
+Navigate to the Appdata folder `C:\Users\<UserName>\AppData\Roaming\Sucrose\Log`
