@@ -1,0 +1,879 @@
+﻿@page "/fluentdemo"
+
+@inject FillColor FillColor
+@inject BaseLayerLuminance BaseLayerLuminance
+
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>Fluent Demo</PageTitle>
+
+<h1>Fluent Demo</h1>
+
+<MenuButton />
+
+<FluentAccordion ActiveId="@activeId" OnAccordionItemChange="HandleOnAccordionItemChange">
+    <FluentAccordionItem Heading="Panel one">
+        <FluentIcon Slot="start" Name="@FluentIcons.Globe" Size="@IconSize.Size20" Color=Color.Neutral />
+        Panel one content, using the 'start' slot for extra header content (in this case an icon)
+    </FluentAccordionItem>
+    <FluentAccordionItem Heading="Panel two">
+        <div slot="end">
+            #end#
+        </div>
+        Panel two content, using the 'end' slot for extra header content (in this case an HTML button)
+    </FluentAccordionItem>
+    <FluentAccordionItem Expanded="true" Heading="Panel three">
+        Panel three content
+    </FluentAccordionItem>
+</FluentAccordion>
+
+<p>Last changed accordion item: @changed?.Heading</p>
+
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1em;">
+    <FluentAnchor Href="#">
+        With icon at start
+        <FluentIcon Slot="start" Name="@FluentIcons.Globe" Size="@IconSize.Size16" Color=Color.Neutral />
+    </FluentAnchor>
+
+    <FluentAnchor Href="#">
+        <FluentIcon Slot="end" Name="@FluentIcons.Globe" Size="@IconSize.Size16" Color=Color.Neutral />
+        With icon at end
+    </FluentAnchor>
+</div>
+
+<FluentDivider Role=DividerRole.Separator />
+
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 1em;">
+    With icon in default slot:
+    <FluentAnchor Href="#">
+        <FluentIcon Name="@FluentIcons.Globe" Size="@IconSize.Size16" />
+    </FluentAnchor>
+
+</div>
+
+<FluentButton Appearance="Appearance.Neutral">
+    More options...
+    <FluentBadge Appearance="Appearance.Accent" slot="end">New!</FluentBadge>
+</FluentButton>
+
+<br />
+<br />
+
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Breadcrumb item 1
+        <FluentIcon Slot="start" Name="@FluentIcons.Home" Size="@IconSize.Size16" Color=Color.Neutral />
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Breadcrumb item 2
+        <FluentIcon Slot="start" Name="@FluentIcons.Clipboard" Size="@IconSize.Size16" Color=Color.Neutral />
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Slot="start" Name="@FluentIcons.Money" Size="@IconSize.Size16" Color=Color.Neutral />
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
+
+<p>Neutral and Neutral with Disabled</p>
+<FluentButton Appearance="Appearance.Neutral">Button</FluentButton>
+<FluentButton Appearance="Appearance.Neutral" Disabled="true">Button</FluentButton>
+
+<p>Accent and Accent with Disabled</p>
+<FluentButton Appearance="Appearance.Accent">Button</FluentButton>
+<FluentButton Appearance="Appearance.Accent" Disabled="true">Button</FluentButton>
+
+<p>Lightweight and Lightweight with Disabled</p>
+<FluentButton Appearance="Appearance.Lightweight">Button</FluentButton>
+<FluentButton Appearance="Appearance.Lightweight" Disabled="true">Button</FluentButton>
+
+<p>Outline and Ouline with Disabled</p>
+<FluentButton Appearance="Appearance.Outline">Button</FluentButton>
+<FluentButton Appearance="Appearance.Outline" Disabled="true">Button</FluentButton>
+
+<p>Stealth and Stealth with Disabled</p>
+<FluentButton Appearance="Appearance.Stealth">Button</FluentButton>
+<FluentButton Appearance="Appearance.Stealth" Disabled="true">Button</FluentButton>
+
+<p>With icon at start</p>
+<FluentButton>
+    Button
+    <FluentIcon Name="@FluentIcons.Globe" Slot="start" Size="@IconSize.Size16" />
+</FluentButton>
+
+<p>With icon at end</p>
+<FluentButton>
+    <FluentIcon Name="@FluentIcons.Globe" Slot="end" Size="@IconSize.Size16" />
+    Button
+</FluentButton>
+
+<p>With icon in default slot</p>
+<FluentButton>
+    <FluentIcon Name="@FluentIcons.Globe" Size="@IconSize.Size16" />
+</FluentButton>
+
+<br />
+<br />
+
+<FluentCalendar DisabledDates=@disabledDates @bind-SelectedDates=@selectedDates OutOfMonthSelectable=false></FluentCalendar>
+
+<p>Selected dates</p>
+<ul>
+    @foreach (DateOnly date in selectedDates)
+    {
+        <li>@date.ToString("yyyy-MM-dd")</li>
+    }
+</ul>
+
+@* <div>
+    <FluentCard class="state-override">Custom size using CSS</FluentCard>
+
+    <BaseLayerLuminance Value="(float?)0.15">
+        <FluentCard BackReference="@context">
+            <div class="contents">
+                <p>Dark</p>
+                <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+                <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+                <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+                <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+            </div>
+        </FluentCard>
+    </BaseLayerLuminance>
+
+    <FluentDesignSystemProvider FillColor="#D6D6D6">
+        <FluentCard neutral-palette-source="#CABA8C">
+            <div class="contents">
+                <p>Tinted neutral-palette-source, dark container</p>
+                <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+                <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+                <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+                <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+            </div>
+        </FluentCard>
+    </FluentDesignSystemProvider>
+
+    <BaseLayerLuminance Value="(float?)0.15">
+        <FluentCard neutral-palette-source="#CABA8C" BackReference="@context">
+            <div class="contents">
+                <p>Tinted neutral-palette-source, dark</p>
+                <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+                <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+                <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+                <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+            </div>
+        </FluentCard>
+    </BaseLayerLuminance>
+
+    <FluentDesignSystemProvider BaseLayerLuminance="(float?)0.15">
+        <FluentCard neutral-palette-source="#CABA8C">
+            <div class="contents">
+                <p>Tinted neutral-palette-source, dark</p>
+                <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+                <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+                <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+                <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+            </div>
+            <FluentCard neutral-palette-source="#718E71" style="margin: 0; --card-height: 200px; --card-width: 460px;" >
+                <div class="contents">
+                    <p>Tinted neutral-palette-source, nested, dark</p>
+                    <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+                    <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+                    <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+                    <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+                </div>
+            </FluentCard>
+        </FluentCard>
+    </FluentDesignSystemProvider>
+
+    <FluentCard card-fill-color="#449544">
+        <div class="contents">
+            <p>Custom card-fill-color</p>
+            <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+            <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+            <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+            <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+            <p>
+                Note the stealth buttons have a slight fill, which is because the card-fill-color is explicit, but the stealth
+                recipe gets its value from the neutral palette which has been created based on the card-fill-color, but does not
+                contain that exact color.
+            </p>
+        </div>
+    </FluentCard>
+
+    <FluentDesignSystemProvider FillColor="#D6D6D6" AccentBaseColor="#718E71" NeutralBaseColor="#A90000">
+        <FluentCard>
+            <div class="contents">
+                <p>Accent and neutral color by DSP</p>
+                <FluentButton Appearance="Appearance.Accent">Accent</FluentButton>
+                <FluentButton Appearance="Appearance.Neutral">Neutral</FluentButton>
+                <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+                <FluentButton Appearance="Appearance.Outline">Outline</FluentButton>
+                <FluentButton Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+            </div>
+        </FluentCard>
+    </FluentDesignSystemProvider>
+</div> *@
+
+<h4>Standard</h4>
+<p>Without a label:</p>
+<FluentCheckbox @bind-Value=value1></FluentCheckbox>
+
+<p>With a label: </p>
+<FluentCheckbox @bind-Value=value2>label</FluentCheckbox>
+
+<h4>Checked</h4>
+<FluentCheckbox @bind-Value=value3></FluentCheckbox>
+
+<!-- Required -->
+<h4>Required</h4>
+<FluentCheckbox Required="true" @bind-Value=value4></FluentCheckbox>
+
+<!-- Disabled -->
+<h4>Disabled</h4>
+<FluentCheckbox Disabled="true" @bind-Value=value5></FluentCheckbox>
+<FluentCheckbox Disabled="true" @bind-Value=value6>label</FluentCheckbox>
+<FluentCheckbox Disabled="true" @bind-Value=value7>Checked</FluentCheckbox>
+
+<h4>Inline</h4>
+<FluentCheckbox @bind-Value=value8>Apples</FluentCheckbox>
+<FluentCheckbox @bind-Value=value9>Bananas</FluentCheckbox>
+<FluentCheckbox @bind-Value=value10>Honeydew</FluentCheckbox>
+<FluentCheckbox @bind-Value=value11>Oranges</FluentCheckbox>
+
+<h4>From list of Option&lt;string&gt; items</h4>
+<p>Second item in the list is initially selected through the <code>OptionSelected</code> (Func delegate) parameter.</p>
+
+<FluentCombobox Items=@stringOptions
+                OptionText="@(i => i.Text)"
+                OptionValue="@(i => i.Value)"
+                OptionSelected="@(i => i.Selected)"
+@bind-SelectedOption="@selectedStringOption"
+@bind-Value="@stringValue" />
+<p>
+    Selected Value: @stringValue<br />
+    Selected Item (strongly typed): <br />
+    Value: @selectedStringOption?.Value (Type: @(selectedStringOption?.GetType())) <br />
+    Text: @selectedStringOption?.Text
+</p>
+
+<h4>From list of Option&lt;int&gt; items</h4>
+<p>First item in the list is disabled through the <code>OptionDisabled</code> (Func delegate) parameter.</p>
+<p><em>Note that none of the options is initially highlighted or selected.</em></p>
+
+<FluentCombobox Items=@intOptions
+                TOption="Option<int>"
+                OptionText="@(i => i.Text.ToString())"
+                OptionValue="@(i => i.Value.ToString())"
+                OptionDisabled="@(i => i.Disabled)"
+@bind-SelectedOption="@selectedIntOption"
+@bind-Value="@intValue" />
+<p>
+    Selected Value: @intValue<br />
+    Selected Item (strongly typed): <br />
+    Value: @selectedIntOption?.Value (Type: @(selectedIntOption?.Value.GetType())) <br />
+    Text: @selectedIntOption?.Text
+</p>
+
+<FluentDataGrid RowsData="@people">
+    <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+</FluentDataGrid>
+
+<br />
+<br />
+
+<FluentDataGrid RowsData="@people2">
+    <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Description)" Sortable="true" Class="multiline-text" />
+</FluentDataGrid>
+
+<div>
+    <p>
+        When 'Modal' is checked, the dialog can be <em>dismissed</em> by clicking outside of the dialog (anywhere on the overlay). When unchecked,
+        the dialog can be <em>dismissed</em> only by the 'ESC' key.<br />The dialog can always be <em>closed</em> by using the 'Close dialog'
+        button.
+    </p>
+    <p>
+        When 'Trap focus' is checked, only the elements within the dialog will receive focus. When unchecked, focus will also move outside of the
+        dialog.
+    </p>
+    <FluentCheckbox Name="modal" @bind-Value="Modal">
+        Modal
+    </FluentCheckbox>
+    <FluentCheckbox Name="trap" @bind-Value="TrapFocus">
+        Trap focus
+    </FluentCheckbox>
+</div>
+<div>
+    <FluentDialog @ref="MyFluentDialog" aria-label="Simple dialog" Modal=@Modal TrapFocus=@TrapFocus @ondialogdismiss=OnDismiss>
+        <h2>Just a simple dialog</h2>
+        <p>The 'Close dialog' button is automatically focussed.</p>
+        <p>The 'Another button' doesn't do anything other than showing receiving focus.</p>
+        <FluentButton Appearance="Appearance.Accent" Autofocus="true" @onclick="OnClose">Close dialog</FluentButton>
+        <FluentButton>Another button</FluentButton>
+    </FluentDialog>
+</div>
+
+<p>Status: @status</p>
+
+<FluentButton Appearance=Appearance.Accent @onclick="OnOpen">Open dialog</FluentButton>
+
+<h4>Default</h4>
+<FluentDivider></FluentDivider>
+<br />
+<h4>Role="Presentation""</h4>
+<p>
+    <Stack Orientation="Orientation.Vertical">
+        <span>before divider</span>
+        <FluentDivider Style="width: 100%;" Role="DividerRole.Presentation"></FluentDivider>
+        <span>after divider</span>
+    </Stack>
+</p>
+
+<h4>Role="Separator""</h4>
+<p>
+    <Stack Orientation="Orientation.Vertical">
+        <span>before divider</span>
+        <FluentDivider Style="width: 100%;" Orientation=Orientation.Horizontal Role="DividerRole.Separator"></FluentDivider>
+        <span>after divider</span>
+    </Stack>
+</p>
+
+<h4>Role="Presentation""</h4>
+
+<Stack Orientation="Orientation.Horizontal" VerticalAlignment="StackVerticalAlignment.Center">
+    <span>before divider</span>
+    <FluentDivider Style="height: 50px;" Role="DividerRole.Presentation" Orientation="Orientation.Vertical"></FluentDivider>
+    <span>after divider</span>
+</Stack>
+
+<h4>Role="Separator""</h4>
+
+<Stack Orientation="Orientation.Horizontal" VerticalAlignment="StackVerticalAlignment.Center">
+    <span>before divider</span>
+    <FluentDivider Style="height: 50px;" Role="DividerRole.Separator" Orientation="Orientation.Vertical"></FluentDivider>
+    <span>after divider</span>
+</Stack>
+
+<CounterBadge Count="100" Appearance="Appearance.Accent">
+    <FluentButton>
+        <FluentIcon Name="@FluentIcons.Alert" Color="Color.Neutral" />
+    </FluentButton>
+</CounterBadge>
+
+<Spacer Width="25" />
+
+<CounterBadge Count="5" Appearance="Appearance.Neutral">
+    <FluentButton Appearance="Appearance.Accent">
+        <FluentIcon Name="@FluentIcons.Alert" Color="Color.Fill" />
+    </FluentButton>
+</CounterBadge>
+
+<Spacer Width="25" />
+
+<CounterBadge Count="5" Appearance="Appearance.Lightweight">
+    <FluentButton Appearance="Appearance.Accent">
+        <FluentIcon Name="@FluentIcons.Alert" Color="Color.Fill" />
+    </FluentButton>
+</CounterBadge>
+
+<Spacer Width="25" />
+
+<CounterBadge Count="5" Appearance="Appearance.Lightweight" BackgroundColor="Color.Lightweight" Color="Color.Error">
+    <FluentButton Appearance="Appearance.Accent">
+        <FluentIcon Name="@FluentIcons.Alert" Color="Color.Fill" />
+    </FluentButton>
+</CounterBadge>
+
+<Spacer Width="25" />
+
+
+<CounterBadge Count="9" BackgroundColor="@Color.Error" Color="Color.Fill">
+    <FluentButton Appearance="Appearance.Filled">
+        <FluentIcon Name="@FluentIcons.Mail" Color="Color.FillInverse" />
+    </FluentButton>
+</CounterBadge>
+
+<Spacer Width="25" />
+
+<CounterBadge Count="0" Appearance="Appearance.Accent" ShowZero=true>
+    <FluentButton>
+        <FluentIcon Name="@FluentIcons.Alert" Color="Color.Neutral" />
+    </FluentButton>
+</CounterBadge>
+
+<br />
+<br />
+
+<input type="text" @bind-Value="@Highlight" @bind-Value:event="oninput" />
+
+<br />
+
+<Highlighter HighlightedText="@Highlight"
+             Delimiters=" ,;"
+             Text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur." />
+
+<br />
+<br />
+
+<PresenceBadge Status="PresenceStatus.Available">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge Status="PresenceStatus.Away">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge Status="PresenceStatus.Busy">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge Status="PresenceStatus.DoNotDisturb">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge Status="PresenceStatus.Offline">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge Status="PresenceStatus.OutOfOffice">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge Status="PresenceStatus.Unknown">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<br />
+
+<PresenceBadge OutOfOffice=true Status="PresenceStatus.Available">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge OutOfOffice=true Status="PresenceStatus.Away">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge OutOfOffice=true Status="PresenceStatus.Busy">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge OutOfOffice=true Status="PresenceStatus.DoNotDisturb">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge OutOfOffice=true Status="PresenceStatus.Offline">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge OutOfOffice=true Status="PresenceStatus.OutOfOffice">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<Spacer Width="25" />
+
+<PresenceBadge OutOfOffice=true Status="PresenceStatus.Unknown">
+    <FluentIcon Name="@FluentIcons.Person" />
+</PresenceBadge>
+
+<br />
+<br />
+
+<div style="display: flex; align-items: flex-end; margin-bottom: 0.75em; gap: 10px">
+    <span>16x16: </span><FluentEmoji Name="@FluentEmojis.Hamburger" EmojiStyle="EmojiStyle.Color" Size=@EmojiSize.Size16 />
+    <span>32x32: </span><FluentEmoji Name="@FluentEmojis.Hamburger" EmojiStyle="EmojiStyle.Color" Size=@EmojiSize.Size32 />
+    <span>64x64: </span><FluentEmoji Name="@FluentEmojis.Hamburger" EmojiStyle="EmojiStyle.Color" Size=@EmojiSize.Size64 />
+    <span>128x128: </span><FluentEmoji Name="@FluentEmojis.Hamburger" EmojiStyle="EmojiStyle.Color" Size=@EmojiSize.Size128 />
+</div>
+
+<FluentDivider Role=DividerRole.Presentation />
+
+<div style="display: flex; align-items: center;  margin-top: 0.75em;">
+    <label for="CustomSize">Custom size</label>
+    <FluentTextField Id="CustomSize" @bind-Value="@custom" Placeholder="Just 1 number, like 128 or 256" />
+</div>
+
+@if (int.TryParse(custom, out int size) && size > 0 && size < 1025)
+{
+    <div style="display: flex; align-items: flex-end; margin-bottom: 0.75em; gap: 10px">
+        <span>@(size)x@(size): </span>
+        <FluentEmoji Name="@FluentEmojis.Hamburger" EmojiStyle="EmojiStyle.Color" Size=@EmojiSize.Custom CustomSize="size" />
+    </div>
+}
+
+<div style="display:flex">
+    <FluentButton Appearance="Appearance.Neutral"><FluentEmoji Slot="start" Name="@FluentEmojis.SmilingFace" Size="@EmojiSize.Size16" /> Button with emoji in 'start' slot</FluentButton>
+    <FluentButton Appearance="Appearance.Neutral"><FluentEmoji Slot="end" Name="@FluentEmojis.SmilingCatWithHeartEyes" Size="@EmojiSize.Size16" /> Button with emoji in 'end' slot</FluentButton>
+</div>
+
+<h4>Previous</h4>
+<FluentFlipper Direction="FlipperDirection.Previous"></FluentFlipper>
+
+<h4>Next</h4>
+<FluentFlipper Direction="FlipperDirection.Next"></FluentFlipper>
+
+<h4>With aria-hidden</h4>
+<FluentFlipper AriaHidden="false"></FluentFlipper>
+
+<h4>Disabled</h4>
+<FluentFlipper Disabled="true"></FluentFlipper>
+
+<h4>Previous with slotted content</h4>
+<FluentFlipper Direction="FlipperDirection.Previous">
+    <FluentIcon Name="@FluentIcons.ArrowCircleLeft" Slot="previous" Size="@IconSize.Size16" Variant=IconVariant.Filled Color=Color.Neutral />
+</FluentFlipper>
+
+<h4>Next with slotted content</h4>
+<FluentFlipper Direction="FlipperDirection.Next">
+    <FluentIcon Name="@FluentIcons.ArrowCircleRight" Slot="next" Size="@IconSize.Size16" Variant=IconVariant.Filled Color=Color.Neutral />
+</FluentFlipper>
+
+<div style="display:flex">
+    <FluentButton Appearance="Appearance.Neutral"><FluentIcon Slot="start" Name="@FluentIcons.ArrowCircleLeft" /> Button with icon in 'start' slot</FluentButton>
+    <FluentButton Appearance="Appearance.Neutral"><FluentIcon Slot="end" Name="@FluentIcons.ArrowCircleRight" /> Button with icon in 'end' slot</FluentButton>
+</div>
+
+<dl>
+    <dt><code>Color.Neutral</code> - Uses CSS variable --neutral-forground-rest, adapts to light/dark mode.</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Neutral" /></dd>
+
+    <dt><code>Color.Accent</code> - Uses CSS variable --accent-fill-rest.</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Accent" /></dd>
+
+    <dt><code>Color.Warning</code> - Uses CSS variable --warning<sup>*</sup>.</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Warning" /></dd>
+
+    <dt><code>Color.Info</code> - Uses CSS variable --info<sup>*</sup>.</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Info" /></dd>
+
+    <dt><code>Color.Error</code> - Uses CSS variable --error<sup>*</sup>.</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Error" /></dd>
+
+    <dt><code>Color.Success</code> - Uses CSS variable --success<sup>*</sup>.</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Success" /></dd>
+
+    <dt><code>Color.Fill</code> - Uses CSS variable --neutral-fill-rest, adapts to light/dark mode<sup>**</sup>.</dt>
+    <dd style="background-color: var(--accent-fill-rest); width:48px"><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Fill" /></dd>
+
+    <dt><code>Color.FillInverse</code> - Uses CSS variable --neutral-fill-inverse-rest, adapts to light/dark mode<sup>**</sup>.</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.FillInverse" /></dd>
+
+    <dt><code>Color.Lightweight</code> - Uses CSS variable --neutral-layer-1, adapts to light/dark mode<sup>**</sup>.</dt>
+    <dd style="background-color: var(--accent-fill-rest); width:48px"><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Lightweight" /></dd>
+
+    <dt><code>Color.Custom</code> - Supply your own color value through the <code>CustomColor</code> parameter. Needs to be formatted as an HTML hex color string (#rrggbb or #rgb) or a CSS variable (var(--...)).</dt>
+    <dd><FluentIcon Name="@FluentIcons.Alert" Size="IconSize.Size48" Variant=IconVariant.Filled Color="Color.Custom" CustomColor="#570078" /></dd>
+</dl>
+<strong>(*)</strong>: This color is defined in the <code>variables.css</code> file. If your site is using
+<FluentAnchor Href="/Reboot" Appearance="Appearance.Hypertext">Reboot</FluentAnchor> the <code>variables.css</code> file is automatically imported. If you do not
+    use Reboot, please add the <code>variables.css</code> file to your <code>index.html</code> or <code>_Layout.cshtml</code> file like this:
+    (<em><strong>the color values will not be aplied if the CSS variables are not defined</strong></em>):
+<CodeSnippet Language="language-html">&lt;link href="_content/Microsoft.Fast.Components.FluentUI/css/variables.css" rel="stylesheet" /&gt;</CodeSnippet>
+<br />
+<strong>(**)</strong>: Background color has been set through inline style, otherwise icon would be (nearly) invisible.
+
+<dl>
+    <dt>Neutral @@FluentIcons.TextBold icons</dt>
+    <dd>Filled: <FluentIcon Name=@FluentIcons.TextBold Variant=IconVariant.Filled /> Regular: <FluentIcon Name=@FluentIcons.TextBold /></dd>
+    <dt>French @@FluentIcons.TextBold icons (<code>NeutralCultureName="fr"</code>)</dt>
+    <dd>Filled: <FluentIcon Name=@FluentIcons.TextBold Variant=IconVariant.Filled NeutralCultureName="fr" /> Regular: <FluentIcon Name=@FluentIcons.TextBold NeutralCultureName="fr" /></dd>
+    <dt>German @@FluentIcons.TextBold icons (<code>NeutralCultureName="de"</code>)</dt>
+    <dd>Filled: <FluentIcon Name=@FluentIcons.TextBold Variant=IconVariant.Filled NeutralCultureName="de" /> Regular: <FluentIcon Name=@FluentIcons.TextBold NeutralCultureName="de" /></dd>
+    <dt>Greek @@FluentIcons.TextBold icons (<code>NeutralCultureName="el"</code>) (does not exist, fall back to original)</dt>
+    <dd>Filled: <FluentIcon Name=@FluentIcons.TextBold Variant=IconVariant.Filled NeutralCultureName="el" /> Regular: <FluentIcon Name=@FluentIcons.TextBold NeutralCultureName="el" /></dd>
+    <dt>Spanish @@FluentIcons.TextBold icons (<code>NeutralCultureName="es"</code>)</dt>
+    <dd>Filled: <FluentIcon Name=@FluentIcons.TextBold Variant=IconVariant.Filled NeutralCultureName="es" /> Regular: <FluentIcon Name=@FluentIcons.TextBold NeutralCultureName="es" /></dd>
+</dl>
+
+A request for the following icon
+<CodeSnippet Language="cshtml-razor">&lt;FluentIcon Name="@@FluentIcons.VideoPersonClock" Size="@@IconSize.Size12" Variant="@@IconVariant.Filled" Color="@@Color.Accent"/&gt;</CodeSnippet>
+<br />
+will render:
+<br />
+<ErrorBoundary>
+    <ChildContent>
+        <FluentIcon Name="@FluentIcons.VideoPersonClock" Size="@IconSize.Size12" Variant="@IconVariant.Filled" Color="@Color.Accent" />
+    </ChildContent>
+    <ErrorContent>
+        <div class="blazor-error-boundary">
+            @context.Message
+        </div>
+    </ErrorContent>
+</ErrorBoundary>
+
+<FluentListbox TOption="string" ValueChanged="@(e => listboxValue = e)">
+    <FluentOption>This option has no value</FluentOption>
+    <FluentOption Value="Item 1" Disabled="true">This option is disabled</FluentOption>
+    <FluentOption Value="Item 2">This option has a value</FluentOption>
+    <FluentOption Value="Item 3">
+        <FluentIcon Name="@FluentIcons.Folder" Slot="start" Size="IconSize.Size16"></FluentIcon>
+        This option has <b>an icon</b>
+    </FluentOption>
+    <FluentOption Value="Item 4" Selected=true>
+        <div style="display:flex; flex-direction:row">
+            <img style="width:20px" src="_content/FluentUI.Demo.Shared/flags/nl.svg" />This option is selected by default
+        </div>
+    </FluentOption>
+</FluentListbox>
+
+<p>Selected: @listboxValue</p>
+
+<h4>From a List of Option&lt;string&gt; items</h4>
+<p>Second item in the list is initially selected through the <code>OptionSelected</code> (Func delegate) parameter.</p>
+
+<FluentListbox Items=@stringOptions
+               OptionText="@(i => i.Text)"
+               OptionValue="@(i => i.Value)"
+               OptionSelected="@(i => i.Selected)"
+@bind-Value="@stringValue" />
+<p>
+    Selected Value: @stringValue<br />
+</p>
+
+<h4>From List of Option&lt;int&gt; items</h4>
+<p>First item in the list is disabled through the <code>OptionDisabled</code> (Func delegate) parameter.</p>
+<p><em>Note that none of the options is initially highlighted or selected.</em></p>
+
+<FluentListbox Items=@intOptions
+               TOption="Option<int>"
+               OptionText="@(i => i.Text.ToString())"
+               OptionValue="@(i => i.Value.ToString())"
+               OptionDisabled="@(i => i.Disabled)"
+@bind-SelectedOption="@selectedIntOption"
+@bind-Value="@intValue" />
+<p>
+    Selected Value: @intValue<br />
+    Selected Item (strongly typed): <br />
+    Value: @selectedIntOption?.Value (Type: @(selectedIntOption?.Value.GetType())) <br />
+    Text: @selectedIntOption?.Text
+</p>
+
+<FluentToolbar id="toolbar-fluent-components">
+    <FluentButton Appearance="Appearance.Accent">Accent Button</FluentButton>
+    <FluentButton Appearance="Appearance.Stealth">Stealth Button</FluentButton>
+    <FluentRadioGroup @bind-Value=value1>
+        <FluentRadio Value=@("one") Checked="true">One</FluentRadio>
+        <FluentRadio Value=@("two")>Two</FluentRadio>
+        <FluentRadio Value=@("three")>Three</FluentRadio>
+    </FluentRadioGroup>
+    <FluentCombobox Class="below outline" @bind-Value="@comboboxValue" TOption="string">
+        <FluentOption id="option-2">Please Please Me</FluentOption>
+        <FluentOption id="option-3">With The Beatles</FluentOption>
+        <FluentOption id="option-4">A Hard Day's Night</FluentOption>
+        <FluentOption id="option-5">Beatles for Sale</FluentOption>
+        <FluentOption id="option-6">Help!</FluentOption>
+        <FluentOption id="option-7">Rubber Soul</FluentOption>
+        <FluentOption id="option-8">Revolver</FluentOption>
+        <FluentOption id="option-9">Sgt. Pepper's Lonely Hearts Club Band</FluentOption>
+        <FluentOption id="option-10">Magical Mystery Tour</FluentOption>
+        <FluentOption id="option-11">The Beatles</FluentOption>
+        <FluentOption id="option-12">Yellow Submarine</FluentOption>
+        <FluentOption id="option-13">Abbey Road</FluentOption>
+        <FluentOption id="option-14">Let It Be</FluentOption>
+    </FluentCombobox>
+    <FluentButton>Button</FluentButton>
+    <FluentSelect Class="below outline" @bind-Value="@comboboxValue" TOption="string">
+        <FluentOption id="option-15">Option 1</FluentOption>
+        <FluentOption id="option-16">Second option</FluentOption>
+        <FluentOption id="option-17">Option 3</FluentOption>
+    </FluentSelect>
+    <FluentCheckbox @bind-Value=check1>Checkbox</FluentCheckbox>
+</FluentToolbar>
+
+
+<div style="padding:10px">
+    <FluentToolbar id="toolbar-fluent-components-two" style="width:100%" @ref=Toolbar>
+        <FluentRadioGroup @bind-Value=value2>
+            <FluentRadio Value=@("one") Checked="true">Add</FluentRadio>
+            <FluentRadio Value=@("two")>Open</FluentRadio>
+            <FluentRadio Value=@("three")>Copy</FluentRadio>
+            <FluentRadio Value=@("four")>Export</FluentRadio>
+            <FluentRadio Value=@("five")>Automate</FluentRadio>
+        </FluentRadioGroup>
+        <FluentButton Appearance="Appearance.Stealth">Stealth</FluentButton>
+        <FluentButton Appearance="Appearance.Accent">Refresh</FluentButton>
+        <FluentBadge>21 items</FluentBadge>
+        <FluentRadioGroup @bind-Value=value3 slot="end">
+            <FluentRadio>Filter</FluentRadio>
+            <FluentRadio>
+                <FluentTextField @bind-Value=text1 Placeholder="Search" Appearance="Appearance.Outline"></FluentTextField>
+            </FluentRadio>
+        </FluentRadioGroup>
+    </FluentToolbar>
+</div>
+
+@code {
+    string activeId = "accordion-1";
+
+    FluentAccordionItem? changed;
+
+    private void HandleOnAccordionItemChange(FluentAccordionItem item)
+    {
+        changed = item;
+    }
+
+    static int currentYear = DateTime.Now.Year;
+    static int currentMonth = DateTime.Now.Month;
+
+    static int daysInMonth = DateTime.DaysInMonth(currentYear, currentMonth) + 1;
+    static Random random = new();
+
+    List<DateOnly> disabledDates = new();
+    List<DateOnly> selectedDates = new();
+
+    protected override void OnInitialized()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            disabledDates.Add(new DateOnly(currentYear, currentMonth, random.Next(1, daysInMonth)));
+            selectedDates.Add(new DateOnly(currentYear, currentMonth, random.Next(1, daysInMonth)));
+        };
+    }
+
+    bool value1, value2, value3 = true, value4, value5, value6, value7 = true, value8 = true, value9 = true, value10, value11 = true;
+
+    string? stringValue;
+    Option<string> selectedStringOption = default!;
+    string? intValue;
+    Option<int>? selectedIntOption;
+
+    List<Option<string>> stringOptions = new()
+        {
+            { new Option<string> { Value = "1", Text = "One" } },
+            { new Option<string> { Value = "2", Text = "Two", Selected = true} },
+            { new Option<string> { Value = "3", Text = "Three" } }
+
+        };
+
+    List<Option<int>> intOptions = new()
+        {
+            { new Option<int> { Value = 1, Text = 1, Disabled = true } },
+            { new Option<int> { Value = 2, Text = 2 } },
+            { new Option<int> { Value = 3, Text = 3 } }
+
+        };
+
+    public class Person
+    {
+        public Person(int personId, string name, DateOnly birthDate)
+        {
+            PersonId = personId;
+            Name = name;
+            BirthDate = birthDate;
+        }
+
+        [Display(Name = "Identity")]
+        public int PersonId { get; set; }
+
+        [Display(Name = "Full name")]
+        public string Name { get; set; }
+
+        [Display(Name = "Birth date")]
+        public DateOnly BirthDate { get; set; }
+    }
+
+    IQueryable<Person> people = new[]
+    {
+        new Person(10895, "Jean Martin", new DateOnly(1985, 3, 16)),
+        new Person(10944, "António Langa", new DateOnly(1991, 12, 1)),
+        new Person(11203, "Julie Smith", new DateOnly(1958, 10, 10)),
+        new Person(11205, "Nur Sari", new DateOnly(1922, 4, 27)),
+        new Person(11898, "Jose Hernandez", new DateOnly(2011, 5, 3)),
+        new Person(12130, "Kenji Sato", new DateOnly(2004, 1, 9)),
+    }.AsQueryable();
+
+    record Person2(int PersonId, string Name, string Description);
+
+    IQueryable<Person2> people2 = new[]
+    {
+        new Person2(10895, "Jean Martin", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        new Person2(10944, "António Langa", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        new Person2(11203, "Julie Smith","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+    }.AsQueryable();
+
+    private FluentDialog? MyFluentDialog;
+    public bool TrapFocus = true;
+    public bool Modal = true;
+    private string? status;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+            MyFluentDialog!.Hide();
+    }
+
+    private void OnOpen()
+    {
+        status = "Dialog opened with button click";
+        MyFluentDialog!.Show();
+    }
+
+    private void OnClose()
+    {
+        status = $"Dialog dismissed with reason: Close button clicked";
+        MyFluentDialog!.Hide();
+
+    }
+
+    private void OnDismiss(DialogEventArgs args)
+    {
+        if (args is not null && args.Reason is not null && args.Reason == "dismiss")
+        {
+            status = $"Dialog dismissed with reason: Dismissed";
+            MyFluentDialog!.Hide();
+        }
+    }
+
+    public string Highlight = "";
+
+    [CascadingParameter]
+    public EventCallback OnRefreshTableOfContents { get; set; }
+
+    private async Task RefreshTableOfContents()
+    {
+        await OnRefreshTableOfContents.InvokeAsync();
+    }
+
+    string custom = "";
+
+    string? listboxValue = "Item 4";
+
+    string? comboboxValue;
+    FluentToolbar? Toolbar;
+    bool check1;
+    string? text1;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await FillColor.SetValueFor(Toolbar!.Element, "#333".ToSwatch());
+            await BaseLayerLuminance.SetValueFor(Toolbar!.Element, (float)0.15);
+
+            StateHasChanged();
+        }
+    }
+}

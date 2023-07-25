@@ -1,0 +1,103 @@
+﻿@page "/"
+
+<h1>Fluent</h1>
+
+<FluentCard Style="padding: 1.5rem; width: 400px; height: 250px; ">
+    <h2>Hello World!</h2>
+    <FluentButton Appearance="@Appearance.Accent">Click Me</FluentButton>
+    <FluentButton Appearance="@Appearance.Neutral">Click Me</FluentButton>
+</FluentCard>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<fluent-button>Hello world</fluent-button>
+
+<br />
+<br />
+
+<div id="myCardContainer">
+    <fluent-card>
+        <fluent-button>Hello</fluent-button>
+    </fluent-card>
+</div>
+
+<br />
+<br />
+
+<fluent-breadcrumb>
+    <fluent-breadcrumb-item href="#">Home</fluent-breadcrumb-item>
+    <fluent-breadcrumb-item href="#">Next Level Down</fluent-breadcrumb-item>
+    <fluent-breadcrumb-item>Current Location</fluent-breadcrumb-item>
+</fluent-breadcrumb>
+
+<br />
+<br />
+
+<FluentSwitch>
+    Dark Mode
+</FluentSwitch>
+
+<br />
+
+<FluentSwitch Checked="true">
+    New Feature
+    <span slot="checked-message">On</span>
+    <span slot="unchecked-message">Off</span>
+</FluentSwitch>
+
+<br />
+<br />
+
+<p>Without a label: <FluentSearch></FluentSearch></p>
+<p>With a label: <FluentSearch>Search Label</FluentSearch></p>
+
+<br />
+<br />
+
+<FluentCalendar></FluentCalendar>
+
+<br />
+<br />
+
+<FluentCard>
+    <FluentButton Appearance="@Appearance.Accent">Click Me</FluentButton>
+    <FluentButton Appearance="@Appearance.Neutral">Click Me</FluentButton>
+</FluentCard>
+
+<br />
+<br />
+
+<fluent-combobox>
+    <fluent-option>Extra Small</fluent-option>
+    <fluent-option>Small</fluent-option>
+    <fluent-option>Medium</fluent-option>
+    <fluent-option>Large</fluent-option>
+    <fluent-option>Extra Large</fluent-option>
+</fluent-combobox>
+
+<br />
+<br />
+
+<h4>Previous</h4>
+<FluentFlipper Direction="FlipperDirection.Previous"></FluentFlipper>
+
+<h4>Next</h4>
+<FluentFlipper Direction="FlipperDirection.Next"></FluentFlipper>
