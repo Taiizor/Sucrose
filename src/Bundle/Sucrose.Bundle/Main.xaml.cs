@@ -1,10 +1,16 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.Win32;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows;
 using Path = System.IO.Path;
 using SEAT = Skylark.Enum.AssemblyType;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SEMST = Skylark.Enum.ModeStorageType;
+using SEST = Skylark.Enum.StorageType;
 using SHA = Skylark.Helper.Assemblies;
+using SHN = Skylark.Helper.Numeric;
+using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SWHS = Skylark.Wing.Helper.Shortcut;
 
 namespace Sucrose.Bundle
@@ -20,6 +26,8 @@ namespace Sucrose.Bundle
 
         private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
 
+        private static string Uninstall => Path.Combine(Extract, "Sucrose.Uninstaller", "Uninstaller.exe");
+
         private static string Launcher => Path.Combine(Extract, Department, Executable);
 
         private static string Executable => "Sucrose.Launcher.exe";
@@ -34,6 +42,8 @@ namespace Sucrose.Bundle
 
         private static string Packages => "Packages";
 
+        private static string Publisher => "Taiizor";
+
         private static int MaxDelay => 3000;
 
         private static int MinDelay => 1000;
@@ -45,7 +55,7 @@ namespace Sucrose.Bundle
 
         private static void TerminateProcess(string ProcessName)
         {
-            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(p => p.ProcessName.Contains(ProcessName) && p.Id != Process.GetCurrentProcess().Id);
+            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(ProcessName) && Proc.Id != Process.GetCurrentProcess().Id);
 
             foreach (Process Process in TerminateProcesses)
             {
@@ -74,7 +84,11 @@ namespace Sucrose.Bundle
             {
                 if (Resource.StartsWith($"{SourcePath}\\"))
                 {
+#if NET48_OR_GREATER
                     string Resourcer = Resource.Substring($"{SourcePath}\\".Length);
+#else
+                    string Resourcer = Resource[$"{SourcePath}\\".Length..];
+#endif
 
                     string ExtractFilePath = Path.Combine(ExtractPath, Resourcer);
 
@@ -83,12 +97,36 @@ namespace Sucrose.Bundle
                         Directory.CreateDirectory(Path.GetDirectoryName(ExtractFilePath));
                     }
 
-                    using Stream resourceStream = Entry.GetManifestResourceStream(Resource);
-                    using FileStream outputFileStream = new(ExtractFilePath, FileMode.OpenOrCreate);
+                    using Stream ResourceStream = Entry.GetManifestResourceStream(Resource);
+                    using FileStream OutputFileStream = new(ExtractFilePath, FileMode.OpenOrCreate);
 
-                    await resourceStream.CopyToAsync(outputFileStream);
+                    await ResourceStream.CopyToAsync(OutputFileStream);
                 }
             }
+        }
+
+        private static void SetUninstall()
+        {
+            Assembly Entry = SHA.Assemble(SEAT.Entry);
+
+            FileInfo File = new(Entry.Location);
+
+            string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Toucan), false, false, 0, '0', SECNT.None);
+
+            string InstallerRegLoc = @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
+
+            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(InstallerRegLoc, true);
+            RegistryKey AppKey = HomeKey.CreateSubKey(Application);
+
+            AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
+            AppKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
+            AppKey.SetValue("DisplayName", Text, RegistryValueKind.String);
+            AppKey.SetValue("EstimatedSize", Size, RegistryValueKind.DWord);
+            AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
+            AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
+            AppKey.SetValue("InstallLocation", Extract, RegistryValueKind.String);
+            AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
+            AppKey.SetValue("DisplayVersion", Entry.GetName().Version, RegistryValueKind.String);
         }
 
         private async void Window_ContentRendered(object sender, EventArgs e)
@@ -109,6 +147,10 @@ namespace Sucrose.Bundle
 
             SWHS.Create(Start, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
             SWHS.Create(Desktop, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+
+            await Task.Delay(MinDelay);
+
+            SetUninstall();
 
             await Task.Delay(MinDelay);
 
