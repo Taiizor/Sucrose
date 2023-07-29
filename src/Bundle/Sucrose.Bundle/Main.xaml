@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sucrose.Bundle"
         mc:Ignorable="d"
+        MouseDown="Window_MouseDown"
         ContentRendered="Window_ContentRendered"
         Title="{DynamicResource Title}" Height="400" Width="400"
         ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen"

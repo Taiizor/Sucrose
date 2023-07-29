@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Input;
 using Path = System.IO.Path;
 using SEAT = Skylark.Enum.AssemblyType;
 using SECNT = Skylark.Enum.ClearNumericType;
@@ -57,7 +58,11 @@ namespace Sucrose.Bundle
 
         private static void TerminateProcess(string ProcessName)
         {
+#if NET48_OR_GREATER
             IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(ProcessName) && Proc.Id != Process.GetCurrentProcess().Id);
+#else
+            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(ProcessName) && Proc.Id != Environment.ProcessId);
+#endif
 
             foreach (Process Process in TerminateProcesses)
             {
@@ -111,7 +116,11 @@ namespace Sucrose.Bundle
         {
             Assembly Entry = SHA.Assemble(SEAT.Entry);
 
-            FileInfo File = new(Entry.Location);
+#if NET48_OR_GREATER
+            FileInfo File = new(Process.GetCurrentProcess().MainModule.FileName);
+#else
+            FileInfo File = new(Environment.ProcessPath);
+#endif
 
             string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Toucan), false, false, 0, '0', SECNT.None);
 
@@ -127,6 +136,16 @@ namespace Sucrose.Bundle
             AppKey.SetValue("InstallLocation", Extract, RegistryValueKind.String);
             AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
             AppKey.SetValue("DisplayVersion", Entry.GetName().Version, RegistryValueKind.String);
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                Cursor = Cursors.SizeAll;
+                DragMove();
+                Cursor = Cursors.Arrow;
+            }
         }
 
         private async void Window_ContentRendered(object sender, EventArgs e)
