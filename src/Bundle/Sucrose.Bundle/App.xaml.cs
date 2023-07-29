@@ -63,7 +63,7 @@ namespace Sucrose.Bundle
 
             foreach (ResourceDictionary Resource in Resources)
             {
-                Application.Current.Resources.MergedDictionaries.Remove(Resource);
+                Current.Resources.MergedDictionaries.Remove(Resource);
             }
         }
 

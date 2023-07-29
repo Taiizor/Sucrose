@@ -28,6 +28,8 @@ namespace Sucrose.Bundle
 
         private static string Uninstall => Path.Combine(Extract, "Sucrose.Uninstaller", "Uninstaller.exe");
 
+        private static string Location => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
+
         private static string Launcher => Path.Combine(Extract, Department, Executable);
 
         private static string Executable => "Sucrose.Launcher.exe";
@@ -113,9 +115,7 @@ namespace Sucrose.Bundle
 
             string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Toucan), false, false, 0, '0', SECNT.None);
 
-            string InstallerRegLoc = @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
-
-            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(InstallerRegLoc, true);
+            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(Location, true);
             RegistryKey AppKey = HomeKey.CreateSubKey(Application);
 
             AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
