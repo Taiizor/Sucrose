@@ -8,11 +8,13 @@ namespace Sucrose.Shared.Discord.Manage
     {
         public static DiscordRpcClient Client;
 
-        public static DispatcherTimer Timer = new();
-
         public static DateTime? End = Timestamps.Now.End;
 
+        public static DispatcherTimer RefreshTimer = new();
+
         public static DateTime? Start = Timestamps.Now.Start;
+
+        public static DispatcherTimer InitializeTimer = new();
 
         public static List<string> Statement => new()
         {

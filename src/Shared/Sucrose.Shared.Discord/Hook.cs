@@ -40,12 +40,9 @@ namespace Sucrose.Shared.Discord
 
         public void Initialize()
         {
-            if (State && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
-            {
-                SSDMI.Client.Initialize();
-
-                AutoRefresh();
-            }
+            SSDMI.InitializeTimer.Tick += new EventHandler(InitializeTimer_Tick);
+            SSDMI.InitializeTimer.Interval = new TimeSpan(0, 0, 5);
+            SSDMI.InitializeTimer.Start();
         }
 
         public void Update()
@@ -112,9 +109,9 @@ namespace Sucrose.Shared.Discord
 
         public void AutoRefresh()
         {
-            SSDMI.Timer.Interval = new TimeSpan(0, 0, SHS.Clamp(Delay, 60, 3600));
-            SSDMI.Timer.Tick += new EventHandler(Timer_Tick);
-            SSDMI.Timer.Start();
+            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, SHS.Clamp(Delay, 60, 3600));
+            SSDMI.RefreshTimer.Tick += new EventHandler(RefreshTimer_Tick);
+            SSDMI.RefreshTimer.Start();
         }
 
         public void ClearPresence()
@@ -130,11 +127,41 @@ namespace Sucrose.Shared.Discord
             }
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void RefreshTimer_Tick(object sender, EventArgs e)
         {
             if (Refresh)
             {
                 SetPresence();
+            }
+        }
+
+        private void InitializeTimer_Tick(object sender, EventArgs e)
+        {
+            if (State && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
+            {
+                if (!SSDMI.Client.IsInitialized)
+                {
+                    SSDMI.Client.Initialize();
+                }
+
+                if (Refresh && !SSDMI.RefreshTimer.IsEnabled)
+                {
+                    AutoRefresh();
+                }
+                else if (!Refresh && SSDMI.RefreshTimer.IsEnabled)
+                {
+                    SSDMI.RefreshTimer.Stop();
+                }
+
+                if (SSDMI.Client.CurrentPresence == null)
+                {
+                    SetPresence();
+                }
+            }
+            else
+            {
+                ClearPresence();
+                SSDMI.RefreshTimer.Stop();
             }
         }
 
