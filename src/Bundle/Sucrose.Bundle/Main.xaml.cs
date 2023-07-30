@@ -21,17 +21,19 @@ namespace Sucrose.Bundle
     /// </summary>
     public partial class Main : Window
     {
-        private static string Extract => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
+        private static string PackagePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Package Cache", Application);
 
-        private static string Start => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", Shortcut);
+        private static string InstallPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
+
+        private static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", Shortcut);
 
         private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
 
-        private static string Uninstall => Path.Combine(Extract, "Sucrose.Uninstaller", "Uninstaller.exe");
+        private static string Uninstall => Path.Combine(PackagePath, "Sucrose.Undo", "Sucrose.Undo.exe");
 
-        private static string Location => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
+        private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
 
-        private static string Launcher => Path.Combine(Extract, Department, Executable);
+        private static string Launcher => Path.Combine(InstallPath, Department, Executable);
 
         private static string Executable => "Sucrose.Launcher.exe";
 
@@ -47,6 +49,8 @@ namespace Sucrose.Bundle
 
         private static string Publisher => "Taiizor";
 
+        private static string Caches => "Caches";
+
         private static int MaxDelay => 3000;
 
         private static int MinDelay => 1000;
@@ -56,12 +60,12 @@ namespace Sucrose.Bundle
             InitializeComponent();
         }
 
-        private static void TerminateProcess(string ProcessName)
+        private static void TerminateProcess(string Name)
         {
 #if NET48_OR_GREATER
-            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(ProcessName) && Proc.Id != Process.GetCurrentProcess().Id);
+            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Process.GetCurrentProcess().Id);
 #else
-            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(ProcessName) && Proc.Id != Environment.ProcessId);
+            IEnumerable<Process> TerminateProcesses = Process.GetProcesses().Where(Proc => Proc.ProcessName.Contains(Name) && Proc.Id != Environment.ProcessId);
 #endif
 
             foreach (Process Process in TerminateProcesses)
@@ -70,16 +74,16 @@ namespace Sucrose.Bundle
             }
         }
 
-        private static async Task ExtractDirectory(string ExtractPath)
+        private static async Task ControlDirectory(string Path)
         {
-            if (Directory.Exists(ExtractPath))
+            if (Directory.Exists(Path))
             {
-                Directory.Delete(ExtractPath, recursive: true);
+                Directory.Delete(Path, true);
             }
 
             await Task.Delay(MinDelay);
 
-            Directory.CreateDirectory(ExtractPath);
+            Directory.CreateDirectory(Path);
         }
 
         private static async Task ExtractResources(string SourcePath, string ExtractPath)
@@ -124,7 +128,7 @@ namespace Sucrose.Bundle
 
             string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Toucan), false, false, 0, '0', SECNT.None);
 
-            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(Location, true);
+            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true);
             RegistryKey AppKey = HomeKey.CreateSubKey(Application);
 
             AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
@@ -133,8 +137,8 @@ namespace Sucrose.Bundle
             AppKey.SetValue("EstimatedSize", Size, RegistryValueKind.DWord);
             AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
             AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
-            AppKey.SetValue("InstallLocation", Extract, RegistryValueKind.String);
             AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
+            AppKey.SetValue("InstallLocation", InstallPath, RegistryValueKind.String);
             AppKey.SetValue("DisplayVersion", Entry.GetName().Version, RegistryValueKind.String);
         }
 
@@ -156,16 +160,21 @@ namespace Sucrose.Bundle
 
             await Task.Delay(MaxDelay);
 
-            await ExtractDirectory(Extract);
+            await ControlDirectory(PackagePath);
+            await ControlDirectory(InstallPath);
 
             await Task.Delay(MaxDelay);
 
-            await ExtractResources(Packages, Extract);
+            await ExtractResources(Caches, PackagePath);
+
+            await Task.Delay(MinDelay);
+
+            await ExtractResources(Packages, InstallPath);
 
             await Task.Delay(MaxDelay);
 
-            SWHS.Create(Start, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
             SWHS.Create(Desktop, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+            SWHS.Create(StartMenu, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
 
             await Task.Delay(MinDelay);
 

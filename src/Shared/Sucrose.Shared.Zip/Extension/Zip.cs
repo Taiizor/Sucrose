@@ -60,9 +60,9 @@ namespace Sucrose.Shared.Zip.Extension
                 {
                     string[] Files = Directory.GetFiles(Source, "*", SearchOption.TopDirectoryOnly);
 
-                    foreach (string file in Files)
+                    foreach (string Record in Files)
                     {
-                        string EntryName = SSZHZ.EntryName(file, Source);
+                        string EntryName = SSZHZ.EntryName(Record, Source);
 
 #if NET48_OR_GREATER
                         ZipArchiveEntry Entry = Archive.CreateEntry(EntryName, CompressionLevel.Fastest);
@@ -71,7 +71,7 @@ namespace Sucrose.Shared.Zip.Extension
 #endif
 
                         using Stream EntryStream = Entry.Open();
-                        using FileStream FileStream = File.OpenRead(file);
+                        using FileStream FileStream = File.OpenRead(Record);
 
                         FileStream.CopyTo(EntryStream);
                     }
