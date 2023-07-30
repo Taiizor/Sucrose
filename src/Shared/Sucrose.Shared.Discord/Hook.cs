@@ -160,8 +160,15 @@ namespace Sucrose.Shared.Discord
             }
             else
             {
-                ClearPresence();
-                SSDMI.RefreshTimer.Stop();
+                if (SSDMI.Client.IsInitialized)
+                {
+                    ClearPresence();
+                }
+
+                if (SSDMI.RefreshTimer.IsEnabled)
+                {
+                    SSDMI.RefreshTimer.Stop();
+                }
             }
         }
 

@@ -12,16 +12,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DiscordRichPresence" Version="1.1.4.20" />
+        <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\..\Library\Sucrose.Globalization\Sucrose.Globalization.csproj" />
     </ItemGroup>
 
     <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Discord\Sucrose.Shared.Discord.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
 
 </Project>
