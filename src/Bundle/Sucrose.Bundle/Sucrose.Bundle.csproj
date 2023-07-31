@@ -69,8 +69,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Wing" Version="3.0.2.2" />
-        <PackageReference Include="Skylark.Standard" Version="3.0.2" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.2.3" />
+        <PackageReference Include="Skylark.Standard" Version="3.0.2.1" />
         <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098" Condition="$(TargetFramework.StartsWith('net48'))">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>compile; runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

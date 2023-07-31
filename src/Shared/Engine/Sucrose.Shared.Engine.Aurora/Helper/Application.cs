@@ -1,6 +1,6 @@
 ﻿using SSEAMI = Sucrose.Shared.Engine.Aurora.Manage.Internal;
-using SWHACAM = Skylark.Wing.Helper.AudioController.AudioManager;
-using SWHVPCAM = Skylark.Wing.Helper.VideoPlayerController.AudioManager;
+using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
+using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 
 namespace Sucrose.Shared.Engine.Aurora.Helper
 {
@@ -10,11 +10,11 @@ namespace Sucrose.Shared.Engine.Aurora.Helper
         {
             try
             {
-                SWHVPCAM.SetApplicationVolume(SSEAMI.ApplicationProcess.Id, Volume);
+                SWEVPCAM.SetApplicationVolume(SSEAMI.ApplicationProcess.Id, Volume);
             }
             catch
             {
-                SWHACAM.SetApplicationVolume(SSEAMI.ApplicationProcess.Id, Volume);
+                SWEACAM.SetApplicationVolume(SSEAMI.ApplicationProcess.Id, Volume);
             }
         }
     }

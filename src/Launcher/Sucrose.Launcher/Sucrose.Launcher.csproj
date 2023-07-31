@@ -65,7 +65,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Wing" Version="3.0.2.2" />
+        <PackageReference Include="Skylark.Wing" Version="3.0.2.3" />
         <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
     </ItemGroup>
 
