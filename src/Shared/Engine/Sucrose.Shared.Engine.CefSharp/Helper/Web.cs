@@ -7,7 +7,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class Web
     {
-        public static void Compatible()
+        public static void StartCompatible()
         {
             if (SSEMI.Compatible.State && !SSEMI.CompatibleTimer.IsEnabled)
             {

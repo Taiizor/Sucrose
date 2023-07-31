@@ -35,6 +35,8 @@ namespace Sucrose.Bundle
 
         private static string Launcher => Path.Combine(InstallPath, Department, Executable);
 
+        private static string QuietUninstall => $"\"{Uninstall}\" -s";
+
         private static string Executable => "Sucrose.Launcher.exe";
 
         private static string Text => "Sucrose Wallpaper Engine";
@@ -139,6 +141,7 @@ namespace Sucrose.Bundle
             AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
             AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
             AppKey.SetValue("InstallLocation", InstallPath, RegistryValueKind.String);
+            AppKey.SetValue("QuietUninstallString", QuietUninstall, RegistryValueKind.String);
             AppKey.SetValue("DisplayVersion", Entry.GetName().Version, RegistryValueKind.String);
         }
 

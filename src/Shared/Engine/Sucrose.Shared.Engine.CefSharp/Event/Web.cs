@@ -12,7 +12,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
     {
         public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            SSECSHW.Compatible();
+            SSECSHW.StartCompatible();
             SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 

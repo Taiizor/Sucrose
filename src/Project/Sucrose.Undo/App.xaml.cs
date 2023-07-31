@@ -57,6 +57,8 @@ namespace Sucrose.Undo
 
         protected void Close()
         {
+            //Process.GetCurrentProcess().Close();
+            //Process.GetCurrentProcess().Kill();
             Environment.Exit(0);
             Current.Shutdown();
             Shutdown();
