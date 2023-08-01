@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
 using Wpf.Ui.Common.Interfaces;
 
 namespace UiDesktopApp2.ViewModels

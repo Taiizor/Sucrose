@@ -10,7 +10,7 @@ namespace BlazorWpf1
 
         public static void Init()
         {
-            var host = Host.CreateDefaultBuilder()
+            IHost host = Host.CreateDefaultBuilder()
                            .ConfigureServices(WireupServices)
                            .Build();
             Services = host.Services;
