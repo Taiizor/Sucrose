@@ -65,7 +65,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="WPF-UI" Version="3.0.0-preview.4" />
         <PackageReference Include="Skylark.Wing" Version="3.0.2.3" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-preview.6.23329.7" />
     </ItemGroup>
 
     <ItemGroup>
@@ -81,6 +84,17 @@
 
     <ItemGroup>
         <Folder Include="Properties\" />
+        <Folder Include="Views\Pages\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Assets\applicationIcon-1024.png" />
+        <None Remove="Assets\applicationIcon-256.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Resource Include="Assets\applicationIcon-1024.png" />
+        <Resource Include="Assets\applicationIcon-256.png" />
     </ItemGroup>
 
     <PropertyGroup>

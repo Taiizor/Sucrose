@@ -1,12 +1,18 @@
 ﻿<Application x:Class="Sucrose.Portal.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:helpers="clr-namespace:Sucrose.Portal.Helpers"
              xmlns:local="clr-namespace:Sucrose.Portal">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ui:ControlsDictionary />
+                <ui:ThemesDictionary Theme="Dark" />
                 <ResourceDictionary Source="Locales/Locale.EN.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -6,22 +6,26 @@ namespace Sucrose.Shared.Resources.Extension
     {
         public static string GetValue(string Key)
         {
-            string Result = Application.Current.TryFindResource(Key) as string;
-
-            if (string.IsNullOrEmpty(Result))
-            {
-                return $"[{Key}]";
-            }
-            else
-            {
-                return Result;
-            }
+            return GetResource(Key);
         }
 
         public static string GetValue(string Area, string Key)
         {
-            string Resource = Area + "." + Key;
+            return GetResource(Area + "." + Key);
+        }
 
+        public static string GetValue(string Area, string Prefix, string Key)
+        {
+            return GetResource(Area + "." + Prefix + "." + Key);
+        }
+
+        public static string GetValue(string Area, string Prefix, string Key, string Suffix)
+        {
+            return GetResource(Area + "." + Prefix + "." + Key + "." + Suffix);
+        }
+
+        private static string GetResource(string Resource)
+        {
             string Result = Application.Current.TryFindResource(Resource) as string;
 
             if (string.IsNullOrEmpty(Result))
