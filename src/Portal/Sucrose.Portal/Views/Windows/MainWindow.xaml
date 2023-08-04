@@ -21,12 +21,6 @@
     WindowStartupLocation="CenterScreen"
     SizeChanged="MainWindow_SizeChanged"
     mc:Ignorable="d">
-    <ui:FluentWindow.InputBindings>
-        <KeyBinding
-            Key="F"
-            Command="{Binding ElementName=SearchBox, Path=FocusCommand}"
-            Modifiers="Ctrl" />
-    </ui:FluentWindow.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -133,7 +127,7 @@
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
             <StatusBarItem>
-                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="Code24" />
+                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="Apps16" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="1" Margin="0,0,4,0">
                 <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pre-Release" />

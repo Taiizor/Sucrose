@@ -54,10 +54,10 @@ namespace Sucrose.Portal
                     // Main window container with navigation
                     services.AddSingleton<IWindow, MainWindow>();
                     services.AddSingleton<MainWindowViewModel>();
-                    services.AddSingleton<INavigationService, NavigationService>();
-                    services.AddSingleton<ISnackbarService, SnackbarService>();
-                    services.AddSingleton<IContentDialogService, ContentDialogService>();
                     services.AddSingleton<WindowsProviderService>();
+                    services.AddSingleton<ISnackbarService, SnackbarService>();
+                    services.AddSingleton<INavigationService, NavigationService>();
+                    services.AddSingleton<IContentDialogService, ContentDialogService>();
                 }
             )
             .Build();
