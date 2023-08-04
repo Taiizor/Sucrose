@@ -1,9 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sucrose.Portal.Services;
+using Sucrose.Portal.Services.Contracts;
+using Sucrose.Portal.ViewModels;
+using Sucrose.Portal.Views.Windows;
 using System.Globalization;
 using System.Windows;
-using Sucrose.Portal.Services;
+using Wpf.Ui.Contracts;
+using Wpf.Ui.Services;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
@@ -14,11 +19,6 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using Wpf.Ui.Contracts;
-using Wpf.Ui.Services;
-using Sucrose.Portal.ViewModels;
-using Sucrose.Portal.Views.Windows;
-using Sucrose.Portal.Services.Contracts;
 
 namespace Sucrose.Portal
 {
@@ -42,11 +42,11 @@ namespace Sucrose.Portal
         // https://docs.microsoft.com/dotnet/core/extensions/logging
         private static readonly IHost _host = Host.CreateDefaultBuilder()
             .ConfigureAppConfiguration(c =>
-            {
-                c.SetBasePath(AppContext.BaseDirectory);
-            })
-            .ConfigureServices(
-                (context, services) =>
+                {
+                    c.SetBasePath(AppContext.BaseDirectory);
+                }
+            )
+            .ConfigureServices((context, services) =>
                 {
                     // App Host
                     services.AddHostedService<ApplicationHostService>();
@@ -146,6 +146,14 @@ namespace Sucrose.Portal
             }
         }
 
+        protected void Configure()
+        {
+            _host.Start();
+
+            //Main Interface = new();
+            //Interface.Show();
+        }
+
         /// <summary>
         /// Occurs when the application is closing.
         /// </summary>
@@ -171,10 +179,7 @@ namespace Sucrose.Portal
             {
                 Mutex.ReleaseMutex();
 
-                _host.Start();
-
-                //Main Interface = new();
-                //Interface.Show();
+                Configure();
             }
             else
             {

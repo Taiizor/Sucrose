@@ -4,13 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Windows"
+    xmlns:pages="clr-namespace:Sucrose.Portal.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{DynamicResource Portal.MainWindow.Title}"
-    Width="1250"
-    Height="652"
+    Width="900" MinWidth="900"
+    Height="600" MinHeight="600"
     d:DataContext="{d:DesignInstance local:MainWindow, IsDesignTimeCreatable=False}"
-    d:DesignHeight="650"
+    d:DesignHeight="600"
     d:DesignWidth="900"
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
@@ -18,7 +19,14 @@
     WindowBackdropType="Acrylic"
     WindowCornerPreference="Default"
     WindowStartupLocation="CenterScreen"
+    SizeChanged="MainWindow_SizeChanged"
     mc:Ignorable="d">
+    <ui:FluentWindow.InputBindings>
+        <KeyBinding
+            Key="F"
+            Command="{Binding ElementName=SearchBox, Path=FocusCommand}"
+            Modifiers="Ctrl" />
+    </ui:FluentWindow.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -32,69 +40,63 @@
             Grid.Row="0"
             CloseWindowByDoubleClickOnIcon="True">
             <ui:TitleBar.Icon>
-                <ui:ImageIcon Source="pack://application:,,,/Assets/applicationIcon-256.png" />
+                <ui:ImageIcon Source="pack://application:,,,/Assets/Icon256.png" />
             </ui:TitleBar.Icon>
         </ui:TitleBar>
 
         <ui:NavigationView
-                MinHeight="300"
                 Margin="0"
                 Grid.Row="1"
+                x:Name="View"
                 IsBackButtonVisible="Collapsed"
                 IsPaneToggleVisible="False"
-                PaneDisplayMode="Top">
+                PaneDisplayMode="Top" Cursor="">
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem
-                        Content="Menu Item 1"
-                        Icon="{ui:SymbolIcon Home24}" />
+                        Cursor="Hand"
+                        Margin="10 0 0 0"
+                        Content="Kütüphane"
+                        Icon="{ui:SymbolIcon Library16}"
+                        TargetPageType="{x:Type pages:Library}"/>
                 <ui:NavigationViewItem
-                        Content="Menu Item 2"
-                        Icon="{ui:SymbolIcon AppFolder24}" />
-                <ui:NavigationViewItem
-                        Content="Menu Item 3"
-                        Icon="{ui:SymbolIcon BezierCurveSquare20}" />
-                <ui:NavigationViewItem
-                        Content="Menu Item 4"
-                        Icon="{ui:SymbolIcon Library24}" />
+                        Cursor="Hand"
+                        Content="Mağaza"
+                        Icon="{ui:SymbolIcon Gift16}"
+                        TargetPageType="{x:Type pages:Library}" />
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
-                <ui:NavigationViewItem Icon="{ui:SymbolIcon Settings24}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Margin="0 0 10 0"
+                    Icon="{ui:SymbolIcon Settings16}"
+                    TargetPageType="{x:Type pages:Library}" />
             </ui:NavigationView.FooterMenuItems>
-            <ui:NavigationView.AutoSuggestBox>
-                <ui:AutoSuggestBox
-                        MinWidth="140"
-                        Margin="0"
-                        PlaceholderText="Search" />
-            </ui:NavigationView.AutoSuggestBox>
-            <ui:NavigationView.PaneHeader>
-                <Border
-                        Margin="8,0"
-                        VerticalAlignment="Stretch"
-                        Background="{DynamicResource StripedBackgroundBrush}"
-                        CornerRadius="4">
-                    <TextBlock
-                            Margin="24,0"
-                            VerticalAlignment="Center"
-                            FontWeight="Medium"
-                            Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
-                            Text="Pane Header" />
-                </Border>
-            </ui:NavigationView.PaneHeader>
             <ui:NavigationView.PaneFooter>
-                <Border
-                        Margin="8,0"
-                        VerticalAlignment="Stretch"
-                        Background="{DynamicResource StripedBackgroundBrush}"
-                        CornerRadius="4">
-                    <TextBlock
-                            Margin="24,0"
-                            VerticalAlignment="Center"
-                            FontWeight="Medium"
-                            Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
-                            Text="Pane Footer" />
-                </Border>
+                <DockPanel>
+                    <ui:TextBox
+                        MinWidth="300"
+                        MaxWidth="300"
+                        MaxLength="20"
+                        x:Name="SearchBox"
+                        PlaceholderText="Bir Duvar Kağıdı Ara"
+                        Icon="{ui:SymbolIcon Search16}" Cursor="IBeam" />
+                    <ui:Button
+                        Cursor="Hand"
+                        BorderBrush="Transparent"
+                        Appearance="Transparent"
+                        ToolTip="Duvar Kağıdı Oluştur"
+                        Icon="{ui:SymbolIcon Add16}" />
+                    <ui:Button
+                        Cursor="Hand"
+                        Margin="5 0 5 0"
+                        BorderBrush="Transparent"
+                        Appearance="Transparent"
+                        ToolTip="Ekran Tercihleri"
+                        Icon="{ui:SymbolIcon ShareScreenPerson16}" />
+                    <Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />
+                </DockPanel>
             </ui:NavigationView.PaneFooter>
-            <ui:NavigationView.Header>
+            <!--<ui:NavigationView.Header>
                 <Border
                         Margin="8"
                         Background="{DynamicResource StripedBackgroundBrush}"
@@ -106,7 +108,7 @@
                             Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
                             Text="NavigationView Header" />
                 </Border>
-            </ui:NavigationView.Header>
+            </ui:NavigationView.Header>-->
         </ui:NavigationView>
 
         <StatusBar
@@ -131,22 +133,22 @@
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
             <StatusBarItem>
-                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="BranchFork24" />
+                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="Code24" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="1" Margin="0,0,4,0">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Development *" />
+                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pre-Release" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Margin="4,0,4,0">
-                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="Home24" />
+                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Framework, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="3" Margin="4,0,4,0">
-                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="Fire24" />
+                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Architecture, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="4" Margin="4,0,4,0">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Sucrose.sln" />
+                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Version, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="6">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Ln 45, Col 30  Spaces: 2 UTF8 with BOM C#" />
+                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Sucrose is copyright © 2023 Sucrose Contributors" />
             </StatusBarItem>
         </StatusBar>
     </Grid>

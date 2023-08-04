@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
-using System.Windows;
-using Sucrose.Portal.Views.Windows;
 using Sucrose.Portal.Services.Contracts;
+using Sucrose.Portal.Views.Windows;
+using System.Windows;
 
 namespace Sucrose.Portal.Services
 {
@@ -45,7 +45,7 @@ namespace Sucrose.Portal.Services
 
             if (!Application.Current.Windows.OfType<MainWindow>().Any())
             {
-                var mainWindow = _serviceProvider.GetService(typeof(IWindow)) as IWindow;
+                IWindow mainWindow = _serviceProvider.GetService(typeof(IWindow)) as IWindow;
                 mainWindow?.Show();
             }
 
