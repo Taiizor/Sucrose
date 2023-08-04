@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="WPF-UI" Version="2.0.3" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-preview.6.23329.7" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
   </ItemGroup>
 
