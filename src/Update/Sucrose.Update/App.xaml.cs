@@ -38,6 +38,10 @@ namespace Sucrose.Update
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
+        private static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
+
+        private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
+
         private static string Bundle { get; set; } = string.Empty;
 
         private static Mutex Mutex => new(true, SMR.UpdateMutex);
@@ -150,7 +154,7 @@ namespace Sucrose.Update
 
             if (IsInternetAvailable())
             {
-                List<SSIIR> Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository);
+                List<SSIIR> Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, Agent, Key);
 
                 if (Releases.Any())
                 {

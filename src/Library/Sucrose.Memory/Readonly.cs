@@ -14,6 +14,8 @@
 
         public static readonly string Bundle = "Bundle";
 
+        public static readonly string Key = string.Empty;
+
         public static readonly string AppName = "Sucrose";
 
         public static readonly string Content = "Content";
@@ -59,6 +61,8 @@
         public static readonly string YouTubeContent = "YouTubeContent.html";
 
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Live}";
+
+        public static readonly string UserAgent = "Sucrose Wallpaper Engine";
 
         public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";
 

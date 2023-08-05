@@ -4,6 +4,8 @@
     {
         public const string App = "App";
 
+        public const string Key = "Key";
+
         public const string Host = "Host";
 
         public const string Port = "Port";
@@ -37,6 +39,8 @@
         public const string Shuffle = "Shuffle";
 
         public const string Visible = "Visible";
+
+        public const string UserAgent = "UserAgent";
 
         public const string ThemeType = "ThemeType";
 

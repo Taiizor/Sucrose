@@ -48,7 +48,6 @@ namespace Sucrose.Shared.Zip.Extension
             }
         }
 
-
         public static SSDECT Compress(string[] Sources, string Destination)
         {
             try
@@ -74,6 +73,45 @@ namespace Sucrose.Shared.Zip.Extension
                         using FileStream FileStream = File.OpenRead(Record);
 
                         FileStream.CopyTo(EntryStream);
+                    }
+                }
+
+                return SSDECT.Pass;
+            }
+            catch
+            {
+                return SSDECT.UnforeseenConsequences;
+            }
+        }
+
+        public static SSDECT Compress(string[] Sources, string[] Excludes, string Destination)
+        {
+            try
+            {
+                using FileStream ZipFileStream = new(Destination, FileMode.Create);
+                using ZipArchive Archive = new(ZipFileStream, ZipArchiveMode.Create);
+
+                foreach (string Source in Sources)
+                {
+                    string[] Files = Directory.GetFiles(Source, "*", SearchOption.TopDirectoryOnly);
+
+                    foreach (string Record in Files)
+                    {
+                        if (!Excludes.Contains(Record))
+                        {
+                            string EntryName = SSZHZ.EntryName(Record, Source);
+
+#if NET48_OR_GREATER
+                            ZipArchiveEntry Entry = Archive.CreateEntry(EntryName, CompressionLevel.Fastest);
+#else
+                            ZipArchiveEntry Entry = Archive.CreateEntry(EntryName, CompressionLevel.SmallestSize);
+#endif
+
+                            using Stream EntryStream = Entry.Open();
+                            using FileStream FileStream = File.OpenRead(Record);
+
+                            FileStream.CopyTo(EntryStream);
+                        }
                     }
                 }
 

@@ -4,6 +4,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SMV = Sucrose.Memory.Valuable;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
+using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Shared.Launcher.Helper
 {
@@ -33,7 +34,12 @@ namespace Sucrose.Shared.Launcher.Helper
                     Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder)
                 };
 
-                SSZEZ.Compress(Sources, Destination);
+                string[] Excludes = new[]
+                {
+                    SMMI.PrivateSettingManager.SettingFile()
+                };
+
+                SSZEZ.Compress(Sources, Excludes, Destination);
             }
         }
     }

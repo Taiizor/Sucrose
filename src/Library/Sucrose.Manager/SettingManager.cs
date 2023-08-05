@@ -203,6 +203,11 @@ namespace Sucrose.Manager
             return File.Exists(_settingsFilePath);
         }
 
+        public string SettingFile()
+        {
+            return _settingsFilePath;
+        }
+
         private T ConvertToType<T>(object value)
         {
             Type type = typeof(T);
