@@ -16,7 +16,7 @@
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     ExtendsContentIntoTitleBar="True"
-    WindowBackdropType="Acrylic"
+    WindowBackdropType="{Binding ViewModel.WindowBackdropType, Mode=OneWay}"
     WindowCornerPreference="Default"
     WindowStartupLocation="CenterScreen"
     SizeChanged="MainWindow_SizeChanged"

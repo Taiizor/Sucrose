@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Wpf.Ui.Controls;
 using SEAT = Skylark.Enum.AssemblyType;
-using SHA = Skylark.Helper.Assemblies;
+using SEOST = Skylark.Enum.OperatingSystemType;
+using SHV = Skylark.Helper.Versionly;
+using SWHOS = Skylark.Wing.Helper.OperatingSystem;
 
 namespace Sucrose.Portal.ViewModels
 {
@@ -17,6 +19,12 @@ namespace Sucrose.Portal.ViewModels
 
         [ObservableProperty]
         private string _Architecture = string.Empty;
+
+        [ObservableProperty]
+        private SEOST _OperatingSystem = SEOST.Unknown;
+
+        [ObservableProperty]
+        private WindowBackdropType _WindowBackdropType = WindowBackdropType.None;
 
         public MainWindowViewModel()
         {
@@ -35,13 +43,15 @@ namespace Sucrose.Portal.ViewModels
             Version = GetVersion();
             Framework = GetFramework();
             Architecture = GetArchitecture();
+            OperatingSystem = GetOperatingSystem();
+            WindowBackdropType = GetWindowBackdropType();
 
             _isInitialized = true;
         }
 
         private string GetVersion()
         {
-            return SHA.Assemble(SEAT.Entry).GetName().Version?.ToString() ?? "Unknown";
+            return SHV.Auto(SEAT.Entry).ToString();
         }
 
         private string GetFramework()
@@ -72,6 +82,23 @@ namespace Sucrose.Portal.ViewModels
 #else
             return "Unknown";
 #endif
+        }
+
+        private SEOST GetOperatingSystem()
+        {
+            return SWHOS.GetSystem();
+        }
+
+        private WindowBackdropType GetWindowBackdropType()
+        {
+            if (OperatingSystem == SEOST.Windows11)
+            {
+                return WindowBackdropType.Acrylic;
+            }
+            else
+            {
+                return WindowBackdropType.Auto;
+            }
         }
     }
 }
