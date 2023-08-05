@@ -9,6 +9,8 @@
     <Import_RootNamespace>Sucrose.Shared.Core</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\FrameworkType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Attribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Version.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\OperatingSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Architecture.cs" />

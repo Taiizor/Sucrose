@@ -76,6 +76,10 @@
         <Reference Include="System.Net.Http" />
     </ItemGroup>
 
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    </ItemGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
     </ItemGroup>

@@ -48,8 +48,8 @@ namespace Sucrose.Portal.ViewModels
         {
             Quoting = GetQuoting();
             Version = SSCHV.GetText();
-            Framework = SSCHF.Get();
-            Architecture = SSCHA.Get();
+            Framework = SSCHF.GetName();
+            Architecture = SSCHA.GetText();
             OperatingSystem = SSCHOS.Get();
             WindowBackdropType = GetWindowBackdropType();
 

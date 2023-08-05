@@ -171,12 +171,12 @@ namespace Sucrose.Update
                         {
                             foreach (SSIIA Asset in Assets)
                             {
-                                string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.Get().Replace(' ', '_')}_{SSCHA.Get()}_{Latest}";
+                                string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}";
 
                                 string[] Required =
                                 {
-                                    SSCHF.Get().Replace(' ', '_'),
-                                    SSCHA.Get(),
+                                    SSCHF.GetDescription(),
+                                    SSCHA.GetText(),
                                     $"{Latest}",
                                     SMR.AppName,
                                     SMR.Bundle
@@ -195,7 +195,7 @@ namespace Sucrose.Update
 
                                     using HttpClient Client = new();
 
-                                    Client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0");
+                                    Client.DefaultRequestHeaders.Add("User-Agent", Agent);
 
                                     using HttpResponseMessage Response = await Client.GetAsync(Source);
 

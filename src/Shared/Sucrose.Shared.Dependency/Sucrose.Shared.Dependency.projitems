@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\DisplayType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\EngineType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\ArchitectureType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\WallpaperType.cs" />
   </ItemGroup>
 </Project>

@@ -34,8 +34,6 @@
 
         public static readonly string SettingFolder = "Setting";
 
-        public static readonly string MediaElement = "MediaElement";
-
         public static readonly string Update = "Sucrose.Update.exe";
 
         public static readonly string Portal = "Sucrose.Portal.exe";

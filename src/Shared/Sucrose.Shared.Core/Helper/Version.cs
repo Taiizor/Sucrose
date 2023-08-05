@@ -9,6 +9,7 @@ namespace Sucrose.Shared.Core.Helper
         {
             return $"{SHV.Auto(SEAT.Entry)}";
         }
+
         public static System.Version Get()
         {
             return SHV.Auto(SEAT.Entry);
