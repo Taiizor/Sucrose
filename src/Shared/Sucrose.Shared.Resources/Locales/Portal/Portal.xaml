@@ -1,0 +1,46 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Quoting0">Love conquers all</system:String>
+    <system:String x:Key="Portal.Quoting1">La vida es bella</system:String>
+    <system:String x:Key="Portal.Quoting2">Carpe diem</system:String>
+    <system:String x:Key="Portal.Quoting3">Hakuna matata</system:String>
+    <system:String x:Key="Portal.Quoting4">Joie de vivre</system:String>
+    <system:String x:Key="Portal.Quoting5">C'est la vie</system:String>
+    <system:String x:Key="Portal.Quoting6">Hasta la vista</system:String>
+    <system:String x:Key="Portal.Quoting7">In vino veritas</system:String>
+    <system:String x:Key="Portal.Quoting8">Hakuna mawazo</system:String>
+    <system:String x:Key="Portal.Quoting9">Seishin to nihon</system:String>
+    <system:String x:Key="Portal.Quoting10">Per aspera ad astra</system:String>
+    <system:String x:Key="Portal.Quoting11">Amor vincit omnia</system:String>
+    <system:String x:Key="Portal.Quoting12">Carpe noctem</system:String>
+    <system:String x:Key="Portal.Quoting13">L'esprit de l'escalier</system:String>
+    <system:String x:Key="Portal.Quoting14">Schadenfreude</system:String>
+    <system:String x:Key="Portal.Quoting15">Vivo ergo sum</system:String>
+    <system:String x:Key="Portal.Quoting16">Il dolce far niente</system:String>
+    <system:String x:Key="Portal.Quoting17">Sisu</system:String>
+    <system:String x:Key="Portal.Quoting18">Saudade</system:String>
+    <system:String x:Key="Portal.Quoting19">Namaste</system:String>
+    <system:String x:Key="Portal.Quoting20">Que sera, sera</system:String>
+    <system:String x:Key="Portal.Quoting21">Eureka</system:String>
+    <system:String x:Key="Portal.Quoting22">Cogito, ergo sum</system:String>
+    <system:String x:Key="Portal.Quoting23">Veni, vidi, vici</system:String>
+    <system:String x:Key="Portal.Quoting24">Hakuna matata</system:String>
+    <system:String x:Key="Portal.Quoting25">Hasta la vista</system:String>
+    <system:String x:Key="Portal.Quoting26">Ad astra per aspera</system:String>
+    <system:String x:Key="Portal.Quoting27">Live and let live</system:String>
+    <system:String x:Key="Portal.Quoting28">Carpe noctem</system:String>
+    <system:String x:Key="Portal.Quoting29">In omnia paratus</system:String>
+    <system:String x:Key="Portal.Quoting30">Söz gümüşse, sükût altındır</system:String>
+    <system:String x:Key="Portal.Quoting31">Damlaya damlaya göl olur</system:String>
+    <system:String x:Key="Portal.Quoting32">Sakla samanı, gelir zamanı</system:String>
+    <system:String x:Key="Portal.Quoting33">Görünen köy kılavuz istemez</system:String>
+    <system:String x:Key="Portal.Quoting34">Kulak veren göz arar</system:String>
+    <system:String x:Key="Portal.Quoting35">Sabrın sonu selamettir</system:String>
+    <system:String x:Key="Portal.Quoting36">İstikbal göklerdedir</system:String>
+    <system:String x:Key="Portal.Quoting37">Hiçbir şey insan kadar değerli değildir</system:String>
+    <system:String x:Key="Portal.Quoting38">Hayatta en hakiki mürşit ilimdir</system:String>
+    <system:String x:Key="Portal.Quoting39">Yurtta sulh, cihanda sulh</system:String>
+</ResourceDictionary>

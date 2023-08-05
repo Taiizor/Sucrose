@@ -1,11 +1,11 @@
 ﻿using Sucrose.Portal.Services.Contracts;
 using Sucrose.Portal.ViewModels;
 using System.Windows;
-using SMC = Sucrose.Memory.Constant;
+using Wpf.Ui.Appearance;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using Wpf.Ui.Appearance;
 
 namespace Sucrose.Portal.Views.Windows
 {

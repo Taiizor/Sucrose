@@ -3,6 +3,8 @@ using Wpf.Ui.Controls;
 using SEAT = Skylark.Enum.AssemblyType;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SHV = Skylark.Helper.Versionly;
+using SMR = Sucrose.Memory.Readonly;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SWHOS = Skylark.Wing.Helper.OperatingSystem;
 
 namespace Sucrose.Portal.ViewModels
@@ -10,6 +12,9 @@ namespace Sucrose.Portal.ViewModels
     public partial class MainWindowViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
+
+        [ObservableProperty]
+        private string _Quoting = string.Empty;
 
         [ObservableProperty]
         private string _Version = string.Empty;
@@ -40,6 +45,7 @@ namespace Sucrose.Portal.ViewModels
 
         private void InitializeViewModel()
         {
+            Quoting = GetQuoting();
             Version = GetVersion();
             Framework = GetFramework();
             Architecture = GetArchitecture();
@@ -47,6 +53,11 @@ namespace Sucrose.Portal.ViewModels
             WindowBackdropType = GetWindowBackdropType();
 
             _isInitialized = true;
+        }
+
+        private string GetQuoting()
+        {
+            return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(40)}");
         }
 
         private string GetVersion()
