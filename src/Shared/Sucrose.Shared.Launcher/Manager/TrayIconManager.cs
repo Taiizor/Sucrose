@@ -6,6 +6,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
+using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLCR = Sucrose.Shared.Launcher.Command.Report;
@@ -74,9 +75,9 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Items.Add(Separator1.Strip);
 
                 ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
-                //ContextMenu.Items.Add(SSRER.GetValue("WallStartText"), null, null); //WallStopText
+                //ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallStartText"), null, null); //WallStopText
 
-                //ContextMenu.Items.Add(SSRER.GetValue("WallChangeText"), null, null);
+                //ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallChangeText"), null, null);
 
                 string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
 
@@ -97,6 +98,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingsText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingsIcon"))), null);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
+            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
 
             SSLSSS Separator3 = new(Theme);
             ContextMenu.Items.Add(Separator3.Strip);
@@ -150,6 +152,11 @@ namespace Sucrose.Shared.Launcher.Manager
         private void CommandInterface(object sender, EventArgs e)
         {
             SSLCI.Command();
+        }
+
+        private void CommandUpdate(object sender, EventArgs e)
+        {
+            SSLCU.Command();
         }
 
         private void CommandEngine(object sender, EventArgs e)

@@ -19,4 +19,5 @@
     <system:String x:Key="Launcher.WallOpenText">Otwórz Tapetę</system:String>
     <system:String x:Key="Launcher.WallStartText">Uruchom Tapetę</system:String>
     <system:String x:Key="Launcher.WallStopText">Zatrzymaj Tapetę</system:String>
+    <system:String x:Key="Launcher.UpdateText">Sprawdź Aktualizacje</system:String>
 </ResourceDictionary>

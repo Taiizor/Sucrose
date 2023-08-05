@@ -1,20 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Wpf.Ui.Controls;
-using SEAT = Skylark.Enum.AssemblyType;
 using SEOST = Skylark.Enum.OperatingSystemType;
-using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SWHOS = Skylark.Wing.Helper.OperatingSystem;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSCHF = Sucrose.Shared.Core.Helper.Framework;
+using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
+using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 
 namespace Sucrose.Portal.ViewModels
 {
     public partial class MainWindowViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
-
-        [ObservableProperty]
-        private string _Release = string.Empty;
 
         [ObservableProperty]
         private string _Quoting = string.Empty;
@@ -48,65 +46,19 @@ namespace Sucrose.Portal.ViewModels
 
         private void InitializeViewModel()
         {
-            Release = GetRelease();
             Quoting = GetQuoting();
-            Version = GetVersion();
-            Framework = GetFramework();
-            Architecture = GetArchitecture();
-            OperatingSystem = GetOperatingSystem();
+            Version = SSCHV.GetText();
+            Framework = SSCHF.Get();
+            Architecture = SSCHA.Get();
+            OperatingSystem = SSCHOS.Get();
             WindowBackdropType = GetWindowBackdropType();
 
             _isInitialized = true;
         }
 
-        private string GetRelease()
-        {
-            return SSRER.GetValue("Portal", "Release");
-        }
-
         private string GetQuoting()
         {
             return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(40)}");
-        }
-
-        private string GetVersion()
-        {
-            return SHV.Auto(SEAT.Entry).ToString();
-        }
-
-        private string GetFramework()
-        {
-#if NET48
-            return ".NET Framework 4.8";
-#elif NET481
-            return ".NET Framework 4.8.1";
-#elif NET6_0
-            return ".NET 6.0";
-#elif NET7_0
-            return ".NET 7.0";
-#elif NET8_0
-            return ".NET 8.0";
-#else
-            return "Unknown";
-#endif
-        }
-
-        private string GetArchitecture()
-        {
-#if X64
-            return "x64";
-#elif X86
-            return "x86";
-#elif ARM64
-            return "ARM64";
-#else
-            return "Unknown";
-#endif
-        }
-
-        private SEOST GetOperatingSystem()
-        {
-            return SWHOS.GetSystem();
         }
 
         private WindowBackdropType GetWindowBackdropType()

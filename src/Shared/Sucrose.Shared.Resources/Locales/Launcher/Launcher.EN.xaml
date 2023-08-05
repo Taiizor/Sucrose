@@ -19,4 +19,5 @@
     <system:String x:Key="Launcher.WallOpenText">Open Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStartText">Start Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStopText">Stop Wallpaper</system:String>
+    <system:String x:Key="Launcher.UpdateText">Check for Updates</system:String>
 </ResourceDictionary>

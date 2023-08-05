@@ -19,4 +19,5 @@
     <system:String x:Key="Launcher.WallOpenText">Hintergrund Öffnen</system:String>
     <system:String x:Key="Launcher.WallStartText">Hintergrund Starten</system:String>
     <system:String x:Key="Launcher.WallStopText">Hintergrund Stoppen</system:String>
+    <system:String x:Key="Launcher.UpdateText">Auf Updates Prüfen</system:String>
 </ResourceDictionary>

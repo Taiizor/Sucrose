@@ -19,4 +19,5 @@
     <system:String x:Key="Launcher.WallOpenText">Duvar Kağıdını Aç</system:String>
     <system:String x:Key="Launcher.WallStartText">Duvar Kağıdını Başlat</system:String>
     <system:String x:Key="Launcher.WallStopText">Duvar Kağıdını Durdur</system:String>
+    <system:String x:Key="Launcher.UpdateText">Güncellemeleri Denetle</system:String>
 </ResourceDictionary>

@@ -19,4 +19,5 @@
     <system:String x:Key="Launcher.WallOpenText">Ouvrir le Papier Peint</system:String>
     <system:String x:Key="Launcher.WallStartText">Démarrer le Papier Peint</system:String>
     <system:String x:Key="Launcher.WallStopText">Arrêter le Papier Peint</system:String>
+    <system:String x:Key="Launcher.UpdateText">Vérifier les mises à jour</system:String>
 </ResourceDictionary>

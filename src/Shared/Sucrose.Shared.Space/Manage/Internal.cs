@@ -32,6 +32,8 @@ namespace Sucrose.Shared.Space.Manage
 
         public static string App => SHA.Assemble(SEAT.Executing).Location;
 
+        public static string Update => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Update), SMR.Update);
+
         public static string Portal => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Portal), SMR.Portal);
 
         public static string Launcher => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Launcher), SMR.Launcher);

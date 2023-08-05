@@ -18,9 +18,9 @@ namespace Sucrose.Shared.Engine.Vexana.Helper
             {
                 string[] Files = Directory.GetFiles(CachePath);
 
-                foreach (string Path in Files)
+                foreach (string Record in Files)
                 {
-                    File.Delete(Path);
+                    File.Delete(Record);
                 }
             }
             else

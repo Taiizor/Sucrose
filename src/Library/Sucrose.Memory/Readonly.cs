@@ -4,11 +4,15 @@
     {
         public static readonly string Language = "EN";
 
+        public static readonly string Owner = "Taiizor";
+
         public static readonly Random Randomise = new();
 
         public static readonly string LogFolder = "Log";
 
         public static readonly string GifFolder = "Gif";
+
+        public static readonly string Bundle = "Bundle";
 
         public static readonly string AppName = "Sucrose";
 
@@ -22,11 +26,15 @@
 
         public static readonly string WebView2 = "WebView2";
 
+        public static readonly string Repository = "Sucrose";
+
         public static readonly char ValueSeparatorChar = '|';
 
         public static readonly string SettingFolder = "Setting";
 
         public static readonly string MediaElement = "MediaElement";
+
+        public static readonly string Update = "Sucrose.Update.exe";
 
         public static readonly string Portal = "Sucrose.Portal.exe";
 
@@ -58,6 +66,8 @@
 
         public static readonly string LogDescription = "SucroseWatchdog Thread";
 
+        public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Update}";
+
         public static readonly string DiscordApplication = "1126294965950103612";
 
         public static readonly string CefSharpLive = "Sucrose.Live.CefSharp.exe";
@@ -70,15 +80,15 @@
 
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
 
-        public static readonly string BrowseWebsite = "https://github.com/Taiizor/Sucrose";
-
         public static readonly string LauncherMutex = "{Sucrose-Wallpaper-Engine-Launcher}";
 
-        public static readonly string ReportWebsite = "https://github.com/Taiizor/Sucrose/issues/new/choose";
-
-        public static readonly string DownloadWebsite = "https://github.com/Taiizor/Sucrose/releases/latest";
+        public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
         public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        public static readonly string ReportWebsite = $"https://github.com/{Owner}/{Repository}/issues/new/choose";
+
+        public static readonly string DownloadWebsite = $"https://github.com/{Owner}/{Repository}/releases/latest";
 
         public static readonly string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 

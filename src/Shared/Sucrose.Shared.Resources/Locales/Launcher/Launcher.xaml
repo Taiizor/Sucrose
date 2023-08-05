@@ -5,6 +5,7 @@
 >
     <system:String x:Key="Launcher.ExitIcon">Assets/Exit.ico</system:String>
     <system:String x:Key="Launcher.ReportIcon">Assets/Error.ico</system:String>
+    <system:String x:Key="Launcher.UpdateIcon">Assets/Update.ico</system:String>
     <system:String x:Key="Launcher.TrayIcon">Assets/TrayIcon.ico</system:String>
     <system:String x:Key="Launcher.OpenIcon">Assets/FitWidth.ico</system:String>
     <system:String x:Key="Launcher.SettingsIcon">Assets/Settings.ico</system:String>

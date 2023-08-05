@@ -7,6 +7,7 @@
         Live,
         Test,
         Temp,
+        Update,
         Import,
         Export,
         Report,
