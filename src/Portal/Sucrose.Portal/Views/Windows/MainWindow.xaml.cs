@@ -1,11 +1,12 @@
 ﻿using Sucrose.Portal.Services.Contracts;
 using Sucrose.Portal.ViewModels;
 using System.Windows;
-using Wpf.Ui.Appearance;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using WUAT = Wpf.Ui.Appearance.Theme;
+using WUATT = Wpf.Ui.Appearance.ThemeType;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -25,11 +26,11 @@ namespace Sucrose.Portal.Views.Windows
 
             if (Theme == SEWTT.Dark)
             {
-                Wpf.Ui.Appearance.Theme.Apply(ThemeType.Dark);
+                WUAT.Apply(WUATT.Dark);
             }
             else
             {
-                Wpf.Ui.Appearance.Theme.Apply(ThemeType.Light);
+                WUAT.Apply(WUATT.Light);
             }
 
             InitializeComponent();

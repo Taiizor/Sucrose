@@ -92,6 +92,7 @@ namespace Sucrose.Commandog.Helper
             if (Folder != null)
             {
                 bool Result = false;
+
                 TaskCollection Collection = Folder.GetTasks();
 
                 foreach (Task Task in Collection)
@@ -143,6 +144,7 @@ namespace Sucrose.Commandog.Helper
             if (Folder != null)
             {
                 bool Result = false;
+
                 TaskCollection Collection = Folder.GetTasks();
 
                 foreach (Task Task in Collection)
@@ -192,6 +194,7 @@ namespace Sucrose.Commandog.Helper
             if (Folder != null)
             {
                 bool Result = false;
+
                 TaskCollection Collection = Folder.GetTasks();
 
                 foreach (Task Task in Collection)

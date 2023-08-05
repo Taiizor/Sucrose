@@ -14,6 +14,9 @@ namespace Sucrose.Portal.ViewModels
         private bool _isInitialized = false;
 
         [ObservableProperty]
+        private string _Release = string.Empty;
+
+        [ObservableProperty]
         private string _Quoting = string.Empty;
 
         [ObservableProperty]
@@ -45,6 +48,7 @@ namespace Sucrose.Portal.ViewModels
 
         private void InitializeViewModel()
         {
+            Release = GetRelease();
             Quoting = GetQuoting();
             Version = GetVersion();
             Framework = GetFramework();
@@ -53,6 +57,11 @@ namespace Sucrose.Portal.ViewModels
             WindowBackdropType = GetWindowBackdropType();
 
             _isInitialized = true;
+        }
+
+        private string GetRelease()
+        {
+            return SSRER.GetValue("Portal", "Release");
         }
 
         private string GetQuoting()
