@@ -4,39 +4,69 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages"
+      xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:models="clr-namespace:Sucrose.Portal.Models"
       Title="Library"
-      d:DesignHeight="450"
+      d:DataContext="{d:DesignInstance local:Library, IsDesignTimeCreatable=False}"
+      d:DesignHeight="600"
       d:DesignWidth="800"
       mc:Ignorable="d">
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Border
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Grid.Column="0"
-            Margin="8"
-            Background="Aquamarine"
-            CornerRadius="8" />
-        <Border
-            Grid.Row="0"
-            Grid.Column="1"
-            Margin="8"
-            Background="Gray"
-            CornerRadius="8" />
-        <Border
-            Grid.Row="1"
-            Grid.Column="1"
-            Margin="8"
-            Background="DarkOrange"
-            CornerRadius="8" />
-    </Grid>
+    <controls:CustomWrapPanel MaxItemsPerRow="7" Margin="10" ItemMargin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+        <ui:Card MaxWidth="360" MinWidth="260" MinHeight="160" Background="DodgerBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Bileşen içeriği -->
+        </ui:Card>
+    </controls:CustomWrapPanel>
 </Page>

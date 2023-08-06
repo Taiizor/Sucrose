@@ -15,6 +15,7 @@ using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SPVPL = Sucrose.Portal.Views.Pages.Library;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -50,6 +51,8 @@ namespace Sucrose.Portal.Views.Windows
             }
 
             InitializeComponent();
+
+            View.Loaded += (_, _) => View.Navigate(typeof(SPVPL));
 
             //string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 

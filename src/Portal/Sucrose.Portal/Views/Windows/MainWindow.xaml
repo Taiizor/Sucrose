@@ -51,7 +51,7 @@
                         Margin="10 0 0 0"
                         Content="Kütüphane"
                         Icon="{ui:SymbolIcon Library16}"
-                        TargetPageType="{x:Type pages:Library}"/>
+                        TargetPageType="{x:Type pages:Library}" />
                 <ui:NavigationViewItem
                         Cursor="Hand"
                         Content="Mağaza"
