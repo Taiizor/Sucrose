@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ui:ControlsDictionary />
-                <ui:ThemesDictionary Theme="Dark" />
+                <ui:ThemesDictionary ApplicationTheme="Dark" />
                 <ResourceDictionary Source="Locales/Locale.EN.xaml" />
             </ResourceDictionary.MergedDictionaries>
 

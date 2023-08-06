@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Sucrose.Portal.Views.Controls.ThemeCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+             xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             mc:Ignorable="d"
+             MouseEnter="ThemeCard_MouseEnter"
+             MouseLeave="ThemeCard_MouseLeave"
+             MaxWidth="360" MinWidth="260" MinHeight="160" MaxHeight="160">
+    <Border x:Name="Borderer" CornerRadius="25">
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="50"
+                Direction="0"
+                Opacity="1.0"
+                ShadowDepth="0"
+                Color="{DynamicResource ApplicationBackground}" />
+        </Border.Effect>
+        <Grid x:Name="Grider">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" x:Name="Imagine" />
+            </Grid.Background>
+
+            <Grid Margin="5 0 5 5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <ui:TextBlock x:Name="ThemeTitle" Grid.Row="0" Text="Title" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontWeight="Bold" />
+                <ui:TextBlock x:Name="ThemeDescription" Grid.Row="1" Text="Description" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontWeight="SemiBold" />
+
+                <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Content="•••" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

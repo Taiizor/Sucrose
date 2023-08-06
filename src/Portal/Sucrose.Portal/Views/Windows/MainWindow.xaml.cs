@@ -9,13 +9,15 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using WUAT = Wpf.Ui.Appearance.Theme;
-using WUATT = Wpf.Ui.Appearance.ThemeType;
+using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
+using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SPVPL = Sucrose.Portal.Views.Pages.Library;
+using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
+using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
+using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -43,16 +45,16 @@ namespace Sucrose.Portal.Views.Windows
 
             if (Theme == SEWTT.Dark)
             {
-                WUAT.Apply(WUATT.Dark);
+                WUAT.Apply(WUAAT.Dark);
             }
             else
             {
-                WUAT.Apply(WUATT.Light);
+                WUAT.Apply(WUAAT.Light);
             }
 
             InitializeComponent();
 
-            View.Loaded += (_, _) => View.Navigate(typeof(SPVPL));
+            View.Loaded += (_, _) => View.Navigate(typeof(SPVPLP));
 
             //string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
