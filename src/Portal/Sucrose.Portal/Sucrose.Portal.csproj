@@ -68,10 +68,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="WPF-UI" Version="3.0.0-preview.4" />
         <PackageReference Include="Skylark.Wing" Version="3.1.1.1" />
+        <PackageReference Include="WPF-UI" Version="3.0.0-preview.4" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.1.3" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-preview.6.23329.7" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Net.Http" />
     </ItemGroup>
 
     <ItemGroup>
@@ -81,6 +86,7 @@
     </ItemGroup>
 
     <Import Project="..\..\Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Store\Sucrose.Shared.Store.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems" Label="Shared" />

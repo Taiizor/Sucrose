@@ -47,10 +47,12 @@
             <Border.Effect>
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Border.Effect>
-            <StackPanel Margin="20">
-                <TextBlock x:Name="Error_Title" Text="{DynamicResource Watchdog.ErrorTitle}" Foreground="#333333" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
-                <TextBlock x:Name="Error_Message" Text="{DynamicResource Watchdog.ErrorMessage}" TextWrapping="Wrap" FontSize="14" Foreground="#333333" />
-            </StackPanel>
+            <ScrollViewer Margin="20" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock x:Name="Error_Title" Text="{DynamicResource Watchdog.ErrorTitle}" Foreground="#333333" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
+                    <TextBlock x:Name="Error_Message" Text="{DynamicResource Watchdog.ErrorMessage}" TextWrapping="Wrap" FontSize="14" Foreground="#333333" />
+                </StackPanel>
+            </ScrollViewer>
         </Border>
 
         <Button x:Name="Show_Button" Content="{DynamicResource Watchdog.ShowButton}" Cursor="Hand" Width="100" Height="25" Margin="20 0 0 20" HorizontalAlignment="Left" Grid.Row="1" Click="ShowButton_Click">

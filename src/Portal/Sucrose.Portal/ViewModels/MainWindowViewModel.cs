@@ -2,11 +2,11 @@
 using Wpf.Ui.Controls;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SMR = Sucrose.Memory.Readonly;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSCHV = Sucrose.Shared.Core.Helper.Version;
-using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
+using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 
 namespace Sucrose.Portal.ViewModels
 {

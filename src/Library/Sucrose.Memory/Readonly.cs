@@ -4,6 +4,8 @@
     {
         public static readonly string Language = "EN";
 
+        public static readonly string Store = "Store";
+
         public static readonly string Owner = "Taiizor";
 
         public static readonly Random Randomise = new();
@@ -15,6 +17,8 @@
         public static readonly string Bundle = "Bundle";
 
         public static readonly string Key = string.Empty;
+
+        public static readonly string Branch = "develop";
 
         public static readonly string AppName = "Sucrose";
 
@@ -32,6 +36,10 @@
 
         public static readonly char ValueSeparatorChar = '|';
 
+        public static readonly string WallpaperSource = "src";
+
+        public static readonly string StoreFile = "Store.json";
+
         public static readonly string SettingFolder = "Setting";
 
         public static readonly string Update = "Sucrose.Update.exe";
@@ -41,6 +49,8 @@
         public static readonly string TaskName = "Autorun for Sucrose";
 
         public static readonly string SucroseInfo = "SucroseInfo.json";
+
+        public static readonly string WallpaperRepository = "Wallpaper";
 
         public static readonly string Launcher = "Sucrose.Launcher.exe";
 
