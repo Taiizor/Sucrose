@@ -12,12 +12,18 @@ namespace Sucrose.Portal.Views.Pages.Library
     /// <summary>
     /// FullLibraryPage.xaml etkileşim mantığı
     /// </summary>
-    public partial class FullLibraryPage : Page
+    public partial class FullLibraryPage : Page, IDisposable
     {
+        private List<string> Themes = new();
+
         public FullLibraryPage(List<string> Themes)
         {
+            this.Themes = Themes;
             InitializeComponent();
+        }
 
+        private async Task AddThemes()
+        {
             foreach (string Theme in Themes)
             {
                 SSTHI Info = SSTHI.ReadJson(Theme);
@@ -57,7 +63,19 @@ namespace Sucrose.Portal.Views.Pages.Library
                 ThemeCard ThemeCard = new(Path.GetDirectoryName(Theme), Info);
 
                 ThemeLibrary.Children.Add(ThemeCard);
+
+                await Task.Delay(25);
             }
+        }
+
+        private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            await AddThemes();
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
     }
 }

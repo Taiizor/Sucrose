@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Library"
       xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      Loaded="FullLibraryPage_Loaded"
       Title="FullLibraryPage"
       d:DataContext="{d:DesignInstance local:FullLibraryPage, IsDesignTimeCreatable=False}"
       d:DesignHeight="600"

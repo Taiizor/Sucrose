@@ -7,9 +7,9 @@
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              mc:Ignorable="d"
-             MouseEnter="ThemeCard_MouseEnter"
-             MouseLeave="ThemeCard_MouseLeave"
-             MaxWidth="360" MinWidth="260" MinHeight="160" MaxHeight="160">
+             MaxWidth="360" MinWidth="260" MinHeight="160" MaxHeight="160"
+             xf:Animations.Primary="{xf:Animate BasedOn={StaticResource SlideFromLeft}, Duration=100}"
+             xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource FadeInAndContract}, Event=MouseEnter}">
     <Border x:Name="Borderer" CornerRadius="25">
         <Border.Effect>
             <DropShadowEffect

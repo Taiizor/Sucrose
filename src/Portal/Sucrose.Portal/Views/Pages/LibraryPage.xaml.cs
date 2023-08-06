@@ -61,9 +61,9 @@ namespace Sucrose.Portal.Views.Pages
             LibraryProgress.Visibility = Visibility.Collapsed;
         }
 
-        private void GridLibrary_Loaded(object sender, RoutedEventArgs e)
+        private async void GridLibrary_Loaded(object sender, RoutedEventArgs e)
         {
-            _ = Start();
+            await Start();
         }
     }
 }
