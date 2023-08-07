@@ -1,5 +1,4 @@
-﻿using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
-using Sucrose.Portal.Services.Contracts;
+﻿using Sucrose.Portal.Services.Contracts;
 using Sucrose.Portal.ViewModels;
 using System.IO;
 using System.Windows;
@@ -10,6 +9,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
+using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;

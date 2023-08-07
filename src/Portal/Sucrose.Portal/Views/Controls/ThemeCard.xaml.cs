@@ -4,11 +4,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using SHA = Skylark.Helper.Adaptation;
+using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SHS = Skylark.Helper.Skymath;
 
 namespace Sucrose.Portal.Views.Controls
 {

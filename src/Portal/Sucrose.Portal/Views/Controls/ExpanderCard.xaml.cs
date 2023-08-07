@@ -9,84 +9,110 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class ExpanderCard : UserControl
     {
-        public bool Expandable = true;
-        public bool IsExpand = false;
+        private bool _Expandable { get; set; } = true;
+
+        private bool _IsExpand { get; set; } = false;
 
         public ExpanderCard()
         {
             InitializeComponent();
+            UpdateExpandState();
+        }
 
+        public Thickness FooterFrameMargin
+        {
+            get => Footer.Margin;
+            set => Footer.Margin = value;
+        }
+
+        public object HeaderFrame
+        {
+            get => Header.Margin;
+            set => Header.Content = value;
+        }
+
+        public object FooterCard
+        {
+            get => Footer.Margin;
+            set => Footer.Content = value;
+        }
+
+        public bool IsExpand
+        {
+            get => _IsExpand;
+            set
+            {
+                _IsExpand = value;
+                UpdateExpandState();
+            }
+        }
+
+        public bool Expandable
+        {
+            get => _Expandable;
+            set
+            {
+                _Expandable = value;
+
+                if (IsExpand != value)
+                {
+                    IsExpand = false;
+                }
+
+                UpdateExpandState();
+            }
+        }
+
+        private void UpdateExpandState()
+        {
             if (Expandable)
             {
-                if (IsExpand)
+                if (Grider.ColumnDefinitions.Count < 4)
                 {
-                    ExpandUp.Visibility = Visibility.Visible;
-                    ExpandDown.Visibility = Visibility.Hidden;
-                    FooterControl.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    ExpandUp.Visibility = Visibility.Hidden;
-                    ExpandDown.Visibility = Visibility.Visible;
-                    FooterControl.Visibility = Visibility.Hidden;
+                    ColumnDefinition NewColumn = new()
+                    {
+                        Width = new(1, GridUnitType.Auto)
+                    };
+
+                    Grider.ColumnDefinitions.Insert(3, NewColumn);
                 }
 
-                Footer.Margin = new(Body.Margin.Left + LeftIcon.Width, 0, 0, 0);
+                ExpandUp.Visibility = IsExpand ? Visibility.Visible : Visibility.Hidden;
+                ExpandDown.Visibility = IsExpand ? Visibility.Hidden : Visibility.Visible;
+                FooterControl.Visibility = IsExpand ? Visibility.Visible : Visibility.Hidden;
+
+                FooterFrameMargin = new Thickness(Body.Margin.Left + LeftIcon.Width, 0, 0, 0);
             }
             else
             {
-                Grider.ColumnDefinitions.RemoveAt(3);
+                if (Grider.ColumnDefinitions.Count > 3)
+                {
+                    Grider.ColumnDefinitions.RemoveAt(3);
+                }
+
                 ExpandUp.Visibility = Visibility.Hidden;
                 ExpandDown.Visibility = Visibility.Hidden;
                 FooterControl.Visibility = Visibility.Hidden;
             }
         }
 
-        public Thickness FooterFrameMargin
-        {
-            get { return Footer.Margin; }
-            set { Footer.Margin = value; }
-        }
-
-        public object HeaderFrame
-        {
-            get { return Header.Margin; }
-            set { Header.Content = value; }
-        }
-
-        public object FooterCard
-        {
-            get { return Footer.Margin; }
-            set { Footer.Content = value; }
-        }
-
-        private void Expand_Click(object sender, RoutedEventArgs e)
+        private void ToggleExpandState()
         {
             if (Expandable)
             {
                 IsExpand = !IsExpand;
-
-                if (IsExpand)
-                {
-                    ExpandUp.Visibility = Visibility.Visible;
-                    ExpandDown.Visibility = Visibility.Hidden;
-                    FooterControl.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    ExpandUp.Visibility = Visibility.Hidden;
-                    ExpandDown.Visibility = Visibility.Visible;
-                    FooterControl.Visibility = Visibility.Hidden;
-                }
+                UpdateExpandState();
             }
+        }
+
+        private void Expand_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleExpandState();
         }
 
         private void Card_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (Expandable)
-            {
-                Expand_Click(null, null);
-            }
+            ToggleExpandState();
         }
     }
 }
