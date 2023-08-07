@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       Title="LibraryPage"
-      d:DataContext="{d:DesignInstance local:LibraryPage, IsDesignTimeCreatable=False}"
       mc:Ignorable="d">
     <Grid x:Name="GridLibrary" Loaded="GridLibrary_Loaded">
         <Frame x:Name="FrameLibrary" Visibility="Collapsed" />

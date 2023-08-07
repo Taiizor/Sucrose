@@ -6,10 +6,9 @@
       xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Library"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       Title="EmptyLibraryPage"
-      d:DataContext="{d:DesignInstance local:EmptyLibraryPage, IsDesignTimeCreatable=False}"
       mc:Ignorable="d">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock Text="Kütüphaneniz Örümcek Ağları Tarafından Örülmüş" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
-        <TextBlock Text="Duvar kağıtlarının yerine örümcek ağlarıyla muhteşem bir sanat eseri ortaya çıkmış." Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontSize="24" TextAlignment="Center" />
+        <TextBlock Text="Kütüphaneniz Örümcek Ağları Tarafından Örülmüş" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
+        <TextBlock Text="Duvar kağıtlarının yerine örümcek ağlarıyla muhteşem bir sanat eseri ortaya çıkmış" TextWrapping="WrapWithOverflow" Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontSize="24" TextAlignment="Center" />
     </StackPanel>
 </Page>

@@ -3,21 +3,13 @@ using Sucrose.Portal.ViewModels;
 using System.IO;
 using System.Windows;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SHG = Skylark.Helper.Generator;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SSSHD = Sucrose.Shared.Store.Helper.Download;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
-using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
-using SSSHS = Sucrose.Shared.Store.Helper.Store;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
-using SSSIC = Sucrose.Shared.Store.Interface.Category;
-using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
-using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
-using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
+using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
 
 namespace Sucrose.Portal.Views.Windows
 {

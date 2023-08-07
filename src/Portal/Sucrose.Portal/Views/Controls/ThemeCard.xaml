@@ -48,12 +48,12 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <ui:TextBlock Margin="5 5 0 0" x:Name="ThemeTitle" Grid.Row="0" Text="Title" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontWeight="Bold" />
-                <ui:TextBlock Margin="5 0 0 5" x:Name="ThemeDescription" Grid.Row="1" Text="Description" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontWeight="SemiBold" />
+                <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="Title" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontWeight="Bold" />
+                <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="Description" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontWeight="SemiBold" />
 
                 <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeButton_Click" Content="•••" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
             </Grid>

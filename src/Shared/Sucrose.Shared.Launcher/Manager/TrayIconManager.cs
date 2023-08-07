@@ -11,6 +11,7 @@ using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLCR = Sucrose.Shared.Launcher.Command.Report;
 using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
+using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
 using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
@@ -56,6 +57,8 @@ namespace Sucrose.Shared.Launcher.Manager
         {
             SSRHR.SetLanguage(Culture);
             SHC.All = new CultureInfo(Culture, true);
+
+            SSLHR.Corner(ContextMenu);
 
             if (Theme == SEWTT.Dark)
             {

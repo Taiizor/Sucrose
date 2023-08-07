@@ -1,11 +1,13 @@
 ﻿using Sucrose.Shared.Theme.Helper;
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SHA = Skylark.Helper.Adaptation;
-using System.Windows;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -14,8 +16,12 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class ThemeCard : UserControl, IDisposable
     {
-        private SSTHI Info = null;
+        private static int DescriptionLength => SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30);
+
+        private static int TitleLength => SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 30);
+
         private string Theme = null;
+        private SSTHI Info = null;
 
         internal ThemeCard(string Theme, SSTHI Info)
         {
@@ -23,8 +29,8 @@ namespace Sucrose.Portal.Views.Controls
             this.Theme = Theme;
             InitializeComponent();
 
-            ThemeTitle.Text = SHA.Cut(Info.Title, 30);
-            ThemeDescription.Text = SHA.Cut(Info.Description, 30);
+            ThemeTitle.Text = SHA.Cut(Info.Title, TitleLength);
+            ThemeDescription.Text = SHA.Cut(Info.Description, DescriptionLength);
 
             Imagine.ImageSource = new BitmapImage(new Uri(Path.Combine(Theme, Info.Thumbnail)));
         }

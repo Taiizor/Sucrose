@@ -58,6 +58,8 @@
 
         public const string CultureName = "CultureName";
 
+        public const string TitleLength = "TitleLength";
+
         public const string CefArguments = "CefArguments";
 
         public const string WebArguments = "WebArguments";
@@ -67,6 +69,8 @@
         public const string AdaptiveMargin = "AdaptiveMargin";
 
         public const string ExpandScreenType = "ExpandScreenType";
+
+        public const string DescriptionLength = "DescriptionLength";
 
         public const string DuplicateScreenType = "DuplicateScreenType";
     }

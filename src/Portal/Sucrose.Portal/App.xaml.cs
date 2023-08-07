@@ -4,13 +4,10 @@ using Microsoft.Extensions.Hosting;
 using Sucrose.Portal.Services;
 using Sucrose.Portal.Services.Contracts;
 using Sucrose.Portal.ViewModels;
-using Sucrose.Portal.Views.Pages;
 using Sucrose.Portal.Views.Windows;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 using Wpf.Ui.Contracts;
-using Wpf.Ui.Controls;
 using Wpf.Ui.Services;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
@@ -18,11 +15,11 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
 namespace Sucrose.Portal
 {
