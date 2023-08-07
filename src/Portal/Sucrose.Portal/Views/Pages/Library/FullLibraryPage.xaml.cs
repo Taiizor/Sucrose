@@ -2,10 +2,9 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using Wpf.Ui.Controls;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Portal.Views.Pages.Library
 {
@@ -14,6 +13,10 @@ namespace Sucrose.Portal.Views.Pages.Library
     /// </summary>
     public partial class FullLibraryPage : Page, IDisposable
     {
+        private static int AdaptiveLayout => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0);
+
+        private static int AdaptiveMargin => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5);
+
         private List<string> Themes = new();
 
         public FullLibraryPage(List<string> Themes)
@@ -28,48 +31,20 @@ namespace Sucrose.Portal.Views.Pages.Library
             {
                 SSTHI Info = SSTHI.ReadJson(Theme);
 
-                /*MediaElement gifMediaElement = new()
-                {
-                    Width = 320,
-                    Height = 240,
-                    Stretch = Stretch.UniformToFill,
-                    Source = new Uri(Path.Combine(Path.GetDirectoryName(Theme), Info.Preview)),
-                    LoadedBehavior = MediaState.Manual,
-                    UnloadedBehavior = MediaState.Manual,
-                    IsMuted = false
-                };
-
-                gifMediaElement.MediaEnded += (s, e) =>
-                {
-                    gifMediaElement.Position = TimeSpan.Zero;
-                    gifMediaElement.Play();
-                };
-
-                gifMediaElement.Play();
-
-                Card ThemeCard = new()
-                {
-                    MaxWidth = 360,
-                    MinWidth = 260,
-                    MinHeight = 160,
-                    Background = Brushes.Crimson,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Content = gifMediaElement
-                };
-
-                ThemeLibrary.Children.Add(ThemeCard);*/
-
                 ThemeCard ThemeCard = new(Path.GetDirectoryName(Theme), Info);
 
                 ThemeLibrary.Children.Add(ThemeCard);
 
                 await Task.Delay(25);
             }
+
+            Themes.Clear();
         }
 
         private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)
         {
+            ThemeLibrary.ItemMargin = new Thickness(AdaptiveMargin);
+            ThemeLibrary.MaxItemsPerRow = AdaptiveLayout;
             await AddThemes();
         }
 

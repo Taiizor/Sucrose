@@ -62,6 +62,10 @@
 
         public const string WebArguments = "WebArguments";
 
+        public const string AdaptiveLayout = "AdaptiveLayout";
+
+        public const string AdaptiveMargin = "AdaptiveMargin";
+
         public const string ExpandScreenType = "ExpandScreenType";
 
         public const string DuplicateScreenType = "DuplicateScreenType";

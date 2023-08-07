@@ -62,7 +62,7 @@
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem
                     Cursor="Hand"
-                    Margin="0 0 10 0"
+                    Margin="5 0 10 0"
                     Icon="{ui:SymbolIcon Settings16}"
                     TargetPageType="{x:Type pages:LibraryPage}" />
             </ui:NavigationView.FooterMenuItems>
@@ -88,7 +88,8 @@
                         Appearance="Transparent"
                         ToolTip="Ekran Tercihleri"
                         Icon="{ui:SymbolIcon ShareScreenPerson16}" />
-                    <Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />
+                    <!--<Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />-->
+                    <ui:NavigationViewItemSeparator Background="{DynamicResource TextFillColorSecondaryBrush}" />
                 </DockPanel>
             </ui:NavigationView.PaneFooter>
             <ui:NavigationView.Header>

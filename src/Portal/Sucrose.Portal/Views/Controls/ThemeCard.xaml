@@ -10,21 +10,39 @@
              MaxWidth="360" MinWidth="260" MinHeight="160" MaxHeight="160"
              xf:Animations.Primary="{xf:Animate BasedOn={StaticResource SlideFromLeft}, Duration=100}"
              xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource FadeInAndContract}, Event=MouseEnter}">
+    <UserControl.ContextMenu>
+        <ContextMenu Background="{DynamicResource ApplicationBackgroundBrush}" Opacity="0.9">
+            <ui:MenuItem Cursor="Hand" Header="İncele" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon ApprovalsApp20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Önizle" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Özelleştir" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Bul" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
+            <ui:MenuItem Cursor="Hand" Header="Paylaş" Icon="{ui:SymbolIcon Share20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Sil" Icon="{ui:SymbolIcon Delete20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Düzenle" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
+            <ui:NavigationViewItemSeparator />
+            <ui:MenuItem Cursor="Hand" Header="Düzenle" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
+        </ContextMenu>
+    </UserControl.ContextMenu>
     <Border x:Name="Borderer" CornerRadius="25">
         <Border.Effect>
             <DropShadowEffect
-                BlurRadius="50"
-                Direction="0"
+                BlurRadius="10"
+                Direction="300"
                 Opacity="1.0"
-                ShadowDepth="0"
+                ShadowDepth="10"
                 Color="{DynamicResource ApplicationBackground}" />
         </Border.Effect>
+
         <Grid x:Name="Grider">
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" x:Name="Imagine" />
             </Grid.Background>
 
-            <Grid Margin="5 0 5 5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="Transparent">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.5"/>
+                </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -34,10 +52,10 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <ui:TextBlock x:Name="ThemeTitle" Grid.Row="0" Text="Title" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontWeight="Bold" />
-                <ui:TextBlock x:Name="ThemeDescription" Grid.Row="1" Text="Description" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontWeight="SemiBold" />
+                <ui:TextBlock Margin="5 5 0 0" x:Name="ThemeTitle" Grid.Row="0" Text="Title" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontWeight="Bold" />
+                <ui:TextBlock Margin="5 0 0 5" x:Name="ThemeDescription" Grid.Row="1" Text="Description" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontWeight="SemiBold" />
 
-                <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Content="•••" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeButton_Click" Content="•••" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
             </Grid>
         </Grid>
     </Border>

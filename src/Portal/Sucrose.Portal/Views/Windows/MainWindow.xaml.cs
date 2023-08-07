@@ -88,7 +88,7 @@ namespace Sucrose.Portal.Views.Windows
             double WindowWidth = e.NewSize.Width;
             double SearchWidth = SearchBox.RenderSize.Width;
 
-            SearchBox.Margin = new Thickness(0, 0, ((WindowWidth - SearchWidth) / 2) - 160, 0);
+            SearchBox.Margin = new Thickness(0, 0, ((WindowWidth - SearchWidth) / 2) - 165, 0);
         }
     }
 }

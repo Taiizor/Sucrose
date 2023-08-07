@@ -12,5 +12,5 @@
       d:DesignHeight="600"
       d:DesignWidth="800"
       mc:Ignorable="d">
-    <controls:LibraryWrapPanel x:Name="ThemeLibrary" MaxItemsPerRow="7" ItemMargin="5" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+    <controls:LibraryWrapPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
 </Page>
