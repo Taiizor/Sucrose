@@ -118,6 +118,7 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
@@ -140,9 +141,12 @@
                 <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Version, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="5" Margin="4,0,4,0" HorizontalContentAlignment="Center">
+                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Memory, Mode=OneWay}" />
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="6" Margin="4,0,4,0" HorizontalContentAlignment="Center">
                 <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Quoting, Mode=OneWay}" />
             </StatusBarItem>
-            <StatusBarItem Grid.Column="6">
+            <StatusBarItem Grid.Column="7">
                 <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{DynamicResource Portal.Copyright}" />
             </StatusBarItem>
         </StatusBar>

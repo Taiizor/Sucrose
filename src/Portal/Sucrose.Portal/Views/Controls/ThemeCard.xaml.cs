@@ -8,6 +8,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SHS = Skylark.Helper.Skymath;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -27,10 +28,11 @@ namespace Sucrose.Portal.Views.Controls
         {
             this.Info = Info;
             this.Theme = Theme;
+
             InitializeComponent();
 
-            ThemeTitle.Text = SHA.Cut(Info.Title, TitleLength);
-            ThemeDescription.Text = SHA.Cut(Info.Description, DescriptionLength);
+            ThemeTitle.Text = SHA.Cut(Info.Title, SHS.Clamp(TitleLength, 10, int.MaxValue));
+            ThemeDescription.Text = SHA.Cut(Info.Description, SHS.Clamp(DescriptionLength, 10, int.MaxValue));
 
             Imagine.ImageSource = new BitmapImage(new Uri(Path.Combine(Theme, Info.Thumbnail)));
         }

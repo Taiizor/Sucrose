@@ -13,6 +13,8 @@ using SHA = Skylark.Helper.Assemblies;
 using SHN = Skylark.Helper.Numeric;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SWHS = Skylark.Wing.Helper.Shortcut;
+using SWHWI = Skylark.Wing.Helper.WindowInterop;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Bundle
 {
@@ -56,6 +58,8 @@ namespace Sucrose.Bundle
         private static int MaxDelay => 3000;
 
         private static int MinDelay => 1000;
+
+        private static int Delay => 10;
 
         public Main()
         {
@@ -114,6 +118,8 @@ namespace Sucrose.Bundle
                     using FileStream OutputFileStream = new(ExtractFilePath, FileMode.OpenOrCreate);
 
                     await ResourceStream.CopyToAsync(OutputFileStream);
+
+                    await Task.Delay(Delay);
                 }
             }
         }
@@ -128,7 +134,7 @@ namespace Sucrose.Bundle
             FileInfo File = new(Environment.ProcessPath);
 #endif
 
-            string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Toucan), false, false, 0, '0', SECNT.None);
+            string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Palila), false, false, 0, '0', SECNT.None);
 
             RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true);
             RegistryKey AppKey = HomeKey.CreateSubKey(Application);
@@ -157,6 +163,11 @@ namespace Sucrose.Bundle
 
         private async void Window_ContentRendered(object sender, EventArgs e)
         {
+            SWNM.DWMWINDOWATTRIBUTE Attribute = SWNM.DWMWINDOWATTRIBUTE.WindowCornerPreference;
+            SWNM.DWM_WINDOW_CORNER_PREFERENCE Preference = SWNM.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+
+            SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, sizeof(uint));
+
             await Task.Delay(MinDelay);
 
             TerminateProcess(Application);

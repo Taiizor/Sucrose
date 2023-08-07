@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Enum\FrameworkType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Attribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Memory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Version.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\OperatingSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Architecture.cs" />

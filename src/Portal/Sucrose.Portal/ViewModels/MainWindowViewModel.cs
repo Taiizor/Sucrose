@@ -1,9 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Windows.Threading;
 using Wpf.Ui.Controls;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SMR = Sucrose.Memory.Readonly;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
+using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
@@ -13,6 +15,11 @@ namespace Sucrose.Portal.ViewModels
     public partial class MainWindowViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
+
+        private DispatcherTimer Timer = new();
+
+        [ObservableProperty]
+        private string _Memory = string.Empty;
 
         [ObservableProperty]
         private string _Quoting = string.Empty;
@@ -37,6 +44,10 @@ namespace Sucrose.Portal.ViewModels
             if (!_isInitialized)
             {
                 InitializeViewModel();
+
+                Timer.Interval = TimeSpan.FromSeconds(1);
+                Timer.Tick += Memory_Tick;
+                Timer.Start();
             }
         }
 
@@ -46,6 +57,7 @@ namespace Sucrose.Portal.ViewModels
 
         private void InitializeViewModel()
         {
+            Memory = SSCHM.Get();
             Quoting = GetQuoting();
             Version = SSCHV.GetText();
             Framework = SSCHF.GetName();
@@ -71,6 +83,11 @@ namespace Sucrose.Portal.ViewModels
             {
                 return WindowBackdropType.Auto;
             }
+        }
+
+        private void Memory_Tick(object sender, EventArgs e)
+        {
+            Memory = SSCHM.Get();
         }
     }
 }
