@@ -29,6 +29,12 @@ namespace Sucrose.Portal.Controls
 
         protected override Size MeasureOverride(Size availableSize)
         {
+            InternalChildren
+                .OfType<UIElement>()
+                .Where(child => child.Visibility != Visibility.Visible)
+                .ToList()
+                .ForEach(InternalChildren.Remove);
+
             double x = 0;
             double y = 0;
             double rowHeight = 0;

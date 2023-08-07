@@ -18,7 +18,7 @@ namespace Sucrose.Shared.Core.Helper
 
             SSSSS Data = SSESSE.AutoConvert(UsedMemory, SEST.Byte, SEMST.Palila);
 
-            return $"{SHN.Numeral(Data.Value, true, true, 1, '0', SECNT.None)} {Data.Text}";
+            return $"{SHN.Numeral(Data.Value, true, true, 1, '0', SECNT.None)} {Data.Short}";
         }
     }
 }

@@ -42,6 +42,14 @@ namespace Sucrose.Portal.Views.Controls
             SSSHP.Run(Theme);
         }
 
+        private void MenuDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Dispose();
+            MinWidth = 0;
+            MinHeight = 0;
+            Visibility = Visibility.Hidden;
+        }
+
         private void ThemeButton_Click(object sender, RoutedEventArgs e)
         {
             ContextMenu.IsOpen = true;

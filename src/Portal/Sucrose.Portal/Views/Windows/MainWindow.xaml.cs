@@ -9,7 +9,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
-using SPVPSP = Sucrose.Portal.Views.Pages.SettingPage;
+using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
@@ -57,7 +57,7 @@ namespace Sucrose.Portal.Views.Windows
             {
                 Navigated = true;
                 UnrootView.Visibility = Visibility.Visible;
-                UnrootView.Loaded += (_, _) => UnrootView.Navigate(typeof(SPVPSP));
+                UnrootView.Loaded += (_, _) => UnrootView.Navigate(typeof(SPVPSGSP));
             }
             else
             {
@@ -100,7 +100,7 @@ namespace Sucrose.Portal.Views.Windows
             {
                 RootView.Visibility = Visibility.Hidden;
                 UnrootView.Visibility = Visibility.Visible;
-                UnrootView.Navigate(typeof(SPVPSP));
+                UnrootView.Navigate(typeof(SPVPSGSP));
             }
             else
             {

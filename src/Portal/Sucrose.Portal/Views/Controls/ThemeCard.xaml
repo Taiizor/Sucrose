@@ -18,10 +18,10 @@
             <ui:MenuItem Cursor="Hand" Header="Özelleştir" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Bul" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
             <ui:MenuItem Cursor="Hand" Header="Paylaş" Icon="{ui:SymbolIcon Share20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="Sil" Icon="{ui:SymbolIcon Delete20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Sil" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
             <ui:MenuItem Cursor="Hand" Header="Düzenle" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
             <ui:NavigationViewItemSeparator />
-            <ui:MenuItem Cursor="Hand" Header="Düzenle" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Sucrose" Icon="{ui:SymbolIcon DrinkCoffee20}" IsEnabled="False" />
         </ContextMenu>
     </UserControl.ContextMenu>
     <Border>

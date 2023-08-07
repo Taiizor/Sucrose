@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Windows"
     xmlns:pages="clr-namespace:Sucrose.Portal.Views.Pages"
+    xmlns:setting="clr-namespace:Sucrose.Portal.Views.Pages.Setting"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{DynamicResource Portal.MainWindow.Title}"
@@ -57,23 +58,33 @@
                 <ui:NavigationViewItem
                         Cursor="Hand"
                         Content="Genel"
-                        Icon="{ui:SymbolIcon TetrisApp20}"
-                        TargetPageType="{x:Type pages:SettingPage}" />
+                        Icon="{ui:SymbolIcon WindowApps20}"
+                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
+                <ui:NavigationViewItem
+                        Cursor="Hand"
+                        Content="Kişisel"
+                        Icon="{ui:SymbolIcon PersonLock20}"
+                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
                 <ui:NavigationViewItem
                         Cursor="Hand"
                         Content="Performans"
-                        Icon="{ui:SymbolIcon DataHistogram20}"
-                        TargetPageType="{x:Type pages:SettingPage}" />
+                        Icon="{ui:SymbolIcon Pulse20}"
+                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
                 <ui:NavigationViewItem
                         Cursor="Hand"
                         Content="Duvar Kağıdı"
                         Icon="{ui:SymbolIcon Wallpaper20}"
-                        TargetPageType="{x:Type pages:SettingPage}" />
+                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
                 <ui:NavigationViewItem
                         Cursor="Hand"
                         Content="Sistem"
-                        Icon="{ui:SymbolIcon KeyCommand20}"
-                        TargetPageType="{x:Type pages:SettingPage}" />
+                        Icon="{ui:SymbolIcon PuzzleCube20}"
+                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
+                <ui:NavigationViewItem
+                        Cursor="Hand"
+                        Content="Diğer"
+                        Icon="{ui:SymbolIcon GridDots20}"
+                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
             </ui:NavigationView.MenuItems>
 
             <ui:NavigationView.Header>
