@@ -12,7 +12,7 @@
     <system:String x:Key="Launcher.ReportWindowTitle">Diagnostic de Sucrose</system:String>
     <system:String x:Key="Launcher.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
-    <system:String x:Key="Launcher.SettingsText">Paramètres</system:String>
+    <system:String x:Key="Launcher.SettingText">Paramètres</system:String>
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
     <system:String x:Key="Launcher.WallChangeText">Changer le Papier Peint</system:String>
     <system:String x:Key="Launcher.WallCloseText">Fermer les Fonds d'Écran</system:String>

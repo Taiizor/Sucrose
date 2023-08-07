@@ -1,12 +1,15 @@
-﻿using Sucrose.Portal.Services.Contracts;
+﻿using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
+using Sucrose.Portal.Services.Contracts;
 using Sucrose.Portal.ViewModels;
 using System.IO;
 using System.Windows;
+using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
+using SPVPSP = Sucrose.Portal.Views.Pages.SettingPage;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
@@ -28,6 +31,8 @@ namespace Sucrose.Portal.Views.Windows
 
         private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
+        private static bool Navigated { get; set; } = false;
+
         public MainWindowViewModel ViewModel { get; }
 
         public MainWindow(MainWindowViewModel viewModel)
@@ -46,7 +51,19 @@ namespace Sucrose.Portal.Views.Windows
 
             InitializeComponent();
 
-            View.Loaded += (_, _) => View.Navigate(typeof(SPVPLP));
+            string[] Args = Environment.GetCommandLineArgs();
+
+            if (Args.Count() > 1 && Args[1] == $"{SSDEACT.Setting}")
+            {
+                Navigated = true;
+                UnrootView.Visibility = Visibility.Visible;
+                UnrootView.Loaded += (_, _) => UnrootView.Navigate(typeof(SPVPSP));
+            }
+            else
+            {
+                RootView.Visibility = Visibility.Visible;
+                RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPLP));
+            }
 
             //string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
@@ -73,6 +90,29 @@ namespace Sucrose.Portal.Views.Windows
             //        }
             //    }
             //}
+        }
+
+        private void NavigationChange_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationViewItem View = sender as NavigationViewItem;
+
+            if (View.Name == "FromRoot")
+            {
+                RootView.Visibility = Visibility.Hidden;
+                UnrootView.Visibility = Visibility.Visible;
+                UnrootView.Navigate(typeof(SPVPSP));
+            }
+            else
+            {
+                UnrootView.Visibility = Visibility.Hidden;
+                RootView.Visibility = Visibility.Visible;
+
+                if (Navigated)
+                {
+                    Navigated = false;
+                    RootView.Navigate(typeof(SPVPLP));
+                }
+            }
         }
 
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)

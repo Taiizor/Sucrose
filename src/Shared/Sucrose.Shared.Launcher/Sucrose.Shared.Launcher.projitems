@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Launcher</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Command\Setting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Update.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Close.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Engine.cs" />
@@ -40,10 +41,10 @@
     <None Include="$(MSBuildThisFileDirectory)Assets\Exit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)Assets\Settings.ico">
+    <None Include="$(MSBuildThisFileDirectory)Assets\Setting.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)Assets\Settings.png">
+    <None Include="$(MSBuildThisFileDirectory)Assets\Setting.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Assets\TrayIcon.ico">

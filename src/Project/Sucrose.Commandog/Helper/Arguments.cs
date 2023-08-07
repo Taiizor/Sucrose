@@ -126,7 +126,14 @@ namespace Sucrose.Commandog.Helper
                                         }
                                         break;
                                     case SSDECT.Interface:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        if (Values.Count() > 1)
+                                        {
+                                            SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                        }
+                                        else
+                                        {
+                                            SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        }
                                         break;
                                     default:
                                         break;

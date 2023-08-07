@@ -41,8 +41,52 @@
         <ui:NavigationView
                 Margin="0"
                 Grid.Row="1"
-                x:Name="View"
                 FrameMargin="10"
+                x:Name="UnrootView"
+                Visibility="Hidden"
+                PaneDisplayMode="Top"
+                IsPaneToggleVisible="False"
+                IsBackButtonVisible="Collapsed">
+            <ui:NavigationView.MenuItems>
+                <ui:NavigationViewItem
+                        Cursor="Hand"
+                        Name="FromUnroot"
+                        Margin="10 0 0 0"
+                        Icon="{ui:SymbolIcon ArrowLeft16}"
+                        Click="NavigationChange_Click" />
+                <ui:NavigationViewItem
+                        Cursor="Hand"
+                        Content="Genel"
+                        Icon="{ui:SymbolIcon TetrisApp20}"
+                        TargetPageType="{x:Type pages:SettingPage}" />
+                <ui:NavigationViewItem
+                        Cursor="Hand"
+                        Content="Performans"
+                        Icon="{ui:SymbolIcon DataHistogram20}"
+                        TargetPageType="{x:Type pages:SettingPage}" />
+                <ui:NavigationViewItem
+                        Cursor="Hand"
+                        Content="Duvar Kağıdı"
+                        Icon="{ui:SymbolIcon Wallpaper20}"
+                        TargetPageType="{x:Type pages:SettingPage}" />
+                <ui:NavigationViewItem
+                        Cursor="Hand"
+                        Content="Sistem"
+                        Icon="{ui:SymbolIcon KeyCommand20}"
+                        TargetPageType="{x:Type pages:SettingPage}" />
+            </ui:NavigationView.MenuItems>
+
+            <ui:NavigationView.Header>
+                <Border Margin="0 0 0 10" />
+            </ui:NavigationView.Header>
+        </ui:NavigationView>
+        
+        <ui:NavigationView
+                Margin="0"
+                Grid.Row="1"
+                FrameMargin="10"
+                x:Name="RootView"
+                Visibility="Hidden"
                 PaneDisplayMode="Top"
                 IsPaneToggleVisible="False"
                 IsBackButtonVisible="Collapsed">
@@ -59,22 +103,26 @@
                         Icon="{ui:SymbolIcon Gift16}"
                         TargetPageType="{x:Type pages:LibraryPage}" />
             </ui:NavigationView.MenuItems>
+            
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem
                     Cursor="Hand"
+                    Name="FromRoot"
                     Margin="5 0 10 0"
                     Icon="{ui:SymbolIcon Settings16}"
-                    TargetPageType="{x:Type pages:LibraryPage}" />
+                    Click="NavigationChange_Click" />
             </ui:NavigationView.FooterMenuItems>
+            
             <ui:NavigationView.PaneFooter>
                 <DockPanel>
                     <ui:TextBox
                         MinWidth="300"
                         MaxWidth="300"
                         MaxLength="20"
+                        Cursor="IBeam"
                         x:Name="SearchBox"
                         PlaceholderText="Bir Duvar Kağıdı Ara"
-                        Icon="{ui:SymbolIcon Search16}" Cursor="IBeam" />
+                        Icon="{ui:SymbolIcon Search16}" />
                     <ui:Button
                         Cursor="Hand"
                         BorderBrush="Transparent"
@@ -92,15 +140,18 @@
                     <ui:NavigationViewItemSeparator Background="{DynamicResource TextFillColorSecondaryBrush}" />
                 </DockPanel>
             </ui:NavigationView.PaneFooter>
+            
             <ui:NavigationView.Header>
                 <Border Margin="0 0 0 10" />
             </ui:NavigationView.Header>
+            
             <ui:NavigationView.ContentOverlay>
                 <Grid>
                     <ui:SnackbarPresenter x:Name="SnackbarPresenter" />
                 </Grid>
             </ui:NavigationView.ContentOverlay>
         </ui:NavigationView>
+        
         <ContentPresenter x:Name="RootContentDialog" Grid.Row="0" />
 
         <StatusBar

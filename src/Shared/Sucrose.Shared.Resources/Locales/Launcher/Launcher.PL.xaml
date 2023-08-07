@@ -12,7 +12,7 @@
     <system:String x:Key="Launcher.ReportWindowTitle">Diagnostyka Sucrose</system:String>
     <system:String x:Key="Launcher.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie pliki (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Zapisz Plik Dziennika</system:String>
-    <system:String x:Key="Launcher.SettingsText">Ustawienia</system:String>
+    <system:String x:Key="Launcher.SettingText">Ustawienia</system:String>
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
     <system:String x:Key="Launcher.WallChangeText">Zmień Tapetę</system:String>
     <system:String x:Key="Launcher.WallCloseText">Zamknij Tapetę</system:String>

@@ -8,5 +8,5 @@
     <system:String x:Key="Launcher.UpdateIcon">Assets/Update.ico</system:String>
     <system:String x:Key="Launcher.TrayIcon">Assets/TrayIcon.ico</system:String>
     <system:String x:Key="Launcher.OpenIcon">Assets/FitWidth.ico</system:String>
-    <system:String x:Key="Launcher.SettingsIcon">Assets/Settings.ico</system:String>
+    <system:String x:Key="Launcher.SettingIcon">Assets/Setting.ico</system:String>
 </ResourceDictionary>

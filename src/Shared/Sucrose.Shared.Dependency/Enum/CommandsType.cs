@@ -18,6 +18,11 @@
         Interface
     }
 
+    internal enum ArgumentCommandsType
+    {
+        Setting
+    }
+
     internal enum SchedulerCommandsType
     {
         Create,

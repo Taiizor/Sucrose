@@ -10,6 +10,7 @@ using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLCR = Sucrose.Shared.Launcher.Command.Report;
 using SSLCU = Sucrose.Shared.Launcher.Command.Update;
+using SSLCS = Sucrose.Shared.Launcher.Command.Setting;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
@@ -99,7 +100,7 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLSSS Separator2 = new(Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingsText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingsIcon"))), null);
+            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
 
@@ -155,6 +156,11 @@ namespace Sucrose.Shared.Launcher.Manager
         private void CommandInterface(object sender, EventArgs e)
         {
             SSLCI.Command();
+        }
+
+        private void CommandSetting(object sender, EventArgs e)
+        {
+            SSLCS.Command();
         }
 
         private void CommandUpdate(object sender, EventArgs e)

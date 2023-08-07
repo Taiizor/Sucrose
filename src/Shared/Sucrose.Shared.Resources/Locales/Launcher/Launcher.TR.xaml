@@ -12,7 +12,7 @@
     <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Tanılama</system:String>
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
-    <system:String x:Key="Launcher.SettingsText">Ayarlar</system:String>
+    <system:String x:Key="Launcher.SettingText">Ayarlar</system:String>
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
     <system:String x:Key="Launcher.WallChangeText">Duvar Kağıdını Değiştir</system:String>
     <system:String x:Key="Launcher.WallCloseText">Duvar Kağıdını Kapat</system:String>
