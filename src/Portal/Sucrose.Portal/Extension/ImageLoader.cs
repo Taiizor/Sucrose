@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Net.Cache;
 using System.Windows.Media.Imaging;
 
 namespace Sucrose.Portal.Extension
@@ -13,11 +14,15 @@ namespace Sucrose.Portal.Extension
 
             ImageStreams.Add(ImageStream);
 
-            BitmapImage BitmapImage = new();
+            BitmapImage BitmapImage = new()
+            {
+                UriCachePolicy = new(RequestCacheLevel.NoCacheNoStore),
+                CreateOptions = BitmapCreateOptions.IgnoreImageCache,
+                CacheOption = BitmapCacheOption.None
+            };
 
             BitmapImage.BeginInit();
 
-            BitmapImage.CacheOption = BitmapCacheOption.OnLoad;
             BitmapImage.StreamSource = ImageStream;
 
             BitmapImage.EndInit();
@@ -27,13 +32,11 @@ namespace Sucrose.Portal.Extension
 
         public void Dispose()
         {
-            foreach (Stream ImageStream in ImageStreams)
-            {
-                ImageStream.Dispose();
-            }
+            ImageStreams.ForEach(ImageStream => ImageStream.Dispose());
 
             ImageStreams.Clear();
 
+            GC.Collect();
             GC.SuppressFinalize(this);
         }
     }

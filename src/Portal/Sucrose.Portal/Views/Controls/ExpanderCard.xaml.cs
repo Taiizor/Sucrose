@@ -8,7 +8,7 @@ namespace Sucrose.Portal.Views.Controls
     /// <summary>
     /// ExpanderCard.xaml etkileşim mantığı
     /// </summary>
-    public partial class ExpanderCard : UserControl
+    public partial class ExpanderCard : UserControl, IDisposable
     {
         private bool _Expandable { get; set; } = true;
 
@@ -122,6 +122,12 @@ namespace Sucrose.Portal.Views.Controls
             {
                 LeftIcon.Width = 0;
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

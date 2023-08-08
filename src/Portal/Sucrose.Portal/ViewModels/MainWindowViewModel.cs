@@ -12,7 +12,7 @@ using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 
 namespace Sucrose.Portal.ViewModels
 {
-    public partial class MainWindowViewModel : ObservableObject, INavigationAware
+    public partial class MainWindowViewModel : ObservableObject, INavigationAware, IDisposable
     {
         private bool _isInitialized = false;
 
@@ -88,6 +88,12 @@ namespace Sucrose.Portal.ViewModels
         private void Memory_Tick(object sender, EventArgs e)
         {
             Memory = SSCHM.Get();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

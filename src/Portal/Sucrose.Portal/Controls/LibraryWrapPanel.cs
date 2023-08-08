@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 namespace Sucrose.Portal.Controls
 {
-    public class LibraryWrapPanel : WrapPanel
+    public class LibraryWrapPanel : WrapPanel, IDisposable
     {
         public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register("ItemMargin", typeof(Thickness), typeof(LibraryWrapPanel), new FrameworkPropertyMetadata(new Thickness(0)));
 
@@ -115,6 +115,14 @@ namespace Sucrose.Portal.Controls
             totalWidth = Math.Max(totalWidth, rowWidth);
 
             return new Size(totalWidth, rowHeight);
+        }
+
+        public void Dispose()
+        {
+            InternalChildren.Clear();
+
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

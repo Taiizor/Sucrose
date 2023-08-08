@@ -48,6 +48,9 @@ namespace Sucrose.Portal.Views.Pages.Library
 
         public void Dispose()
         {
+            ThemeLibrary.Dispose();
+
+            GC.Collect();
             GC.SuppressFinalize(this);
         }
     }

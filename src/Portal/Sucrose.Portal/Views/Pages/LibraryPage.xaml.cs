@@ -11,7 +11,7 @@ namespace Sucrose.Portal.Views.Pages
     /// <summary>
     /// LibraryPage.xaml etkileşim mantığı
     /// </summary>
-    public partial class LibraryPage : Page
+    public partial class LibraryPage : Page, IDisposable
     {
         private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
@@ -64,6 +64,12 @@ namespace Sucrose.Portal.Views.Pages
         private async void GridLibrary_Loaded(object sender, RoutedEventArgs e)
         {
             await Start();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

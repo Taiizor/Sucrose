@@ -19,7 +19,7 @@ namespace Sucrose.Portal.Views.Windows
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : IWindow
+    public partial class MainWindow : IWindow, IDisposable
     {
         private static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
 
@@ -121,6 +121,14 @@ namespace Sucrose.Portal.Views.Windows
             double SearchWidth = SearchBox.RenderSize.Width;
 
             SearchBox.Margin = new Thickness(0, 0, ((WindowWidth - SearchWidth) / 2) - 165, 0);
+        }
+
+        public void Dispose()
+        {
+            ViewModel.Dispose();
+
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

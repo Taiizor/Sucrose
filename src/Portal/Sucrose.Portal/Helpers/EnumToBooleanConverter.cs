@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Windows.Data;
+using Wpf.Ui.Appearance;
 
 namespace Sucrose.Portal.Helpers
 {
@@ -16,12 +17,12 @@ namespace Sucrose.Portal.Helpers
                 throw new ArgumentException("ExceptionEnumToBooleanConverterParameterMustBeAnEnumName");
             }
 
-            if (!Enum.IsDefined(typeof(Wpf.Ui.Appearance.ApplicationTheme), value))
+            if (!Enum.IsDefined(typeof(ApplicationTheme), value))
             {
                 throw new ArgumentException("ExceptionEnumToBooleanConverterValueMustBeAnEnum");
             }
 
-            object enumValue = Enum.Parse(typeof(Wpf.Ui.Appearance.ApplicationTheme), enumString);
+            object enumValue = Enum.Parse(typeof(ApplicationTheme), enumString);
 
             return enumValue.Equals(value);
         }
@@ -33,7 +34,7 @@ namespace Sucrose.Portal.Helpers
                 throw new ArgumentException("ExceptionEnumToBooleanConverterParameterMustBeAnEnumName");
             }
 
-            return Enum.Parse(typeof(Wpf.Ui.Appearance.ApplicationTheme), enumString);
+            return Enum.Parse(typeof(ApplicationTheme), enumString);
         }
     }
 }

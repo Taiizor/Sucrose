@@ -10,7 +10,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
     /// <summary>
     /// GeneralSettingPage.xaml etkileşim mantığı
     /// </summary>
-    public partial class GeneralSettingPage : Page
+    public partial class GeneralSettingPage : Page, IDisposable
     {
         public GeneralSettingPage()
         {
@@ -210,6 +210,12 @@ namespace Sucrose.Portal.Views.Pages.Setting
         private async void GridSetting_Loaded(object sender, RoutedEventArgs e)
         {
             await Start();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }
