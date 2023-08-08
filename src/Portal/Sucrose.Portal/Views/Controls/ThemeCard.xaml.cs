@@ -2,11 +2,11 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using SHA = Skylark.Helper.Adaptation;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
@@ -23,6 +23,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private string Theme = null;
         private SSTHI Info = null;
+        SPEIL Loader = new();
 
         internal ThemeCard(string Theme, SSTHI Info)
         {
@@ -34,7 +35,7 @@ namespace Sucrose.Portal.Views.Controls
             ThemeTitle.Text = SHA.Cut(Info.Title, SHS.Clamp(TitleLength, 10, int.MaxValue));
             ThemeDescription.Text = SHA.Cut(Info.Description, SHS.Clamp(DescriptionLength, 10, int.MaxValue));
 
-            Imagine.ImageSource = new BitmapImage(new Uri(Path.Combine(Theme, Info.Thumbnail)));
+            Imagine.ImageSource = Loader.Load(Path.Combine(Theme, Info.Thumbnail));
         }
 
         private void MenuFind_Click(object sender, RoutedEventArgs e)
@@ -47,6 +48,9 @@ namespace Sucrose.Portal.Views.Controls
             Dispose();
             MinWidth = 0;
             MinHeight = 0;
+
+            Imagine.ImageSource = null;
+
             Visibility = Visibility.Hidden;
         }
 
@@ -57,6 +61,7 @@ namespace Sucrose.Portal.Views.Controls
 
         public void Dispose()
         {
+            Loader.Dispose();
             GC.SuppressFinalize(this);
         }
     }

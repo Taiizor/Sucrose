@@ -10,6 +10,7 @@
              MaxWidth="360" MinWidth="260" MinHeight="160" MaxHeight="160"
              xf:Animations.Primary="{xf:Animate BasedOn={StaticResource SlideFromLeft}, Duration=100}"
              xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource FadeInAndContract}, Event=MouseEnter}">
+
     <UserControl.ContextMenu>
         <ContextMenu Background="{DynamicResource ApplicationBackgroundBrush}" Opacity="0.9">
             <ui:MenuItem Cursor="Hand" Header="İncele" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
@@ -24,19 +25,20 @@
             <ui:MenuItem Cursor="Hand" Header="Sucrose" Icon="{ui:SymbolIcon DrinkCoffee20}" IsEnabled="False" />
         </ContextMenu>
     </UserControl.ContextMenu>
+    
     <Border>
         <Border.Effect>
             <DropShadowEffect
                 BlurRadius="10"
                 Direction="300"
-                Opacity="1.0"
-                ShadowDepth="10"
+                Opacity="0.25"
+                ShadowDepth="12"
                 Color="{DynamicResource ApplicationBackground}" />
         </Border.Effect>
 
         <Grid>
             <Grid.Background>
-                <ImageBrush Stretch="UniformToFill" x:Name="Imagine" />
+                <ImageBrush x:Name="Imagine" Stretch="UniformToFill" ImageSource="{x:Null}" />
             </Grid.Background>
 
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">

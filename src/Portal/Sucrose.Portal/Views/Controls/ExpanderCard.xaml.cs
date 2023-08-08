@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Wpf.Ui.Common;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -77,11 +78,11 @@ namespace Sucrose.Portal.Views.Controls
                     Grider.ColumnDefinitions.Insert(3, NewColumn);
                 }
 
-                ExpandUp.Visibility = IsExpand ? Visibility.Visible : Visibility.Hidden;
-                ExpandDown.Visibility = IsExpand ? Visibility.Hidden : Visibility.Visible;
-                FooterControl.Visibility = IsExpand ? Visibility.Visible : Visibility.Hidden;
+                ExpandUp.Visibility = IsExpand ? Visibility.Visible : Visibility.Collapsed;
+                ExpandDown.Visibility = IsExpand ? Visibility.Collapsed : Visibility.Visible;
+                FooterControl.Visibility = IsExpand ? Visibility.Visible : Visibility.Collapsed;
 
-                FooterFrameMargin = new Thickness(Body.Margin.Left + LeftIcon.Width, 0, 0, 0);
+                FooterFrameMargin = new Thickness(Body.Margin.Left + 32, 0, 0, 0);
             }
             else
             {
@@ -90,9 +91,9 @@ namespace Sucrose.Portal.Views.Controls
                     Grider.ColumnDefinitions.RemoveAt(3);
                 }
 
-                ExpandUp.Visibility = Visibility.Hidden;
-                ExpandDown.Visibility = Visibility.Hidden;
-                FooterControl.Visibility = Visibility.Hidden;
+                ExpandUp.Visibility = Visibility.Collapsed;
+                ExpandDown.Visibility = Visibility.Collapsed;
+                FooterControl.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -113,6 +114,14 @@ namespace Sucrose.Portal.Views.Controls
         private void Card_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ToggleExpandState();
+        }
+
+        private void ExpanderCard_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (LeftIcon.Symbol == SymbolRegular.Empty)
+            {
+                LeftIcon.Width = 0;
+            }
         }
     }
 }

@@ -6,28 +6,25 @@
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             Loaded="ExpanderCard_Loaded"
              mc:Ignorable="d">
     <StackPanel VerticalAlignment="Center">
         <ui:Card MouseLeftButtonDown="Card_MouseLeftButtonDown" >
             <Grid x:Name="Grider">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <!-- 1st Column: Icon -->
                     <ColumnDefinition Width="*"/>
-                    <!-- 2nd Column: Title and Description -->
                     <ColumnDefinition Width="Auto"/>
-                    <!-- 3nd Column: Header -->
                     <ColumnDefinition Width="Auto"/>
-                    <!-- 4rd Column: Icon -->
                 </Grid.ColumnDefinitions>
 
                 <ui:SymbolIcon
                     x:Name="LeftIcon"
                     Grid.Column="0"
-                    Width="32" Height="32"
-                    Symbol="Color20"
+                    Width="32"
+                    Symbol="Empty"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
 
                 <StackPanel x:Name="Body" Grid.Column="1" VerticalAlignment="Center" Margin="10">
                     <TextBlock x:Name="Title" Text="Title" FontSize="16" FontWeight="Regular" Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
@@ -40,24 +37,24 @@
                     x:Name="ExpandDown"
                     Cursor="Hand"
                     Grid.Column="3"
-                    Width="32" Height="32"
+                    Width="32"
                     Appearance="Transparent"
                     BorderBrush="Transparent"
                     Click="Expand_Click"
                     Icon="{ui:SymbolIcon ChevronDown20}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                    VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center" />
                 <ui:Button
                     x:Name="ExpandUp"
                     Cursor="Hand"
                     Grid.Column="3"
-                    Width="32" Height="32"
+                    Width="32"
                     Appearance="Transparent"
                     BorderBrush="Transparent"
                     Click="Expand_Click"
                     Icon="{ui:SymbolIcon ChevronUp20}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                    VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center" />
             </Grid>
         </ui:Card>
 

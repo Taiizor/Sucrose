@@ -60,7 +60,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
 
             ExpanderCard CustomExpander2 = new()
             {
-                Margin = new Thickness(0, -30, 0, 0),
+                Margin = new Thickness(0, 10, 0, 0),
                 Expandable = false
             };
 
@@ -92,8 +92,25 @@ namespace Sucrose.Portal.Views.Pages.Setting
                 TickPlacement = TickPlacement.Both,
                 IsSnapToTickEnabled = false,
                 TickFrequency = 2,
+                Maximum = 100,
+                Minimum = 0,
                 Width = 200,
                 Value = 100
+            };
+
+            Slider1.ValueChanged += (s, e) => {
+                if (Slider1.Value <= 0d)
+                {
+                    CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker020;
+                }
+                else if (Slider1.Value >= 75d)
+                {
+                    CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker220;
+                }
+                else
+                {
+                    CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker120;
+                }
             };
 
             CustomExpander3.HeaderFrame = Slider1;
@@ -109,8 +126,6 @@ namespace Sucrose.Portal.Views.Pages.Setting
                 IsExpand = true
             };
 
-            CustomExpander4.LeftIcon.Width = 0;
-            CustomExpander4.LeftIcon.Height = 0;
             CustomExpander4.Title.Text = "Video Oynatıcı";
             CustomExpander4.Description.Text = "Wıdeo duvar kağıdı oynatıcısını seçin";
 

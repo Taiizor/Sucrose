@@ -29,9 +29,7 @@ namespace Sucrose.Portal.Views.Pages.Library
         {
             foreach (string Theme in Themes)
             {
-                SSTHI Info = SSTHI.ReadJson(Theme);
-
-                ThemeCard ThemeCard = new(Path.GetDirectoryName(Theme), Info);
+                ThemeCard ThemeCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
 
                 ThemeLibrary.Children.Add(ThemeCard);
 
