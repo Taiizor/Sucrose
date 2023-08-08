@@ -3,7 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sucrose.Portal.Services;
 using Sucrose.Portal.Services.Contracts;
-using Sucrose.Portal.ViewModels;
+using Sucrose.Portal.ViewModels.Windows;
+using Sucrose.Portal.ViewModels.Pages;
+using Sucrose.Portal.Models;
+using Sucrose.Portal.Views.Pages;
 using Sucrose.Portal.Views.Windows;
 using System.Globalization;
 using System.Windows;
@@ -20,6 +23,7 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using Wpf.Ui.Controls;
 
 namespace Sucrose.Portal
 {
@@ -41,7 +45,8 @@ namespace Sucrose.Portal
         // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
         // https://docs.microsoft.com/dotnet/core/extensions/configuration
         // https://docs.microsoft.com/dotnet/core/extensions/logging
-        private static readonly IHost _host = Host.CreateDefaultBuilder()
+        private static readonly IHost _host = Host
+            .CreateDefaultBuilder()
             .ConfigureAppConfiguration(c =>
                 {
                     c.SetBasePath(AppContext.BaseDirectory);
@@ -52,13 +57,35 @@ namespace Sucrose.Portal
                     // App Host
                     services.AddHostedService<ApplicationHostService>();
 
-                    // Main window container with navigation
+                    // Page resolver service
+                    services.AddSingleton<IPageService, PageService>();
+
+                    // Theme manipulation
+                    services.AddSingleton<IThemeService, ThemeService>();
+
+                    // TaskBar manipulation
+                    services.AddSingleton<ITaskBarService, TaskBarService>();
+
+                    // 
+                    services.AddSingleton<ISnackbarService, SnackbarService>();
+
+                    // Service containing navigation, same as INavigationWindow... but without window
+                    services.AddSingleton<INavigationService, NavigationService>();
+
+                    // 
+                    services.AddSingleton<IContentDialogService, ContentDialogService>();
+
+                    // Main window with navigation
                     services.AddSingleton<IWindow, MainWindow>();
                     services.AddSingleton<MainWindowViewModel>();
                     services.AddSingleton<WindowsProviderService>();
-                    services.AddSingleton<ISnackbarService, SnackbarService>();
-                    services.AddSingleton<INavigationService, NavigationService>();
-                    services.AddSingleton<IContentDialogService, ContentDialogService>();
+
+                    // Views and ViewModels
+                    services.AddSingleton<INavigableView<LibraryViewModel>, LibraryPage>();
+                    services.AddSingleton<LibraryViewModel>();
+
+                    // Configuration
+                    services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
                 }
             )
             .Build();
@@ -110,6 +137,16 @@ namespace Sucrose.Portal
             };
 
             SHC.All = new CultureInfo(Culture, true);
+        }
+
+        /// <summary>
+        /// Gets registered service.
+        /// </summary>
+        /// <typeparam name="T">Type of the service to get.</typeparam>
+        /// <returns>Instance of the service or <see langword="null"/>.</returns>
+        public static T GetService<T>() where T : class
+        {
+            return _host.Services.GetService(typeof(T)) as T ?? null;
         }
 
         protected void Close()
@@ -186,16 +223,6 @@ namespace Sucrose.Portal
             {
                 Close();
             }
-        }
-
-        /// <summary>
-        /// Gets registered service.
-        /// </summary>
-        /// <typeparam name="T">Type of the service to get.</typeparam>
-        /// <returns>Instance of the service or <see langword="null"/>.</returns>
-        public static T GetService<T>() where T : class
-        {
-            return _host.Services.GetService(typeof(T)) as T ?? null;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Sucrose.Portal.Services.Contracts;
-using Sucrose.Portal.ViewModels;
+using Sucrose.Portal.ViewModels.Windows;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,9 +34,9 @@ namespace Sucrose.Portal.Views.Windows
 
         public MainWindowViewModel ViewModel { get; }
 
-        public MainWindow(MainWindowViewModel viewModel)
+        public MainWindow(MainWindowViewModel ViewModel)
         {
-            ViewModel = viewModel;
+            this.ViewModel = ViewModel;
             DataContext = this;
 
             if (Theme == SEWTT.Dark)

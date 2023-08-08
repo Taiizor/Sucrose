@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      d:DataContext="{d:DesignInstance local:LibraryPage, IsDesignTimeCreatable=False}"
       Title="LibraryPage"
       mc:Ignorable="d">
     <Grid x:Name="GridLibrary" Loaded="GridLibrary_Loaded">

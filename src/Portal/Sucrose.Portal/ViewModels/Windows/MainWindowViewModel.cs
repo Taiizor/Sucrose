@@ -12,9 +12,9 @@ using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 
-namespace Sucrose.Portal.ViewModels
+namespace Sucrose.Portal.ViewModels.Windows
 {
-    public partial class MainWindowViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class MainWindowViewModel : ObservableObject, IDisposable
     {
         private static WindowBackdropType BackdropType => SMMI.PortalSettingManager.GetSetting(SMC.BackdropType, DefaultBackdropType);
 
@@ -43,7 +43,7 @@ namespace Sucrose.Portal.ViewModels
         [ObservableProperty]
         private string _Memory = string.Empty;
 
-        private bool _isInitialized = false;
+        private bool _isInitialized;
 
         public MainWindowViewModel()
         {
@@ -56,10 +56,6 @@ namespace Sucrose.Portal.ViewModels
                 Timer.Start();
             }
         }
-
-        public void OnNavigatedTo() { }
-
-        public void OnNavigatedFrom() { }
 
         private void InitializeViewModel()
         {
