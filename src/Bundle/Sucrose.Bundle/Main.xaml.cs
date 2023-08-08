@@ -66,6 +66,21 @@ namespace Sucrose.Bundle
             InitializeComponent();
         }
 
+        private void WindowCorner()
+        {
+            try
+            {
+                SWNM.DWMWINDOWATTRIBUTE Attribute = SWNM.DWMWINDOWATTRIBUTE.WindowCornerPreference;
+                SWNM.DWM_WINDOW_CORNER_PREFERENCE Preference = SWNM.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+
+                SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, sizeof(uint));
+            }
+            catch
+            {
+                //
+            }
+        }
+
         private static void TerminateProcess(string Name)
         {
 #if NET48_OR_GREATER
@@ -163,10 +178,7 @@ namespace Sucrose.Bundle
 
         private async void Window_ContentRendered(object sender, EventArgs e)
         {
-            SWNM.DWMWINDOWATTRIBUTE Attribute = SWNM.DWMWINDOWATTRIBUTE.WindowCornerPreference;
-            SWNM.DWM_WINDOW_CORNER_PREFERENCE Preference = SWNM.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
-
-            SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, sizeof(uint));
+            WindowCorner();
 
             await Task.Delay(MinDelay);
 
