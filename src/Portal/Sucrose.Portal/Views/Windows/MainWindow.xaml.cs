@@ -2,6 +2,7 @@
 using Sucrose.Portal.ViewModels;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
@@ -31,8 +32,6 @@ namespace Sucrose.Portal.Views.Windows
 
         private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
-        private static bool Navigated { get; set; } = false;
-
         public MainWindowViewModel ViewModel { get; }
 
         public MainWindow(MainWindowViewModel viewModel)
@@ -55,7 +54,6 @@ namespace Sucrose.Portal.Views.Windows
 
             if (Args.Count() > 1 && Args[1] == $"{SSDEACT.Setting}")
             {
-                Navigated = true;
                 UnrootView.Visibility = Visibility.Visible;
                 UnrootView.Loaded += (_, _) => UnrootView.Navigate(typeof(SPVPSGSP));
             }
@@ -100,18 +98,15 @@ namespace Sucrose.Portal.Views.Windows
             {
                 RootView.Visibility = Visibility.Hidden;
                 UnrootView.Visibility = Visibility.Visible;
+                RootView.Navigate(typeof(Page));
                 UnrootView.Navigate(typeof(SPVPSGSP));
             }
             else
             {
                 UnrootView.Visibility = Visibility.Hidden;
                 RootView.Visibility = Visibility.Visible;
-
-                if (Navigated)
-                {
-                    Navigated = false;
-                    RootView.Navigate(typeof(SPVPLP));
-                }
+                RootView.Navigate(typeof(SPVPLP));
+                UnrootView.Navigate(typeof(Page));
             }
         }
 
@@ -121,6 +116,16 @@ namespace Sucrose.Portal.Views.Windows
             double SearchWidth = SearchBox.RenderSize.Width;
 
             SearchBox.Margin = new Thickness(0, 0, ((WindowWidth - SearchWidth) / 2) - 165, 0);
+        }
+
+        private void NavigationView_Navigated(NavigationView sender, NavigatedEventArgs args)
+        {
+            Dispose();
+        }
+
+        private void NavigationView_Navigating(NavigationView sender, NavigatingCancelEventArgs args)
+        {
+            Dispose();
         }
 
         public void Dispose()

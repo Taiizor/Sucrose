@@ -3,5 +3,9 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="MainWindow/Portal.MainWindow.FR.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:String x:Key="Portal.Test">Test</system:String>
 </ResourceDictionary>

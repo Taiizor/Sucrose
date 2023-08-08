@@ -14,7 +14,7 @@
     <UserControl.ContextMenu>
         <ContextMenu Background="{DynamicResource ApplicationBackgroundBrush}" Opacity="0.9">
             <ui:MenuItem Cursor="Hand" Header="İncele" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon ApprovalsApp20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon Checkmark20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Önizle" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Özelleştir" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Bul" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />

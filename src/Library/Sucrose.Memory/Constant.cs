@@ -60,6 +60,8 @@
 
         public const string TitleLength = "TitleLength";
 
+        public const string BackdropType = "BackdropType";
+
         public const string CefArguments = "CefArguments";
 
         public const string WebArguments = "WebArguments";

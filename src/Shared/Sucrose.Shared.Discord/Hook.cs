@@ -76,7 +76,7 @@ namespace Sucrose.Shared.Discord
                         End = SSDMI.End,
                         Start = SSDMI.Start
                     },
-                    State = SSDMI.Statement[SMR.Randomise.Next(SSDMI.Statement.Count - 1)],
+                    State = SSRER.GetValue("Discord", $"StatementText{SMR.Randomise.Next(12)}"),
                     Buttons = new Button[]
                     {
                         new Button()
@@ -99,9 +99,9 @@ namespace Sucrose.Shared.Discord
                     Assets = new Assets()
                     {
                         LargeImageKey = SSRER.GetValue("Discord", "LargestImage"),
-                        LargeImageText = SSDMI.LargestText[SMR.Randomise.Next(SSDMI.LargestText.Count - 1)],
-                        SmallImageText = SSDMI.SmallestText[SMR.Randomise.Next(SSDMI.LargestText.Count - 1)],
-                        SmallImageKey = SSDMI.SmallestImage[SMR.Randomise.Next(SSDMI.SmallestImage.Count - 1)]
+                        LargeImageText = SSRER.GetValue("Discord", $"LargestText{SMR.Randomise.Next(6)}"),
+                        SmallImageText = SSRER.GetValue("Discord", $"SmallestText{SMR.Randomise.Next(6)}"),
+                        SmallImageKey = SSRER.GetValue("Discord", $"SmallestImage{SMR.Randomise.Next(36)}")
                     }
                 });
             }

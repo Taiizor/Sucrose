@@ -47,7 +47,9 @@
                 Visibility="Hidden"
                 PaneDisplayMode="Top"
                 IsPaneToggleVisible="False"
-                IsBackButtonVisible="Collapsed">
+                IsBackButtonVisible="Collapsed"
+                Navigated="NavigationView_Navigated"
+                Navigating="NavigationView_Navigating">
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem
                         Cursor="Hand"
@@ -100,7 +102,9 @@
                 Visibility="Hidden"
                 PaneDisplayMode="Top"
                 IsPaneToggleVisible="False"
-                IsBackButtonVisible="Collapsed">
+                IsBackButtonVisible="Collapsed"
+                Navigated="NavigationView_Navigated"
+                Navigating="NavigationView_Navigating">
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem
                         Cursor="Hand"

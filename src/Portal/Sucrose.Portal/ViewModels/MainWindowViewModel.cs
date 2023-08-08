@@ -9,35 +9,41 @@ using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Portal.ViewModels
 {
     public partial class MainWindowViewModel : ObservableObject, INavigationAware, IDisposable
     {
-        private bool _isInitialized = false;
+        private static WindowBackdropType BackdropType => SMMI.PortalSettingManager.GetSetting(SMC.BackdropType, DefaultBackdropType);
 
-        private DispatcherTimer Timer = new();
-
-        [ObservableProperty]
-        private string _Memory = string.Empty;
+        private static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
 
         [ObservableProperty]
-        private string _Quoting = string.Empty;
+        private WindowBackdropType _WindowBackdropType = DefaultBackdropType;
 
-        [ObservableProperty]
-        private string _Version = string.Empty;
-
-        [ObservableProperty]
-        private string _Framework = string.Empty;
-
-        [ObservableProperty]
-        private string _Architecture = string.Empty;
+        private readonly DispatcherTimer Timer = new();
 
         [ObservableProperty]
         private SEOST _OperatingSystem = SEOST.Unknown;
 
         [ObservableProperty]
-        private WindowBackdropType _WindowBackdropType = WindowBackdropType.None;
+        private string _Architecture = string.Empty;
+
+        [ObservableProperty]
+        private string _Framework = string.Empty;
+
+        [ObservableProperty]
+        private string _Version = string.Empty;
+
+        [ObservableProperty]
+        private string _Quoting = string.Empty;
+
+        [ObservableProperty]
+        private string _Memory = string.Empty;
+
+        private bool _isInitialized = false;
 
         public MainWindowViewModel()
         {
@@ -77,11 +83,11 @@ namespace Sucrose.Portal.ViewModels
         {
             if (OperatingSystem == SEOST.Windows11)
             {
-                return WindowBackdropType.Acrylic;
+                return BackdropType;
             }
             else
             {
-                return WindowBackdropType.Auto;
+                return DefaultBackdropType;
             }
         }
 
