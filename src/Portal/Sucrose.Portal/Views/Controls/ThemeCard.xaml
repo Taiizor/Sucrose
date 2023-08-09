@@ -12,7 +12,7 @@
              xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource FadeInAndContract}, Event=MouseEnter}">
 
     <UserControl.ContextMenu>
-        <ContextMenu Background="{DynamicResource ApplicationBackgroundBrush}" Opacity="0.9">
+        <ContextMenu Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
             <ui:MenuItem Cursor="Hand" Header="İncele" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon Checkmark20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Önizle" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
@@ -33,7 +33,7 @@
                 Direction="300"
                 Opacity="0.25"
                 ShadowDepth="12"
-                Color="{DynamicResource ApplicationBackground}" />
+                Color="{DynamicResource SolidBackgroundFillColorBaseAlt}" />
         </Border.Effect>
 
         <Grid>

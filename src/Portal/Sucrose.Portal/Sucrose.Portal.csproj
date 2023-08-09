@@ -104,6 +104,7 @@
         <Folder Include="Properties\" />
         <Folder Include="ViewModels\Pages\Library\" />
         <Folder Include="ViewModels\Pages\Setting\" />
+        <Folder Include="Views\Pages\Store\" />
     </ItemGroup>
 
     <ItemGroup>

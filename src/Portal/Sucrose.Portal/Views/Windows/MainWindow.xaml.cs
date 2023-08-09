@@ -3,6 +3,7 @@ using Sucrose.Portal.ViewModels.Windows;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using Wpf.Ui.Contracts;
 using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
@@ -34,7 +35,7 @@ namespace Sucrose.Portal.Views.Windows
 
         public MainWindowViewModel ViewModel { get; }
 
-        public MainWindow(MainWindowViewModel ViewModel)
+        public MainWindow(MainWindowViewModel ViewModel, INavigationService NavigationService, IServiceProvider ServiceProvider, ISnackbarService SnackbarService, IContentDialogService ContentDialogService)
         {
             this.ViewModel = ViewModel;
             DataContext = this;
@@ -50,16 +51,22 @@ namespace Sucrose.Portal.Views.Windows
 
             InitializeComponent();
 
+            RootView.SetServiceProvider(ServiceProvider);
+
+            NavigationService.SetNavigationControl(RootView);
+            SnackbarService.SetSnackbarPresenter(SnackbarPresenter);
+            ContentDialogService.SetContentPresenter(RootContentDialog);
+
             string[] Args = Environment.GetCommandLineArgs();
 
             if (Args.Count() > 1 && Args[1] == $"{SSDEACT.Setting}")
             {
-                UnrootView.Visibility = Visibility.Visible;
-                UnrootView.Loaded += (_, _) => UnrootView.Navigate(typeof(SPVPSGSP));
+                ApplySetting(false);
+                RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPSGSP));
             }
             else
             {
-                RootView.Visibility = Visibility.Visible;
+                ApplyGeneral(false);
                 RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPLP));
             }
 
@@ -90,40 +97,86 @@ namespace Sucrose.Portal.Views.Windows
             //}
         }
 
+        private void ApplySearch(double Width)
+        {
+            SearchBox.Margin = new Thickness(0, 0, ((Width - SearchBox.MaxWidth) / 2) - 165, 0);
+        }
+
+        private void ApplyGeneral(bool Mode = true)
+        {
+            foreach (NavigationViewItem Menu in RootView.MenuItems)
+            {
+                if (Menu.Name.Contains("General"))
+                {
+                    Menu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Menu.Visibility = Visibility.Collapsed;
+                }
+            }
+
+            FooterDock.Visibility = Visibility.Visible;
+            Setting.Visibility = Visibility.Visible;
+
+            if (Mode)
+            {
+                RootView.Navigate(typeof(SPVPLP));
+            }
+        }
+
+        private void ApplySetting(bool Mode = true)
+        {
+            foreach (NavigationViewItem Menu in RootView.MenuItems)
+            {
+                if (Menu.Name.Contains("Setting"))
+                {
+                    Menu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Menu.Visibility = Visibility.Collapsed;
+                }
+            }
+
+            FooterDock.Visibility = Visibility.Collapsed;
+            Setting.Visibility = Visibility.Collapsed;
+
+            if (Mode)
+            {
+                RootView.Navigate(typeof(SPVPSGSP));
+            }
+            else
+            {
+                ApplySearch(Width);
+            }
+        }
+
         private void NavigationChange_Click(object sender, RoutedEventArgs e)
         {
             NavigationViewItem View = sender as NavigationViewItem;
 
-            if (View.Name == "FromRoot")
+            if (View.Name == "Setting")
             {
-                RootView.Visibility = Visibility.Hidden;
-                UnrootView.Visibility = Visibility.Visible;
-                RootView.Navigate(typeof(Page));
-                UnrootView.Navigate(typeof(SPVPSGSP));
+                ApplySetting();
             }
             else
             {
-                UnrootView.Visibility = Visibility.Hidden;
-                RootView.Visibility = Visibility.Visible;
-                RootView.Navigate(typeof(SPVPLP));
-                UnrootView.Navigate(typeof(Page));
+                ApplyGeneral();
             }
         }
 
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            double WindowWidth = e.NewSize.Width;
-            double SearchWidth = SearchBox.RenderSize.Width;
-
-            SearchBox.Margin = new Thickness(0, 0, ((WindowWidth - SearchWidth) / 2) - 165, 0);
+            ApplySearch(e.NewSize.Width);
         }
 
-        private void NavigationView_Navigated(NavigationView sender, NavigatedEventArgs args)
+        private void RootView_Navigated(NavigationView sender, NavigatedEventArgs args)
         {
             Dispose();
         }
 
-        private void NavigationView_Navigating(NavigationView sender, NavigatingCancelEventArgs args)
+        private void RootView_Navigating(NavigationView sender, NavigatingCancelEventArgs args)
         {
             Dispose();
         }

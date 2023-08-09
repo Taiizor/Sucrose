@@ -43,93 +43,77 @@
                 Margin="0"
                 Grid.Row="1"
                 FrameMargin="10"
-                x:Name="UnrootView"
-                Visibility="Hidden"
-                PaneDisplayMode="Top"
-                IsPaneToggleVisible="False"
-                IsBackButtonVisible="Collapsed"
-                Navigated="NavigationView_Navigated"
-                Navigating="NavigationView_Navigating">
-            <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Name="FromUnroot"
-                        Margin="10 0 0 0"
-                        Icon="{ui:SymbolIcon ArrowLeft16}"
-                        Click="NavigationChange_Click" />
-                <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Content="Genel"
-                        Icon="{ui:SymbolIcon WindowApps20}"
-                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
-                <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Content="Kişisel"
-                        Icon="{ui:SymbolIcon PersonLock20}"
-                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
-                <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Content="Performans"
-                        Icon="{ui:SymbolIcon Pulse20}"
-                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
-                <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Content="Duvar Kağıdı"
-                        Icon="{ui:SymbolIcon Wallpaper20}"
-                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
-                <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Content="Sistem"
-                        Icon="{ui:SymbolIcon PuzzleCube20}"
-                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
-                <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Content="Diğer"
-                        Icon="{ui:SymbolIcon GridDots20}"
-                        TargetPageType="{x:Type setting:GeneralSettingPage}" />
-            </ui:NavigationView.MenuItems>
-
-            <ui:NavigationView.Header>
-                <Border Margin="0 0 0 10" />
-            </ui:NavigationView.Header>
-        </ui:NavigationView>
-        
-        <ui:NavigationView
-                Margin="0"
-                Grid.Row="1"
-                FrameMargin="10"
                 x:Name="RootView"
-                Visibility="Hidden"
                 PaneDisplayMode="Top"
                 IsPaneToggleVisible="False"
+                Navigated="RootView_Navigated"
                 IsBackButtonVisible="Collapsed"
-                Navigated="NavigationView_Navigated"
-                Navigating="NavigationView_Navigating">
+                Navigating="RootView_Navigating">
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Margin="10 0 0 0"
-                        Content="Kütüphane"
-                        Icon="{ui:SymbolIcon Library16}"
-                        TargetPageType="{x:Type pages:LibraryPage}" />
+                    Cursor="Hand"
+                    Name="General1"
+                    Margin="10 0 0 0"
+                    Content="Kütüphane"
+                    Icon="{ui:SymbolIcon Library16}"
+                    TargetPageType="{x:Type pages:LibraryPage}" />
                 <ui:NavigationViewItem
-                        Cursor="Hand"
-                        Content="Mağaza"
-                        Icon="{ui:SymbolIcon Gift16}"
-                        TargetPageType="{x:Type pages:LibraryPage}" />
+                    Cursor="Hand"
+                    Name="General2"
+                    Content="Mağaza"
+                    Icon="{ui:SymbolIcon Gift16}"
+                    TargetPageType="{x:Type pages:StorePage}" />
+                
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting1"
+                    Margin="10 0 0 0"
+                    Click="NavigationChange_Click"
+                    Icon="{ui:SymbolIcon ArrowLeft16}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting2"
+                    Content="Genel"
+                    Icon="{ui:SymbolIcon WindowApps20}"
+                    TargetPageType="{x:Type setting:GeneralSettingPage}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting3"
+                    Content="Kişisel"
+                    Icon="{ui:SymbolIcon PersonLock20}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting4"
+                    Content="Performans"
+                    Icon="{ui:SymbolIcon Pulse20}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting5"
+                    Content="Duvar Kağıdı"
+                    Icon="{ui:SymbolIcon Wallpaper20}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting6"
+                    Content="Sistem"
+                    Icon="{ui:SymbolIcon PuzzleCube20}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting7"
+                    Content="Diğer"
+                    Icon="{ui:SymbolIcon GridDots20}" />
             </ui:NavigationView.MenuItems>
             
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem
                     Cursor="Hand"
-                    Name="FromRoot"
+                    x:Name="Setting"
                     Margin="5 0 10 0"
-                    Icon="{ui:SymbolIcon Settings16}"
-                    Click="NavigationChange_Click" />
+                    Click="NavigationChange_Click"
+                    Icon="{ui:SymbolIcon Settings16}" />
             </ui:NavigationView.FooterMenuItems>
             
             <ui:NavigationView.PaneFooter>
-                <DockPanel>
+                <DockPanel x:Name="FooterDock">
                     <ui:TextBox
                         MinWidth="300"
                         MaxWidth="300"
@@ -170,11 +154,10 @@
         <ContentPresenter x:Name="RootContentDialog" Grid.Row="0" />
 
         <StatusBar
-            x:Name="RootStatusBar"
-            Grid.Row="2"
-            MinHeight="0"
-            Margin="0"
-            Padding="8,2">
+                x:Name="RootStatusBar"
+                Grid.Row="2"
+                Margin="0"
+                Padding="8,2" Cursor="">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>

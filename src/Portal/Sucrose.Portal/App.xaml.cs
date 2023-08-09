@@ -23,6 +23,7 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using Sucrose.Portal.Views.Pages.Setting;
 
 namespace Sucrose.Portal
 {
@@ -82,6 +83,10 @@ namespace Sucrose.Portal
                     // Views and ViewModels
                     services.AddSingleton<LibraryPage>();
                     services.AddSingleton<LibraryViewModel>();
+
+                    services.AddSingleton<StorePage>();
+
+                    services.AddSingleton<GeneralSettingPage>();
 
                     // Configuration
                     services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

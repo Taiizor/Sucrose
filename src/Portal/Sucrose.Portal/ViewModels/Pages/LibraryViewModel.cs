@@ -9,9 +9,6 @@ namespace Sucrose.Portal.ViewModels.Pages
         [ObservableProperty]
         private int _counter2 = 0;
 
-        [ObservableProperty]
-        private string _Test = "Testing";
-
         public void OnNavigatedTo()
         {
         }

@@ -17,9 +17,9 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class ThemeCard : UserControl, IDisposable
     {
-        private static int DescriptionLength => SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30);
+        private static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, int.MaxValue);
 
-        private static int TitleLength => SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 30);
+        private static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 30), 10, int.MaxValue);
 
         private string Theme = null;
         private SSTHI Info = null;
@@ -32,8 +32,8 @@ namespace Sucrose.Portal.Views.Controls
 
             InitializeComponent();
 
-            ThemeTitle.Text = SHA.Cut(Info.Title, SHS.Clamp(TitleLength, 10, int.MaxValue));
-            ThemeDescription.Text = SHA.Cut(Info.Description, SHS.Clamp(DescriptionLength, 10, int.MaxValue));
+            ThemeTitle.Text = Info.Title.Length > TitleLength ? $"{SHA.Cut(Info.Title, TitleLength)}..." : Info.Title;
+            ThemeDescription.Text = Info.Description.Length > DescriptionLength ? $"{SHA.Cut(Info.Description, DescriptionLength)}..." : Info.Description;
 
             Imagine.ImageSource = Loader.Load(Path.Combine(Theme, Info.Thumbnail));
         }

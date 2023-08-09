@@ -11,6 +11,7 @@ using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using Wpf.Ui.Contracts;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
