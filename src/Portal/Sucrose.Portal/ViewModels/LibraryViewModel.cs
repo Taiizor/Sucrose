@@ -2,12 +2,12 @@
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Controls;
 
-namespace Sucrose.Portal.ViewModels.Pages
+namespace Sucrose.Portal.ViewModels
 {
     public partial class LibraryViewModel : ObservableObject, INavigationAware, IDisposable
     {
         [ObservableProperty]
-        private int _counter2 = 0;
+        private int _counter = 0;
 
         [ObservableProperty]
         private string _Test = "Testing";
@@ -23,7 +23,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         [RelayCommand]
         private void OnCounterIncrement()
         {
-            Counter2++;
+            Counter++;
         }
 
         public void Dispose()

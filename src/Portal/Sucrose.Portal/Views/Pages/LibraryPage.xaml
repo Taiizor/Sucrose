@@ -11,5 +11,6 @@
     <Grid x:Name="GridLibrary" Loaded="GridLibrary_Loaded">
         <Frame x:Name="FrameLibrary" Visibility="Collapsed" />
         <ui:ProgressRing x:Name="ProgressLibrary" IsIndeterminate="True" Width="100" Height="100" />
+        <ui:TextBlock Text="{Binding ViewModel.Test, Mode=OneWay}" Foreground="White" FontSize="72" />
     </Grid>
 </Page>

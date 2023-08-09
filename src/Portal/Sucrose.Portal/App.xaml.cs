@@ -23,7 +23,6 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using Wpf.Ui.Controls;
 
 namespace Sucrose.Portal
 {
@@ -81,7 +80,7 @@ namespace Sucrose.Portal
                     services.AddSingleton<WindowsProviderService>();
 
                     // Views and ViewModels
-                    services.AddSingleton<INavigableView<LibraryViewModel>, LibraryPage>();
+                    services.AddSingleton<LibraryPage>();
                     services.AddSingleton<LibraryViewModel>();
 
                     // Configuration
