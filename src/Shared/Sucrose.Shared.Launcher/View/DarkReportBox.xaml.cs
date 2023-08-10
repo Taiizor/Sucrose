@@ -1,12 +1,11 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows;
+﻿using System.Windows;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Create;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
-using SWNM = Skylark.Wing.Native.Methods;
+using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 
 namespace Sucrose.Shared.Launcher.View
 {
@@ -34,9 +33,7 @@ namespace Sucrose.Shared.Launcher.View
 
         private void DarkReportBox_SourceInitialized(object sender, EventArgs e)
         {
-            bool Value = true;
-
-            SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), SWNM.DWMWindowAttribute.DWMWA_USE_IMMERSIVE_DARK_MODE, ref Value, Marshal.SizeOf(Value));
+            SSSHD.Apply(SWHWI.Handle(this));
         }
     }
 }

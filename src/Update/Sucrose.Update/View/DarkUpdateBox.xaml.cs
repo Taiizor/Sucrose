@@ -1,9 +1,8 @@
 ﻿using System.Media;
-using System.Runtime.InteropServices;
 using System.Windows;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
-using SWNM = Skylark.Wing.Native.Methods;
+using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 
 namespace Sucrose.Update.View
 {
@@ -41,9 +40,7 @@ namespace Sucrose.Update.View
 
         private void DarkUpdateBox_SourceInitialized(object sender, EventArgs e)
         {
-            bool Value = true;
-
-            SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), SWNM.DWMWindowAttribute.DWMWA_USE_IMMERSIVE_DARK_MODE, ref Value, Marshal.SizeOf(Value));
+            SSSHD.Apply(SWHWI.Handle(this));
         }
     }
 }
