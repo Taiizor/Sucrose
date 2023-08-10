@@ -30,6 +30,8 @@
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
         <OutputPath>..\..\Sucrose\WPF\CefSharp\$(Platform)</OutputPath>
+        <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+        <CefSharpBuildAction>Content</CefSharpBuildAction>
     </PropertyGroup>
 
     <PropertyGroup>

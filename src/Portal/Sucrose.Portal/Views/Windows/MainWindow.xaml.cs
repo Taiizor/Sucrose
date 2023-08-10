@@ -16,6 +16,7 @@ using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 
 namespace Sucrose.Portal.Views.Windows
 {

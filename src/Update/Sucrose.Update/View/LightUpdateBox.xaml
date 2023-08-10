@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sucrose.Update.View"
+        Title="{DynamicResource Update.WindowTitle}"
         mc:Ignorable="d"
         Topmost="True"
         ResizeMode="NoResize" MinHeight="150" MinWidth="300"
-        Title="{DynamicResource Update.WindowTitle}" Height="150" Width="300" WindowStartupLocation="CenterScreen">
+        Height="150" Width="300" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#F0F0F0" />

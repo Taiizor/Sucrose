@@ -1,8 +1,8 @@
 ﻿using System.Media;
 using System.Windows;
+using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
-using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 
 namespace Sucrose.Update.View
 {

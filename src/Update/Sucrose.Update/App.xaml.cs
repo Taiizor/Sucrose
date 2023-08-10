@@ -18,6 +18,7 @@ using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -154,6 +155,8 @@ namespace Sucrose.Update
 
             if (IsInternetAvailable())
             {
+                SSSHS.Apply();
+
                 List<SSIIR> Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, Agent, Key);
 
                 if (Releases.Any())
