@@ -6,36 +6,56 @@ namespace Sucrose.Shared.Resources.Extension
     {
         public static string GetValue(string Key)
         {
-            return GetResource(Key);
+            return GetResource(Key, GetBack(Key));
         }
 
         public static string GetValue(string Area, string Key)
         {
-            return GetResource(Area + "." + Key);
+            return GetResource(Area + "." + Key, GetBack(Area, Key));
         }
 
         public static string GetValue(string Area, string Prefix, string Key)
         {
-            return GetResource(Area + "." + Prefix + "." + Key);
+            return GetResource(Area + "." + Prefix + "." + Key, GetBack(Area, Prefix, Key));
         }
 
         public static string GetValue(string Area, string Prefix, string Key, string Suffix)
         {
-            return GetResource(Area + "." + Prefix + "." + Key + "." + Suffix);
+            return GetResource(Area + "." + Prefix + "." + Key + "." + Suffix, GetBack(Area, Prefix, Key, Suffix));
         }
 
-        private static string GetResource(string Resource)
+        public static T GetResource<T>(string Resource, T Back = default)
         {
-            string Result = Application.Current.TryFindResource(Resource) as string;
+            object Result = Application.Current.TryFindResource(Resource);
 
-            if (string.IsNullOrEmpty(Result))
+            if (Result is not null and T)
             {
-                return $"[{Resource}]";
+                return (T)Result;
             }
             else
             {
-                return Result;
+                return Back;
             }
+        }
+
+        private static string GetBack(string Key)
+        {
+            return $"[{Key}]";
+        }
+
+        private static string GetBack(string Area, string Key)
+        {
+            return GetBack(Area + "." + Key);
+        }
+
+        private static string GetBack(string Area, string Prefix, string Key)
+        {
+            return GetBack(Area + "." + Prefix + "." + Key);
+        }
+
+        private static string GetBack(string Area, string Prefix, string Key, string Suffix)
+        {
+            return GetBack(Area + "." + Prefix + "." + Key + "." + Suffix);
         }
     }
 }

@@ -183,6 +183,8 @@ namespace Sucrose.Portal.Views.Windows
 
         public void Dispose()
         {
+            RootView.ClearJournal();
+
             ViewModel.Dispose();
 
             GC.Collect();

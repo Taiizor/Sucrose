@@ -81,12 +81,13 @@ namespace Sucrose.Portal
                     services.AddSingleton<WindowsProviderService>();
 
                     // Views and ViewModels
-                    services.AddSingleton<LibraryPage>();
-                    services.AddSingleton<LibraryViewModel>();
+                    services.AddTransient<LibraryPage>();
+                    services.AddTransient<LibraryViewModel>();
 
-                    services.AddSingleton<StorePage>();
+                    services.AddTransient<StorePage>();
 
-                    services.AddSingleton<GeneralSettingPage>();
+                    services.AddTransient<GeneralSettingPage>();
+                    services.AddTransient<GeneralSettingViewModel>();
 
                     // Configuration
                     services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

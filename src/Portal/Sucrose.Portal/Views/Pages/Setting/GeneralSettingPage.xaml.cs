@@ -1,19 +1,26 @@
-﻿using Sucrose.Portal.Views.Controls;
+﻿using Sucrose.Portal.ViewModels.Pages;
+using Sucrose.Portal.Views.Controls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using Wpf.Ui.Common;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 
 namespace Sucrose.Portal.Views.Pages.Setting
 {
     /// <summary>
     /// GeneralSettingPage.xaml etkileşim mantığı
     /// </summary>
-    public partial class GeneralSettingPage : Page, IDisposable
+    public partial class GeneralSettingPage : Wpf.Ui.Controls.INavigableView<GeneralSettingViewModel>, IDisposable
     {
-        public GeneralSettingPage()
+        public GeneralSettingViewModel ViewModel { get; }
+
+        public GeneralSettingPage(GeneralSettingViewModel ViewModel)
         {
+            this.ViewModel = ViewModel;
+            DataContext = this;
+
             InitializeComponent();
         }
 
@@ -127,7 +134,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
             };
 
             CustomExpander4.Title.Text = "Video Oynatıcı";
-            CustomExpander4.Description.Text = "Wıdeo duvar kağıdı oynatıcısını seçin";
+            CustomExpander4.Description.Text = "Video duvar kağıdı oynatıcısını seçin";
 
             StackPanel SP1 = new()
             {
@@ -136,7 +143,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
                 VerticalAlignment = VerticalAlignment.Stretch
             };
 
-            TextBlock TB1 = new() { Text = "Testing" };
+            TextBlock TB1 = new() { Text = "Testing", Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush") };
 
             SP1.Children.Add(TB1);
 

@@ -3,7 +3,7 @@ using Wpf.Ui.Controls;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class LibraryViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class GeneralSettingViewModel : ObservableObject, INavigationAware, IDisposable
     {
         public void OnNavigatedTo()
         {
