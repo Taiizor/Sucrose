@@ -9,7 +9,7 @@
              Loaded="ExpanderCard_Loaded"
              mc:Ignorable="d">
     <StackPanel VerticalAlignment="Center">
-        <ui:Card MouseLeftButtonDown="Card_MouseLeftButtonDown" >
+        <ui:Card MouseLeftButtonDown="Card_MouseLeftButtonDown" Background="{DynamicResource CardStrokeColorDefaultBrush}" >
             <Grid x:Name="Grider">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -27,8 +27,8 @@
                     VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
 
                 <StackPanel x:Name="Body" Grid.Column="1" VerticalAlignment="Center" Margin="10">
-                    <TextBlock x:Name="Title" Text="Title" FontSize="16" FontWeight="Regular" Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
-                    <TextBlock x:Name="Description" Text="Description" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}"/>
+                    <TextBlock x:Name="Title" Text="Title" FontSize="16" FontWeight="Regular" Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
+                    <TextBlock x:Name="Description" Text="Description" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}"/>
                 </StackPanel>
 
                 <Frame x:Name="Header" Grid.Column="2" VerticalAlignment="Center" Margin="10" />
@@ -58,7 +58,7 @@
             </Grid>
         </ui:Card>
 
-        <ui:Card x:Name="FooterControl" Margin="0 3 0 0" xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromBottom}, Event=Visibility}">
+        <ui:Card x:Name="FooterControl" Margin="0 3 0 0" Background="{DynamicResource CardStrokeColorDefaultBrush}" xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromBottom}, Event=Visibility}">
             <Frame x:Name="Footer" />
         </ui:Card>
     </StackPanel>

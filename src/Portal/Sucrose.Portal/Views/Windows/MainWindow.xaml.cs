@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Contracts;
 using Wpf.Ui.Controls;
+using Button = Wpf.Ui.Controls.Button;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -40,16 +41,18 @@ namespace Sucrose.Portal.Views.Windows
             this.ViewModel = ViewModel;
             DataContext = this;
 
+            InitializeComponent();
+
             if (Theme == SEWTT.Dark)
             {
                 WUAT.Apply(WUAAT.Dark);
+                Light.Visibility = Visibility.Collapsed;
             }
             else
             {
                 WUAT.Apply(WUAAT.Light);
+                Dark.Visibility = Visibility.Collapsed;
             }
-
-            InitializeComponent();
 
             RootView.SetServiceProvider(ServiceProvider);
 
@@ -95,6 +98,20 @@ namespace Sucrose.Portal.Views.Windows
             //        }
             //    }
             //}
+        }
+
+        private void ApplyTheme(Button Button)
+        {
+            if (Button.Name == "Dark")
+            {
+                Dark.Visibility = Visibility.Collapsed;
+                Light.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Dark.Visibility = Visibility.Visible;
+                Light.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void ApplySearch(double Width)
@@ -150,6 +167,11 @@ namespace Sucrose.Portal.Views.Windows
             {
                 ApplySearch(Width);
             }
+        }
+
+        private void ThemeChange_click(object sender, RoutedEventArgs e)
+        {
+            ApplyTheme(sender as Button);
         }
 
         private void NavigationChange_Click(object sender, RoutedEventArgs e)

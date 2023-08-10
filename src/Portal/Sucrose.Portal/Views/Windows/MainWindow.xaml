@@ -124,6 +124,24 @@
                         Icon="{ui:SymbolIcon Search16}" />
                     <ui:Button
                         Cursor="Hand"
+                        x:Name="Dark"
+                        BorderBrush="Transparent"
+                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
+                        Appearance="Transparent"
+                        ToolTip="Aydınlık Tema"
+                        Click="ThemeChange_click"
+                        Icon="{ui:SymbolIcon WeatherSunny16}" />
+                    <ui:Button
+                        Cursor="Hand"
+                        x:Name="Light"
+                        BorderBrush="Transparent"
+                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
+                        Appearance="Transparent"
+                        ToolTip="Karanlık Tema"
+                        Click="ThemeChange_click"
+                        Icon="{ui:SymbolIcon WeatherMoon16}" />
+                    <ui:Button
+                        Cursor="Hand"
                         BorderBrush="Transparent"
                         Appearance="Transparent"
                         ToolTip="Duvar Kağıdı Oluştur"
@@ -157,7 +175,7 @@
                 x:Name="RootStatusBar"
                 Grid.Row="2"
                 Margin="0"
-                Padding="8,2" Cursor="">
+                Padding="8,2">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -175,28 +193,28 @@
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
             <StatusBarItem Grid.Column="0">
-                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="Apps16" />
+                <ui:SymbolIcon Foreground="{DynamicResource TextFillColorPrimaryBrush}" Symbol="Apps16" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="1" Margin="0,0,4,0">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{DynamicResource Portal.Release}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{DynamicResource Portal.Release}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Margin="4,0,4,0">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Framework, Mode=OneWay}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Framework, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="3" Margin="4,0,4,0">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Architecture, Mode=OneWay}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Architecture, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="4" Margin="4,0,4,0">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Version, Mode=OneWay}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Version, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="5" Margin="4,0,4,0" HorizontalContentAlignment="Center">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Memory, Mode=OneWay}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Memory, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="6" Margin="4,0,4,0" HorizontalContentAlignment="Center">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding ViewModel.Quoting, Mode=OneWay}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Quoting, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="7">
-                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{DynamicResource Portal.Copyright}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{DynamicResource Portal.Copyright}" />
             </StatusBarItem>
         </StatusBar>
     </Grid>

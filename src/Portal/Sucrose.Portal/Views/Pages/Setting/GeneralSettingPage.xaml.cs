@@ -31,23 +31,23 @@ namespace Sucrose.Portal.Views.Pages.Setting
 
             TextBlock Tb1 = new()
             {
+                Foreground = Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold,
-                Foreground = Brushes.White,
                 Text = "Görünüş & Davranış"
             };
             TextBlock Tb2 = new()
             {
+                Foreground = Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold,
-                Foreground = Brushes.White,
                 Text = "Uygulama"
             };
             TextBlock Tb3 = new()
             {
+                Foreground = Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold,
-                Foreground = Brushes.White,
                 Text = "Sistem"
             };
 

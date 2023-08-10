@@ -43,7 +43,7 @@
 
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                 <Grid.Background>
-                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.5"/>
+                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75"/>
                 </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -54,8 +54,8 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="Title" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontWeight="Bold" />
-                <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="Description" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" FontWeight="SemiBold" />
+                <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="Title" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
+                <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="Description" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
 
                 <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeButton_Click" Content="•••" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
             </Grid>
