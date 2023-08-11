@@ -3,6 +3,7 @@ using System.Net.Http;
 using SMR = Sucrose.Memory.Readonly;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIC = Skylark.Standard.Interface.IContents;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 
@@ -79,6 +80,8 @@ namespace Sucrose.Shared.Store.Helper
 
         private static void InitializeClient(string Agent, string Key)
         {
+            SSSHS.Apply();
+
             SSSMI.Client.DefaultRequestHeaders.Clear();
 
             SSSMI.Client.DefaultRequestHeaders.Add("User-Agent", Agent);

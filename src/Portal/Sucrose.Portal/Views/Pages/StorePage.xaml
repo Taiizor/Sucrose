@@ -6,7 +6,11 @@
       xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       d:DataContext="{d:DesignInstance local:StorePage, IsDesignTimeCreatable=False}"
+      Loaded="Page_Loaded"
       Title="StorePage"
       mc:Ignorable="d">
-    <ui:ProgressRing IsIndeterminate="True" Width="100" Height="100" />
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <ui:ProgressRing x:Name="Ring" IsIndeterminate="True" Width="100" Height="100" />
+        <ui:TextBlock x:Name="State" Text="Temalar İndiriliyor." FontSize="72" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+    </StackPanel>
 </Page>

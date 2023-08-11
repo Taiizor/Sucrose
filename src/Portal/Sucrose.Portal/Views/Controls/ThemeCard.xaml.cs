@@ -34,7 +34,12 @@ namespace Sucrose.Portal.Views.Controls
             ThemeTitle.Text = Info.Title.Length > TitleLength ? $"{SHA.Cut(Info.Title, TitleLength)}..." : Info.Title;
             ThemeDescription.Text = Info.Description.Length > DescriptionLength ? $"{SHA.Cut(Info.Description, DescriptionLength)}..." : Info.Description;
 
-            Imagine.ImageSource = Loader.Load(Path.Combine(Theme, Info.Thumbnail));
+            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
+
+            if (File.Exists(ImagePath))
+            {
+                Imagine.ImageSource = Loader.Load(ImagePath);
+            }
         }
 
         private void MenuFind_Click(object sender, RoutedEventArgs e)
