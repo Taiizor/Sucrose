@@ -1,5 +1,4 @@
-﻿using Sucrose.Shared.Theme.Helper;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using SHA = Skylark.Helper.Adaptation;
@@ -61,6 +60,7 @@ namespace Sucrose.Portal.Views.Controls
 
         public void Dispose()
         {
+            Loader.Remove(Path.Combine(Theme, Info.Thumbnail));
             Loader.Dispose();
 
             GC.Collect();

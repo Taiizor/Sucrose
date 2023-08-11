@@ -1,11 +1,12 @@
 ﻿using Sucrose.Portal.ViewModels.Pages;
-using Sucrose.Portal.Views.Pages.Library;
 using System.IO;
 using System.Windows;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
+using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -50,13 +51,13 @@ namespace Sucrose.Portal.Views.Pages
 
             if (Themes.Any())
             {
-                FullLibraryPage Page = new(Themes);
+                SPVPLFLP Page = new(Themes);
 
                 FrameLibrary.Content = Page;
             }
             else
             {
-                EmptyLibraryPage Page = new();
+                SPVPLELP Page = new();
 
                 FrameLibrary.Content = Page;
             }

@@ -9,8 +9,8 @@ using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLCR = Sucrose.Shared.Launcher.Command.Report;
-using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLCS = Sucrose.Shared.Launcher.Command.Setting;
+using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
@@ -50,6 +50,8 @@ namespace Sucrose.Shared.Launcher.Manager
             TrayIcon.MouseDoubleClick += MouseDoubleClick;
 
             TrayIcon.Visible = Visible;
+
+            ContextMenuAdjustment();
 
             SSLCE.Command(false);
         }
@@ -133,11 +135,21 @@ namespace Sucrose.Shared.Launcher.Manager
             return TrayIcon.Visible = false;
         }
 
+        private void ContextMenuAdjustment()
+        {
+            ContextMenu.Closed += (s, e) =>
+            {
+                ContextMenu.Hide();
+                ContextMenu.Items.Clear();
+                ContextMenu.Visible = false;
+            };
+        }
+
         private void MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
-                ContextMenu.Items.Clear();
+                ContextMenu.Hide();
 
                 Initialize();
 

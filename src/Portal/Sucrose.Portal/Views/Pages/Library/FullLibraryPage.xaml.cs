@@ -1,9 +1,9 @@
-﻿using Sucrose.Portal.Views.Controls;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SPVCTC = Sucrose.Portal.Views.Controls.ThemeCard;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Pages.Library
@@ -29,7 +29,7 @@ namespace Sucrose.Portal.Views.Pages.Library
         {
             foreach (string Theme in Themes)
             {
-                ThemeCard ThemeCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
+                SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
 
                 ThemeLibrary.Children.Add(ThemeCard);
 

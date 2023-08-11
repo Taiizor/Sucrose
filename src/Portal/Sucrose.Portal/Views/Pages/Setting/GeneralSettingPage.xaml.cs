@@ -1,22 +1,24 @@
-﻿using Sucrose.Portal.ViewModels.Pages;
-using Sucrose.Portal.Views.Controls;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
+using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
+using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.Views.Pages.Setting
 {
     /// <summary>
     /// GeneralSettingPage.xaml etkileşim mantığı
     /// </summary>
-    public partial class GeneralSettingPage : Wpf.Ui.Controls.INavigableView<GeneralSettingViewModel>, IDisposable
+    public partial class GeneralSettingPage : INavigableView<SPVMPGSVM>, IDisposable
     {
-        public GeneralSettingViewModel ViewModel { get; }
+        public SPVMPGSVM ViewModel { get; }
 
-        public GeneralSettingPage(GeneralSettingViewModel ViewModel)
+        public GeneralSettingPage(SPVMPGSVM ViewModel)
         {
             this.ViewModel = ViewModel;
             DataContext = this;
@@ -51,7 +53,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
                 Text = "Sistem"
             };
 
-            ExpanderCard CustomExpander1 = new()
+            SPVCEC CustomExpander1 = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = false
@@ -61,11 +63,11 @@ namespace Sucrose.Portal.Views.Pages.Setting
             CustomExpander1.LeftIcon.Symbol = SymbolRegular.Play20;
             CustomExpander1.Description.Text = "Duvar kağıdını oynatabilmek için Sucrose arka planda çalışmalı.";
 
-            Wpf.Ui.Controls.ToggleSwitch TS1 = new() { Content = "Açık", IsChecked = true };
+            ToggleSwitch TS1 = new() { Content = "Açık", IsChecked = true };
 
             CustomExpander1.HeaderFrame = TS1;
 
-            ExpanderCard CustomExpander2 = new()
+            SPVCEC CustomExpander2 = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = false
@@ -84,7 +86,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
 
             CustomExpander2.HeaderFrame = CB1;
 
-            ExpanderCard CustomExpander3 = new()
+            SPVCEC CustomExpander3 = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 IsExpand = true
@@ -105,7 +107,8 @@ namespace Sucrose.Portal.Views.Pages.Setting
                 Value = 100
             };
 
-            Slider1.ValueChanged += (s, e) => {
+            Slider1.ValueChanged += (s, e) =>
+            {
                 if (Slider1.Value <= 0d)
                 {
                     CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker020;
@@ -126,7 +129,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
 
             CustomExpander3.FooterCard = CB2;
 
-            ExpanderCard CustomExpander4 = new()
+            SPVCEC CustomExpander4 = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = true,
@@ -162,7 +165,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
             FrameSetting.Children.Add(Tb3);
 
 
-            ExpanderCard CustomExpander10 = new()
+            SPVCEC CustomExpander10 = new()
             {
                 Margin = new Thickness(0, 10, 0, 0)
             };

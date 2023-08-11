@@ -1,40 +1,51 @@
 ﻿using System.IO;
 using System.Net.Cache;
 using System.Windows.Media.Imaging;
+using SPMI = Sucrose.Portal.Manage.Internal;
 
 namespace Sucrose.Portal.Extension
 {
     internal class ImageLoader : IDisposable
     {
-        private readonly List<Stream> ImageStreams = new();
+        private FileStream ImageStream = null;
 
         public BitmapImage Load(string ImagePath)
         {
-            FileStream ImageStream = new(ImagePath, FileMode.Open, FileAccess.Read);
-
-            ImageStreams.Add(ImageStream);
-
-            BitmapImage BitmapImage = new()
+            if (!SPMI.Images.ContainsKey(ImagePath))
             {
-                UriCachePolicy = new(RequestCacheLevel.NoCacheNoStore),
-                CreateOptions = BitmapCreateOptions.IgnoreImageCache,
-                CacheOption = BitmapCacheOption.None
-            };
+                SPMI.Images.Add(ImagePath, new()
+                {
+                    UriCachePolicy = new(RequestCacheLevel.NoCacheNoStore),
+                    CreateOptions = BitmapCreateOptions.IgnoreImageCache,
+                    CacheOption = BitmapCacheOption.None
+                });
 
-            BitmapImage.BeginInit();
+                ImageStream = new(ImagePath, FileMode.Open, FileAccess.Read);
 
-            BitmapImage.StreamSource = ImageStream;
+                SPMI.Images[ImagePath].BeginInit();
 
-            BitmapImage.EndInit();
+                SPMI.Images[ImagePath].StreamSource = ImageStream;
+                SPMI.Images[ImagePath].DecodePixelWidth = 360;
 
-            return BitmapImage;
+                SPMI.Images[ImagePath].EndInit();
+            }
+
+            return SPMI.Images[ImagePath];
+        }
+
+        public void Remove(string ImagePath)
+        {
+            SPMI.Images.Remove(ImagePath);
+        }
+
+        public void Clear()
+        {
+            SPMI.Images.Clear();
         }
 
         public void Dispose()
         {
-            ImageStreams.ForEach(ImageStream => ImageStream.Dispose());
-
-            ImageStreams.Clear();
+            ImageStream.Dispose();
 
             GC.Collect();
             GC.SuppressFinalize(this);

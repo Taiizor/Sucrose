@@ -101,6 +101,7 @@
     <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
 
     <ItemGroup>
+        <Folder Include="Interface\" />
         <Folder Include="Properties\" />
         <Folder Include="ViewModels\Pages\Library\" />
         <Folder Include="Views\Pages\Store\" />

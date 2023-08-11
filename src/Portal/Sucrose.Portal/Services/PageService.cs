@@ -9,12 +9,12 @@ namespace Sucrose.Portal.Services
     /// <remarks>
     /// Creates new instance and attaches the <see cref="IServiceProvider"/>.
     /// </remarks>
-    public class PageService(IServiceProvider serviceProvider) : IPageService
+    public class PageService(IServiceProvider ServiceProvider) : IPageService
     {
         /// <summary>
         /// Service which provides the instances of pages.
         /// </summary>
-        private readonly IServiceProvider _serviceProvider = serviceProvider;
+        private readonly IServiceProvider _ServiceProvider = ServiceProvider;
 
         /// <inheritdoc />
         public T GetPage<T>() where T : class
@@ -24,18 +24,18 @@ namespace Sucrose.Portal.Services
                 throw new InvalidOperationException("The page should be a WPF control.");
             }
 
-            return (T)_serviceProvider.GetService(typeof(T));
+            return (T)_ServiceProvider.GetService(typeof(T));
         }
 
         /// <inheritdoc />
-        public FrameworkElement GetPage(Type pageType)
+        public FrameworkElement GetPage(Type PageType)
         {
-            if (!typeof(FrameworkElement).IsAssignableFrom(pageType))
+            if (!typeof(FrameworkElement).IsAssignableFrom(PageType))
             {
                 throw new InvalidOperationException("The page should be a WPF control.");
             }
 
-            return _serviceProvider.GetService(pageType) as FrameworkElement;
+            return _ServiceProvider.GetService(PageType) as FrameworkElement;
         }
     }
 }

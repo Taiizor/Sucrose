@@ -1,13 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Sucrose.Portal.Services;
-using Sucrose.Portal.Services.Contracts;
-using Sucrose.Portal.ViewModels.Windows;
-using Sucrose.Portal.ViewModels.Pages;
-using Sucrose.Portal.Models;
-using Sucrose.Portal.Views.Pages;
-using Sucrose.Portal.Views.Windows;
 using System.Globalization;
 using System.Windows;
 using Wpf.Ui.Contracts;
@@ -17,13 +10,24 @@ using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPMAC = Sucrose.Portal.Models.AppConfig;
+using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
+using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
+using SPSPS = Sucrose.Portal.Services.PageService;
+using SPSWPS = Sucrose.Portal.Services.WindowsProviderService;
+using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
+using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
+using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
+using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
+using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
+using SPVPSP = Sucrose.Portal.Views.Pages.StorePage;
+using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using Sucrose.Portal.Views.Pages.Setting;
 
 namespace Sucrose.Portal
 {
@@ -55,10 +59,10 @@ namespace Sucrose.Portal
             .ConfigureServices((context, services) =>
                 {
                     // App Host
-                    services.AddHostedService<ApplicationHostService>();
+                    services.AddHostedService<SPSAHS>();
 
                     // Page resolver service
-                    services.AddSingleton<IPageService, PageService>();
+                    services.AddSingleton<IPageService, SPSPS>();
 
                     // Theme manipulation
                     services.AddSingleton<IThemeService, ThemeService>();
@@ -76,21 +80,21 @@ namespace Sucrose.Portal
                     services.AddSingleton<IContentDialogService, ContentDialogService>();
 
                     // Main window with navigation
-                    services.AddSingleton<IWindow, MainWindow>();
-                    services.AddSingleton<MainWindowViewModel>();
-                    services.AddSingleton<WindowsProviderService>();
+                    services.AddSingleton<SPSCIW, SPVWMW>();
+                    services.AddSingleton<SPVMWMWVM>();
+                    services.AddSingleton<SPSWPS>();
 
                     // Views and ViewModels
-                    services.AddTransient<LibraryPage>();
-                    services.AddTransient<LibraryViewModel>();
+                    services.AddTransient<SPVPLP>();
+                    services.AddTransient<SPVMPLVM>();
 
-                    services.AddTransient<StorePage>();
+                    services.AddTransient<SPVPSP>();
 
-                    services.AddTransient<GeneralSettingPage>();
-                    services.AddTransient<GeneralSettingViewModel>();
+                    services.AddTransient<SPVPSGSP>();
+                    services.AddTransient<SPVMPGSVM>();
 
                     // Configuration
-                    services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
+                    services.Configure<SPMAC>(context.Configuration.GetSection(nameof(SPMAC)));
                 }
             )
             .Build();

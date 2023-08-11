@@ -1,8 +1,5 @@
-﻿using Sucrose.Portal.Services.Contracts;
-using Sucrose.Portal.ViewModels.Windows;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using Wpf.Ui.Contracts;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
@@ -10,20 +7,21 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
+using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
-using SSSHS = Sucrose.Shared.Space.Helper.Security;
 
 namespace Sucrose.Portal.Views.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : IWindow, IDisposable
+    public partial class MainWindow : SPSCIW, IDisposable
     {
         private static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
 
@@ -35,9 +33,9 @@ namespace Sucrose.Portal.Views.Windows
 
         private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
-        public MainWindowViewModel ViewModel { get; }
+        public SPVMWMWVM ViewModel { get; }
 
-        public MainWindow(MainWindowViewModel ViewModel, INavigationService NavigationService, IServiceProvider ServiceProvider, ISnackbarService SnackbarService, IContentDialogService ContentDialogService)
+        public MainWindow(SPVMWMWVM ViewModel, INavigationService NavigationService, IServiceProvider ServiceProvider, ISnackbarService SnackbarService, IContentDialogService ContentDialogService)
         {
             this.ViewModel = ViewModel;
             DataContext = this;

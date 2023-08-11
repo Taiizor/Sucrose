@@ -1,5 +1,4 @@
-﻿
-namespace Sucrose.Portal.Views.Pages
+﻿namespace Sucrose.Portal.Views.Pages
 {
     /// <summary>
     /// StorePage.xaml etkileşim mantığı

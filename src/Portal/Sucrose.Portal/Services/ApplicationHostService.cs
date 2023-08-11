@@ -1,22 +1,22 @@
 ﻿using Microsoft.Extensions.Hosting;
-using Sucrose.Portal.Services.Contracts;
-using Sucrose.Portal.Views.Windows;
 using System.Windows;
+using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
+using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 
 namespace Sucrose.Portal.Services
 {
     /// <summary>
     /// Managed host of the application.
     /// </summary>
-    public class ApplicationHostService(IServiceProvider serviceProvider) : IHostedService
+    public class ApplicationHostService(IServiceProvider ServiceProvider) : IHostedService
     {
-        private readonly IServiceProvider _serviceProvider = serviceProvider;
+        private readonly IServiceProvider _ServiceProvider = ServiceProvider;
 
         /// <summary>
         /// Triggered when the application host is ready to start the service.
         /// </summary>
-        /// <param name="cancellationToken">Indicates that the start process has been aborted.</param>
-        public async Task StartAsync(CancellationToken cancellationToken)
+        /// <param name="CancellationToken">Indicates that the start process has been aborted.</param>
+        public async Task StartAsync(CancellationToken CancellationToken)
         {
             await HandleActivationAsync();
         }
@@ -24,8 +24,8 @@ namespace Sucrose.Portal.Services
         /// <summary>
         /// Triggered when the application host is performing a graceful shutdown.
         /// </summary>
-        /// <param name="cancellationToken">Indicates that the shutdown process should no longer be graceful.</param>
-        public async Task StopAsync(CancellationToken cancellationToken)
+        /// <param name="CancellationToken">Indicates that the shutdown process should no longer be graceful.</param>
+        public async Task StopAsync(CancellationToken CancellationToken)
         {
             await Task.CompletedTask;
         }
@@ -37,10 +37,10 @@ namespace Sucrose.Portal.Services
         {
             await Task.CompletedTask;
 
-            if (!Application.Current.Windows.OfType<MainWindow>().Any())
+            if (!Application.Current.Windows.OfType<SPVWMW>().Any())
             {
-                IWindow mainWindow = _serviceProvider.GetService(typeof(IWindow)) as IWindow;
-                mainWindow?.Show();
+                SPSCIW MainWindow = _ServiceProvider.GetService(typeof(SPSCIW)) as SPSCIW;
+                MainWindow?.Show();
             }
 
             await Task.CompletedTask;
