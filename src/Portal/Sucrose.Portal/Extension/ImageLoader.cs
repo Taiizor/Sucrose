@@ -45,7 +45,7 @@ namespace Sucrose.Portal.Extension
 
         public void Dispose()
         {
-            ImageStream.Dispose();
+            ImageStream?.Dispose();
 
             GC.Collect();
             GC.SuppressFinalize(this);

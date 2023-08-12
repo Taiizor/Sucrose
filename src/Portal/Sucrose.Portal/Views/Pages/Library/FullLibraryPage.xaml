@@ -12,5 +12,12 @@
       d:DesignHeight="600"
       d:DesignWidth="800"
       mc:Ignorable="d">
-    <controls:LibraryWrapPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+    <Grid>
+        <Frame x:Name="Empty" Visibility="Hidden">
+            <Frame.Content>
+                <local:EmptyLibraryPage />
+            </Frame.Content>
+        </Frame>
+        <controls:LibraryWrapPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+    </Grid>
 </Page>

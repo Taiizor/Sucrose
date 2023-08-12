@@ -120,8 +120,9 @@
                         MaxLength="20"
                         Cursor="IBeam"
                         x:Name="SearchBox"
-                        PlaceholderText="Bir Duvar Kağıdı Ara"
-                        Icon="{ui:SymbolIcon Search16}" />
+                        Icon="{ui:SymbolIcon Search16}"
+                        TextChanged="SearchBox_TextChanged"
+                        PlaceholderText="Bir Duvar Kağıdı Ara" />
                     <ui:Button
                         Cursor="Hand"
                         x:Name="Dark"

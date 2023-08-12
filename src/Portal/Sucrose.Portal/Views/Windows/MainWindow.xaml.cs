@@ -1,10 +1,12 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using Wpf.Ui.Contracts;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
@@ -135,6 +137,8 @@ namespace Sucrose.Portal.Views.Windows
         private void ThemeChange_click(object sender, RoutedEventArgs e)
         {
             ApplyTheme(sender as Button);
+
+            Dispose();
         }
 
         private void NavigationChange_Click(object sender, RoutedEventArgs e)
@@ -151,9 +155,18 @@ namespace Sucrose.Portal.Views.Windows
             }
         }
 
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SPMI.SearchService.SearchText = SearchBox.Text;
+
+            Dispose();
+        }
+
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ApplySearch(e.NewSize.Width);
+
+            Dispose();
         }
 
         private void RootView_Navigated(NavigationView sender, NavigatedEventArgs args)
