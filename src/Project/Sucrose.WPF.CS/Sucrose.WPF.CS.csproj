@@ -69,9 +69,18 @@
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.1.1.2" />
     </ItemGroup>
-    
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Web" />
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <PackageReference Include="CefSharp.Wpf" Version="115.3.130" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
 
     <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
@@ -83,8 +92,10 @@
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\..\gRPC\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
-    
+
+    <Import Project="..\..\Shared\Sucrose.Shared.Zip\Sucrose.Shared.Zip.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Server\Sucrose.Shared.Server.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems" Label="Shared" />

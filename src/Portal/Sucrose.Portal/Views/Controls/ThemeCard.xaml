@@ -6,20 +6,22 @@
              xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             MouseLeftButtonUp="ThemeCard_MouseLeftButtonUp"
+             MouseEnter="ThemeCard_MouseEnter"
              mc:Ignorable="d"
              MaxWidth="360" MinWidth="260" MinHeight="160" MaxHeight="160"
              xf:Animations.Primary="{xf:Animate BasedOn={StaticResource SlideFromLeft}, Duration=100}"
-             xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource FadeInAndContract}, Event=MouseEnter}">
+             xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource FadeInAndContract}, Event=MouseEnter}" Cursor="">
 
     <UserControl.ContextMenu>
-        <ContextMenu Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
+        <ContextMenu Opened="ContextMenu_Opened" Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
             <ui:MenuItem Cursor="Hand" Header="İncele" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
+            <ui:MenuItem x:Name="MenuUse" Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
             <ui:MenuItem Cursor="Hand" Header="Önizle" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Özelleştir" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Bul" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
             <ui:MenuItem Cursor="Hand" Header="Paylaş" Icon="{ui:SymbolIcon Share20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="Sil" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
+            <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="Sil" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
             <ui:MenuItem Cursor="Hand" Header="Düzenle" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
             <ui:NavigationViewItemSeparator />
             <ui:MenuItem Cursor="Hand" Header="Sucrose" Icon="{ui:SymbolIcon DrinkCoffee20}" IsEnabled="False" />

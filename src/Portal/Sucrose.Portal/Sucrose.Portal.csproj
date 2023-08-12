@@ -93,6 +93,7 @@
 
     <Import Project="..\..\Shared\Sucrose.Shared.Zip\Sucrose.Shared.Zip.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Store\Sucrose.Shared.Store.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
@@ -110,12 +111,6 @@
         <Resource Include="Assets\Icon256.png" />
         <Resource Include="Assets\Icon512.png" />
         <Resource Include="Assets\Icon1024.png" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Views\Pages\Library\SearchLibraryPage.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
     </ItemGroup>
 
     <PropertyGroup>
