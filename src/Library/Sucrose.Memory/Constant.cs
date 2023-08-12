@@ -30,8 +30,6 @@
 
         public const string Delay = "Delay";
 
-        public const string Folder = "Folder";
-
         public const string Volume = "Volume";
 
         public const string Refresh = "Refresh";
@@ -43,8 +41,6 @@
         public const string UserAgent = "UserAgent";
 
         public const string ThemeType = "ThemeType";
-
-        public const string Directory = "Directory";
 
         public const string PlayerType = "PlayerType";
 
@@ -69,6 +65,10 @@
         public const string AdaptiveLayout = "AdaptiveLayout";
 
         public const string AdaptiveMargin = "AdaptiveMargin";
+
+        public const string LibraryLocation = "LibraryLocation";
+
+        public const string LibrarySelected = "LibrarySelected";
 
         public const string ExpandScreenType = "ExpandScreenType";
 

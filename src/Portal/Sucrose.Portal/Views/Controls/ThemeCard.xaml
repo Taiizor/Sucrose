@@ -14,7 +14,7 @@
     <UserControl.ContextMenu>
         <ContextMenu Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
             <ui:MenuItem Cursor="Hand" Header="İncele" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon Checkmark20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
             <ui:MenuItem Cursor="Hand" Header="Önizle" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Özelleştir" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="Bul" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
@@ -57,7 +57,7 @@
                 <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="Title" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
                 <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="Description" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
 
-                <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeButton_Click" Content="•••" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeButton_Click" Content="•••" ToolTip="Menü" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
             </Grid>
         </Grid>
     </Border>

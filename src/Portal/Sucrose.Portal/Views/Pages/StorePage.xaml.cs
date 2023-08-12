@@ -19,7 +19,7 @@ namespace Sucrose.Portal.Views.Pages
     {
         private static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
 
-        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
         private static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
@@ -53,7 +53,7 @@ namespace Sucrose.Portal.Views.Pages
                         //MessageBox.Show("Live: " + Wallpaper.Value.Live);
 
                         string Keys = SHG.GenerateString(Chars, 25, SMR.Randomise);
-                        bool Result = SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(Directory, Keys), Agent, Keys, Key).Result;
+                        bool Result = SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key).Result;
                     }
                 }
             }
@@ -61,7 +61,7 @@ namespace Sucrose.Portal.Views.Pages
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!System.IO.Directory.Exists(Directory) || !System.IO.Directory.GetFiles(Directory, "*", SearchOption.AllDirectories).Any())
+            if (!Directory.Exists(LibraryLocation) || !Directory.GetFiles(LibraryLocation, "*", SearchOption.AllDirectories).Any())
             {
                 await Task.Run(Start);
 

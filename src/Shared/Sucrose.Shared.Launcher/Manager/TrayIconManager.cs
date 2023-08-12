@@ -26,13 +26,13 @@ namespace Sucrose.Shared.Launcher.Manager
 {
     public class TrayIconManager
     {
-        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
-        private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
 
@@ -85,7 +85,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 //ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallChangeText"), null, null);
 
-                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
+                string PropertiesPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseProperties);
 
                 if (File.Exists(PropertiesPath))
                 {
@@ -94,9 +94,14 @@ namespace Sucrose.Shared.Launcher.Manager
             }
             else if (SMMI.EngineSettingManager.CheckFile())
             {
-                ContextMenu.Items.Add(Separator1.Strip);
+                string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
 
-                ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                if (File.Exists(InfoPath))
+                {
+                    ContextMenu.Items.Add(Separator1.Strip);
+
+                    ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                }
             }
 
             SSLSSS Separator2 = new(Theme);

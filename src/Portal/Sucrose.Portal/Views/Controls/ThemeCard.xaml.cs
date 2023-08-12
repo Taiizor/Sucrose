@@ -31,6 +31,19 @@ namespace Sucrose.Portal.Views.Controls
 
             InitializeComponent();
 
+            ToolTip TitleTip = new()
+            {
+                Content = Info.Title
+            };
+
+            ToolTip DescriptionTip = new()
+            {
+                Content = Info.Description
+            };
+
+            ThemeTitle.ToolTip = TitleTip;
+            ThemeDescription.ToolTip = DescriptionTip;
+
             ThemeTitle.Text = Info.Title.Length > TitleLength ? $"{SHA.Cut(Info.Title, TitleLength)}..." : Info.Title;
             ThemeDescription.Text = Info.Description.Length > DescriptionLength ? $"{SHA.Cut(Info.Description, DescriptionLength)}..." : Info.Description;
 
@@ -40,6 +53,11 @@ namespace Sucrose.Portal.Views.Controls
             {
                 Imagine.ImageSource = Loader.Load(ImagePath);
             }
+        }
+
+        private void MenuUse_Click(object sender, RoutedEventArgs e)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
         }
 
         private void MenuFind_Click(object sender, RoutedEventArgs e)

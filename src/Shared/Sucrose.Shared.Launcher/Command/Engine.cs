@@ -16,7 +16,9 @@ namespace Sucrose.Shared.Launcher.Command
 {
     internal static class Engine
     {
-        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+
+        private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
         private static SSDEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, (SSDEET)SSSMI.ApplicationEngine);
 
@@ -29,8 +31,6 @@ namespace Sucrose.Shared.Launcher.Command
         private static SSDEET UApp => SMMI.EngineSettingManager.GetSetting(SMC.UApp, (SSDEET)SSSMI.UrlEngine);
 
         private static SSDEET WApp => SMMI.EngineSettingManager.GetSetting(SMC.WApp, (SSDEET)SSSMI.WebEngine);
-
-        private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
 
         private static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 
@@ -49,9 +49,9 @@ namespace Sucrose.Shared.Launcher.Command
 
                 SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
             }
-            else if (!SSSHL.Run() && SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
+            else if (!SSSHL.Run() && SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
             {
-                string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
 
                 if (File.Exists(InfoPath))
                 {
@@ -82,7 +82,7 @@ namespace Sucrose.Shared.Launcher.Command
                     }
                 }
             }
-            else if (!SMMI.EngineSettingManager.CheckFile() || string.IsNullOrEmpty(Folder))
+            else if (!SMMI.EngineSettingManager.CheckFile() || string.IsNullOrEmpty(LibrarySelected))
             {
                 SSLCI.Command();
             }

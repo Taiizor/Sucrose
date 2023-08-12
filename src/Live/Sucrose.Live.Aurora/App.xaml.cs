@@ -25,13 +25,13 @@ namespace Sucrose.Live.Aurora
     /// </summary>
     public partial class App : Application
     {
-        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
-        private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static Mutex Mutex => new(true, SMR.LiveMutex);
 
@@ -131,9 +131,9 @@ namespace Sucrose.Live.Aurora
 
         protected void Configure()
         {
-            if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
+            if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
             {
-                string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
 
                 if (File.Exists(InfoPath))
                 {
@@ -147,7 +147,7 @@ namespace Sucrose.Live.Aurora
                     }
                     else
                     {
-                        Source = Path.Combine(Directory, Folder, Source);
+                        Source = Path.Combine(LibraryLocation, LibrarySelected, Source);
 
                         if (File.Exists(Source))
                         {

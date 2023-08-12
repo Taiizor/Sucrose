@@ -15,7 +15,7 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class LibraryPage : INavigableView<LibraryViewModel>, IDisposable
     {
-        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
         public LibraryViewModel ViewModel { get; }
 
@@ -31,9 +31,9 @@ namespace Sucrose.Portal.Views.Pages
         {
             List<string> Themes = new();
 
-            if (System.IO.Directory.Exists(Directory))
+            if (Directory.Exists(LibraryLocation))
             {
-                string[] Folders = System.IO.Directory.GetDirectories(Directory);
+                string[] Folders = Directory.GetDirectories(LibraryLocation);
 
                 if (Folders.Any())
                 {

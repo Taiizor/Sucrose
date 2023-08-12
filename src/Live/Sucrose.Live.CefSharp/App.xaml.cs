@@ -32,13 +32,13 @@ namespace Sucrose.Live.CefSharp
     /// </summary>
     public partial class App : Application
     {
-        private static string Directory => SMMI.EngineSettingManager.GetSetting(SMC.Directory, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
-        private static string Folder => SMMI.EngineSettingManager.GetSetting(SMC.Folder, string.Empty);
+        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static Mutex Mutex => new(true, SMR.LiveMutex);
 
@@ -138,11 +138,11 @@ namespace Sucrose.Live.CefSharp
 
         protected void Configure()
         {
-            if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(Folder))
+            if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
             {
-                string InfoPath = Path.Combine(Directory, Folder, SMR.SucroseInfo);
-                string PropertiesPath = Path.Combine(Directory, Folder, SMR.SucroseProperties);
-                string CompatiblePath = Path.Combine(Directory, Folder, SMR.SucroseCompatible);
+                string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
+                string PropertiesPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseProperties);
+                string CompatiblePath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseCompatible);
 
                 if (File.Exists(InfoPath))
                 {
@@ -184,7 +184,7 @@ namespace Sucrose.Live.CefSharp
 
                     if (!SSTHV.IsUrl(Source))
                     {
-                        Source = Path.Combine(Directory, Folder, Source);
+                        Source = Path.Combine(LibraryLocation, LibrarySelected, Source);
                     }
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))

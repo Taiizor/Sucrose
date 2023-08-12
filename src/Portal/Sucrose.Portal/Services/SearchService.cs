@@ -2,6 +2,8 @@
 {
     internal class SearchService
     {
+        public event EventHandler SearchTextChanged;
+
         private string _SearchText = string.Empty;
 
         public string SearchText
@@ -13,7 +15,5 @@
                 SearchTextChanged?.Invoke(this, EventArgs.Empty);
             }
         }
-
-        public event EventHandler SearchTextChanged;
     }
 }
