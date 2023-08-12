@@ -112,6 +112,12 @@
         <Resource Include="Assets\Icon1024.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Views\Pages\Library\SearchLibraryPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>

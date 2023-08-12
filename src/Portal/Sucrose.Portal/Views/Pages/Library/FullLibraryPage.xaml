@@ -15,7 +15,7 @@
     <Grid>
         <Frame x:Name="Empty" Visibility="Hidden">
             <Frame.Content>
-                <local:EmptyLibraryPage />
+                <local:SearchLibraryPage />
             </Frame.Content>
         </Frame>
         <controls:LibraryWrapPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />

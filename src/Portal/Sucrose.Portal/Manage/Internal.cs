@@ -1,4 +1,5 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System.IO;
+using System.Windows.Media.Imaging;
 using SPSSS = Sucrose.Portal.Services.SearchService;
 
 namespace Sucrose.Portal.Manage
@@ -8,5 +9,7 @@ namespace Sucrose.Portal.Manage
         public static SPSSS SearchService { get; } = new();
 
         public static readonly Dictionary<string, BitmapImage> Images = new();
+
+        public static readonly Dictionary<string, FileStream> ImageStream = new();
     }
 }

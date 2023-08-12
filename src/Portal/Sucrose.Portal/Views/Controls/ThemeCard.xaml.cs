@@ -65,7 +65,7 @@ namespace Sucrose.Portal.Views.Controls
             SSSHP.Run(Theme);
         }
 
-        private void MenuDelete_Click(object sender, RoutedEventArgs e)
+        private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
             Dispose();
             MinWidth = 0;
@@ -74,6 +74,11 @@ namespace Sucrose.Portal.Views.Controls
             Imagine.ImageSource = null;
 
             Visibility = Visibility.Hidden;
+
+            await Task.Run(() =>
+            {
+                Directory.Delete(Theme, true);
+            });
         }
 
         private void ThemeButton_Click(object sender, RoutedEventArgs e)
@@ -83,7 +88,6 @@ namespace Sucrose.Portal.Views.Controls
 
         public void Dispose()
         {
-            Loader.Remove(Path.Combine(Theme, Info.Thumbnail));
             Loader.Dispose();
 
             GC.Collect();

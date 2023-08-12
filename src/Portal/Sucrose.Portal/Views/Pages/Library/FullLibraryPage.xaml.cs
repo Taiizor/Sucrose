@@ -33,11 +33,11 @@ namespace Sucrose.Portal.Views.Pages.Library
 
         private async Task AddThemes(string Search)
         {
-            ThemeLibrary.Children.Clear();
+            Dispose();
 
-            if (string.IsNullOrEmpty(Search))
+            foreach (string Theme in Themes)
             {
-                foreach (string Theme in Themes)
+                if (string.IsNullOrEmpty(Search))
                 {
                     SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
 
@@ -49,24 +49,28 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                     await Task.Delay(25);
                 }
-            }
-            else
-            {
-                foreach (string Theme in Themes)
+                else
                 {
-                    SSTHI Info = SSTHI.ReadJson(Theme);
-                    string Title = Info.Title.ToLowerInvariant();
-                    string Description = Info.Description.ToLowerInvariant();
-
-                    if (Title.Contains(Search) || Description.Contains(Search))
+                    if (SPMI.SearchService.SearchText == Search)
                     {
-                        SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), Info);
+                        SSTHI Info = SSTHI.ReadJson(Theme);
+                        string Title = Info.Title.ToLowerInvariant();
+                        string Description = Info.Description.ToLowerInvariant();
 
-                        ThemeCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
+                        if (Title.Contains(Search) || Description.Contains(Search))
+                        {
+                            SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), Info);
 
-                        ThemeLibrary.Children.Add(ThemeCard);
+                            ThemeCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
-                        Empty.Visibility = Visibility.Hidden;
+                            ThemeLibrary.Children.Add(ThemeCard);
+
+                            Empty.Visibility = Visibility.Hidden;
+                        }
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
             }
@@ -92,11 +96,16 @@ namespace Sucrose.Portal.Views.Pages.Library
 
         private async void ThemeCard_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            await Task.Delay(500);
-
-            if (ThemeLibrary.Children.Count <= 0)
+            if ((bool)e.NewValue == false)
             {
-                Empty.Visibility = Visibility.Visible;
+                await Task.Delay(250);
+
+                if (ThemeLibrary.Children.Count <= 0)
+                {
+                    Empty.Visibility = Visibility.Visible;
+                }
+
+                Themes.RemoveAll(Theme => !File.Exists(Theme));
             }
         }
 

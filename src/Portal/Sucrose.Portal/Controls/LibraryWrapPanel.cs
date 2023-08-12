@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using SPVCTC = Sucrose.Portal.Views.Controls.ThemeCard;
 
 namespace Sucrose.Portal.Controls
 {
@@ -29,35 +30,38 @@ namespace Sucrose.Portal.Controls
 
         protected override Size MeasureOverride(Size availableSize)
         {
-            InternalChildren
-                .OfType<UIElement>()
-                .Where(child => child.Visibility != Visibility.Visible)
-                .ToList()
-                .ForEach(InternalChildren.Remove);
-
             double x = 0;
             double y = 0;
             double rowHeight = 0;
             int itemsInCurrentRow = 0;
 
-            foreach (UIElement child in InternalChildren)
+            if (InternalChildren.Count >= 0)
             {
-                child.Measure(availableSize);
-                double childWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
+                InternalChildren
+                    .OfType<UIElement>()
+                    .Where(Element => Element.Visibility != Visibility.Visible)
+                    .ToList()
+                    .ForEach(InternalChildren.Remove);
 
-                if (x + childWidth > availableSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
+                foreach (UIElement child in InternalChildren)
                 {
-                    x = 0;
-                    y += rowHeight;
+                    child.Measure(availableSize);
+                    double childWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
 
-                    rowHeight = 0;
-                    itemsInCurrentRow = 0;
+                    if (x + childWidth > availableSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
+                    {
+                        x = 0;
+                        y += rowHeight;
+
+                        rowHeight = 0;
+                        itemsInCurrentRow = 0;
+                    }
+
+                    rowHeight = Math.Max(rowHeight, child.DesiredSize.Height + ItemMargin.Top + ItemMargin.Bottom);
+                    x += childWidth;
+
+                    itemsInCurrentRow++;
                 }
-
-                rowHeight = Math.Max(rowHeight, child.DesiredSize.Height + ItemMargin.Top + ItemMargin.Bottom);
-                x += childWidth;
-
-                itemsInCurrentRow++;
             }
 
             y += rowHeight;
@@ -72,54 +76,65 @@ namespace Sucrose.Portal.Controls
             double rowHeight = 0;
             int itemsInCurrentRow = 0;
 
-            for (int i = 0; i < InternalChildren.Count; i++)
+            if (InternalChildren.Count >= 0)
             {
-                UIElement child = InternalChildren[i];
-                child.Measure(new Size(double.PositiveInfinity, finalSize.Height));
-
-                double childWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
-                double childHeight = child.DesiredSize.Height + ItemMargin.Top + ItemMargin.Bottom;
-
-                if (rowWidth + childWidth > finalSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
+                for (int i = 0; i < InternalChildren.Count; i++)
                 {
-                    double widthRatio = finalSize.Width / rowWidth;
-                    double xOffset = 0;
+                    UIElement child = InternalChildren[i];
+                    child.Measure(new Size(double.PositiveInfinity, finalSize.Height));
 
-                    for (int j = i - itemsInCurrentRow; j < i; j++)
+                    double childWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
+                    double childHeight = child.DesiredSize.Height + ItemMargin.Top + ItemMargin.Bottom;
+
+                    if (rowWidth + childWidth > finalSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
                     {
-                        UIElement rowChild = InternalChildren[j];
-                        rowChild.Arrange(new Rect(new Point(xOffset + ItemMargin.Left, rowHeight + ItemMargin.Top), new Size(rowChild.DesiredSize.Width * widthRatio, rowChild.DesiredSize.Height)));
-                        xOffset += (rowChild.DesiredSize.Width * widthRatio) + ItemMargin.Left + ItemMargin.Right;
+                        double widthRatio = finalSize.Width / rowWidth;
+                        double xOffset = 0;
+
+                        for (int j = i - itemsInCurrentRow; j < i; j++)
+                        {
+                            UIElement rowChild = InternalChildren[j];
+                            rowChild.Arrange(new Rect(new Point(xOffset + ItemMargin.Left, rowHeight + ItemMargin.Top), new Size(rowChild.DesiredSize.Width * widthRatio, rowChild.DesiredSize.Height)));
+                            xOffset += (rowChild.DesiredSize.Width * widthRatio) + ItemMargin.Left + ItemMargin.Right;
+                        }
+
+                        totalWidth = Math.Max(totalWidth, rowWidth);
+                        rowWidth = 0;
+                        rowHeight += childHeight;
+                        itemsInCurrentRow = 0;
                     }
 
-                    totalWidth = Math.Max(totalWidth, rowWidth);
-                    rowWidth = 0;
-                    rowHeight += childHeight;
-                    itemsInCurrentRow = 0;
+                    rowWidth += childWidth;
+                    itemsInCurrentRow++;
                 }
 
-                rowWidth += childWidth;
-                itemsInCurrentRow++;
+                double remainingWidthRatio = finalSize.Width / rowWidth;
+                double remainingXOffset = 0;
+
+                for (int i = InternalChildren.Count - itemsInCurrentRow; i < InternalChildren.Count; i++)
+                {
+                    UIElement rowChild = InternalChildren[i];
+                    rowChild.Arrange(new Rect(new Point(remainingXOffset + ItemMargin.Left, rowHeight + ItemMargin.Top), new Size(rowChild.DesiredSize.Width * remainingWidthRatio, rowChild.DesiredSize.Height)));
+                    remainingXOffset += (rowChild.DesiredSize.Width * remainingWidthRatio) + ItemMargin.Left + ItemMargin.Right;
+                }
+
+                totalWidth = Math.Max(totalWidth, rowWidth);
             }
-
-            double remainingWidthRatio = finalSize.Width / rowWidth;
-            double remainingXOffset = 0;
-
-            for (int i = InternalChildren.Count - itemsInCurrentRow; i < InternalChildren.Count; i++)
-            {
-                UIElement rowChild = InternalChildren[i];
-                rowChild.Arrange(new Rect(new Point(remainingXOffset + ItemMargin.Left, rowHeight + ItemMargin.Top), new Size(rowChild.DesiredSize.Width * remainingWidthRatio, rowChild.DesiredSize.Height)));
-                remainingXOffset += (rowChild.DesiredSize.Width * remainingWidthRatio) + ItemMargin.Left + ItemMargin.Right;
-            }
-
-            totalWidth = Math.Max(totalWidth, rowWidth);
 
             return new Size(totalWidth, rowHeight);
         }
 
         public void Dispose()
         {
-            InternalChildren.Clear();
+            if (InternalChildren.Count >= 0)
+            {
+                InternalChildren
+                    .OfType<SPVCTC>()
+                    .ToList()
+                    .ForEach(Card => Card.Dispose());
+
+                InternalChildren.Clear();
+            }
 
             GC.Collect();
             GC.SuppressFinalize(this);

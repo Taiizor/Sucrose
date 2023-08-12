@@ -1,0 +1,12 @@
+﻿<Page x:Class="Sucrose.Portal.Views.Pages.Library.SearchLibraryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      Title="SearchLibraryPage"
+      mc:Ignorable="d">
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock Text="Kütüphaneniz Örümcek Ağlarıyla Büyülenmiş" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
+        <TextBlock Text="Duvar kağıdı seçimindeki inceliğiniz yüzünden duvar kağıtlarına yer kalmadı" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
+    </StackPanel>
+</Page>

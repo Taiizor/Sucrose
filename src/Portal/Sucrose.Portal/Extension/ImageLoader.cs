@@ -7,10 +7,12 @@ namespace Sucrose.Portal.Extension
 {
     internal class ImageLoader : IDisposable
     {
-        private FileStream ImageStream = null;
+        private string ImagePath { get; set; }
 
         public BitmapImage Load(string ImagePath)
         {
+            this.ImagePath = ImagePath;
+
             if (!SPMI.Images.ContainsKey(ImagePath))
             {
                 SPMI.Images.Add(ImagePath, new()
@@ -20,11 +22,14 @@ namespace Sucrose.Portal.Extension
                     CacheOption = BitmapCacheOption.None
                 });
 
-                ImageStream = new(ImagePath, FileMode.Open, FileAccess.Read);
+                if (!SPMI.ImageStream.ContainsKey(ImagePath))
+                {
+                    SPMI.ImageStream[ImagePath] = new(ImagePath, FileMode.Open, FileAccess.Read);
+                }
 
                 SPMI.Images[ImagePath].BeginInit();
 
-                SPMI.Images[ImagePath].StreamSource = ImageStream;
+                SPMI.Images[ImagePath].StreamSource = SPMI.ImageStream[ImagePath];
                 SPMI.Images[ImagePath].DecodePixelWidth = 360;
 
                 SPMI.Images[ImagePath].EndInit();
@@ -36,16 +41,19 @@ namespace Sucrose.Portal.Extension
         public void Remove(string ImagePath)
         {
             SPMI.Images.Remove(ImagePath);
+            SPMI.ImageStream.Remove(ImagePath);
         }
 
         public void Clear()
         {
             SPMI.Images.Clear();
+            SPMI.ImageStream.Clear();
         }
 
         public void Dispose()
         {
-            ImageStream?.Dispose();
+            SPMI.ImageStream[ImagePath].Dispose();
+            SPMI.Images[ImagePath].StreamSource.Dispose();
 
             GC.Collect();
             GC.SuppressFinalize(this);
