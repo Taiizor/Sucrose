@@ -6,14 +6,11 @@ namespace Sucrose.Manager.Helper
     {
         public static void Write(string filePath, string fileContent)
         {
-            if (!File.Exists(filePath))
-            {
-                File.Create(filePath);
-            }
+            FileMode fileMode = File.Exists(filePath) ? FileMode.Truncate : FileMode.CreateNew;
 
             try
             {
-                using FileStream fileStream = new(filePath, FileMode.Truncate, FileAccess.Write, FileShare.None);
+                using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                 using StreamWriter writer = new(fileStream);
                 writer.Write(SMHC.Clean(fileContent));
             }
@@ -21,7 +18,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    using FileStream fileStream = new(filePath, FileMode.Truncate, FileAccess.Write, FileShare.None);
+                    using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                     using StreamWriter writer = new(fileStream);
                     writer.Write(SMHC.Clean(fileContent));
                 }

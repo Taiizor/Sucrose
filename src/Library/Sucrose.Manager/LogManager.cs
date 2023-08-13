@@ -29,17 +29,17 @@ namespace Sucrose.Manager
 
         public void Log(SELLT level, string message)
         {
+            if (logType == SELT.None)
+            {
+                return;
+            }
+
             _lock.EnterWriteLock();
 
             try
             {
                 lock (lockObject)
                 {
-                    if (logType == SELT.None)
-                    {
-                        return;
-                    }
-
                     using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
 
                     try
