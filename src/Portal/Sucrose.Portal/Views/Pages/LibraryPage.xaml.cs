@@ -5,6 +5,7 @@ using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 
@@ -17,14 +18,30 @@ namespace Sucrose.Portal.Views.Pages
     {
         private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
+        private SPVPLELP EmptyLibraryPage { get; set; }
+
+        private SPVPLFLP FullLibraryPage { get; set; }
+
         public LibraryViewModel ViewModel { get; }
 
         public LibraryPage(LibraryViewModel ViewModel)
         {
             this.ViewModel = ViewModel;
             DataContext = this;
-
             InitializeComponent();
+
+            SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
+        }
+
+        private async void SearchService_SearchTextChanged(object sender, EventArgs e)
+        {
+            FullLibraryPage?.Dispose();
+            EmptyLibraryPage?.Dispose();
+
+            FrameLibrary.Visibility = Visibility.Collapsed;
+            ProgressLibrary.Visibility = Visibility.Visible;
+
+            await Start();
         }
 
         private async Task Start()
@@ -51,15 +68,15 @@ namespace Sucrose.Portal.Views.Pages
 
             if (Themes.Any())
             {
-                SPVPLFLP Page = new(Themes);
+                FullLibraryPage = new(Themes);
 
-                FrameLibrary.Content = Page;
+                FrameLibrary.Content = FullLibraryPage;
             }
             else
             {
-                SPVPLELP Page = new();
+                EmptyLibraryPage = new();
 
-                FrameLibrary.Content = Page;
+                FrameLibrary.Content = EmptyLibraryPage;
             }
 
             await Task.Delay(500);

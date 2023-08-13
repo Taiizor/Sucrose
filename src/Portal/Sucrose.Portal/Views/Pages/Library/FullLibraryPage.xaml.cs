@@ -19,7 +19,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
         private static int AdaptiveMargin => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5);
 
-        private List<string> Themes = new();
+        private readonly List<string> Themes = new();
 
         public FullLibraryPage(List<string> Themes)
         {
@@ -27,8 +27,6 @@ namespace Sucrose.Portal.Views.Pages.Library
             DataContext = this;
 
             InitializeComponent();
-
-            SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
         }
 
         private async Task AddThemes(string Search)
@@ -51,26 +49,21 @@ namespace Sucrose.Portal.Views.Pages.Library
                 }
                 else
                 {
-                    if (SPMI.SearchService.SearchText == Search)
+                    SSTHI Info = SSTHI.ReadJson(Theme);
+                    string Title = Info.Title.ToLowerInvariant();
+                    string Description = Info.Description.ToLowerInvariant();
+
+                    if (Title.Contains(Search) || Description.Contains(Search))
                     {
-                        SSTHI Info = SSTHI.ReadJson(Theme);
-                        string Title = Info.Title.ToLowerInvariant();
-                        string Description = Info.Description.ToLowerInvariant();
+                        SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), Info);
 
-                        if (Title.Contains(Search) || Description.Contains(Search))
-                        {
-                            SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), Info);
+                        ThemeCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
-                            ThemeCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
+                        ThemeLibrary.Children.Add(ThemeCard);
 
-                            ThemeLibrary.Children.Add(ThemeCard);
+                        Empty.Visibility = Visibility.Hidden;
 
-                            Empty.Visibility = Visibility.Hidden;
-                        }
-                    }
-                    else
-                    {
-                        break;
+                        await Task.Delay(25);
                     }
                 }
             }
@@ -89,11 +82,6 @@ namespace Sucrose.Portal.Views.Pages.Library
             await AddThemes(SPMI.SearchService.SearchText);
         }
 
-        private async void SearchService_SearchTextChanged(object sender, EventArgs e)
-        {
-            await AddThemes(SPMI.SearchService.SearchText);
-        }
-
         private async void ThemeCard_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if ((bool)e.NewValue == false)
@@ -104,14 +92,12 @@ namespace Sucrose.Portal.Views.Pages.Library
                 {
                     Empty.Visibility = Visibility.Visible;
                 }
-
-                Themes.RemoveAll(Theme => !File.Exists(Theme));
             }
         }
 
         public void Dispose()
         {
-            ThemeLibrary.Dispose();
+            ThemeLibrary.Children.Clear();
 
             GC.Collect();
             GC.SuppressFinalize(this);
