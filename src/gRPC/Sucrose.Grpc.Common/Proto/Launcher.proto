@@ -6,13 +6,13 @@ option csharp_namespace = "Sucrose.Grpc.Common";
 import "google/protobuf/empty.proto";
 
 service Launcher {
-    rpc DisposeLauncher (google.protobuf.Empty) returns (LauncherDisposeResponse);
+    rpc ReleaseLauncher (google.protobuf.Empty) returns (LauncherReleaseResponse);
     rpc StateLauncher (google.protobuf.Empty) returns (LauncherStateResponse);
     rpc ShowLauncher (google.protobuf.Empty) returns (LauncherShowResponse);
     rpc HideLauncher (google.protobuf.Empty) returns (LauncherHideResponse);
 }
 
-message LauncherDisposeResponse {
+message LauncherReleaseResponse {
     bool state = 1;
 }
 

@@ -44,6 +44,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         {
             if (SSEMI.Initialized)
             {
+                Dispose();
+
                 SSECSHYT.First();
 
                 SSECSHYT.SetLoop(SSEHD.GetLoop());
@@ -52,6 +54,12 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
                 SSECSHYT.SetShuffle(SSEHD.GetShuffle());
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

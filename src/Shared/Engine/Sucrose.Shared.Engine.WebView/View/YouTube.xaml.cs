@@ -11,7 +11,7 @@ namespace Sucrose.Shared.Engine.WebView.View
     /// <summary>
     /// Interaction logic for YouTube.xaml
     /// </summary>
-    public sealed partial class YouTube : Window
+    public sealed partial class YouTube : Window, IDisposable
     {
         public YouTube(string YouTube)
         {
@@ -37,6 +37,8 @@ namespace Sucrose.Shared.Engine.WebView.View
         {
             if (SSEMI.Initialized)
             {
+                Dispose();
+
                 SSEWVHYT.First();
 
                 SSEWVHYT.SetLoop(SSEHD.GetLoop());
@@ -45,6 +47,12 @@ namespace Sucrose.Shared.Engine.WebView.View
 
                 SSEWVHYT.SetShuffle(SSEHD.GetShuffle());
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

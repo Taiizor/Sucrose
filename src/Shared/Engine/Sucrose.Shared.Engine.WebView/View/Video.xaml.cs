@@ -11,7 +11,7 @@ namespace Sucrose.Shared.Engine.WebView.View
     /// <summary>
     /// Interaction logic for Video.xaml
     /// </summary>
-    public sealed partial class Video : Window
+    public sealed partial class Video : Window, IDisposable
     {
         public Video(string Video)
         {
@@ -37,12 +37,20 @@ namespace Sucrose.Shared.Engine.WebView.View
         {
             if (SSEMI.Initialized)
             {
+                Dispose();
+
                 SSEWVHV.SetLoop(SSEHD.GetLoop());
 
                 SSEWVHV.SetVolume(SSEHD.GetVolume());
 
                 SSEWVHV.SetStretch(SSEHD.GetStretch());
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

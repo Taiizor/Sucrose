@@ -10,9 +10,9 @@ namespace Sucrose.Shared.Server.Services
 {
     public class LauncherServerService : LauncherBase
     {
-        public override Task<LauncherDisposeResponse> DisposeLauncher(Empty _, ServerCallContext Context)
+        public override Task<LauncherReleaseResponse> ReleaseLauncher(Empty _, ServerCallContext Context)
         {
-            return Task.FromResult(new LauncherDisposeResponse { State = Internal.TrayIconManager.Dispose() });
+            return Task.FromResult(new LauncherReleaseResponse { State = Internal.TrayIconManager.Release() });
         }
 
         public override Task<LauncherStateResponse> StateLauncher(Empty _, ServerCallContext Context)

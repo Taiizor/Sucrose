@@ -6,9 +6,9 @@ namespace Sucrose.Grpc.Client.Services
 {
     public static class LauncherClientService
     {
-        public static LauncherDisposeResponse GetDispose(LauncherClient Client)
+        public static LauncherReleaseResponse GetRelease(LauncherClient Client)
         {
-            LauncherDisposeResponse Response = Client.DisposeLauncher(new Empty());
+            LauncherReleaseResponse Response = Client.ReleaseLauncher(new Empty());
 
             return Response;
         }

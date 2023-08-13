@@ -14,7 +14,7 @@ namespace Sucrose.Shared.Engine.Vexana.View
     /// <summary>
     /// Interaction logic for Gif.xaml
     /// </summary>
-    public sealed partial class Gif : Window
+    public sealed partial class Gif : Window, IDisposable
     {
         public Gif(string Gif)
         {
@@ -39,9 +39,17 @@ namespace Sucrose.Shared.Engine.Vexana.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
+            Dispose();
+
             SSEVHG.SetLoop(SSEHD.GetLoop());
 
             SSEVMI.ImageEngine.Stretch = (Stretch)SSEHD.GetStretch();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

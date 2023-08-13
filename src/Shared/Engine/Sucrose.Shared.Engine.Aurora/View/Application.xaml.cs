@@ -17,7 +17,7 @@ namespace Sucrose.Shared.Engine.Aurora.View
     /// <summary>
     /// Interaction logic for Application.xaml
     /// </summary>
-    public sealed partial class Application : Window
+    public sealed partial class Application : Window, IDisposable
     {
         public Application(string Application, string Arguments)
         {
@@ -58,12 +58,20 @@ namespace Sucrose.Shared.Engine.Aurora.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
+            Dispose();
+
             SSEAHA.SetVolume(SSEHD.GetVolume());
 
             if (!SSSHP.Work(SSEAMI.Application))
             {
                 Close();
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

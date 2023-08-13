@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.IO;
+using static Skylark.Wing.Native.Methods;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
@@ -24,7 +25,7 @@ using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Shared.Launcher.Manager
 {
-    public class TrayIconManager
+    public class TrayIconManager : IDisposable
     {
         private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
@@ -58,6 +59,8 @@ namespace Sucrose.Shared.Launcher.Manager
 
         public void Initialize()
         {
+            Dispose();
+
             SSRHR.SetLanguage(Culture);
             SHC.All = new CultureInfo(Culture, true);
 
@@ -117,10 +120,11 @@ namespace Sucrose.Shared.Launcher.Manager
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ExitIcon"))), CommandClose);
         }
 
-        public bool Dispose()
+        public bool Release()
         {
             TrayIcon.Visible = false;
             TrayIcon.Dispose();
+            Dispose();
 
             return true;
         }
@@ -198,6 +202,12 @@ namespace Sucrose.Shared.Launcher.Manager
         private void CommandClose(object sender, EventArgs e)
         {
             SSLCC.Command();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

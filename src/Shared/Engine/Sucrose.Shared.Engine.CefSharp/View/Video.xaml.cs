@@ -45,12 +45,20 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         {
             if (SSEMI.Initialized)
             {
+                Dispose();
+
                 SSECSHV.SetLoop(SSEHD.GetLoop());
 
                 SSECSHV.SetVolume(SSEHD.GetVolume());
 
                 SSECSHV.SetStretch(SSEHD.GetStretch());
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

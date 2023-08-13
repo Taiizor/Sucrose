@@ -13,7 +13,7 @@ namespace Sucrose.Shared.Engine.Nebula.View
     /// <summary>
     /// Interaction logic for Video.xaml
     /// </summary>
-    public sealed partial class Video : Window
+    public sealed partial class Video : Window, IDisposable
     {
         public Video(string Video)
         {
@@ -41,11 +41,19 @@ namespace Sucrose.Shared.Engine.Nebula.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
+            Dispose();
+
             SSENHV.SetLoop(SSEHD.GetLoop());
 
             SSENHV.SetVolume(SSEHD.GetVolume());
 
             SSENMI.MediaEngine.Stretch = (Stretch)SSEHD.GetStretch();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }
