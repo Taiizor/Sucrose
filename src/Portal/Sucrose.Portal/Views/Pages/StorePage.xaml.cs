@@ -25,6 +25,8 @@ namespace Sucrose.Portal.Views.Pages
 
         private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
+        private static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
+
         public StorePage()
         {
             InitializeComponent();
@@ -49,11 +51,15 @@ namespace Sucrose.Portal.Views.Pages
                         //MessageBox.Show("Wallpaper: " + Wallpaper.Key);
 
                         //MessageBox.Show("Source: " + Wallpaper.Value.Source);
+                        //MessageBox.Show("Adult: " + Wallpaper.Value.Adult);
                         //MessageBox.Show("Cover: " + Wallpaper.Value.Cover);
                         //MessageBox.Show("Live: " + Wallpaper.Value.Live);
 
-                        string Keys = SHG.GenerateString(Chars, 25, SMR.Randomise);
-                        bool Result = SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key).Result;
+                        if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && Adult))
+                        {
+                            string Keys = SHG.GenerateString(Chars, 25, SMR.Randomise);
+                            bool Result = SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key).Result;
+                        }
                     }
                 }
             }

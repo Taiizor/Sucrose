@@ -4,6 +4,9 @@ namespace Sucrose.Shared.Store.Interface
 {
     internal class Wallpaper
     {
+        [JsonProperty("Adult", Required = Required.Default)]
+        public bool Adult { get; set; } = false;
+
         [JsonProperty("Live", Required = Required.Always)]
         public string Live { get; set; } = string.Empty;
 

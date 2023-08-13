@@ -24,6 +24,8 @@
 
         public const string WApp = "WApp";
 
+        public const string Adult = "Adult";
+
         public const string Video = "Video";
 
         public const string State = "State";
