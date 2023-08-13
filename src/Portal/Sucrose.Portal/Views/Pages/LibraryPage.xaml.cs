@@ -35,16 +35,15 @@ namespace Sucrose.Portal.Views.Pages
 
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
         {
-            FullLibraryPage?.Dispose();
-            EmptyLibraryPage?.Dispose();
+            Dispose();
 
             FrameLibrary.Visibility = Visibility.Collapsed;
             ProgressLibrary.Visibility = Visibility.Visible;
 
-            await Start();
+            await Start(true);
         }
 
-        private async Task Start()
+        private async Task Start(bool Search = false)
         {
             List<string> Themes = new();
 
@@ -79,7 +78,10 @@ namespace Sucrose.Portal.Views.Pages
                 FrameLibrary.Content = EmptyLibraryPage;
             }
 
-            await Task.Delay(500);
+            if (!Search)
+            {
+                await Task.Delay(500);
+            }
 
             FrameLibrary.Visibility = Visibility.Visible;
             ProgressLibrary.Visibility = Visibility.Collapsed;
@@ -92,6 +94,9 @@ namespace Sucrose.Portal.Views.Pages
 
         public void Dispose()
         {
+            FullLibraryPage?.Dispose();
+            EmptyLibraryPage?.Dispose();
+
             GC.Collect();
             GC.SuppressFinalize(this);
         }

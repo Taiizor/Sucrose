@@ -81,7 +81,7 @@ namespace Sucrose.Portal.Views.Windows
 
         private void ApplySearch(double Width)
         {
-            SearchBox.Margin = new Thickness(0, 0, ((Width - SearchBox.MaxWidth) / 2) - 165, 0);
+            SearchBox.Margin = new Thickness(0, 0, ((Width - SearchBox.MaxWidth) / 2) - 190, 0);
         }
 
         private void ApplyGeneral(bool Mode = true)

@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Bibliothek</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Geschäft</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Themenbibliothek</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Themenladen</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Allgemein</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Persönlich</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Leistung</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Hintergrundbild</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">System</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Andere</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Zurück</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Allgemeine Einstellungen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Persönliche Einstellungen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Leistungseinstellungen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Hintergrundbildeinstellungen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Systemeinstellungen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Andere Einstellungen</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Einstellungen</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Suche nach einem Hintergrundbild</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Schwierigkeiten, was Sie brauchen, zu finden?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Helle Thema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Dunkle Thema</system:String>
 </ResourceDictionary>

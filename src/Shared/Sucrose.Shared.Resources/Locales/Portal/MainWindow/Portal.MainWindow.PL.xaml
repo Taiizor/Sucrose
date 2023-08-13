@@ -4,4 +4,35 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Biblioteka</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Sklep</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Biblioteka motywów</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Sklep z motywami</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Ogólne</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Osobiste</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Wydajność</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Tapeta</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">System</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Inne</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Wróć</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Ustawienia ogólne</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Ustawienia osobiste</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Ustawienia wydajności</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Ustawienia tapety</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Ustawienia systemu</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Inne ustawienia</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Ustawienia</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Wyszukaj tapetę</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Masz trudności ze znalezieniem potrzebnego?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Jasny motyw</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Ciemny motyw</system:String>
+
 </ResourceDictionary>

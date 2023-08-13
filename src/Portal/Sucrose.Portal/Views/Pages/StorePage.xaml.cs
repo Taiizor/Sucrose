@@ -71,11 +71,11 @@ namespace Sucrose.Portal.Views.Pages
             {
                 await Task.Run(Start);
 
-                State.Text = "Temalar İndirildi.";
+                State.Text = "Themes Downloaded";
             }
             else
             {
-                State.Text = "Temalar İndirilmiş.";
+                State.Text = "Themes Already Downloaded";
             }
 
             Ring.Progress = 100;

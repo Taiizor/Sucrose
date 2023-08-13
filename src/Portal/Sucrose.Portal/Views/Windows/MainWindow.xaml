@@ -54,53 +54,62 @@
                     Cursor="Hand"
                     Name="General1"
                     Margin="10 0 0 0"
-                    Content="Kütüphane"
                     Icon="{ui:SymbolIcon Library16}"
-                    TargetPageType="{x:Type pages:LibraryPage}" />
+                    TargetPageType="{x:Type pages:LibraryPage}"
+                    Content="{DynamicResource Portal.MainWindow.MenuLibrary}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuLibraryTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="General2"
-                    Content="Mağaza"
                     Icon="{ui:SymbolIcon Gift16}"
-                    TargetPageType="{x:Type pages:StorePage}" />
+                    TargetPageType="{x:Type pages:StorePage}"
+                    Content="{DynamicResource Portal.MainWindow.MenuStore}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuStoreTip}" />
                 
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting1"
                     Margin="10 0 0 0"
                     Click="NavigationChange_Click"
-                    Icon="{ui:SymbolIcon ArrowLeft16}" />
+                    Icon="{ui:SymbolIcon ArrowLeft16}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuBackTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting2"
-                    Content="Genel"
                     Icon="{ui:SymbolIcon WindowApps20}"
-                    TargetPageType="{x:Type setting:GeneralSettingPage}" />
+                    TargetPageType="{x:Type setting:GeneralSettingPage}"
+                    Content="{DynamicResource Portal.MainWindow.MenuGeneral}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuGeneralTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting3"
-                    Content="Kişisel"
-                    Icon="{ui:SymbolIcon PersonLock20}" />
+                    Icon="{ui:SymbolIcon PersonLock20}"
+                    Content="{DynamicResource Portal.MainWindow.MenuPersonal}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuPersonalTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting4"
-                    Content="Performans"
-                    Icon="{ui:SymbolIcon Pulse20}" />
+                    Icon="{ui:SymbolIcon Pulse20}"
+                    Content="{DynamicResource Portal.MainWindow.MenuPerformance}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuPerformanceTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting5"
-                    Content="Duvar Kağıdı"
-                    Icon="{ui:SymbolIcon Wallpaper20}" />
+                    Icon="{ui:SymbolIcon Wallpaper20}"
+                    Content="{DynamicResource Portal.MainWindow.MenuWallpaper}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting6"
-                    Content="Sistem"
-                    Icon="{ui:SymbolIcon PuzzleCube20}" />
+                    Icon="{ui:SymbolIcon PuzzleCube20}"
+                    Content="{DynamicResource Portal.MainWindow.MenuSystem}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuSystemTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting7"
-                    Content="Diğer"
-                    Icon="{ui:SymbolIcon GridDots20}" />
+                    Icon="{ui:SymbolIcon GridDots20}"
+                    Content="{DynamicResource Portal.MainWindow.MenuOther}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuOtherTip}" />
             </ui:NavigationView.MenuItems>
             
             <ui:NavigationView.FooterMenuItems>
@@ -109,7 +118,8 @@
                     x:Name="Setting"
                     Margin="5 0 10 0"
                     Click="NavigationChange_Click"
-                    Icon="{ui:SymbolIcon Settings16}" />
+                    Icon="{ui:SymbolIcon Settings16}"
+                    ToolTip="{DynamicResource Portal.MainWindow.MenuSettingTip}" />
             </ui:NavigationView.FooterMenuItems>
             
             <ui:NavigationView.PaneFooter>
@@ -122,37 +132,40 @@
                         x:Name="SearchBox"
                         Icon="{ui:SymbolIcon Search16}"
                         TextChanged="SearchBox_TextChanged"
-                        PlaceholderText="Bir Duvar Kağıdı Ara" />
+                        ToolTip="{DynamicResource Portal.MainWindow.SearchBoxTip}"
+                        PlaceholderText="{DynamicResource Portal.MainWindow.SearchBoxHint}" />
                     <ui:Button
                         Cursor="Hand"
                         x:Name="Dark"
-                        BorderBrush="Transparent"
-                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
                         Appearance="Transparent"
-                        ToolTip="Aydınlık Tema"
                         Click="ThemeChange_click"
-                        Icon="{ui:SymbolIcon WeatherSunny16}" />
+                        BorderBrush="Transparent"
+                        Icon="{ui:SymbolIcon WeatherSunny16}"
+                        ToolTip="{DynamicResource Portal.MainWindow.MenuLightTip}"
+                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}" />
                     <ui:Button
                         Cursor="Hand"
                         x:Name="Light"
-                        BorderBrush="Transparent"
-                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
                         Appearance="Transparent"
-                        ToolTip="Karanlık Tema"
                         Click="ThemeChange_click"
-                        Icon="{ui:SymbolIcon WeatherMoon16}" />
+                        BorderBrush="Transparent"
+                        Icon="{ui:SymbolIcon WeatherMoon16}"
+                        ToolTip="{DynamicResource Portal.MainWindow.MenuDarkTip}"
+                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}" />
                     <ui:Button
                         Cursor="Hand"
-                        BorderBrush="Transparent"
+                        IsEnabled="False"
                         Appearance="Transparent"
-                        ToolTip="Duvar Kağıdı Oluştur"
-                        Icon="{ui:SymbolIcon Add16}" />
+                        BorderBrush="Transparent"
+                        Icon="{ui:SymbolIcon Add16}"
+                        ToolTip="Duvar Kağıdı Oluştur" />
                     <ui:Button
                         Cursor="Hand"
                         Margin="5 0 5 0"
-                        BorderBrush="Transparent"
+                        IsEnabled="False"
                         Appearance="Transparent"
                         ToolTip="Ekran Tercihleri"
+                        BorderBrush="Transparent"
                         Icon="{ui:SymbolIcon ShareScreenPerson16}" />
                     <!--<Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />-->
                     <ui:NavigationViewItemSeparator Background="{DynamicResource TextFillColorSecondaryBrush}" />

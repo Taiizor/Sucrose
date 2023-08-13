@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Kütüphane</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Mağaza</system:String>
+    
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Tema Kütüphanesi</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Tema Mağazası</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Genel</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Kişisel</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Performans</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Duvar Kağıdı</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Sistem</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Diğer</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Geri Git</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Genel Ayarlar</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Kişisel Ayarlar</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Performans Ayarları</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Duvar Kağıdı Ayarları</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Sistem Ayarları</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Diğer Ayarlar</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Ayarlar</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Bir Duvar Kağıdı Ara</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">İhtiyacınız olanı bulmakta zorluk mu yaşıyorsunuz?</system:String>
+    
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Aydınlık Tema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Karanlık Tema</system:String>
 </ResourceDictionary>
