@@ -6,9 +6,14 @@ namespace Sucrose.Manager.Helper
     {
         public static void Write(string filePath, string fileContent)
         {
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath);
+            }
+
             try
             {
-                using FileStream fileStream = new(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                using FileStream fileStream = new(filePath, FileMode.Truncate, FileAccess.Write, FileShare.None);
                 using StreamWriter writer = new(fileStream);
                 writer.Write(SMHC.Clean(fileContent));
             }

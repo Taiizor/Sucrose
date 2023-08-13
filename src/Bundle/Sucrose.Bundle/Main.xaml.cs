@@ -152,7 +152,8 @@ namespace Sucrose.Bundle
 
             string Size = SHN.Numeral(SSESSE.Convert(File.Length, SEST.Byte, SEST.Kilobyte, SEMST.Palila), false, false, 0, '0', SECNT.None);
 
-            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true);
+            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true) ?? Registry.CurrentUser.CreateSubKey(RegistryName, true);
+
             RegistryKey AppKey = HomeKey.CreateSubKey(Application);
 
             AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);

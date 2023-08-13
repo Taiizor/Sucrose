@@ -85,7 +85,11 @@ namespace Sucrose.Shared.Store.Helper
             SSSMI.Client.DefaultRequestHeaders.Clear();
 
             SSSMI.Client.DefaultRequestHeaders.Add("User-Agent", Agent);
-            SSSMI.Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Key}");
+
+            if (!string.IsNullOrEmpty(Key))
+            {
+                SSSMI.Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Key}");
+            }
         }
 
         private static async Task<bool> DownloadFolder(string Source, string Output, string Agent, string Keys, string Key, bool Sub)
