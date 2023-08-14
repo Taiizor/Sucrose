@@ -186,6 +186,10 @@ namespace Sucrose.Bundle
 
             TerminateProcess(Application);
 
+            await Task.Delay(MinDelay);
+
+            TerminateProcess(Application);
+
             await Task.Delay(MaxDelay);
 
             await ControlDirectory(PackagePath);
