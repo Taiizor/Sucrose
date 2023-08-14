@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
-             xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              Loaded="ExpanderCard_Loaded"
              mc:Ignorable="d">
@@ -24,11 +23,11 @@
                     Width="32"
                     Symbol="Empty"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center" />
 
                 <StackPanel x:Name="Body" Grid.Column="1" VerticalAlignment="Center" Margin="10">
-                    <TextBlock x:Name="Title" Text="Title" FontSize="16" FontWeight="Regular" Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
-                    <TextBlock x:Name="Description" Text="Description" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}"/>
+                    <TextBlock x:Name="Title" Text="{DynamicResource Portal.ExpanderCard.TitleText}" FontSize="16" FontWeight="Regular" Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
+                    <TextBlock x:Name="Description" Text="{DynamicResource Portal.ExpanderCard.DescriptionText}" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}"/>
                 </StackPanel>
 
                 <Frame x:Name="Header" Grid.Column="2" VerticalAlignment="Center" Margin="10" />
@@ -43,7 +42,8 @@
                     Click="Expand_Click"
                     Icon="{ui:SymbolIcon ChevronDown20}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Center" />
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center"
+                    ToolTip="{DynamicResource Portal.ExpanderCard.ExpandDownTip}" />
                 <ui:Button
                     x:Name="ExpandUp"
                     Cursor="Hand"
@@ -54,7 +54,8 @@
                     Click="Expand_Click"
                     Icon="{ui:SymbolIcon ChevronUp20}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Center" />
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center"
+                    ToolTip="{DynamicResource Portal.ExpanderCard.ExpandUpTip}" />
             </Grid>
         </ui:Card>
 

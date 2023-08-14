@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCard.TitleText">Başlık</system:String>
+    <system:String x:Key="Portal.ThemeCard.DescriptionText">Açıklama</system:String>
+
+    <system:String x:Key="Portal.ThemeCard.MoreTip">Daha</system:String>
+
+    <system:String x:Key="Portal.ThemeCard.MenuReview">İncele</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuUse">Kullan</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuPreview">Önizle</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuCustomize">Özelleştir</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuFind">Bul</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuShare">Paylaş</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuDelete">Sil</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuEdit">Düzenle</system:String>
+</ResourceDictionary>

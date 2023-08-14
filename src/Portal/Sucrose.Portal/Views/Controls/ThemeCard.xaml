@@ -3,37 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              MouseLeftButtonUp="ThemeCard_MouseLeftButtonUp"
              MouseEnter="ThemeCard_MouseEnter"
+             MinHeight="160" MaxHeight="160"
+             MaxWidth="360" MinWidth="260"
              mc:Ignorable="d"
-             MaxWidth="360" MinWidth="260" MinHeight="160" MaxHeight="160"
              xf:Animations.Primary="{xf:Animate BasedOn={StaticResource SlideFromLeft}, Duration=100}"
              xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource FadeInAndContract}, Event=MouseEnter}">
 
     <UserControl.ContextMenu>
         <ContextMenu Opened="ContextMenu_Opened" Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
-            <ui:MenuItem Cursor="Hand" Header="İncele" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
-            <ui:MenuItem x:Name="MenuUse" Cursor="Hand" Header="Kullan" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
-            <ui:MenuItem Cursor="Hand" Header="Önizle" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="Özelleştir" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="Bul" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
-            <ui:MenuItem Cursor="Hand" Header="Paylaş" Icon="{ui:SymbolIcon Share20}" IsEnabled="False" />
-            <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="Sil" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
-            <ui:MenuItem Cursor="Hand" Header="Düzenle" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
-            <ui:NavigationViewItemSeparator />
-            <ui:MenuItem Cursor="Hand" Header="Sucrose" Icon="{ui:SymbolIcon DrinkCoffee20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuReview}" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
+            <ui:MenuItem x:Name="MenuUse" Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuUse}" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuPreview}" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuCustomize}" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuFind}" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuShare}" Icon="{ui:SymbolIcon Share20}" IsEnabled="False" />
+            <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuDelete}" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuEdit}" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
         </ContextMenu>
     </UserControl.ContextMenu>
     
     <Border>
         <Border.Effect>
             <DropShadowEffect
+                Opacity="0.25"
                 BlurRadius="10"
                 Direction="300"
-                Opacity="0.25"
                 ShadowDepth="12"
                 Color="{DynamicResource SolidBackgroundFillColorBaseAlt}" />
         </Border.Effect>
@@ -56,10 +54,10 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="Title" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
-                <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="Description" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
+                <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="{DynamicResource Portal.ThemeCard.TitleText}" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
+                <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="{DynamicResource Portal.ThemeCard.DescriptionText}" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
 
-                <ui:Button x:Name="ThemeButton" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeButton_Click" Content="•••" ToolTip="More" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <ui:Button x:Name="ThemeMore" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeMore_Click" Content="•••" ToolTip="{DynamicResource Portal.ThemeCard.MoreTip}" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
             </Grid>
         </Grid>
     </Border>

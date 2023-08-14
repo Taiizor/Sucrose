@@ -137,6 +137,7 @@
                     <ui:Button
                         Cursor="Hand"
                         x:Name="Dark"
+                        Margin="0 0 5 0"
                         Appearance="Transparent"
                         Click="ThemeChange_click"
                         BorderBrush="Transparent"
@@ -146,6 +147,7 @@
                     <ui:Button
                         Cursor="Hand"
                         x:Name="Light"
+                        Margin="0 0 5 0"
                         Appearance="Transparent"
                         Click="ThemeChange_click"
                         BorderBrush="Transparent"
@@ -154,6 +156,7 @@
                         Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}" />
                     <ui:Button
                         Cursor="Hand"
+                        Margin="0 0 5 0"
                         IsEnabled="False"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
@@ -161,7 +164,7 @@
                         ToolTip="Duvar Kağıdı Oluştur" />
                     <ui:Button
                         Cursor="Hand"
-                        Margin="5 0 5 0"
+                        Margin="0 0 5 0"
                         IsEnabled="False"
                         Appearance="Transparent"
                         ToolTip="Ekran Tercihleri"

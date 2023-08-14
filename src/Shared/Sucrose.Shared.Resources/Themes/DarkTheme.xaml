@@ -1,30 +1,30 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Color x:Key="ShadowColor">#888888</Color>
-    <Color x:Key="BorderColor">#FF707070</Color>
-    <Color x:Key="ForegroundColor">White</Color>
-    <Color x:Key="BackgroundColor">#FF2B2B2B</Color>
+    <Color x:Key="SShadowColor">#888888</Color>
+    <Color x:Key="BBorderColor">#FF707070</Color>
+    <Color x:Key="FForegroundColor">White</Color>
+    <Color x:Key="BBackgroundColor">#FF2B2B2B</Color>
     
-    <Color x:Key="ButtonBorderColor">#FF707070</Color>
-    <Color x:Key="ButtonForegroundColor">#FFFFFF</Color>
-    <Color x:Key="ButtonBackgroundColor">#FF292929</Color>
-    <Color x:Key="ButtonHoverBorderColor">#FF848484</Color>
-    <Color x:Key="ButtonHoverBackgroundColor">#FF393939</Color>
+    <Color x:Key="BButtonBorderColor">#FF707070</Color>
+    <Color x:Key="BButtonForegroundColor">#FFFFFF</Color>
+    <Color x:Key="BButtonBackgroundColor">#FF292929</Color>
+    <Color x:Key="BButtonHoverBorderColor">#FF848484</Color>
+    <Color x:Key="BButtonHoverBackgroundColor">#FF393939</Color>
 
-    <SolidColorBrush x:Key="ShadowBrush" Color="{DynamicResource ShadowColor}" />
-    <SolidColorBrush x:Key="BorderBrush" Color="{DynamicResource BorderColor}" />
-    <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}" />
-    <SolidColorBrush x:Key="ForegroundBrush" Color="{DynamicResource ForegroundColor}" />
+    <SolidColorBrush x:Key="SShadowBrush" Color="{DynamicResource SShadowColor}" />
+    <SolidColorBrush x:Key="BBorderBrush" Color="{DynamicResource BBorderColor}" />
+    <SolidColorBrush x:Key="BBackgroundBrush" Color="{DynamicResource BBackgroundColor}" />
+    <SolidColorBrush x:Key="FForegroundBrush" Color="{DynamicResource FForegroundColor}" />
 
-    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{DynamicResource ButtonBorderColor}" />
-    <SolidColorBrush x:Key="ButtonForegroundBrush" Color="{DynamicResource ButtonForegroundColor}" />
-    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{DynamicResource ButtonBackgroundColor}" />
-    <SolidColorBrush x:Key="ButtonHoverBorderBrush" Color="{DynamicResource ButtonHoverBorderColor}" />
-    <SolidColorBrush x:Key="ButtonHoverBackgroundBrush" Color="{DynamicResource ButtonHoverBackgroundColor}" />
+    <SolidColorBrush x:Key="BButtonBorderBrush" Color="{DynamicResource BButtonBorderColor}" />
+    <SolidColorBrush x:Key="BButtonForegroundBrush" Color="{DynamicResource BButtonForegroundColor}" />
+    <SolidColorBrush x:Key="BButtonBackgroundBrush" Color="{DynamicResource BButtonBackgroundColor}" />
+    <SolidColorBrush x:Key="BButtonHoverBorderBrush" Color="{DynamicResource BButtonHoverBorderColor}" />
+    <SolidColorBrush x:Key="BButtonHoverBackgroundBrush" Color="{DynamicResource BButtonHoverBackgroundColor}" />
 
     <Style TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BButtonBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource BButtonForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Template">
@@ -38,8 +38,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ButtonHoverBackgroundBrush}" />
-                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ButtonHoverBorderBrush}" />
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BButtonHoverBackgroundBrush}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BButtonHoverBorderBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

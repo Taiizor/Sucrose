@@ -100,7 +100,7 @@ namespace Sucrose.Portal.Views.Controls
             await Task.Run(() => Directory.Delete(Theme, true));
         }
 
-        private void ThemeButton_Click(object sender, RoutedEventArgs e)
+        private void ThemeMore_Click(object sender, RoutedEventArgs e)
         {
             ContextMenu.IsOpen = true;
         }

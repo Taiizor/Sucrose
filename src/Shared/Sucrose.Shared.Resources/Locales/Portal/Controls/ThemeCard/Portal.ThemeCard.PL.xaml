@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCard.TitleText">Tytuł</system:String>
+    <system:String x:Key="Portal.ThemeCard.DescriptionText">Opis</system:String>
+
+    <system:String x:Key="Portal.ThemeCard.MoreTip">Więcej</system:String>
+
+    <system:String x:Key="Portal.ThemeCard.MenuReview">Recenzja</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuUse">Użyj</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuPreview">Podgląd</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuCustomize">Dostosuj</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuFind">Znajdź</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuShare">Udostępnij</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuDelete">Usuń</system:String>
+    <system:String x:Key="Portal.ThemeCard.MenuEdit">Edytuj</system:String>
+
+</ResourceDictionary>

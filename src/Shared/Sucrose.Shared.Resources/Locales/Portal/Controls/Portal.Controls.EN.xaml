@@ -1,0 +1,8 @@
+﻿<ResourceDictionary
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ThemeCard/Portal.ThemeCard.EN.xaml" />
+        <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.EN.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
