@@ -3,10 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      Title="SearchLibraryPage"
+      Title="{DynamicResource Portal.SearchLibraryPage.Title}"
       mc:Ignorable="d">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock Text="Kütüphaneniz Örümcek Ağlarıyla Büyülenmiş" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
-        <TextBlock Text="Duvar kağıdı seçimindeki inceliğiniz yüzünden duvar kağıtlarına yer kalmadı" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
+        <TextBlock Text="{DynamicResource Portal.SearchLibraryPage.TitleText}" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
+        <TextBlock Text="{DynamicResource Portal.SearchLibraryPage.DescriptionText}" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
     </StackPanel>
 </Page>

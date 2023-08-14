@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+    
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">Your Library is Woven by Spider Webs</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">Instead of wallpapers, a magnificent work of art has emerged with spider webs</system:String>
+</ResourceDictionary>

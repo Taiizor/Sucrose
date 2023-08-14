@@ -3,10 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      Title="EmptyLibraryPage"
+      Title="{DynamicResource Portal.EmptyLibraryPage.Title}"
       mc:Ignorable="d">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock Text="Kütüphaneniz Örümcek Ağları Tarafından Örülmüş" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
-        <TextBlock Text="Duvar kağıtlarının yerine örümcek ağlarıyla muhteşem bir sanat eseri ortaya çıkmış" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
+        <TextBlock Text="{DynamicResource Portal.EmptyLibraryPage.TitleText}" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
+        <TextBlock Text="{DynamicResource Portal.EmptyLibraryPage.DescriptionText}" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
     </StackPanel>
 </Page>

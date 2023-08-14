@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using Application = System.Windows.Application;
+using SEAT = Skylark.Enum.AssemblyType;
+using SHA = Skylark.Helper.Assemblies;
 using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Shared.Resources.Helper
@@ -17,7 +19,7 @@ namespace Sucrose.Shared.Resources.Helper
 
             ResourceDictionary Resource = new()
             {
-                Source = new Uri($"/Locales/Locale.{Lang}.xaml", UriKind.Relative)
+                Source = new Uri($"Locales/Locale.{Lang}.xaml", UriKind.Relative)
             };
 
             RemoveResource();
@@ -29,7 +31,7 @@ namespace Sucrose.Shared.Resources.Helper
         {
             try
             {
-                return Application.LoadComponent(new Uri($"/Locales/Locale.{Lang}.xaml", UriKind.Relative)) is ResourceDictionary;
+                return Application.LoadComponent(new Uri($"Locales/Locale.{Lang}.xaml", UriKind.Relative)) is ResourceDictionary;
             }
             catch
             {
@@ -37,10 +39,43 @@ namespace Sucrose.Shared.Resources.Helper
             }
         }
 
+        public static List<string> ListLanguage()
+        {
+            return new()
+            {
+                "DE",
+                "EN",
+                "ES",
+                "FR",
+                "PL",
+                "TR"
+            };
+        }
+
+        public static List<string> ListLanguages()
+        {
+            return SHA.Assemble(SEAT.Executing)
+                .GetManifestResourceNames()
+                .Where(Resource => Resource.Contains("Locales/Locale.") && Resource.EndsWith(".xaml"))
+                .Select(Resource =>
+                {
+                    int StartIndex = Resource.LastIndexOf("Locale.") + "Locale.".Length;
+                    int EndIndex = Resource.LastIndexOf(".xaml");
+
+#if NET48_OR_GREATER
+                    return StartIndex < EndIndex ? Resource.Substring(StartIndex, EndIndex - StartIndex) : null;
+#else
+                    return StartIndex < EndIndex ? Resource[StartIndex..EndIndex] : null;
+#endif
+                })
+                .Where(LangCode => LangCode != null)
+                .ToList();
+        }
+
         private static void RemoveResource()
         {
             List<ResourceDictionary> Resources = Application.Current.Resources.MergedDictionaries
-                .Where(Resource => !string.IsNullOrEmpty(Resource.Source?.ToString()) && Resource.Source.ToString().Contains("/Locales/"))
+                .Where(Resource => !string.IsNullOrEmpty(Resource.Source?.ToString()) && Resource.Source.ToString().Contains("Locales/"))
                 .ToList();
 
             foreach (ResourceDictionary Resource in Resources)

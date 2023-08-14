@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">Votre Bibliothèque est Tissée de Toiles d'Araignées</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">À la place des fonds d'écran, une magnifique œuvre d'art en toiles d'araignées a émergé</system:String>
+</ResourceDictionary>

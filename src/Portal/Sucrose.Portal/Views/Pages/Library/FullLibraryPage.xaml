@@ -5,10 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Library"
       xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
-      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-      Loaded="FullLibraryPage_Loaded"
-      Title="FullLibraryPage"
       d:DataContext="{d:DesignInstance local:FullLibraryPage, IsDesignTimeCreatable=False}"
+      Title="{DynamicResource Portal.FullLibraryPage.Title}"
+      Loaded="FullLibraryPage_Loaded"
       d:DesignHeight="600"
       d:DesignWidth="800"
       mc:Ignorable="d">

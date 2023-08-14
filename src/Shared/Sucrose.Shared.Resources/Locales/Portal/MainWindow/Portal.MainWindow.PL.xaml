@@ -34,5 +34,4 @@
 
     <system:String x:Key="Portal.MainWindow.MenuLightTip">Jasny motyw</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Ciemny motyw</system:String>
-
 </ResourceDictionary>
