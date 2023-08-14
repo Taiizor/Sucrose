@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
@@ -85,7 +85,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Markdig" Version="0.31.0" />
+		<PackageReference Include="Markdig" Version="0.32.0" />
 		<PackageReference Include="Microsoft.Fast.Components.FluentUI" Version="2.3.*" />
 	</ItemGroup>
 
