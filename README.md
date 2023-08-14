@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Sucrose Logo" height=150 src=".images/Logo.png" />
+  <img alt="Sucrose Logo" height="150" src=".images/Logo.png" />
   <h2 align="center">Sucrose - Wallpaper Engine</h2>
 </p>
 
@@ -14,8 +14,14 @@
   •
   <span><a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a></span>
   •
+  <span><a href="https://github.com/Taiizor/Wallpaper">Wallpaper</a></span>
+  •
   <span><a href="https://discord.gg/nxG977byXb">Discord</a></span>
 </h4>
+
+<p align="center">
+  <img alt="Sucrose Wallpaper Engine Preview" src=".screenshots/Preview.png" />
+</p>
 
 <div align="center">
 
@@ -28,7 +34,7 @@
 
   [![Issues Count](https://img.shields.io/github/issues/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/issues)
   [![Pull Request Count](https://img.shields.io/github/issues-pr/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/pulls)
-  [![Follow](https://img.shields.io/github/followers/Soferity.svg?style=for-the-badge&label=Follow)](https://github.com/Soferity)
+  [![Follow](https://img.shields.io/github/followers/Taiizor.svg?style=for-the-badge&label=Follow)](https://github.com/Taiizor)
   [![Discord Server](https://img.shields.io/discord/932386235538878534?label=Discord&style=for-the-badge)](https://discord.gg/nxG977byXb)
 
   [![Pre-Release](https://img.shields.io/github/v/release/Taiizor/Sucrose?include_prereleases&label=Pre-Release&style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases/latest)
