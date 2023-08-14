@@ -1,27 +1,30 @@
-<p align="center">
+<div align="center">
   <img alt="Sucrose Logo" height="150" src=".images/Logo.png" />
   <h2 align="center">Sucrose - Wallpaper Engine</h2>
-</p>
+</div>
 
-<p align="center">
-  <span><b>Sucrose</b> is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.</span>
-</p>
+<div align="center">
+  <span>
+    <b>Sucrose</b> is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes. </span>
+</div>
 
 <h4 align="center">
-  <span><a href="https://github.com/Taiizor/Sucrose/issues">Issues</a></span>
-  •
-  <span><a href="https://github.com/Taiizor/Sucrose/discussions">Discussions</a></span>
-  •
-  <span><a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a></span>
-  •
-  <span><a href="https://github.com/Taiizor/Wallpaper">Wallpaper</a></span>
-  •
-  <span><a href="https://discord.gg/nxG977byXb">Discord</a></span>
+  <span>
+    <a href="https://github.com/Taiizor/Sucrose/issues">Issues</a>
+  </span> • <span>
+    <a href="https://github.com/Taiizor/Sucrose/discussions">Discussions</a>
+  </span> • <span>
+    <a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a>
+  </span> • <span>
+    <a href="https://github.com/Taiizor/Wallpaper">Wallpaper</a>
+  </span> • <span>
+    <a href="https://discord.gg/nxG977byXb">Discord</a>
+  </span>
 </h4>
 
-<p align="center">
+<div align="center">
   <img alt="Sucrose Wallpaper Engine Preview" src=".screenshots/Preview.png" />
-</p>
+</div>
 
 <div align="center">
 
@@ -58,19 +61,85 @@
 
 </div>
 
-## Features
+<div align="center">
+  <h2 align="center">Features</h2>
+  <p align="center">
+    <em>Take a moment, preview GIF clips may take some time to load.</em>
+  </p>
+</div>
 
-*Take a moment, preview GIF clips may take some time to load.*
-
-#### Wallpaper Varieties
-| Theme Type | Example |  Interactive | Resolution | Performance |
-|--|--|--|--|--|
-| Gif | <img src=".screenshots/View.png" width="256" height="144"/><br>Sample Gif Theme | No | Variable | Fixed |
-| Url | <img src=".screenshots/View12.png" width="256" height="144"/><br>Sample Url Theme | Yes | Fixed | Variable |
-| Web | <img src=".screenshots/View6.png" width="256" height="144"/><br>Sample Web Theme | Yes | Fixed | Variable |
-| Video | <img src=".screenshots/View2.png" width="256" height="144"/><br>Sample Video Theme | No | Variable | Fixed |
-| YouTube | <img src=".screenshots/View5.png" width="256" height="144"/><br>Sample YouTube Theme | No | Fixed | Variable |
-| Application | <img src=".screenshots/View3.png" width="256" height="144"/><br>Sample Application Theme | No | Fixed | Variable |
+<div align="center">
+  <h4 align="center">Wallpaper Varieties</h4>
+  <table align="center" style="margin:auto">
+    <tr>
+      <th>Theme Type</th>
+      <th>Example</th>
+      <th>Interactive</th>
+      <th>Resolution</th>
+      <th>Performance</th>
+    </tr>
+    <tr>
+      <td>Gif</td>
+      <td>
+        <img src=".screenshots/View.png" width="256" height="144" />
+        <br>Sample Gif Theme
+      </td>
+      <td>No</td>
+      <td>Variable</td>
+      <td>Fixed</td>
+    </tr>
+    <tr>
+      <td>Url</td>
+      <td>
+        <img src=".screenshots/View12.png" width="256" height="144" />
+        <br>Sample Url Theme
+      </td>
+      <td>Yes</td>
+      <td>Fixed</td>
+      <td>Variable</td>
+    </tr>
+    <tr>
+      <td>Web</td>
+      <td>
+        <img src=".screenshots/View6.png" width="256" height="144" />
+        <br>Sample Web Theme
+      </td>
+      <td>Yes</td>
+      <td>Fixed</td>
+      <td>Variable</td>
+    </tr>
+    <tr>
+      <td>Video</td>
+      <td>
+        <img src=".screenshots/View2.png" width="256" height="144" />
+        <br>Sample Video Theme
+      </td>
+      <td>No</td>
+      <td>Variable</td>
+      <td>Fixed</td>
+    </tr>
+    <tr>
+      <td>YouTube</td>
+      <td>
+        <img src=".screenshots/View5.png" width="256" height="144" />
+        <br>Sample YouTube Theme
+      </td>
+      <td>No</td>
+      <td>Fixed</td>
+      <td>Variable</td>
+    </tr>
+    <tr>
+      <td>Application</td>
+      <td>
+        <img src=".screenshots/View3.png" width="256" height="144" />
+        <br>Sample Application Theme
+      </td>
+      <td>No</td>
+      <td>Fixed</td>
+      <td>Variable</td>
+    </tr>
+  </table>
+</div>
 
 #### Interactive Features
 - **Audio Visualization:** Display real-time audio visualization on your wallpapers.
@@ -99,14 +168,14 @@
 
 **GitHub**
 
-<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.0.0/Sucrose_1.0.0.0_x64.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
+<a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x64_23.8.14.0.exe'>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release x64' width='160'/>
 </a>
-<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.0.0/Sucrose_1.0.0.0_x86.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
+<a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x86_23.8.14.0.exe'>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release x86' width='160'/>
 </a>
-<a href='https://github.com/Taiizor/Sucrose/releases/download/v1.0.0.0/Sucrose_1.0.0.0_arm64.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release' width='160'/>
+<a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_ARM64_23.8.14.0.exe'>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release ARM64' width='160'/>
 </a>
 
 ## Support
