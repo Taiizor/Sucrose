@@ -162,25 +162,137 @@
 <div align="center">
   <h2>Download</h2>
 
-  <!--<strong>Microsoft Store</strong>
+  <strong>Microsoft Store (Coming Soon)</strong>
 
-  <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
-    <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Microsoft Store' width='160' />
-  </a>
+  <table align="center" style="margin:auto">
+    <tr>
+      <th>.NET</th>
+      <th>x64</th>
+      <th>x86</th>
+      <th>ARM64</th>
+    </tr>
+    <tr align="center">
+      <td>.NET Framework 4.8</td>
+      <td>
+        <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+          <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 x64' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+          <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 x86' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+          <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 ARM64' width='160' />
+        </a>
+      </td>
+    </tr>
+  </table>
 
-  <p></p>-->
+  <p></p>
 
   <strong>GitHub</strong>
 
-  <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x64_23.8.14.0.exe'>
-    <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x64' width='160' />
-  </a>
-  <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x86_23.8.14.0.exe'>
-    <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x86' width='160' />
-  </a>
-  <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_ARM64_23.8.14.0.exe'>
-    <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 ARM64' width='160' />
-  </a>
+  <table align="center" style="margin:auto">
+    <tr>
+      <th>.NET</th>
+      <th>x64</th>
+      <th>x86</th>
+      <th>ARM64</th>
+    </tr>
+    <tr align="center">
+      <td>.NET Framework 4.8</td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET Framework 4.8 x64' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x86_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET Framework 4.8 x86' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_ARM64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET Framework 4.8 ARM64' width='160' />
+        </a>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>.NET Framework 4.8.1</td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8.1_x64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET Framework 4.8.1 x64' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8.1_x86_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET Framework 4.8.1 x86' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8.1_ARM64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET Framework 4.8.1 ARM64' width='160' />
+        </a>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>.NET 6.0</td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_6.0_x64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 6.0 x64' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_6.0_x86_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 6.0 x86' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_6.0_ARM64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 6.0 ARM64' width='160' />
+        </a>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>.NET 7.0</td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_7.0_x64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 7.0 x64' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_7.0_x86_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 7.0 x86' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_7.0_ARM64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 7.0 ARM64' width='160' />
+        </a>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>.NET 8.0</td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_8.0_x64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 8.0 x64' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_8.0_x86_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 8.0 x86' width='160' />
+        </a>
+      </td>
+      <td>
+        <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_8.0_ARM64_23.8.14.0.exe'>
+          <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 8.0 ARM64' width='160' />
+        </a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <div align="center">
