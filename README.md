@@ -81,8 +81,8 @@
     <tr>
       <td>Gif</td>
       <td>
-        <img src=".screenshots/View.png" width="256" height="144" />
-        <br>Sample Gif Theme
+        <img src=".screenshots/Gif.gif" width="256" height="144" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/RGB/Asus ROG-1">Asus ROG-1</a> Theme
       </td>
       <td>No</td>
       <td>Variable</td>
@@ -101,8 +101,8 @@
     <tr>
       <td>Web</td>
       <td>
-        <img src=".screenshots/View6.png" width="256" height="144" />
-        <br>Sample Web Theme
+        <img src=".screenshots/Web.gif" width="256" height="144" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Animal/Cat vs Ball of Wool-1>Cat vs Ball of Wool-1</a> Theme
       </td>
       <td>Yes</td>
       <td>Fixed</td>
@@ -111,8 +111,8 @@
     <tr>
       <td>Video</td>
       <td>
-        <img src=".screenshots/View2.png" width="256" height="144" />
-        <br>Sample Video Theme
+        <img src=".screenshots/Video.gif" width="256" height="144" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Game/The Last of Us Part II-1>The Last of Us Part II-1</a> Theme
       </td>
       <td>No</td>
       <td>Variable</td>
@@ -121,8 +121,8 @@
     <tr>
       <td>YouTube</td>
       <td>
-        <img src=".screenshots/View5.png" width="256" height="144" />
-        <br>Sample YouTube Theme
+        <img src=".screenshots/YouTube.gif" width="256" height="144" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Space/Floating in Space-2>Floating in Space-2</a> Theme
       </td>
       <td>No</td>
       <td>Fixed</td>
@@ -169,29 +169,41 @@
 **GitHub**
 
 <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x64_23.8.14.0.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release x64' width='160'/>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x64' width='160' />
 </a>
 <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x86_23.8.14.0.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release x86' width='160'/>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x86' width='160' />
 </a>
 <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_ARM64_23.8.14.0.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='GitHub Release ARM64' width='160'/>
+  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 ARM64' width='160' />
 </a>
 
-## Support
-We appreciate any contribution to Sucrose. Here are some ways to support the project:
+<div align="center">
+  <h2>Support</h2>
+  <p>We appreciate any contribution to Sucrose. Here are some ways to support the project:</p>
+</div>
 
-#### Developer
-- Contribute to the codebase and help improve Sucrose.
+<h4>Developer</h4>
+<ul>
+  <li>Contribute to the codebase and help improve Sucrose.</li>
+</ul>
 
-#### Designer
-- Improve the UI/UX of Sucrose for a better user experience.
+<h4>Designer</h4>
+<ul>
+  <li>Improve the UI/UX of Sucrose for a better user experience.</li>
+</ul>
 
-#### Localization
-- Help translate Sucrose into more languages to reach a broader audience.
+<h4>Localization</h4>
+<ul>
+  <li>Help translate Sucrose into more languages to reach a broader audience.</li>
+</ul>
 
-#### Feedback & Bug Reports
-- Suggest new features or report bugs to help us improve Sucrose.
+<h4>Feedback &amp; Bug Reports</h4>
+<ul>
+  <li>Suggest new features or report bugs to help us improve Sucrose.</li>
+</ul>
 
-#### Spread the Word
-- Star this repository and share your experiences with Sucrose on social media.
+<h4>Spread the Word</h4>
+<ul>
+  <li>Star this repository and share your experiences with Sucrose on social media.</li>
+</ul>
