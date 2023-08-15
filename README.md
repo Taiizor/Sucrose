@@ -5,21 +5,16 @@
 
 <div align="center">
   <span>
-    <b>Sucrose</b> is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes. </span>
+    <b>Sucrose</b> is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.
+  </span>
 </div>
 
 <h4 align="center">
-  <span>
-    <a href="https://github.com/Taiizor/Sucrose/issues">Issues</a>
-  </span> ● <span>
-    <a href="https://github.com/Taiizor/Sucrose/discussions">Discussions</a>
-  </span> ● <span>
-    <a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a>
-  </span> ● <span>
-    <a href="https://github.com/Taiizor/Wallpaper">Wallpaper</a>
-  </span> ● <span>
-    <a href="https://discord.gg/nxG977byXb">Discord</a>
-  </span>
+  <a href="https://github.com/Taiizor/Sucrose/issues">Issues</a> ●
+  <a href="https://github.com/Taiizor/Sucrose/discussions">Discussions</a> ●
+  <a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a> ●
+  <a href="https://github.com/Taiizor/Wallpaper">Wallpaper</a> ●
+  <a href="https://discord.gg/nxG977byXb">Discord</a>
 </h4>
 
 <div align="center">
