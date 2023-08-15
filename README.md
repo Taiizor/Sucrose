@@ -1,6 +1,6 @@
 <div align="center">
   <img alt="Sucrose Logo" height="150" src=".images/Logo.png" />
-  <h2 align="center">Sucrose - Wallpaper Engine</h2>
+  <h2>Sucrose - Wallpaper Engine</h2>
 </div>
 
 <div align="center">
@@ -62,14 +62,14 @@
 </div>
 
 <div align="center">
-  <h2 align="center">Features</h2>
-  <p align="center">
+  <h2>Features</h2>
+  <p>
     <em>Take a moment, preview GIF clips may take some time to load.</em>
   </p>
 </div>
 
 <div align="center">
-  <h4 align="center">Wallpaper Varieties</h4>
+  <h4>Wallpaper Varieties</h4>
   <table align="center" style="margin:auto">
     <tr>
       <th>Theme Type</th>
@@ -78,60 +78,60 @@
       <th>Resolution</th>
       <th>Performance</th>
     </tr>
-    <tr>
+    <tr align="center">
       <td>Gif</td>
       <td>
-        <img src=".screenshots/Gif.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/RGB/Asus ROG-1">Asus ROG-1</a> Theme
+        <img src=".screenshots/Gif.gif" width="250" height="200" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/RGB/Asus ROG-1">Asus ROG</a> Theme
       </td>
       <td>No</td>
       <td>Variable</td>
       <td>Fixed</td>
     </tr>
-    <tr>
+    <tr align="center">
       <td>Url</td>
       <td>
-        <img src=".screenshots/View12.png" width="256" height="144" />
+        <img src=".screenshots/View12.png" width="250" height="200" />
         <br>Sample Url Theme
       </td>
       <td>Yes</td>
       <td>Fixed</td>
       <td>Variable</td>
     </tr>
-    <tr>
+    <tr align="center">
       <td>Web</td>
       <td>
-        <img src=".screenshots/Web.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Animal/Cat vs Ball of Wool-1>Cat vs Ball of Wool-1</a> Theme
+        <img src=".screenshots/Web.gif" width="250" height="200" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Animal/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> Theme
       </td>
       <td>Yes</td>
       <td>Fixed</td>
       <td>Variable</td>
     </tr>
-    <tr>
+    <tr align="center">
       <td>Video</td>
       <td>
-        <img src=".screenshots/Video.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Game/The Last of Us Part II-1>The Last of Us Part II-1</a> Theme
+        <img src=".screenshots/Video.gif" width="250" height="200" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Game/The Last of Us Part II-1">The Last of Us Part II</a> Theme
       </td>
       <td>No</td>
       <td>Variable</td>
       <td>Fixed</td>
     </tr>
-    <tr>
+    <tr align="center">
       <td>YouTube</td>
       <td>
-        <img src=".screenshots/YouTube.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Space/Floating in Space-2>Floating in Space-2</a> Theme
+	    <img src=".screenshots/YouTube.gif" width="250" height="200" />
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Space/Floating in Space-2">Floating in Space</a> Theme
       </td>
       <td>No</td>
       <td>Fixed</td>
       <td>Variable</td>
     </tr>
-    <tr>
+    <tr align="center">
       <td>Application</td>
       <td>
-        <img src=".screenshots/View3.png" width="256" height="144" />
+        <img src=".screenshots/View3.png" width="250" height="200" />
         <br>Sample Application Theme
       </td>
       <td>No</td>
@@ -156,27 +156,29 @@
 - Auto-pause wallpapers when fullscreen applications/games run to conserve resources.
 - Power-saving mode to pause wallpapers when running on battery (laptops).
 
-## Download
+<div align="center">
+  <h2>Download</h2>
 
-<!--**Microsoft Store**
+  <!--<strong>Microsoft Store</strong>
 
-<a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
-  <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Microsoft Store' width='160'/>
-</a>
+  <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+    <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Microsoft Store' width='160' />
+  </a>
 
-<p></p>-->
+  <p></p>-->
 
-**GitHub**
+  <strong>GitHub</strong>
 
-<a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x64_23.8.14.0.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x64' width='160' />
-</a>
-<a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x86_23.8.14.0.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x86' width='160' />
-</a>
-<a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_ARM64_23.8.14.0.exe'>
-  <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 ARM64' width='160' />
-</a>
+  <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x64_23.8.14.0.exe'>
+    <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x64' width='160' />
+  </a>
+  <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_x86_23.8.14.0.exe'>
+    <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 x86' width='160' />
+  </a>
+  <a href='https://github.com/Taiizor/Sucrose/releases/latest/download/Sucrose_Bundle_.NET_Framework_4.8_ARM64_23.8.14.0.exe'>
+    <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='.NET Framework 4.8 ARM64' width='160' />
+  </a>
+</div>
 
 <div align="center">
   <h2>Support</h2>
