@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
+using SBM = Sucrose.Bundle.Main;
 using SHC = Skylark.Helper.Culture;
 
 namespace Sucrose.Bundle
@@ -40,7 +41,32 @@ namespace Sucrose.Bundle
 
             Current.Resources.MergedDictionaries.Add(Resource);
 
+            bool Silent = false;
+
+            foreach (string Arg in e.Args)
+            {
+                if (Arg is "-s" or "/s" or "-silent" or "/silent")
+                {
+                    Silent = true;
+                    break;
+                }
+            }
+
             base.OnStartup(e);
+
+            SBM Main = new(Silent);
+
+            if (Silent)
+            {
+                Main.Visibility = Visibility.Collapsed;
+                Main.ShowInTaskbar = false;
+                Main.Opacity = 0;
+                Main.Hide();
+            }
+
+            Main.ShowDialog();
+
+            Close();
         }
 
         private static bool CheckLanguage(string Lang)

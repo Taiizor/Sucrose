@@ -62,8 +62,11 @@ namespace Sucrose.Bundle
 
         private static int Delay => 10;
 
-        public Main()
+        private bool Silent;
+
+        public Main(bool Silent)
         {
+            this.Silent = Silent;
             InitializeComponent();
         }
 
@@ -71,10 +74,13 @@ namespace Sucrose.Bundle
         {
             try
             {
-                SWNM.DWMWINDOWATTRIBUTE Attribute = SWNM.DWMWINDOWATTRIBUTE.WindowCornerPreference;
-                SWNM.DWM_WINDOW_CORNER_PREFERENCE Preference = SWNM.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+                if (!Silent)
+                {
+                    SWNM.DWMWINDOWATTRIBUTE Attribute = SWNM.DWMWINDOWATTRIBUTE.WindowCornerPreference;
+                    SWNM.DWM_WINDOW_CORNER_PREFERENCE Preference = SWNM.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
 
-                SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
+                    SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
+                }
             }
             catch
             {
@@ -162,9 +168,11 @@ namespace Sucrose.Bundle
             AppKey.SetValue("EstimatedSize", Size, RegistryValueKind.DWord);
             AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
             AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
+            AppKey.SetValue("PublisherName", Publisher, RegistryValueKind.String);
             AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
             AppKey.SetValue("InstallLocation", InstallPath, RegistryValueKind.String);
             AppKey.SetValue("QuietUninstallString", QuietUninstall, RegistryValueKind.String);
+            AppKey.SetValue("BundleVersion", Entry.GetName().Version, RegistryValueKind.String);
             AppKey.SetValue("DisplayVersion", Entry.GetName().Version, RegistryValueKind.String);
         }
 
