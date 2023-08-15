@@ -11,13 +11,13 @@
 <h4 align="center">
   <span>
     <a href="https://github.com/Taiizor/Sucrose/issues">Issues</a>
-  </span> • <span>
+  </span> ● <span>
     <a href="https://github.com/Taiizor/Sucrose/discussions">Discussions</a>
-  </span> • <span>
+  </span> ● <span>
     <a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a>
-  </span> • <span>
+  </span> ● <span>
     <a href="https://github.com/Taiizor/Wallpaper">Wallpaper</a>
-  </span> • <span>
+  </span> ● <span>
     <a href="https://discord.gg/nxG977byXb">Discord</a>
   </span>
 </h4>
@@ -81,7 +81,7 @@
     <tr align="center">
       <td>Gif</td>
       <td>
-        <img src=".screenshots/Gif.gif" width="250" height="200" />
+        <img src=".screenshots/Gif.gif" width="250" height="150" />
         <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/RGB/Asus ROG-1">Asus ROG</a> Theme
       </td>
       <td>No</td>
@@ -91,7 +91,7 @@
     <tr align="center">
       <td>Url</td>
       <td>
-        <img src=".screenshots/View12.png" width="250" height="200" />
+        <img src=".screenshots/View12.png" width="250" height="150" />
         <br>Sample Url Theme
       </td>
       <td>Yes</td>
@@ -101,7 +101,7 @@
     <tr align="center">
       <td>Web</td>
       <td>
-        <img src=".screenshots/Web.gif" width="250" height="200" />
+        <img src=".screenshots/Web.gif" width="250" height="150" />
         <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Animal/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> Theme
       </td>
       <td>Yes</td>
@@ -111,7 +111,7 @@
     <tr align="center">
       <td>Video</td>
       <td>
-        <img src=".screenshots/Video.gif" width="250" height="200" />
+        <img src=".screenshots/Video.gif" width="250" height="150" />
         <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Game/The Last of Us Part II-1">The Last of Us Part II</a> Theme
       </td>
       <td>No</td>
@@ -121,7 +121,7 @@
     <tr align="center">
       <td>YouTube</td>
       <td>
-	    <img src=".screenshots/YouTube.gif" width="250" height="200" />
+	    <img src=".screenshots/YouTube.gif" width="250" height="150" />
         <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Space/Floating in Space-2">Floating in Space</a> Theme
       </td>
       <td>No</td>
@@ -131,7 +131,7 @@
     <tr align="center">
       <td>Application</td>
       <td>
-        <img src=".screenshots/View3.png" width="250" height="200" />
+        <img src=".screenshots/View3.png" width="250" height="150" />
         <br>Sample Application Theme
       </td>
       <td>No</td>
@@ -141,20 +141,28 @@
   </table>
 </div>
 
-#### Interactive Features
-- **Audio Visualization:** Display real-time audio visualization on your wallpapers.
-- **Hardware Monitoring:** Show CPU, GPU, RAM usage and more on your wallpapers.
-- **Interactivity:** Allow users to interact with themes using mouse and keyboard actions.
-- **JavaScript Integration:** Send computer data to JavaScript functions in themes for customization.
+<div align="center">
+  <div>
+    <h4>Interactive Features</h4>
+    <p>● <strong>Audio Visualization:</strong> Display real-time audio visualization on your wallpapers.</p>
+    <p>● <strong>Hardware Monitoring:</strong> Show CPU, GPU, RAM usage and more on your wallpapers.</p>
+    <p>● <strong>Interactivity:</strong> Allow users to interact with themes using mouse and keyboard actions.</p>
+    <p>● <strong>JavaScript Integration:</strong> Send computer data to JavaScript functions in themes for customization.</p>
+  </div>
 
-#### Create and Share Themes
-- Create your own custom themes and share them with friends or the Sucrose community.
-- Explore a gallery of user-submitted themes and download them directly from the Sucrose store.
+  <div>
+    <h4>Create and Share Themes</h4>
+    <p>● Create your own custom themes and share them with friends or the Sucrose community.</p>
+    <p>● Explore a gallery of user-submitted themes and download them directly from the Sucrose store.</p>
+  </div>
 
-#### Performance
-- Optimize CPU and GPU usage for smooth performance.
-- Auto-pause wallpapers when fullscreen applications/games run to conserve resources.
-- Power-saving mode to pause wallpapers when running on battery (laptops).
+  <div>
+    <h4>Performance</h4>
+    <p>● Optimize CPU and GPU usage for smooth performance.</p>
+    <p>● Auto-pause wallpapers when fullscreen applications/games run to conserve resources.</p>
+    <p>● Power-saving mode to pause wallpapers when running on battery (laptops).</p>
+  </div>
+</div>
 
 <div align="center">
   <h2>Download</h2>
@@ -183,29 +191,29 @@
 <div align="center">
   <h2>Support</h2>
   <p>We appreciate any contribution to Sucrose. Here are some ways to support the project:</p>
+
+  <div>
+    <h4>Developer</h4>
+    <p>● Contribute to the codebase and help improve Sucrose.</p>
+  </div>
+
+  <div>
+    <h4>Designer</h4>
+    <p>● Improve the UI/UX of Sucrose for a better user experience.</p>
+  </div>
+
+  <div>
+    <h4>Localization</h4>
+    <p>● Help translate Sucrose into more languages to reach a broader audience.</p>
+  </div>
+
+  <div>
+    <h4>Feedback &amp; Bug Reports</h4>
+    <p>● Suggest new features or report bugs to help us improve Sucrose.</p>
+  </div>
+
+  <div>
+    <h4>Spread the Word</h4>
+    <p>● Star this repository and share your experiences with Sucrose on social media.</p>
+  </div>
 </div>
-
-<h4>Developer</h4>
-<ul>
-  <li>Contribute to the codebase and help improve Sucrose.</li>
-</ul>
-
-<h4>Designer</h4>
-<ul>
-  <li>Improve the UI/UX of Sucrose for a better user experience.</li>
-</ul>
-
-<h4>Localization</h4>
-<ul>
-  <li>Help translate Sucrose into more languages to reach a broader audience.</li>
-</ul>
-
-<h4>Feedback &amp; Bug Reports</h4>
-<ul>
-  <li>Suggest new features or report bugs to help us improve Sucrose.</li>
-</ul>
-
-<h4>Spread the Word</h4>
-<ul>
-  <li>Star this repository and share your experiences with Sucrose on social media.</li>
-</ul>
