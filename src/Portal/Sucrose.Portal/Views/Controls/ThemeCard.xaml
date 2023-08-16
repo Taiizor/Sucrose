@@ -15,7 +15,7 @@
 
     <UserControl.ContextMenu>
         <ContextMenu Opened="ContextMenu_Opened" Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuReview}" Icon="{ui:SymbolIcon Info20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuReview}" Icon="{ui:SymbolIcon Info20}" Click="MenuReview_Click" />
             <ui:MenuItem x:Name="MenuUse" Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuUse}" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuPreview}" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuCustomize}" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />

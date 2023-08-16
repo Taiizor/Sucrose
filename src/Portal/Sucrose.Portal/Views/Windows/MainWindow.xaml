@@ -185,8 +185,8 @@
                 </Grid>
             </ui:NavigationView.ContentOverlay>
         </ui:NavigationView>
-        
-        <ContentPresenter x:Name="RootContentDialog" Grid.Row="0" />
+
+        <ContentPresenter x:Name="RootContentDialog" Grid.Row="1" />
 
         <StatusBar
                 x:Name="RootStatusBar"

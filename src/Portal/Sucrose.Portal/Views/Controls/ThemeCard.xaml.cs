@@ -7,6 +7,7 @@ using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
+using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -25,9 +26,9 @@ namespace Sucrose.Portal.Views.Controls
 
         private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
-        private string Theme = null;
-        private SSTHI Info = null;
-        SPEIL Loader = new();
+        private readonly SPEIL Loader = new();
+        private readonly string Theme = null;
+        private readonly SSTHI Info = null;
 
         internal ThemeCard(string Theme, SSTHI Info)
         {
@@ -85,6 +86,16 @@ namespace Sucrose.Portal.Views.Controls
         private void MenuFind_Click(object sender, RoutedEventArgs e)
         {
             SSSHP.Run(Theme);
+        }
+
+        private async void MenuReview_Click(object sender, RoutedEventArgs e)
+        {
+            SPVCTR ThemeReview = new()
+            {
+                Info = Info,
+                Theme = Theme
+            };
+            await ThemeReview.ShowAsync();
         }
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)

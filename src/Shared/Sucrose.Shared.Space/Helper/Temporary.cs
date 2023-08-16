@@ -50,30 +50,5 @@ namespace Sucrose.Shared.Space.Helper
                 return false;
             }
         }
-
-        public static long Size(string Path)
-        {
-            try
-            {
-                if (Directory.Exists(Path))
-                {
-                    string[] cacheFiles = Directory.GetFiles(Path, "*.*", SearchOption.AllDirectories);
-
-                    return cacheFiles.Sum(cacheFile => new FileInfo(cacheFile).Length);
-                }
-                else if (File.Exists(Path))
-                {
-                    return new FileInfo(Path).Length;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            catch
-            {
-                return 0;
-            }
-        }
     }
 }

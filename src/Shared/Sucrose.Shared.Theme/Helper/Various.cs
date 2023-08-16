@@ -16,6 +16,13 @@ namespace Sucrose.Shared.Theme.Helper
             return Regex.IsMatch(Address);
         }
 
+        public static bool IsMail(string Mail)
+        {
+            string Pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            return Regex.IsMatch(Mail, Pattern);
+        }
+
         public static bool IsYouTubeVideo(string Address)
         {
             return IsYouTubeUrl(Address) || IsYouTubeMusicUrl(Address);

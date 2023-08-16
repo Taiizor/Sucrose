@@ -1,12 +1,21 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
+using Wpf.Ui.Contracts;
 using SPSSS = Sucrose.Portal.Services.SearchService;
 
 namespace Sucrose.Portal.Manage
 {
     internal static class Internal
     {
+        public static IServiceProvider ServiceProvider;
+
+        public static ISnackbarService SnackbarService;
+
+        public static INavigationService NavigationService;
+
         public static SPSSS SearchService { get; } = new();
+
+        public static IContentDialogService ContentDialogService;
 
         public static readonly Dictionary<string, BitmapImage> Images = new();
 

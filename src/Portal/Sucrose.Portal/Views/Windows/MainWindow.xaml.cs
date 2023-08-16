@@ -51,6 +51,11 @@ namespace Sucrose.Portal.Views.Windows
             SnackbarService.SetSnackbarPresenter(SnackbarPresenter);
             ContentDialogService.SetContentPresenter(RootContentDialog);
 
+            SPMI.ServiceProvider = ServiceProvider;
+            SPMI.SnackbarService = SnackbarService;
+            SPMI.NavigationService = NavigationService;
+            SPMI.ContentDialogService = ContentDialogService;
+
             string[] Args = Environment.GetCommandLineArgs();
 
             if (Args.Count() > 1 && Args[1] == $"{SSDEACT.Setting}")

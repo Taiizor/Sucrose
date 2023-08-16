@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">Theme Review</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">Close</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">Title</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">Description</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">Type</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">Author</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">Size</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 Bit</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">Theme Contact Address</system:String>
+</ResourceDictionary>
