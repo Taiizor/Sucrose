@@ -208,27 +208,16 @@ namespace Sucrose.Update
 
                                     if (Response.IsSuccessStatusCode)
                                     {
-                                        using HttpResponseMessage SourceResponse = await Client.GetAsync($"{Response.RequestMessage.RequestUri}");
+                                        using HttpContent Content = Response.Content;
 
-                                        SourceResponse.EnsureSuccessStatusCode();
+                                        using Stream CStream = await Content.ReadAsStreamAsync();
+                                        using FileStream FStream = new(Bundle, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
 
-                                        await Task.Delay(MinDelay);
+                                        await Task.Delay(MaxDelay);
 
-                                        if (SourceResponse.IsSuccessStatusCode)
-                                        {
-                                            using HttpContent Content = SourceResponse.Content;
+                                        HasBundle = true;
 
-                                            using Stream Stream = await Content.ReadAsStreamAsync();
-                                            using FileStream FStream = new(Bundle, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-
-                                            await Stream.CopyToAsync(FStream);
-
-                                            await Task.Delay(MaxDelay);
-
-                                            HasBundle = true;
-
-                                            break;
-                                        }
+                                        break;
                                     }
                                 }
                             }
