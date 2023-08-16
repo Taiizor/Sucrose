@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeShare.Title">Theme Sharing</system:String>
+    <system:String x:Key="Portal.ThemeShare.Close">Close</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeTitle">Title</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeDescription">Description</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeExport">Export</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">Publish in Store</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">Copy Link</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Save Theme File</system:String>
+</ResourceDictionary>

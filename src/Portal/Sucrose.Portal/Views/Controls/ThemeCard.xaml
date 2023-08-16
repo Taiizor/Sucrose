@@ -20,7 +20,7 @@
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuPreview}" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuCustomize}" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuFind}" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuShare}" Icon="{ui:SymbolIcon Share20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuShare}" Icon="{ui:SymbolIcon Share20}" Click="MenuShare_Click" />
             <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuDelete}" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.ThemeCard.MenuEdit}" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
         </ContextMenu>
@@ -43,7 +43,7 @@
 
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                 <Grid.Background>
-                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75"/>
+                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75" />
                 </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

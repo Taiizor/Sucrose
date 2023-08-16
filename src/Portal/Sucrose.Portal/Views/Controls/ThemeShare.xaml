@@ -1,0 +1,62 @@
+﻿<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.ThemeShare"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    CloseButtonText="{DynamicResource Portal.ThemeShare.Close}"
+    Title="{DynamicResource Portal.ThemeShare.Title}"
+    Loaded="ContentDialog_Loaded"
+    DialogMaxWidth="750"
+    mc:Ignorable="d">
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeShare}" />
+    </ui:ContentDialog.Resources>
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ui:Card Grid.Row="0">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="20" Width="250" Height="150" />
+
+                <StackPanel Margin="10 0 0 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
+                    <TextBlock x:Name="ThemeTitle" Text="{DynamicResource Portal.ThemeShare.ThemeTitle}" TextAlignment="Center" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                    <TextBlock x:Name="ThemeDescription" Text="{DynamicResource Portal.ThemeShare.ThemeDescription}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                </StackPanel>
+            </StackPanel>
+        </ui:Card>
+
+        <ui:Card Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ui:Button x:Name="Export" Cursor="Hand" Appearance="Secondary" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Export_Click">
+                    <StackPanel>
+                        <!--<ui:SymbolIcon Margin="0 10 0 10" Symbol="FolderZip24" FontSize="50" Width="50" Height="50" Foreground="Orange" />-->
+                        <Image Margin="0 10 0 10" Source="pack://application:,,,/Assets/Icon/ArchiveFolder.png" Width="50" Height="50"/>
+                        <TextBlock Margin="10 0 10 10" Text="{DynamicResource Portal.ThemeShare.ThemeExport}" FontSize="16" TextAlignment="Center"/>
+                    </StackPanel>
+                </ui:Button>
+                <ui:Button x:Name="Publish" Cursor="Hand" Appearance="Secondary" Margin="10 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Publish_Click">
+                    <StackPanel>
+                        <!--<ui:SymbolIcon Margin="0 10 0 10" Symbol="Gift24" FontSize="50" Width="50" Height="50" Foreground="ForestGreen" /> -->
+                        <Image Margin="0 10 0 10" Source="pack://application:,,,/Assets/Icon/Basket.png" Width="50" Height="50"/>
+                        <TextBlock Margin="10 0 10 10" Text="{DynamicResource Portal.ThemeShare.ThemePublish}" FontSize="16" TextAlignment="Center"/>
+                    </StackPanel>
+                </ui:Button>
+                <ui:Button x:Name="Copy" Cursor="Hand" Appearance="Secondary" Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
+                    <StackPanel>
+                        <!--<ui:SymbolIcon Margin="0 10 0 10" Symbol="Link48" FontSize="50" Width="50" Height="50" Foreground="DodgerBlue" />-->
+                        <Image Margin="0 10 0 10" Source="pack://application:,,,/Assets/Icon/Link3.png" Width="50" Height="50"/>
+                        <TextBlock Margin="10 0 10 10" Text="{DynamicResource Portal.ThemeShare.ThemeCopy}" FontSize="16" TextAlignment="Center"/>
+                    </StackPanel>
+                </ui:Button>
+            </StackPanel>
+        </ui:Card>
+    </Grid>
+</ui:ContentDialog>

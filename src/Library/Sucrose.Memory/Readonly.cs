@@ -96,6 +96,8 @@
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
+        public static readonly string WallpaperWebsite = $"https://github.com/{Owner}/{WallpaperRepository}";
+
         public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         public static readonly string ReportWebsite = $"https://github.com/{Owner}/{Repository}/issues/new/choose";

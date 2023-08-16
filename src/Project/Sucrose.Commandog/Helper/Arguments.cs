@@ -97,6 +97,9 @@ namespace Sucrose.Commandog.Helper
                                     case SSDECT.Report:
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
+                                    case SSDECT.Publish:
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        break;
                                     case SSDECT.Startup:
                                         SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                         break;

@@ -21,9 +21,13 @@ namespace Sucrose.Shared.Launcher.View
             SourceInitialized += DarkReportBox_SourceInitialized;
         }
 
-        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        private async void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            SSLHC.Start();
+            Create_Button.IsEnabled = false;
+
+            await Task.Run(SSLHC.Start);
+
+            Create_Button.IsEnabled = true;
         }
 
         private void ReportButton_Click(object sender, RoutedEventArgs e)

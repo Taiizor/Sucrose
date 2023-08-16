@@ -8,6 +8,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
+using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -88,6 +89,17 @@ namespace Sucrose.Portal.Views.Controls
             SSSHP.Run(Theme);
         }
 
+        private async void MenuShare_Click(object sender, RoutedEventArgs e)
+        {
+            SPVCTS ThemeShare = new()
+            {
+                Info = Info,
+                Theme = Theme
+            };
+            await ThemeShare.ShowAsync();
+            ThemeShare.Dispose();
+        }
+
         private async void MenuReview_Click(object sender, RoutedEventArgs e)
         {
             SPVCTR ThemeReview = new()
@@ -96,6 +108,7 @@ namespace Sucrose.Portal.Views.Controls
                 Theme = Theme
             };
             await ThemeReview.ShowAsync();
+            ThemeReview.Dispose();
         }
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)

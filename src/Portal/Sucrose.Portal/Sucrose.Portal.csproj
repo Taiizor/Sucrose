@@ -116,9 +116,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Resource Include="Assets\Icon256.png" />
-        <Resource Include="Assets\Icon512.png" />
-        <Resource Include="Assets\Icon1024.png" />
+        <Resource Include="Assets\**\*.*" />
     </ItemGroup>
 
     <PropertyGroup>

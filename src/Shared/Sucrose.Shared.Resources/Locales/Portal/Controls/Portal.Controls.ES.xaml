@@ -3,6 +3,7 @@
 >
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ThemeCard/Portal.ThemeCard.ES.xaml" />
+        <ResourceDictionary Source="ThemeShare/Portal.ThemeShare.ES.xaml" />
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.ES.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.ES.xaml" />
     </ResourceDictionary.MergedDictionaries>

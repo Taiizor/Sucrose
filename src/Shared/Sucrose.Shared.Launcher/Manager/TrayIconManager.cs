@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.IO;
-using static Skylark.Wing.Native.Methods;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;

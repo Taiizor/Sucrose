@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeShare.Title">Tema Paylaşma</system:String>
+    <system:String x:Key="Portal.ThemeShare.Close">Kapat</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeTitle">Başlık</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeDescription">Açıklama</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeExport">Dışarı Aktar</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">Mağazada Yayınla</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">Bağlantıyı Kopyala</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Tema Dosyasını Kaydet</system:String>
+</ResourceDictionary>

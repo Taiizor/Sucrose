@@ -157,6 +157,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeShare\Portal.ThemeShare.DE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeShare\Portal.ThemeShare.FR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeReview\Portal.ThemeReview.DE.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
