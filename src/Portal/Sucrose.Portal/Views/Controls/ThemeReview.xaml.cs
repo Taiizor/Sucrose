@@ -1,8 +1,10 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using Wpf.Ui.Controls;
 using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
+using SHC = Skylark.Helper.Culture;
 using SHN = Skylark.Helper.Numeric;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
@@ -43,6 +45,12 @@ namespace Sucrose.Portal.Views.Controls
             ThemeAuthorName.Text = Info.Author;
 
             ThemeSizeTotal.Text = Size(Theme);
+
+            ThemeVersionText.Text = $"{Info.Version} ({Info.AppVersion})";
+
+            DateTime CreationTime = Directory.GetCreationTime(Theme);
+
+            ThemeCreateDate.Text = CreationTime.ToString(SHC.CurrentUI);
 
             if (string.IsNullOrEmpty(Info.Contact))
             {

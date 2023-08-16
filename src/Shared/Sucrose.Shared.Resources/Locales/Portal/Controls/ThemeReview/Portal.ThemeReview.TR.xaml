@@ -14,5 +14,9 @@
     <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeSize">Boyut</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 Bit</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">Sürüm</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">Oluşturulma</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Bilinmiyor</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeContact">Tema İletişim Adresi</system:String>
 </ResourceDictionary>

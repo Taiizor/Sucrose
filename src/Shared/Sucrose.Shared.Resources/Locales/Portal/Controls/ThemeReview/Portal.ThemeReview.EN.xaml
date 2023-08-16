@@ -14,5 +14,9 @@
     <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeSize">Size</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 Bit</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">Version</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">Creation</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Unknown</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeContact">Theme Contact Address</system:String>
 </ResourceDictionary>
