@@ -58,7 +58,7 @@ namespace Sucrose.Portal.Views.Pages
                         if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && Adult))
                         {
                             string Keys = SHG.GenerateString(Chars, 25, SMR.Randomise);
-                            bool Result = SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key).Result;
+                            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key);
                         }
                     }
                 }

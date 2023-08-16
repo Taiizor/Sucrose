@@ -7,6 +7,7 @@ using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -36,7 +37,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SaveFileDialog SaveDialog = new()
                 {
-                    FileName = Info.Title,
+                    FileName = SSSHC.FileName(Info.Title),
 
                     Filter = SSRER.GetValue("Portal", "ThemeShare", "SaveDialogFilter"),
                     FilterIndex = 1,

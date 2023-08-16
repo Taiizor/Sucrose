@@ -27,7 +27,7 @@
                 <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="20" Width="250" Height="150" />
 
                 <StackPanel Margin="10 0 0 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
-                    <TextBlock x:Name="ThemeTitle" Text="{DynamicResource Portal.ThemeShare.ThemeTitle}" TextAlignment="Center" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                    <TextBlock x:Name="ThemeTitle" Text="{DynamicResource Portal.ThemeShare.ThemeTitle}" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                     <TextBlock x:Name="ThemeDescription" Text="{DynamicResource Portal.ThemeShare.ThemeDescription}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 </StackPanel>
             </StackPanel>
