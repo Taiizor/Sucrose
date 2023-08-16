@@ -86,8 +86,8 @@
     <tr align="center">
       <td>Url</td>
       <td>
-        <img src=".screenshots/View12.png" width="256" height="144" />
-        <br>Sample Url Theme
+        <img src=".screenshots/Url.gif" width="256" height="144" />
+        <br>Taiizor Theme
       </td>
       <td>Yes</td>
       <td>Fixed</td>
@@ -126,8 +126,8 @@
     <tr align="center">
       <td>Application</td>
       <td>
-        <img src=".screenshots/View3.png" width="256" height="144" />
-        <br>Sample Application Theme
+        <img src=".screenshots/Application.gif" width="256" height="144" />
+        <br>Santa's Helper Theme
       </td>
       <td>No</td>
       <td>Fixed</td>

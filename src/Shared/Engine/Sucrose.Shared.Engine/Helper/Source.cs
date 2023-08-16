@@ -128,8 +128,8 @@ namespace Sucrose.Shared.Engine.Helper
                     Directory.CreateDirectory(CachePath);
                 }
 
-                //string LocalSource = @Path.Combine(CachePath, Path.ChangeExtension(Path.GetRandomFileName(), Path.GetExtension(Source)));
-                string LocalSource = @Path.Combine(CachePath, $"{SSECCE.TextToMD5(Source)}{Path.GetExtension(Source)}");
+                //string LocalSource = Path.Combine(CachePath, Path.ChangeExtension(Path.GetRandomFileName(), Path.GetExtension(Source)));
+                string LocalSource = Path.Combine(CachePath, $"{SSECCE.TextToMD5(Source)}{Path.GetExtension(Source)}");
 
                 if (File.Exists(LocalSource))
                 {
@@ -144,12 +144,12 @@ namespace Sucrose.Shared.Engine.Helper
 
                     Content.CopyTo(Stream);
 
-                    return new Uri(@Path.GetFullPath(LocalSource), Kind);
+                    return new Uri(Path.GetFullPath(LocalSource), Kind);
                 }
             }
             else
             {
-                return new Uri(@Source, Kind);
+                return new Uri(Source, Kind);
             }
         }
     }

@@ -112,11 +112,16 @@
     <ItemGroup>
         <Folder Include="Interface\" />
         <Folder Include="Properties\" />
-        <Folder Include="Views\Pages\Store\" />
     </ItemGroup>
 
     <ItemGroup>
         <Resource Include="Assets\**\*.*" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\Pages\Store\ConnectStorePage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 
     <PropertyGroup>

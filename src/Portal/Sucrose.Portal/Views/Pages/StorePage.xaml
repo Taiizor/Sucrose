@@ -1,14 +1,16 @@
-﻿<Page x:Class="Sucrose.Portal.Views.Pages.StorePage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages"
-      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-      d:DataContext="{d:DesignInstance local:StorePage, IsDesignTimeCreatable=False}"
-      Loaded="Page_Loaded"
-      Title="StorePage"
-      mc:Ignorable="d">
+﻿<Page
+    x:Class="Sucrose.Portal.Views.Pages.StorePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    d:DataContext="{d:DesignInstance local:StorePage, IsDesignTimeCreatable=False}"
+    Loaded="Page_Loaded"
+    Title="StorePage"
+    mc:Ignorable="d">
+
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
         <ui:ProgressRing x:Name="Ring" IsIndeterminate="True" Width="100" Height="100" />
         <ui:TextBlock x:Name="State" Text="Downloading Themes" FontSize="68" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />

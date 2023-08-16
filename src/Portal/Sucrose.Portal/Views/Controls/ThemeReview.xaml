@@ -11,6 +11,7 @@
     Loaded="ContentDialog_Loaded"
     DialogMaxWidth="750"
     mc:Ignorable="d">
+
     <ui:ContentDialog.Resources>
         <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeReview}" />
     </ui:ContentDialog.Resources>

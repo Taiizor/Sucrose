@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.IO;
 using System.Net.Http;
-using System.Net.NetworkInformation;
 using System.Windows;
 using SEVT = Skylark.Enum.VersionType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -17,6 +16,7 @@ using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
@@ -153,7 +153,7 @@ namespace Sucrose.Update
 
             await Task.Delay(MinDelay);
 
-            if (IsInternetAvailable())
+            if (SSSHN.IsInternetAvailable())
             {
                 SSSHS.Apply();
 
@@ -242,11 +242,6 @@ namespace Sucrose.Update
             }
 
             Close();
-        }
-
-        protected static bool IsInternetAvailable()
-        {
-            return NetworkInterface.GetIsNetworkAvailable();
         }
 
         protected override void OnExit(ExitEventArgs e)

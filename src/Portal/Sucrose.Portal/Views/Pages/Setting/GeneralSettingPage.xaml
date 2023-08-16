@@ -1,14 +1,16 @@
-﻿<Page x:Class="Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Setting"
-      xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
-      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-      d:DataContext="{d:DesignInstance local:GeneralSettingPage, IsDesignTimeCreatable=False}"
-      Title="GeneralSettingPage"
-      mc:Ignorable="d">
+﻿<Page
+    x:Class="Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Setting"
+    xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    d:DataContext="{d:DesignInstance local:GeneralSettingPage, IsDesignTimeCreatable=False}"
+    Title="GeneralSettingPage"
+    mc:Ignorable="d">
+
     <Grid x:Name="GridSetting" Loaded="GridSetting_Loaded">
         <StackPanel x:Name="FrameSetting" Margin="10 0 10 10" Visibility="Collapsed" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
         <ui:ProgressRing x:Name="ProgressSetting" IsIndeterminate="True" Width="100" Height="100" />
