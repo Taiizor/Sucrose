@@ -9,7 +9,8 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <ui:SymbolIcon Symbol="CloudOff48" Foreground="{DynamicResource PaletteRedBrush}" FontSize="100" Width="100" Height="100" />
+        <!--<Image Source="pack://application:,,,/Assets/Icon/Wi-FiOff.png" Width="100" Height="100"/>-->
+        <ui:SymbolIcon Symbol="WifiOff24" Foreground="{DynamicResource PaletteRedBrush}" FontSize="100" Width="100" Height="100" />
         <TextBlock Text="{DynamicResource Portal.BrokenStorePage.TitleText}" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 10 0 10" TextAlignment="Center" />
         <TextBlock Text="{DynamicResource Portal.BrokenStorePage.DescriptionText}" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
     </StackPanel>

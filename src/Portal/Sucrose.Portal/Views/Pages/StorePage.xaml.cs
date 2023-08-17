@@ -9,6 +9,7 @@ using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -58,11 +59,19 @@ namespace Sucrose.Portal.Views.Pages
                         if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && Adult))
                         {
                             string Keys = SHG.GenerateString(Chars, 25, SMR.Randomise);
+
+                            SSSMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
+
                             await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key);
                         }
                     }
                 }
             }
+        }
+
+        private void StoreService_InfoChanged(string Keys)
+        {
+            //MessageBox.Show(Keys + " - " + SSSMI.StoreService.Info[Keys].Percentage + " - " + SSSMI.StoreService.Info[Keys].DownloadedFileCount);
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)

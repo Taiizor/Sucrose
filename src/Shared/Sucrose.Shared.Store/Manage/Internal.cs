@@ -1,5 +1,5 @@
 ﻿using System.Net.Http;
-using SSSID = Sucrose.Shared.Store.Interface.Data;
+using SPSSS = Sucrose.Portal.Services.StoreService;
 
 namespace Sucrose.Shared.Store.Manage
 {
@@ -7,6 +7,8 @@ namespace Sucrose.Shared.Store.Manage
     {
         public static readonly HttpClient Client = new();
 
-        public static Dictionary<string, SSSID> Info = new();
+        public static SPSSS StoreService { get; } = new();
+
+        public static readonly TimeSpan RequiredDuration = TimeSpan.FromDays(1);
     }
 }

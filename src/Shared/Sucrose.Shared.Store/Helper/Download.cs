@@ -20,10 +20,9 @@ namespace Sucrose.Shared.Store.Helper
                     DateTime CurrentTime = DateTime.Now;
                     DateTime ModificationTime = File.GetLastWriteTime(Store);
 
-                    TimeSpan RequiredDuration = TimeSpan.FromMinutes(5);
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= RequiredDuration)
+                    if (ElapsedDuration >= SSSMI.RequiredDuration)
                     {
                         File.Delete(Store);
                     }
@@ -73,7 +72,7 @@ namespace Sucrose.Shared.Store.Helper
         {
             InitializeClient(Agent, Key);
 
-            SSSMI.Info[Keys] = new SSSID(0, 0, 0, "0%", "0/0");
+            SSSMI.StoreService.Info.Add(Keys, new SSSID(0, 0, 0, "0%", "0/0"));
 
             return await DownloadFolder(Source, Output, Agent, Keys, Key, Sub);
         }
@@ -94,7 +93,7 @@ namespace Sucrose.Shared.Store.Helper
 
         private static async Task<bool> DownloadFolder(string Source, string Output, string Agent, string Keys, string Key, bool Sub)
         {
-            SSSMI.Info[Keys].TotalFileCount = await GetTotalFileCount(Source, Agent, Key, Sub);
+            SSSMI.StoreService.TotalFileCount(Keys, await GetTotalFileCount(Source, Agent, Key, Sub));
 
             return await DownloadFilesRecursively(Source, Output, Agent, Keys, Key, Sub);
         }
@@ -149,11 +148,11 @@ namespace Sucrose.Shared.Store.Helper
                     FStream.Dispose();
                     Stream.Dispose();
 
-                    SSSMI.Info[Keys].DownloadedFileCount++;
-                    SSSMI.Info[Keys].ProgressPercentage = (double)SSSMI.Info[Keys].DownloadedFileCount / SSSMI.Info[Keys].TotalFileCount * 100;
+                    SSSMI.StoreService.DownloadedFileCount(Keys, SSSMI.StoreService.Info[Keys].DownloadedFileCount + 1);
+                    SSSMI.StoreService.ProgressPercentage(Keys, (double)SSSMI.StoreService.Info[Keys].DownloadedFileCount / SSSMI.StoreService.Info[Keys].TotalFileCount * 100);
 
-                    SSSMI.Info[Keys].Percentage = $"{SSSMI.Info[Keys].ProgressPercentage:F2}%"; //F2 - F0
-                    SSSMI.Info[Keys].State = $"{SSSMI.Info[Keys].DownloadedFileCount}/{SSSMI.Info[Keys].TotalFileCount}";
+                    SSSMI.StoreService.Percentage(Keys, $"{SSSMI.StoreService.Info[Keys].ProgressPercentage:F2}%"); //F2 - F0
+                    SSSMI.StoreService.State(Keys, $"{SSSMI.StoreService.Info[Keys].DownloadedFileCount}/{SSSMI.StoreService.Info[Keys].TotalFileCount}");
                 }
                 else if (Content.Type == "dir" && Sub)
                 {

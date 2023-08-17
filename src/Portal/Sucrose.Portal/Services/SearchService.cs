@@ -6,6 +6,7 @@
         private string _BeforeSearchText = string.Empty;
 
         public event EventHandler SearchTextChanged;
+        public event EventHandler BeforeSearchTextChanged;
 
         public string SearchText
         {
@@ -18,6 +19,14 @@
             }
         }
 
-        public string BeforeSearchText => _BeforeSearchText.ToLowerInvariant();
+        public string BeforeSearchText
+        {
+            get => _BeforeSearchText.ToLowerInvariant();
+            set
+            {
+                _BeforeSearchText = value.ToLowerInvariant();
+                BeforeSearchTextChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
     }
 }

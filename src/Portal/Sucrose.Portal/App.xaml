@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-             xmlns:helpers="clr-namespace:Sucrose.Portal.Helpers"
-             xmlns:local="clr-namespace:Sucrose.Portal">
+             xmlns:helpers="clr-namespace:Sucrose.Portal.Helpers">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,6 +14,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+            <helpers:NameToPageTypeConverter x:Key="NameToPageTypeConverter" />
+            <helpers:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
