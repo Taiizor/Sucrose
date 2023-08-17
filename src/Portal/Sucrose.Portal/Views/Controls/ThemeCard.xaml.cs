@@ -17,9 +17,9 @@ using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 namespace Sucrose.Portal.Views.Controls
 {
     /// <summary>
-    /// ThemeCard.xaml etkileşim mantığı
+    /// LibraryCard.xaml etkileşim mantığı
     /// </summary>
-    public partial class ThemeCard : UserControl, IDisposable
+    public partial class LibraryCard : UserControl, IDisposable
     {
         private static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, int.MaxValue);
 
@@ -31,7 +31,7 @@ namespace Sucrose.Portal.Views.Controls
         private readonly string Theme = null;
         private readonly SSTHI Info = null;
 
-        internal ThemeCard(string Theme, SSTHI Info)
+        internal LibraryCard(string Theme, SSTHI Info)
         {
             this.Info = Info;
             this.Theme = Theme;
@@ -143,7 +143,7 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void ThemeCard_MouseEnter(object sender, MouseEventArgs e)
+        private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
             if (LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
             {
@@ -155,7 +155,7 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void ThemeCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void LibraryCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Use();
         }

@@ -4,9 +4,13 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using SHC = Skylark.Helper.Culture;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.Views.Pages.Setting
@@ -16,6 +20,8 @@ namespace Sucrose.Portal.Views.Pages.Setting
     /// </summary>
     public partial class GeneralSettingPage : INavigableView<SPVMPGSVM>, IDisposable
     {
+        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
+
         public SPVMPGSVM ViewModel { get; }
 
         public GeneralSettingPage(SPVMPGSVM ViewModel)
@@ -52,6 +58,33 @@ namespace Sucrose.Portal.Views.Pages.Setting
                 FontWeight = FontWeights.Bold,
                 Text = "Sistem"
             };
+
+            SPVCEC CustomExpander0 = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            CustomExpander0.Title.Text = "Uygulama Dili";
+            CustomExpander0.LeftIcon.Symbol = SymbolRegular.LocalLanguage20;
+            CustomExpander0.Description.Text = "Uygulamayı görüntülem dilinizi seçin.";
+
+            ComboBox CB0 = new() { };
+
+            CB0.SelectionChanged += (s, e) =>
+            {
+                SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, SSRHR.ListLanguage()[CB0.SelectedIndex]);
+                SSRHR.SetLanguage(Culture);
+            };
+
+            foreach (string Code in SSRHR.ListLanguage())
+            {
+                CB0.Items.Add(SSRER.GetValue("Locale", Code));
+            }
+
+            CB0.SelectedValue = SSRER.GetValue("Locale", Culture.ToUpperInvariant());
+
+            CustomExpander0.HeaderFrame = CB0;
 
             SPVCEC CustomExpander1 = new()
             {
@@ -154,6 +187,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
 
             FrameSetting.Children.Add(Tb1);
 
+            FrameSetting.Children.Add(CustomExpander0);
             FrameSetting.Children.Add(CustomExpander1);
             FrameSetting.Children.Add(CustomExpander2);
 

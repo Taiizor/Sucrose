@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Titre</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Description</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Plus</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">Examiner</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Utiliser</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Aperçu</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Personnaliser</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Trouver</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Partager</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Supprimer</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Modifier</system:String>
+
+</ResourceDictionary>

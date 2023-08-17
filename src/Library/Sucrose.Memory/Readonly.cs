@@ -42,6 +42,8 @@
 
         public static readonly string SettingFolder = "Setting";
 
+        public static readonly string HostEntry = "www.google.com";
+
         public static readonly string Update = "Sucrose.Update.exe";
 
         public static readonly string Portal = "Sucrose.Portal.exe";

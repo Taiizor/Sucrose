@@ -1,22 +1,21 @@
 ﻿using System.IO;
 using System.Windows;
-using SHG = Skylark.Helper.Generator;
+using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SSSHD = Sucrose.Shared.Store.Helper.Download;
-using SSSHS = Sucrose.Shared.Store.Helper.Store;
-using SSSIC = Sucrose.Shared.Store.Interface.Category;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
-using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SSSMI = Sucrose.Shared.Store.Manage.Internal;
+using SPMI = Sucrose.Portal.Manage.Internal;
+using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
+using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
+using SPVPSSSP = Sucrose.Portal.Views.Pages.Store.SearchStorePage;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
 
 namespace Sucrose.Portal.Views.Pages
 {
     /// <summary>
     /// StorePage.xaml etkileşim mantığı
     /// </summary>
-    public partial class StorePage : IDisposable
+    public partial class StorePage : INavigableView<SPVMPSVM>, IDisposable
     {
         private static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
 
@@ -28,67 +27,73 @@ namespace Sucrose.Portal.Views.Pages
 
         private static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
-        public StorePage()
+        private SPVPSBSP BrokenStorePage { get; set; }
+
+        private SPVPSSSP SearchStorePage { get; set; }
+
+        public SPVMPSVM ViewModel { get; }
+
+        public StorePage(SPVMPSVM ViewModel)
         {
+            this.ViewModel = ViewModel;
+            DataContext = this;
+
             InitializeComponent();
+
+            Search();
         }
 
-        private async Task Start()
+        private void Search()
         {
-            string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
+            string Search = SPMI.SearchService.SearchText;
 
-            if (SSSHD.Store(StoreFile, Agent, Key))
+            SPMI.SearchService.Dispose();
+
+            SPMI.SearchService = new()
             {
-                //MessageBox.Show(SSSHS.Json(StoreFile));
+                SearchText = Search
+            };
 
-                SSSIR Root = SSSHS.DeserializeRoot(StoreFile);
-
-                foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
-                {
-                    //MessageBox.Show("Category: " + Category.Key);
-
-                    foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
-                    {
-                        //MessageBox.Show("Wallpaper: " + Wallpaper.Key);
-
-                        //MessageBox.Show("Source: " + Wallpaper.Value.Source);
-                        //MessageBox.Show("Adult: " + Wallpaper.Value.Adult);
-                        //MessageBox.Show("Cover: " + Wallpaper.Value.Cover);
-                        //MessageBox.Show("Live: " + Wallpaper.Value.Live);
-
-                        if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && Adult))
-                        {
-                            string Keys = SHG.GenerateString(Chars, 25, SMR.Randomise);
-
-                            SSSMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
-
-                            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key);
-                        }
-                    }
-                }
-            }
+            SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
         }
 
-        private void StoreService_InfoChanged(string Keys)
+        private async Task Start(bool Search = false)
         {
-            //MessageBox.Show(Keys + " - " + SSSMI.StoreService.Info[Keys].Percentage + " - " + SSSMI.StoreService.Info[Keys].DownloadedFileCount);
-        }
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (!Directory.Exists(LibraryLocation) || !Directory.GetFiles(LibraryLocation, "*", SearchOption.AllDirectories).Any())
+            if (SSSHN.GetHostEntry())
             {
-                await Task.Run(Start);
+                SearchStorePage = new();
 
-                State.Text = "Themes Downloaded";
+                FrameStore.Content = SearchStorePage;
             }
             else
             {
-                State.Text = "Themes Already Downloaded";
+                BrokenStorePage = new();
+
+                FrameStore.Content = BrokenStorePage;
             }
 
-            Ring.Progress = 100;
-            Ring.IsIndeterminate = false;
+            if (!Search)
+            {
+                await Task.Delay(500);
+            }
+
+            FrameStore.Visibility = Visibility.Visible;
+            ProgressStore.Visibility = Visibility.Collapsed;
+        }
+
+        private async void GridStore_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Start();
+        }
+
+        private async void SearchService_SearchTextChanged(object sender, EventArgs e)
+        {
+            Dispose();
+
+            FrameStore.Visibility = Visibility.Collapsed;
+            ProgressStore.Visibility = Visibility.Visible;
+
+            await Start(true);
         }
 
         public void Dispose()

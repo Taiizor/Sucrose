@@ -153,7 +153,7 @@ namespace Sucrose.Update
 
             await Task.Delay(MinDelay);
 
-            if (SSSHN.IsInternetAvailable())
+            if (SSSHN.GetHostEntry())
             {
                 SSSHS.Apply();
 

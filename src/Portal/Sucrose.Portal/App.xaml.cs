@@ -17,6 +17,7 @@ using SPSPS = Sucrose.Portal.Services.PageService;
 using SPSWPS = Sucrose.Portal.Services.WindowsProviderService;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
+using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
@@ -89,6 +90,7 @@ namespace Sucrose.Portal
                     services.AddTransient<SPVMPLVM>();
 
                     services.AddTransient<SPVPSP>();
+                    services.AddTransient<SPVMPSVM>();
 
                     services.AddTransient<SPVPSGSP>();
                     services.AddTransient<SPVMPGSVM>();

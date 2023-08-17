@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SearchStorePage.Title">SearchStorePage</system:String>
+
+    <system:String x:Key="Portal.SearchStorePage.TitleText">La réponse à ce que vous recherchez pourrait être cachée dans le ciel</system:String>
+    <system:String x:Key="Portal.SearchStorePage.DescriptionText">Si les résultats ne sont pas comme vous l'attendiez, le ciel pourrait vous offrir une nouvelle expérience</system:String>
+</ResourceDictionary>

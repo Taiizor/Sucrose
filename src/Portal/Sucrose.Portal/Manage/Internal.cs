@@ -7,13 +7,13 @@ namespace Sucrose.Portal.Manage
 {
     internal static class Internal
     {
+        public static SPSSS SearchService = new();
+
         public static IServiceProvider ServiceProvider;
 
         public static ISnackbarService SnackbarService;
 
         public static INavigationService NavigationService;
-
-        public static SPSSS SearchService { get; } = new();
 
         public static IContentDialogService ContentDialogService;
 

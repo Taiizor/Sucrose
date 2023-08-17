@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPVCTC = Sucrose.Portal.Views.Controls.ThemeCard;
+using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Pages.Library
@@ -37,11 +37,11 @@ namespace Sucrose.Portal.Views.Pages.Library
             {
                 if (string.IsNullOrEmpty(Search))
                 {
-                    SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
+                    SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
 
-                    ThemeCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
+                    LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
-                    ThemeLibrary.Children.Add(ThemeCard);
+                    ThemeLibrary.Children.Add(LibraryCard);
 
                     Empty.Visibility = Visibility.Hidden;
 
@@ -55,11 +55,11 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                     if (Title.Contains(Search) || Description.Contains(Search))
                     {
-                        SPVCTC ThemeCard = new(Path.GetDirectoryName(Theme), Info);
+                        SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), Info);
 
-                        ThemeCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
+                        LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
-                        ThemeLibrary.Children.Add(ThemeCard);
+                        ThemeLibrary.Children.Add(LibraryCard);
 
                         Empty.Visibility = Visibility.Hidden;
 

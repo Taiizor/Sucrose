@@ -2,8 +2,8 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ThemeCard/Portal.ThemeCard.PL.xaml" />
         <ResourceDictionary Source="ThemeShare/Portal.ThemeShare.PL.xaml" />
+        <ResourceDictionary Source="LibraryCard/Portal.LibraryCard.PL.xaml" />
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.PL.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.PL.xaml" />
     </ResourceDictionary.MergedDictionaries>

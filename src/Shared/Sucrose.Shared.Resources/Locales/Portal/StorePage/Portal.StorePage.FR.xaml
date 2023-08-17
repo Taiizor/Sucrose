@@ -5,6 +5,7 @@
 >
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="BrokenStorePage/Portal.BrokenStorePage.FR.xaml" />
+        <ResourceDictionary Source="SearchStorePage/Portal.SearchStorePage.FR.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.StorePage.Test">Test</system:String>

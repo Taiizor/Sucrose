@@ -1,11 +1,11 @@
-﻿using Sucrose.Portal.ViewModels.Pages;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 
@@ -14,7 +14,7 @@ namespace Sucrose.Portal.Views.Pages
     /// <summary>
     /// LibraryPage.xaml etkileşim mantığı
     /// </summary>
-    public partial class LibraryPage : INavigableView<LibraryViewModel>, IDisposable
+    public partial class LibraryPage : INavigableView<SPVMPLVM>, IDisposable
     {
         private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
@@ -22,25 +22,30 @@ namespace Sucrose.Portal.Views.Pages
 
         private SPVPLFLP FullLibraryPage { get; set; }
 
-        public LibraryViewModel ViewModel { get; }
+        public SPVMPLVM ViewModel { get; }
 
-        public LibraryPage(LibraryViewModel ViewModel)
+        public LibraryPage(SPVMPLVM ViewModel)
         {
             this.ViewModel = ViewModel;
             DataContext = this;
+
             InitializeComponent();
 
-            SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
+            Search();
         }
 
-        private async void SearchService_SearchTextChanged(object sender, EventArgs e)
+        private void Search()
         {
-            Dispose();
+            string Search = SPMI.SearchService.SearchText;
 
-            FrameLibrary.Visibility = Visibility.Collapsed;
-            ProgressLibrary.Visibility = Visibility.Visible;
+            SPMI.SearchService.Dispose();
 
-            await Start(true);
+            SPMI.SearchService = new()
+            {
+                SearchText = Search
+            };
+
+            SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
         }
 
         private async Task Start(bool Search = false)
@@ -90,6 +95,16 @@ namespace Sucrose.Portal.Views.Pages
         private async void GridLibrary_Loaded(object sender, RoutedEventArgs e)
         {
             await Start();
+        }
+
+        private async void SearchService_SearchTextChanged(object sender, EventArgs e)
+        {
+            Dispose();
+
+            FrameLibrary.Visibility = Visibility.Collapsed;
+            ProgressLibrary.Visibility = Visibility.Visible;
+
+            await Start(true);
         }
 
         public void Dispose()

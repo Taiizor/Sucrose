@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Portal.Services
 {
-    internal class SearchService
+    internal class SearchService : IDisposable
     {
         private string _SearchText = string.Empty;
         private string _BeforeSearchText = string.Empty;
@@ -27,6 +27,12 @@
                 _BeforeSearchText = value.ToLowerInvariant();
                 BeforeSearchTextChanged?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

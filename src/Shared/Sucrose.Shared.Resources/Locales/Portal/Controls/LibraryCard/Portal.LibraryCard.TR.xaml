@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Başlık</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Açıklama</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Daha</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">İncele</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Kullan</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Önizle</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Özelleştir</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Bul</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Paylaş</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Sil</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Düzenle</system:String>
+</ResourceDictionary>

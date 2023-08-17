@@ -133,27 +133,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeCard\Portal.ThemeCard.PL.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\LibraryCard\Portal.LibraryCard.PL.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeCard\Portal.ThemeCard.FR.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\LibraryCard\Portal.LibraryCard.FR.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeCard\Portal.ThemeCard.ES.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeCard\Portal.ThemeCard.DE.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeCard\Portal.ThemeCard.TR.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ThemeCard\Portal.ThemeCard.EN.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -398,6 +398,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\StorePage\Portal.StorePage.EN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\StorePage\SearchStorePage\Portal.SearchStorePage.FR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ES.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\StorePage\SearchStorePage\Portal.SearchStorePage.PL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
