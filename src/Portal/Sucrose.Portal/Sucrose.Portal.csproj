@@ -118,6 +118,12 @@
         <Resource Include="Assets\**\*.*" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Views\Pages\Store\FullStorePage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>

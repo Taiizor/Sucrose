@@ -6,9 +6,13 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
+using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
-using SPVPSSSP = Sucrose.Portal.Views.Pages.Store.SearchStorePage;
+using SPVPSUSP = Sucrose.Portal.Views.Pages.Store.UnknownStorePage;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
+using SSSHD = Sucrose.Shared.Store.Helper.Download;
+using SSSHS = Sucrose.Shared.Store.Helper.Store;
+using SSSIR = Sucrose.Shared.Store.Interface.Root;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -17,19 +21,15 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class StorePage : INavigableView<SPVMPSVM>, IDisposable
     {
-        private static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
-
-        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
-
         private static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
         private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
-        private static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
+        private SPVPSUSP UnknownStorePage { get; set; }
 
         private SPVPSBSP BrokenStorePage { get; set; }
 
-        private SPVPSSSP SearchStorePage { get; set; }
+        private SPVPSFSP FullStorePage { get; set; }
 
         public SPVMPSVM ViewModel { get; }
 
@@ -61,9 +61,22 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (SSSHN.GetHostEntry())
             {
-                SearchStorePage = new();
+                string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                FrameStore.Content = SearchStorePage;
+                if (SSSHD.Store(StoreFile, Agent, Key))
+                {
+                    SSSIR Root = SSSHS.DeserializeRoot(StoreFile);
+
+                    FullStorePage = new(Root);
+
+                    FrameStore.Content = FullStorePage;
+                }
+                else
+                {
+                    UnknownStorePage = new();
+
+                    FrameStore.Content = UnknownStorePage;
+                }
             }
             else
             {

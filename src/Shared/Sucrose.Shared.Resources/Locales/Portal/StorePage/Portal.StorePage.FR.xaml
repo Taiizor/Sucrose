@@ -4,8 +4,10 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="FullStorePage/Portal.FullStorePage.FR.xaml" />
         <ResourceDictionary Source="BrokenStorePage/Portal.BrokenStorePage.FR.xaml" />
         <ResourceDictionary Source="SearchStorePage/Portal.SearchStorePage.FR.xaml" />
+        <ResourceDictionary Source="UnknownStorePage/Portal.UnknownStorePage.FR.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.StorePage.Test">Test</system:String>

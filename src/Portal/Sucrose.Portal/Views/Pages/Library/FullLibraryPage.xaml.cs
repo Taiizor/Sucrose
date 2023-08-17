@@ -1,5 +1,4 @@
-﻿using Sucrose.Shared.Theme.Helper;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using SMC = Sucrose.Memory.Constant;
