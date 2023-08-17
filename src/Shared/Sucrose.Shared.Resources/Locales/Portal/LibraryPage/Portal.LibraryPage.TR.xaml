@@ -8,6 +8,6 @@
         <ResourceDictionary Source="EmptyLibraryPage/Portal.EmptyLibraryPage.TR.xaml" />
         <ResourceDictionary Source="SearchLibraryPage/Portal.SearchLibraryPage.TR.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
+
     <system:String x:Key="Portal.LibraryPage.Test">Test</system:String>
 </ResourceDictionary>

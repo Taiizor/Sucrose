@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="Sucrose.Portal.Views.Pages.Store.BrokenStorePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="BrokenStorePage"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <ui:SymbolIcon Symbol="CloudOff48" Foreground="{DynamicResource PaletteRedBrush}" FontSize="100" Width="100" Height="100" />
+        <TextBlock Text="{DynamicResource Portal.BrokenStorePage.TitleText}" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 10 0 10" TextAlignment="Center" />
+        <TextBlock Text="{DynamicResource Portal.BrokenStorePage.DescriptionText}" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
+    </StackPanel>
+</Page>

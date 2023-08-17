@@ -3,11 +3,11 @@
 namespace Sucrose.Portal.Views.Pages.Store
 {
     /// <summary>
-    /// ConnectStorePage.xaml etkileşim mantığı
+    /// BrokenStorePage.xaml etkileşim mantığı
     /// </summary>
-    public partial class ConnectStorePage : Page, IDisposable
+    public partial class BrokenStorePage : Page, IDisposable
     {
-        public ConnectStorePage()
+        public BrokenStorePage()
         {
             InitializeComponent();
         }

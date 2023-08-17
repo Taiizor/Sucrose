@@ -5,6 +5,7 @@
 >
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Controls/Portal.Controls.DE.xaml" />
+        <ResourceDictionary Source="StorePage/Portal.StorePage.DE.xaml" />
         <ResourceDictionary Source="MainWindow/Portal.MainWindow.DE.xaml" />
         <ResourceDictionary Source="LibraryPage/Portal.LibraryPage.DE.xaml" />
     </ResourceDictionary.MergedDictionaries>
