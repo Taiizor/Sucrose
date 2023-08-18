@@ -24,8 +24,7 @@ namespace Sucrose.Portal.Controls
 
         private static void MaxItemsPerRowPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            LibraryWrapPanel panel = d as LibraryWrapPanel;
-            panel?.InvalidateMeasure();
+            (d as LibraryWrapPanel)?.InvalidateMeasure();
         }
 
         protected override Size MeasureOverride(Size availableSize)

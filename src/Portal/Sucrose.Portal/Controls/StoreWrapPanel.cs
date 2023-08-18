@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using SPVCSC = Sucrose.Portal.Views.Controls.LibraryCard;
+using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
 
 namespace Sucrose.Portal.Controls
 {
@@ -24,8 +24,7 @@ namespace Sucrose.Portal.Controls
 
         private static void MaxItemsPerRowPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            StoreWrapPanel panel = d as StoreWrapPanel;
-            panel?.InvalidateMeasure();
+            (d as StoreWrapPanel)?.InvalidateMeasure();
         }
 
         protected override Size MeasureOverride(Size availableSize)

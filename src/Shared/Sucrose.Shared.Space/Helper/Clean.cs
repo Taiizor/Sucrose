@@ -10,5 +10,12 @@ namespace Sucrose.Shared.Space.Helper
 
             return new(Name.Where(Char => !Chars.Contains(Char)).ToArray());
         }
+
+        public static string PathName(string Name)
+        {
+            char[] Chars = Path.GetInvalidPathChars();
+
+            return new(Name.Where(Char => !Chars.Contains(Char)).ToArray());
+        }
     }
 }

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Store"
     xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DataContext="{d:DesignInstance local:FullStorePage, IsDesignTimeCreatable=False}"
     Title="FullStorePage"
     Loaded="FullStorePage_Loaded"
@@ -14,11 +15,33 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Frame x:Name="Empty" Visibility="Hidden">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Frame Grid.Column="1" x:Name="Empty" Visibility="Visible">
             <Frame.Content>
                 <local:SearchStorePage />
             </Frame.Content>
         </Frame>
-        <controls:StoreWrapPanel x:Name="ThemeStore" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+        <controls:SizeConstrainingContainer Grid.Column="0" Margin="10 0 10 10">
+            <ui:NavigationView
+                x:Name="NView"
+                FrameMargin="0"
+                Width="235"
+                OpenPaneLength="225"
+                IsPaneToggleVisible="False"
+                PaneDisplayMode="Left"
+                IsBackButtonVisible="Collapsed"
+                MenuItemsSource="{Binding MenuItems, Mode=TwoWay}" />
+        </controls:SizeConstrainingContainer>
+
+        <controls:SizeConstrainingContainer Grid.Column="1" Margin="10 0 10 10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <controls:StoreWrapPanel x:Name="ThemeStore" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+            </ScrollViewer>
+        </controls:SizeConstrainingContainer>
     </Grid>
 </Page>

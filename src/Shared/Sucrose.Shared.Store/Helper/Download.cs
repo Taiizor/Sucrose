@@ -6,6 +6,7 @@ using SSIIC = Skylark.Standard.Interface.IContents;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
+using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 
 namespace Sucrose.Shared.Store.Helper
 {
@@ -63,6 +64,76 @@ namespace Sucrose.Shared.Store.Helper
 
                     break;
                 }
+            }
+
+            return false;
+        }
+
+        public static bool Cache(string Theme, KeyValuePair<string, SSSIW> Wallpaper, string Agent, string Key)
+        {
+            string Info = Path.Combine(Theme, SMR.SucroseInfo);
+            string Cover = Path.Combine(Theme, Wallpaper.Value.Cover);
+
+            if (Directory.Exists(Theme))
+            {
+                if (File.Exists(Info) && File.Exists(Cover))
+                {
+                    DateTime CurrentTime = DateTime.Now;
+                    DateTime ModificationTime = File.GetLastWriteTime(Theme);
+
+                    TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
+
+                    if (ElapsedDuration >= SSSMI.RequiredDuration)
+                    {
+                        File.Delete(Info);
+                        File.Delete(Cover);
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    if (File.Exists(Info))
+                    {
+                        File.Delete(Info);
+                    }
+
+                    if (File.Exists(Cover))
+                    {
+                        File.Delete(Cover);
+                    }
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(Theme);
+            }
+
+            InitializeClient(Agent, Key);
+
+            using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}").Result;
+            using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}").Result;
+
+            ResponseInfo.EnsureSuccessStatusCode();
+            ResponseCover.EnsureSuccessStatusCode();
+
+            if (ResponseInfo.IsSuccessStatusCode && ResponseCover.IsSuccessStatusCode)
+            {
+                using HttpContent InfoContent = ResponseInfo.Content;
+                using HttpContent CoverContent = ResponseCover.Content;
+
+                using Stream InfoStream = InfoContent.ReadAsStreamAsync().Result;
+                using Stream CoverStream = CoverContent.ReadAsStreamAsync().Result;
+
+                using FileStream InfoFile = new(Info, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                using FileStream CoverFile = new(Cover, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+
+                InfoStream.CopyTo(InfoFile);
+                CoverStream.CopyTo(CoverFile);
+
+                return true;
             }
 
             return false;

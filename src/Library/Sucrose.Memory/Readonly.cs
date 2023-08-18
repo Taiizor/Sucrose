@@ -109,5 +109,7 @@
         public static readonly string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+        public static readonly string RawWebsite = $"https://raw.githubusercontent.com/{Owner}/{WallpaperRepository}/{Branch}";
     }
 }

@@ -86,10 +86,10 @@ namespace Sucrose.Portal.Views.Pages
             if (!Search)
             {
                 await Task.Delay(500);
-            }
 
-            FrameLibrary.Visibility = Visibility.Visible;
-            ProgressLibrary.Visibility = Visibility.Collapsed;
+                FrameLibrary.Visibility = Visibility.Visible;
+                ProgressLibrary.Visibility = Visibility.Collapsed;
+            }
         }
 
         private async void GridLibrary_Loaded(object sender, RoutedEventArgs e)
@@ -100,9 +100,6 @@ namespace Sucrose.Portal.Views.Pages
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
         {
             Dispose();
-
-            FrameLibrary.Visibility = Visibility.Collapsed;
-            ProgressLibrary.Visibility = Visibility.Visible;
 
             await Start(true);
         }

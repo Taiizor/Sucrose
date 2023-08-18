@@ -7,7 +7,7 @@
     Title="{DynamicResource Portal.SearchStorePage.Title}"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <StackPanel Margin="10 0 10 0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
         <TextBlock Text="{DynamicResource Portal.SearchStorePage.TitleText}" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
         <TextBlock Text="{DynamicResource Portal.SearchStorePage.DescriptionText}" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
     </StackPanel>

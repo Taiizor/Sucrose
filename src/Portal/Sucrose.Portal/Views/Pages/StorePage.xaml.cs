@@ -88,10 +88,10 @@ namespace Sucrose.Portal.Views.Pages
             if (!Search)
             {
                 await Task.Delay(500);
-            }
 
-            FrameStore.Visibility = Visibility.Visible;
-            ProgressStore.Visibility = Visibility.Collapsed;
+                FrameStore.Visibility = Visibility.Visible;
+                ProgressStore.Visibility = Visibility.Collapsed;
+            }
         }
 
         private async void GridStore_Loaded(object sender, RoutedEventArgs e)
@@ -102,9 +102,6 @@ namespace Sucrose.Portal.Views.Pages
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
         {
             Dispose();
-
-            FrameStore.Visibility = Visibility.Collapsed;
-            ProgressStore.Visibility = Visibility.Visible;
 
             await Start(true);
         }

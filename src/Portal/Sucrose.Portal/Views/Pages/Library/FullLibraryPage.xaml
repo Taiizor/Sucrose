@@ -14,7 +14,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Frame x:Name="Empty" Visibility="Hidden">
+        <Frame x:Name="Empty" Visibility="Collapsed">
             <Frame.Content>
                 <local:SearchLibraryPage />
             </Frame.Content>

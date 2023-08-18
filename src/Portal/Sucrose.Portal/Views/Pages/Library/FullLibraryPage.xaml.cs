@@ -42,7 +42,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                     ThemeLibrary.Children.Add(LibraryCard);
 
-                    Empty.Visibility = Visibility.Hidden;
+                    Empty.Visibility = Visibility.Collapsed;
 
                     await Task.Delay(25);
                 }
@@ -60,7 +60,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                         ThemeLibrary.Children.Add(LibraryCard);
 
-                        Empty.Visibility = Visibility.Hidden;
+                        Empty.Visibility = Visibility.Collapsed;
 
                         await Task.Delay(25);
                     }
