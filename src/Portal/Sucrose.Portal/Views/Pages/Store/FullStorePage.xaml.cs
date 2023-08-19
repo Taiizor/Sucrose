@@ -1,24 +1,21 @@
-﻿using System.IO;
+﻿using Sucrose.Shared.Store.Interface;
+using Sucrose.Shared.Theme.Helper;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SPMI = Sucrose.Portal.Manage.Internal;
-using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
-using SPCSWP = Sucrose.Portal.Controls.StoreWrapPanel;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SMR = Sucrose.Memory.Readonly;
-using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
-using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
-using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
-using SSSHN = Sucrose.Shared.Space.Helper.Network;
-using SSSHC = Sucrose.Shared.Space.Helper.Clean;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
-using SSSIC = Sucrose.Shared.Store.Interface.Category;
-using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using System.Collections.ObjectModel;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMR = Sucrose.Memory.Readonly;
+using SPMI = Sucrose.Portal.Manage.Internal;
+using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
+using SSSHC = Sucrose.Shared.Space.Helper.Clean;
+using SSSIC = Sucrose.Shared.Store.Interface.Category;
+using SSSIR = Sucrose.Shared.Store.Interface.Root;
+using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Pages.Store
 {
@@ -41,7 +38,17 @@ namespace Sucrose.Portal.Views.Pages.Store
 
         private static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
-        private static Dictionary<string, SymbolRegular> MenuIcons { get; set; } = new();
+        private static Dictionary<string, SymbolRegular> MenuIcons { get; set; } = new()
+        {
+            { "Game", SymbolRegular.Games24 },
+            { "RGB", SymbolRegular.Lightbulb24 },
+            { "Music", SymbolRegular.MusicNote224 },
+            { "Sky", SymbolRegular.WeatherCloudy24 },
+            { "Animals", SymbolRegular.AnimalCat24 },
+            { "Vehicles", SymbolRegular.VehicleCar24 },
+            { "Dynamic", SymbolRegular.ClockToolbox24 },
+            { "Film and Movie", SymbolRegular.MoviesAndTv24 }
+        };
 
         public static ICollection<object> MenuItems { get; set; }
 
@@ -54,21 +61,34 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             ObservableCollection<object> Categories = new();
 
+            NavigationViewItem AllMenu = new("All Themes", SymbolRegular.Globe24, typeof(Canvas))
+            {
+                Tag = string.Empty,
+                IsActive = SPMI.CategoryService.CategoryTag == string.Empty
+            };
+
+            AllMenu.Click += (s, e) => CategoryClick(s);
+
+            Categories.Add(AllMenu);
+
             foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
             {
                 if (Category.Value.Wallpapers.Any() && (Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
                 {
-                    NavigationViewItem Menu = new(Category.Key, SymbolRegular.Wallpaper24, typeof(Border))
+                    SymbolRegular Symbol = SymbolRegular.Wallpaper24;
+
+                    if (MenuIcons.ContainsKey(Category.Key))
                     {
-                        Tag = Category.Key
+                        Symbol = MenuIcons[Category.Key];
+                    }
+
+                    NavigationViewItem Menu = new(Category.Key, Symbol, typeof(Border))
+                    {
+                        Tag = Category.Key,
+                        IsActive = SPMI.CategoryService.CategoryTag == Category.Key
                     };
 
-                    Menu.Click += (s, e) =>
-                    {
-                        NavigationViewItem sender = s as NavigationViewItem;
-
-                        //System.Windows.MessageBox.Show(sender.Tag.ToString());
-                    };
+                    Menu.Click += (s, e) => CategoryClick(s);
 
                     Categories.Add(Menu);
                 }
@@ -77,6 +97,42 @@ namespace Sucrose.Portal.Views.Pages.Store
             MenuItems = Categories;
 
             InitializeComponent();
+
+            Category();
+        }
+
+        private void Category()
+        {
+            string Tag = SPMI.CategoryService.CategoryTag;
+
+            SPMI.CategoryService.Dispose();
+
+            SPMI.CategoryService = new()
+            {
+                CategoryTag = Tag
+            };
+
+            SPMI.CategoryService.CategoryTagChanged += CategoryService_CategoryTagChanged;
+        }
+
+        private void CategoryClick(object s)
+        {
+            NavigationViewItem sender = s as NavigationViewItem;
+
+            SPMI.CategoryService.CategoryTag = sender.Tag.ToString();
+
+            CategoryView
+                .MenuItems
+                .OfType<NavigationViewItem>()
+                .Where(Item => Item.IsActive)
+                .ToList()
+                .ForEach(Item =>
+                {
+                    if (Item != sender)
+                    {
+                        Item.IsActive = false;
+                    }
+                });
         }
 
         private async Task AddThemes(string Search)
@@ -85,28 +141,26 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
             {
-                //MessageBox.Show("Category: " + Category.Key);
-
-                foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
+                if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.Key == SPMI.CategoryService.CategoryTag)
                 {
-                    //MessageBox.Show("Wallpaper: " + Wallpaper.Key);
-
-                    //MessageBox.Show("Source: " + Wallpaper.Value.Source);
-                    //MessageBox.Show("Adult: " + Wallpaper.Value.Adult);
-                    //MessageBox.Show("Cover: " + Wallpaper.Value.Cover);
-                    //MessageBox.Show("Live: " + Wallpaper.Value.Live);
-
-                    if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && Adult))
+                    foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
                     {
-                        string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SSSHC.FileName(Wallpaper.Key));
+                        if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && Adult))
+                        {
+                            string Title = Wallpaper.Key.ToLowerInvariant();
+                            string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SSSHC.FileName(Wallpaper.Key));
 
-                        SPVCSC StoreCard = new(Theme, Wallpaper, Agent, Key);
+                            if (SearchControl(Search, Theme, Title))
+                            {
+                                SPVCSC StoreCard = new(Theme, Wallpaper, Agent, Key);
 
-                        ThemeStore.Children.Add(StoreCard);
+                                ThemeStore.Children.Add(StoreCard);
 
-                        Empty.Visibility = Visibility.Collapsed;
+                                Empty.Visibility = Visibility.Collapsed;
 
-                        await Task.Delay(25);
+                                await Task.Delay(25);
+                            }
+                        }
                     }
                 }
             }
@@ -117,10 +171,49 @@ namespace Sucrose.Portal.Views.Pages.Store
             }
         }
 
+        private bool SearchControl(string Search, string Theme, string Title)
+        {
+            if (string.IsNullOrEmpty(Search))
+            {
+                return true;
+            }
+            else
+            {
+                string InfoPath = Path.Combine(Theme, SMR.SucroseInfo);
+
+                if (File.Exists(InfoPath))
+                {
+                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                    Title = Info.Title.ToLowerInvariant();
+                    string Description = Info.Description.ToLowerInvariant();
+
+                    if (Title.Contains(Search) || Description.Contains(Search))
+                    {
+                        return true;
+                    }
+                }
+
+                if (Title.Contains(Search))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private async void FullStorePage_Loaded(object sender, RoutedEventArgs e)
         {
             ThemeStore.ItemMargin = new Thickness(AdaptiveMargin);
             ThemeStore.MaxItemsPerRow = AdaptiveLayout;
+
+            await AddThemes(SPMI.SearchService.SearchText);
+        }
+
+        private async void CategoryService_CategoryTagChanged(object sender, EventArgs e)
+        {
+            Dispose();
 
             await AddThemes(SPMI.SearchService.SearchText);
         }

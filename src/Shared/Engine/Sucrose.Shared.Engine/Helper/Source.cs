@@ -133,7 +133,7 @@ namespace Sucrose.Shared.Engine.Helper
 
                 if (File.Exists(LocalSource))
                 {
-                    return new Uri(@LocalSource, Kind);
+                    return new Uri(LocalSource, Kind);
                 }
                 else
                 {

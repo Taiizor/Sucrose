@@ -5,8 +5,8 @@ using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIC = Skylark.Standard.Interface.IContents;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
-using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 
 namespace Sucrose.Shared.Store.Helper
 {
@@ -69,7 +69,7 @@ namespace Sucrose.Shared.Store.Helper
             return false;
         }
 
-        public static bool Cache(string Theme, KeyValuePair<string, SSSIW> Wallpaper, string Agent, string Key)
+        public static bool Cache(KeyValuePair<string, SSSIW> Wallpaper, string Theme, string Agent, string Key)
         {
             string Info = Path.Combine(Theme, SMR.SucroseInfo);
             string Cover = Path.Combine(Theme, Wallpaper.Value.Cover);

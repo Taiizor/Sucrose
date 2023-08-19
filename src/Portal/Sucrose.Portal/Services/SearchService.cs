@@ -13,9 +13,12 @@
             get => _SearchText.ToLowerInvariant();
             set
             {
-                _BeforeSearchText = _SearchText;
-                _SearchText = value.ToLowerInvariant();
-                SearchTextChanged?.Invoke(this, EventArgs.Empty);
+                if (_SearchText != value)
+                {
+                    BeforeSearchText = _SearchText;
+                    _SearchText = value.ToLowerInvariant();
+                    SearchTextChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -24,8 +27,11 @@
             get => _BeforeSearchText.ToLowerInvariant();
             set
             {
-                _BeforeSearchText = value.ToLowerInvariant();
-                BeforeSearchTextChanged?.Invoke(this, EventArgs.Empty);
+                if (_BeforeSearchText != value)
+                {
+                    _BeforeSearchText = value.ToLowerInvariant();
+                    BeforeSearchTextChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 

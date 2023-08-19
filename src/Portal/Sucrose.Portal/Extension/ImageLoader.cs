@@ -38,16 +38,31 @@ namespace Sucrose.Portal.Extension
             return SPMI.Images[ImagePath];
         }
 
+        public async Task<BitmapImage> LoadAsync(string ImagePath)
+        {
+            return await Task.Run(() => Load(ImagePath));
+        }
+
         public void Remove(string ImagePath)
         {
             SPMI.Images.Remove(ImagePath);
             SPMI.ImageStream.Remove(ImagePath);
         }
 
+        public async Task RemoveAsync(string ImagePath)
+        {
+            await Task.Run(() => Remove(ImagePath));
+        }
+
         public void Clear()
         {
             SPMI.Images.Clear();
             SPMI.ImageStream.Clear();
+        }
+
+        public async Task ClearAsync()
+        {
+            await Task.Run(Clear);
         }
 
         public void Dispose()
@@ -57,6 +72,11 @@ namespace Sucrose.Portal.Extension
 
             GC.Collect();
             GC.SuppressFinalize(this);
+        }
+
+        public async Task DisposeAsync()
+        {
+            await Task.Run(Dispose);
         }
     }
 }

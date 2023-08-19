@@ -6,11 +6,11 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
-using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
+using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
 using SPVPSUSP = Sucrose.Portal.Views.Pages.Store.UnknownStorePage;
-using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 
@@ -57,7 +57,7 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
         }
 
-        private async Task Start(bool Search = false)
+        private async Task Start(bool Progress = false)
         {
             if (SSSHN.GetHostEntry())
             {
@@ -85,7 +85,7 @@ namespace Sucrose.Portal.Views.Pages
                 FrameStore.Content = BrokenStorePage;
             }
 
-            if (!Search)
+            if (!Progress)
             {
                 await Task.Delay(500);
 

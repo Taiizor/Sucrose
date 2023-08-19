@@ -20,7 +20,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Frame Grid.Column="1" x:Name="Empty" Visibility="Visible">
+        <Frame Grid.Column="1" x:Name="Empty" Visibility="Collapsed">
             <Frame.Content>
                 <local:SearchStorePage />
             </Frame.Content>
@@ -28,7 +28,7 @@
 
         <controls:SizeConstrainingContainer Grid.Column="0" Margin="10 0 10 10">
             <ui:NavigationView
-                x:Name="NView"
+                x:Name="CategoryView"
                 FrameMargin="0"
                 Width="235"
                 OpenPaneLength="225"

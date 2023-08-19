@@ -6,18 +6,16 @@ using SHA = Skylark.Helper.Adaptation;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
+using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
-using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SSSHD = Sucrose.Shared.Store.Helper.Download;
-using SMR = Sucrose.Memory.Readonly;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -35,45 +33,18 @@ namespace Sucrose.Portal.Views.Controls
         private readonly KeyValuePair<string, SSSIW> Wallpaper = new();
         private readonly SPEIL Loader = new();
         private readonly string Theme = null;
-        private readonly SSTHI Info = null;
+        private readonly string Agent;
+        private readonly string Key;
+        private SSTHI Info = null;
 
         internal StoreCard(string Theme, KeyValuePair<string, SSSIW> Wallpaper, string Agent, string Key)
         {
+            this.Key = Key;
+            this.Agent = Agent;
             this.Theme = Theme;
             this.Wallpaper = Wallpaper;
 
             InitializeComponent();
-
-            if (SSSHD.Cache(Theme, Wallpaper, Agent, Key))
-            {
-                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
-
-                ToolTip TitleTip = new()
-                {
-                    Content = Info.Title
-                };
-
-                ToolTip DescriptionTip = new()
-                {
-                    Content = Info.Description
-                };
-
-                ThemeTitle.ToolTip = TitleTip;
-                ThemeDescription.ToolTip = DescriptionTip;
-
-                ThemeTitle.Text = Info.Title.Length > TitleLength ? $"{SHA.Cut(Info.Title, TitleLength)}..." : Info.Title;
-                ThemeDescription.Text = Info.Description.Length > DescriptionLength ? $"{SHA.Cut(Info.Description, DescriptionLength)}..." : Info.Description;
-
-                string ImagePath = Path.Combine(Theme, Info.Thumbnail);
-
-                if (File.Exists(ImagePath))
-                {
-                    Imagine.ImageSource = Loader.Load(ImagePath);
-                }
-
-                Card.Visibility = Visibility.Visible;
-                Progress.Visibility = Visibility.Collapsed;
-            }
         }
 
         private void Use()
@@ -141,6 +112,47 @@ namespace Sucrose.Portal.Views.Controls
         private void ThemeMore_Click(object sender, RoutedEventArgs e)
         {
             ContextMenu.IsOpen = true;
+        }
+
+        private void DownloadCache()
+        {
+            if (SSSHD.Cache(Wallpaper, Theme, Agent, Key))
+            {
+                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+            }
+        }
+
+        private async void StoreCard_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(DownloadCache);
+
+            ToolTip TitleTip = new()
+            {
+                Content = Info.Title
+            };
+
+            ToolTip DescriptionTip = new()
+            {
+                Content = Info.Description
+            };
+
+            ThemeTitle.ToolTip = TitleTip;
+            ThemeDescription.ToolTip = DescriptionTip;
+
+            ThemeTitle.Text = Info.Title.Length > TitleLength ? $"{SHA.Cut(Info.Title, TitleLength)}..." : Info.Title;
+            ThemeDescription.Text = Info.Description.Length > DescriptionLength ? $"{SHA.Cut(Info.Description, DescriptionLength)}..." : Info.Description;
+
+            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
+
+            if (File.Exists(ImagePath))
+            {
+                Imagine.ImageSource = Loader.Load(ImagePath);
+            }
+
+            await Task.Delay(100);
+
+            Card.Visibility = Visibility.Visible;
+            Progress.Visibility = Visibility.Collapsed;
         }
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)

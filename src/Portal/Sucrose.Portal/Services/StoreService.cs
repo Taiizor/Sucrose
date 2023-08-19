@@ -18,8 +18,11 @@ namespace Sucrose.Portal.Services
             get => _Info;
             set
             {
-                _Info = value;
-                _Info.OnDictionaryChanged();
+                if (_Info != value)
+                {
+                    _Info = value;
+                    _Info.OnDictionaryChanged();
+                }
             }
         }
 
@@ -27,8 +30,11 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                _Info[Key].ProgressPercentage = ProgressPercentage;
-                _Info.OnPropertyChanged(Key);
+                if (_Info[Key].ProgressPercentage != ProgressPercentage)
+                {
+                    _Info[Key].ProgressPercentage = ProgressPercentage;
+                    _Info.OnPropertyChanged(Key);
+                }
             }
         }
 
@@ -36,8 +42,11 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                _Info[Key].DownloadedFileCount = DownloadedFileCount;
-                _Info.OnPropertyChanged(Key);
+                if (_Info[Key].DownloadedFileCount != DownloadedFileCount)
+                {
+                    _Info[Key].DownloadedFileCount = DownloadedFileCount;
+                    _Info.OnPropertyChanged(Key);
+                }
             }
         }
 
@@ -45,8 +54,11 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                _Info[Key].TotalFileCount = TotalFileCount;
-                _Info.OnPropertyChanged(Key);
+                if (_Info[Key].TotalFileCount != TotalFileCount)
+                {
+                    _Info[Key].TotalFileCount = TotalFileCount;
+                    _Info.OnPropertyChanged(Key);
+                }
             }
         }
 
@@ -54,8 +66,11 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                _Info[Key].Percentage = Percentage;
-                _Info.OnPropertyChanged(Key);
+                if (_Info[Key].Percentage != Percentage)
+                {
+                    _Info[Key].Percentage = Percentage;
+                    _Info.OnPropertyChanged(Key);
+                }
             }
         }
 
@@ -63,8 +78,11 @@ namespace Sucrose.Portal.Services
         {
             if (Info.ContainsKey(Key))
             {
-                _Info[Key].State = State;
-                _Info.OnPropertyChanged(Key);
+                if (_Info[Key].State != State)
+                {
+                    _Info[Key].State = State;
+                    _Info.OnPropertyChanged(Key);
+                }
             }
         }
     }

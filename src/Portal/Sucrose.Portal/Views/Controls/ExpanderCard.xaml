@@ -45,7 +45,7 @@
                     Icon="{ui:SymbolIcon ChevronDown20}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                     VerticalAlignment="Stretch" HorizontalAlignment="Center"
-                    ToolTip="{DynamicResource Portal.ExpanderCard.ExpandDownTip}" />
+                    ToolTipService.ToolTip="{DynamicResource Portal.ExpanderCard.ExpandDownTip}" />
                 <ui:Button
                     x:Name="ExpandUp"
                     Cursor="Hand"
@@ -57,7 +57,7 @@
                     Icon="{ui:SymbolIcon ChevronUp20}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                     VerticalAlignment="Stretch" HorizontalAlignment="Center"
-                    ToolTip="{DynamicResource Portal.ExpanderCard.ExpandUpTip}" />
+                    ToolTipService.ToolTip="{DynamicResource Portal.ExpanderCard.ExpandUpTip}" />
             </Grid>
         </ui:Card>
 

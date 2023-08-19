@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
 using Wpf.Ui.Contracts;
+using SPSCS = Sucrose.Portal.Services.CategoryService;
 using SPSSS = Sucrose.Portal.Services.SearchService;
 
 namespace Sucrose.Portal.Manage
@@ -8,6 +9,8 @@ namespace Sucrose.Portal.Manage
     internal static class Internal
     {
         public static SPSSS SearchService = new();
+
+        public static SPSCS CategoryService = new();
 
         public static IServiceProvider ServiceProvider;
 

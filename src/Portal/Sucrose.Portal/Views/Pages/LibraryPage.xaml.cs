@@ -48,7 +48,7 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
         }
 
-        private async Task Start(bool Search = false)
+        private async Task Start(bool Progress = false)
         {
             List<string> Themes = new();
 
@@ -83,7 +83,7 @@ namespace Sucrose.Portal.Views.Pages
                 FrameLibrary.Content = EmptyLibraryPage;
             }
 
-            if (!Search)
+            if (!Progress)
             {
                 await Task.Delay(500);
 
