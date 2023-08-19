@@ -1,6 +1,4 @@
-﻿using Sucrose.Shared.Store.Interface;
-using Sucrose.Shared.Theme.Helper;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +9,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
@@ -38,18 +37,6 @@ namespace Sucrose.Portal.Views.Pages.Store
 
         private static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
-        private static Dictionary<string, SymbolRegular> MenuIcons { get; set; } = new()
-        {
-            { "Game", SymbolRegular.Games24 },
-            { "RGB", SymbolRegular.Lightbulb24 },
-            { "Music", SymbolRegular.MusicNote224 },
-            { "Sky", SymbolRegular.WeatherCloudy24 },
-            { "Animals", SymbolRegular.AnimalCat24 },
-            { "Vehicles", SymbolRegular.VehicleCar24 },
-            { "Dynamic", SymbolRegular.ClockToolbox24 },
-            { "Film and Movie", SymbolRegular.MoviesAndTv24 }
-        };
-
         public static ICollection<object> MenuItems { get; set; }
 
         private SSSIR Root = new();
@@ -61,7 +48,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             ObservableCollection<object> Categories = new();
 
-            NavigationViewItem AllMenu = new("All Themes", SymbolRegular.Globe24, typeof(Canvas))
+            NavigationViewItem AllMenu = new(SSRER.GetValue("Portal", "Category", "All"), SPMI.AllIcon, null)
             {
                 Tag = string.Empty,
                 IsActive = SPMI.CategoryService.CategoryTag == string.Empty
@@ -75,14 +62,14 @@ namespace Sucrose.Portal.Views.Pages.Store
             {
                 if (Category.Value.Wallpapers.Any() && (Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
                 {
-                    SymbolRegular Symbol = SymbolRegular.Wallpaper24;
+                    SymbolRegular Symbol = SPMI.DefaultIcon;
 
-                    if (MenuIcons.ContainsKey(Category.Key))
+                    if (SPMI.CategoryIcons.TryGetValue(Category.Key, out SymbolRegular Icon))
                     {
-                        Symbol = MenuIcons[Category.Key];
+                        Symbol = Icon;
                     }
 
-                    NavigationViewItem Menu = new(Category.Key, Symbol, typeof(Border))
+                    NavigationViewItem Menu = new(SSRER.GetValue("Portal", "Category", Category.Key.Replace(" ", "")), Symbol, null)
                     {
                         Tag = Category.Key,
                         IsActive = SPMI.CategoryService.CategoryTag == Category.Key
@@ -118,6 +105,8 @@ namespace Sucrose.Portal.Views.Pages.Store
         private void CategoryClick(object s)
         {
             NavigationViewItem sender = s as NavigationViewItem;
+
+            sender.IsActive = true;
 
             SPMI.CategoryService.CategoryTag = sender.Tag.ToString();
 

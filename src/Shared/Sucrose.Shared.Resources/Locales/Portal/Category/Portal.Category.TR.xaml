@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">Tümü</system:String>
+    
+    <system:String x:Key="Portal.Category.Abstract">Soyut</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Ortam</system:String>
+    <system:String x:Key="Portal.Category.Animals">Hayvanlar</system:String>
+    <system:String x:Key="Portal.Category.Animation">Animasyon</system:String>
+    <system:String x:Key="Portal.Category.Anime">Anime</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Mimarlık ve Binalar</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Sanat ve Soyut</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Sanat Eserleri</system:String>
+    <system:String x:Key="Portal.Category.Bard">Bard</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Siyah ve Beyaz</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Çizgi Film ve Çizgi Roman</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Şehirler ve Yerler</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Bulutlar ve Gökyüzü</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Renkli Gradyanlar</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Çizgi Romanlar</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Dijital Sanat</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Dinamik</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Büyülü Ormanlar</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Fantazi</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Film ve Dizi</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Yiyecek ve İçecekler</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Galaksi</system:String>
+    <system:String x:Key="Portal.Category.Game">Oyun</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Geometrik Desenler</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Tatiller ve Mevsimler</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Korku ve Cadılar Bayramı</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">İlham Verici Alıntılar</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Çocuklar ve Çizgi Film</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Manzara</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Çizgi Sanatı</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Ortaçağ</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Minimalist</system:String>
+    <system:String x:Key="Portal.Category.Music">Müzik</system:String>
+    <system:String x:Key="Portal.Category.Nature">Doğa</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Gece Manzaraları</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Desenler ve Dokular</system:String>
+    <system:String x:Key="Portal.Category.Retro">Retro</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Gökyüzü</system:String>
+    <system:String x:Key="Portal.Category.Space">Uzay</system:String>
+    <system:String x:Key="Portal.Category.Sports">Spor</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Süper Kahramanlar</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Taverna</system:String>
+    <system:String x:Key="Portal.Category.Technology">Teknoloji</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Sualtı ve Deniz</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Araçlar</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Nostalji</system:String>
+</ResourceDictionary>

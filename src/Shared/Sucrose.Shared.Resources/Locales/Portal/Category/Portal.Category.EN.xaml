@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">All</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">Abstract</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Ambience</system:String>
+    <system:String x:Key="Portal.Category.Animals">Animals</system:String>
+    <system:String x:Key="Portal.Category.Animation">Animation</system:String>
+    <system:String x:Key="Portal.Category.Anime">Anime</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Architecture &amp; Buildings</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Art &amp; Abstract</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Artworks</system:String>
+    <system:String x:Key="Portal.Category.Bard">Bard</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Black &amp; White</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Cartoon &amp; Comics</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Cities &amp; Places</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Clouds &amp; Skies</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Colorful Gradients</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Comic Books</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Digital Art</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Dynamic</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Enchanted Forests</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Fantasy</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Film &amp; TV</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Food &amp; Drinks</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Galaxy</system:String>
+    <system:String x:Key="Portal.Category.Game">Game</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Geometric Patterns</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Holidays &amp; Seasons</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Horror &amp; Halloween</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">Inspirational Quotes</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Kids &amp; Cartoon</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Landscape</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Line Art</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Medieval</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Minimalist</system:String>
+    <system:String x:Key="Portal.Category.Music">Music</system:String>
+    <system:String x:Key="Portal.Category.Nature">Nature</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Nightscapes</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Patterns &amp; Textures</system:String>
+    <system:String x:Key="Portal.Category.Retro">Retro</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Sky</system:String>
+    <system:String x:Key="Portal.Category.Space">Space</system:String>
+    <system:String x:Key="Portal.Category.Sports">Sports</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Superheroes</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Tavern</system:String>
+    <system:String x:Key="Portal.Category.Technology">Technology</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Underwater &amp; Marine</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Vehicles</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Vintage</system:String>
+</ResourceDictionary>

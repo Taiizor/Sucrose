@@ -39,8 +39,14 @@
         </Border.Effect>
 
         <Grid>
-            <ui:ProgressRing x:Name="Progress" IsIndeterminate="True" Width="160" Height="160" />
-            
+            <Grid x:Name="Progress">
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.5" />
+                </Grid.Background>
+                
+                <ui:ProgressRing IsIndeterminate="True" Width="160" Height="160" />
+            </Grid>
+
             <Grid x:Name="Card" Visibility="Hidden">
                 <Grid.Background>
                     <ImageBrush x:Name="Imagine" Stretch="UniformToFill" ImageSource="{x:Null}" />

@@ -4,6 +4,7 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Category/Portal.Category.EN.xaml" />
         <ResourceDictionary Source="Controls/Portal.Controls.EN.xaml" />
         <ResourceDictionary Source="StorePage/Portal.StorePage.EN.xaml" />
         <ResourceDictionary Source="MainWindow/Portal.MainWindow.EN.xaml" />

@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
+using Wpf.Ui.Common;
 using Wpf.Ui.Contracts;
 using SPSCS = Sucrose.Portal.Services.CategoryService;
 using SPSSS = Sucrose.Portal.Services.SearchService;
@@ -20,8 +21,24 @@ namespace Sucrose.Portal.Manage
 
         public static IContentDialogService ContentDialogService;
 
+        public static readonly SymbolRegular AllIcon = SymbolRegular.Home24;
+
         public static readonly Dictionary<string, BitmapImage> Images = new();
 
         public static readonly Dictionary<string, FileStream> ImageStream = new();
+
+        public static readonly SymbolRegular DefaultIcon = SymbolRegular.Wallpaper24;
+
+        public static readonly Dictionary<string, SymbolRegular> CategoryIcons = new()
+        {
+            { "Game", SymbolRegular.Games24 },
+            { "RGB", SymbolRegular.Lightbulb24 },
+            { "Music", SymbolRegular.MusicNote224 },
+            { "Sky", SymbolRegular.WeatherCloudy24 },
+            { "Animals", SymbolRegular.AnimalCat24 },
+            { "Vehicles", SymbolRegular.VehicleCar24 },
+            { "Dynamic", SymbolRegular.ClockToolbox24 },
+            { "Film and Movie", SymbolRegular.MoviesAndTv24 }
+        };
     }
 }
