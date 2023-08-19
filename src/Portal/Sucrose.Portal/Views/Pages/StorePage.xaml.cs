@@ -4,7 +4,6 @@ using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
 using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
@@ -39,25 +38,9 @@ namespace Sucrose.Portal.Views.Pages
             DataContext = this;
 
             InitializeComponent();
-
-            Search();
         }
 
-        private void Search()
-        {
-            string Search = SPMI.SearchService.SearchText;
-
-            SPMI.SearchService.Dispose();
-
-            SPMI.SearchService = new()
-            {
-                SearchText = Search
-            };
-
-            SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
-        }
-
-        private async Task Start(bool Progress = false)
+        private async Task Start()
         {
             if (SSSHN.GetHostEntry())
             {
@@ -85,13 +68,10 @@ namespace Sucrose.Portal.Views.Pages
                 FrameStore.Content = BrokenStorePage;
             }
 
-            if (!Progress)
-            {
-                await Task.Delay(500);
+            await Task.Delay(500);
 
-                FrameStore.Visibility = Visibility.Visible;
-                ProgressStore.Visibility = Visibility.Collapsed;
-            }
+            FrameStore.Visibility = Visibility.Visible;
+            ProgressStore.Visibility = Visibility.Collapsed;
         }
 
         private async void GridStore_Loaded(object sender, RoutedEventArgs e)
@@ -99,15 +79,10 @@ namespace Sucrose.Portal.Views.Pages
             await Start();
         }
 
-        private async void SearchService_SearchTextChanged(object sender, EventArgs e)
-        {
-            Dispose();
-
-            await Start(true);
-        }
-
         public void Dispose()
         {
+            FullStorePage.Dispose();
+
             GC.Collect();
             GC.SuppressFinalize(this);
         }

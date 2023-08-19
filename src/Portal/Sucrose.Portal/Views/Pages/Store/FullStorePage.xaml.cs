@@ -23,10 +23,6 @@ namespace Sucrose.Portal.Views.Pages.Store
     /// </summary>
     public partial class FullStorePage : Page, IDisposable
     {
-        private static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
-
-        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
-
         private static int AdaptiveLayout => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0);
 
         private static int AdaptiveMargin => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5);
@@ -86,6 +82,21 @@ namespace Sucrose.Portal.Views.Pages.Store
             InitializeComponent();
 
             Category();
+            Search();
+        }
+
+        private void Search()
+        {
+            string Search = SPMI.SearchService.SearchText;
+
+            SPMI.SearchService.Dispose();
+
+            SPMI.SearchService = new()
+            {
+                SearchText = Search
+            };
+
+            SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
         }
 
         private void Category()
@@ -110,8 +121,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             SPMI.CategoryService.CategoryTag = sender.Tag.ToString();
 
-            CategoryView
-                .MenuItems
+            CategoryView.MenuItems
                 .OfType<NavigationViewItem>()
                 .Where(Item => Item.IsActive)
                 .ToList()
@@ -124,7 +134,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                 });
         }
 
-        private async Task AddThemes(string Search)
+        private async Task AddThemes(string Text, string Tag)
         {
             Dispose();
 
@@ -139,15 +149,22 @@ namespace Sucrose.Portal.Views.Pages.Store
                             string Title = Wallpaper.Key.ToLowerInvariant();
                             string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SSSHC.FileName(Wallpaper.Key));
 
-                            if (SearchControl(Search, Theme, Title))
+                            if (SearchControl(Text, Theme, Title))
                             {
-                                SPVCSC StoreCard = new(Theme, Wallpaper, Agent, Key);
+                                if (SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchText == Text)
+                                {
+                                    SPVCSC StoreCard = new(Theme, Wallpaper, Agent, Key);
 
-                                ThemeStore.Children.Add(StoreCard);
+                                    ThemeStore.Children.Add(StoreCard);
 
-                                Empty.Visibility = Visibility.Collapsed;
+                                    Empty.Visibility = Visibility.Collapsed;
 
-                                await Task.Delay(25);
+                                    await Task.Delay(25);
+                                }
+                                else
+                                {
+                                    break;
+                                }
                             }
                         }
                     }
@@ -197,14 +214,21 @@ namespace Sucrose.Portal.Views.Pages.Store
             ThemeStore.ItemMargin = new Thickness(AdaptiveMargin);
             ThemeStore.MaxItemsPerRow = AdaptiveLayout;
 
-            await AddThemes(SPMI.SearchService.SearchText);
+            await AddThemes(SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+        }
+
+        private async void SearchService_SearchTextChanged(object sender, EventArgs e)
+        {
+            Dispose();
+
+            await AddThemes(SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
         }
 
         private async void CategoryService_CategoryTagChanged(object sender, EventArgs e)
         {
             Dispose();
 
-            await AddThemes(SPMI.SearchService.SearchText);
+            await AddThemes(SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
         }
 
         public void Dispose()

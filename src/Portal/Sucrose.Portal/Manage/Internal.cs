@@ -21,6 +21,10 @@ namespace Sucrose.Portal.Manage
 
         public static IContentDialogService ContentDialogService;
 
+        public static Dictionary<string, bool> StoreDownloader = new();
+
+        public static Dictionary<string, bool> StoreDownloading = new();
+
         public static readonly SymbolRegular AllIcon = SymbolRegular.Home24;
 
         public static readonly Dictionary<string, BitmapImage> Images = new();

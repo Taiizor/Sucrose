@@ -26,11 +26,11 @@
             </Frame.Content>
         </Frame>
 
-        <controls:SizeConstrainingContainer Grid.Column="0" Margin="10 0 10 10">
+        <controls:SizeConstrainingContainer Grid.Column="0">
             <ui:NavigationView
                 x:Name="CategoryView"
-                FrameMargin="0"
                 Width="235"
+                FrameMargin="0"
                 OpenPaneLength="225"
                 IsPaneToggleVisible="False"
                 PaneDisplayMode="Left"
@@ -38,7 +38,7 @@
                 MenuItemsSource="{Binding MenuItems, Mode=TwoWay}" />
         </controls:SizeConstrainingContainer>
 
-        <controls:SizeConstrainingContainer Grid.Column="1" Margin="10 0 10 10">
+        <controls:SizeConstrainingContainer Grid.Column="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <controls:StoreWrapPanel x:Name="ThemeStore" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
             </ScrollViewer>

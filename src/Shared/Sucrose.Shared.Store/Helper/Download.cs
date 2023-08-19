@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Net.Http;
 using SMR = Sucrose.Memory.Readonly;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIC = Skylark.Standard.Interface.IContents;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
@@ -87,9 +88,13 @@ namespace Sucrose.Shared.Store.Helper
                     {
                         File.Delete(Info);
                         File.Delete(Cover);
+
+                        SPMI.StoreDownloading[Theme] = false;
                     }
                     else
                     {
+                        SPMI.StoreDownloading[Theme] = true;
+
                         return true;
                     }
                 }
@@ -104,6 +109,8 @@ namespace Sucrose.Shared.Store.Helper
                     {
                         File.Delete(Cover);
                     }
+
+                    SPMI.StoreDownloading[Theme] = false;
                 }
             }
             else
@@ -111,39 +118,50 @@ namespace Sucrose.Shared.Store.Helper
                 Directory.CreateDirectory(Theme);
             }
 
-            InitializeClient(Agent, Key);
-
-            using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}").Result;
-            using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}").Result;
-
-            ResponseInfo.EnsureSuccessStatusCode();
-            ResponseCover.EnsureSuccessStatusCode();
-
-            if (ResponseInfo.IsSuccessStatusCode && ResponseCover.IsSuccessStatusCode)
+            if (SPMI.StoreDownloading.ContainsKey(Theme) && SPMI.StoreDownloading[Theme])
             {
-                using HttpContent InfoContent = ResponseInfo.Content;
-                using HttpContent CoverContent = ResponseCover.Content;
-
-                using Stream InfoStream = InfoContent.ReadAsStreamAsync().Result;
-                using Stream CoverStream = CoverContent.ReadAsStreamAsync().Result;
-
-                using FileStream InfoFile = new(Info, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-                using FileStream CoverFile = new(Cover, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-
-                InfoStream.CopyTo(InfoFile);
-                CoverStream.CopyTo(CoverFile);
-
                 return true;
             }
+            else
+            {
+                SPMI.StoreDownloading[Theme] = false;
 
-            return false;
+                InitializeClient(Agent, Key);
+
+                using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}").Result;
+                using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}").Result;
+
+                ResponseInfo.EnsureSuccessStatusCode();
+                ResponseCover.EnsureSuccessStatusCode();
+
+                if (ResponseInfo.IsSuccessStatusCode && ResponseCover.IsSuccessStatusCode)
+                {
+                    using HttpContent InfoContent = ResponseInfo.Content;
+                    using HttpContent CoverContent = ResponseCover.Content;
+
+                    using Stream InfoStream = InfoContent.ReadAsStreamAsync().Result;
+                    using Stream CoverStream = CoverContent.ReadAsStreamAsync().Result;
+
+                    using FileStream InfoFile = new(Info, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                    using FileStream CoverFile = new(Cover, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+
+                    InfoStream.CopyTo(InfoFile);
+                    CoverStream.CopyTo(CoverFile);
+
+                    SPMI.StoreDownloading[Theme] = true;
+
+                    return true;
+                }
+
+                return false;
+            }
         }
 
         public static async Task<bool> Theme(string Source, string Output, string Agent, string Keys, string Key, bool Sub = true)
         {
             InitializeClient(Agent, Key);
 
-            SSSMI.StoreService.Info.Add(Keys, new SSSID(0, 0, 0, "0%", "0/0"));
+            SSSMI.StoreService.Info[Keys] = new SSSID(0, 0, 0, "0%", "0/0");
 
             return await DownloadFolder(Source, Output, Agent, Keys, Key, Sub);
         }

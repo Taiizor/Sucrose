@@ -67,8 +67,15 @@ namespace Sucrose.Portal.Extension
 
         public void Dispose()
         {
-            SPMI.ImageStream[ImagePath].Dispose();
-            SPMI.Images[ImagePath].StreamSource.Dispose();
+            try
+            {
+                SPMI.ImageStream[ImagePath].Dispose();
+                SPMI.Images[ImagePath].StreamSource.Dispose();
+            }
+            catch
+            {
+                //
+            }
 
             GC.Collect();
             GC.SuppressFinalize(this);

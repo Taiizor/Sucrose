@@ -16,14 +16,14 @@
 
     <UserControl.ContextMenu>
         <ContextMenu Opened="ContextMenu_Opened" Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuReview}" Icon="{ui:SymbolIcon Info20}" Click="MenuReview_Click" />
-            <ui:MenuItem x:Name="MenuUse" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuUse}" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuPreview}" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuCustomize}" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuFind}" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuShare}" Icon="{ui:SymbolIcon Share20}" Click="MenuShare_Click" />
-            <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuDelete}" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuEdit}" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuReview}" Icon="{ui:SymbolIcon Info24}" Click="MenuReview_Click" />
+            <ui:MenuItem x:Name="MenuUse" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuUse}" Icon="{ui:SymbolIcon Checkmark24}" Click="MenuUse_Click" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuPreview}" Icon="{ui:SymbolIcon Eye24}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuCustomize}" Icon="{ui:SymbolIcon Color24}" IsEnabled="False" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuFind}" Icon="{ui:SymbolIcon Folder24}" Click="MenuFind_Click" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuShare}" Icon="{ui:SymbolIcon Share24}" Click="MenuShare_Click" />
+            <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuDelete}" Icon="{ui:SymbolIcon Delete24}" Click="MenuDelete_Click" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuEdit}" Icon="{ui:SymbolIcon Pen24}" IsEnabled="False" />
         </ContextMenu>
     </UserControl.ContextMenu>
     
