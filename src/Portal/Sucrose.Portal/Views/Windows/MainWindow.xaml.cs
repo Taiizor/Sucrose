@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using Wpf.Ui.Contracts;
+using Wpf.Ui;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using SEWTT = Skylark.Enum.WindowsThemeType;

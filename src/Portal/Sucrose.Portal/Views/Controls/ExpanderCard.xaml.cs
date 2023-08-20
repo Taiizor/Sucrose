@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace Sucrose.Portal.Views.Controls
 {

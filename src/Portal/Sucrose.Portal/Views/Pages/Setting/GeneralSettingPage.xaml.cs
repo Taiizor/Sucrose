@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;

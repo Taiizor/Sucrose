@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
 using SHS = Skylark.Helper.Skymath;
@@ -188,7 +188,6 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        [STAThread]
         private async void StoreService_InfoChanged(string Keys)
         {
             if (this.Keys == Keys)

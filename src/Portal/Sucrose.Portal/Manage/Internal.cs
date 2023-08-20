@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
-using Wpf.Ui.Common;
-using Wpf.Ui.Contracts;
+using Wpf.Ui;
+using Wpf.Ui.Controls;
 using SPSCS = Sucrose.Portal.Services.CategoryService;
 using SPSSS = Sucrose.Portal.Services.SearchService;
 

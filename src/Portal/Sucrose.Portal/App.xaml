@@ -10,7 +10,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ui:ControlsDictionary />
                 <xf:XamlFlairResources />
-                <ui:ThemesDictionary ApplicationTheme="Dark" />
+                <ui:ThemesDictionary Theme="Dark" />
                 <ResourceDictionary Source="Locales/Locale.EN.xaml" />
             </ResourceDictionary.MergedDictionaries>
 

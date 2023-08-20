@@ -47,7 +47,7 @@
                 <ui:ProgressRing IsIndeterminate="True" Width="160" Height="160" />
             </Grid>
 
-            <Grid x:Name="Card" Visibility="Visible"> <!--Hidden-->
+            <Grid x:Name="Card" Visibility="Hidden">
                 <Grid.Background>
                     <ImageBrush x:Name="Imagine" Stretch="UniformToFill" ImageSource="{x:Null}" />
                 </Grid.Background>
