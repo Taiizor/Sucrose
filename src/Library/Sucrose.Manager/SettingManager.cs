@@ -48,7 +48,14 @@ namespace Sucrose.Manager
 
                     try
                     {
-                        Mutex.WaitOne();
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
 
                         if (CheckFile())
                         {
@@ -88,7 +95,14 @@ namespace Sucrose.Manager
 
                     try
                     {
-                        Mutex.WaitOne();
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
 
                         if (CheckFile())
                         {
@@ -128,7 +142,14 @@ namespace Sucrose.Manager
 
                     try
                     {
-                        Mutex.WaitOne();
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
 
                         if (CheckFile())
                         {
@@ -168,7 +189,14 @@ namespace Sucrose.Manager
 
                     try
                     {
-                        Mutex.WaitOne();
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
 
                         Settings settings;
 

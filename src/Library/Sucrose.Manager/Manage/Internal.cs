@@ -40,5 +40,7 @@ namespace Sucrose.Manager.Manage
         public static readonly SMLM WebViewLiveLogManager = new("WebViewLive-{0}.log");
 
         public static readonly SMLM CefSharpLiveLogManager = new("CefSharpLive-{0}.log");
+
+        public static readonly SMLM MpvPlayerLiveLogManager = new("MpvPlayerLive-{0}.log");
     }
 }

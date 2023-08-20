@@ -44,7 +44,14 @@ namespace Sucrose.Manager
 
                     try
                     {
-                        Mutex.WaitOne();
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
 
                         SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
                     }

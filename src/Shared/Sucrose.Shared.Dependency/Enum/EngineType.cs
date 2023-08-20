@@ -6,7 +6,10 @@
         NebulaLive,
         VexanaLive,
         WebViewLive,
-        CefSharpLive
+        CefSharpLive,
+#if X64 || X86
+        MpvPlayerLive
+#endif
     }
 
     internal enum GifEngineType
@@ -30,7 +33,10 @@
     {
         Nebula = EngineType.NebulaLive,
         WebView = EngineType.WebViewLive,
-        CefSharp = EngineType.CefSharpLive
+        CefSharp = EngineType.CefSharpLive,
+#if X64 || X86
+        MpvPlayer = EngineType.MpvPlayerLive
+#endif
     }
 
     internal enum YouTubeEngineType

@@ -86,6 +86,8 @@
 
         public static readonly string CefSharpLive = "Sucrose.Live.CefSharp.exe";
 
+        public static readonly string MpvPlayerLive = "Sucrose.Live.MpvPlayer.exe";
+
         public static readonly string TaskDescription = "Sucrose Wallpaper Engine";
 
         public static readonly string SucroseProperties = "SucroseProperties.json";

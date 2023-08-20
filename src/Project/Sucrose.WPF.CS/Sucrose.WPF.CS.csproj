@@ -48,16 +48,19 @@
     <PropertyGroup Condition="'$(PlatformTarget)' == 'x86'">
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x86</RuntimeIdentifier>
         <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+        <DefineConstants>$(DefineConstants);X86</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(PlatformTarget)' == 'x64'">
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
         <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+        <DefineConstants>$(DefineConstants);X64</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(PlatformTarget)' == 'arm64'">
         <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-arm64</RuntimeIdentifier>
         <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+        <DefineConstants>$(DefineConstants);ARM64</DefineConstants>
     </PropertyGroup>
 
     <ItemGroup>
