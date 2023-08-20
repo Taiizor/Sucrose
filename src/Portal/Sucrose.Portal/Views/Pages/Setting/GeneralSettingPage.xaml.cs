@@ -66,7 +66,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
 
             CustomExpander0.Title.Text = "Uygulama Dili";
             CustomExpander0.LeftIcon.Symbol = SymbolRegular.LocalLanguage20;
-            CustomExpander0.Description.Text = "Uygulamayı görüntülem dilinizi seçin.";
+            CustomExpander0.Description.Text = "Uygulamayı görüntüleme dilinizi seçin.";
 
             ComboBox CB0 = new() { };
 

@@ -32,7 +32,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
         private static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
-        public static ICollection<object> MenuItems { get; set; }
+        public static ICollection<NavigationViewItem> MenuItems { get; set; }
 
         private SSSIR Root = new();
 
@@ -41,7 +41,7 @@ namespace Sucrose.Portal.Views.Pages.Store
             this.Root = Root;
             DataContext = this;
 
-            ObservableCollection<object> Categories = new();
+            ObservableCollection<NavigationViewItem> Categories = new();
 
             NavigationViewItem AllMenu = new(SSRER.GetValue("Portal", "Category", "All"), SPMI.AllIcon, null)
             {
@@ -75,6 +75,10 @@ namespace Sucrose.Portal.Views.Pages.Store
                     Categories.Add(Menu);
                 }
             }
+
+            Categories = new(Categories.OrderBy(Menu => Menu.Content));
+
+            Categories.Move(Categories.IndexOf(Categories.FirstOrDefault(Menu => Menu == AllMenu)), 0);
 
             MenuItems = Categories;
 
