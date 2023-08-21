@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -72,7 +72,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Wing" Version="3.1.1.2" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.1.3" />
         <PackageReference Include="Skylark.Standard" Version="3.1.1.4" />
         <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098" Condition="$(TargetFramework.StartsWith('net48'))">
             <PrivateAssets>all</PrivateAssets>
