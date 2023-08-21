@@ -30,6 +30,7 @@ namespace Sucrose.Portal.Extension
                 SPMI.Images[ImagePath].BeginInit();
 
                 SPMI.Images[ImagePath].StreamSource = SPMI.ImageStream[ImagePath];
+                //SPMI.Images[ImagePath].DecodePixelHeight = 160;
                 SPMI.Images[ImagePath].DecodePixelWidth = 360;
 
                 SPMI.Images[ImagePath].EndInit();
