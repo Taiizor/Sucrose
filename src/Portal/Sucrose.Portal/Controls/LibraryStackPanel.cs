@@ -1,12 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
+using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
 
 namespace Sucrose.Portal.Controls
 {
-    public class StoreWrapPanel : WrapPanel, IDisposable
+    public class LibraryStackPanel : StackPanel, IDisposable
     {
-        public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register("ItemMargin", typeof(Thickness), typeof(StoreWrapPanel), new FrameworkPropertyMetadata(new Thickness(0)));
+        public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register("ItemMargin", typeof(Thickness), typeof(LibraryStackPanel), new FrameworkPropertyMetadata(new Thickness(0)));
 
         public Thickness ItemMargin
         {
@@ -14,7 +14,7 @@ namespace Sucrose.Portal.Controls
             set => SetValue(ItemMarginProperty, value);
         }
 
-        public static readonly DependencyProperty MaxItemsPerRowProperty = DependencyProperty.Register("MaxItemsPerRow", typeof(int), typeof(StoreWrapPanel), new FrameworkPropertyMetadata(int.MaxValue, MaxItemsPerRowPropertyChanged));
+        public static readonly DependencyProperty MaxItemsPerRowProperty = DependencyProperty.Register("MaxItemsPerRow", typeof(int), typeof(LibraryStackPanel), new FrameworkPropertyMetadata(int.MaxValue, MaxItemsPerRowPropertyChanged));
 
         public int MaxItemsPerRow
         {
@@ -24,7 +24,7 @@ namespace Sucrose.Portal.Controls
 
         private static void MaxItemsPerRowPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            (d as StoreWrapPanel)?.InvalidateMeasure();
+            (d as LibraryStackPanel)?.InvalidateMeasure();
         }
 
         protected override Size MeasureOverride(Size availableSize)
@@ -36,6 +36,12 @@ namespace Sucrose.Portal.Controls
 
             if (InternalChildren.Count >= 0)
             {
+                InternalChildren
+                    .OfType<UIElement>()
+                    .Where(Element => Element.Visibility != Visibility.Visible)
+                    .ToList()
+                    .ForEach(InternalChildren.Remove);
+
                 foreach (UIElement child in InternalChildren)
                 {
                     child.Measure(availableSize);
@@ -122,7 +128,7 @@ namespace Sucrose.Portal.Controls
             if (InternalChildren.Count >= 0)
             {
                 InternalChildren
-                    .OfType<SPVCSC>()
+                    .OfType<SPVCLC>()
                     .ToList()
                     .ForEach(Card => Card.Dispose());
 

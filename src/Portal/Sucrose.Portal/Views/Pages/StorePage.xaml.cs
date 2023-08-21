@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Windows;
 using Wpf.Ui.Controls;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
 using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
@@ -20,10 +19,6 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class StorePage : INavigableView<SPVMPSVM>, IDisposable
     {
-        private static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
-
-        private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
-
         private SPVPSUSP UnknownStorePage { get; set; }
 
         private SPVPSBSP BrokenStorePage { get; set; }
@@ -46,7 +41,7 @@ namespace Sucrose.Portal.Views.Pages
             {
                 string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                if (SSSHD.Store(StoreFile, Agent, Key))
+                if (SSSHD.Store(StoreFile, SPMM.Agent, SPMM.Key))
                 {
                     SSSIR Root = SSSHS.DeserializeRoot(StoreFile);
 

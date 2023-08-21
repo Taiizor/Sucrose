@@ -6,12 +6,12 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
-using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
@@ -31,16 +31,6 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class StoreCard : UserControl, IDisposable
     {
-        private static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
-
-        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
-
-        private static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, int.MaxValue);
-
-        private static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 30), 10, int.MaxValue);
-
-        private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
-
         private readonly KeyValuePair<string, SSSIW> Wallpaper = new();
         private readonly SPEIL Loader = new();
         private readonly string Theme = null;
@@ -62,7 +52,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void Use()
         {
-            if (LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+            if (SPMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
 
@@ -152,12 +142,12 @@ namespace Sucrose.Portal.Views.Controls
         {
             do
             {
-                Keys = SHG.GenerateString(Chars, 25, SMR.Randomise);
-            } while (File.Exists(Path.Combine(LibraryLocation, Keys)));
+                Keys = SHG.GenerateString(SPMM.Chars, 25, SMR.Randomise);
+            } while (File.Exists(Path.Combine(SPMM.LibraryLocation, Keys)));
 
             SSSMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
-            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(LibraryLocation, Keys), Agent, Keys, Key);
+            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(SPMM.LibraryLocation, Keys), Agent, Keys, Key);
         }
 
         private async void Download_Click(object sender, RoutedEventArgs e)
@@ -240,14 +230,14 @@ namespace Sucrose.Portal.Views.Controls
                 ThemeTitle.ToolTip = TitleTip;
                 ThemeDescription.ToolTip = DescriptionTip;
 
-                ThemeTitle.Text = Info.Title.Length > TitleLength ? $"{SHA.Cut(Info.Title, TitleLength)}..." : Info.Title;
-                ThemeDescription.Text = Info.Description.Length > DescriptionLength ? $"{SHA.Cut(Info.Description, DescriptionLength)}..." : Info.Description;
+                ThemeTitle.Text = Info.Title.Length > SPMM.TitleLength ? $"{SHA.Cut(Info.Title, SPMM.TitleLength)}..." : Info.Title;
+                ThemeDescription.Text = Info.Description.Length > SPMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SPMM.DescriptionLength)}..." : Info.Description;
 
                 string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 
                 if (File.Exists(ImagePath))
                 {
-                    Imagine.ImageSource = Loader.Load(ImagePath);
+                    Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
                 }
 
                 await Task.Delay(100);
@@ -263,7 +253,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
-            if (LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+            if (SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
             {
                 MenuUse.IsEnabled = false;
                 MenuDelete.IsEnabled = false;

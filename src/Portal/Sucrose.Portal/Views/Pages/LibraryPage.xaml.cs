@@ -1,10 +1,9 @@
 ﻿using System.IO;
 using System.Windows;
 using Wpf.Ui.Controls;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
@@ -16,8 +15,6 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class LibraryPage : INavigableView<SPVMPLVM>, IDisposable
     {
-        private static string LibraryLocation => SMMI.EngineSettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
-
         private SPVPLELP EmptyLibraryPage { get; set; }
 
         private SPVPLFLP FullLibraryPage { get; set; }
@@ -52,9 +49,9 @@ namespace Sucrose.Portal.Views.Pages
         {
             List<string> Themes = new();
 
-            if (Directory.Exists(LibraryLocation))
+            if (Directory.Exists(SPMM.LibraryLocation))
             {
-                string[] Folders = Directory.GetDirectories(LibraryLocation);
+                string[] Folders = Directory.GetDirectories(SPMM.LibraryLocation);
 
                 if (Folders.Any())
                 {

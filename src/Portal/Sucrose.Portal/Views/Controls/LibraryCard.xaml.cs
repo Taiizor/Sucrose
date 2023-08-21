@@ -3,10 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SHA = Skylark.Helper.Adaptation;
-using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
@@ -21,12 +21,6 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class LibraryCard : UserControl, IDisposable
     {
-        private static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, int.MaxValue);
-
-        private static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 30), 10, int.MaxValue);
-
-        private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
-
         private readonly SPEIL Loader = new();
         private readonly string Theme = null;
         private readonly SSTHI Info = null;
@@ -51,20 +45,20 @@ namespace Sucrose.Portal.Views.Controls
             ThemeTitle.ToolTip = TitleTip;
             ThemeDescription.ToolTip = DescriptionTip;
 
-            ThemeTitle.Text = Info.Title.Length > TitleLength ? $"{SHA.Cut(Info.Title, TitleLength)}..." : Info.Title;
-            ThemeDescription.Text = Info.Description.Length > DescriptionLength ? $"{SHA.Cut(Info.Description, DescriptionLength)}..." : Info.Description;
+            ThemeTitle.Text = Info.Title.Length > SPMM.TitleLength ? $"{SHA.Cut(Info.Title, SPMM.TitleLength)}..." : Info.Title;
+            ThemeDescription.Text = Info.Description.Length > SPMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SPMM.DescriptionLength)}..." : Info.Description;
 
             string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 
             if (File.Exists(ImagePath))
             {
-                Imagine.ImageSource = Loader.Load(ImagePath);
+                Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
             }
         }
 
         private void Use()
         {
-            if (LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+            if (SPMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
 
@@ -131,7 +125,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
-            if (LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+            if (SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
             {
                 MenuUse.IsEnabled = false;
                 MenuDelete.IsEnabled = false;
@@ -145,7 +139,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+            if (SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
             {
                 Cursor = Cursors.Arrow;
             }

@@ -6,10 +6,10 @@ using System.Windows;
 using Wpf.Ui;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMAC = Sucrose.Portal.Models.AppConfig;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPSPS = Sucrose.Portal.Services.PageService;
@@ -27,7 +27,6 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal
 {
@@ -36,12 +35,6 @@ namespace Sucrose.Portal
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static Mutex Mutex => new(true, SMR.Portal);
-
         private static bool HasError { get; set; } = true;
 
         // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
@@ -146,7 +139,7 @@ namespace Sucrose.Portal
                 Message(Exception.Message);
             };
 
-            SHC.All = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(SPMM.Culture, true);
         }
 
         /// <summary>
@@ -178,7 +171,7 @@ namespace Sucrose.Portal
 
                 string Path = SMMI.PortalLogManager.LogFile();
 
-                switch (Theme)
+                switch (SPMM.Theme)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);
@@ -219,13 +212,13 @@ namespace Sucrose.Portal
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(Culture);
+            SSRHR.SetLanguage(SPMM.Culture);
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Portal) <= 1)
+            if (SPMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Portal) <= 1)
             {
-                Mutex.ReleaseMutex();
+                SPMM.Mutex.ReleaseMutex();
 
                 Configure();
             }

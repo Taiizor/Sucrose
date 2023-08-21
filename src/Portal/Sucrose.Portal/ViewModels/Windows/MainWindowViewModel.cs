@@ -8,13 +8,13 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
 
@@ -22,14 +22,8 @@ namespace Sucrose.Portal.ViewModels.Windows
 {
     public partial class MainWindowViewModel : ObservableObject, IDisposable
     {
-        private static WindowBackdropType BackdropType => SMMI.PortalSettingManager.GetSetting(SMC.BackdropType, DefaultBackdropType);
-
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
-
         [ObservableProperty]
-        private WindowBackdropType _WindowBackdropType = DefaultBackdropType;
+        private WindowBackdropType _WindowBackdropType = SPMM.DefaultBackdropType;
 
         private readonly DispatcherTimer Timer = new();
 
@@ -89,7 +83,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private void OnChangeTheme()
         {
-            if (Theme == SEWTT.Dark)
+            if (SPMM.Theme == SEWTT.Dark)
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Light);
                 WUAT.Apply(WUAAT.Light, GetWindowBackdropType(), true, true);
@@ -110,11 +104,11 @@ namespace Sucrose.Portal.ViewModels.Windows
         {
             if (OperatingSystem == SEOST.Windows11)
             {
-                return BackdropType;
+                return SPMM.BackdropType;
             }
             else
             {
-                return DefaultBackdropType;
+                return SPMM.DefaultBackdropType;
             }
         }
 

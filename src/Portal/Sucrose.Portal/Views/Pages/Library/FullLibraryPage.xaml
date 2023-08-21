@@ -19,6 +19,6 @@
                 <local:SearchLibraryPage />
             </Frame.Content>
         </Frame>
-        <controls:LibraryWrapPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <controls:LibraryStackPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </Grid>
 </Page>

@@ -4,15 +4,13 @@ using Wpf.Ui;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
 
@@ -23,8 +21,6 @@ namespace Sucrose.Portal.Views.Windows
     /// </summary>
     public partial class MainWindow : SPSCIW, IDisposable
     {
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
         public SPVMWMWVM ViewModel { get; }
 
         public MainWindow(SPVMWMWVM ViewModel, INavigationService NavigationService, IServiceProvider ServiceProvider, ISnackbarService SnackbarService, IContentDialogService ContentDialogService)
@@ -34,7 +30,7 @@ namespace Sucrose.Portal.Views.Windows
 
             InitializeComponent();
 
-            if (Theme == SEWTT.Dark)
+            if (SPMM.Theme == SEWTT.Dark)
             {
                 WUAT.Apply(WUAAT.Dark);
                 Light.Visibility = Visibility.Collapsed;

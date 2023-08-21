@@ -40,7 +40,7 @@
 
         <controls:SizeConstrainingContainer Grid.Column="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <controls:StoreWrapPanel x:Name="ThemeStore" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                <controls:StoreStackPanel x:Name="ThemeStore" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
             </ScrollViewer>
         </controls:SizeConstrainingContainer>
     </Grid>

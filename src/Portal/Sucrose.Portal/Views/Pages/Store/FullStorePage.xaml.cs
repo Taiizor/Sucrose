@@ -3,10 +3,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
@@ -22,16 +21,6 @@ namespace Sucrose.Portal.Views.Pages.Store
     /// </summary>
     public partial class FullStorePage : Page, IDisposable
     {
-        private static int AdaptiveLayout => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0);
-
-        private static int AdaptiveMargin => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5);
-
-        private static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
-
-        private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
-
-        private static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
-
         public static ICollection<NavigationViewItem> MenuItems { get; set; }
 
         private SSSIR Root = new();
@@ -55,7 +44,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
             {
-                if (Category.Value.Wallpapers.Any() && (Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
+                if (Category.Value.Wallpapers.Any() && (SPMM.Adult || Category.Value.Wallpapers.Count(Wallpaper => Wallpaper.Value.Adult) != Category.Value.Wallpapers.Count()))
                 {
                     SymbolRegular Symbol = SPMI.DefaultIcon;
 
@@ -147,7 +136,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                 {
                     foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
                     {
-                        if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && Adult))
+                        if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SPMM.Adult))
                         {
                             string Title = Wallpaper.Key.ToLowerInvariant();
                             string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SSSHC.FileName(Wallpaper.Key));
@@ -156,7 +145,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                             {
                                 if (SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchText == Text)
                                 {
-                                    SPVCSC StoreCard = new(Theme, Wallpaper, Agent, Key);
+                                    SPVCSC StoreCard = new(Theme, Wallpaper, SPMM.Agent, SPMM.Key);
 
                                     ThemeStore.Children.Add(StoreCard);
 
@@ -214,8 +203,8 @@ namespace Sucrose.Portal.Views.Pages.Store
 
         private async void FullStorePage_Loaded(object sender, RoutedEventArgs e)
         {
-            ThemeStore.ItemMargin = new Thickness(AdaptiveMargin);
-            ThemeStore.MaxItemsPerRow = AdaptiveLayout;
+            ThemeStore.ItemMargin = new Thickness(SPMM.AdaptiveMargin);
+            ThemeStore.MaxItemsPerRow = SPMM.AdaptiveLayout;
 
             await AddThemes(SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
         }

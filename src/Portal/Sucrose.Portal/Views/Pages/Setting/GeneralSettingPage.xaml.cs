@@ -3,9 +3,9 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
@@ -19,8 +19,6 @@ namespace Sucrose.Portal.Views.Pages.Setting
     /// </summary>
     public partial class GeneralSettingPage : INavigableView<SPVMPGSVM>, IDisposable
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
         public SPVMPGSVM ViewModel { get; }
 
         public GeneralSettingPage(SPVMPGSVM ViewModel)
@@ -73,7 +71,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
             CB0.SelectionChanged += (s, e) =>
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, SSRHR.ListLanguage()[CB0.SelectedIndex]);
-                SSRHR.SetLanguage(Culture);
+                SSRHR.SetLanguage(SPMM.Culture);
             };
 
             foreach (string Code in SSRHR.ListLanguage())
@@ -81,7 +79,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
                 CB0.Items.Add(SSRER.GetValue("Locale", Code));
             }
 
-            CB0.SelectedValue = SSRER.GetValue("Locale", Culture.ToUpperInvariant());
+            CB0.SelectedValue = SSRER.GetValue("Locale", SPMM.Culture.ToUpperInvariant());
 
             CustomExpander0.HeaderFrame = CB0;
 

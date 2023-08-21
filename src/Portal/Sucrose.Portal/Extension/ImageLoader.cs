@@ -44,6 +44,41 @@ namespace Sucrose.Portal.Extension
             return await Task.Run(() => Load(ImagePath));
         }
 
+        public BitmapImage LoadOptimal(string ImagePath)
+        {
+            this.ImagePath = ImagePath;
+
+            BitmapImage Image = new();
+
+            using FileStream Stream = new(ImagePath, FileMode.Open, FileAccess.Read);
+
+            Image.BeginInit();
+
+            Image.UriCachePolicy = new(RequestCacheLevel.BypassCache);
+            Image.CacheOption = BitmapCacheOption.OnLoad;
+            Image.DecodePixelWidth = 360;
+            Image.StreamSource = Stream;
+
+            Image.EndInit();
+
+            Image.Freeze();
+
+            Image.StreamSource.Flush();
+
+            Stream.Flush();
+            Stream.Close();
+            Stream.Dispose();
+
+            Dispose();
+
+            return Image;
+        }
+
+        public async Task<BitmapImage> LoadOptimalAsync(string ImagePath)
+        {
+            return await Task.Run(() => LoadOptimal(ImagePath));
+        }
+
         public void Remove(string ImagePath)
         {
             SPMI.Images.Remove(ImagePath);

@@ -60,6 +60,9 @@ namespace Sucrose.Shared.Store.Helper
 
                         Stream.CopyTo(FStream);
 
+                        Stream.Dispose();
+                        FStream.Dispose();
+
                         return true;
                     }
 
@@ -147,6 +150,12 @@ namespace Sucrose.Shared.Store.Helper
 
                     InfoStream.CopyTo(InfoFile);
                     CoverStream.CopyTo(CoverFile);
+
+                    InfoStream.Dispose();
+                    CoverStream.Dispose();
+
+                    InfoFile.Dispose();
+                    CoverFile.Dispose();
 
                     SPMI.StoreDownloading[Theme] = true;
 

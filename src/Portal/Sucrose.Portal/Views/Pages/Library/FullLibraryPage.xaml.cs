@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
@@ -14,10 +13,6 @@ namespace Sucrose.Portal.Views.Pages.Library
     /// </summary>
     public partial class FullLibraryPage : Page, IDisposable
     {
-        private static int AdaptiveLayout => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0);
-
-        private static int AdaptiveMargin => SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5);
-
         private readonly List<string> Themes = new();
 
         public FullLibraryPage(List<string> Themes)
@@ -75,8 +70,8 @@ namespace Sucrose.Portal.Views.Pages.Library
 
         private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)
         {
-            ThemeLibrary.ItemMargin = new Thickness(AdaptiveMargin);
-            ThemeLibrary.MaxItemsPerRow = AdaptiveLayout;
+            ThemeLibrary.ItemMargin = new Thickness(SPMM.AdaptiveMargin);
+            ThemeLibrary.MaxItemsPerRow = SPMM.AdaptiveLayout;
 
             await AddThemes(SPMI.SearchService.SearchText);
         }
