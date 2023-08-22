@@ -36,7 +36,14 @@ namespace Sucrose.Portal.Views.Controls
             get => _MaxPage;
             set
             {
-                _MaxPage = value;
+                if (value >= MinPage)
+                {
+                    _MaxPage = value;
+                }
+                else
+                {
+                    _MaxPage = MinPage;
+                }
                 UpdatePagination();
             }
         }
@@ -48,7 +55,14 @@ namespace Sucrose.Portal.Views.Controls
             get => _MinPage;
             set
             {
-                _MinPage = value;
+                if (value <= MaxPage)
+                {
+                    _MinPage = value;
+                }
+                else
+                {
+                    _MinPage = MaxPage;
+                }
                 UpdatePagination();
             }
         }
@@ -62,16 +76,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 if (_SelectPage != value)
                 {
-                    if (value <= MaxPage)
-                    {
-                        _SelectPage = value;
-                    }
-                    else
-                    {
-                        _SelectPage = MaxPage;
-                    }
-
-                    UpdatePagination();
+                    _SelectPage = value;
                     SelectPageChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -100,6 +105,7 @@ namespace Sucrose.Portal.Views.Controls
             if (SelectPage < MaxPage)
             {
                 SelectPage++;
+                PageNumber.Value = SelectPage;
             }
         }
 
@@ -241,6 +247,24 @@ namespace Sucrose.Portal.Views.Controls
             {
                 Visibility = Visibility.Visible;
 
+                if (SelectPage >= MaxPage)
+                {
+                    PageNext.IsEnabled = false;
+                }
+                else
+                {
+                    PageNext.IsEnabled = true;
+                }
+
+                if (SelectPage <= MinPage)
+                {
+                    PageBack.IsEnabled = false;
+                }
+                else
+                {
+                    PageBack.IsEnabled = true;
+                }
+
                 if (EnabledJump)
                 {
                     PageNumber.Minimum = MinPage;
@@ -256,25 +280,6 @@ namespace Sucrose.Portal.Views.Controls
                     PageNumber.Visibility = Visibility.Collapsed;
                 }
 
-                if (SelectPage <= MinPage)
-                {
-                    PageBack.IsEnabled = false;
-                }
-                else
-                {
-                    PageBack.IsEnabled = true;
-                }
-
-                if (SelectPage >= MaxPage)
-                {
-                    SelectPage = MaxPage;
-                    PageNext.IsEnabled = false;
-                }
-                else
-                {
-                    PageNext.IsEnabled = true;
-                }
-
                 UpdateNumber();
 
                 UpdateLineup();
@@ -282,11 +287,15 @@ namespace Sucrose.Portal.Views.Controls
             else
             {
                 Visibility = Visibility.Collapsed;
+            }
 
-                if (SelectPage >= MaxPage)
-                {
-                    SelectPage = MaxPage;
-                }
+            if (SelectPage > MaxPage)
+            {
+                SelectPage = MaxPage;
+            }
+            else if (SelectPage < MinPage)
+            {
+                SelectPage = MinPage;
             }
         }
     }
