@@ -24,6 +24,7 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 
 namespace Sucrose.Live.CefSharp
 {
@@ -189,6 +190,8 @@ namespace Sucrose.Live.CefSharp
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {
+                        SSSHS.Apply();
+
                         if (File.Exists(PropertiesPath))
                         {
                             SSEMI.Properties = SSTHP.ReadJson(PropertiesPath);

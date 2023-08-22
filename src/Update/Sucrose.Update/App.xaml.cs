@@ -196,7 +196,10 @@ namespace Sucrose.Update
                                         File.Delete(Bundle);
                                     }
 
-                                    using HttpClient Client = new();
+                                    using HttpClient Client = new()
+                                    {
+                                        Timeout = Timeout.InfiniteTimeSpan
+                                    };
 
                                     Client.DefaultRequestHeaders.Add("User-Agent", Agent);
 

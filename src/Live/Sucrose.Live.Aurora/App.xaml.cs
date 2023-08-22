@@ -17,6 +17,7 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 
 namespace Sucrose.Live.Aurora
 {
@@ -151,6 +152,8 @@ namespace Sucrose.Live.Aurora
 
                         if (File.Exists(Source))
                         {
+                            SSSHS.Apply();
+
                             switch (Info.Type)
                             {
                                 case SSDEWT.Application:

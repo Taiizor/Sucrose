@@ -5,7 +5,10 @@ namespace Sucrose.Shared.Store.Manage
 {
     internal static class Internal
     {
-        public static readonly HttpClient Client = new();
+        public static readonly HttpClient Client = new()
+        {
+            Timeout = Timeout.InfiniteTimeSpan
+        };
 
         public static SPSSS StoreService { get; } = new();
 

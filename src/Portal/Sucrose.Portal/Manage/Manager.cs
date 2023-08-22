@@ -34,9 +34,12 @@ namespace Sucrose.Portal.Manage
 
         public static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
+        public static int Pagination => SMMI.PortalSettingManager.GetSettingStable(SMC.Pagination, 30);
+
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
+        
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
 
         public static Mutex Mutex => new(true, SMR.Portal);

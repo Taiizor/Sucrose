@@ -73,6 +73,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             InitializeComponent();
 
+            Paginatioon();
             Category();
             Search();
         }
@@ -105,6 +106,11 @@ namespace Sucrose.Portal.Views.Pages.Store
             SPMI.CategoryService.CategoryTagChanged += CategoryService_CategoryTagChanged;
         }
 
+        private void Paginatioon()
+        {
+            ThemePagination.SelectPageChanged += ThemePagination_SelectPageChanged;
+        }
+
         private void CategoryClick(object s)
         {
             NavigationViewItem sender = s as NavigationViewItem;
@@ -126,9 +132,13 @@ namespace Sucrose.Portal.Views.Pages.Store
                 });
         }
 
-        private async Task AddThemes(string Text, string Tag)
+        private async Task AddThemes(int Page, string Text, string Tag)
         {
-            Dispose();
+            int Count = 0;
+
+            ThemePagination.Visibility = Visibility.Collapsed;
+
+            PageScroll.ScrollToVerticalOffset(0);
 
             foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
             {
@@ -145,13 +155,18 @@ namespace Sucrose.Portal.Views.Pages.Store
                             {
                                 if (SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchText == Text)
                                 {
-                                    SPVCSC StoreCard = new(Theme, Wallpaper, SPMM.Agent, SPMM.Key);
+                                    if (ThemePagination.SelectPage == Page && SPMM.Pagination * Page > Count && SPMM.Pagination * Page <= Count + SPMM.Pagination)
+                                    {
+                                        SPVCSC StoreCard = new(Theme, Wallpaper, SPMM.Agent, SPMM.Key);
 
-                                    ThemeStore.Children.Add(StoreCard);
+                                        ThemeStore.Children.Add(StoreCard);
 
-                                    Empty.Visibility = Visibility.Collapsed;
+                                        Empty.Visibility = Visibility.Collapsed;
 
-                                    await Task.Delay(25);
+                                        await Task.Delay(25);
+                                    }
+
+                                    Count++;
                                 }
                                 else
                                 {
@@ -167,6 +182,8 @@ namespace Sucrose.Portal.Views.Pages.Store
             {
                 Empty.Visibility = Visibility.Visible;
             }
+
+            ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SPMM.Pagination);
         }
 
         private bool SearchControl(string Search, string Theme, string Title)
@@ -203,24 +220,45 @@ namespace Sucrose.Portal.Views.Pages.Store
 
         private async void FullStorePage_Loaded(object sender, RoutedEventArgs e)
         {
-            ThemeStore.ItemMargin = new Thickness(SPMM.AdaptiveMargin);
-            ThemeStore.MaxItemsPerRow = SPMM.AdaptiveLayout;
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
+            {
+                Dispose();
 
-            await AddThemes(SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+                ThemeStore.ItemMargin = new Thickness(SPMM.AdaptiveMargin);
+                ThemeStore.MaxItemsPerRow = SPMM.AdaptiveLayout;
+
+                await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+            });
         }
 
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
         {
-            Dispose();
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
+            {
+                Dispose();
 
-            await AddThemes(SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+                await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+            });
+        }
+
+        private async void ThemePagination_SelectPageChanged(object sender, EventArgs e)
+        {
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
+            {
+                Dispose();
+
+                await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+            });
         }
 
         private async void CategoryService_CategoryTagChanged(object sender, EventArgs e)
         {
-            Dispose();
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
+            {
+                Dispose();
 
-            await AddThemes(SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+                await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+            });
         }
 
         public void Dispose()

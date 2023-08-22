@@ -44,6 +44,8 @@
 
         public const string ThemeType = "ThemeType";
 
+        public const string Pagination = "Pagination";
+
         public const string PlayerType = "PlayerType";
 
         public const string ScreenType = "ScreenType";

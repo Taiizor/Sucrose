@@ -137,12 +137,19 @@ namespace Sucrose.Shared.Engine.Helper
                 }
                 else
                 {
-                    using HttpClient Client = new();
+                    using HttpClient Client = new()
+                    {
+                        Timeout = Timeout.InfiniteTimeSpan
+                    };
+
                     using HttpResponseMessage Response = Client.GetAsync(Source).Result;
                     using Stream Content = Response.Content.ReadAsStreamAsync().Result;
                     using FileStream Stream = new(LocalSource, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
 
                     Content.CopyTo(Stream);
+
+                    Content.Dispose();
+                    Stream.Dispose();
 
                     return new Uri(Path.GetFullPath(LocalSource), Kind);
                 }

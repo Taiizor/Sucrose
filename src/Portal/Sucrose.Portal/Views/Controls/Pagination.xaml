@@ -1,0 +1,26 @@
+﻿<UserControl
+    x:Class="Sucrose.Portal.Views.Controls.Pagination"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    mc:Ignorable="d">
+    
+    <StackPanel x:Name="PagePanel" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <ui:Button x:Name="PageBack" Content="◁" Appearance="Secondary" Margin="5 0 5 0" Padding="0" Width="28" Height="32" Click="PageBack_Click" Cursor="Hand" />
+        <ToggleButton x:Name="Number1" Content="1" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click" />
+        <ToggleButton x:Name="Number2" Content="2" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ToggleButton x:Name="Number3" Content="3" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ToggleButton x:Name="Number4" Content="4" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ToggleButton x:Name="Number5" Content="5" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ToggleButton x:Name="Number6" Content="6" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ToggleButton x:Name="Number7" Content="7" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ToggleButton x:Name="Number8" Content="8" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ToggleButton x:Name="Number9" Content="9" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
+        <ui:Button x:Name="PageNext" Content="▷" Appearance="Secondary" Margin="0 0 25 0" Padding="0" Width="28" Height="32" Click="PageNext_Click" Cursor="Hand" />
+        <ui:NumberBox x:Name="PageNumber" Value="1" MaxDecimalPlaces="0" AcceptsExpression="False" Margin="0 0 5 0" ClearButtonEnabled="False" />
+        <ui:Button x:Name="PageJump" Content="Jump" Appearance="Secondary" Margin="0 0 5 0" Padding="5 0 5 0" Height="32" Click="PageJump_Click" Cursor="Hand" />
+    </StackPanel>
+</UserControl>
