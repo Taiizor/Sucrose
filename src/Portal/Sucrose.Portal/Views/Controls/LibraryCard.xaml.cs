@@ -54,6 +54,8 @@ namespace Sucrose.Portal.Views.Controls
             {
                 Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
             }
+
+            Dispose();
         }
 
         private void Use()

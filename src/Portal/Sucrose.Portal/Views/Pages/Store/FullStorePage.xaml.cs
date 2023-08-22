@@ -75,7 +75,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             InitializeComponent();
 
-            Paginatioon();
+            Pagination();
             Category();
             Search();
         }
@@ -108,7 +108,7 @@ namespace Sucrose.Portal.Views.Pages.Store
             SPMI.CategoryService.CategoryTagChanged += CategoryService_CategoryTagChanged;
         }
 
-        private void Paginatioon()
+        private void Pagination()
         {
             ThemePagination.SelectPageChanged += ThemePagination_SelectPageChanged;
         }

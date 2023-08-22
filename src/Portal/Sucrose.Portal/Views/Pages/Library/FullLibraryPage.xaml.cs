@@ -21,35 +21,32 @@ namespace Sucrose.Portal.Views.Pages.Library
             DataContext = this;
 
             InitializeComponent();
+
+            Pagination();
         }
 
-        private async Task AddThemes(string Search)
+        private void Pagination()
+        {
+            ThemePagination.SelectPageChanged += ThemePagination_SelectPageChanged;
+        }
+
+        private async Task AddThemes(string Search, int Page)
         {
             Dispose();
+
+            int Count = 0;
+
+            PageScroll.ScrollToVerticalOffset(0);
+
+            ThemePagination.Visibility = Visibility.Collapsed;
 
             foreach (string Theme in Themes)
             {
                 if (string.IsNullOrEmpty(Search))
                 {
-                    SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
-
-                    LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
-
-                    ThemeLibrary.Children.Add(LibraryCard);
-
-                    Empty.Visibility = Visibility.Collapsed;
-
-                    await Task.Delay(25);
-                }
-                else
-                {
-                    SSTHI Info = SSTHI.ReadJson(Theme);
-                    string Title = Info.Title.ToLowerInvariant();
-                    string Description = Info.Description.ToLowerInvariant();
-
-                    if (Title.Contains(Search) || Description.Contains(Search))
+                    if (SPMM.LibraryPagination * Page > Count && SPMM.LibraryPagination * Page <= Count + SPMM.LibraryPagination)
                     {
-                        SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), Info);
+                        SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
 
                         LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
@@ -59,6 +56,32 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                         await Task.Delay(25);
                     }
+
+                    Count++;
+                }
+                else
+                {
+                    SSTHI Info = SSTHI.ReadJson(Theme);
+                    string Title = Info.Title.ToLowerInvariant();
+                    string Description = Info.Description.ToLowerInvariant();
+
+                    if (Title.Contains(Search) || Description.Contains(Search))
+                    {
+                        if (SPMM.LibraryPagination * Page > Count && SPMM.LibraryPagination * Page <= Count + SPMM.LibraryPagination)
+                        {
+                            SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), Info);
+
+                            LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
+
+                            ThemeLibrary.Children.Add(LibraryCard);
+
+                            Empty.Visibility = Visibility.Collapsed;
+
+                            await Task.Delay(25);
+                        }
+
+                        Count++;
+                    }
                 }
             }
 
@@ -66,6 +89,8 @@ namespace Sucrose.Portal.Views.Pages.Library
             {
                 Empty.Visibility = Visibility.Visible;
             }
+
+            ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SPMM.LibraryPagination);
         }
 
         private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)
@@ -73,7 +98,14 @@ namespace Sucrose.Portal.Views.Pages.Library
             ThemeLibrary.ItemMargin = new Thickness(SPMM.AdaptiveMargin);
             ThemeLibrary.MaxItemsPerRow = SPMM.AdaptiveLayout;
 
-            await AddThemes(SPMI.SearchService.SearchText);
+            await AddThemes(SPMI.SearchService.SearchText, ThemePagination.SelectPage);
+        }
+
+        private async void ThemePagination_SelectPageChanged(object sender, EventArgs e)
+        {
+            Dispose();
+
+            await AddThemes(SPMI.SearchService.SearchText, ThemePagination.SelectPage);
         }
 
         private async void ThemeCard_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

@@ -237,13 +237,15 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (File.Exists(ImagePath))
                 {
-                    Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
+                    Imagine.ImageSource = Loader.Load(ImagePath);
                 }
 
                 await Task.Delay(100);
 
                 Card.Visibility = Visibility.Visible;
                 Progress.Visibility = Visibility.Collapsed;
+
+                Dispose();
             }
             catch
             {

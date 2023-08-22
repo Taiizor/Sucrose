@@ -280,9 +280,9 @@ namespace Sucrose.Portal.Views.Controls
                     PageNumber.Visibility = Visibility.Collapsed;
                 }
 
-                UpdateNumber();
-
                 UpdateLineup();
+
+                UpdateNumber();
             }
             else
             {

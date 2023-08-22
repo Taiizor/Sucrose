@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Library"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
     d:DataContext="{d:DesignInstance local:FullLibraryPage, IsDesignTimeCreatable=False}"
     Title="{DynamicResource Portal.FullLibraryPage.Title}"
@@ -19,6 +20,11 @@
                 <local:SearchLibraryPage />
             </Frame.Content>
         </Frame>
-        <controls:LibraryStackPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <ScrollViewer x:Name="PageScroll" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <controls:LibraryStackPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <vcontrols:Pagination x:Name="ThemePagination" HorizontalAlignment="Center" Margin="0 10 0 10" />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
