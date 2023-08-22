@@ -78,7 +78,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf" Version="115.3.130" />
+        <PackageReference Include="CefSharp.Wpf" Version="116.0.130" />
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
 
