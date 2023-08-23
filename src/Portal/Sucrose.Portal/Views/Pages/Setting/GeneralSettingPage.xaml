@@ -12,7 +12,7 @@
     mc:Ignorable="d">
 
     <Grid x:Name="GridSetting" Loaded="GridSetting_Loaded">
-        <StackPanel x:Name="FrameSetting" Margin="10 0 10 10" Visibility="Collapsed" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
+        <StackPanel x:Name="FrameSetting" Margin="10 0 10 0" Visibility="Collapsed" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
         <ui:ProgressRing x:Name="ProgressSetting" IsIndeterminate="True" Width="100" Height="100" />
     </Grid>
 </Page>

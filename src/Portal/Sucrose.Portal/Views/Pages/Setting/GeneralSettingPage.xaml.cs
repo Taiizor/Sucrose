@@ -37,7 +37,7 @@ namespace Sucrose.Portal.Views.Pages.Setting
             TextBlock Tb1 = new()
             {
                 Foreground = Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Margin = new Thickness(0, 10, 0, 0),
+                Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold,
                 Text = "Görünüş & Davranış"
             };

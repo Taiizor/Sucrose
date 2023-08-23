@@ -20,11 +20,14 @@
                 <local:SearchLibraryPage />
             </Frame.Content>
         </Frame>
-        <ScrollViewer x:Name="PageScroll" VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <controls:LibraryStackPanel x:Name="ThemeLibrary" Margin="10 0 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <vcontrols:Pagination x:Name="ThemePagination" HorizontalAlignment="Center" Margin="0 10 0 10" />
-            </StackPanel>
-        </ScrollViewer>
+
+        <controls:SizeConstrainingContainer Margin="10 0 0 0">
+            <ScrollViewer x:Name="PageScroll" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <controls:LibraryStackPanel x:Name="ThemeLibrary" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <vcontrols:Pagination x:Name="ThemePagination" HorizontalAlignment="Center" Margin="0 10 0 10" />
+                </StackPanel>
+            </ScrollViewer>
+        </controls:SizeConstrainingContainer>
     </Grid>
 </Page>

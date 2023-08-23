@@ -71,7 +71,7 @@
                     <ui:Button x:Name="Download" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="41.06" Click="Download_Click" ToolTipService.ToolTip="{DynamicResource Portal.LibraryCard.MoreTip}" Cursor="Hand" Padding="0" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Grid>
                             <!--<Image Source="pack://application:,,,/Assets/Icon/DownloadFromCloud.png"/>-->
-                            <ui:SymbolIcon x:Name="DownloadSymbol" Symbol="CloudArrowDown24" Foreground="{DynamicResource PaletteBlueBrush}" FontSize="36" Width="36" />
+                            <ui:SymbolIcon x:Name="DownloadSymbol" Symbol="CloudArrowDown24" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontSize="36" Width="36" />
                             <ui:ProgressRing x:Name="DownloadRing" Visibility="Collapsed" Progress="0" Width="36" Height="36" />
                         </Grid>
                     </ui:Button>

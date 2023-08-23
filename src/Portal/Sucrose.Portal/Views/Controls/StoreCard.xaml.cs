@@ -6,15 +6,12 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
-using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -72,7 +69,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     await Task.Delay(3000);
 
-                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteBlueBrush");
+                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush");
                     DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
                 }
             }
@@ -185,12 +182,12 @@ namespace Sucrose.Portal.Views.Controls
                             DownloadRing.Visibility = Visibility.Collapsed;
                             DownloadSymbol.Visibility = Visibility.Visible;
 
-                            DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteGreenBrush");
+                            DownloadSymbol.Foreground = SSRER.GetResource<Brush>("SystemFillColorSuccessBrush");
                             DownloadSymbol.Symbol = SymbolRegular.CloudCheckmark24;
 
                             await Task.Delay(3000);
 
-                            DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteBlueBrush");
+                            DownloadSymbol.Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush");
                             DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
                         }
                     }

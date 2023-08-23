@@ -28,19 +28,19 @@
                     <StackPanel Margin="10 10 10 0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" MaxWidth="400">
                         <ui:Button x:Name="Export" Cursor="Hand" Appearance="Secondary" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Export_Click">
                             <StackPanel>
-                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="FolderZip24" FontSize="20" Width="20" Height="20" Foreground="Orange" />-->
+                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="FolderZip24" FontSize="20" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemeExport}" Width="20" Height="20" Foreground="Orange" />-->
                                 <Image Margin="0 3 0 3" Source="pack://application:,,,/Assets/Icon/ArchiveFolder.png" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemeExport}" Width="20" Height="20"/>
                             </StackPanel>
                         </ui:Button>
                         <ui:Button x:Name="Publish" Cursor="Hand" Appearance="Secondary" Margin="5 0 5 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Publish_Click">
                             <StackPanel>
-                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Gift24" FontSize="20" Width="20" Height="20" Foreground="ForestGreen" /> -->
+                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Gift24" FontSize="20" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemePublish}" Width="20" Height="20" Foreground="ForestGreen" /> -->
                                 <Image Margin="0 3 0 3" Source="pack://application:,,,/Assets/Icon/Basket.png" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemePublish}" Width="20" Height="20"/>
                             </StackPanel>
                         </ui:Button>
                         <ui:Button x:Name="Copy" Cursor="Hand" Appearance="Secondary" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
-                            <StackPanel Cursor="">
-                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Link48" FontSize="20" Width="20" Height="20" Foreground="DodgerBlue" />-->
+                            <StackPanel>
+                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Link48" FontSize="20" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemeCopy}" Width="20" Height="20" Foreground="DodgerBlue" />-->
                                 <Image Margin="0 3 0 3" Source="pack://application:,,,/Assets/Icon/Link3.png" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemeCopy}" Width="20" Height="20"/>
                             </StackPanel>
                         </ui:Button>
