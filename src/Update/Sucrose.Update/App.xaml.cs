@@ -206,10 +206,6 @@ namespace Sucrose.Update
                                 if (Asset.Name.Contains(Name) && Required.All(Asset.Name.Contains))
                                 {
                                     Info(SSDEUT.Updating);
-                                    //bu mesaj penceresi açık kaldığı sürece indirme işlemi başlamıyor
-                                    //o yüzden belirli bir süre sonra mesaj penceresini kapat veya showdialog yerine
-                                    //show kullan. ama bu sefer de updatebox penceresi ile çakışır. o yüzden
-                                    //updatebox açılmadan hemen önce bu mesaj kutusu otomatik kapatılmalı
 
                                     string Source = Asset.BrowserDownloadUrl;
 

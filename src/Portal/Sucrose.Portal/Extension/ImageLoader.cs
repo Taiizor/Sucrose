@@ -46,8 +46,6 @@ namespace Sucrose.Portal.Extension
 
         public BitmapImage LoadOptimal(string ImagePath)
         {
-            this.ImagePath = ImagePath;
-
             BitmapImage Image = new();
 
             using FileStream Stream = new(ImagePath, FileMode.Open, FileAccess.Read);
@@ -82,8 +80,11 @@ namespace Sucrose.Portal.Extension
 
         public void Remove(string ImagePath)
         {
-            SPMI.Images.Remove(ImagePath);
-            SPMI.ImageStream.Remove(ImagePath);
+            if (!string.IsNullOrEmpty(ImagePath))
+            {
+                SPMI.Images.Remove(ImagePath);
+                SPMI.ImageStream.Remove(ImagePath);
+            }
         }
 
         public async Task RemoveAsync(string ImagePath)
@@ -104,14 +105,10 @@ namespace Sucrose.Portal.Extension
 
         public void Dispose()
         {
-            try
+            if (!string.IsNullOrEmpty(ImagePath))
             {
                 SPMI.ImageStream[ImagePath].Dispose();
                 SPMI.Images[ImagePath].StreamSource.Dispose();
-            }
-            catch
-            {
-                //
             }
 
             GC.Collect();

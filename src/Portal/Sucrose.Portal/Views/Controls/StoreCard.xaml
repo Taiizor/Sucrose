@@ -11,7 +11,6 @@
     MaxWidth="360" MinWidth="260"
     Loaded="StoreCard_Loaded"
     mc:Ignorable="d"
-    Cursor="Hand"
     xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Entered}, Event=MouseEnter}"
     xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource Leaved}, Event=MouseLeave}">
 

@@ -10,7 +10,7 @@ namespace Sucrose.Shared.Launcher.Command
 {
     internal static class Engine
     {
-        private static string LibrarySelected => SMMI.EngineSettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
+        private static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
         private static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 

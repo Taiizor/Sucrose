@@ -29,6 +29,7 @@ namespace Sucrose.Update.View
                     Error_Image.Visibility = Visibility.Visible;
                     break;
                 case SSDEUT.Updating:
+                    Countdown();
                     Success_Image.Visibility = Visibility.Visible;
                     break;
                 case SSDEUT.Releases:
@@ -42,6 +43,27 @@ namespace Sucrose.Update.View
             SystemSounds.Asterisk.Play();
 
             Text_Message.Text = SSRER.GetValue("Update", "InfoBox", "TextMessage", $"{Type}");
+        }
+
+        private async void Countdown()
+        {
+            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 3";
+
+            await Task.Delay(1000);
+
+            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 2";
+
+            await Task.Delay(1000);
+
+            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 1";
+
+            await Task.Delay(1000);
+
+            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 0";
+
+            await Task.Delay(1000);
+
+            Close();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

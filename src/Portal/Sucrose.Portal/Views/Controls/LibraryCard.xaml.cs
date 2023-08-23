@@ -62,7 +62,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (SPMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
+                SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
 
                 if (SSSHL.Run())
                 {
