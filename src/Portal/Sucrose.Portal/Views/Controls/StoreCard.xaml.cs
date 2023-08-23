@@ -222,7 +222,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (File.Exists(ImagePath))
                 {
-                    Imagine.ImageSource = Loader.Load(ImagePath);
+                    Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
                 }
 
                 await Task.Delay(100);

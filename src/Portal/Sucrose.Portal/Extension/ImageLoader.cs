@@ -56,6 +56,7 @@ namespace Sucrose.Portal.Extension
 
             Image.UriCachePolicy = new(RequestCacheLevel.BypassCache);
             Image.CacheOption = BitmapCacheOption.OnLoad;
+            //Image.DecodePixelHeight = 160;
             Image.DecodePixelWidth = 360;
             Image.StreamSource = Stream;
 
