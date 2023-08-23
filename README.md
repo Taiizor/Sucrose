@@ -117,7 +117,7 @@
       <td>YouTube</td>
       <td>
 	    <img src=".screenshots/YouTube.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Space/Floating in Space-2">Floating in Space</a> Theme
+        <br><a href="https://github.com/Taiizor/Wallpaper/blob/develop/src/Space/Floating in Space-1">Floating in Space</a> Theme
       </td>
       <td>No</td>
       <td>Fixed</td>

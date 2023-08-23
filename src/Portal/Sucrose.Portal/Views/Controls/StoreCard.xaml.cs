@@ -50,26 +50,37 @@ namespace Sucrose.Portal.Views.Controls
             InitializeComponent();
         }
 
-        private void Use()
+        private async void Start()
         {
-            if (SPMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+            if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
-
-                if (SSSHL.Run())
+                if (SSSHN.GetHostEntry())
                 {
-                    SSSHL.Kill();
+                    State = true;
+
+                    DownloadSymbol.Symbol = SymbolRegular.Empty;
+
+                    DownloadRing.Visibility = Visibility.Visible;
+                    DownloadSymbol.Visibility = Visibility.Collapsed;
+
+                    await Task.Run(DownloadTheme);
                 }
+                else
+                {
+                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteRedBrush");
+                    DownloadSymbol.Symbol = SymbolRegular.CloudDismiss24;
 
-                SSLHR.Start();
+                    await Task.Delay(3000);
 
-                Cursor = Cursors.Arrow;
+                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteBlueBrush");
+                    DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
+                }
             }
         }
 
         private void MenuUse_Click(object sender, RoutedEventArgs e)
         {
-            Use();
+            //
         }
 
         private void MenuFind_Click(object sender, RoutedEventArgs e)
@@ -150,32 +161,9 @@ namespace Sucrose.Portal.Views.Controls
             await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(SPMM.LibraryLocation, Keys), Agent, Keys, Key);
         }
 
-        private async void Download_Click(object sender, RoutedEventArgs e)
+        private void Download_Click(object sender, RoutedEventArgs e)
         {
-            if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24)
-            {
-                if (SSSHN.GetHostEntry())
-                {
-                    State = true;
-
-                    DownloadSymbol.Symbol = SymbolRegular.Empty;
-
-                    DownloadRing.Visibility = Visibility.Visible;
-                    DownloadSymbol.Visibility = Visibility.Collapsed;
-
-                    await Task.Run(DownloadTheme);
-                }
-                else
-                {
-                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteRedBrush");
-                    DownloadSymbol.Symbol = SymbolRegular.CloudDismiss24;
-
-                    await Task.Delay(3000);
-
-                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteBlueBrush");
-                    DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
-                }
-            }
+            Start();
         }
 
         private async void StoreService_InfoChanged(string Keys)
@@ -269,7 +257,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void StoreCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Use();
+            Start();
         }
 
         public void Dispose()

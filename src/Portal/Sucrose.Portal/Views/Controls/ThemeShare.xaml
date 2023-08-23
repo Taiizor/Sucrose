@@ -17,46 +17,35 @@
     </ui:ContentDialog.Resources>
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="400">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="10" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <ui:Card Grid.Row="0">
+        <ui:Card>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
                 <ui:Image x:Name="ThemeThumbnail" Margin="10 0 0 0" Stretch="UniformToFill" CornerRadius="20" Width="250" Height="150" />
 
-                <StackPanel Margin="10 0 0 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
+                <StackPanel Margin="10 10 0 10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
                     <TextBlock x:Name="ThemeTitle" Margin="0 0 10 0" Text="{DynamicResource Portal.ThemeShare.ThemeTitle}" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                     <TextBlock x:Name="ThemeDescription" Margin="0 0 10 0" Text="{DynamicResource Portal.ThemeShare.ThemeDescription}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                </StackPanel>
-            </StackPanel>
-        </ui:Card>
 
-        <ui:Card Grid.Row="2">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ui:Button x:Name="Export" Cursor="Hand" Appearance="Secondary" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Export_Click">
-                    <StackPanel>
-                        <!--<ui:SymbolIcon Margin="0 10 0 10" Symbol="FolderZip24" FontSize="50" Width="50" Height="50" Foreground="Orange" />-->
-                        <Image Margin="0 10 0 10" Source="pack://application:,,,/Assets/Icon/ArchiveFolder.png" Width="50" Height="50"/>
-                        <TextBlock Margin="10 0 10 10" Text="{DynamicResource Portal.ThemeShare.ThemeExport}" FontSize="16" TextAlignment="Center"/>
+                    <StackPanel Margin="10 10 10 0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" MaxWidth="400">
+                        <ui:Button x:Name="Export" Cursor="Hand" Appearance="Secondary" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Export_Click">
+                            <StackPanel>
+                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="FolderZip24" FontSize="20" Width="20" Height="20" Foreground="Orange" />-->
+                                <Image Margin="0 3 0 3" Source="pack://application:,,,/Assets/Icon/ArchiveFolder.png" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemeExport}" Width="20" Height="20"/>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button x:Name="Publish" Cursor="Hand" Appearance="Secondary" Margin="5 0 5 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Publish_Click">
+                            <StackPanel>
+                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Gift24" FontSize="20" Width="20" Height="20" Foreground="ForestGreen" /> -->
+                                <Image Margin="0 3 0 3" Source="pack://application:,,,/Assets/Icon/Basket.png" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemePublish}" Width="20" Height="20"/>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button x:Name="Copy" Cursor="Hand" Appearance="Secondary" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
+                            <StackPanel Cursor="">
+                                <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Link48" FontSize="20" Width="20" Height="20" Foreground="DodgerBlue" />-->
+                                <Image Margin="0 3 0 3" Source="pack://application:,,,/Assets/Icon/Link3.png" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemeCopy}" Width="20" Height="20"/>
+                            </StackPanel>
+                        </ui:Button>
                     </StackPanel>
-                </ui:Button>
-                <ui:Button x:Name="Publish" Cursor="Hand" Appearance="Secondary" Margin="10 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Publish_Click">
-                    <StackPanel>
-                        <!--<ui:SymbolIcon Margin="0 10 0 10" Symbol="Gift24" FontSize="50" Width="50" Height="50" Foreground="ForestGreen" /> -->
-                        <Image Margin="0 10 0 10" Source="pack://application:,,,/Assets/Icon/Basket.png" Width="50" Height="50"/>
-                        <TextBlock Margin="10 0 10 10" Text="{DynamicResource Portal.ThemeShare.ThemePublish}" FontSize="16" TextAlignment="Center"/>
-                    </StackPanel>
-                </ui:Button>
-                <ui:Button x:Name="Copy" Cursor="Hand" Appearance="Secondary" Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
-                    <StackPanel>
-                        <!--<ui:SymbolIcon Margin="0 10 0 10" Symbol="Link48" FontSize="50" Width="50" Height="50" Foreground="DodgerBlue" />-->
-                        <Image Margin="0 10 0 10" Source="pack://application:,,,/Assets/Icon/Link3.png" Width="50" Height="50"/>
-                        <TextBlock Margin="10 0 10 10" Text="{DynamicResource Portal.ThemeShare.ThemeCopy}" FontSize="16" TextAlignment="Center"/>
-                    </StackPanel>
-                </ui:Button>
+                </StackPanel>
             </StackPanel>
         </ui:Card>
     </Grid>
