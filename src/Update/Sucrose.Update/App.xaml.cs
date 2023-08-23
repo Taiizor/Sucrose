@@ -12,6 +12,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
@@ -22,7 +23,9 @@ using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SUVDIB = Sucrose.Update.View.DarkInfoBox;
 using SUVDUB = Sucrose.Update.View.DarkUpdateBox;
+using SUVLIB = Sucrose.Update.View.LightInfoBox;
 using SUVLUB = Sucrose.Update.View.LightUpdateBox;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
@@ -111,6 +114,21 @@ namespace Sucrose.Update
             Shutdown();
         }
 
+        internal void Info(SSDEUT Type)
+        {
+            switch (Theme)
+            {
+                case SEWTT.Dark:
+                    SUVDIB DarkInfoBox = new(Type);
+                    DarkInfoBox.ShowDialog();
+                    break;
+                default:
+                    SUVLIB LightInfoBox = new(Type);
+                    LightInfoBox.ShowDialog();
+                    break;
+            }
+        }
+
         protected void Message(string Message)
         {
             if (HasError)
@@ -187,6 +205,12 @@ namespace Sucrose.Update
 
                                 if (Asset.Name.Contains(Name) && Required.All(Asset.Name.Contains))
                                 {
+                                    Info(SSDEUT.Updating);
+                                    //bu mesaj penceresi açık kaldığı sürece indirme işlemi başlamıyor
+                                    //o yüzden belirli bir süre sonra mesaj penceresini kapat veya showdialog yerine
+                                    //show kullan. ama bu sefer de updatebox penceresi ile çakışır. o yüzden
+                                    //updatebox açılmadan hemen önce bu mesaj kutusu otomatik kapatılmalı
+
                                     string Source = Asset.BrowserDownloadUrl;
 
                                     Bundle = Path.Combine(CachePath, Path.GetFileName(Source));
@@ -222,11 +246,31 @@ namespace Sucrose.Update
 
                                         break;
                                     }
+                                    else
+                                    {
+                                        Info(SSDEUT.Status);
+                                    }
                                 }
                             }
                         }
+                        else
+                        {
+                            Info(SSDEUT.Empty);
+                        }
+                    }
+                    else
+                    {
+                        Info(SSDEUT.Update);
                     }
                 }
+                else
+                {
+                    Info(SSDEUT.Releases);
+                }
+            }
+            else
+            {
+                Info(SSDEUT.Network);
             }
 
             if (HasBundle)

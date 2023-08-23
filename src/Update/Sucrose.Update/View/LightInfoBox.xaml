@@ -1,0 +1,81 @@
+﻿<Window x:Class="Sucrose.Update.View.LightInfoBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="{DynamicResource Update.InfoBox.WindowTitle}"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="200" MinWidth="400"
+        MaxHeight="400" MaxWidth="400"
+        Height="200" Width="400"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Topmost="True">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#F0F0F0" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="BorderBrush" Value="#DDDDDD" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#E5E5E5" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#888888" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="#F5F5F5" Padding="10">
+        <Border.Effect>
+            <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="64" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Image x:Name="Success_Image" Source="pack://application:,,,/Assets/Icon/Success.png" Visibility="Hidden" />
+                <Image x:Name="Error_Image" Source="pack://application:,,,/Assets/Icon/Error.png" Visibility="Hidden" />
+                <Image x:Name="Warn_Image" Source="pack://application:,,,/Assets/Icon/Warn.png" Visibility="Hidden" />
+                <Image x:Name="Info_Image" Source="pack://application:,,,/Assets/Icon/Info.png" Visibility="Hidden" />
+                <Image x:Name="Sad_Image" Source="pack://application:,,,/Assets/Icon/Sad.png" Visibility="Hidden" />
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                <TextBlock x:Name="Text_Message" Margin="10 0 0 0" Text="{DynamicResource Update.InfoBox.TextMessage}" TextWrapping="WrapWithOverflow" TextAlignment="Left" Foreground="White" FontSize="14" />
+            </Grid>
+
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <Button x:Name="Close_Button" Content="{DynamicResource Update.InfoBox.CloseText}" Cursor="Hand" Height="30" Width="80" VerticalAlignment="Center" Click="CloseButton_Click">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+    <Window.Effect>
+        <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="10" Opacity="0.5" />
+    </Window.Effect>
+</Window>

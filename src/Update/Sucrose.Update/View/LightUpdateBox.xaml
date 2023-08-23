@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sucrose.Update.View"
-        Title="{DynamicResource Update.WindowTitle}"
+        Title="{DynamicResource Update.UpdateBox.WindowTitle}"
         mc:Ignorable="d"
         Topmost="True"
         ResizeMode="NoResize" MinHeight="150" MinWidth="300"
@@ -49,7 +49,7 @@
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Border.Effect>
             <Grid>
-                <Button x:Name="Install_Button" Content="{DynamicResource Update.InstallText}" Cursor="Hand" Height="25" Margin="20" VerticalAlignment="Center" Click="InstallButton_Click">
+                <Button x:Name="Install_Button" Content="{DynamicResource Update.UpdateBox.InstallText}" Cursor="Hand" Height="25" Margin="20" VerticalAlignment="Center" Click="InstallButton_Click">
                     <Button.Effect>
                         <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
                     </Button.Effect>

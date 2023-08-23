@@ -3,6 +3,16 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Update.WindowTitle">Mise à jour du Sucrose</system:String>
-    <system:String x:Key="Update.InstallText">Installer la mise à jour</system:String>
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Mise à jour du Sucrose</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Installer la mise à jour</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Mise à jour de Sucrose</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Message</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Fermer</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Nous sommes à des moments où les fichiers de mise à jour sont cachés comme un joyau perdu. Vous pouvez également profiter de l'expérience en utilisant la version actuelle à l'heure actuelle</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">L'application est déjà avec vous, telle que la page la plus récente d'un livre, dans sa forme la plus actuelle et innovante. Ici pour vous offrir en tout temps la meilleure et la plus actuelle expérience</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Nous sommes au bord d'un rêve où les fichiers de mise à jour ne sont pas accessibles. Cependant, vous pouvez continuer à vivre votre rêve avec la version actuelle</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">La faiblesse de votre connexion, comme des nuages cachant le soleil. Lorsque les nuages se dispersent, une expérience plus lumineuse vous attendra</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">La mise à jour de l'application avance sournoisement, comme de nouveaux trésors que les vagues de la mer apportent sur le rivage. Ces précieuses nouveautés sont collectées en arrière-plan pour vous</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Nous vivons un moment où l'étoile de la mise à jour dans l'application n'est pas encore née. Il n'y a actuellement aucune information de mise à jour disponible, mais vous pouvez continuer à utiliser la version actuelle</system:String>
 </ResourceDictionary>

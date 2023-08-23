@@ -3,6 +3,16 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
-    <system:String x:Key="Update.InstallText">Install Update</system:String>
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose Update</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Install Update</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Update</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Message</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Close</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">We are in moments when update files are hidden like a lost gem. You can still enjoy the experience using the current version</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">The application is already with you, like the latest page of a book, in its most up-to-date and innovative form. Here to provide you with the best and most current experience at all times</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">We are on the threshold of a dream where update files cannot be accessed. But you can continue to live your dream using the current version</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Weakness in your connection, like clouds obscuring the sun. A brighter experience awaits you when the clouds clear</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Application update is progressing stealthily, like new treasures brought by the waves of the sea to the shore. These valuable innovations are being gathered for you in the background</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">We are experiencing a moment when the update star in the application has not yet risen. Currently, there is no update information available, but you can continue to use the existing version</system:String>
 </ResourceDictionary>

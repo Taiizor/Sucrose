@@ -94,6 +94,10 @@
         <Folder Include="Properties\" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Resource Include="Assets\**\*.*" />
+    </ItemGroup>
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
