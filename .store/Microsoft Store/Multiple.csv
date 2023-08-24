@@ -1,0 +1,89 @@
+﻿Field,Type,Turkish,Spanish,English,German,French
+ProductName,Text,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine
+Description,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.,Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.
+WhatsNew,Text,"Yenilikler ve Hata Düzeltmelerinden bazıları aşağıda listelenmiştir:
+
+- Tema paylaşma sayfası eklendi.
+- Tema inceleme sayfası eklendi.
+- Mağaza sayfası yeniden tasarlandı.","A continuación se enumeran algunas de las novedades y correcciones de errores:
+
+- Se rediseñó la página de la tienda.
+- Se agregó la página de compartir temas.
+- Se agregó la página de revisión de temas.","Some of What's New and Bug Fixes are listed below:
+
+- Added theme share page.
+- Added theme review page.
+- The store page has been redesigned.","Einige der Neuerungen und Fehlerbehebungen sind unten aufgeführt:
+
+- Hinzugefügte Thema-Teilen-Seite.
+- Die Shop-Seite wurde neu gestaltet.
+- Hinzugefügte Thema-Überprüfen-Seite.","Voici quelques-unes des nouveautés et des corrections de bugs répertoriées ci-dessous :
+
+- La page du magasin a été repensée.
+- Ajout de la page d'examen du thème.
+- Ajout de la page de partage de thème."
+ProductFeatures1,Text,Aydınlık ve Karanlık tema özelliği.,Característica de tema claro y oscuro.,Light and Dark theme feature.,Funktion für helle und dunkle Themen.,Fonctionnalité de thème clair et sombre.
+ProductFeatures2,Text,Birden fazla ekranı ve tüm ekran çözünürlüklerini destekler.,Admite varias pantallas y todas las resoluciones de pantalla.,Supports multiple screens and all screen resolutions.,Unterstützt mehrere Bildschirme und alle Bildschirmauflösungen.,Prend en charge plusieurs écrans et toutes les résolutions d'écran.
+ProductFeatures3,Text,"Tamamen açık kaynaklı ve ücretsiz, hiçbir özellik ödeme gerektirmez.","Completamente de código abierto y gratuito, ninguna característica requiere pago.","Completely open-source and free, no feature requires payment.","Vollständig Open Source und kostenlos, es ist keine Funktion zahlungspflichtig.","Complètement open-source et gratuit, aucune fonction ne nécessite de paiement."
+ProductFeatures4,Text,,,,,
+ProductFeatures5,Text,,,,,
+ProductFeatures6,Text,,,,,
+ProductFeatures7,Text,,,,,
+ProductFeatures8,Text,,,,,
+ProductFeatures9,Text,,,,,
+ProductFeatures10,Text,,,,,
+ProductFeatures11,Text,,,,,
+ProductFeatures12,Text,,,,,
+ProductFeatures13,Text,,,,,
+ProductFeatures14,Text,,,,,
+ProductFeatures15,Text,,,,,
+ProductFeatures16,Text,,,,,
+ProductFeatures17,Text,,,,,
+ProductFeatures18,Text,,,,,
+ProductFeatures19,Text,,,,,
+ProductFeatures20,Text,,,,,
+ShortDescription,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.,Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.
+SearchTerms1,Text,desktop dynamic live,sucrose wallpaper engine,wallpaper engine,wallpaper-engine,fond d'écran interactif
+SearchTerms2,Text,fluent dynamics theme,temas versátiles,interactive wallpaper,desktop-animationen,sucrose wallpaper engine
+SearchTerms3,Text,wallpaper engine,fondos para escritorio,desktop themes,wallpaper-design,polyvalent wallpaper engine
+SearchTerms4,Text,interactive wallpaper,personaliza tu escritorio,custom wallpaper,hintergrundbilder,personnalisation de bureau
+SearchTerms5,Text,sucrose wallpaper,descarga sucrose,sucrose wallpaper,interaktive themes,sucrose wallpaper
+SearchTerms6,Text,live wallpapers,wallpaper engine,personalized desktop,sucrose-wallpaper-motor,live wallpapers
+SearchTerms7,Text,personalized desktop,,live wallpapers,vielseitiges wallpaper-tool,interactive wallpaper
+Applicable license terms,Text,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE
+Copyright,Text,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor
+DevelopedBy,Text,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor
+RequirementsMinimum1,Text,,,,,
+RequirementsMinimum2,Text,,,,,
+RequirementsMinimum3,Text,,,,,
+RequirementsMinimum4,Text,,,,,
+RequirementsMinimum5,Text,,,,,
+RequirementsMinimum6,Text,,,,,
+RequirementsMinimum7,Text,,,,,
+RequirementsMinimum8,Text,,,,,
+RequirementsMinimum9,Text,,,,,
+RequirementsMinimum10,Text,,,,,
+RequirementsMinimum11,Text,,,,,
+RequirementsRecommended1,Text,,,,,
+RequirementsRecommended2,Text,,,,,
+RequirementsRecommended3,Text,,,,,
+RequirementsRecommended4,Text,,,,,
+RequirementsRecommended5,Text,,,,,
+RequirementsRecommended6,Text,,,,,
+RequirementsRecommended7,Text,,,,,
+RequirementsRecommended8,Text,,,,,
+RequirementsRecommended9,Text,,,,,
+RequirementsRecommended10,Text,,,,,
+RequirementsRecommended11,Text,,,,,
+StoreLogos1,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+StoreLogos2,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots1,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots2,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots3,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots4,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots5,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots6,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots7,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots8,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots9,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+Screenshots10,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
