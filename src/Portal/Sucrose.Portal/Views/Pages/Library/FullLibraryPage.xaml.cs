@@ -54,7 +54,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                         Empty.Visibility = Visibility.Collapsed;
 
-                        await Task.Delay(25);
+                        await Task.Delay(1);
                     }
 
                     Count++;
@@ -77,7 +77,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                             Empty.Visibility = Visibility.Collapsed;
 
-                            await Task.Delay(25);
+                            await Task.Delay(1);
                         }
 
                         Count++;

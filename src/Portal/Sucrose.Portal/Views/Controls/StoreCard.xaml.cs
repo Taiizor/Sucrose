@@ -171,6 +171,13 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     DownloadRing.Progress = SSSMI.StoreService.Info[Keys].ProgressPercentage;
 
+                    ToolTip RingTip = new()
+                    {
+                        Content = SSSMI.StoreService.Info[Keys].Percentage
+                    };
+
+                    Download.ToolTip = RingTip;
+
                     if (SSSMI.StoreService.Info[Keys].ProgressPercentage >= 100)
                     {
                         if (State)
@@ -179,6 +186,7 @@ namespace Sucrose.Portal.Views.Controls
 
                             await Task.Delay(1500);
 
+                            Download.ToolTip = null;
                             DownloadRing.Visibility = Visibility.Collapsed;
                             DownloadSymbol.Visibility = Visibility.Visible;
 

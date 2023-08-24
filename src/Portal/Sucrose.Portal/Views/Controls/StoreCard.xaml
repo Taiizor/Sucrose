@@ -67,7 +67,7 @@
                     <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="{DynamicResource Portal.LibraryCard.TitleText}" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
                     <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="{DynamicResource Portal.LibraryCard.DescriptionText}" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
 
-                    <ui:Button x:Name="Download" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="41.06" Click="Download_Click" ToolTipService.ToolTip="{DynamicResource Portal.LibraryCard.MoreTip}" Cursor="Hand" Padding="0" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <ui:Button x:Name="Download" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="41.06" Click="Download_Click" Cursor="Hand" Padding="0" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Grid>
                             <!--<Image Source="pack://application:,,,/Assets/Icon/DownloadFromCloud.png"/>-->
                             <ui:SymbolIcon x:Name="DownloadSymbol" Symbol="CloudArrowDown24" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontSize="36" Width="36" />

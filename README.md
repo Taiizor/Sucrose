@@ -162,7 +162,7 @@
 <div align="center">
   <h2>Download</h2>
 
-  <strong>Microsoft Store (Coming Soon)</strong>
+  <strong>Microsoft Store</strong>
 
   <table align="center" style="margin:auto">
     <tr>
@@ -174,17 +174,17 @@
     <tr align="center">
       <td>.NET Framework 4.8</td>
       <td>
-        <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+        <a href='https://apps.microsoft.com/store/detail/XP8JGPBHTJGLCQ'>
           <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 x64' width='160' />
         </a>
       </td>
       <td>
-        <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+        <a href='https://apps.microsoft.com/store/detail/XP8JGPBHTJGLCQ'>
           <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 x86' width='160' />
         </a>
       </td>
       <td>
-        <a href='https://www.microsoft.com/store/apps/9P1JZMGT34M2'>
+        <a href='https://apps.microsoft.com/store/detail/XP8JGPBHTJGLCQ'>
           <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 ARM64' width='160' />
         </a>
       </td>
