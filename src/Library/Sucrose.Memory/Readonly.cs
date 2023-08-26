@@ -36,6 +36,8 @@
 
         public static readonly char ValueSeparatorChar = '|';
 
+        public static readonly string Temporary = "Temporary";
+
         public static readonly string WallpaperSource = "src";
 
         public static readonly string StoreFile = "Store.json";

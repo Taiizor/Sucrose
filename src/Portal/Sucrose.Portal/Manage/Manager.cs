@@ -40,6 +40,8 @@ namespace Sucrose.Portal.Manage
 
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
+        public static bool Start => SMMI.EngineSettingManager.GetSetting(SMC.Start, false);
+
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;

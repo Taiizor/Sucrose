@@ -7,13 +7,17 @@ using Wpf.Ui.Controls;
 using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
 using SHV = Skylark.Helper.Versionly;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
+using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
@@ -132,7 +136,29 @@ namespace Sucrose.Portal.Views.Controls
 
             SSSMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
-            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), Path.Combine(SPMM.LibraryLocation, Keys), Agent, Keys, Key);
+            string LibraryPath = Path.Combine(SPMM.LibraryLocation, Keys);
+            string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
+
+            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key);
+
+            await Task.Delay(100);
+
+            if (Directory.Exists(TemporaryPath))
+            {
+                CopyDirectory(TemporaryPath, LibraryPath);
+
+                if (SPMM.Start)
+                {
+                    SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
+
+                    if (SSSHL.Run())
+                    {
+                        SSSHL.Kill();
+                    }
+
+                    SSLHR.Start();
+                }
+            }
         }
 
         private void Download_Click(object sender, RoutedEventArgs e)
@@ -252,6 +278,31 @@ namespace Sucrose.Portal.Views.Controls
         private void StoreCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Start();
+        }
+
+        private static void CopyDirectory(string Source, string Destination, bool Delete = true)
+        {
+            if (!Directory.Exists(Destination))
+            {
+                Directory.CreateDirectory(Destination);
+            }
+
+            foreach (string Record in Directory.GetFiles(Source))
+            {
+                string DestinationFile = Path.Combine(Destination, Path.GetFileName(Record));
+                File.Copy(Record, DestinationFile, true);
+            }
+
+            foreach (string SubDirectory in Directory.GetDirectories(Source))
+            {
+                string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
+                CopyDirectory(SubDirectory, DestinationSubDirectory);
+            }
+
+            if (Delete)
+            {
+                Directory.Delete(Source, true);
+            }
         }
 
         public void Dispose()
