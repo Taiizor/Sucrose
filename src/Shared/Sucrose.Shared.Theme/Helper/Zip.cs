@@ -58,7 +58,7 @@ namespace Sucrose.Shared.Theme.Helper
                 }
 
                 // Info içindeki AppVersion sürümü bu uygulamanın düşük mü?
-                if (Info.AppVersion.CompareTo(SHV.Executing()) > 0)
+                if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
                 {
                     return SSDECT.AppVersion;
                 }

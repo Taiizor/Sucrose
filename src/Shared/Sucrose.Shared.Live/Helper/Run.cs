@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -37,28 +38,31 @@ namespace Sucrose.Shared.Live.Helper
             {
                 SSTHI Info = SSTHI.ReadJson(InfoPath);
 
-                switch (Info.Type)
+                if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                 {
-                    case SSDEWT.Web:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[WApp]}");
-                        break;
-                    case SSDEWT.Url:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[UApp]}");
-                        break;
-                    case SSDEWT.Gif:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[GApp]}");
-                        break;
-                    case SSDEWT.Video:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[VApp]}");
-                        break;
-                    case SSDEWT.YouTube:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[YApp]}");
-                        break;
-                    case SSDEWT.Application:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[AApp]}");
-                        break;
-                    default:
-                        break;
+                    switch (Info.Type)
+                    {
+                        case SSDEWT.Web:
+                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[WApp]}");
+                            break;
+                        case SSDEWT.Url:
+                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[UApp]}");
+                            break;
+                        case SSDEWT.Gif:
+                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[GApp]}");
+                            break;
+                        case SSDEWT.Video:
+                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[VApp]}");
+                            break;
+                        case SSDEWT.YouTube:
+                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[YApp]}");
+                            break;
+                        case SSDEWT.Application:
+                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[AApp]}");
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

@@ -7,6 +7,7 @@
     <system:String x:Key="Portal.LibraryCard.DescriptionText">Descripción</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MoreTip">Más</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Actualiza Sucrose para poder usar este tema</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuReview">Revisar</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuUse">Usar</system:String>

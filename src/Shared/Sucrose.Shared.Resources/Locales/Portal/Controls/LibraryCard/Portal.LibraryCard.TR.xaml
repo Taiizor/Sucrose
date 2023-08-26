@@ -7,6 +7,7 @@
     <system:String x:Key="Portal.LibraryCard.DescriptionText">Açıklama</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MoreTip">Daha</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Bu temayı kullanabilmek için Sucrose güncelle</system:String>
 
     <system:String x:Key="Portal.LibraryCard.MenuReview">İncele</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuUse">Kullan</system:String>

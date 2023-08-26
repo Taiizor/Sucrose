@@ -16,14 +16,8 @@
 
     <UserControl.ContextMenu>
         <ContextMenu Opened="ContextMenu_Opened" Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuReview}" Icon="{ui:SymbolIcon Info20}" Click="MenuReview_Click" />
-            <ui:MenuItem x:Name="MenuUse" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuUse}" Icon="{ui:SymbolIcon Checkmark20}" Click="MenuUse_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuPreview}" Icon="{ui:SymbolIcon Eye20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuCustomize}" Icon="{ui:SymbolIcon Color20}" IsEnabled="False" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuFind}" Icon="{ui:SymbolIcon Folder20}" Click="MenuFind_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuShare}" Icon="{ui:SymbolIcon Share20}" Click="MenuShare_Click" />
-            <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuDelete}" Icon="{ui:SymbolIcon Delete20}" Click="MenuDelete_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuEdit}" Icon="{ui:SymbolIcon Pen20}" IsEnabled="False" />
+            <ui:MenuItem x:Name="MenuInstall" Cursor="Hand" Header="{DynamicResource Portal.StoreCard.MenuInstall}" Icon="{ui:SymbolIcon ImageAdd24}" Click="MenuInstall_Click" />
+            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.StoreCard.MenuReport}" Icon="{ui:SymbolIcon PersonFeedback24}" Click="MenuReport_Click" />
         </ContextMenu>
     </UserControl.ContextMenu>
     
@@ -64,14 +58,15 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="{DynamicResource Portal.LibraryCard.TitleText}" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
-                    <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="{DynamicResource Portal.LibraryCard.DescriptionText}" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
+                    <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="{DynamicResource Portal.StoreCard.TitleText}" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
+                    <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="{DynamicResource Portal.StoreCard.DescriptionText}" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
 
-                    <ui:Button x:Name="Download" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="41.06" Click="Download_Click" Cursor="Hand" Padding="0" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <ui:Button x:Name="Download" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="41.06" Click="Download_Click" Padding="0" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Grid>
-                            <!--<Image Source="pack://application:,,,/Assets/Icon/DownloadFromCloud.png"/>-->
-                            <ui:SymbolIcon x:Name="DownloadSymbol" Symbol="CloudArrowDown24" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontSize="36" Width="36" />
+                            <ui:SymbolIcon x:Name="IncompatibleVersion" Visibility="Collapsed" Symbol="BoxDismiss24" Foreground="{DynamicResource PaletteRedBrush}" ToolTipService.ToolTip="{DynamicResource Portal.StoreCard.VersionTip}" FontSize="36" Width="36"/>
+                            <ui:SymbolIcon x:Name="DownloadSymbol" Symbol="CloudArrowDown24" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontSize="36" Width="36" Cursor="Hand" />
                             <ui:ProgressRing x:Name="DownloadRing" Visibility="Collapsed" Progress="0" Width="36" Height="36" />
+                            <!--<Image Source="pack://application:,,,/Assets/Icon/DownloadFromCloud.png"/>-->
                         </Grid>
                     </ui:Button>
                 </Grid>

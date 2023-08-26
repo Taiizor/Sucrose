@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SHA = Skylark.Helper.Adaptation;
+using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
@@ -55,6 +56,12 @@ namespace Sucrose.Portal.Views.Controls
                 Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
             }
 
+            if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+            {
+                ThemeMore.Visibility = Visibility.Collapsed;
+                IncompatibleVersion.Visibility = Visibility.Visible;
+            }
+
             Dispose();
         }
 
@@ -77,7 +84,10 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuUse_Click(object sender, RoutedEventArgs e)
         {
-            Use();
+            if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+            {
+                Use();
+            }
         }
 
         private void MenuFind_Click(object sender, RoutedEventArgs e)
@@ -134,14 +144,22 @@ namespace Sucrose.Portal.Views.Controls
             }
             else
             {
-                MenuUse.IsEnabled = true;
+                if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                {
+                    MenuUse.IsEnabled = true;
+                }
+                else
+                {
+                    MenuUse.IsEnabled = false;
+                }
+
                 MenuDelete.IsEnabled = true;
             }
         }
 
         private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+            if ((SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
             {
                 Cursor = Cursors.Arrow;
             }
@@ -153,7 +171,10 @@ namespace Sucrose.Portal.Views.Controls
 
         private void LibraryCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Use();
+            if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+            {
+                Use();
+            }
         }
 
         public void Dispose()

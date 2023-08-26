@@ -2,6 +2,7 @@
 using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
+using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -20,6 +21,7 @@ using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHA = Sucrose.Shared.Space.Helper.Assets;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Shared.Launcher.Manager
@@ -100,9 +102,13 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 if (File.Exists(InfoPath))
                 {
-                    ContextMenu.Items.Add(Separator1.Strip);
+                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                    {
+                        ContextMenu.Items.Add(Separator1.Strip);
 
-                    ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                        ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                    }
                 }
             }
 

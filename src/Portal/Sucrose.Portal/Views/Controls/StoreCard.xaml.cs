@@ -6,17 +6,15 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
+using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
-using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -49,43 +47,41 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void Start()
         {
-            if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24)
+            if (Info != null && Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
             {
-                if (SSSHN.GetHostEntry())
+                if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24)
                 {
-                    State = true;
+                    if (SSSHN.GetHostEntry())
+                    {
+                        State = true;
 
-                    DownloadSymbol.Symbol = SymbolRegular.Empty;
+                        DownloadSymbol.Symbol = SymbolRegular.Empty;
 
-                    DownloadRing.Visibility = Visibility.Visible;
-                    DownloadSymbol.Visibility = Visibility.Collapsed;
+                        DownloadRing.Visibility = Visibility.Visible;
+                        DownloadSymbol.Visibility = Visibility.Collapsed;
 
-                    await Task.Run(DownloadTheme);
+                        await Task.Run(DownloadTheme);
+                    }
+                    else
+                    {
+                        DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteRedBrush");
+                        DownloadSymbol.Symbol = SymbolRegular.CloudDismiss24;
+
+                        await Task.Delay(3000);
+
+                        DownloadSymbol.Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush");
+                        DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
+                    }
                 }
-                else
-                {
-                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteRedBrush");
-                    DownloadSymbol.Symbol = SymbolRegular.CloudDismiss24;
-
-                    await Task.Delay(3000);
-
-                    DownloadSymbol.Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush");
-                    DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
-                }
+            }
+            else
+            {
+                DownloadSymbol.Visibility = Visibility.Hidden;
+                IncompatibleVersion.Visibility = Visibility.Visible;
             }
         }
 
-        private void MenuUse_Click(object sender, RoutedEventArgs e)
-        {
-            //
-        }
-
-        private void MenuFind_Click(object sender, RoutedEventArgs e)
-        {
-            SSSHP.Run(Theme);
-        }
-
-        private async void MenuShare_Click(object sender, RoutedEventArgs e)
+        private async void MenuReport_Click(object sender, RoutedEventArgs e)
         {
             SPVCTS ThemeShare = new()
             {
@@ -96,28 +92,9 @@ namespace Sucrose.Portal.Views.Controls
             ThemeShare.Dispose();
         }
 
-        private async void MenuReview_Click(object sender, RoutedEventArgs e)
+        private void MenuInstall_Click(object sender, RoutedEventArgs e)
         {
-            SPVCTR ThemeReview = new()
-            {
-                Info = Info,
-                Theme = Theme
-            };
-            await ThemeReview.ShowAsync();
-            ThemeReview.Dispose();
-        }
-
-        private async void MenuDelete_Click(object sender, RoutedEventArgs e)
-        {
-            Dispose();
-            MinWidth = 0;
-            MinHeight = 0;
-
-            Imagine.ImageSource = null;
-
-            Visibility = Visibility.Hidden;
-
-            await Task.Run(() => Directory.Delete(Theme, true));
+            Start();
         }
 
         private async void DownloadCache()
@@ -203,6 +180,17 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private void ContextMenu_Opened(object sender, RoutedEventArgs e)
+        {
+            if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24 && Info != null && Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+            {
+                MenuInstall.IsEnabled = true;
+            }
+            else
+            {
+                MenuInstall.IsEnabled = false;
+            }
+        }
 
         private async void StoreCard_Loaded(object sender, RoutedEventArgs e)
         {
@@ -233,6 +221,12 @@ namespace Sucrose.Portal.Views.Controls
                     Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
                 }
 
+                if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+                {
+                    DownloadSymbol.Visibility = Visibility.Hidden;
+                    IncompatibleVersion.Visibility = Visibility.Visible;
+                }
+
                 await Task.Delay(100);
 
                 Card.Visibility = Visibility.Visible;
@@ -243,20 +237,6 @@ namespace Sucrose.Portal.Views.Controls
             catch
             {
                 Dispose();
-            }
-        }
-
-        private void ContextMenu_Opened(object sender, RoutedEventArgs e)
-        {
-            if (SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
-            {
-                MenuUse.IsEnabled = false;
-                MenuDelete.IsEnabled = false;
-            }
-            else
-            {
-                MenuUse.IsEnabled = true;
-                MenuDelete.IsEnabled = true;
             }
         }
 
