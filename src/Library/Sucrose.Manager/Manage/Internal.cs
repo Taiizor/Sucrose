@@ -7,6 +7,8 @@ namespace Sucrose.Manager.Manage
     {
         public static readonly SMSM ServerManager = new("Server.json");
 
+        public static readonly SMSM ThemesManager = new("Themes.json");
+
         public static readonly SMSM WebsiteManager = new("Website.json");
 
         public static readonly SMLM UpdateLogManager = new("Update-{0}.log");

@@ -10,6 +10,7 @@
     MouseEnter="LibraryCard_MouseEnter"
     MinHeight="160" MaxHeight="160"
     MaxWidth="360" MinWidth="260"
+    Loaded="LibraryCard_Loaded"
     mc:Ignorable="d"
     xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Entered}, Event=MouseEnter}"
     xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource Leaved}, Event=MouseLeave}">
@@ -42,7 +43,7 @@
                 <ImageBrush x:Name="Imagine" Stretch="UniformToFill" ImageSource="{x:Null}" />
             </Grid.Background>
 
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Cursor="">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                 <Grid.Background>
                     <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75" />
                 </Grid.Background>

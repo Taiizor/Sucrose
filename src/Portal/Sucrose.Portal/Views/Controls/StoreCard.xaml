@@ -17,7 +17,7 @@
     <UserControl.ContextMenu>
         <ContextMenu Opened="ContextMenu_Opened" Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
             <ui:MenuItem x:Name="MenuInstall" Cursor="Hand" Header="{DynamicResource Portal.StoreCard.MenuInstall}" Icon="{ui:SymbolIcon ImageAdd24}" Click="MenuInstall_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.StoreCard.MenuReport}" Icon="{ui:SymbolIcon PersonFeedback24}" Click="MenuReport_Click" />
+            <ui:MenuItem x:Name="MenuReport" Cursor="Hand" Header="{DynamicResource Portal.StoreCard.MenuReport}" Icon="{ui:SymbolIcon PersonFeedback24}" Click="MenuReport_Click" />
         </ContextMenu>
     </UserControl.ContextMenu>
     

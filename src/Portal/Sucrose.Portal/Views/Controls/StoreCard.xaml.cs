@@ -182,6 +182,15 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
+            if (Info != null)
+            {
+                MenuReport.IsEnabled = true;
+            }
+            else
+            {
+                MenuReport.IsEnabled = false;
+            }
+
             if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24 && Info != null && Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
             {
                 MenuInstall.IsEnabled = true;
@@ -218,7 +227,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (File.Exists(ImagePath))
                 {
-                    Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
+                    Imagine.ImageSource = await Loader.LoadOptimalAsync(ImagePath);
                 }
 
                 if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)

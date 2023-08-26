@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
@@ -46,7 +47,7 @@ namespace Sucrose.Portal.Views.Pages.Library
                 {
                     if (SPMM.LibraryPagination * Page > Count && SPMM.LibraryPagination * Page <= Count + SPMM.LibraryPagination)
                     {
-                        SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), SSTHI.ReadJson(Theme));
+                        SPVCLC LibraryCard = new(Path.Combine(SPMM.LibraryLocation, Theme), SSTHI.ReadJson(Path.Combine(SPMM.LibraryLocation, Theme, SMR.SucroseInfo)));
 
                         LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
@@ -54,22 +55,22 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                         Empty.Visibility = Visibility.Collapsed;
 
-                        await Task.Delay(1);
+                        await Task.Delay(50);
                     }
 
                     Count++;
                 }
                 else
                 {
-                    SSTHI Info = SSTHI.ReadJson(Theme);
-                    string Title = Info.Title.ToLowerInvariant();
+                    SSTHI Info = SSTHI.ReadJson(Path.Combine(SPMM.LibraryLocation, Theme, SMR.SucroseInfo));
                     string Description = Info.Description.ToLowerInvariant();
+                    string Title = Info.Title.ToLowerInvariant();
 
                     if (Title.Contains(Search) || Description.Contains(Search))
                     {
                         if (SPMM.LibraryPagination * Page > Count && SPMM.LibraryPagination * Page <= Count + SPMM.LibraryPagination)
                         {
-                            SPVCLC LibraryCard = new(Path.GetDirectoryName(Theme), Info);
+                            SPVCLC LibraryCard = new(Path.Combine(SPMM.LibraryLocation, Theme), Info);
 
                             LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
@@ -77,7 +78,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                             Empty.Visibility = Visibility.Collapsed;
 
-                            await Task.Delay(1);
+                            await Task.Delay(50);
                         }
 
                         Count++;

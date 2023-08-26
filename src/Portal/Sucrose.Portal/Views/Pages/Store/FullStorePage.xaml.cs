@@ -165,7 +165,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
                                         Empty.Visibility = Visibility.Collapsed;
 
-                                        await Task.Delay(1);
+                                        await Task.Delay(50);
                                     }
 
                                     Count++;

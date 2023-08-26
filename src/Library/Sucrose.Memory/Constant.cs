@@ -32,6 +32,8 @@
 
         public const string Delay = "Delay";
 
+        public const string Themes = "Themes";
+
         public const string Volume = "Volume";
 
         public const string Refresh = "Refresh";

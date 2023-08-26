@@ -1,6 +1,8 @@
 ﻿using System.IO;
 using System.Windows;
 using Wpf.Ui.Controls;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
@@ -15,6 +17,8 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class LibraryPage : INavigableView<SPVMPLVM>, IDisposable
     {
+        private List<string> Themes { get; set; } = new();
+
         private SPVPLELP EmptyLibraryPage { get; set; }
 
         private SPVPLFLP FullLibraryPage { get; set; }
@@ -25,6 +29,8 @@ namespace Sucrose.Portal.Views.Pages
         {
             this.ViewModel = ViewModel;
             DataContext = this;
+
+            InitializeThemes();
 
             InitializeComponent();
 
@@ -45,12 +51,31 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
         }
 
-        private async Task Start(bool Progress = false)
+        private void InitializeThemes()
         {
-            List<string> Themes = new();
+            Themes = SMMI.ThemesManager.GetSetting(SMC.Themes, new List<string>());
 
             if (Directory.Exists(SPMM.LibraryLocation))
             {
+                if (Themes.Any())
+                {
+                    foreach (string Theme in Themes.ToList())
+                    {
+                        string ThemePath = Path.Combine(SPMM.LibraryLocation, Theme);
+                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+
+                        if (!Directory.Exists(ThemePath) || !File.Exists(InfoPath))
+                        {
+                            Themes.Remove(Theme);
+
+                            if (Directory.Exists(ThemePath))
+                            {
+                                Directory.Delete(ThemePath, true);
+                            }
+                        }
+                    }
+                }
+
                 string[] Folders = Directory.GetDirectories(SPMM.LibraryLocation);
 
                 if (Folders.Any())
@@ -61,12 +86,28 @@ namespace Sucrose.Portal.Views.Pages
 
                         if (File.Exists(InfoPath))
                         {
-                            Themes.Add(InfoPath);
+                            if (!Themes.Contains(Path.GetFileName(Folder)))
+                            {
+                                Themes.Add(Path.GetFileName(Folder));
+                            }
+                        }
+                        else
+                        {
+                            Directory.Delete(Folder, true);
                         }
                     }
                 }
             }
+            else
+            {
+                Themes.Clear();
+            }
 
+            SMMI.ThemesManager.SetSetting(SMC.Themes, Themes);
+        }
+
+        private async Task Start(bool Progress = false)
+        {
             if (Themes.Any())
             {
                 FullLibraryPage = new(Themes);
