@@ -1,15 +1,11 @@
-﻿Field,Type,Turkish,Spanish,English,German,French
-ProductName,Text,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine
-Description,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.,Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.
+﻿Field,Type,Turkish,English,German,French,Polish,Italian,Irish,Russian,Swedish,Norwegian,Spanish
+ProductName,Text,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine
+Description,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.,"Sucrose to wszechstronny silnik tapet, który ożywia pulpit dzięki szerokiemu spektrum interaktywnych motywów.",Sucrose è un motore di sfondo versatile che dà vita al tuo desktop con una vasta gamma di temi interattivi.,Is é motar fuinneoige é Sucrose a thugann beocht d'fhónasc níos leithne do do lárchlár le réimse leathan téamaí idirghníomhacha.,"Sucrose - это универсальный движок обоев, который оживляет ваш рабочий стол с широким спектром интерактивных тем.",Sucrose är en mångsidig tapetmotor som ger liv åt din skrivbord med ett brett utbud av interaktiva teman.,Sucrose er en allsidig tapetmotor som gir liv til skrivebordet ditt med et bredt utvalg av interaktive temaer.,Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.
 WhatsNew,Text,"Yenilikler ve Hata Düzeltmelerinden bazıları aşağıda listelenmiştir:
 
 - Tema paylaşma sayfası eklendi.
 - Tema inceleme sayfası eklendi.
-- Mağaza sayfası yeniden tasarlandı.","A continuación se enumeran algunas de las novedades y correcciones de errores:
-
-- Se rediseñó la página de la tienda.
-- Se agregó la página de compartir temas.
-- Se agregó la página de revisión de temas.","Some of What's New and Bug Fixes are listed below:
+- Mağaza sayfası yeniden tasarlandı.","Some of What's New and Bug Fixes are listed below:
 
 - Added theme share page.
 - Added theme review page.
@@ -21,69 +17,97 @@ WhatsNew,Text,"Yenilikler ve Hata Düzeltmelerinden bazıları aşağıda listel
 
 - La page du magasin a été repensée.
 - Ajout de la page d'examen du thème.
-- Ajout de la page de partage de thème."
-ProductFeatures1,Text,Aydınlık ve Karanlık tema özelliği.,Característica de tema claro y oscuro.,Light and Dark theme feature.,Funktion für helle und dunkle Themen.,Fonctionnalité de thème clair et sombre.
-ProductFeatures2,Text,Birden fazla ekranı ve tüm ekran çözünürlüklerini destekler.,Admite varias pantallas y todas las resoluciones de pantalla.,Supports multiple screens and all screen resolutions.,Unterstützt mehrere Bildschirme und alle Bildschirmauflösungen.,Prend en charge plusieurs écrans et toutes les résolutions d'écran.
-ProductFeatures3,Text,"Tamamen açık kaynaklı ve ücretsiz, hiçbir özellik ödeme gerektirmez.","Completamente de código abierto y gratuito, ninguna característica requiere pago.","Completely open-source and free, no feature requires payment.","Vollständig Open Source und kostenlos, es ist keine Funktion zahlungspflichtig.","Complètement open-source et gratuit, aucune fonction ne nécessite de paiement."
-ProductFeatures4,Text,,,,,
-ProductFeatures5,Text,,,,,
-ProductFeatures6,Text,,,,,
-ProductFeatures7,Text,,,,,
-ProductFeatures8,Text,,,,,
-ProductFeatures9,Text,,,,,
-ProductFeatures10,Text,,,,,
-ProductFeatures11,Text,,,,,
-ProductFeatures12,Text,,,,,
-ProductFeatures13,Text,,,,,
-ProductFeatures14,Text,,,,,
-ProductFeatures15,Text,,,,,
-ProductFeatures16,Text,,,,,
-ProductFeatures17,Text,,,,,
-ProductFeatures18,Text,,,,,
-ProductFeatures19,Text,,,,,
-ProductFeatures20,Text,,,,,
-ShortDescription,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.,Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.
-SearchTerms1,Text,desktop dynamic live,sucrose wallpaper engine,wallpaper engine,wallpaper-engine,fond d'écran interactif
-SearchTerms2,Text,fluent dynamics theme,temas versátiles,interactive wallpaper,desktop-animationen,sucrose wallpaper engine
-SearchTerms3,Text,wallpaper engine,fondos para escritorio,desktop themes,wallpaper-design,polyvalent wallpaper engine
-SearchTerms4,Text,interactive wallpaper,personaliza tu escritorio,custom wallpaper,hintergrundbilder,personnalisation de bureau
-SearchTerms5,Text,sucrose wallpaper,descarga sucrose,sucrose wallpaper,interaktive themes,sucrose wallpaper
-SearchTerms6,Text,live wallpapers,wallpaper engine,personalized desktop,sucrose-wallpaper-motor,live wallpapers
-SearchTerms7,Text,personalized desktop,,live wallpapers,vielseitiges wallpaper-tool,interactive wallpaper
-Applicable license terms,Text,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE
-Copyright,Text,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor
-DevelopedBy,Text,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor
-RequirementsMinimum1,Text,,,,,
-RequirementsMinimum2,Text,,,,,
-RequirementsMinimum3,Text,,,,,
-RequirementsMinimum4,Text,,,,,
-RequirementsMinimum5,Text,,,,,
-RequirementsMinimum6,Text,,,,,
-RequirementsMinimum7,Text,,,,,
-RequirementsMinimum8,Text,,,,,
-RequirementsMinimum9,Text,,,,,
-RequirementsMinimum10,Text,,,,,
-RequirementsMinimum11,Text,,,,,
-RequirementsRecommended1,Text,,,,,
-RequirementsRecommended2,Text,,,,,
-RequirementsRecommended3,Text,,,,,
-RequirementsRecommended4,Text,,,,,
-RequirementsRecommended5,Text,,,,,
-RequirementsRecommended6,Text,,,,,
-RequirementsRecommended7,Text,,,,,
-RequirementsRecommended8,Text,,,,,
-RequirementsRecommended9,Text,,,,,
-RequirementsRecommended10,Text,,,,,
-RequirementsRecommended11,Text,,,,,
-StoreLogos1,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-StoreLogos2,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots1,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots2,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots3,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots4,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots5,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots6,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots7,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots8,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots9,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
-Screenshots10,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,
+- Ajout de la page de partage de thème.","Oto niektóre z nowości i poprawek:
+
+- Dodano stronę recenzji motywów.
+- Strona sklepu została przeprojektowana.
+- Dodano stronę udostępniania motywów.","Di seguito sono elencate alcune delle novità e correzioni di bug:
+
+- La pagina del negozio è stata ridisegnata.
+- Aggiunta la pagina di recensione del tema.
+- Aggiunta la pagina di condivisione del tema.","Tá roinnt de na nua-ábhar agus na srianta sulaithrithe le feiceáil thíos:
+
+- Athdhearadh leathanach an siopa.
+- Cuireadh leathanach roinnte téama leis.
+- Cuireadh leathanach athbhreithnithe téama leis.","Часть нововведений и исправлений ошибок:
+
+- Добавлена страница обзора темы.
+- Страница магазина была переработана.
+- Добавлена страница для обмена темами.","Några av de nya funktionerna och felkorrigeringarna listas nedan:
+
+- Butikssidan har omdesignats.
+- Lade till delningssida för teman.
+- Lade till översiktssida för teman.","Noen av nyhetene og feilrettingene er listet opp nedenfor:
+
+- Lagt til temadelingsside.
+- Butikksiden har blitt redesignet.
+- Lagt til temagjennomgangsside.","A continuación se enumeran algunas de las novedades y correcciones de errores:
+
+- Se rediseñó la página de la tienda.
+- Se agregó la página de compartir temas.
+- Se agregó la página de revisión de temas."
+ProductFeatures1,Text,Aydınlık ve Karanlık tema özelliği.,Light and Dark theme feature.,Funktion für helle und dunkle Themen.,Fonctionnalité de thème clair et sombre.,Cechy jasnego i ciemnego motywu.,Caratteristica tema chiara e scura.,Gnè téama Soilse agus Dorcha.,Функция светлой и темной темы.,Ljus- och mörker tema funktion.,Lys og mørk tema funksjon.,Característica de tema claro y oscuro.
+ProductFeatures2,Text,Birden fazla ekranı ve tüm ekran çözünürlüklerini destekler.,Supports multiple screens and all screen resolutions.,Unterstützt mehrere Bildschirme und alle Bildschirmauflösungen.,Prend en charge plusieurs écrans et toutes les résolutions d'écran.,Obsługuje wiele ekranów i wszystkie rozdzielczości ekranu.,Supporta più schermi e tutte le risoluzioni dello schermo.,"Iomlán oscailte agus saor in aisce, ní gá íoc as aon ghné.",Поддерживает несколько экранов и все разрешения экрана.,Stöd för flera skärmar och alla skärmupplösningar.,Støtter flere skjermer og alle skjermoppløsninger.,Admite varias pantallas y todas las resoluciones de pantalla.
+ProductFeatures3,Text,"Tamamen açık kaynaklı ve ücretsiz, hiçbir özellik ödeme gerektirmez.","Completely open-source and free, no feature requires payment.","Vollständig Open Source und kostenlos, es ist keine Funktion zahlungspflichtig.","Complètement open-source et gratuit, aucune fonction ne nécessite de paiement.","Całkowicie otwarty i darmowy, żadna funkcja nie wymaga płatności.","Completamente open-source e gratuito, nessuna caratteristica richiede pagamento.",Tacaíonn sé le móran scáileán agus le gach réiteach scáileáin.,"Полностью открыт и бесплатен, ни одна функция не требует платы.","Helt öppen källkod och gratis, inga funktioner kräver betalning.","Helt åpen kildekode og gratis, ingen funksjon krever betaling.","Completamente de código abierto y gratuito, ninguna característica requiere pago."
+ProductFeatures4,Text,,,,,,,,,,,
+ProductFeatures5,Text,,,,,,,,,,,
+ProductFeatures6,Text,,,,,,,,,,,
+ProductFeatures7,Text,,,,,,,,,,,
+ProductFeatures8,Text,,,,,,,,,,,
+ProductFeatures9,Text,,,,,,,,,,,
+ProductFeatures10,Text,,,,,,,,,,,
+ProductFeatures11,Text,,,,,,,,,,,
+ProductFeatures12,Text,,,,,,,,,,,
+ProductFeatures13,Text,,,,,,,,,,,
+ProductFeatures14,Text,,,,,,,,,,,
+ProductFeatures15,Text,,,,,,,,,,,
+ProductFeatures16,Text,,,,,,,,,,,
+ProductFeatures17,Text,,,,,,,,,,,
+ProductFeatures18,Text,,,,,,,,,,,
+ProductFeatures19,Text,,,,,,,,,,,
+ProductFeatures20,Text,,,,,,,,,,,
+ShortDescription,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.,"Sucrose to wszechstronny silnik tapet, który ożywia pulpit dzięki szerokiemu spektrum interaktywnych motywów.",Sucrose è un motore di sfondo versatile che dà vita al tuo desktop con una vasta gamma di temi interattivi.,Is é motar fuinneoige é Sucrose a thugann beocht d'fhónasc níos leithne do do lárchlár le réimse leathan téamaí idirghníomhacha.,"Sucrose - это универсальный движок обоев, который оживляет ваш рабочий стол с широким спектром интерактивных тем.",Sucrose är en mångsidig tapetmotor som ger liv åt din skrivbord med ett brett utbud av interaktiva teman.,Sucrose er en allsidig tapetmotor som gir liv til skrivebordet ditt med et bredt utvalg av interaktive temaer.,Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.
+SearchTerms1,Text,desktop dynamic live,wallpaper engine,wallpaper-engine,fond d'écran interactif,tapety na pulpit,wallpaper engine sucrose,fuinneoige sucraí,интерактивные обои,sucrose-tapetmotor,desktop wallpaper engine,sucrose wallpaper engine
+SearchTerms2,Text,fluent dynamics theme,interactive wallpaper,desktop-animationen,sucrose wallpaper engine,żywe tapety,temi animati sucrose,imeartha taobhscáile doiopacha,скачать обои,interaktiva tapeter,interactive desktop backgrounds,temas versátiles
+SearchTerms3,Text,wallpaper engine,desktop themes,wallpaper-design,polyvalent wallpaper engine,interaktywne tapety,sfondi dinamici sucrose,táirge fuinneoige microsoft,движок обоев,mangsidig skrivbordsbakgrund,customizable desktop themes,fondos para escritorio
+SearchTerms4,Text,interactive wallpaper,custom wallpaper,hintergrundbilder,personnalisation de bureau,silnik tapet,sucrose,riachtanais córasaitheois cuimsitheach,sucrose wallpaper engine,livfulla tapeter,dynamic desktop wallpapers,personaliza tu escritorio
+SearchTerms5,Text,sucrose wallpaper,sucrose wallpaper,interaktive themes,sucrose wallpaper,motywy tapet,wallpaper,sucrose,анимированные обои,tematiska bakgrunder,high-quality wallpapers,descarga sucrose
+SearchTerms6,Text,live wallpapers,personalized desktop,sucrose-wallpaper-motor,live wallpapers,motywy interaktywne,engine,wallpaper,универсальный движок обоев,desktop-engine för tapeter,wallpaper animations,wallpaper engine
+SearchTerms7,Text,personalized desktop,live wallpapers,vielseitiges wallpaper-tool,interactive wallpaper,sucrose wallpaper engine,sucrose wallpaper engine,engine,синхронизация обоев,personlig skrivbordstapet,windows wallpaper engine,wallpaper
+Applicable license terms,Text,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE
+Copyright,Text,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor,Copyright © 2023 Taiizor
+DevelopedBy,Text,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor,Taiizor
+RequirementsMinimum1,Text,,,,,,,,,,,
+RequirementsMinimum2,Text,,,,,,,,,,,
+RequirementsMinimum3,Text,,,,,,,,,,,
+RequirementsMinimum4,Text,,,,,,,,,,,
+RequirementsMinimum5,Text,,,,,,,,,,,
+RequirementsMinimum6,Text,,,,,,,,,,,
+RequirementsMinimum7,Text,,,,,,,,,,,
+RequirementsMinimum8,Text,,,,,,,,,,,
+RequirementsMinimum9,Text,,,,,,,,,,,
+RequirementsMinimum10,Text,,,,,,,,,,,
+RequirementsMinimum11,Text,,,,,,,,,,,
+RequirementsRecommended1,Text,,,,,,,,,,,
+RequirementsRecommended2,Text,,,,,,,,,,,
+RequirementsRecommended3,Text,,,,,,,,,,,
+RequirementsRecommended4,Text,,,,,,,,,,,
+RequirementsRecommended5,Text,,,,,,,,,,,
+RequirementsRecommended6,Text,,,,,,,,,,,
+RequirementsRecommended7,Text,,,,,,,,,,,
+RequirementsRecommended8,Text,,,,,,,,,,,
+RequirementsRecommended9,Text,,,,,,,,,,,
+RequirementsRecommended10,Text,,,,,,,,,,,
+RequirementsRecommended11,Text,,,,,,,,,,,
+StoreLogos1,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+StoreLogos2,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots1,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots2,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots3,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots4,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots5,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots6,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots7,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots8,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots9,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
+Screenshots10,Provide the file name only if it is in the same folder. Provide relative path to image starting with the subfolder name otherwise,,,,,,,,,,,
