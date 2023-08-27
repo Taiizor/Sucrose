@@ -49,6 +49,7 @@
     <system:String x:Key="Portal.Category.Superheroes">Süper Kahramanlar</system:String>
     <system:String x:Key="Portal.Category.Tavern">Taverna</system:String>
     <system:String x:Key="Portal.Category.Technology">Teknoloji</system:String>
+    <system:String x:Key="Portal.Category.Temple">Tapınak</system:String>
     <system:String x:Key="Portal.Category.UnderwaterandMarine">Sualtı ve Deniz</system:String>
     <system:String x:Key="Portal.Category.Vehicles">Araçlar</system:String>
     <system:String x:Key="Portal.Category.Vintage">Nostalji</system:String>

@@ -9,6 +9,8 @@ namespace Sucrose.Portal.Manage
 {
     internal static class Internal
     {
+        public static List<string> Themes = new();
+
         public static SPSSS SearchService = new();
 
         public static SPSCS CategoryService = new();
@@ -20,7 +22,6 @@ namespace Sucrose.Portal.Manage
         public static INavigationService NavigationService;
 
         public static IContentDialogService ContentDialogService;
-
         public static Dictionary<string, bool> StoreDownloader = new();
 
         public static Dictionary<string, bool> StoreDownloading = new();

@@ -17,8 +17,6 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class LibraryPage : INavigableView<SPVMPLVM>, IDisposable
     {
-        private List<string> Themes { get; set; } = new();
-
         private SPVPLELP EmptyLibraryPage { get; set; }
 
         private SPVPLFLP FullLibraryPage { get; set; }
@@ -53,20 +51,20 @@ namespace Sucrose.Portal.Views.Pages
 
         private void InitializeThemes()
         {
-            Themes = SMMI.ThemesManager.GetSetting(SMC.Themes, new List<string>());
+            SPMI.Themes = SMMI.ThemesManager.GetSetting(SMC.Themes, new List<string>());
 
             if (Directory.Exists(SPMM.LibraryLocation))
             {
-                if (Themes.Any())
+                if (SPMI.Themes.Any())
                 {
-                    foreach (string Theme in Themes.ToList())
+                    foreach (string Theme in SPMI.Themes.ToList())
                     {
                         string ThemePath = Path.Combine(SPMM.LibraryLocation, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
                         if (!Directory.Exists(ThemePath) || !File.Exists(InfoPath))
                         {
-                            Themes.Remove(Theme);
+                            SPMI.Themes.Remove(Theme);
 
                             if (Directory.Exists(ThemePath))
                             {
@@ -86,9 +84,9 @@ namespace Sucrose.Portal.Views.Pages
 
                         if (File.Exists(InfoPath))
                         {
-                            if (!Themes.Contains(Path.GetFileName(Folder)))
+                            if (!SPMI.Themes.Contains(Path.GetFileName(Folder)))
                             {
-                                Themes.Add(Path.GetFileName(Folder));
+                                SPMI.Themes.Add(Path.GetFileName(Folder));
                             }
                         }
                         else
@@ -100,17 +98,17 @@ namespace Sucrose.Portal.Views.Pages
             }
             else
             {
-                Themes.Clear();
+                SPMI.Themes.Clear();
             }
 
-            SMMI.ThemesManager.SetSetting(SMC.Themes, Themes);
+            SMMI.ThemesManager.SetSetting(SMC.Themes, SPMI.Themes);
         }
 
         private async Task Start(bool Progress = false)
         {
-            if (Themes.Any())
+            if (SPMI.Themes.Any())
             {
-                FullLibraryPage = new(Themes);
+                FullLibraryPage = new(SPMI.Themes);
 
                 FrameLibrary.Content = FullLibraryPage;
             }

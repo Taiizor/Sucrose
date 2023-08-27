@@ -49,6 +49,7 @@
     <system:String x:Key="Portal.Category.Superheroes">Superheroes</system:String>
     <system:String x:Key="Portal.Category.Tavern">Tavern</system:String>
     <system:String x:Key="Portal.Category.Technology">Technology</system:String>
+    <system:String x:Key="Portal.Category.Temple">Temple</system:String>
     <system:String x:Key="Portal.Category.UnderwaterandMarine">Underwater &amp; Marine</system:String>
     <system:String x:Key="Portal.Category.Vehicles">Vehicles</system:String>
     <system:String x:Key="Portal.Category.Vintage">Vintage</system:String>

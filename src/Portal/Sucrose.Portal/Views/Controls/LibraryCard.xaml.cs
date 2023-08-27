@@ -7,6 +7,7 @@ using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
@@ -93,12 +94,15 @@ namespace Sucrose.Portal.Views.Controls
             if (Delete)
             {
                 Dispose();
+
                 MinWidth = 0;
                 MinHeight = 0;
 
                 Imagine.ImageSource = null;
 
                 Visibility = Visibility.Hidden;
+
+                SPMI.Themes.Remove(Path.GetFileName(Theme));
 
                 await Task.Run(() => Directory.Delete(Theme, true));
             }

@@ -49,6 +49,7 @@
     <system:String x:Key="Portal.Category.Superheroes">Superbohaterowie</system:String>
     <system:String x:Key="Portal.Category.Tavern">Tawerna</system:String>
     <system:String x:Key="Portal.Category.Technology">Technologia</system:String>
+    <system:String x:Key="Portal.Category.Temple">Świątynia</system:String>
     <system:String x:Key="Portal.Category.UnderwaterandMarine">Podwodne i Morskie</system:String>
     <system:String x:Key="Portal.Category.Vehicles">Pojazdy</system:String>
     <system:String x:Key="Portal.Category.Vintage">Wintage</system:String>
