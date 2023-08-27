@@ -37,13 +37,28 @@ namespace Sucrose.Portal.Manage
         public static readonly Dictionary<string, SymbolRegular> CategoryIcons = new()
         {
             { "Game", SymbolRegular.Games24 },
+            { "Sports", SymbolRegular.Sport24 },
+            { "Line Art", SymbolRegular.Line24 },
             { "RGB", SymbolRegular.Lightbulb24 },
+            { "Nature", SymbolRegular.EarthLeaf24 },
             { "Music", SymbolRegular.MusicNote224 },
-            { "Sky", SymbolRegular.WeatherCloudy24 },
+            { "Abstract", SymbolRegular.HandDraw24 },
             { "Animals", SymbolRegular.AnimalCat24 },
+            { "Digital Art", SymbolRegular.Tablet24 },
             { "Vehicles", SymbolRegular.VehicleCar24 },
+            { "Comic Books", SymbolRegular.BookOpen24 },
+            { "Food and Drinks", SymbolRegular.Food24 },
             { "Dynamic", SymbolRegular.ClockToolbox24 },
-            { "Film and Movie", SymbolRegular.MoviesAndTv24 }
+            { "Cities and Places", SymbolRegular.City24 },
+            { "Film and TV", SymbolRegular.MoviesAndTv24 },
+            { "Sky", SymbolRegular.WeatherPartlyCloudyDay24 },
+            { "Underwater and Marine", SymbolRegular.Water24 },
+            { "Landscape", SymbolRegular.RectangleLandscape24 },
+            { "Colorful Gradients", SymbolRegular.ColorFill24 },
+            { "Clouds and Skies", SymbolRegular.WeatherCloudy24 },
+            { "Enchanted Forests", SymbolRegular.TreeEvergreen20 },
+            { "Minimalist", SymbolRegular.ArrowMinimizeVertical24 },
+            { "Holidays and Seasons", SymbolRegular.SwimmingPool24 }
         };
     }
 }

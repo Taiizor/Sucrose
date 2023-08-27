@@ -13,14 +13,16 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
-using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SSSMI = Sucrose.Shared.Store.Manage.Internal;
+using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
+using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Controls
@@ -85,15 +87,12 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private async void MenuReport_Click(object sender, RoutedEventArgs e)
+        private void MenuReport_Click(object sender, RoutedEventArgs e)
         {
-            SPVCTS ThemeShare = new()
-            {
-                Info = Info,
-                Theme = Theme
-            };
-            await ThemeShare.ShowAsync();
-            ThemeShare.Dispose();
+            string Title = Wallpaper.Key.Replace(" ", "%20");
+            string Location = $"{Wallpaper.Value.Source.Replace(" ", "%20").Split('/').LastOrDefault()}/{Title}";
+
+            SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.WallpaperReportWebsite}&title={Title}&wallpaper-location={Location}");
         }
 
         private void MenuInstall_Click(object sender, RoutedEventArgs e)
@@ -134,7 +133,7 @@ namespace Sucrose.Portal.Views.Controls
                 Keys = SHG.GenerateString(SPMM.Chars, 25, SMR.Randomise);
             } while (File.Exists(Path.Combine(SPMM.LibraryLocation, Keys)));
 
-            SSSMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
+            SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
             string LibraryPath = Path.Combine(SPMM.LibraryLocation, Keys);
             string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
@@ -172,16 +171,16 @@ namespace Sucrose.Portal.Views.Controls
             {
                 await Application.Current.Dispatcher.InvokeAsync(async () =>
                 {
-                    DownloadRing.Progress = SSSMI.StoreService.Info[Keys].ProgressPercentage;
+                    DownloadRing.Progress = SSSTMI.StoreService.Info[Keys].ProgressPercentage;
 
                     ToolTip RingTip = new()
                     {
-                        Content = SSSMI.StoreService.Info[Keys].Percentage
+                        Content = SSSTMI.StoreService.Info[Keys].Percentage
                     };
 
                     Download.ToolTip = RingTip;
 
-                    if (SSSMI.StoreService.Info[Keys].ProgressPercentage >= 100)
+                    if (SSSTMI.StoreService.Info[Keys].ProgressPercentage >= 100)
                     {
                         if (State)
                         {

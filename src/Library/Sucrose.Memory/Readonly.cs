@@ -115,5 +115,7 @@
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
         public static readonly string RawWebsite = $"https://raw.githubusercontent.com/{Owner}/{WallpaperRepository}/{Branch}";
+
+        public static readonly string WallpaperReportWebsite = $"https://github.com/{Owner}/{WallpaperRepository}/issues/new?assignees=&labels=wallpaper&projects=&template=wallpaper_report.yaml";
     }
 }
