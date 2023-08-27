@@ -53,4 +53,5 @@
     <system:String x:Key="Portal.Category.UnderwaterandMarine">Podwodne i Morskie</system:String>
     <system:String x:Key="Portal.Category.Vehicles">Pojazdy</system:String>
     <system:String x:Key="Portal.Category.Vintage">Wintage</system:String>
+    <system:String x:Key="Portal.Category.War">Wojna</system:String>
 </ResourceDictionary>

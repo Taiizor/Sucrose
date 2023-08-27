@@ -10,6 +10,7 @@ namespace Sucrose.Manager.Helper
             {
                 using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
                 using StreamReader reader = new(fileStream);
+
                 return SMHC.Clean(reader.ReadToEnd());
             }
             catch
@@ -18,6 +19,7 @@ namespace Sucrose.Manager.Helper
                 {
                     using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
                     using StreamReader reader = new(fileStream);
+
                     return SMHC.Clean(reader.ReadToEnd());
                 }
                 catch

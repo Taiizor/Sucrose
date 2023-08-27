@@ -53,4 +53,5 @@
     <system:String x:Key="Portal.Category.UnderwaterandMarine">Sualtı ve Deniz</system:String>
     <system:String x:Key="Portal.Category.Vehicles">Araçlar</system:String>
     <system:String x:Key="Portal.Category.Vintage">Nostalji</system:String>
+    <system:String x:Key="Portal.Category.War">Savaş</system:String>
 </ResourceDictionary>
