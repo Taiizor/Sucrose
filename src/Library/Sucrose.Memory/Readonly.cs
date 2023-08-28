@@ -72,8 +72,6 @@
 
         public static readonly string YouTubeContent = "YouTubeContent.html";
 
-        public static readonly string LiveMutex = "{Sucrose-Wallpaper-Live}";
-
         public static readonly string UserAgent = "Sucrose Wallpaper Engine";
 
         public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";
@@ -81,8 +79,6 @@
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
         public static readonly string LogDescription = "SucroseWatchdog Thread";
-
-        public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Update}";
 
         public static readonly string DiscordApplication = "1126294965950103612";
 
@@ -95,6 +91,10 @@
         public static readonly string SucroseProperties = "SucroseProperties.json";
 
         public static readonly string SucroseCompatible = "SucroseCompatible.json";
+
+        public static readonly string LiveMutex = "{Sucrose-Wallpaper-Engine-Live}";
+
+        public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
 
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
 

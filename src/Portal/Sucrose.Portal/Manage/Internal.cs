@@ -22,6 +22,7 @@ namespace Sucrose.Portal.Manage
         public static INavigationService NavigationService;
 
         public static IContentDialogService ContentDialogService;
+
         public static Dictionary<string, bool> StoreDownloader = new();
 
         public static Dictionary<string, bool> StoreDownloading = new();

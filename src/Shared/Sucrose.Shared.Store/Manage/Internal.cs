@@ -12,6 +12,6 @@ namespace Sucrose.Shared.Store.Manage
 
         public static SPSSS StoreService { get; } = new();
 
-        public static readonly TimeSpan RequiredDuration = TimeSpan.FromDays(1);
+        public static readonly TimeSpan RequiredDuration = TimeSpan.FromHours(12);
     }
 }

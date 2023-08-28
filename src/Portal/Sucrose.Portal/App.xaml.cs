@@ -44,9 +44,9 @@ namespace Sucrose.Portal
         // https://docs.microsoft.com/dotnet/core/extensions/logging
         private static readonly IHost _host = Host
             .CreateDefaultBuilder()
-            .ConfigureAppConfiguration(c =>
+            .ConfigureAppConfiguration(configure =>
                 {
-                    c.SetBasePath(AppContext.BaseDirectory);
+                    configure.SetBasePath(AppContext.BaseDirectory);
                 }
             )
             .ConfigureServices((context, services) =>

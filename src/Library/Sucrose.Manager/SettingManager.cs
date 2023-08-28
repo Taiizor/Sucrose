@@ -29,7 +29,7 @@ namespace Sucrose.Manager
                 {
                     //new SMCEC(),
                     new SMCIPAC(),
-                    //new StringEnumConverter(),
+                    //new StringEnumConverter()
                 }
             };
 
