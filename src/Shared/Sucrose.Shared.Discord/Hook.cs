@@ -11,11 +11,11 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
 namespace Sucrose.Shared.Discord
 {
-    internal class Hook
+    internal class Hook : IDisposable
     {
-        private bool Refresh => SMMI.DiscordSettingManager.GetSetting(SMC.Refresh, true);
+        private int Delay => SHS.Clamp(SMMI.DiscordSettingManager.GetSettingStable(SMC.Delay, 60), 60, 3600);
 
-        private int Delay => SMMI.DiscordSettingManager.GetSettingStable(SMC.Delay, 60);
+        private bool Refresh => SMMI.DiscordSettingManager.GetSetting(SMC.Refresh, true);
 
         private bool State => SMMI.DiscordSettingManager.GetSetting(SMC.State, true);
 
@@ -109,22 +109,14 @@ namespace Sucrose.Shared.Discord
 
         public void AutoRefresh()
         {
-            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, SHS.Clamp(Delay, 60, 3600));
             SSDMI.RefreshTimer.Tick += new EventHandler(RefreshTimer_Tick);
+            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, Delay);
             SSDMI.RefreshTimer.Start();
         }
 
         public void ClearPresence()
         {
             SSDMI.Client.ClearPresence();
-        }
-
-        public void Dispose()
-        {
-            if (SSDMI.Client.IsInitialized)
-            {
-                SSDMI.Client.Dispose();
-            }
         }
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
@@ -196,6 +188,17 @@ namespace Sucrose.Shared.Discord
         private void Client_OnError(object sender, ErrorMessage args)
         {
             Console.WriteLine("DiscordRPC error: " + args.Message);
+        }
+
+        public void Dispose()
+        {
+            if (SSDMI.Client.IsInitialized)
+            {
+                SSDMI.Client.Dispose();
+            }
+
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

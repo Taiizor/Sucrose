@@ -128,62 +128,89 @@ namespace Sucrose.Portal.Views.Controls
                 if (SelectPage <= 4)
                 {
                     Number1.Content = 1;
+                    Number1.Visibility = Visibility.Visible;
                     Number2.Content = 2;
+                    Number2.Visibility = Visibility.Visible;
 
                     Number3.Content = 3;
                     Number3.IsEnabled = true;
+                    Number3.Visibility = Visibility.Visible;
                     Number4.Content = 4;
                     Number4.IsEnabled = true;
+                    Number4.Visibility = Visibility.Visible;
 
                     Number5.Content = 5;
+                    Number5.Visibility = Visibility.Visible;
 
                     Number6.Content = "...";
                     Number6.IsEnabled = false;
+                    Number6.Visibility = Visibility.Visible;
                     Number7.Content = "...";
                     Number7.IsEnabled = false;
+                    Number7.Visibility = Visibility.Visible;
 
                     Number8.Content = MaxPage - 1;
+                    Number8.Visibility = Visibility.Visible;
                     Number9.Content = MaxPage;
+                    Number9.Visibility = Visibility.Visible;
                 }
                 else if (MaxPage - SelectPage < 4)
                 {
                     Number1.Content = 1;
+                    Number1.Visibility = Visibility.Visible;
                     Number2.Content = 2;
+                    Number2.Visibility = Visibility.Visible;
 
                     Number3.Content = "...";
                     Number3.IsEnabled = false;
+                    Number3.Visibility = Visibility.Visible;
                     Number4.Content = "...";
                     Number4.IsEnabled = false;
+                    Number4.Visibility = Visibility.Visible;
 
                     Number5.Content = MaxPage - 4;
+                    Number5.Visibility = Visibility.Visible;
 
                     Number6.Content = MaxPage - 3;
                     Number6.IsEnabled = true;
+                    Number6.Visibility = Visibility.Visible;
                     Number7.Content = MaxPage - 2;
                     Number7.IsEnabled = true;
+                    Number7.Visibility = Visibility.Visible;
 
                     Number8.Content = MaxPage - 1;
+                    Number8.Visibility = Visibility.Visible;
                     Number9.Content = MaxPage;
+                    Number9.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     Number1.Content = 1;
+                    Number1.Visibility = Visibility.Visible;
                     Number2.Content = 2;
+                    Number2.Visibility = Visibility.Visible;
 
                     Number3.Content = "...";
                     Number3.IsEnabled = false;
+                    Number3.Visibility = Visibility.Visible;
 
                     Number4.Content = SelectPage - 1;
                     Number4.IsEnabled = true;
+                    Number4.Visibility = Visibility.Visible;
                     Number5.Content = SelectPage;
+                    Number5.Visibility = Visibility.Visible;
                     Number6.Content = SelectPage + 1;
                     Number6.IsEnabled = true;
+                    Number6.Visibility = Visibility.Visible;
 
                     Number7.Content = "...";
                     Number7.IsEnabled = false;
+                    Number7.Visibility = Visibility.Visible;
 
                     Number8.Content = MaxPage - 1;
+                    Number8.Visibility = Visibility.Visible;
                     Number9.Content = MaxPage;
+                    Number9.Visibility = Visibility.Visible;
                 }
             }
             else
