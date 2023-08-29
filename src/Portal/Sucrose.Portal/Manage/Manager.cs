@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Net;
 using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
@@ -34,9 +35,17 @@ namespace Sucrose.Portal.Manage
 
         public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
+        public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
+
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         public static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
+
+        public static int Startup => SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0);
+
+        public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
+
+        public static int Port => SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0);
 
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 

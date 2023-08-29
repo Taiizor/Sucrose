@@ -12,7 +12,6 @@ using SPMM = Sucrose.Portal.Manage.Manager;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
-using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
@@ -23,7 +22,7 @@ namespace Sucrose.Portal.ViewModels.Windows
     public partial class MainWindowViewModel : ObservableObject, IDisposable
     {
         [ObservableProperty]
-        private WindowBackdropType _WindowBackdropType = SPMM.DefaultBackdropType;
+        private WindowBackdropType _WindowBackdropType = GetWindowBackdropType();
 
         private readonly DispatcherTimer Timer = new();
 
@@ -69,7 +68,6 @@ namespace Sucrose.Portal.ViewModels.Windows
             Version = SSCHV.GetText();
             Framework = SSCHF.GetName();
             Architecture = SSCHA.GetText();
-            OperatingSystem = SSCHOS.Get();
             WindowBackdropType = GetWindowBackdropType();
 
             _isInitialized = true;
@@ -100,9 +98,9 @@ namespace Sucrose.Portal.ViewModels.Windows
             }
         }
 
-        private WindowBackdropType GetWindowBackdropType()
+        private static WindowBackdropType GetWindowBackdropType()
         {
-            if (OperatingSystem == SEOST.Windows11)
+            if (WindowBackdrop.IsSupported(SPMM.BackdropType))
             {
                 return SPMM.BackdropType;
             }

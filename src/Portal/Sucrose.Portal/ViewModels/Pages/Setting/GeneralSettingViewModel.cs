@@ -3,7 +3,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
+using SEWTT = Skylark.Enum.WindowsThemeType;
+using SGCLLC = Sucrose.Grpc.Common.Launcher.LauncherClient;
+using SGCSLCS = Sucrose.Grpc.Client.Services.LauncherClientService;
+using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -16,10 +21,6 @@ using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
-using SGCSLCS = Sucrose.Grpc.Client.Services.LauncherClientService;
-using SGCLLC = Sucrose.Grpc.Common.Launcher.LauncherClient;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
-using System;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -95,7 +96,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             Startup.Items.Add("Öncelik");
             Startup.Items.Add("Zamanlayıcı");
 
-            Startup.SelectedIndex = SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0);
+            Startup.SelectedIndex = SPMM.Startup;
 
             ApplicationStartup.HeaderFrame = Startup;
 
@@ -118,11 +119,40 @@ namespace Sucrose.Portal.ViewModels.Pages
             Notify.Items.Add("Görünür");
             Notify.Items.Add("Görünmez");
 
-            Notify.SelectedIndex = SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true) ? 0 : 1;
+            Notify.SelectedIndex = SPMM.Visible ? 0 : 1;
 
             NotifyIcon.HeaderFrame = Notify;
 
             Contents.Add(NotifyIcon);
+
+            SPVCEC WindowBackdrop = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            WindowBackdrop.Title.Text = "Pencere arka planı";
+            WindowBackdrop.LeftIcon.Symbol = SymbolRegular.ColorBackground24;
+            WindowBackdrop.Description.Text = "Sistem tepsisinde ikon görünürlüğü, Sucrose ikon gizli bir şekilde çalışmaya devam edecek.";
+
+            ComboBox Backdrop = new();
+
+            Backdrop.SelectionChanged += (s, e) => BackdropSelected(Backdrop.SelectedIndex);
+
+            foreach (WindowBackdropType Type in Enum.GetValues(typeof(WindowBackdropType)))
+            {
+                Backdrop.Items.Add(new ComboBoxItem()
+                {
+                    IsEnabled = Wpf.Ui.Controls.WindowBackdrop.IsSupported(Type),
+                    Content = $"{Type}"
+                });
+            }
+
+            Backdrop.SelectedIndex = (int)SPMM.BackdropType;
+
+            WindowBackdrop.HeaderFrame = Backdrop;
+
+            Contents.Add(WindowBackdrop);
 
 
 
@@ -278,7 +308,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NotifySelected(int Index)
         {
-            if (Index != (SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true) ? 0 : 1))
+            if (Index != (SPMM.Visible ? 0 : 1))
             {
                 bool State = Index == 0;
 
@@ -293,7 +323,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 if (SSSHP.Work(SMR.Launcher))
                 {
-                    SGSGSS.ChannelCreate(SMMI.LauncherSettingManager.GetSettingAddress<string>(SMC.Host), SMMI.LauncherSettingManager.GetSettingStable<int>(SMC.Port));
+                    SGSGSS.ChannelCreate($"{SPMM.Host}", SPMM.Port);
                     SGCLLC Client = new(SGSGSS.ChannelInstance);
 
                     if (State)
@@ -310,7 +340,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void StartupSelected(int Index)
         {
-            if (Index != SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0))
+            if (Index != SPMM.Startup)
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.Startup, Index);
 
@@ -336,6 +366,35 @@ namespace Sucrose.Portal.ViewModels.Pages
                     default:
                         break;
                 }
+            }
+        }
+
+        private void BackdropSelected(int Index)
+        {
+            if (Index != (int)SPMM.BackdropType)
+            {
+                ApplicationTheme Theme = ApplicationTheme.Dark;
+                WindowBackdropType Type = (WindowBackdropType)Index;
+
+                if (SPMM.Theme == SEWTT.Light)
+                {
+                    Theme = ApplicationTheme.Light;
+                }
+
+                if (Type != WindowBackdropType.None)
+                {
+                    WindowBackdrop.RemoveBackground(Application.Current.MainWindow);
+                }
+                else
+                {
+                    WindowBackdrop.RemoveBackdrop(Application.Current.MainWindow);
+                }
+
+                ApplicationThemeManager.Apply(Theme, Type, true, true);
+                WindowBackdrop.ApplyBackdrop(Application.Current.MainWindow, Type);
+                WindowBackgroundManager.UpdateBackground(Application.Current.MainWindow, Theme, Type, true);
+
+                SMMI.PortalSettingManager.SetSetting(SMC.BackdropType, Type);
             }
         }
 
