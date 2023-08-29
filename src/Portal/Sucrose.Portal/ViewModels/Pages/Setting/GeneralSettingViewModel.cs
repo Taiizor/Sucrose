@@ -110,7 +110,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NotifyIcon.Title.Text = "Bildirim Alanı Simgesi";
             NotifyIcon.LeftIcon.Symbol = SymbolRegular.TrayItemAdd24;
-            NotifyIcon.Description.Text = "Sistem tepsisinde ikon görünürlüğü, Sucrose ikon gizli bir şekilde çalışmaya devam edecek.";
+            NotifyIcon.Description.Text = "Sistem tepsisi görünürlüğü, Sucrose gizli bir şekilde çalışmaya devam edecek.";
 
             ComboBox Notify = new();
 
@@ -131,9 +131,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            WindowBackdrop.Title.Text = "Pencere arka planı";
+            WindowBackdrop.Title.Text = "Pencere Arka Planı";
             WindowBackdrop.LeftIcon.Symbol = SymbolRegular.ColorBackground24;
-            WindowBackdrop.Description.Text = "Sistem tepsisinde ikon görünürlüğü, Sucrose ikon gizli bir şekilde çalışmaya devam edecek.";
+            WindowBackdrop.Description.Text = "Uygulama penceresinin arka planını değiştirmek için kullanılır.";
 
             ComboBox Backdrop = new();
 
@@ -153,6 +153,53 @@ namespace Sucrose.Portal.ViewModels.Pages
             WindowBackdrop.HeaderFrame = Backdrop;
 
             Contents.Add(WindowBackdrop);
+
+            TextBlock Sound = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Ses"
+            };
+
+            Contents.Add(Sound);
+
+            SPVCEC EngineVolume = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                IsExpand = true
+            };
+
+            EngineVolume.Title.Text = "Ses Düzeyi";
+            EngineVolume.LeftIcon.Symbol = SymbolRegular.Speaker224;
+            EngineVolume.Description.Text = "Tüm duvar kağıtları için ses seviyesi.";
+
+            Slider Volume = new()
+            {
+                TickPlacement = TickPlacement.Both,
+                IsSelectionRangeEnabled = false,
+                IsMoveToPointEnabled = true,
+                IsSnapToTickEnabled = true,
+                Value = SPMM.Volume,
+                TickFrequency = 1,
+                Maximum = 100,
+                Minimum = 0,
+                Width = 150
+            };
+
+            Volume.ValueChanged += (s, e) => VolumeChanged(EngineVolume, Volume.Value);
+
+            EngineVolume.HeaderFrame = Volume;
+
+            CheckBox VolumeDesktop = new()
+            {
+                Content = "Sesi yalnızca masaüstü odaklandığında oynat",
+                IsChecked = true
+            };
+
+            EngineVolume.FooterCard = VolumeDesktop;
+
+            Contents.Add(EngineVolume);
 
 
 
@@ -176,49 +223,6 @@ namespace Sucrose.Portal.ViewModels.Pages
                 FontWeight = FontWeights.Bold,
                 Text = "Sistem"
             };
-
-            SPVCEC CustomExpander3 = new()
-            {
-                Margin = new Thickness(0, 10, 0, 0),
-                IsExpand = true
-            };
-
-            CustomExpander3.Title.Text = "Ses Düzeyi";
-            CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker224;
-            CustomExpander3.Description.Text = "Tüm duvar kağıtları için ses seviyesi";
-
-            Slider Slider1 = new()
-            {
-                TickPlacement = TickPlacement.Both,
-                IsSnapToTickEnabled = false,
-                TickFrequency = 2,
-                Maximum = 100,
-                Minimum = 0,
-                Width = 200,
-                Value = 100
-            };
-
-            Slider1.ValueChanged += (s, e) =>
-            {
-                if (Slider1.Value <= 0d)
-                {
-                    CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker024;
-                }
-                else if (Slider1.Value >= 75d)
-                {
-                    CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker224;
-                }
-                else
-                {
-                    CustomExpander3.LeftIcon.Symbol = SymbolRegular.Speaker124;
-                }
-            };
-
-            CustomExpander3.HeaderFrame = Slider1;
-
-            CheckBox CB2 = new() { Content = "Sesi yalnızca masaüstü odaklandığında oynat", IsChecked = true };
-
-            CustomExpander3.FooterCard = CB2;
 
             SPVCEC CustomExpander4 = new()
             {
@@ -246,7 +250,6 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Tb2);
 
-            Contents.Add(CustomExpander3);
             Contents.Add(CustomExpander4);
 
             Contents.Add(Tb3);
@@ -304,6 +307,24 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         public void OnNavigatedFrom()
         {
+        }
+
+        private void VolumeChanged(SPVCEC Volume, double Value)
+        {
+            if (Value <= 0d)
+            {
+                Volume.LeftIcon.Symbol = SymbolRegular.Speaker024;
+            }
+            else if (Value >= 75d)
+            {
+                Volume.LeftIcon.Symbol = SymbolRegular.Speaker224;
+            }
+            else
+            {
+                Volume.LeftIcon.Symbol = SymbolRegular.Speaker124;
+            }
+
+            SMMI.EngineSettingManager.SetSetting(SMC.Volume, Convert.ToInt32(Value));
         }
 
         private void NotifySelected(int Index)

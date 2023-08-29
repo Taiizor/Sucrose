@@ -45,6 +45,8 @@ namespace Sucrose.Portal.Manage
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
 
+        public static int Volume => SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 0);
+
         public static int Port => SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0);
 
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);

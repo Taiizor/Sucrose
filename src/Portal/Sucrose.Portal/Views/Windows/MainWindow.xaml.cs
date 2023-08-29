@@ -142,6 +142,12 @@ namespace Sucrose.Portal.Views.Windows
             Dispose();
         }
 
+        private void MainWindow_ContentRendered(object sender, EventArgs e)
+        {
+            Topmost = false;
+            ShowInTaskbar = true;
+        }
+
         private void NavigationChange_Click(object sender, RoutedEventArgs e)
         {
             NavigationViewItem View = sender as NavigationViewItem;
