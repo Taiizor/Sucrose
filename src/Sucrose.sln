@@ -95,7 +95,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Store", "Sha
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Live", "Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.shproj", "{72B01810-F520-460B-8BD3-2301AAC6983B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Live.MpvPlayer", "Live\Sucrose.Live.MpvPlayer\Sucrose.Live.MpvPlayer.csproj", "{A45DD78F-8C1D-4825-91DF-DC0BC0B75288}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Live.MpvPlayer", "Live\Sucrose.Live.MpvPlayer\Sucrose.Live.MpvPlayer.csproj", "{A45DD78F-8C1D-4825-91DF-DC0BC0B75288}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Engine.MpvPlayer", "Shared\Engine\Sucrose.Shared.Engine.MpvPlayer\Sucrose.Shared.Engine.MpvPlayer.shproj", "{6D8A6597-DA61-4972-A978-2942F076E4A4}"
 EndProject

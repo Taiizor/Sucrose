@@ -44,6 +44,8 @@
 
         public const string Visible = "Visible";
 
+        public const string Startup = "Startup";
+
         public const string UserAgent = "UserAgent";
 
         public const string ThemeType = "ThemeType";

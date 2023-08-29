@@ -20,14 +20,40 @@ namespace Sucrose.Shared.Space.Helper
             Process.Start();
         }
 
+        public static void Runas(string Application)
+        {
+            ProcessStartInfo ProcessInfo = new(Application)
+            {
+                UseShellExecute = true,
+                Verb = "runas"
+            };
+
+            Process Process = new()
+            {
+                StartInfo = ProcessInfo
+            };
+
+            Process.Start();
+        }
+
         public static void Run(string Application, string Arguments)
         {
             Run(Application, Arguments, ProcessWindowStyle.Hidden);
         }
 
+        public static void Runas(string Application, string Arguments)
+        {
+            Runas(Application, Arguments, ProcessWindowStyle.Hidden);
+        }
+
         public static void Run(string Application, string Arguments, ProcessWindowStyle Style)
         {
             Run(Application, Arguments, Style, true);
+        }
+
+        public static void Runas(string Application, string Arguments, ProcessWindowStyle Style)
+        {
+            Runas(Application, Arguments, Style, true);
         }
 
         public static void Run(string Application, string Arguments, ProcessWindowStyle Style, bool Window)
@@ -37,6 +63,24 @@ namespace Sucrose.Shared.Space.Helper
                 CreateNoWindow = Window,
                 UseShellExecute = true,
                 WindowStyle = Style
+            };
+
+            Process Process = new()
+            {
+                StartInfo = ProcessInfo
+            };
+
+            Process.Start();
+        }
+
+        public static void Runas(string Application, string Arguments, ProcessWindowStyle Style, bool Window)
+        {
+            ProcessStartInfo ProcessInfo = new(Application, Arguments)
+            {
+                CreateNoWindow = Window,
+                UseShellExecute = true,
+                WindowStyle = Style,
+                Verb = "runas"
             };
 
             Process Process = new()

@@ -40,7 +40,10 @@ namespace Sucrose.Shared.Launcher.Manager
 
         private ContextMenuStrip ContextMenu { get; set; } = new();
 
-        private NotifyIcon TrayIcon { get; set; } = new();
+        private NotifyIcon TrayIcon { get; set; } = new()
+        {
+            Visible = true
+        };
 
         public void Start()
         {
