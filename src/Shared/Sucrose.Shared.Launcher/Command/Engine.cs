@@ -29,11 +29,11 @@ namespace Sucrose.Shared.Launcher.Command
 
                 SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
             }
-            else if (!SSSHL.Run() && SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
+            else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
             {
                 SSLHR.Start();
             }
-            else if (!SMMI.EngineSettingManager.CheckFile() || string.IsNullOrEmpty(LibrarySelected))
+            else if (!SMMI.LibrarySettingManager.CheckFile() || string.IsNullOrEmpty(LibrarySelected))
             {
                 SSLCI.Command();
             }

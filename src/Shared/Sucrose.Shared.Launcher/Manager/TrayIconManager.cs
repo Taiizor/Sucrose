@@ -99,13 +99,14 @@ namespace Sucrose.Shared.Launcher.Manager
                     ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCustomizeText"), null, null);
                 }
             }
-            else if (SMMI.EngineSettingManager.CheckFile())
+            else if (SMMI.LibrarySettingManager.CheckFile())
             {
                 string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
 
                 if (File.Exists(InfoPath))
                 {
                     SSTHI Info = SSTHI.ReadJson(InfoPath);
+
                     if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                     {
                         ContextMenu.Items.Add(Separator1.Strip);

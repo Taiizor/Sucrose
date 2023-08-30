@@ -132,7 +132,7 @@ namespace Sucrose.Live.Vexana
 
         protected void Configure()
         {
-            if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
             {
                 string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
 

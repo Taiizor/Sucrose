@@ -1,6 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.IO;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Wpf.Ui.Controls;
 using SEOST = Skylark.Enum.OperatingSystemType;
@@ -8,6 +11,7 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -16,10 +20,6 @@ using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
-using SPEIL = Sucrose.Portal.Extension.ImageLoader;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
-using System.IO;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {

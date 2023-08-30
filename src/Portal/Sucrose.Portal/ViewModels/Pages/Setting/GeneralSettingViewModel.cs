@@ -7,7 +7,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
-using static System.Windows.Forms.AxHost;
+using SEOST = Skylark.Enum.OperatingSystemType;
+using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using Button = Wpf.Ui.Controls.Button;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -132,8 +133,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             SPVCEC WindowBackdrop = new()
             {
-                Margin = new Thickness(0, 10, 0, 0),
-                Expandable = true
+                Margin = new Thickness(0, 10, 0, 0)
             };
 
             WindowBackdrop.Title.Text = "Pencere Arka Planı";
@@ -148,7 +148,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Backdrop.Items.Add(new ComboBoxItem()
                 {
-                    IsEnabled = Wpf.Ui.Controls.WindowBackdrop.IsSupported(Type),
+                    IsEnabled = WindowBackdropSupport(Type),
                     Content = $"{Type}"
                 });
             }
@@ -277,8 +277,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             SPVCEC EngineVolume = new()
             {
-                Margin = new Thickness(0, 10, 0, 0),
-                IsExpand = true
+                Margin = new Thickness(0, 10, 0, 0)
             };
 
             EngineVolume.Title.Text = "Ses Düzeyi";
@@ -350,95 +349,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             PrivateLibrary.FooterCard = LibraryContent;
 
             Contents.Add(PrivateLibrary);
-
-
-
-
-
-
-
-
-
-            TextBlock Tb2 = new()
-            {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Uygulama"
-            };
-            TextBlock Tb3 = new()
-            {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Sistem"
-            };
-
-            SPVCEC CustomExpander4 = new()
-            {
-                Margin = new Thickness(0, 10, 0, 0),
-                Expandable = true,
-                IsExpand = true
-            };
-
-            CustomExpander4.Title.Text = "Video Oynatıcı";
-            CustomExpander4.Description.Text = "Video duvar kağıdı oynatıcısını seçin";
-
-            StackPanel SP1 = new()
-            {
-                Orientation = Orientation.Horizontal,
-                HorizontalAlignment = HorizontalAlignment.Stretch,
-                VerticalAlignment = VerticalAlignment.Stretch
-            };
-
-            TextBlock TB1 = new() { Text = "Testing", Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush") };
-
-            SP1.Children.Add(TB1);
-
-            CustomExpander4.FooterCard = SP1;
-
-
-            Contents.Add(Tb2);
-
-            Contents.Add(CustomExpander4);
-
-            Contents.Add(Tb3);
-
-            SPVCEC CustomExpander10 = new()
-            {
-                Margin = new Thickness(0, 10, 0, 0)
-            };
-
-            CustomExpander10.LeftIcon.Symbol = SymbolRegular.Color24;
-            CustomExpander10.LeftIcon.Filled = false;
-
-            Slider Slider2 = new()
-            {
-                TickPlacement = TickPlacement.Both,
-                IsSnapToTickEnabled = true,
-                TickFrequency = 20,
-                Width = 200,
-                Value = 50
-            };
-
-            Slider2.ValueChanged += (s, e) => CustomExpander10.Expandable = !CustomExpander10.Expandable;
-
-            CustomExpander10.HeaderFrame = Slider2;
-
-            ComboBox CB10 = new();
-
-            CB10.Items.Add("Test1");
-            CB10.Items.Add("Test2");
-            CB10.Items.Add("Test3");
-            CB10.Items.Add("Test4");
-            CB10.Items.Add("Test5");
-            CB10.Items.Add("Test6");
-
-            CB10.SelectedIndex = 0;
-
-            CustomExpander10.FooterCard = CB10;
-
-            Contents.Add(CustomExpander10);
 
 
 
@@ -607,6 +517,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void BackgroundImageClick(Button BackgroundImage)
         {
+            string Startup = string.IsNullOrEmpty(SPMM.BackgroundImage) ? SMR.DesktopPath : Path.GetDirectoryName(SPMM.BackgroundImage);
+
             OpenFileDialog FileDialog = new()
             {
                 Filter = "Image files (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif",
@@ -614,7 +526,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 Title = SSRER.GetValue("Launcher", "SaveDialogTitle"),
 
-                InitialDirectory = Path.GetDirectoryName(SPMM.BackgroundImage)
+                InitialDirectory = Startup
             };
 
             if (FileDialog.ShowDialog() == true)
@@ -632,6 +544,18 @@ namespace Sucrose.Portal.ViewModels.Pages
             BackgroundImage.Content = "Bir arkaplan resmi seçin";
 
             SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, string.Empty);
+        }
+
+        private bool WindowBackdropSupport(WindowBackdropType Backdrop)
+        {
+            if ((SSCHOS.Get() == SEOST.Windows11 || Backdrop == WindowBackdropType.None) && WindowBackdrop.IsSupported(Backdrop))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Dispose()

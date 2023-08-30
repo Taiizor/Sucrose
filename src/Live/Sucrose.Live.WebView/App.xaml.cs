@@ -139,7 +139,7 @@ namespace Sucrose.Live.WebView
 
         protected void Configure()
         {
-            if (SMMI.EngineSettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
             {
                 string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
                 string PropertiesPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseProperties);
