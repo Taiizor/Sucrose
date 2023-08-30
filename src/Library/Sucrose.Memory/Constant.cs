@@ -54,6 +54,8 @@
 
         public const string ScreenType = "ScreenType";
 
+        public const string LibraryMove = "LibraryMove";
+
         public const string ScreenIndex = "ScreenIndex";
 
         public const string StretchType = "StretchType";
@@ -70,6 +72,8 @@
 
         public const string WebArguments = "WebArguments";
 
+        public const string VolumeDesktop = "VolumeDesktop";
+
         public const string AdaptiveLayout = "AdaptiveLayout";
 
         public const string AdaptiveMargin = "AdaptiveMargin";
@@ -80,7 +84,13 @@
 
         public const string LibrarySelected = "LibrarySelected";
 
+        public const string BackgroundImage = "BackgroundImage";
+
         public const string ExpandScreenType = "ExpandScreenType";
+
+        public const string BackgroundOpacity = "BackgroundOpacity";
+
+        public const string BackgroundStretch = "BackgroundStretch";
 
         public const string LibraryPagination = "LibraryPagination";
 

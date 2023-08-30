@@ -16,6 +16,10 @@ using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
+using SPEIL = Sucrose.Portal.Extension.ImageLoader;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.IO;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
@@ -24,6 +28,9 @@ namespace Sucrose.Portal.ViewModels.Windows
         [ObservableProperty]
         private WindowBackdropType _WindowBackdropType = GetWindowBackdropType();
 
+        [ObservableProperty]
+        private Stretch _Stretch = SPMM.DefaultBackgroundStretch;
+
         private readonly DispatcherTimer Timer = new();
 
         [ObservableProperty]
@@ -31,6 +38,9 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         [ObservableProperty]
         private string _Architecture = string.Empty;
+
+        [ObservableProperty]
+        private BitmapImage _Backgrounder = null;
 
         [ObservableProperty]
         private string _Framework = string.Empty;
@@ -46,6 +56,11 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         [ObservableProperty]
         private IconElement _ThemeIcon = null;
+
+        private readonly SPEIL Loader = new();
+
+        [ObservableProperty]
+        private double _Opacity = 1d;
 
         private bool _isInitialized;
 
@@ -65,17 +80,51 @@ namespace Sucrose.Portal.ViewModels.Windows
         {
             Memory = SSCHM.Get();
             Quoting = GetQuoting();
+            Stretch = GetStretch();
+            Opacity = GetOpacity();
             Version = SSCHV.GetText();
             Framework = SSCHF.GetName();
             Architecture = SSCHA.GetText();
+            Backgrounder = GetBackgrounder();
             WindowBackdropType = GetWindowBackdropType();
 
             _isInitialized = true;
         }
 
+        private double GetOpacity()
+        {
+            return SPMM.BackgroundOpacity / 100d;
+        }
+
+        private Stretch GetStretch()
+        {
+            Stretch Type = SPMM.BackgroundStretch;
+
+            if ((int)Type < Enum.GetValues(typeof(Stretch)).Length)
+            {
+                return Type;
+            }
+            else
+            {
+                return SPMM.DefaultBackgroundStretch;
+            }
+        }
+
         private string GetQuoting()
         {
             return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(40)}");
+        }
+
+        private BitmapImage GetBackgrounder()
+        {
+            if (File.Exists(SPMM.BackgroundImage))
+            {
+                return Loader.LoadOptimal(SPMM.BackgroundImage, false);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [RelayCommand]

@@ -1,10 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
+using static System.Windows.Forms.AxHost;
+using Button = Wpf.Ui.Controls.Button;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SGCLLC = Sucrose.Grpc.Common.Launcher.LauncherClient;
 using SGCSLCS = Sucrose.Grpc.Client.Services.LauncherClientService;
@@ -59,7 +64,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ApplicationLanguage.Title.Text = "Uygulama Dili";
             ApplicationLanguage.LeftIcon.Symbol = SymbolRegular.LocalLanguage24;
-            ApplicationLanguage.Description.Text = "Uygulamayı görüntüleme dilinizi seçin.";
+            ApplicationLanguage.Description.Text = "Uygulamayı görüntülemek istediğiniz dili seçin.";
 
             ComboBox Localization = new();
 
@@ -128,7 +133,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             SPVCEC WindowBackdrop = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                Expandable = true
             };
 
             WindowBackdrop.Title.Text = "Pencere Arka Planı";
@@ -151,6 +156,112 @@ namespace Sucrose.Portal.ViewModels.Pages
             Backdrop.SelectedIndex = (int)SPMM.BackdropType;
 
             WindowBackdrop.HeaderFrame = Backdrop;
+
+            StackPanel BackdropContent = new();
+
+            StackPanel BackdropImageContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            Button BackgroundImage = new()
+            {
+                Content = string.IsNullOrEmpty(SPMM.BackgroundImage) ? "Bir arkaplan resmi seçin" : SPMM.BackgroundImage,
+                Cursor = Cursors.Hand,
+                MaxWidth = 700,
+                MinWidth = 350
+            };
+
+            BackgroundImage.Click += (s, e) => BackgroundImageClick(BackgroundImage);
+
+            SymbolIcon BackgroundRemove = new()
+            {
+                Symbol = SymbolRegular.DeleteDismiss24,
+                FontSize = 28,
+                Height = 32,
+                Width = 32
+            };
+
+            Button BackgroundImageRemove = new()
+            {
+                Cursor = Cursors.Hand,
+                Content = BackgroundRemove,
+                Padding = new Thickness(0),
+                Margin = new Thickness(10, 0, 0, 0),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush")
+            };
+
+            BackgroundImageRemove.Click += (s, e) => BackgroundImageRemoveClick(BackgroundImage);
+
+            StackPanel BackdropCustomContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock BackdropStretchText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "Konumlandırma:",
+            };
+
+            ComboBox BackdropStretch = new();
+
+            BackdropStretch.SelectionChanged += (s, e) => BackdropStretchSelected(BackdropStretch.SelectedIndex);
+
+            foreach (Stretch Type in Enum.GetValues(typeof(Stretch)))
+            {
+                BackdropStretch.Items.Add(new ComboBoxItem()
+                {
+                    Content = $"{Type}"
+                });
+            }
+
+            BackdropStretch.SelectedIndex = (int)SPMM.BackgroundStretch;
+
+            TextBlock BackdropOpacityText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(20, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "Opaklık (%):",
+            };
+
+            NumberBox BackdropOpacity = new()
+            {
+                Value = SPMM.BackgroundOpacity,
+                ClearButtonEnabled = false,
+                Maximum = 100,
+                Minimum = 0
+            };
+
+            BackdropOpacity.ValueChanged += (s, e) => BackdropOpacityChanged(BackdropOpacity.Value);
+
+            TextBlock BackgroundImageHint = new()
+            {
+                Text = "İpucu: Ayarların geçerli olması için uygulamayı yeniden başlatmanız gerekir.",
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            BackdropImageContent.Children.Add(BackgroundImage);
+            BackdropImageContent.Children.Add(BackgroundImageRemove);
+
+            BackdropCustomContent.Children.Add(BackdropStretchText);
+            BackdropCustomContent.Children.Add(BackdropStretch);
+            BackdropCustomContent.Children.Add(BackdropOpacityText);
+            BackdropCustomContent.Children.Add(BackdropOpacity);
+
+            BackdropContent.Children.Add(BackdropImageContent);
+            BackdropContent.Children.Add(BackdropCustomContent);
+            BackdropContent.Children.Add(BackgroundImageHint);
+
+            WindowBackdrop.FooterCard = BackdropContent;
 
             Contents.Add(WindowBackdrop);
 
@@ -194,12 +305,51 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox VolumeDesktop = new()
             {
                 Content = "Sesi yalnızca masaüstü odaklandığında oynat",
-                IsChecked = true
+                IsChecked = SPMM.VolumeDesktop
             };
+
+            VolumeDesktop.Checked += (s, e) => VolumeDesktopChecked(true);
+            VolumeDesktop.Unchecked += (s, e) => VolumeDesktopChecked(false);
 
             EngineVolume.FooterCard = VolumeDesktop;
 
             Contents.Add(EngineVolume);
+
+            TextBlock Library = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Kütüphane"
+            };
+
+            Contents.Add(Library);
+
+            SPVCEC PrivateLibrary = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            PrivateLibrary.Title.Text = "Kütüphane Dizini";
+            PrivateLibrary.LeftIcon.Symbol = SymbolRegular.Folder24;
+            PrivateLibrary.Description.Text = "Kütüphanenize eklediğiniz temaların depolanacağı konum.";
+
+            Grid LibraryContent = new();
+
+            CheckBox LibraryMove = new()
+            {
+                Content = "Mevcut kütüphanenizi yeni konuma taşı",
+                IsChecked = SPMM.LibraryMove
+            };
+
+            LibraryMove.Checked += (s, e) => LibraryMoveChecked(true);
+            LibraryMove.Unchecked += (s, e) => LibraryMoveChecked(false);
+
+            LibraryContent.Children.Add(LibraryMove);
+
+            PrivateLibrary.FooterCard = LibraryContent;
+
+            Contents.Add(PrivateLibrary);
 
 
 
@@ -303,28 +453,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         public void OnNavigatedTo()
         {
+            //
         }
 
         public void OnNavigatedFrom()
         {
-        }
-
-        private void VolumeChanged(SPVCEC Volume, double Value)
-        {
-            if (Value <= 0d)
-            {
-                Volume.LeftIcon.Symbol = SymbolRegular.Speaker024;
-            }
-            else if (Value >= 75d)
-            {
-                Volume.LeftIcon.Symbol = SymbolRegular.Speaker224;
-            }
-            else
-            {
-                Volume.LeftIcon.Symbol = SymbolRegular.Speaker124;
-            }
-
-            SMMI.EngineSettingManager.SetSetting(SMC.Volume, Convert.ToInt32(Value));
+            Dispose();
         }
 
         private void NotifySelected(int Index)
@@ -419,10 +553,85 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void BackdropStretchSelected(int Index)
+        {
+            if (Index != (int)SPMM.BackgroundStretch)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundStretch, (Stretch)Index);
+            }
+        }
+
         private void LocalizationSelected(int Index)
         {
             SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, SSRHR.ListLanguage()[Index]);
             SSRHR.SetLanguage(SPMM.Culture);
+        }
+
+        private void VolumeDesktopChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.VolumeDesktop, State);
+        }
+
+        private void LibraryMoveChecked(bool State)
+        {
+            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryMove, State);
+        }
+
+        private void BackdropOpacityChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SPMM.BackgroundOpacity)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundOpacity, NewValue);
+            }
+        }
+
+        private void VolumeChanged(SPVCEC Volume, double Value)
+        {
+            if (Value <= 0d)
+            {
+                Volume.LeftIcon.Symbol = SymbolRegular.Speaker024;
+            }
+            else if (Value >= 75d)
+            {
+                Volume.LeftIcon.Symbol = SymbolRegular.Speaker224;
+            }
+            else
+            {
+                Volume.LeftIcon.Symbol = SymbolRegular.Speaker124;
+            }
+
+            SMMI.EngineSettingManager.SetSetting(SMC.Volume, Convert.ToInt32(Value));
+        }
+
+        private void BackgroundImageClick(Button BackgroundImage)
+        {
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = "Image files (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif",
+                FilterIndex = 1,
+
+                Title = SSRER.GetValue("Launcher", "SaveDialogTitle"),
+
+                InitialDirectory = Path.GetDirectoryName(SPMM.BackgroundImage)
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                string Destination = FileDialog.FileName;
+
+                BackgroundImage.Content = Destination;
+
+                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, Destination);
+            }
+        }
+
+        private void BackgroundImageRemoveClick(Button BackgroundImage)
+        {
+            BackgroundImage.Content = "Bir arkaplan resmi seçin";
+
+            SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, string.Empty);
         }
 
         public void Dispose()

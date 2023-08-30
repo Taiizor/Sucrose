@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net;
+using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
@@ -19,6 +20,8 @@ namespace Sucrose.Portal.Manage
 
         public static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, 100);
 
+        public static Stretch BackgroundStretch => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundStretch, DefaultBackgroundStretch);
+
         public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 36), 1, 100);
 
         public static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
@@ -35,11 +38,19 @@ namespace Sucrose.Portal.Manage
 
         public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
+        public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
+
+        public static int BackgroundOpacity => SMMI.PortalSettingManager.GetSettingStable(SMC.BackgroundOpacity, 100);
+
         public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
 
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
+        public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMC.VolumeDesktop, false);
+
         public static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
+
+        public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
 
         public static int Startup => SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0);
 
@@ -56,6 +67,8 @@ namespace Sucrose.Portal.Manage
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
+
+        public static Stretch DefaultBackgroundStretch => Stretch.UniformToFill;
 
         public static Mutex Mutex => new(true, SMR.PortalMutex);
     }

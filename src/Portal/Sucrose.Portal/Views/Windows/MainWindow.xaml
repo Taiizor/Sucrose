@@ -27,6 +27,10 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="{Binding ViewModel.Backgrounder, Mode=OneTime}" Stretch="{Binding ViewModel.Stretch, Mode=OneTime}" Opacity="{Binding ViewModel.Opacity, Mode=OneTime}" />
+        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -80,38 +84,38 @@
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting2"
-                    Icon="{ui:SymbolIcon WindowApps20}"
+                    Icon="{ui:SymbolIcon WindowApps16}"
                     TargetPageType="{x:Type setting:GeneralSettingPage}"
                     Content="{DynamicResource Portal.MainWindow.MenuGeneral}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuGeneralTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting3"
-                    Icon="{ui:SymbolIcon PersonLock20}"
+                    Icon="{ui:SymbolIcon PersonLock16}"
                     Content="{DynamicResource Portal.MainWindow.MenuPersonal}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuPersonalTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting4"
-                    Icon="{ui:SymbolIcon Pulse20}"
+                    Icon="{ui:SymbolIcon DesktopPulse16}"
                     Content="{DynamicResource Portal.MainWindow.MenuPerformance}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuPerformanceTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting5"
-                    Icon="{ui:SymbolIcon Wallpaper20}"
+                    Icon="{ui:SymbolIcon Image16}"
                     Content="{DynamicResource Portal.MainWindow.MenuWallpaper}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting6"
-                    Icon="{ui:SymbolIcon PuzzleCube20}"
+                    Icon="{ui:SymbolIcon PuzzleCube16}"
                     Content="{DynamicResource Portal.MainWindow.MenuSystem}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuSystemTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting7"
-                    Icon="{ui:SymbolIcon GridDots20}"
+                    Icon="{ui:SymbolIcon ContentSettings16}"
                     Content="{DynamicResource Portal.MainWindow.MenuOther}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuOtherTip}" />
             </ui:NavigationView.MenuItems>

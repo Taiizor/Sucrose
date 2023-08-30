@@ -9,7 +9,7 @@ namespace Sucrose.Portal.Extension
     {
         private string ImagePath { get; set; }
 
-        public BitmapImage Load(string ImagePath)
+        public BitmapImage Load(string ImagePath, bool Decode = true)
         {
             this.ImagePath = ImagePath;
 
@@ -30,8 +30,12 @@ namespace Sucrose.Portal.Extension
                 SPMI.Images[ImagePath].BeginInit();
 
                 SPMI.Images[ImagePath].StreamSource = SPMI.ImageStream[ImagePath];
-                //SPMI.Images[ImagePath].DecodePixelHeight = 160;
-                SPMI.Images[ImagePath].DecodePixelWidth = 360;
+
+                if (Decode)
+                {
+                    //SPMI.Images[ImagePath].DecodePixelHeight = 160;
+                    SPMI.Images[ImagePath].DecodePixelWidth = 360;
+                }
 
                 SPMI.Images[ImagePath].EndInit();
             }
@@ -39,12 +43,12 @@ namespace Sucrose.Portal.Extension
             return SPMI.Images[ImagePath];
         }
 
-        public async Task<BitmapImage> LoadAsync(string ImagePath)
+        public async Task<BitmapImage> LoadAsync(string ImagePath, bool Decode = true)
         {
-            return await Task.Run(() => Load(ImagePath));
+            return await Task.Run(() => Load(ImagePath, Decode));
         }
 
-        public BitmapImage LoadOptimal(string ImagePath)
+        public BitmapImage LoadOptimal(string ImagePath, bool Decode = true)
         {
             BitmapImage Image = new();
 
@@ -54,8 +58,13 @@ namespace Sucrose.Portal.Extension
 
             Image.UriCachePolicy = new(RequestCacheLevel.BypassCache);
             Image.CacheOption = BitmapCacheOption.OnLoad;
-            //Image.DecodePixelHeight = 160;
-            Image.DecodePixelWidth = 360;
+
+            if (Decode)
+            {
+                //Image.DecodePixelHeight = 160;
+                Image.DecodePixelWidth = 360;
+            }
+
             Image.StreamSource = Stream;
 
             Image.EndInit();
@@ -73,9 +82,9 @@ namespace Sucrose.Portal.Extension
             return Image;
         }
 
-        public async Task<BitmapImage> LoadOptimalAsync(string ImagePath)
+        public async Task<BitmapImage> LoadOptimalAsync(string ImagePath, bool Decode = true)
         {
-            return await Task.Run(() => LoadOptimal(ImagePath));
+            return await Task.Run(() => LoadOptimal(ImagePath, Decode));
         }
 
         public void Remove(string ImagePath)
