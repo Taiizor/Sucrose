@@ -7,6 +7,7 @@ using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
 using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
 using SPVPSUSP = Sucrose.Portal.Views.Pages.Store.UnknownStorePage;
+using SSDESST = Sucrose.Shared.Dependency.Enum.StoreStageType;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
@@ -25,7 +26,11 @@ namespace Sucrose.Portal.Views.Pages
 
         private SPVPSFSP FullStorePage { get; set; }
 
+        private SSDESST StoreStage { get; set; }
+
         public SPVMPSVM ViewModel { get; }
+
+        private SSSIR Root { get; set; }
 
         public StorePage(SPVMPSVM ViewModel)
         {
@@ -35,7 +40,7 @@ namespace Sucrose.Portal.Views.Pages
             InitializeComponent();
         }
 
-        private async Task Start()
+        private void Stage()
         {
             if (SSSHN.GetHostEntry())
             {
@@ -43,18 +48,34 @@ namespace Sucrose.Portal.Views.Pages
 
                 if (SSSHD.Store(StoreFile, SPMM.Agent, SPMM.Key))
                 {
-                    SSSIR Root = SSSHS.DeserializeRoot(StoreFile);
+                    Root = SSSHS.DeserializeRoot(StoreFile);
 
-                    FullStorePage = new(Root);
-
-                    FrameStore.Content = FullStorePage;
+                    StoreStage = SSDESST.Full;
                 }
                 else
                 {
-                    UnknownStorePage = new();
-
-                    FrameStore.Content = UnknownStorePage;
+                    StoreStage = SSDESST.Unknown;
                 }
+            }
+            else
+            {
+                StoreStage = SSDESST.Broken;
+            }
+        }
+
+        private async Task Start()
+        {
+            if (StoreStage == SSDESST.Full)
+            {
+                FullStorePage = new(Root);
+
+                FrameStore.Content = FullStorePage;
+            }
+            else if (StoreStage == SSDESST.Broken)
+            {
+                UnknownStorePage = new();
+
+                FrameStore.Content = UnknownStorePage;
             }
             else
             {
@@ -71,6 +92,8 @@ namespace Sucrose.Portal.Views.Pages
 
         private async void GridStore_Loaded(object sender, RoutedEventArgs e)
         {
+            await Task.Run(Stage);
+
             await Start();
         }
 

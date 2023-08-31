@@ -115,6 +115,12 @@
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting7"
+                    Icon="{ui:SymbolIcon Balloon16}"
+                    Content="{DynamicResource Portal.MainWindow.MenuDonate}"
+                    ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDonateTip}" />
+                <ui:NavigationViewItem
+                    Cursor="Hand"
+                    Name="Setting8"
                     Icon="{ui:SymbolIcon ContentSettings16}"
                     Content="{DynamicResource Portal.MainWindow.MenuOther}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuOtherTip}" />

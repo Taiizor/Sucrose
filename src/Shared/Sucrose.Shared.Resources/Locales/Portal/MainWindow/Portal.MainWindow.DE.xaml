@@ -16,6 +16,7 @@
     <system:String x:Key="Portal.MainWindow.MenuPerformance">Leistung</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaper">Hintergrundbild</system:String>
     <system:String x:Key="Portal.MainWindow.MenuSystem">System</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Spenden</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOther">Andere</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuBackTip">Zurück</system:String>
@@ -24,6 +25,7 @@
     <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Leistungseinstellungen</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Hintergrundbildeinstellungen</system:String>
     <system:String x:Key="Portal.MainWindow.MenuSystemTip">Systemeinstellungen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Spenden Einstellungen</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherTip">Andere Einstellungen</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuSettingTip">Einstellungen</system:String>
