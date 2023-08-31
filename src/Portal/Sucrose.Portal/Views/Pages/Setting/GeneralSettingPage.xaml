@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Setting"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DataContext="{d:DesignInstance local:GeneralSettingPage, IsDesignTimeCreatable=False}"

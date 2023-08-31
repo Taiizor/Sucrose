@@ -20,6 +20,24 @@ namespace Sucrose.Portal.Views.Controls
             UpdateExpandState();
         }
 
+        public string TitleText
+        {
+            get => Title.Text;
+            set => Title.Text = value;
+        }
+
+        public SymbolRegular LeftIconSymbol
+        {
+            get => LeftIcon.Symbol;
+            set => LeftIcon.Symbol = value;
+        }
+
+        public string DescriptionText
+        {
+            get => Description.Text;
+            set => Description.Text = value;
+        }
+
         public Thickness FooterFrameMargin
         {
             get => Footer.Margin;
@@ -28,13 +46,13 @@ namespace Sucrose.Portal.Views.Controls
 
         public object HeaderFrame
         {
-            get => Header.Margin;
+            get => Header.Content;
             set => Header.Content = value;
         }
 
         public object FooterCard
         {
-            get => Footer.Margin;
+            get => Footer.Content;
             set => Footer.Content = value;
         }
 

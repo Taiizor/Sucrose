@@ -44,6 +44,8 @@ namespace Sucrose.Portal.Manage
 
         public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
 
+        public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
+
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMC.VolumeDesktop, false);
@@ -55,6 +57,8 @@ namespace Sucrose.Portal.Manage
         public static int Startup => SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0);
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
+
+        public static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 
         public static int Volume => SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 0);
 

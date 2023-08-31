@@ -66,7 +66,7 @@ namespace Sucrose.Portal.Views.Pages
                         {
                             SPMI.Themes.Remove(Theme);
 
-                            if (Directory.Exists(ThemePath))
+                            if (Directory.Exists(ThemePath) && SPMM.LibraryDelete)
                             {
                                 Directory.Delete(ThemePath, true);
                             }
@@ -89,7 +89,7 @@ namespace Sucrose.Portal.Views.Pages
                                 SPMI.Themes.Add(Path.GetFileName(Folder));
                             }
                         }
-                        else
+                        else if (SPMM.LibraryDelete)
                         {
                             Directory.Delete(Folder, true);
                         }

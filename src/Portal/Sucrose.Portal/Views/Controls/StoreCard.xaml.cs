@@ -24,6 +24,7 @@ using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -153,6 +154,15 @@ namespace Sucrose.Portal.Views.Controls
                     if (SSSHL.Run())
                     {
                         SSSHL.Kill();
+
+                        if (!string.IsNullOrEmpty(SPMM.App))
+                        {
+                            SSSHP.Kill(SPMM.App);
+                        }
+
+                        SWUD.RefreshDesktop();
+
+                        SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
                     }
 
                     SSLHR.Start();
@@ -289,12 +299,14 @@ namespace Sucrose.Portal.Views.Controls
             foreach (string Record in Directory.GetFiles(Source))
             {
                 string DestinationFile = Path.Combine(Destination, Path.GetFileName(Record));
+
                 File.Copy(Record, DestinationFile, true);
             }
 
             foreach (string SubDirectory in Directory.GetDirectories(Source))
             {
                 string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
+
                 CopyDirectory(SubDirectory, DestinationSubDirectory);
             }
 

@@ -16,6 +16,7 @@ using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -46,6 +47,15 @@ namespace Sucrose.Portal.Views.Controls
                 if (SSSHL.Run())
                 {
                     SSSHL.Kill();
+
+                    if (!string.IsNullOrEmpty(SPMM.App))
+                    {
+                        SSSHP.Kill(SPMM.App);
+                    }
+
+                    SWUD.RefreshDesktop();
+
+                    SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
                 }
 
                 SSLHR.Start();
@@ -74,7 +84,9 @@ namespace Sucrose.Portal.Views.Controls
                 Info = Info,
                 Theme = Theme
             };
+
             await ThemeShare.ShowAsync();
+
             ThemeShare.Dispose();
         }
 
@@ -85,7 +97,9 @@ namespace Sucrose.Portal.Views.Controls
                 Info = Info,
                 Theme = Theme
             };
+
             await ThemeReview.ShowAsync();
+
             ThemeReview.Dispose();
         }
 

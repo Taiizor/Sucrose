@@ -166,6 +166,8 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         public void Dispose()
         {
+            Loader.Dispose();
+
             GC.Collect();
             GC.SuppressFinalize(this);
         }

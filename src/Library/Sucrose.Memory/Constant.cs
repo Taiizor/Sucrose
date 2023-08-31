@@ -6,6 +6,8 @@
 
         public const string Key = "Key";
 
+        public const string Exit = "Exit";
+
         public const string Host = "Host";
 
         public const string Port = "Port";
@@ -71,6 +73,8 @@
         public const string CefArguments = "CefArguments";
 
         public const string WebArguments = "WebArguments";
+
+        public const string LibraryDelete = "LibraryDelete";
 
         public const string VolumeDesktop = "VolumeDesktop";
 
