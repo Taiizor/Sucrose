@@ -17,6 +17,7 @@ using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
@@ -43,6 +44,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 InitializeViewModel();
             }
+        }
+
+        public void RefreshInitializeViewModel()
+        {
+            InitializeViewModel();
         }
 
         private void InitializeViewModel()
@@ -241,14 +247,6 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             BackdropOpacity.ValueChanged += (s, e) => BackdropOpacityChanged(BackdropOpacity.Value);
 
-            TextBlock BackgroundImageHint = new()
-            {
-                Text = "İpucu: Ayarların geçerli olması için uygulamayı yeniden başlatmanız gerekir.",
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
-                Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.SemiBold
-            };
-
             BackdropImageContent.Children.Add(BackgroundImage);
             BackdropImageContent.Children.Add(BackgroundImageRemove);
 
@@ -259,7 +257,6 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             BackdropContent.Children.Add(BackdropImageContent);
             BackdropContent.Children.Add(BackdropCustomContent);
-            BackdropContent.Children.Add(BackgroundImageHint);
 
             WindowBackdrop.FooterCard = BackdropContent;
 
@@ -465,16 +462,27 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void BackdropStretchSelected(int Index)
         {
-            if (Index != (int)SPMM.BackgroundStretch)
+            Stretch NewStretch = (Stretch)Index;
+
+            if (NewStretch != SPMM.BackgroundStretch)
             {
-                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundStretch, (Stretch)Index);
+                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundStretch, NewStretch);
+
+                SPMI.BackdropService.BackdropStretch = NewStretch;
             }
         }
 
         private void LocalizationSelected(int Index)
         {
-            SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, SSRHR.ListLanguage()[Index]);
-            SSRHR.SetLanguage(SPMM.Culture);
+            string NewCulture = SSRHR.ListLanguage()[Index];
+
+            if (NewCulture != SPMM.Culture)
+            {
+                SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, NewCulture);
+                SSRHR.SetLanguage(NewCulture);
+
+                SPMI.CultureService.CultureCode = NewCulture;
+            }
         }
 
         private void VolumeDesktopChecked(bool State)
@@ -494,6 +502,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewValue != SPMM.BackgroundOpacity)
             {
                 SMMI.PortalSettingManager.SetSetting(SMC.BackgroundOpacity, NewValue);
+
+                SPMI.BackdropService.BackdropOpacity = NewValue;
             }
         }
 
@@ -536,6 +546,8 @@ namespace Sucrose.Portal.ViewModels.Pages
                 BackgroundImage.Content = Destination;
 
                 SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, Destination);
+
+                SPMI.BackdropService.BackdropImage = Destination;
             }
         }
 
@@ -544,6 +556,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             BackgroundImage.Content = "Bir arkaplan resmi seçin";
 
             SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, string.Empty);
+
+            SPMI.BackdropService.BackdropImage = string.Empty;
         }
 
         private bool WindowBackdropSupport(WindowBackdropType Backdrop)

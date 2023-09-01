@@ -28,7 +28,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="{Binding ViewModel.Backgrounder, Mode=OneTime}" Stretch="{Binding ViewModel.Stretch, Mode=OneTime}" Opacity="{Binding ViewModel.Opacity, Mode=OneTime}" />
+            <ImageBrush ImageSource="{Binding ViewModel.Backgrounder, Mode=OneWay}" Stretch="{Binding ViewModel.Stretch, Mode=OneWay}" Opacity="{Binding ViewModel.Opacity, Mode=OneWay}" />
         </Grid.Background>
         
         <Grid.RowDefinitions>

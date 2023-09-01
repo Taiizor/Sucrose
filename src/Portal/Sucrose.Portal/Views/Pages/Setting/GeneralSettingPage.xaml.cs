@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Wpf.Ui.Controls;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
 
 namespace Sucrose.Portal.Views.Pages.Setting
@@ -17,6 +18,17 @@ namespace Sucrose.Portal.Views.Pages.Setting
             DataContext = this;
 
             InitializeComponent();
+
+            Culture();
+        }
+
+        private void Culture()
+        {
+            SPMI.CultureService.Dispose();
+
+            SPMI.CultureService = new();
+
+            SPMI.CultureService.CultureCodeChanged += CultureService_CultureCodeChanged;
         }
 
         private async Task Start()
@@ -39,8 +51,21 @@ namespace Sucrose.Portal.Views.Pages.Setting
             await Start();
         }
 
+        private async void CultureService_CultureCodeChanged(object sender, EventArgs e)
+        {
+            FrameSetting.Visibility = Visibility.Collapsed;
+            ProgressSetting.Visibility = Visibility.Visible;
+
+            Dispose();
+
+            ViewModel.RefreshInitializeViewModel();
+
+            await Start();
+        }
+
         public void Dispose()
         {
+            FrameSetting.Children.Clear();
             ViewModel.Dispose();
 
             GC.Collect();

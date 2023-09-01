@@ -2,7 +2,9 @@
 using System.Windows.Media.Imaging;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
-using SPSCS = Sucrose.Portal.Services.CategoryService;
+using SPSBS = Sucrose.Portal.Services.BackdropService;
+using SPSCES = Sucrose.Portal.Services.CultureService;
+using SPSCYS = Sucrose.Portal.Services.CategoryService;
 using SPSSS = Sucrose.Portal.Services.SearchService;
 
 namespace Sucrose.Portal.Manage
@@ -13,7 +15,11 @@ namespace Sucrose.Portal.Manage
 
         public static SPSSS SearchService = new();
 
-        public static SPSCS CategoryService = new();
+        public static SPSBS BackdropService = new();
+
+        public static SPSCES CultureService = new();
+
+        public static SPSCYS CategoryService = new();
 
         public static IServiceProvider ServiceProvider;
 

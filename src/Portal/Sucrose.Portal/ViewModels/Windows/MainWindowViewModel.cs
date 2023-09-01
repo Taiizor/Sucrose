@@ -12,6 +12,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -73,7 +74,16 @@ namespace Sucrose.Portal.ViewModels.Windows
                 Timer.Interval = TimeSpan.FromSeconds(1);
                 Timer.Tick += Memory_Tick;
                 Timer.Start();
+
+                Backdrop();
             }
+        }
+
+        private void Backdrop()
+        {
+            SPMI.BackdropService.BackdropOpacityChanged += (s, e) => Opacity = GetOpacity();
+            SPMI.BackdropService.BackdropStretchChanged += (s, e) => Stretch = GetStretch();
+            SPMI.BackdropService.BackdropImageChanged += (s, e) => Backgrounder = GetBackgrounder();
         }
 
         private void InitializeViewModel()
