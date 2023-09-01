@@ -16,6 +16,7 @@ using SPMM = Sucrose.Portal.Manage.Manager;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -145,7 +146,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if (Directory.Exists(TemporaryPath))
             {
-                CopyDirectory(TemporaryPath, LibraryPath);
+                SSSHC.Folder(TemporaryPath, LibraryPath);
 
                 if (SPMM.Start)
                 {
@@ -287,33 +288,6 @@ namespace Sucrose.Portal.Views.Controls
         private void StoreCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Start();
-        }
-
-        private static void CopyDirectory(string Source, string Destination, bool Delete = true)
-        {
-            if (!Directory.Exists(Destination))
-            {
-                Directory.CreateDirectory(Destination);
-            }
-
-            foreach (string Record in Directory.GetFiles(Source))
-            {
-                string DestinationFile = Path.Combine(Destination, Path.GetFileName(Record));
-
-                File.Copy(Record, DestinationFile, true);
-            }
-
-            foreach (string SubDirectory in Directory.GetDirectories(Source))
-            {
-                string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
-
-                CopyDirectory(SubDirectory, DestinationSubDirectory);
-            }
-
-            if (Delete)
-            {
-                Directory.Delete(Source, true);
-            }
         }
 
         public void Dispose()

@@ -8,6 +8,8 @@ using System.Windows.Media;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using DialogResult = System.Windows.Forms.DialogResult;
+using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -23,10 +25,14 @@ using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
+using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHC = Sucrose.Shared.Space.Helper.Copy;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -326,34 +332,65 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            PrivateLibrary.Title.Text = "Kütüphane Dizini";
+            PrivateLibrary.Title.Text = "Kütüphane Konumu";
             PrivateLibrary.LeftIcon.Symbol = SymbolRegular.Folder24;
-            PrivateLibrary.Description.Text = "Kütüphanenize eklediğiniz temaların depolanacağı konum.";
+            PrivateLibrary.Description.Text = "Kütüphanenize eklediğiniz temaların saklanacağı konum.";
 
-            Grid LibraryContent = new();
+            StackPanel LibraryContent = new();
+
+            StackPanel LibraryLocationContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            Button LibraryLocation = new()
+            {
+                Content = SPMM.LibraryLocation,
+                Cursor = Cursors.Hand,
+                MaxWidth = 700,
+                MinWidth = 350
+            };
+
+            LibraryLocation.Click += (s, e) => LibraryLocationClick(LibraryLocation);
+
+            SymbolIcon LibraryOpen = new()
+            {
+                Symbol = SymbolRegular.FolderOpen24,
+                FontSize = 28,
+                Height = 32,
+                Width = 32
+            };
+
+            Button LibraryLocationOpen = new()
+            {
+                Cursor = Cursors.Hand,
+                Content = LibraryOpen,
+                Padding = new Thickness(0),
+                Margin = new Thickness(10, 0, 0, 0),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush")
+            };
+
+            LibraryLocationOpen.Click += (s, e) => LibraryLocationOpenClick(LibraryLocation);
 
             CheckBox LibraryMove = new()
             {
                 Content = "Mevcut kütüphanenizi yeni konuma taşı",
+                Margin = new Thickness(0, 10, 0, 0),
                 IsChecked = SPMM.LibraryMove
             };
 
             LibraryMove.Checked += (s, e) => LibraryMoveChecked(true);
             LibraryMove.Unchecked += (s, e) => LibraryMoveChecked(false);
 
+            LibraryLocationContent.Children.Add(LibraryLocation);
+            LibraryLocationContent.Children.Add(LibraryLocationOpen);
+
+            LibraryContent.Children.Add(LibraryLocationContent);
             LibraryContent.Children.Add(LibraryMove);
 
             PrivateLibrary.FooterCard = LibraryContent;
 
             Contents.Add(PrivateLibrary);
-
-
-
-
-
-
-
-
 
             _isInitialized = true;
         }
@@ -549,6 +586,64 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 SPMI.BackdropService.BackdropImage = Destination;
             }
+        }
+
+        private async void LibraryLocationClick(Button LibraryLocation)
+        {
+            LibraryLocation.IsEnabled = false;
+
+            FolderBrowserDialog BrowserDialog = new()
+            {
+                ShowNewFolderButton = true,
+
+                SelectedPath = SPMM.LibraryLocation
+            };
+
+            if (BrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(BrowserDialog.SelectedPath))
+            {
+                string Destination = BrowserDialog.SelectedPath;
+
+                if (Destination != SPMM.LibraryLocation)
+                {
+                    LibraryLocation.Content = Destination;
+
+                    if (SPMM.LibraryMove)
+                    {
+                        if (SSSHL.Run())
+                        {
+                            SSSHL.Kill();
+
+                            if (!string.IsNullOrEmpty(SPMM.App))
+                            {
+                                SSSHP.Kill(SPMM.App);
+                            }
+
+                            SWUD.RefreshDesktop();
+
+                            await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
+
+                            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
+
+                            SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+
+                            SSLHR.Start();
+                        }
+                        else
+                        {
+                            await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
+
+                            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
+                        }
+                    }
+                }
+            }
+
+            LibraryLocation.IsEnabled = true;
+        }
+
+        private void LibraryLocationOpenClick(Button LibraryLocation)
+        {
+            SSSHP.Run(LibraryLocation.Content.ToString());
         }
 
         private void BackgroundImageRemoveClick(Button BackgroundImage)

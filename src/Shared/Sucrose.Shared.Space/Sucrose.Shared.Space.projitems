@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Space</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Copy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Network.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Clean.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Size.cs" />
