@@ -603,38 +603,51 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 string Destination = BrowserDialog.SelectedPath;
 
-                if (Destination != SPMM.LibraryLocation)
+                if (!Directory.EnumerateFiles(Destination).Any() && !Directory.EnumerateDirectories(Destination).Any())
                 {
-                    LibraryLocation.Content = Destination;
-
-                    if (SPMM.LibraryMove)
+                    if (Destination != SPMM.LibraryLocation)
                     {
-                        if (SSSHL.Run())
-                        {
-                            SSSHL.Kill();
+                        LibraryLocation.Content = "Lütfen biraz bekleyin";
 
-                            if (!string.IsNullOrEmpty(SPMM.App))
+                        if (SPMM.LibraryMove)
+                        {
+                            if (SSSHL.Run())
                             {
-                                SSSHP.Kill(SPMM.App);
+                                SSSHL.Kill();
+
+                                if (!string.IsNullOrEmpty(SPMM.App))
+                                {
+                                    SSSHP.Kill(SPMM.App);
+                                }
+
+                                SWUD.RefreshDesktop();
+
+                                await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
+
+                                SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
+
+                                SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+
+                                SSLHR.Start();
                             }
+                            else
+                            {
+                                await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
 
-                            SWUD.RefreshDesktop();
-
-                            await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
-
-                            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
-
-                            SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
-
-                            SSLHR.Start();
+                                SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
+                            }
                         }
-                        else
-                        {
-                            await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
 
-                            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
-                        }
+                        LibraryLocation.Content = Destination;
                     }
+                }
+                else
+                {
+                    LibraryLocation.Content = "Boş bir klasör seç";
+
+                    await Task.Delay(1500);
+
+                    LibraryLocation.Content = SPMM.LibraryLocation;
                 }
             }
 
@@ -643,7 +656,17 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void LibraryLocationOpenClick(Button LibraryLocation)
         {
-            SSSHP.Run(LibraryLocation.Content.ToString());
+            if (LibraryLocation.IsEnabled)
+            {
+                string Destination = LibraryLocation.Content.ToString();
+
+                if (!Directory.Exists(Destination))
+                {
+                    Directory.CreateDirectory(Destination);
+                }
+
+                SSSHP.Run(Destination);
+            }
         }
 
         private void BackgroundImageRemoveClick(Button BackgroundImage)
