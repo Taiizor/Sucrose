@@ -9,5 +9,5 @@
         <ResourceDictionary Source="SearchLibraryPage/Portal.SearchLibraryPage.ES.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <system:String x:Key="Portal.LibraryPage.Test">Test</system:String>
+    <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
 </ResourceDictionary>

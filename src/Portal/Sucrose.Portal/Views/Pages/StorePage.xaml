@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DataContext="{d:DesignInstance local:StorePage, IsDesignTimeCreatable=False}"
-    Title="StorePage"
+    Title="{DynamicResource Portal.StorePage.Title}"
     mc:Ignorable="d">
 
     <Grid x:Name="GridStore" Loaded="GridStore_Loaded">

@@ -603,11 +603,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 string Destination = BrowserDialog.SelectedPath;
 
-                if (!Directory.EnumerateFiles(Destination).Any() && !Directory.EnumerateDirectories(Destination).Any())
+                if (Destination != SPMM.LibraryLocation)
                 {
-                    if (Destination != SPMM.LibraryLocation)
+                    if (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any())
                     {
-                        LibraryLocation.Content = "Lütfen biraz bekleyin";
+                        LibraryLocation.Content = "Konum değiştirilirken lütfen biraz bekleyin";
 
                         if (SPMM.LibraryMove)
                         {
@@ -622,11 +622,15 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                                 SWUD.RefreshDesktop();
 
+                                await Task.Delay(250);
+
                                 await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
 
                                 SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
 
                                 SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+
+                                await Task.Delay(250);
 
                                 SSLHR.Start();
                             }
@@ -634,20 +638,22 @@ namespace Sucrose.Portal.ViewModels.Pages
                             {
                                 await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
 
+                                await Task.Delay(250);
+
                                 SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
                             }
                         }
 
                         LibraryLocation.Content = Destination;
                     }
-                }
-                else
-                {
-                    LibraryLocation.Content = "Boş bir klasör seç";
+                    else
+                    {
+                        LibraryLocation.Content = "Lütfen boş bir klasör seç";
 
-                    await Task.Delay(1500);
+                        await Task.Delay(1500);
 
-                    LibraryLocation.Content = SPMM.LibraryLocation;
+                        LibraryLocation.Content = SPMM.LibraryLocation;
+                    }
                 }
             }
 
@@ -658,7 +664,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (LibraryLocation.IsEnabled)
             {
-                string Destination = LibraryLocation.Content.ToString();
+                string Destination = $"{LibraryLocation.Content}";
 
                 if (!Directory.Exists(Destination))
                 {

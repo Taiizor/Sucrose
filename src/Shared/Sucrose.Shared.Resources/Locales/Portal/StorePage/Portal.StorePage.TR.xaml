@@ -10,5 +10,5 @@
         <ResourceDictionary Source="UnknownStorePage/Portal.UnknownStorePage.TR.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <system:String x:Key="Portal.StorePage.Test">Test</system:String>
+    <system:String x:Key="Portal.StorePage.Title">StorePage</system:String>
 </ResourceDictionary>

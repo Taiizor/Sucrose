@@ -9,6 +9,7 @@
         <ResourceDictionary Source="StorePage/Portal.StorePage.FR.xaml" />
         <ResourceDictionary Source="MainWindow/Portal.MainWindow.FR.xaml" />
         <ResourceDictionary Source="LibraryPage/Portal.LibraryPage.FR.xaml" />
+        <ResourceDictionary Source="SettingPage/Portal.SettingPage.FR.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.Test">Test</system:String>

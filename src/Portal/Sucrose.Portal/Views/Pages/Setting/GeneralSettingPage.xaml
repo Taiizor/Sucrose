@@ -9,7 +9,7 @@
     xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DataContext="{d:DesignInstance local:GeneralSettingPage, IsDesignTimeCreatable=False}"
-    Title="GeneralSettingPage"
+    Title="{DynamicResource Portal.GeneralSettingPage.Title}"
     mc:Ignorable="d">
 
     <Grid x:Name="GridSetting" Loaded="GridSetting_Loaded">
