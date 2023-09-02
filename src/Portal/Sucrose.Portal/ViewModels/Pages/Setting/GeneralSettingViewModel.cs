@@ -568,7 +568,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = "Image files (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif",
+                Filter = "Image files (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif",
                 FilterIndex = 1,
 
                 Title = SSRER.GetValue("Launcher", "SaveDialogTitle"),

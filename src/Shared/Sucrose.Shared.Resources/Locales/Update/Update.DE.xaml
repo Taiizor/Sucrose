@@ -9,10 +9,10 @@
     <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose-Update</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage">Nachricht</system:String>
     <system:String x:Key="Update.InfoBox.CloseText">Ausfahrt</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Wir befinden uns in Momenten, in denen Update-Dateien wie ein verlorenes Juwel versteckt sind. Sie können weiterhin Freude an der Erfahrung haben, indem Sie die aktuelle Version verwenden</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">Die Anwendung ist bereits bei Ihnen, wie die neueste Seite eines Buches, in ihrer aktuellsten und innovativsten Form. Hier, um Ihnen jederzeit das beste und aktuellste Erlebnis zu bieten</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Wir stehen an der Schwelle eines Traums, in dem Update-Dateien nicht zugänglich sind. Sie können jedoch Ihren Traum weiterhin mit der aktuellen Version leben</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">Die Schwäche Ihrer Verbindung, wie Wolken, die die Sonne verdecken. Ein helleres Erlebnis erwartet Sie, wenn die Wolken sich auflösen</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Das Anwendungsupdate schreitet heimlich voran, wie neue Schätze, die von den Wellen des Meeres ans Ufer gebracht werden. Diese wertvollen Innovationen werden im Hintergrund für Sie gesammelt</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Wir erleben einen Moment, in dem der Update-Stern in der Anwendung noch nicht aufgegangen ist. Derzeit gibt es keine verfügbaren Update-Informationen, aber Sie können weiterhin die vorhandene Version verwenden</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Wir befinden uns in Momenten, in denen Update-Dateien wie ein verlorenes Juwel versteckt sind. Sie können weiterhin Freude an der Erfahrung haben, indem Sie die aktuelle Version verwenden.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">Die Anwendung ist bereits bei Ihnen, wie die neueste Seite eines Buches, in ihrer aktuellsten und innovativsten Form. Hier, um Ihnen jederzeit das beste und aktuellste Erlebnis zu bieten.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Wir stehen an der Schwelle eines Traums, in dem Update-Dateien nicht zugänglich sind. Sie können jedoch Ihren Traum weiterhin mit der aktuellen Version leben.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Die Schwäche Ihrer Verbindung, wie Wolken, die die Sonne verdecken. Ein helleres Erlebnis erwartet Sie, wenn die Wolken sich auflösen.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Das Anwendungsupdate schreitet heimlich voran, wie neue Schätze, die von den Wellen des Meeres ans Ufer gebracht werden. Diese wertvollen Innovationen werden im Hintergrund für Sie gesammelt.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Wir erleben einen Moment, in dem der Update-Stern in der Anwendung noch nicht aufgegangen ist. Derzeit gibt es keine verfügbaren Update-Informationen, aber Sie können weiterhin die vorhandene Version verwenden.</system:String>
 </ResourceDictionary>
