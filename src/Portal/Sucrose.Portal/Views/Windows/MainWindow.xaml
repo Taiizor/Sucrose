@@ -92,36 +92,42 @@
                     Cursor="Hand"
                     Name="Setting3"
                     Icon="{ui:SymbolIcon PersonLock16}"
+                    TargetPageType="{x:Type setting:PersonalSettingPage}"
                     Content="{DynamicResource Portal.MainWindow.MenuPersonal}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuPersonalTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting4"
                     Icon="{ui:SymbolIcon DesktopPulse16}"
+                    TargetPageType="{x:Type setting:PerformanceSettingPage}"
                     Content="{DynamicResource Portal.MainWindow.MenuPerformance}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuPerformanceTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting5"
                     Icon="{ui:SymbolIcon Image16}"
+                    TargetPageType="{x:Type setting:WallpaperSettingPage}"
                     Content="{DynamicResource Portal.MainWindow.MenuWallpaper}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting6"
                     Icon="{ui:SymbolIcon PuzzleCube16}"
+                    TargetPageType="{x:Type setting:SystemSettingPage}"
                     Content="{DynamicResource Portal.MainWindow.MenuSystem}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuSystemTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting7"
                     Icon="{ui:SymbolIcon Balloon16}"
+                    TargetPageType="{x:Type setting:DonateSettingPage}"
                     Content="{DynamicResource Portal.MainWindow.MenuDonate}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDonateTip}" />
                 <ui:NavigationViewItem
                     Cursor="Hand"
                     Name="Setting8"
                     Icon="{ui:SymbolIcon ContentSettings16}"
+                    TargetPageType="{x:Type setting:OtherSettingPage}"
                     Content="{DynamicResource Portal.MainWindow.MenuOther}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuOtherTip}" />
             </ui:NavigationView.MenuItems>

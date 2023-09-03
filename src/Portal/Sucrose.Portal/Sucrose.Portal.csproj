@@ -118,6 +118,27 @@
         <Resource Include="Assets\**\*.*" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Views\Pages\Setting\PerformanceSettingPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Pages\Setting\PersonalSettingPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Pages\Setting\SystemSettingPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Pages\Setting\WallpaperSettingPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Pages\Setting\OtherSettingPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Pages\Setting\DonateSettingPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>

@@ -14,13 +14,25 @@ using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPSPS = Sucrose.Portal.Services.PageService;
 using SPSWPS = Sucrose.Portal.Services.WindowsProviderService;
+using SPVMPDSVM = Sucrose.Portal.ViewModels.Pages.DonateSettingViewModel;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
+using SPVMPOSVM = Sucrose.Portal.ViewModels.Pages.OtherSettingViewModel;
+using SPVMPPESVM = Sucrose.Portal.ViewModels.Pages.PerformanceSettingViewModel;
+using SPVMPPLSVM = Sucrose.Portal.ViewModels.Pages.PersonalSettingViewModel;
+using SPVMPSSVM = Sucrose.Portal.ViewModels.Pages.SystemSettingViewModel;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
+using SPVMPWSVM = Sucrose.Portal.ViewModels.Pages.WallpaperSettingViewModel;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
+using SPVPSDSP = Sucrose.Portal.Views.Pages.Setting.DonateSettingPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
+using SPVPSOSP = Sucrose.Portal.Views.Pages.Setting.OtherSettingPage;
 using SPVPSP = Sucrose.Portal.Views.Pages.StorePage;
+using SPVPSPESP = Sucrose.Portal.Views.Pages.Setting.PerformanceSettingPage;
+using SPVPSPLSP = Sucrose.Portal.Views.Pages.Setting.PersonalSettingPage;
+using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
+using SPVPSWSP = Sucrose.Portal.Views.Pages.Setting.WallpaperSettingPage;
 using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -84,8 +96,26 @@ namespace Sucrose.Portal
                     services.AddTransient<SPVPSP>();
                     services.AddTransient<SPVMPSVM>();
 
+                    services.AddTransient<SPVPSDSP>();
+                    services.AddTransient<SPVMPDSVM>();
+
                     services.AddTransient<SPVPSGSP>();
                     services.AddTransient<SPVMPGSVM>();
+
+                    services.AddTransient<SPVPSOSP>();
+                    services.AddTransient<SPVMPOSVM>();
+
+                    services.AddTransient<SPVPSPESP>();
+                    services.AddTransient<SPVMPPESVM>();
+
+                    services.AddTransient<SPVPSPLSP>();
+                    services.AddTransient<SPVMPPLSVM>();
+
+                    services.AddTransient<SPVPSSSP>();
+                    services.AddTransient<SPVMPSSVM>();
+
+                    services.AddTransient<SPVPSWSP>();
+                    services.AddTransient<SPVMPWSVM>();
 
                     // Configuration
                     services.Configure<SPMAC>(context.Configuration.GetSection(nameof(SPMAC)));

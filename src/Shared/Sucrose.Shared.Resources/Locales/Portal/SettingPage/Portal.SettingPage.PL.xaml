@@ -4,7 +4,13 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="OtherSettingPage/Portal.OtherSettingPage.PL.xaml" />
+        <ResourceDictionary Source="DonateSettingPage/Portal.DonateSettingPage.PL.xaml" />
+        <ResourceDictionary Source="SystemSettingPage/Portal.SystemSettingPage.PL.xaml" />
         <ResourceDictionary Source="GeneralSettingPage/Portal.GeneralSettingPage.PL.xaml" />
+        <ResourceDictionary Source="PersonalSettingPage/Portal.PersonalSettingPage.PL.xaml" />
+        <ResourceDictionary Source="WallpaperSettingPage/Portal.WallpaperSettingPage.PL.xaml" />
+        <ResourceDictionary Source="PerformanceSettingPage/Portal.PerformanceSettingPage.PL.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.SettingPage.Test">Test</system:String>
