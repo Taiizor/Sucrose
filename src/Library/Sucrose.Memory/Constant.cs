@@ -30,17 +30,11 @@
 
         public const string Video = "Video";
 
-        public const string State = "State";
-
         public const string Start = "Start";
-
-        public const string Delay = "Delay";
 
         public const string Themes = "Themes";
 
         public const string Volume = "Volume";
-
-        public const string Refresh = "Refresh";
 
         public const string Shuffle = "Shuffle";
 
@@ -74,6 +68,10 @@
 
         public const string WebArguments = "WebArguments";
 
+        public const string DiscordDelay = "DiscordDelay";
+
+        public const string DiscordState = "DiscordState";
+
         public const string LibraryDelete = "LibraryDelete";
 
         public const string VolumeDesktop = "VolumeDesktop";
@@ -81,6 +79,8 @@
         public const string AdaptiveLayout = "AdaptiveLayout";
 
         public const string AdaptiveMargin = "AdaptiveMargin";
+
+        public const string DiscordRefresh = "DiscordRefresh";
 
         public const string StorePagination = "StorePagination";
 

@@ -13,11 +13,11 @@ namespace Sucrose.Shared.Discord
 {
     internal class Hook : IDisposable
     {
-        private int Delay => SHS.Clamp(SMMI.DiscordSettingManager.GetSettingStable(SMC.Delay, 60), 60, 3600);
+        private int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMC.DiscordDelay, 60), 60, 3600);
 
-        private bool Refresh => SMMI.DiscordSettingManager.GetSetting(SMC.Refresh, true);
+        private bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
 
-        private bool State => SMMI.DiscordSettingManager.GetSetting(SMC.State, true);
+        private bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
 
         public Hook()
         {
@@ -55,12 +55,12 @@ namespace Sucrose.Shared.Discord
 
         public void Enable()
         {
-            SMMI.DiscordSettingManager.SetSetting(SMC.State, true);
+            SMMI.HookSettingManager.SetSetting(SMC.DiscordState, true);
         }
 
         public void Disable()
         {
-            SMMI.DiscordSettingManager.SetSetting(SMC.State, false);
+            SMMI.HookSettingManager.SetSetting(SMC.DiscordState, false);
         }
 
         public void SetPresence()
@@ -110,7 +110,7 @@ namespace Sucrose.Shared.Discord
         public void AutoRefresh()
         {
             SSDMI.RefreshTimer.Tick += new EventHandler(RefreshTimer_Tick);
-            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, Delay);
+            SSDMI.RefreshTimer.Interval = new TimeSpan(0, 0, DiscordDelay);
             SSDMI.RefreshTimer.Start();
         }
 
@@ -121,7 +121,7 @@ namespace Sucrose.Shared.Discord
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
         {
-            if (Refresh)
+            if (DiscordRefresh)
             {
                 SetPresence();
             }
@@ -129,18 +129,18 @@ namespace Sucrose.Shared.Discord
 
         private void InitializeTimer_Tick(object sender, EventArgs e)
         {
-            if (State && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
+            if (DiscordState && SSSHP.Work(SSDMI.Name[0], SSDMI.Name[1]))
             {
                 if (!SSDMI.Client.IsInitialized)
                 {
                     SSDMI.Client.Initialize();
                 }
 
-                if (Refresh && !SSDMI.RefreshTimer.IsEnabled)
+                if (DiscordRefresh && !SSDMI.RefreshTimer.IsEnabled)
                 {
                     AutoRefresh();
                 }
-                else if (!Refresh && SSDMI.RefreshTimer.IsEnabled)
+                else if (!DiscordRefresh && SSDMI.RefreshTimer.IsEnabled)
                 {
                     SSDMI.RefreshTimer.Stop();
                 }

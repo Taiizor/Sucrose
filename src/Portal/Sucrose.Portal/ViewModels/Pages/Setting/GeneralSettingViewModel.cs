@@ -411,14 +411,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 bool State = Index == 0;
 
-                if (State)
-                {
-                    SMMI.LauncherSettingManager.SetSetting(SMC.Visible, true);
-                }
-                else
-                {
-                    SMMI.LauncherSettingManager.SetSetting(SMC.Visible, false);
-                }
+                SMMI.LauncherSettingManager.SetSetting(SMC.Visible, State);
 
                 if (SSSHP.Work(SMR.Launcher))
                 {
