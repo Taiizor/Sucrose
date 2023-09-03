@@ -83,7 +83,9 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             DiscordHook.HeaderFrame = DiscordState;
 
-            StackPanel DiscordContent = new()
+            StackPanel DiscordContent = new();
+
+            StackPanel DiscordRefreshContent = new()
             {
                 Orientation = Orientation.Horizontal
             };
@@ -94,7 +96,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold,
-                Text = "Yenileme:",
+                Text = "Bağlantı Yenileme:",
             };
 
             ToggleSwitch DiscordRefresh = new()
@@ -105,13 +107,19 @@ namespace Sucrose.Portal.ViewModels.Pages
             DiscordRefresh.Checked += (s, e) => DiscordRefreshChecked(true);
             DiscordRefresh.Unchecked += (s, e) => DiscordRefreshChecked(false);
 
+            StackPanel DiscordDelayContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
             TextBlock DiscordDelayText = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(20, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Süre:",
+                Margin = new Thickness(0, 0, 10, 0),
+                Text = "Yenileme Süresi (Saniye):",
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox DiscordDelay = new()
@@ -124,10 +132,14 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             DiscordDelay.ValueChanged += (s, e) => DiscordDelayChanged(DiscordDelay.Value);
 
-            DiscordContent.Children.Add(DiscordRefreshText);
-            DiscordContent.Children.Add(DiscordRefresh);
-            DiscordContent.Children.Add(DiscordDelayText);
-            DiscordContent.Children.Add(DiscordDelay);
+            DiscordRefreshContent.Children.Add(DiscordRefreshText);
+            DiscordRefreshContent.Children.Add(DiscordRefresh);
+
+            DiscordDelayContent.Children.Add(DiscordDelayText);
+            DiscordDelayContent.Children.Add(DiscordDelay);
+
+            DiscordContent.Children.Add(DiscordRefreshContent);
+            DiscordContent.Children.Add(DiscordDelayContent);
 
             DiscordHook.FooterCard = DiscordContent;
 
@@ -143,7 +155,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         public void OnNavigatedFrom()
         {
-            Dispose();
+            //Dispose();
         }
 
         private void DiscordStateChecked(bool State)

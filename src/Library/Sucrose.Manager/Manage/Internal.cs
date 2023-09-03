@@ -9,6 +9,8 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM ThemesManager = new("Themes.json");
 
+        public static readonly SMSM DonateManager = new("Donate.json");
+
         public static readonly SMSM WebsiteManager = new("Website.json");
 
         public static readonly SMSM HookSettingManager = new("Hook.json");

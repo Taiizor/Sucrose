@@ -284,7 +284,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             EngineVolume.Title.Text = "Ses Düzeyi";
-            EngineVolume.LeftIcon.Symbol = SymbolRegular.Speaker224;
+            EngineVolume.LeftIcon.Symbol = VolumeSymbol(SPMM.Volume);
             EngineVolume.Description.Text = "Tüm duvar kağıtları için ses seviyesi.";
 
             Slider Volume = new()
@@ -402,7 +402,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         public void OnNavigatedFrom()
         {
-            Dispose();
+            //Dispose();
         }
 
         private void NotifySelected(int Index)
@@ -490,16 +490,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
-        private void BackdropStretchSelected(int Index)
+        private void LibraryMoveChecked(bool State)
         {
-            Stretch NewStretch = (Stretch)Index;
-
-            if (NewStretch != SPMM.BackgroundStretch)
-            {
-                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundStretch, NewStretch);
-
-                SPMI.BackdropService.BackdropStretch = NewStretch;
-            }
+            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryMove, State);
         }
 
         private void LocalizationSelected(int Index)
@@ -520,9 +513,36 @@ namespace Sucrose.Portal.ViewModels.Pages
             SMMI.EngineSettingManager.SetSetting(SMC.VolumeDesktop, State);
         }
 
-        private void LibraryMoveChecked(bool State)
+        private void BackdropStretchSelected(int Index)
         {
-            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryMove, State);
+            Stretch NewStretch = (Stretch)Index;
+
+            if (NewStretch != SPMM.BackgroundStretch)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundStretch, NewStretch);
+
+                SPMI.BackdropService.BackdropStretch = NewStretch;
+            }
+        }
+
+        private SymbolRegular VolumeSymbol(double Value)
+        {
+            if (Value <= 0d)
+            {
+                return SymbolRegular.SpeakerMute24;
+            }
+            else if (Value >= 75d)
+            {
+                return SymbolRegular.Speaker224;
+            }
+            else if (Value >= 25d)
+            {
+                return SymbolRegular.Speaker124;
+            }
+            else
+            {
+                return SymbolRegular.Speaker024;
+            }
         }
 
         private void BackdropOpacityChanged(double? Value)
@@ -539,18 +559,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void VolumeChanged(SPVCEC Volume, double Value)
         {
-            if (Value <= 0d)
-            {
-                Volume.LeftIcon.Symbol = SymbolRegular.Speaker024;
-            }
-            else if (Value >= 75d)
-            {
-                Volume.LeftIcon.Symbol = SymbolRegular.Speaker224;
-            }
-            else
-            {
-                Volume.LeftIcon.Symbol = SymbolRegular.Speaker124;
-            }
+            Volume.LeftIcon.Symbol = VolumeSymbol(Value);
 
             SMMI.EngineSettingManager.SetSetting(SMC.Volume, Convert.ToInt32(Value));
         }

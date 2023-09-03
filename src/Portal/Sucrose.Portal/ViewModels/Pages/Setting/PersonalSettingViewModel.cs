@@ -33,7 +33,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         public void OnNavigatedFrom()
         {
-            Dispose();
+            //Dispose();
         }
 
         public void Dispose()
