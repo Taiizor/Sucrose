@@ -152,8 +152,8 @@
                         x:Name="SearchBox"
                         Icon="{ui:SymbolIcon Search16}"
                         TextChanged="SearchBox_TextChanged"
-                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.SearchBoxTip}"
-                        PlaceholderText="{DynamicResource Portal.MainWindow.SearchBoxHint}" />
+                        PlaceholderText="{DynamicResource Portal.MainWindow.SearchBoxHint}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.SearchBoxTip}" />
                     <ui:Button
                         Cursor="Hand"
                         x:Name="Dark"
@@ -162,8 +162,8 @@
                         Click="ThemeChange_click"
                         BorderBrush="Transparent"
                         Icon="{ui:SymbolIcon WeatherSunny16}"
-                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuLightTip}"
-                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}" />
+                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuLightTip}" />
                     <ui:Button
                         Cursor="Hand"
                         x:Name="Light"
@@ -172,8 +172,8 @@
                         Click="ThemeChange_click"
                         BorderBrush="Transparent"
                         Icon="{ui:SymbolIcon WeatherMoon16}"
-                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDarkTip}"
-                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}" />
+                        Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDarkTip}" />
                     <ui:Button
                         Cursor="Hand"
                         Margin="0 0 5 0"
@@ -187,11 +187,19 @@
                         Margin="0 0 5 0"
                         IsEnabled="False"
                         Appearance="Transparent"
-                        ToolTipService.ToolTip="Ekran Tercihleri"
                         BorderBrush="Transparent"
+                        ToolTipService.ToolTip="Ekran Tercihleri"
                         Icon="{ui:SymbolIcon ShareScreenPerson16}" />
-                    <!--<Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />-->
+                    <ui:Button
+                        Cursor="Hand"
+                        Margin="0 0 5 0"
+                        Appearance="Transparent"
+                        BorderBrush="Transparent"
+                        Icon="{ui:SymbolIcon DrinkMargarita16}"
+                        ToolTipService.ToolTip="Bağış Seçenekleri"
+                        Visibility="{Binding ViewModel.Donater, Mode=OneWay}" />
                     <ui:NavigationViewItemSeparator Background="{DynamicResource TextFillColorSecondaryBrush}" />
+                    <!--<Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />-->
                 </DockPanel>
             </ui:NavigationView.PaneFooter>
             

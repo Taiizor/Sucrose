@@ -280,7 +280,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             SPVCEC EngineVolume = new()
             {
-                Margin = new Thickness(0, 10, 0, 0)
+                Margin = new Thickness(0, 10, 0, 0),
+                IsExpand = true
             };
 
             EngineVolume.Title.Text = "Ses Düzeyi";

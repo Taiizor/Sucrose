@@ -22,8 +22,9 @@
                 <ui:SymbolIcon
                     x:Name="LeftIcon"
                     Grid.Column="0"
-                    Width="32"
                     Symbol="Empty"
+                    FontSize="24"
+                    Width="32"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                     VerticalAlignment="Stretch" HorizontalAlignment="Center" />
 

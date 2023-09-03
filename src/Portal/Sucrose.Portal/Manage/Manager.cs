@@ -32,6 +32,8 @@ namespace Sucrose.Portal.Manage
 
         public static int AdaptiveLayout => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0), 0, 100);
 
+        public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateManager.GetSettingStable(SMC.AdvertisingDelay, 30), 30, 720);
+
         public static int AdaptiveMargin => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 8), 5, 25);
 
         public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMC.DiscordDelay, 60), 60, 3600);
@@ -48,7 +50,6 @@ namespace Sucrose.Portal.Manage
 
         public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
 
-
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMC.VolumeDesktop, false);
@@ -57,9 +58,13 @@ namespace Sucrose.Portal.Manage
 
         public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
 
+        public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
+
         public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
 
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
+
+        public static bool DonateVisible => SMMI.DonateManager.GetSetting(SMC.DonateVisible, true);
 
         public static int Startup => SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0);
 

@@ -26,6 +26,12 @@ namespace Sucrose.Portal.Views.Controls
             set => Title.Text = value;
         }
 
+        public double LeftIconFontSize
+        {
+            get => LeftIcon.FontSize;
+            set => LeftIcon.FontSize = value;
+        }
+
         public SymbolRegular LeftIconSymbol
         {
             get => LeftIcon.Symbol;

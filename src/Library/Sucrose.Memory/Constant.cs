@@ -72,6 +72,8 @@
 
         public const string DiscordState = "DiscordState";
 
+        public const string DonateVisible = "DonateVisible";
+
         public const string LibraryDelete = "LibraryDelete";
 
         public const string VolumeDesktop = "VolumeDesktop";
@@ -89,6 +91,10 @@
         public const string LibrarySelected = "LibrarySelected";
 
         public const string BackgroundImage = "BackgroundImage";
+
+        public const string AdvertisingState = "AdvertisingState";
+
+        public const string AdvertisingDelay = "AdvertisingDelay";
 
         public const string ExpandScreenType = "ExpandScreenType";
 

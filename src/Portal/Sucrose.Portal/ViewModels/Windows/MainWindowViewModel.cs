@@ -32,6 +32,9 @@ namespace Sucrose.Portal.ViewModels.Windows
         [ObservableProperty]
         private Stretch _Stretch = SPMM.DefaultBackgroundStretch;
 
+        [ObservableProperty]
+        private Visibility _Donater = Visibility.Visible;
+
         private readonly DispatcherTimer Timer = new();
 
         [ObservableProperty]
@@ -76,7 +79,13 @@ namespace Sucrose.Portal.ViewModels.Windows
                 Timer.Start();
 
                 Backdrop();
+                Donate();
             }
+        }
+
+        private void Donate()
+        {
+            SPMI.DonateService.DonateVisibilityChanged += (s, e) => Donater = GetDonater();
         }
 
         private void Backdrop()
@@ -89,6 +98,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         private void InitializeViewModel()
         {
             Memory = SSCHM.Get();
+            Donater = GetDonater();
             Quoting = GetQuoting();
             Stretch = GetStretch();
             Opacity = GetOpacity();
@@ -106,6 +116,11 @@ namespace Sucrose.Portal.ViewModels.Windows
             return SPMM.BackgroundOpacity / 100d;
         }
 
+        private string GetQuoting()
+        {
+            return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(40)}");
+        }
+
         private Stretch GetStretch()
         {
             Stretch Type = SPMM.BackgroundStretch;
@@ -120,9 +135,9 @@ namespace Sucrose.Portal.ViewModels.Windows
             }
         }
 
-        private string GetQuoting()
+        private Visibility GetDonater()
         {
-            return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(40)}");
+            return SPMM.DonateVisible ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private BitmapImage GetBackgrounder()
@@ -134,6 +149,18 @@ namespace Sucrose.Portal.ViewModels.Windows
             else
             {
                 return null;
+            }
+        }
+
+        private static WindowBackdropType GetWindowBackdropType()
+        {
+            if (WindowBackdrop.IsSupported(SPMM.BackdropType))
+            {
+                return SPMM.BackdropType;
+            }
+            else
+            {
+                return SPMM.DefaultBackdropType;
             }
         }
 
@@ -154,18 +181,6 @@ namespace Sucrose.Portal.ViewModels.Windows
             if (GetWindowBackdropType() == WindowBackdropType.None)
             {
                 WindowBackdrop.RemoveBackdrop(Application.Current.MainWindow);
-            }
-        }
-
-        private static WindowBackdropType GetWindowBackdropType()
-        {
-            if (WindowBackdrop.IsSupported(SPMM.BackdropType))
-            {
-                return SPMM.BackdropType;
-            }
-            else
-            {
-                return SPMM.DefaultBackdropType;
             }
         }
 

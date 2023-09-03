@@ -1,38 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Input;
 using System.Windows.Media;
-using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
-using Button = Wpf.Ui.Controls.Button;
-using DialogResult = System.Windows.Forms.DialogResult;
-using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
-using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
-using SEOST = Skylark.Enum.OperatingSystemType;
-using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGCLLC = Sucrose.Grpc.Common.Launcher.LauncherClient;
-using SGCSLCS = Sucrose.Grpc.Client.Services.LauncherClientService;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
-using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
-using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
-using SSSHC = Sucrose.Shared.Space.Helper.Copy;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -54,20 +30,99 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            TextBlock AppearanceBehavior = new()
+            TextBlock Donate = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold,
+                Text = "Bağış"
+            };
+
+            Contents.Add(Donate);
+
+            SPVCEC DonateMenu = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            DonateMenu.Title.Text = "Bağış Menüsü";
+            DonateMenu.LeftIcon.Symbol = SymbolRegular.BuildingRetailMoney24;
+            DonateMenu.Description.Text = "Arayüzdeki bağış menüsünün görünürlüğü.";
+
+            ComboBox DonateVisible = new();
+
+            DonateVisible.SelectionChanged += (s, e) => DonateVisibleSelected(DonateVisible.SelectedIndex);
+
+            DonateVisible.Items.Add("Görünür");
+            DonateVisible.Items.Add("Görünmez");
+
+            DonateVisible.SelectedIndex = SPMM.DonateVisible ? 0 : 1;
+
+            DonateMenu.HeaderFrame = DonateVisible;
+
+            Contents.Add(DonateMenu);
+
+            TextBlock Support = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold,
                 Text = "Destek"
             };
 
-            SPVCEC DiscordHook = new()
+            Contents.Add(Support);
+
+            SPVCEC Advertising = new()
             {
-                Margin = new Thickness(0, 10, 0, 0)
+                Margin = new Thickness(0, 10, 0, 0),
+                IsExpand = true
             };
 
-            Contents.Add(AppearanceBehavior);
+            Advertising.Title.Text = "Reklamlı Destek";
+            Advertising.LeftIcon.Symbol = SymbolRegular.ReceiptMoney24;
+            Advertising.Description.Text = "Reklam izleyerek uygulamanın geliştirilmesine katkıda bulun.";
+
+            ToggleSwitch AdvertisingState = new()
+            {
+                IsChecked = SPMM.AdvertisingState
+            };
+
+            AdvertisingState.Checked += (s, e) => AdvertisingStateChecked(true);
+            AdvertisingState.Unchecked += (s, e) => AdvertisingStateChecked(false);
+
+            Advertising.HeaderFrame = AdvertisingState;
+
+            StackPanel AdvertisingContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock AdvertisingDelayText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                Text = "Reklam Süresi (Dakika):",
+                FontWeight = FontWeights.SemiBold
+            };
+
+            NumberBox AdvertisingDelay = new()
+            {
+                ClearButtonEnabled = false,
+                Value = SPMM.AdvertisingDelay,
+                Maximum = 720,
+                Minimum = 30
+            };
+
+            AdvertisingDelay.ValueChanged += (s, e) => AdvertisingDelayChanged(AdvertisingDelay.Value);
+
+            AdvertisingContent.Children.Add(AdvertisingDelayText);
+            AdvertisingContent.Children.Add(AdvertisingDelay);
+
+            Advertising.FooterCard = AdvertisingContent;
+
+            Contents.Add(Advertising);
 
             _isInitialized = true;
         }
@@ -80,6 +135,34 @@ namespace Sucrose.Portal.ViewModels.Pages
         public void OnNavigatedFrom()
         {
             //Dispose();
+        }
+
+        private void DonateVisibleSelected(int Index)
+        {
+            if (Index != (SPMM.DonateVisible ? 0 : 1))
+            {
+                bool State = Index == 0;
+                Visibility Visible = State ? Visibility.Visible : Visibility.Collapsed;
+
+                SMMI.DonateManager.SetSetting(SMC.DonateVisible, State);
+
+                SPMI.DonateService.DonateVisibility = Visible;
+            }
+        }
+
+        private void AdvertisingStateChecked(bool State)
+        {
+            SMMI.DonateManager.SetSetting(SMC.AdvertisingState, State);
+        }
+
+        private void AdvertisingDelayChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SPMM.AdvertisingDelay)
+            {
+                SMMI.DonateManager.SetSetting(SMC.AdvertisingDelay, NewValue);
+            }
         }
 
         public void Dispose()
