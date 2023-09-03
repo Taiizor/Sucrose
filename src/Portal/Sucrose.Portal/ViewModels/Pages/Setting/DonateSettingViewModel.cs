@@ -93,7 +93,9 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Advertising.HeaderFrame = AdvertisingState;
 
-            StackPanel AdvertisingContent = new()
+            StackPanel AdvertisingContent = new();
+
+            StackPanel AdvertisingCustomContent = new()
             {
                 Orientation = Orientation.Horizontal
             };
@@ -117,8 +119,19 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             AdvertisingDelay.ValueChanged += (s, e) => AdvertisingDelayChanged(AdvertisingDelay.Value);
 
-            AdvertisingContent.Children.Add(AdvertisingDelayText);
-            AdvertisingContent.Children.Add(AdvertisingDelay);
+            TextBlock AdvertisingHint = new()
+            {
+                Text = "İpucu: Reklamlar size en az seviyede rahatsızlık verecek şekilde gösterilecek.",
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            AdvertisingCustomContent.Children.Add(AdvertisingDelayText);
+            AdvertisingCustomContent.Children.Add(AdvertisingDelay);
+
+            AdvertisingContent.Children.Add(AdvertisingCustomContent);
+            AdvertisingContent.Children.Add(AdvertisingHint);
 
             Advertising.FooterCard = AdvertisingContent;
 
