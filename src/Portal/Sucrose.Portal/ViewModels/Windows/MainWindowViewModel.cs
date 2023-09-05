@@ -32,9 +32,6 @@ namespace Sucrose.Portal.ViewModels.Windows
         [ObservableProperty]
         private Stretch _Stretch = SPMM.DefaultBackgroundStretch;
 
-        [ObservableProperty]
-        private Visibility _Donater = Visibility.Visible;
-
         private readonly DispatcherTimer Timer = new();
 
         [ObservableProperty]
@@ -65,6 +62,9 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         [ObservableProperty]
         private double _Opacity = 1d;
+
+        [ObservableProperty]
+        private Visibility _Donater;
 
         private bool _isInitialized;
 

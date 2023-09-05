@@ -20,6 +20,8 @@
 
         public static readonly string Branch = "develop";
 
+        public static readonly string StoreSource = "src";
+
         public static readonly string AppName = "Sucrose";
 
         public static readonly string Content = "Content";
@@ -38,11 +40,11 @@
 
         public static readonly string Temporary = "Temporary";
 
-        public static readonly string WallpaperSource = "src";
-
         public static readonly string StoreFile = "Store.json";
 
         public static readonly string SettingFolder = "Setting";
+
+        public static readonly string StoreRepository = "Store";
 
         public static readonly string HostEntry = "www.google.com";
 
@@ -53,8 +55,6 @@
         public static readonly string TaskName = "Autorun for Sucrose";
 
         public static readonly string SucroseInfo = "SucroseInfo.json";
-
-        public static readonly string WallpaperRepository = "Wallpaper";
 
         public static readonly string Launcher = "Sucrose.Launcher.exe";
 
@@ -102,7 +102,7 @@
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
-        public static readonly string WallpaperWebsite = $"https://github.com/{Owner}/{WallpaperRepository}";
+        public static readonly string StoreWebsite = $"https://github.com/{Owner}/{StoreRepository}";
 
         public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
@@ -114,8 +114,8 @@
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        public static readonly string RawWebsite = $"https://raw.githubusercontent.com/{Owner}/{WallpaperRepository}/{Branch}";
+        public static readonly string RawWebsite = $"https://raw.githubusercontent.com/{Owner}/{StoreRepository}/{Branch}";
 
-        public static readonly string WallpaperReportWebsite = $"https://github.com/{Owner}/{WallpaperRepository}/issues/new?assignees=&labels=wallpaper&projects=&template=wallpaper_report.yaml";
+        public static readonly string StoreReportWebsite = $"https://github.com/{Owner}/{StoreRepository}/issues/new?assignees=&labels=wallpaper&projects=&template=wallpaper_report.yaml";
     }
 }

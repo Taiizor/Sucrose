@@ -13,7 +13,7 @@
   <a href="https://github.com/Taiizor/Sucrose/issues">Issues</a> ●
   <a href="https://github.com/Taiizor/Sucrose/discussions">Discussions</a> ●
   <a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a> ●
-  <a href="https://github.com/Taiizor/Wallpaper">Wallpaper</a> ●
+  <a href="https://github.com/Taiizor/Store">Store</a> ●
   <a href="https://www.youtube.com/playlist?list=PLPU_0X-WyJi7WSUHItUfxbr71ORthre19">YouTube</a> ●
   <a href="https://discord.gg/nxG977byXb">Discord</a>
 </h4>

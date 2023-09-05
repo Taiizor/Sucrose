@@ -41,7 +41,7 @@ namespace Sucrose.Shared.Store.Helper
 
             InitializeClient(Agent, Key);
 
-            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.WallpaperRepository, SMR.WallpaperSource, SMR.Branch, Agent, Key);
+            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, SMR.StoreSource, SMR.Branch, Agent, Key);
 
             foreach (SSIIC Content in Contents)
             {
@@ -198,7 +198,7 @@ namespace Sucrose.Shared.Store.Helper
 
         private static async Task<int> GetTotalFileCount(string Source, string Agent, string Key, bool Sub)
         {
-            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.WallpaperRepository, Source, SMR.Branch, Agent, Key);
+            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, Source, SMR.Branch, Agent, Key);
 
             int Count = 0;
 
@@ -223,7 +223,7 @@ namespace Sucrose.Shared.Store.Helper
 
         private static async Task<bool> DownloadFilesRecursively(string Source, string Output, string Agent, string Keys, string Key, bool Sub)
         {
-            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.WallpaperRepository, Source, SMR.Branch, Agent, Key);
+            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, Source, SMR.Branch, Agent, Key);
 
             foreach (SSIIC Content in Contents)
             {

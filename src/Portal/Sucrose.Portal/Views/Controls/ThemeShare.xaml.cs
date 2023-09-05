@@ -60,7 +60,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void Publish_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Publish}{SMR.ValueSeparator}{SMR.WallpaperWebsite}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Publish}{SMR.ValueSeparator}{SMR.StoreWebsite}");
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)

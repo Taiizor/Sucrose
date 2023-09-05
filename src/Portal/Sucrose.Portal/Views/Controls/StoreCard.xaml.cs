@@ -94,7 +94,7 @@ namespace Sucrose.Portal.Views.Controls
             string Title = Wallpaper.Key.Replace(" ", "%20");
             string Location = $"{Wallpaper.Value.Source.Replace(" ", "%20").Split('/').LastOrDefault()}/{Title}";
 
-            SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.WallpaperReportWebsite}&title={Title}&wallpaper-location={Location}");
+            SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.StoreReportWebsite}&title={Title}&wallpaper-location={Location}");
         }
 
         private void MenuInstall_Click(object sender, RoutedEventArgs e)
