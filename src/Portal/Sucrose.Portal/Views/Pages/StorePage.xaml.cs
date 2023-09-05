@@ -46,7 +46,7 @@ namespace Sucrose.Portal.Views.Pages
             {
                 string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                if (SSSHD.Store(StoreFile, SPMM.Agent, SPMM.Key))
+                if (SSSHD.Store(StoreFile, SPMM.UserAgent, SPMM.Key))
                 {
                     Root = SSSHS.DeserializeRoot(StoreFile);
 

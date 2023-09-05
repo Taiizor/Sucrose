@@ -159,7 +159,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                                 {
                                     if (SPMM.StorePagination * Page > Count && SPMM.StorePagination * Page <= Count + SPMM.StorePagination)
                                     {
-                                        SPVCSC StoreCard = new(Theme, Wallpaper, SPMM.Agent, SPMM.Key);
+                                        SPVCSC StoreCard = new(Theme, Wallpaper, SPMM.UserAgent, SPMM.Key);
 
                                         ThemeStore.Children.Add(StoreCard);
 

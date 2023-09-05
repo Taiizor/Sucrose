@@ -105,7 +105,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (Delete)
+            if (Delete || !SPMM.LibraryConfirm)
             {
                 Dispose();
 
