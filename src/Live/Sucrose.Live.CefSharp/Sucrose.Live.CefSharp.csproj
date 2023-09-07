@@ -83,7 +83,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf.NETCore" Version="116.0.150" />
+        <PackageReference Include="CefSharp.Wpf.NETCore" Version="116.0.190" />
     </ItemGroup>
 
     <ItemGroup>
