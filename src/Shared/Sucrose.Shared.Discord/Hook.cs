@@ -87,7 +87,7 @@ namespace Sucrose.Shared.Discord
                         new Button()
                         {
                             Label = SSRER.GetValue("Discord", "DownloadButton"),
-                            Url = SMR.DownloadWebsite
+                            Url = SMR.DownloadStore //SMR.DownloadWebsite
                         }
                     },
                     //Party = new Party()

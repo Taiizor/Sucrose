@@ -118,6 +118,8 @@
 
         public static readonly string RawWebsite = $"https://raw.githubusercontent.com/{Owner}/{StoreRepository}/{Branch}";
 
+        public static readonly string DownloadStore = $"https://apps.microsoft.com/store/detail/XP8JGPBHTJGLCQ?launch=true&mode=full";
+
         public static readonly string StoreReportWebsite = $"https://github.com/{Owner}/{StoreRepository}/issues/new?assignees=&labels=wallpaper&projects=&template=wallpaper_report.yaml";
     }
 }
