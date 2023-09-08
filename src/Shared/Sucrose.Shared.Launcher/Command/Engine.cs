@@ -12,6 +12,8 @@ namespace Sucrose.Shared.Launcher.Command
     {
         private static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
+        private static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
+
         private static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 
         public static void Command(bool State = true)
@@ -32,8 +34,13 @@ namespace Sucrose.Shared.Launcher.Command
             else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
             {
                 SSLHR.Start();
+
+                if (!Visible)
+                {
+                    SSLCI.Command();
+                }
             }
-            else if (!SMMI.LibrarySettingManager.CheckFile() || string.IsNullOrEmpty(LibrarySelected))
+            else
             {
                 SSLCI.Command();
             }

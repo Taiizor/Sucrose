@@ -123,12 +123,12 @@ namespace Sucrose.Portal.ViewModels.Pages
             SPVCEC NotifyIcon = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                IsExpand = true
             };
 
             NotifyIcon.Title.Text = "Bildirim Alanı Simgesi";
             NotifyIcon.LeftIcon.Symbol = SymbolRegular.TrayItemAdd24;
-            NotifyIcon.Description.Text = "Sistem tepsisi görünürlüğü, Sucrose gizli bir şekilde çalışmaya devam edecek.";
+            NotifyIcon.Description.Text = "Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam eder.";
 
             ComboBox Notify = new();
 
@@ -140,6 +140,17 @@ namespace Sucrose.Portal.ViewModels.Pages
             Notify.SelectedIndex = SPMM.Visible ? 0 : 1;
 
             NotifyIcon.HeaderFrame = Notify;
+
+            CheckBox NotifyExit = new()
+            {
+                Content = "Sistem Tepsisi kapatıldığında tüm Sucrose uygulamaları kapatılsın",
+                IsChecked = SPMM.Exit
+            };
+
+            NotifyExit.Checked += (s, e) => NotifyExitChecked(true);
+            NotifyExit.Unchecked += (s, e) => NotifyExitChecked(false);
+
+            NotifyIcon.FooterCard = NotifyExit;
 
             Contents.Add(NotifyIcon);
 
@@ -491,6 +502,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void NotifyExitChecked(bool State)
+        {
+            SMMI.LauncherSettingManager.SetSetting(SMC.Exit, State);
+        }
+
         private void LibraryMoveChecked(bool State)
         {
             SMMI.LibrarySettingManager.SetSetting(SMC.LibraryMove, State);
@@ -502,8 +518,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (NewCulture != SPMM.Culture)
             {
-                SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, NewCulture);
                 SSRHR.SetLanguage(NewCulture);
+                SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, NewCulture);
 
                 SPMI.CultureService.CultureCode = NewCulture;
             }
@@ -661,7 +677,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                                 SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
                             }
-                            
+
                             SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
                         }
 

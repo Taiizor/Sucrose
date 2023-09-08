@@ -84,6 +84,8 @@ namespace Sucrose.Portal.Manage
 
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
+        public static bool Exit => SMMI.LauncherSettingManager.GetSetting(SMC.Exit, false);
+
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
 
         public static Stretch DefaultBackgroundStretch => Stretch.UniformToFill;

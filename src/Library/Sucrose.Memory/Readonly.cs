@@ -72,8 +72,6 @@
 
         public static readonly string YouTubeContent = "YouTubeContent.html";
 
-        public static readonly string UserAgent = "Sucrose Wallpaper Engine";
-
         public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
@@ -99,6 +97,8 @@
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
 
         public static readonly string LauncherMutex = "{Sucrose-Wallpaper-Engine-Launcher}";
+
+        public static readonly string UserAgent = "Sucrose/1.1 (Wallpaper Engine) SucroseWebKit";
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 

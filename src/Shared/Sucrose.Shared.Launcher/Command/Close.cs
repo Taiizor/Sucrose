@@ -13,8 +13,7 @@ namespace Sucrose.Shared.Launcher.Command
     {
         private static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 
-        private static bool Exit => SMMI.GeneralSettingManager.GetSetting(SMC.Exit, false);
-
+        private static bool Exit => SMMI.LauncherSettingManager.GetSetting(SMC.Exit, false);
 
         public static void Command()
         {
@@ -39,6 +38,16 @@ namespace Sucrose.Shared.Launcher.Command
                 if (SSSHP.Work(SMR.Portal))
                 {
                     SSSHP.Kill(SMR.Portal);
+                }
+
+                if (SSSHP.Work(SMR.Update))
+                {
+                    SSSHP.Kill(SMR.Update);
+                }
+
+                if (SSSHP.Work(SMR.Commandog))
+                {
+                    SSSHP.Kill(SMR.Commandog);
                 }
             }
 

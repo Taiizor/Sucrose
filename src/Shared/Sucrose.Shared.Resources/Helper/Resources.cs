@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using Application = System.Windows.Application;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
+using SHC = Skylark.Helper.Culture;
 using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Shared.Resources.Helper
@@ -23,6 +25,8 @@ namespace Sucrose.Shared.Resources.Helper
             };
 
             RemoveResource();
+
+            SHC.All = new CultureInfo(Lang, true);
 
             Application.Current.Resources.MergedDictionaries.Add(Resource);
         }

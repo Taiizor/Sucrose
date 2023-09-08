@@ -1,39 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
-using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
-using static System.Windows.Forms.AxHost;
-using Button = Wpf.Ui.Controls.Button;
-using DialogResult = System.Windows.Forms.DialogResult;
-using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
-using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
-using SEOST = Skylark.Enum.OperatingSystemType;
-using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGCLLC = Sucrose.Grpc.Common.Launcher.LauncherClient;
-using SGCSLCS = Sucrose.Grpc.Client.Services.LauncherClientService;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
-using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
-using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
-using SSSHC = Sucrose.Shared.Space.Helper.Copy;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
@@ -152,12 +128,15 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBox UserAgent = new()
             {
+                ClearButtonEnabled = false,
                 Text = SPMM.UserAgent,
                 IsReadOnly = true,
-                MaxWidth = 300
+                MaxLength = 100,
+                MinWidth = 125,
+                MaxWidth = 250
             };
 
-            UserAgent.TextChanged += (s, e) => UserAgentChanged(UserAgent.Text);
+            UserAgent.TextChanged += (s, e) => UserAgentChanged(UserAgent);
 
             Agent.HeaderFrame = UserAgent;
 
@@ -215,17 +194,14 @@ namespace Sucrose.Portal.ViewModels.Pages
             //Dispose();
         }
 
-        private void UserAgentChanged(string Text)
+        private void UserAgentChanged(TextBox TextBox)
         {
-            if (Text.Length >= 6 && Text.Length <= 100)
+            if (string.IsNullOrEmpty(TextBox.Text))
             {
-                SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, Text);
+                TextBox.Text = SMR.UserAgent;
             }
-            else
-            {
 
-                SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, SMR.UserAgent);
-            }
+            SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, TextBox.Text);
         }
 
         private void AdultStateChecked(bool State)

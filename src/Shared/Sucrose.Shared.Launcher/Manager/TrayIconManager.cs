@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.IO;
+﻿using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SHV = Skylark.Helper.Versionly;
@@ -66,7 +65,6 @@ namespace Sucrose.Shared.Launcher.Manager
             Dispose();
 
             SSRHR.SetLanguage(Culture);
-            SHC.All = new CultureInfo(Culture, true);
 
             SSLHR.Corner(ContextMenu);
 
