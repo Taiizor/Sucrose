@@ -117,7 +117,19 @@ namespace Sucrose.Portal.Views.Pages.Library
 
                 if (ThemeLibrary.Children.Count <= 0)
                 {
-                    Empty.Visibility = Visibility.Visible;
+                    if (ThemePagination.MaxPage > ThemePagination.SelectPage)
+                    {
+                        await AddThemes(SPMI.SearchService.SearchText, ThemePagination.SelectPage);
+                    }
+                    else if (ThemePagination.SelectPage > 0)
+                    {
+                        ThemePagination.SelectPage--;
+                    }
+                    else
+                    {
+                        Empty.Visibility = Visibility.Visible;
+                        ThemePagination.Visibility = Visibility.Collapsed;
+                    }
                 }
             }
         }
