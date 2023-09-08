@@ -7,7 +7,7 @@ namespace Sucrose.Portal.Views.Controls
     /// <summary>
     /// Pagination.xaml etkileşim mantığı
     /// </summary>
-    public partial class Pagination : UserControl
+    public partial class Pagination : UserControl, IDisposable
     {
         public Pagination()
         {
@@ -324,6 +324,12 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SelectPage = MinPage;
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -10,20 +10,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Event\Video.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Event\Url.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Handler\CustomContextMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Execute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Video.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Url.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Video.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Url.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Web.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\YouTube.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)View\Video.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)View\Url.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

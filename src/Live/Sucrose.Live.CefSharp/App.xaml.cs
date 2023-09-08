@@ -10,12 +10,14 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSECSVU = Sucrose.Shared.Engine.CefSharp.View.Url;
 using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
 using SSECSVW = Sucrose.Shared.Engine.CefSharp.View.Web;
 using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -24,7 +26,6 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SSSHS = Sucrose.Shared.Space.Helper.Security;
 
 namespace Sucrose.Live.CefSharp
 {
@@ -153,6 +154,7 @@ namespace Sucrose.Live.CefSharp
 
                     CefSettings Settings = new()
                     {
+                        UserAgent = SSEMI.UserAgent,
                         CachePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.CefSharp)
                     };
 
@@ -206,6 +208,10 @@ namespace Sucrose.Live.CefSharp
 
                         switch (Info.Type)
                         {
+                            case SSDEWT.Url:
+                                SSECSVU Url = new(Source);
+                                Url.Show();
+                                break;
                             case SSDEWT.Web:
                                 SSECSVW Web = new(Source);
                                 Web.Show();

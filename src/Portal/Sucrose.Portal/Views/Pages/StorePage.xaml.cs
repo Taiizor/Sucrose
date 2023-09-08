@@ -99,7 +99,7 @@ namespace Sucrose.Portal.Views.Pages
 
         public void Dispose()
         {
-            FullStorePage.Dispose();
+            FullStorePage?.Dispose();
 
             GC.Collect();
             GC.SuppressFinalize(this);

@@ -197,7 +197,7 @@ namespace Sucrose.Portal.Views.Windows
         {
             RootView.ClearJournal();
 
-            ViewModel.Dispose();
+            ViewModel?.Dispose();
 
             GC.Collect();
             GC.SuppressFinalize(this);

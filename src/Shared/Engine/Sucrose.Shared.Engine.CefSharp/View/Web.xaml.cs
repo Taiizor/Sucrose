@@ -10,7 +10,7 @@ namespace Sucrose.Shared.Engine.CefSharp.View
     /// <summary>
     /// Interaction logic for Web.xaml
     /// </summary>
-    public sealed partial class Web : Window
+    public sealed partial class Web : Window, IDisposable
     {
         public Web(string Web)
         {

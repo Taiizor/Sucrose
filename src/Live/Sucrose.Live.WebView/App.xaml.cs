@@ -13,6 +13,7 @@ using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
+using SSEWVVU = Sucrose.Shared.Engine.WebView.View.Url;
 using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
 using SSEWVVYT = Sucrose.Shared.Engine.WebView.View.YouTube;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
@@ -194,6 +195,10 @@ namespace Sucrose.Live.WebView
 
                         switch (Info.Type)
                         {
+                            case SSDEWT.Url:
+                                SSEWVVU Url = new(Source);
+                                Url.Show();
+                                break;
                             case SSDEWT.Web:
                                 SSEWVVW Web = new(Source);
                                 Web.Show();

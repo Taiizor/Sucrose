@@ -74,7 +74,7 @@ namespace Sucrose.Portal.Manage
 
         public static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 
-        public static int Volume => SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 0);
+        public static int Volume => SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100);
 
         public static int Port => SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0);
 

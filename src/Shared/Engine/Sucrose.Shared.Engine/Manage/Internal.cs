@@ -1,4 +1,7 @@
 ﻿using System.Windows.Threading;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMR = Sucrose.Memory.Readonly;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -20,6 +23,8 @@ namespace Sucrose.Shared.Engine.Manage
         public static readonly DispatcherTimer GeneralTimer = new();
 
         public static readonly DispatcherTimer CompatibleTimer = new();
+
+        public static readonly string UserAgent = SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
         public static SSESB BrowserSettings = new()
         {

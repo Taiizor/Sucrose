@@ -19,6 +19,8 @@ namespace Sucrose.Shared.Engine.WebView.Event
         {
             SSEMI.Initialized = e.IsSuccess;
 
+            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SSEMI.UserAgent;
+
             string Video = SSTHV.GetYouTubeVideoId(SSEWVMI.YouTube);
             string Playlist = SSTHV.GetYouTubePlaylistId(SSEWVMI.YouTube);
 

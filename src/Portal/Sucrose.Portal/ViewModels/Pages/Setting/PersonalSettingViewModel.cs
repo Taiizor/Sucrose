@@ -146,9 +146,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Agent.Title.Text = "Kullanıcı Temsilcisi";
+            Agent.Title.Text = "İnternet Temsilcisi";
             Agent.LeftIcon.Symbol = SymbolRegular.VideoPersonSparkle24;
-            Agent.Description.Text = "İnternet bağlantısı gerektiren durumlardaki kullanıcı temsilciniz.";
+            Agent.Description.Text = "İnternet bağlantısı gerektiren durumlardaki temsilci kimliğiniz.";
 
             TextBox UserAgent = new()
             {

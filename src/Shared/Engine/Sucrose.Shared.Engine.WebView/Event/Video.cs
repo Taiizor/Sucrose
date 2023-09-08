@@ -23,6 +23,8 @@ namespace Sucrose.Shared.Engine.WebView.Event
         {
             SSEMI.Initialized = e.IsSuccess;
 
+            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SSEMI.UserAgent;
+
             Uri Video = SSEHS.GetSource(SSEWVMI.Video);
 
             if (SSEHS.GetExtension(Video))

@@ -12,7 +12,7 @@ namespace Sucrose.Shared.Engine.CefSharp.View
     /// <summary>
     /// Interaction logic for YouTube.xaml
     /// </summary>
-    public sealed partial class YouTube : Window
+    public sealed partial class YouTube : Window, IDisposable
     {
         public YouTube(string YouTube)
         {

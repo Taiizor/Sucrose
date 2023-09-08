@@ -1,21 +1,20 @@
 ﻿using System.Windows;
-using SSECSEV = Sucrose.Shared.Engine.CefSharp.Event.Video;
+using SSECSEU = Sucrose.Shared.Engine.CefSharp.Event.Url;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
-using SSECSHV = Sucrose.Shared.Engine.CefSharp.Helper.Video;
+using SSECSHU = Sucrose.Shared.Engine.CefSharp.Helper.Url;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
-using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
 {
     /// <summary>
-    /// Interaction logic for Video.xaml
+    /// Interaction logic for Url.xaml
     /// </summary>
-    public sealed partial class Video : Window, IDisposable
+    public sealed partial class Url : Window, IDisposable
     {
-        public Video(string Video)
+        public Url(string Url)
         {
             InitializeComponent();
 
@@ -25,7 +24,7 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
             Content = SSECSMI.CefEngine;
 
-            SSECSMI.CefEngine.Address = SSEHS.GetSource(Video).ToString();
+            SSECSMI.Url = Url;
 
             SSECSMI.CefEngine.BrowserSettings = SSECSMI.CefSettings;
 
@@ -33,9 +32,9 @@ namespace Sucrose.Shared.Engine.CefSharp.View
             SSEMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
             SSEMI.GeneralTimer.Start();
 
-            SSECSMI.CefEngine.IsBrowserInitializedChanged += SSECSEV.CefEngineInitializedChanged;
-            SSECSMI.CefEngine.FrameLoadEnd += SSECSEV.CefEngineFrameLoadEnd;
-            SSECSMI.CefEngine.Loaded += SSECSEV.CefEngineLoaded;
+            SSECSMI.CefEngine.IsBrowserInitializedChanged += SSECSEU.CefEngineInitializedChanged;
+            //SSECSMI.CefEngine.FrameLoadEnd += SSECSEU.CefEngineFrameLoadEnd;
+            SSECSMI.CefEngine.Loaded += SSECSEU.CefEngineLoaded;
 
             Closing += (s, e) => SSECSMI.CefEngine.Dispose();
             Loaded += (s, e) => SSEEH.WindowLoaded(this);
@@ -43,16 +42,9 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
-            if (SSEMI.Initialized)
-            {
-                Dispose();
+            Dispose();
 
-                SSECSHV.SetLoop(SSEHD.GetLoop());
-
-                SSECSHV.SetVolume(SSEHD.GetVolume());
-
-                SSECSHV.SetStretch(SSEHD.GetStretch());
-            }
+            SSECSHU.SetVolume(SSEHD.GetVolume());
         }
 
         public void Dispose()
