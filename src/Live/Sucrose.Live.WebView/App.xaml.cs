@@ -7,16 +7,19 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
 using SSEWVVU = Sucrose.Shared.Engine.WebView.View.Url;
+using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
 using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
 using SSEWVVYT = Sucrose.Shared.Engine.WebView.View.YouTube;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -24,8 +27,6 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SSSHS = Sucrose.Shared.Space.Helper.Security;
 
 namespace Sucrose.Live.WebView
 {
@@ -34,16 +35,6 @@ namespace Sucrose.Live.WebView
     /// </summary>
     public partial class App : Application
     {
-        private static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
-
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
-        private static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
-
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static Mutex Mutex => new(true, SMR.LiveMutex);
-
         private static bool HasError { get; set; } = true;
 
         public App()
@@ -104,7 +95,7 @@ namespace Sucrose.Live.WebView
                 Message(Exception.Message);
             };
 
-            SHC.All = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(SMMM.Culture, true);
         }
 
         protected void Close()
@@ -122,7 +113,7 @@ namespace Sucrose.Live.WebView
 
                 string Path = SMMI.WebViewLiveLogManager.LogFile();
 
-                switch (Theme)
+                switch (SSEMM.Theme)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);
@@ -140,20 +131,20 @@ namespace Sucrose.Live.WebView
 
         protected void Configure()
         {
-            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
             {
-                string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
-                string PropertiesPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseProperties);
-                string CompatiblePath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseCompatible);
+                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+                string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
+                string CompatiblePath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseCompatible);
 
                 if (File.Exists(InfoPath))
                 {
                     CoreWebView2EnvironmentOptions Options = new()
                     {
-                        Language = Culture
+                        Language = SMMM.Culture
                     };
 
-                    SSEMI.BrowserSettings.WebView = SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
+                    SSEMI.BrowserSettings.WebView = SMMM.WebArguments;
 
                     if (!SSEMI.BrowserSettings.WebView.Any())
                     {
@@ -174,7 +165,7 @@ namespace Sucrose.Live.WebView
 
                     if (!SSTHV.IsUrl(Source))
                     {
-                        Source = Path.Combine(LibraryLocation, LibrarySelected, Source);
+                        Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
                     }
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
@@ -245,14 +236,13 @@ namespace Sucrose.Live.WebView
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(Culture);
+            SSRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
+            if (SSEMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
-                Mutex.ReleaseMutex();
-
+                SSEMM.Mutex.ReleaseMutex();
                 Configure();
             }
             else

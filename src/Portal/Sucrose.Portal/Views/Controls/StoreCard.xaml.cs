@@ -9,10 +9,10 @@ using SHG = Skylark.Helper.Generator;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
@@ -132,12 +132,12 @@ namespace Sucrose.Portal.Views.Controls
         {
             do
             {
-                Keys = SHG.GenerateString(SPMM.Chars, 25, SMR.Randomise);
-            } while (File.Exists(Path.Combine(SPMM.LibraryLocation, Keys)));
+                Keys = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+            } while (File.Exists(Path.Combine(SMMM.LibraryLocation, Keys)));
 
             SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
-            string LibraryPath = Path.Combine(SPMM.LibraryLocation, Keys);
+            string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
             string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
             await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key);
@@ -148,7 +148,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SSSHC.Folder(TemporaryPath, LibraryPath);
 
-                if (SPMM.Start)
+                if (SMMM.Start)
                 {
                     SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
 
@@ -156,9 +156,9 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         SSSHL.Kill();
 
-                        if (!string.IsNullOrEmpty(SPMM.App))
+                        if (!string.IsNullOrEmpty(SMMM.App))
                         {
-                            SSSHP.Kill(SPMM.App);
+                            SSSHP.Kill(SMMM.App);
                         }
 
                         SWUD.RefreshDesktop();
@@ -256,8 +256,8 @@ namespace Sucrose.Portal.Views.Controls
                 ThemeTitle.ToolTip = TitleTip;
                 ThemeDescription.ToolTip = DescriptionTip;
 
-                ThemeTitle.Text = Info.Title.Length > SPMM.TitleLength ? $"{SHA.Cut(Info.Title, SPMM.TitleLength)}..." : Info.Title;
-                ThemeDescription.Text = Info.Description.Length > SPMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SPMM.DescriptionLength)}..." : Info.Description;
+                ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
+                ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
 
                 string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 

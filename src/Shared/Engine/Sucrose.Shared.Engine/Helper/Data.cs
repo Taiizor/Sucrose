@@ -2,10 +2,10 @@
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
-using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
+using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -13,22 +13,22 @@ namespace Sucrose.Shared.Engine.Helper
     {
         public static bool GetLoop()
         {
-            return SMMI.EngineSettingManager.GetSetting(SMC.Loop, true);
+            return SMMM.Loop;
         }
 
         public static int GetVolume()
         {
-            return SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100);
+            return SMMM.Volume;
         }
 
         public static bool GetShuffle()
         {
-            return SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true);
+            return SMMM.Shuffle;
         }
 
         public static SSDEST GetStretch()
         {
-            SSDEST Stretch = SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
+            SSDEST Stretch = SSEMM.StretchType;
 
             if ((int)Stretch < Enum.GetValues(typeof(SSDEST)).Length)
             {
@@ -36,23 +36,23 @@ namespace Sucrose.Shared.Engine.Helper
             }
             else
             {
-                return SSDEST.None;
+                return SSEMM.DefaultStretchType;
             }
         }
 
         public static SEST GetScreenType()
         {
-            return SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
+            return SSEMM.ScreenType;
         }
 
         public static int GetScreenIndex()
         {
-            return SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0);
+            return SMMM.ScreenIndex;
         }
 
         public static SSDEDT GetDisplayType()
         {
-            return SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);
+            return SSEMM.DisplayType;
         }
 
         public static JObject GetComputerDate()
@@ -72,12 +72,12 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static SEEST GetExpandScreenType()
         {
-            return SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
+            return SSEMM.ExpandScreenType;
         }
 
         public static SEDST GetDuplicateScreenType()
         {
-            return SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default);
+            return SSEMM.DuplicateScreenType;
         }
     }
 }

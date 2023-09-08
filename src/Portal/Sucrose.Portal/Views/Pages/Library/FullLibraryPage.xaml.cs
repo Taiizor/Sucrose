@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
@@ -45,9 +45,9 @@ namespace Sucrose.Portal.Views.Pages.Library
             {
                 if (string.IsNullOrEmpty(Search))
                 {
-                    if (SPMM.LibraryPagination * Page > Count && SPMM.LibraryPagination * Page <= Count + SPMM.LibraryPagination)
+                    if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                     {
-                        SPVCLC LibraryCard = new(Path.Combine(SPMM.LibraryLocation, Theme), SSTHI.ReadJson(Path.Combine(SPMM.LibraryLocation, Theme, SMR.SucroseInfo)));
+                        SPVCLC LibraryCard = new(Path.Combine(SMMM.LibraryLocation, Theme), SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo)));
 
                         LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
@@ -62,15 +62,15 @@ namespace Sucrose.Portal.Views.Pages.Library
                 }
                 else
                 {
-                    SSTHI Info = SSTHI.ReadJson(Path.Combine(SPMM.LibraryLocation, Theme, SMR.SucroseInfo));
+                    SSTHI Info = SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo));
                     string Description = Info.Description.ToLowerInvariant();
                     string Title = Info.Title.ToLowerInvariant();
 
                     if (Title.Contains(Search) || Description.Contains(Search))
                     {
-                        if (SPMM.LibraryPagination * Page > Count && SPMM.LibraryPagination * Page <= Count + SPMM.LibraryPagination)
+                        if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                         {
-                            SPVCLC LibraryCard = new(Path.Combine(SPMM.LibraryLocation, Theme), Info);
+                            SPVCLC LibraryCard = new(Path.Combine(SMMM.LibraryLocation, Theme), Info);
 
                             LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
 
@@ -91,13 +91,13 @@ namespace Sucrose.Portal.Views.Pages.Library
                 Empty.Visibility = Visibility.Visible;
             }
 
-            ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SPMM.LibraryPagination);
+            ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMM.LibraryPagination);
         }
 
         private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)
         {
-            ThemeLibrary.ItemMargin = new Thickness(SPMM.AdaptiveMargin);
-            ThemeLibrary.MaxItemsPerRow = SPMM.AdaptiveLayout;
+            ThemeLibrary.ItemMargin = new Thickness(SMMM.AdaptiveMargin);
+            ThemeLibrary.MaxItemsPerRow = SMMM.AdaptiveLayout;
 
             await AddThemes(SPMI.SearchService.SearchText, ThemePagination.SelectPage);
         }

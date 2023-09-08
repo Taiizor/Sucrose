@@ -5,7 +5,7 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -51,7 +51,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DiscordState = new()
             {
-                IsChecked = SPMM.DiscordState
+                IsChecked = SMMM.DiscordState
             };
 
             DiscordState.Checked += (s, e) => DiscordStateChecked(true);
@@ -77,7 +77,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch DiscordRefresh = new()
             {
-                IsChecked = SPMM.DiscordRefresh
+                IsChecked = SMMM.DiscordRefresh
             };
 
             DiscordRefresh.Checked += (s, e) => DiscordRefreshChecked(true);
@@ -101,7 +101,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             NumberBox DiscordDelay = new()
             {
                 ClearButtonEnabled = false,
-                Value = SPMM.DiscordDelay,
+                Value = SMMM.DiscordDelay,
                 Maximum = 3600,
                 Minimum = 60
             };
@@ -148,7 +148,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SPMM.DiscordDelay)
+            if (NewValue != SMMM.DiscordDelay)
             {
                 SMMI.HookSettingManager.SetSetting(SMC.DiscordDelay, NewValue);
             }

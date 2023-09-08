@@ -3,9 +3,9 @@ using System.Windows;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
@@ -51,22 +51,22 @@ namespace Sucrose.Portal.Views.Pages
 
         private void InitializeThemes()
         {
-            SPMI.Themes = SMMI.ThemesManager.GetSetting(SMC.Themes, new List<string>());
+            SPMI.Themes = SMMM.Themes;
 
-            if (Directory.Exists(SPMM.LibraryLocation))
+            if (Directory.Exists(SMMM.LibraryLocation))
             {
                 if (SPMI.Themes.Any())
                 {
                     foreach (string Theme in SPMI.Themes.ToList())
                     {
-                        string ThemePath = Path.Combine(SPMM.LibraryLocation, Theme);
+                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
                         if (!Directory.Exists(ThemePath) || !File.Exists(InfoPath))
                         {
                             SPMI.Themes.Remove(Theme);
 
-                            if (Directory.Exists(ThemePath) && SPMM.LibraryDelete)
+                            if (Directory.Exists(ThemePath) && SMMM.LibraryDelete)
                             {
                                 Directory.Delete(ThemePath, true);
                             }
@@ -74,7 +74,7 @@ namespace Sucrose.Portal.Views.Pages
                     }
                 }
 
-                string[] Folders = Directory.GetDirectories(SPMM.LibraryLocation);
+                string[] Folders = Directory.GetDirectories(SMMM.LibraryLocation);
 
                 if (Folders.Any())
                 {
@@ -89,7 +89,7 @@ namespace Sucrose.Portal.Views.Pages
                                 SPMI.Themes.Add(Path.GetFileName(Folder));
                             }
                         }
-                        else if (SPMM.LibraryDelete)
+                        else if (SMMM.LibraryDelete)
                         {
                             Directory.Delete(Folder, true);
                         }

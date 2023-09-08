@@ -7,6 +7,7 @@ using Wpf.Ui;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMAC = Sucrose.Portal.Models.AppConfig;
 using SPMM = Sucrose.Portal.Manage.Manager;
@@ -169,7 +170,7 @@ namespace Sucrose.Portal
                 Message(Exception.Message);
             };
 
-            SHC.All = new CultureInfo(SPMM.Culture, true);
+            SHC.All = new CultureInfo(SMMM.Culture, true);
         }
 
         /// <summary>
@@ -242,7 +243,7 @@ namespace Sucrose.Portal
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(SPMM.Culture);
+            SSRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 

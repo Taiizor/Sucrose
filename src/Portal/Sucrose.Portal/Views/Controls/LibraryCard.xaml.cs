@@ -6,9 +6,9 @@ using SHA = Skylark.Helper.Adaptation;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
@@ -40,7 +40,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void Use()
         {
-            if (SPMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+            if (SMMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
             {
                 SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
 
@@ -48,9 +48,9 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     SSSHL.Kill();
 
-                    if (!string.IsNullOrEmpty(SPMM.App))
+                    if (!string.IsNullOrEmpty(SMMM.App))
                     {
-                        SSSHP.Kill(SPMM.App);
+                        SSSHP.Kill(SMMM.App);
                     }
 
                     SWUD.RefreshDesktop();
@@ -105,7 +105,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (Delete || !SPMM.LibraryConfirm)
+            if (Delete || !SMMM.LibraryConfirm)
             {
                 Dispose();
 
@@ -137,7 +137,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
-            if (SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+            if (SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
             {
                 MenuUse.IsEnabled = false;
                 MenuDelete.IsEnabled = false;
@@ -172,8 +172,8 @@ namespace Sucrose.Portal.Views.Controls
             ThemeTitle.ToolTip = TitleTip;
             ThemeDescription.ToolTip = DescriptionTip;
 
-            ThemeTitle.Text = Info.Title.Length > SPMM.TitleLength ? $"{SHA.Cut(Info.Title, SPMM.TitleLength)}..." : Info.Title;
-            ThemeDescription.Text = Info.Description.Length > SPMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SPMM.DescriptionLength)}..." : Info.Description;
+            ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
+            ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
 
             string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 
@@ -193,7 +193,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
-            if ((SPMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+            if ((SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
             {
                 Cursor = Cursors.Arrow;
             }

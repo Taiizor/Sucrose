@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SHC = Skylark.Helper.Culture;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
@@ -13,6 +12,7 @@ using SSLCS = Sucrose.Shared.Launcher.Command.Setting;
 using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
+using SSLMM = Sucrose.Shared.Launcher.Manage.Manager;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
 using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
@@ -21,22 +21,11 @@ using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHA = Sucrose.Shared.Space.Helper.Assets;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Shared.Launcher.Manager
 {
     public class TrayIconManager : IDisposable
     {
-        private static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
-
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
-        private static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
-
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
-
         private ContextMenuStrip ContextMenu { get; set; } = new();
 
         private NotifyIcon TrayIcon { get; set; } = new()
@@ -53,7 +42,7 @@ namespace Sucrose.Shared.Launcher.Manager
             TrayIcon.ContextMenuStrip = ContextMenu;
             TrayIcon.MouseDoubleClick += MouseDoubleClick;
 
-            TrayIcon.Visible = Visible;
+            TrayIcon.Visible = SMMM.Visible;
 
             ContextMenuAdjustment();
 
@@ -64,11 +53,11 @@ namespace Sucrose.Shared.Launcher.Manager
         {
             Dispose();
 
-            SSRHR.SetLanguage(Culture);
+            SSRHR.SetLanguage(SMMM.Culture);
 
             SSLHR.Corner(ContextMenu);
 
-            if (Theme == SEWTT.Dark)
+            if (SSLMM.Theme == SEWTT.Dark)
             {
                 ContextMenu.Renderer = new SSLRDR();
             }
@@ -79,7 +68,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
 
-            SSLSSS Separator1 = new(Theme);
+            SSLSSS Separator1 = new(SSLMM.Theme);
 
             if (SSSHL.Run())
             {
@@ -90,7 +79,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 //ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallChangeText"), null, null);
 
-                string PropertiesPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseProperties);
+                string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
 
                 if (File.Exists(PropertiesPath))
                 {
@@ -99,7 +88,7 @@ namespace Sucrose.Shared.Launcher.Manager
             }
             else if (SMMI.LibrarySettingManager.CheckFile())
             {
-                string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
 
                 if (File.Exists(InfoPath))
                 {
@@ -114,14 +103,14 @@ namespace Sucrose.Shared.Launcher.Manager
                 }
             }
 
-            SSLSSS Separator2 = new(Theme);
+            SSLSSS Separator2 = new(SSLMM.Theme);
             ContextMenu.Items.Add(Separator2.Strip);
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
 
-            SSLSSS Separator3 = new(Theme);
+            SSLSSS Separator3 = new(SSLMM.Theme);
             ContextMenu.Items.Add(Separator3.Strip);
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ExitIcon"))), CommandClose);

@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Windows;
 using Wpf.Ui.Controls;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
 using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
@@ -46,7 +46,7 @@ namespace Sucrose.Portal.Views.Pages
             {
                 string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                if (SSSHD.Store(StoreFile, SPMM.UserAgent, SPMM.Key))
+                if (SSSHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key))
                 {
                     Root = SSSHS.DeserializeRoot(StoreFile);
 

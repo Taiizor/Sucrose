@@ -1,4 +1,5 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
@@ -23,7 +24,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
 
             SSEMI.Initialized = e.IsSuccess;
 
-            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SSEMI.UserAgent;
+            SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;
 
             SSEWVMI.WebEngine.Source = SSEHS.GetSource(SSEWVMI.Web);
 

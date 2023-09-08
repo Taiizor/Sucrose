@@ -4,11 +4,12 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
@@ -17,7 +18,6 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Live.Vexana
 {
@@ -26,16 +26,6 @@ namespace Sucrose.Live.Vexana
     /// </summary>
     public partial class App : Application
     {
-        private static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
-
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
-        private static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
-
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static Mutex Mutex => new(true, SMR.LiveMutex);
-
         private static bool HasError { get; set; } = true;
 
         public App()
@@ -96,7 +86,7 @@ namespace Sucrose.Live.Vexana
                 Message(Exception.Message);
             };
 
-            SHC.All = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(SMMM.Culture, true);
         }
 
         protected void Close()
@@ -114,7 +104,7 @@ namespace Sucrose.Live.Vexana
 
                 string Path = SMMI.VexanaLiveLogManager.LogFile();
 
-                switch (Theme)
+                switch (SSEMM.Theme)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);
@@ -132,9 +122,9 @@ namespace Sucrose.Live.Vexana
 
         protected void Configure()
         {
-            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
             {
-                string InfoPath = Path.Combine(LibraryLocation, LibrarySelected, SMR.SucroseInfo);
+                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
 
                 if (File.Exists(InfoPath))
                 {
@@ -144,7 +134,7 @@ namespace Sucrose.Live.Vexana
 
                     if (!SSTHV.IsUrl(Source))
                     {
-                        Source = Path.Combine(LibraryLocation, LibrarySelected, Source);
+                        Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
                     }
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
@@ -191,13 +181,13 @@ namespace Sucrose.Live.Vexana
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(Culture);
+            SSRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
+            if (SSEMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
-                Mutex.ReleaseMutex();
+                SSEMM.Mutex.ReleaseMutex();
 
                 Configure();
             }

@@ -10,6 +10,7 @@ using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -113,7 +114,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private double GetOpacity()
         {
-            return SPMM.BackgroundOpacity / 100d;
+            return SMMM.BackgroundOpacity / 100d;
         }
 
         private string GetQuoting()
@@ -137,14 +138,14 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private Visibility GetDonater()
         {
-            return SPMM.DonateVisible ? Visibility.Visible : Visibility.Collapsed;
+            return SMMM.DonateVisible ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private BitmapImage GetBackgrounder()
         {
-            if (File.Exists(SPMM.BackgroundImage))
+            if (File.Exists(SMMM.BackgroundImage))
             {
-                return Loader.LoadOptimal(SPMM.BackgroundImage, false);
+                return Loader.LoadOptimal(SMMM.BackgroundImage, false);
             }
             else
             {

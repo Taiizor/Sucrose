@@ -18,6 +18,7 @@ using SGCSLCS = Sucrose.Grpc.Client.Services.LauncherClientService;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
@@ -88,7 +89,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Localization.Items.Add(SSRER.GetValue("Locale", Code));
             }
 
-            Localization.SelectedValue = SSRER.GetValue("Locale", SPMM.Culture.ToUpperInvariant());
+            Localization.SelectedValue = SSRER.GetValue("Locale", SMMM.Culture.ToUpperInvariant());
 
             ApplicationLanguage.HeaderFrame = Localization;
 
@@ -114,7 +115,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             Startup.Items.Add("Öncelik");
             Startup.Items.Add("Zamanlayıcı");
 
-            Startup.SelectedIndex = SPMM.Startup;
+            Startup.SelectedIndex = SMMM.Startup;
 
             ApplicationStartup.HeaderFrame = Startup;
 
@@ -137,14 +138,14 @@ namespace Sucrose.Portal.ViewModels.Pages
             Notify.Items.Add("Görünür");
             Notify.Items.Add("Görünmez");
 
-            Notify.SelectedIndex = SPMM.Visible ? 0 : 1;
+            Notify.SelectedIndex = SMMM.Visible ? 0 : 1;
 
             NotifyIcon.HeaderFrame = Notify;
 
             CheckBox NotifyExit = new()
             {
                 Content = "Sistem Tepsisi kapatıldığında tüm Sucrose uygulamaları kapatılsın",
-                IsChecked = SPMM.Exit
+                IsChecked = SMMM.Exit
             };
 
             NotifyExit.Checked += (s, e) => NotifyExitChecked(true);
@@ -189,7 +190,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button BackgroundImage = new()
             {
-                Content = string.IsNullOrEmpty(SPMM.BackgroundImage) ? "Bir arkaplan resmi seçin" : SPMM.BackgroundImage,
+                Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? "Bir arkaplan resmi seçin" : SMMM.BackgroundImage,
                 Cursor = Cursors.Hand,
                 MaxWidth = 700,
                 MinWidth = 350
@@ -256,7 +257,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox BackdropOpacity = new()
             {
-                Value = SPMM.BackgroundOpacity,
+                Value = SMMM.BackgroundOpacity,
                 ClearButtonEnabled = false,
                 Maximum = 100,
                 Minimum = 0
@@ -296,7 +297,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             EngineVolume.Title.Text = "Ses Düzeyi";
-            EngineVolume.LeftIcon.Symbol = VolumeSymbol(SPMM.Volume);
+            EngineVolume.LeftIcon.Symbol = VolumeSymbol(SMMM.Volume);
             EngineVolume.Description.Text = "Tüm duvar kağıtları için ses seviyesi.";
 
             Slider Volume = new()
@@ -305,7 +306,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsSelectionRangeEnabled = false,
                 IsMoveToPointEnabled = true,
                 IsSnapToTickEnabled = true,
-                Value = SPMM.Volume,
+                Value = SMMM.Volume,
                 TickFrequency = 1,
                 Maximum = 100,
                 Minimum = 0,
@@ -319,7 +320,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox VolumeDesktop = new()
             {
                 Content = "Sesi yalnızca masaüstü odaklandığında oynat",
-                IsChecked = SPMM.VolumeDesktop
+                IsChecked = SMMM.VolumeDesktop
             };
 
             VolumeDesktop.Checked += (s, e) => VolumeDesktopChecked(true);
@@ -357,7 +358,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button LibraryLocation = new()
             {
-                Content = SPMM.LibraryLocation,
+                Content = SMMM.LibraryLocation,
                 Cursor = Cursors.Hand,
                 MaxWidth = 700,
                 MinWidth = 350
@@ -388,7 +389,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Content = "Mevcut kütüphanenizi yeni konuma taşı",
                 Margin = new Thickness(0, 10, 0, 0),
-                IsChecked = SPMM.LibraryMove
+                IsChecked = SMMM.LibraryMove
             };
 
             LibraryMove.Checked += (s, e) => LibraryMoveChecked(true);
@@ -419,7 +420,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NotifySelected(int Index)
         {
-            if (Index != (SPMM.Visible ? 0 : 1))
+            if (Index != (SMMM.Visible ? 0 : 1))
             {
                 bool State = Index == 0;
 
@@ -427,7 +428,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 if (SSSHP.Work(SMR.Launcher))
                 {
-                    SGSGSS.ChannelCreate($"{SPMM.Host}", SPMM.Port);
+                    SGSGSS.ChannelCreate($"{SPMM.Host}", SMMM.Port);
                     SGCLLC Client = new(SGSGSS.ChannelInstance);
 
                     if (State)
@@ -444,7 +445,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void StartupSelected(int Index)
         {
-            if (Index != SPMM.Startup)
+            if (Index != SMMM.Startup)
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.Startup, Index);
 
@@ -516,7 +517,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             string NewCulture = SSRHR.ListLanguage()[Index];
 
-            if (NewCulture != SPMM.Culture)
+            if (NewCulture != SMMM.Culture)
             {
                 SSRHR.SetLanguage(NewCulture);
                 SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, NewCulture);
@@ -566,7 +567,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             int NewValue = Convert.ToInt32(Value);
 
-            if (NewValue != SPMM.BackgroundOpacity)
+            if (NewValue != SMMM.BackgroundOpacity)
             {
                 SMMI.PortalSettingManager.SetSetting(SMC.BackgroundOpacity, NewValue);
 
@@ -583,7 +584,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void BackgroundImageClick(Button BackgroundImage)
         {
-            string Startup = string.IsNullOrEmpty(SPMM.BackgroundImage) ? SMR.DesktopPath : Path.GetDirectoryName(SPMM.BackgroundImage);
+            string Startup = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SMR.DesktopPath : Path.GetDirectoryName(SMMM.BackgroundImage);
 
             OpenFileDialog FileDialog = new()
             {
@@ -615,28 +616,28 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ShowNewFolderButton = true,
 
-                SelectedPath = SPMM.LibraryLocation
+                SelectedPath = SMMM.LibraryLocation
             };
 
             if (BrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(BrowserDialog.SelectedPath))
             {
                 string Destination = BrowserDialog.SelectedPath;
 
-                if (Destination != SPMM.LibraryLocation)
+                if (Destination != SMMM.LibraryLocation)
                 {
-                    if (!SPMM.LibraryMove || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
+                    if (!SMMM.LibraryMove || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
                     {
                         LibraryLocation.Content = "Konum değiştirilirken lütfen biraz bekleyin";
 
-                        if (SPMM.LibraryMove)
+                        if (SMMM.LibraryMove)
                         {
                             if (SSSHL.Run())
                             {
                                 SSSHL.Kill();
 
-                                if (!string.IsNullOrEmpty(SPMM.App))
+                                if (!string.IsNullOrEmpty(SMMM.App))
                                 {
-                                    SSSHP.Kill(SPMM.App);
+                                    SSSHP.Kill(SMMM.App);
                                 }
 
                                 SWUD.RefreshDesktop();
@@ -645,7 +646,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                                 await Task.Delay(500);
 
-                                await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
+                                await Task.Run(() => SSSHC.Folder(SMMM.LibraryLocation, Destination));
 
                                 await Task.Delay(500);
 
@@ -655,7 +656,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                             }
                             else
                             {
-                                await Task.Run(() => SSSHC.Folder(SPMM.LibraryLocation, Destination));
+                                await Task.Run(() => SSSHC.Folder(SMMM.LibraryLocation, Destination));
 
                                 await Task.Delay(500);
 
@@ -668,9 +669,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                             {
                                 SSSHL.Kill();
 
-                                if (!string.IsNullOrEmpty(SPMM.App))
+                                if (!string.IsNullOrEmpty(SMMM.App))
                                 {
-                                    SSSHP.Kill(SPMM.App);
+                                    SSSHP.Kill(SMMM.App);
                                 }
 
                                 SWUD.RefreshDesktop();
@@ -689,7 +690,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                         await Task.Delay(2000);
 
-                        LibraryLocation.Content = SPMM.LibraryLocation;
+                        LibraryLocation.Content = SMMM.LibraryLocation;
                     }
                 }
             }

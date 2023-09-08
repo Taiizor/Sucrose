@@ -6,8 +6,8 @@ using SEVT = Skylark.Enum.VersionType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SHV = Skylark.Helper.Versionly;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -23,11 +23,11 @@ using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SUMM = Sucrose.Update.Manage.Manager;
 using SUVDIB = Sucrose.Update.View.DarkInfoBox;
 using SUVDUB = Sucrose.Update.View.DarkUpdateBox;
 using SUVLIB = Sucrose.Update.View.LightInfoBox;
 using SUVLUB = Sucrose.Update.View.LightUpdateBox;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Update
 {
@@ -36,19 +36,7 @@ namespace Sucrose.Update
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
-        private static string CachePath => Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Bundle);
-
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static string Agent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
-
-        private static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
-
         private static string Bundle { get; set; } = string.Empty;
-
-        private static Mutex Mutex => new(true, SMR.UpdateMutex);
 
         private static bool HasBundle { get; set; } = false;
 
@@ -104,7 +92,7 @@ namespace Sucrose.Update
                 Message(Exception.Message);
             };
 
-            SHC.All = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(SMMM.Culture, true);
         }
 
         protected void Close()
@@ -116,7 +104,7 @@ namespace Sucrose.Update
 
         internal void Info(SSDEUT Type)
         {
-            switch (Theme)
+            switch (SUMM.Theme)
             {
                 case SEWTT.Dark:
                     SUVDIB DarkInfoBox = new(Type);
@@ -137,7 +125,7 @@ namespace Sucrose.Update
 
                 string Path = SMMI.UpdateLogManager.LogFile();
 
-                switch (Theme)
+                switch (SUMM.Theme)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);
@@ -155,9 +143,9 @@ namespace Sucrose.Update
 
         protected async void Configure()
         {
-            if (Directory.Exists(CachePath))
+            if (Directory.Exists(SUMM.CachePath))
             {
-                string[] Files = Directory.GetFiles(CachePath);
+                string[] Files = Directory.GetFiles(SUMM.CachePath);
 
                 foreach (string Record in Files)
                 {
@@ -166,7 +154,7 @@ namespace Sucrose.Update
             }
             else
             {
-                Directory.CreateDirectory(CachePath);
+                Directory.CreateDirectory(SUMM.CachePath);
             }
 
             await Task.Delay(MinDelay);
@@ -175,7 +163,7 @@ namespace Sucrose.Update
             {
                 SSSHS.Apply();
 
-                List<SSIIR> Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, Agent, Key);
+                List<SSIIR> Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key);
 
                 if (Releases.Any())
                 {
@@ -209,7 +197,7 @@ namespace Sucrose.Update
 
                                     string Source = Asset.BrowserDownloadUrl;
 
-                                    Bundle = Path.Combine(CachePath, Path.GetFileName(Source));
+                                    Bundle = Path.Combine(SUMM.CachePath, Path.GetFileName(Source));
 
                                     if (File.Exists(Bundle))
                                     {
@@ -221,7 +209,7 @@ namespace Sucrose.Update
                                         Timeout = Timeout.InfiniteTimeSpan
                                     };
 
-                                    Client.DefaultRequestHeaders.Add("User-Agent", Agent);
+                                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
                                     using HttpResponseMessage Response = await Client.GetAsync(Source);
 
@@ -271,7 +259,7 @@ namespace Sucrose.Update
 
             if (HasBundle)
             {
-                switch (Theme)
+                switch (SUMM.Theme)
                 {
                     case SEWTT.Dark:
                         SUVDUB DarkUpdateBox = new(Bundle);
@@ -300,13 +288,13 @@ namespace Sucrose.Update
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(Culture);
+            SSRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Update) <= 1)
+            if (SUMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Update) <= 1)
             {
-                Mutex.ReleaseMutex();
+                SUMM.Mutex.ReleaseMutex();
 
                 Configure();
             }

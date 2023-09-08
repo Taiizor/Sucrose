@@ -1,5 +1,6 @@
 ﻿using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -10,32 +11,26 @@ namespace Sucrose.Shared.Launcher.Command
 {
     internal static class Engine
     {
-        private static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
-
-        private static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
-
-        private static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
-
         public static void Command(bool State = true)
         {
             if (State && SSSHL.Run())
             {
                 SSSHL.Kill();
 
-                if (!string.IsNullOrEmpty(App))
+                if (!string.IsNullOrEmpty(SMMM.App))
                 {
-                    SSSHP.Kill(App);
+                    SSSHP.Kill(SMMM.App);
                 }
 
                 SWUD.RefreshDesktop();
 
                 SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
             }
-            else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(LibrarySelected))
+            else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
             {
                 SSLHR.Start();
 
-                if (!Visible)
+                if (!SMMM.Visible)
                 {
                     SSLCI.Command();
                 }

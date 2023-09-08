@@ -8,17 +8,18 @@ using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDH = Sucrose.Shared.Discord.Hook;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
+using SSLMM = Sucrose.Shared.Launcher.Manage.Manager;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSSLSS = Sucrose.Shared.Server.Services.LauncherServerService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Launcher
 {
@@ -27,12 +28,6 @@ namespace Sucrose.Launcher
     /// </summary>
     public partial class App : Application
     {
-        private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static Mutex Mutex => new(true, SMR.LauncherMutex);
-
         private static bool HasError { get; set; } = true;
 
         private static SSDH Discord { get; set; } = new();
@@ -95,7 +90,7 @@ namespace Sucrose.Launcher
                 Message(Exception.Message);
             };
 
-            SHC.All = new CultureInfo(Culture, true);
+            SHC.All = new CultureInfo(SMMM.Culture, true);
         }
 
         protected void Close()
@@ -115,7 +110,7 @@ namespace Sucrose.Launcher
 
                 string Path = SMMI.LauncherLogManager.LogFile();
 
-                switch (Theme)
+                switch (SSLMM.Theme)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);
@@ -175,17 +170,17 @@ namespace Sucrose.Launcher
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(Culture);
+            SSRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
             SMMI.LauncherLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Launcher) <= 1)
+            if (SSLMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Launcher) <= 1)
             {
                 SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 
-                Mutex.ReleaseMutex();
+                SSLMM.Mutex.ReleaseMutex();
 
                 SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being released.");
 

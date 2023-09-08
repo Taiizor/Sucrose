@@ -110,33 +110,11 @@
     <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
 
     <ItemGroup>
-        <Folder Include="Interface\" />
         <Folder Include="Properties\" />
     </ItemGroup>
 
     <ItemGroup>
         <Resource Include="Assets\**\*.*" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Views\Pages\Setting\PerformanceSettingPage.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\Pages\Setting\PersonalSettingPage.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\Pages\Setting\SystemSettingPage.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\Pages\Setting\WallpaperSettingPage.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\Pages\Setting\OtherSettingPage.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\Pages\Setting\DonateSettingPage.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
     </ItemGroup>
 
     <PropertyGroup>

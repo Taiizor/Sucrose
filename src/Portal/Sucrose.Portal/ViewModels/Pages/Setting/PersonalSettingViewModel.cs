@@ -6,8 +6,8 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -74,7 +74,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch ConfirmState = new()
             {
-                IsChecked = SPMM.LibraryConfirm
+                IsChecked = SMMM.LibraryConfirm
             };
 
             ConfirmState.Checked += (s, e) => ConfirmStateChecked(true);
@@ -106,7 +106,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch AdultState = new()
             {
-                IsChecked = SPMM.Adult
+                IsChecked = SMMM.Adult
             };
 
             AdultState.Checked += (s, e) => AdultStateChecked(true);
@@ -129,7 +129,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBox UserAgent = new()
             {
                 ClearButtonEnabled = false,
-                Text = SPMM.UserAgent,
+                Text = SMMM.UserAgent,
                 IsReadOnly = true,
                 MaxLength = 100,
                 MinWidth = 125,
@@ -168,7 +168,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 PlaceholderText = "Lütfen bir API Anahtarı girin",
                 HorizontalAlignment = HorizontalAlignment.Left,
                 Margin = new Thickness(0, 10, 0, 0),
-                Text = SPMM.Key,
+                Text = SMMM.Key,
                 MaxLength = 93
             };
 
