@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Event\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Handler\CustomContextMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Execute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Management.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Url.cs" />

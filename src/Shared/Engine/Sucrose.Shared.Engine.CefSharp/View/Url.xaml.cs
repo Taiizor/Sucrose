@@ -33,7 +33,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
             SSEMI.GeneralTimer.Start();
 
             SSECSMI.CefEngine.IsBrowserInitializedChanged += SSECSEU.CefEngineInitializedChanged;
-            //SSECSMI.CefEngine.FrameLoadEnd += SSECSEU.CefEngineFrameLoadEnd;
+            SSECSMI.CefEngine.FrameLoadEnd += SSECSEU.CefEngineFrameLoadEnd;
+            SSECSMI.CefEngine.Initialized += SSECSEU.CefEngineInitialized;
             SSECSMI.CefEngine.Loaded += SSECSEU.CefEngineLoaded;
 
             Closing += (s, e) => SSECSMI.CefEngine.Dispose();

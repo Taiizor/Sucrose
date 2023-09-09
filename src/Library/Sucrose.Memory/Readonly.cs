@@ -64,6 +64,8 @@
 
         public static readonly string StartCommand = $"{StartCommandChar}";
 
+        public static readonly string WebViewProcessName = "msedgewebview2";
+
         public static readonly string NebulaLive = "Sucrose.Live.Nebula.exe";
 
         public static readonly string VexanaLive = "Sucrose.Live.Vexana.exe";
@@ -95,6 +97,8 @@
         public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
 
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
+
+        public static readonly string CefSharpProcessName = "CefSharp.BrowserSubprocess";
 
         public static readonly string LauncherMutex = "{Sucrose-Wallpaper-Engine-Launcher}";
 

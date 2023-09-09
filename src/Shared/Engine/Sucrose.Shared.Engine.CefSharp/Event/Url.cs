@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using System.Windows;
+using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
@@ -14,7 +15,12 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
-            //
+            SSECSHM.SetProcesses();
+        }
+
+        public static void CefEngineInitialized(object sender, EventArgs e)
+        {
+            SSECSHM.SetProcesses();
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)

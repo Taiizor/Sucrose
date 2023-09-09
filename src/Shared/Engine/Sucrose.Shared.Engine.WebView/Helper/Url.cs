@@ -1,4 +1,5 @@
-﻿using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+﻿using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 
@@ -6,17 +7,30 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 {
     internal static class Url
     {
-        public static void SetVolume(int Volume)
+        public static async void SetVolume(int Volume)
         {
-            //MessageBox.Show(SSEWVMI.WebEngine.CoreWebView2.BrowserProcessId + "-" + SSEWVMI.ProcessId);
-
-            try
+            if (SSEWVMI.Processes.Any())
             {
-                SWEVPCAM.SetApplicationVolume(SSEWVMI.ProcessId, Volume);
+                foreach (int Process in SSEWVMI.Processes.ToList())
+                {
+                    try
+                    {
+                        SWEVPCAM.SetApplicationVolume(Process, Volume);
+                    }
+                    catch
+                    {
+                        SWEACAM.SetApplicationVolume(Process, Volume);
+                    }
+                }
             }
-            catch
+
+            if (SSEWVMI.Try < 3)
             {
-                SWEACAM.SetApplicationVolume(SSEWVMI.ProcessId, Volume);
+                await Task.Run(() =>
+                {
+                    SSEWVMI.Try++;
+                    SSEWVHM.SetProcesses();
+                });
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+﻿using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
+using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 
@@ -6,17 +7,30 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class Url
     {
-        public static void SetVolume(int Volume)
+        public static async void SetVolume(int Volume)
         {
-            //MessageBox.Show(SSECSMI.CefEngine.GetBrowser().GetHost().GetWindowHandle() + "-" + SSECSMI.ProcessId);
-
-            try
+            if (SSECSMI.Processes.Any())
             {
-                SWEVPCAM.SetApplicationVolume(SSECSMI.ProcessId, Volume);
+                foreach (int Process in SSECSMI.Processes.ToList())
+                {
+                    try
+                    {
+                        SWEVPCAM.SetApplicationVolume(Process, Volume);
+                    }
+                    catch
+                    {
+                        SWEACAM.SetApplicationVolume(Process, Volume);
+                    }
+                }
             }
-            catch
+
+            if (SSECSMI.Try < 3)
             {
-                SWEACAM.SetApplicationVolume(SSECSMI.ProcessId, Volume);
+                await Task.Run(() =>
+                {
+                    SSECSMI.Try++;
+                    SSECSHM.SetProcesses();
+                });
             }
         }
     }
