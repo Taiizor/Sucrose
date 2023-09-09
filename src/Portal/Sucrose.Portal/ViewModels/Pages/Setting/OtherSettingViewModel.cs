@@ -1,14 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
+using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -29,7 +32,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            TextBlock AppearanceBehavior = new()
+            TextBlock HookArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
@@ -37,7 +40,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Text = "Kanca"
             };
 
-            Contents.Add(AppearanceBehavior);
+            Contents.Add(HookArea);
 
             SPVCEC DiscordHook = new()
             {
@@ -103,6 +106,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ClearButtonEnabled = false,
                 Value = SMMM.DiscordDelay,
                 Maximum = 3600,
+                MaxLength = 4,
                 Minimum = 60
             };
 
@@ -120,6 +124,81 @@ namespace Sucrose.Portal.ViewModels.Pages
             DiscordHook.FooterCard = DiscordContent;
 
             Contents.Add(DiscordHook);
+
+            TextBlock PriorityArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Öncelik"
+            };
+
+            Contents.Add(PriorityArea);
+
+            SPVCEC Agent = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Agent.Title.Text = "İnternet Temsilcisi";
+            Agent.LeftIcon.Symbol = SymbolRegular.VideoPersonSparkle24;
+            Agent.Description.Text = "İnternet bağlantısı gerektiren durumlardaki temsilci kimliğiniz.";
+
+            TextBox UserAgent = new()
+            {
+                ClearButtonEnabled = false,
+                Text = SMMM.UserAgent,
+                IsReadOnly = true,
+                MaxLength = 100,
+                MinWidth = 125,
+                MaxWidth = 250
+            };
+
+            UserAgent.TextChanged += (s, e) => UserAgentChanged(UserAgent);
+
+            Agent.HeaderFrame = UserAgent;
+
+            Contents.Add(Agent);
+
+            SPVCEC Key = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Key.Title.Text = "Kişisel Erişim Belirteci";
+            Key.LeftIcon.Symbol = SymbolRegular.ShieldKeyhole24;
+            Key.Description.Text = "Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.";
+
+            StackPanel KeyContent = new();
+
+            Hyperlink HintKey = new()
+            {
+                Content = "Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.",
+                Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
+                Appearance = ControlAppearance.Transparent,
+                BorderBrush = Brushes.Transparent,
+                NavigateUri = SMR.KeyYouTube,
+                Cursor = Cursors.Hand
+            };
+
+            TextBox PersonalKey = new()
+            {
+                PlaceholderText = "Lütfen bir kişisel erişim belirteci girin",
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Margin = new Thickness(0, 10, 0, 0),
+                Text = SMMM.Key,
+                MaxLength = 93
+            };
+
+            PersonalKey.TextChanged += (s, e) => PersonalKeyChanged(PersonalKey);
+
+            KeyContent.Children.Add(HintKey);
+            KeyContent.Children.Add(PersonalKey);
+
+            Key.FooterCard = KeyContent;
+
+            Contents.Add(Key);
 
             _isInitialized = true;
         }
@@ -144,6 +223,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             SMMI.HookSettingManager.SetSetting(SMC.DiscordRefresh, State);
         }
 
+        private void UserAgentChanged(TextBox TextBox)
+        {
+            if (string.IsNullOrEmpty(TextBox.Text))
+            {
+                TextBox.Text = SMR.UserAgent;
+            }
+
+            SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, TextBox.Text);
+        }
+
         private void DiscordDelayChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
@@ -151,6 +240,19 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewValue != SMMM.DiscordDelay)
             {
                 SMMI.HookSettingManager.SetSetting(SMC.DiscordDelay, NewValue);
+            }
+        }
+
+        private void PersonalKeyChanged(TextBox TextBox)
+        {
+            if (TextBox.Text.Length == 93)
+            {
+                SMMI.PrivateSettingManager.SetSetting(SMC.Key, TextBox.Text);
+            }
+            else
+            {
+                SMMI.PrivateSettingManager.SetSetting(SMC.Key, SMR.Key);
+                TextBox.PlaceholderText = "Lütfen geçerli bir kişisel erişim belirteci girin";
             }
         }
 

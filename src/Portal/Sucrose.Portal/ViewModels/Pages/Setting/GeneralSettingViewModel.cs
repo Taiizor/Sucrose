@@ -60,7 +60,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            TextBlock AppearanceBehavior = new()
+            TextBlock AppearanceBehaviorArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
@@ -68,7 +68,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Text = "Görünüş & Davranış"
             };
 
-            Contents.Add(AppearanceBehavior);
+            Contents.Add(AppearanceBehaviorArea);
 
             SPVCEC ApplicationLanguage = new()
             {
@@ -111,7 +111,6 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Startup.Items.Add("Yok");
             Startup.Items.Add("Normal");
-            Startup.Items.Add("Makine");
             Startup.Items.Add("Öncelik");
             Startup.Items.Add("Zamanlayıcı");
 
@@ -259,6 +258,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.BackgroundOpacity,
                 ClearButtonEnabled = false,
+                MaxLength = 3,
                 Maximum = 100,
                 Minimum = 0
             };
@@ -280,7 +280,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(WindowBackdrop);
 
-            TextBlock Sound = new()
+            TextBlock SoundArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
@@ -288,7 +288,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Text = "Ses"
             };
 
-            Contents.Add(Sound);
+            Contents.Add(SoundArea);
 
             SPVCEC EngineVolume = new()
             {
@@ -330,7 +330,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(EngineVolume);
 
-            TextBlock Library = new()
+            TextBlock LibraryArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
@@ -338,7 +338,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Text = "Kütüphane"
             };
 
-            Contents.Add(Library);
+            Contents.Add(LibraryArea);
 
             SPVCEC PrivateLibrary = new()
             {
@@ -450,7 +450,6 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SMMI.GeneralSettingManager.SetSetting(SMC.Startup, Index);
 
                 SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
-                SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupM}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
                 SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
                 SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Delete}");
 
@@ -463,9 +462,6 @@ namespace Sucrose.Portal.ViewModels.Pages
                         SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupM}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
                         break;
                     case 3:
-                        SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
-                        break;
-                    case 4:
                         SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Create}{SMR.ValueSeparator}{SSSMI.Launcher}");
                         break;
                     default:

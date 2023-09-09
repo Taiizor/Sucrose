@@ -30,7 +30,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            TextBlock Donate = new()
+            TextBlock DonateArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
@@ -38,7 +38,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Text = "Bağış"
             };
 
-            Contents.Add(Donate);
+            Contents.Add(DonateArea);
 
             SPVCEC DonateMenu = new()
             {
@@ -63,7 +63,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(DonateMenu);
 
-            TextBlock Support = new()
+            TextBlock SupportArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
@@ -71,7 +71,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Text = "Destek"
             };
 
-            Contents.Add(Support);
+            Contents.Add(SupportArea);
 
             SPVCEC Advertising = new()
             {
@@ -113,6 +113,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.AdvertisingDelay,
                 ClearButtonEnabled = false,
+                MaxLength = 3,
                 Maximum = 720,
                 Minimum = 30
             };

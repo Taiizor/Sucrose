@@ -1,17 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
-using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -32,27 +29,39 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            TextBlock AppearanceBehavior = new()
+            TextBlock StoreArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold,
-                Text = "Görünüş & Davranış"
+                Text = "Mağaza"
             };
 
-            Contents.Add(AppearanceBehavior);
+            Contents.Add(StoreArea);
 
-            SPVCEC ApplicationLanguage = new()
+            SPVCEC Adult = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = false
             };
 
-            ApplicationLanguage.Title.Text = "Uygulama Dili";
-            ApplicationLanguage.LeftIcon.Symbol = SymbolRegular.LocalLanguage24;
-            ApplicationLanguage.Description.Text = "Uygulamayı görüntülemek istediğiniz dili seçin.";
+            Adult.Title.Text = "Güvenli Olmayan İçerikler";
+            Adult.LeftIcon.Symbol = SymbolRegular.ContentSettings24;
+            Adult.Description.Text = "Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilmesi.";
 
-            TextBlock Library = new()
+            ToggleSwitch AdultState = new()
+            {
+                IsChecked = SMMM.Adult
+            };
+
+            AdultState.Checked += (s, e) => AdultStateChecked(true);
+            AdultState.Unchecked += (s, e) => AdultStateChecked(false);
+
+            Adult.HeaderFrame = AdultState;
+
+            Contents.Add(Adult);
+
+            TextBlock LibraryArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
@@ -60,7 +69,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Text = "Kütüphane"
             };
 
-            Contents.Add(Library);
+            Contents.Add(LibraryArea);
 
             SPVCEC Confirm = new()
             {
@@ -84,102 +93,217 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Confirm);
 
-            TextBlock Store = new()
+            TextBlock AppearanceBehaviorArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold,
-                Text = "Mağaza"
+                Text = "Görünüş & Davranış"
             };
 
-            Contents.Add(Store);
+            Contents.Add(AppearanceBehaviorArea);
 
-            SPVCEC Adult = new()
+            SPVCEC Theme = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                IsExpand = true
             };
 
-            Adult.Title.Text = "Zararlı İçerikler";
-            Adult.LeftIcon.Symbol = SymbolRegular.ContentSettings24;
-            Adult.Description.Text = "Mağazada zararlı (NSFW) olarak işaretlenmiş içeriklerin gösterilmesi.";
+            Theme.Title.Text = "Tema Özelleştirme";
+            Theme.LeftIcon.Symbol = SymbolRegular.DrawText24;
+            Theme.Description.Text = "Görüntülenen temaların ismini veya açıklamasını özelleştirin.";
 
-            ToggleSwitch AdultState = new()
+            StackPanel ThemeContent = new();
+
+            StackPanel ThemeTitleContent = new()
             {
-                IsChecked = SMMM.Adult
+                Orientation = Orientation.Horizontal
             };
 
-            AdultState.Checked += (s, e) => AdultStateChecked(true);
-            AdultState.Unchecked += (s, e) => AdultStateChecked(false);
-
-            Adult.HeaderFrame = AdultState;
-
-            Contents.Add(Adult);
-
-            SPVCEC Agent = new()
+            TextBlock TitleLengthText = new()
             {
-                Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                Text = "Başlık Uzunluğu (Karakter):",
+                FontWeight = FontWeights.SemiBold
             };
 
-            Agent.Title.Text = "İnternet Temsilcisi";
-            Agent.LeftIcon.Symbol = SymbolRegular.VideoPersonSparkle24;
-            Agent.Description.Text = "İnternet bağlantısı gerektiren durumlardaki temsilci kimliğiniz.";
-
-            TextBox UserAgent = new()
+            NumberBox TitleLength = new()
             {
                 ClearButtonEnabled = false,
-                Text = SMMM.UserAgent,
-                IsReadOnly = true,
-                MaxLength = 100,
-                MinWidth = 125,
-                MaxWidth = 250
+                Value = SMMM.TitleLength,
+                MaxLength = 3,
+                Maximum = 100,
+                Minimum = 10
             };
 
-            UserAgent.TextChanged += (s, e) => UserAgentChanged(UserAgent);
+            TitleLength.ValueChanged += (s, e) => TitleLengthChanged(TitleLength.Value);
 
-            Agent.HeaderFrame = UserAgent;
-
-            Contents.Add(Agent);
-
-            SPVCEC Key = new()
+            StackPanel ThemeDescriptionContent = new()
             {
+                Orientation = Orientation.Horizontal,
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Key.Title.Text = "GitHub API Anahtarı";
-            Key.LeftIcon.Symbol = SymbolRegular.ShieldKeyhole24;
-            Key.Description.Text = "Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.";
-
-            StackPanel KeyContent = new();
-
-            Hyperlink HintKey = new()
+            TextBlock DescriptionLengthText = new()
             {
-                Content = "API anahtarını nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.",
-                Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
-                Appearance = ControlAppearance.Transparent,
-                BorderBrush = Brushes.Transparent,
-                NavigateUri = SMR.KeyYouTube,
-                Cursor = Cursors.Hand
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                Text = "Açıklama Uzunluğu (Karakter):",
+                FontWeight = FontWeights.SemiBold
             };
 
-            TextBox PersonalKey = new()
+            NumberBox DescriptionLength = new()
             {
-                PlaceholderText = "Lütfen bir API Anahtarı girin",
-                HorizontalAlignment = HorizontalAlignment.Left,
+                Value = SMMM.DescriptionLength,
+                ClearButtonEnabled = false,
+                MaxLength = 3,
+                Maximum = 100,
+                Minimum = 10
+            };
+
+            DescriptionLength.ValueChanged += (s, e) => DescriptionLengthChanged(DescriptionLength.Value);
+
+            ThemeTitleContent.Children.Add(TitleLengthText);
+            ThemeTitleContent.Children.Add(TitleLength);
+
+            ThemeDescriptionContent.Children.Add(DescriptionLengthText);
+            ThemeDescriptionContent.Children.Add(DescriptionLength);
+
+            ThemeContent.Children.Add(ThemeTitleContent);
+            ThemeContent.Children.Add(ThemeDescriptionContent);
+
+            Theme.FooterCard = ThemeContent;
+
+            Contents.Add(Theme);
+
+            SPVCEC Adaptive = new()
+            {
                 Margin = new Thickness(0, 10, 0, 0),
-                Text = SMMM.Key,
-                MaxLength = 93
+                IsExpand = true
             };
 
-            PersonalKey.TextChanged += (s, e) => PersonalKeyChanged(PersonalKey);
+            Adaptive.Title.Text = "Uyarlanabilir Düzen";
+            Adaptive.LeftIcon.Symbol = SymbolRegular.BroadActivityFeed24;
+            Adaptive.Description.Text = "Görüntülenen temaların düzenini veya mesafelerini özelleştirin.";
 
-            KeyContent.Children.Add(HintKey);
-            KeyContent.Children.Add(PersonalKey);
+            StackPanel AdaptiveContent = new();
 
-            Key.FooterCard = KeyContent;
+            StackPanel AdaptiveMarginContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
 
-            Contents.Add(Key);
+            TextBlock AdaptiveMarginText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                Text = "Boşluk Mesafesi (Piksel):",
+                FontWeight = FontWeights.SemiBold
+            };
+
+            NumberBox AdaptiveMargin = new()
+            {
+                Value = SMMM.AdaptiveMargin,
+                ClearButtonEnabled = false,
+                MaxLength = 2,
+                Maximum = 25,
+                Minimum = 5
+            };
+
+            AdaptiveMargin.ValueChanged += (s, e) => AdaptiveMarginChanged(AdaptiveMargin.Value);
+
+            StackPanel AdaptiveLayoutContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock AdaptiveLayoutText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "Düzen Sırası (Adet):"
+            };
+
+            NumberBox AdaptiveLayout = new()
+            {
+                Value = SMMM.AdaptiveLayout,
+                ClearButtonEnabled = false,
+                MaxLength = 3,
+                Maximum = 100,
+                Minimum = 0
+            };
+
+            AdaptiveLayout.ValueChanged += (s, e) => AdaptiveLayoutChanged(AdaptiveLayout.Value);
+
+            AdaptiveMarginContent.Children.Add(AdaptiveMarginText);
+            AdaptiveMarginContent.Children.Add(AdaptiveMargin);
+
+            AdaptiveLayoutContent.Children.Add(AdaptiveLayoutText);
+            AdaptiveLayoutContent.Children.Add(AdaptiveLayout);
+
+            AdaptiveContent.Children.Add(AdaptiveMarginContent);
+            AdaptiveContent.Children.Add(AdaptiveLayoutContent);
+
+            Adaptive.FooterCard = AdaptiveContent;
+
+            Contents.Add(Adaptive);
+
+            SPVCEC Store = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Store.Title.Text = "Mağaza Sayfalama";
+            Store.LeftIcon.Symbol = SymbolRegular.DualScreenPagination24;
+            Store.Description.Text = "Mağazadaki her bir sayfa için kaç tane tema olacağını belirleyin.";
+
+            NumberBox StorePagination = new()
+            {
+                Value = SMMM.StorePagination,
+                ClearButtonEnabled = false,
+                MaxLength = 3,
+                Maximum = 100,
+                Minimum = 1
+            };
+
+            StorePagination.ValueChanged += (s, e) => StorePaginationChanged(StorePagination.Value);
+
+            Store.HeaderFrame = StorePagination;
+
+            Contents.Add(Store);
+
+            SPVCEC Library = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Library.Title.Text = "Kütüphane Sayfalama";
+            Library.LeftIcon.Symbol = SymbolRegular.DualScreenPagination24;
+            Library.Description.Text = "Kütüphanenizdeki her bir sayfa için kaç tane tema olacağını belirleyin.";
+
+            NumberBox LibraryPagination = new()
+            {
+                Value = SMMM.LibraryPagination,
+                ClearButtonEnabled = false,
+                MaxLength = 3,
+                Maximum = 100,
+                Minimum = 1
+            };
+
+            LibraryPagination.ValueChanged += (s, e) => LibraryPaginationChanged(LibraryPagination.Value);
+
+            Library.HeaderFrame = LibraryPagination;
+
+            Contents.Add(Library);
 
             _isInitialized = true;
         }
@@ -194,37 +318,74 @@ namespace Sucrose.Portal.ViewModels.Pages
             //Dispose();
         }
 
-        private void UserAgentChanged(TextBox TextBox)
-        {
-            if (string.IsNullOrEmpty(TextBox.Text))
-            {
-                TextBox.Text = SMR.UserAgent;
-            }
-
-            SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, TextBox.Text);
-        }
-
         private void AdultStateChecked(bool State)
         {
             SMMI.PortalSettingManager.SetSetting(SMC.Adult, State);
         }
 
-        private void PersonalKeyChanged(TextBox TextBox)
-        {
-            if (TextBox.Text.Length == 93)
-            {
-                SMMI.PrivateSettingManager.SetSetting(SMC.Key, TextBox.Text);
-            }
-            else
-            {
-                SMMI.PrivateSettingManager.SetSetting(SMC.Key, SMR.Key);
-                TextBox.PlaceholderText = "Lütfen geçerli bir API Anahtarı girin";
-            }
-        }
-
         private void ConfirmStateChecked(bool State)
         {
             SMMI.LibrarySettingManager.SetSetting(SMC.LibraryConfirm, State);
+        }
+
+        private void TitleLengthChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.TitleLength)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.TitleLength, NewValue);
+            }
+        }
+
+        private void AdaptiveMarginChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.AdaptiveMargin)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.AdaptiveMargin, NewValue);
+            }
+        }
+
+        private void AdaptiveLayoutChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.AdaptiveLayout)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.AdaptiveLayout, NewValue);
+            }
+        }
+
+        private void StorePaginationChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.StorePagination)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.StorePagination, NewValue);
+            }
+        }
+
+        private void LibraryPaginationChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.LibraryPagination)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.LibraryPagination, NewValue);
+            }
+        }
+
+        private void DescriptionLengthChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.DescriptionLength)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.DescriptionLength, NewValue);
+            }
         }
 
         public void Dispose()
