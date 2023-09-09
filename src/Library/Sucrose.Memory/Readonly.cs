@@ -106,9 +106,9 @@
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
-        public static readonly string StoreWebsite = $"https://github.com/{Owner}/{StoreRepository}";
+        public static readonly string KeyYouTube = $"https://www.youtube.com/watch?v=kRyML8axJxA";
 
-        public static readonly string KeyWebsite = $"https://github.com/{Owner}/{Repository}//wiki/Key";
+        public static readonly string StoreWebsite = $"https://github.com/{Owner}/{StoreRepository}";
 
         public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 

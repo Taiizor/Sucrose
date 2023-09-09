@@ -159,7 +159,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Transparent,
                 BorderBrush = Brushes.Transparent,
-                NavigateUri = SMR.KeyWebsite,
+                NavigateUri = SMR.KeyYouTube,
                 Cursor = Cursors.Hand
             };
 
