@@ -105,8 +105,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             SPVCEC Theme = new()
             {
-                Margin = new Thickness(0, 10, 0, 0),
-                IsExpand = true
+                Margin = new Thickness(0, 10, 0, 0)
             };
 
             Theme.Title.Text = "Tema Özelleştirme";
@@ -187,7 +186,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Adaptive.Title.Text = "Uyarlanabilir Düzen";
             Adaptive.LeftIcon.Symbol = SymbolRegular.BroadActivityFeed24;
-            Adaptive.Description.Text = "Görüntülenen temaların düzenini veya mesafelerini özelleştirin.";
+            Adaptive.Description.Text = "Görüntülenen temaların düzenini veya mesafesini özelleştirin.";
 
             StackPanel AdaptiveContent = new();
 

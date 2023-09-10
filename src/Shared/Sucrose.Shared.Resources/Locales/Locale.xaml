@@ -9,5 +9,5 @@
     <system:String x:Key="Locale.FR">Français (v0.1)</system:String>
     <system:String x:Key="Locale.JA">日本語 (v0.0)</system:String>
     <system:String x:Key="Locale.PL">Polski (v0.1)</system:String>
-    <system:String x:Key="Locale.TR">Türkçe (v0.3)</system:String>
+    <system:String x:Key="Locale.TR">Türkçe (v0.4)</system:String>
 </ResourceDictionary>
