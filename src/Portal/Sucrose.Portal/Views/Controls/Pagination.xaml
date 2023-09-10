@@ -21,6 +21,6 @@
         <ToggleButton x:Name="Number9" Content="9" Margin="0 0 5 0" Padding="0" Width="28" Height="32" Cursor="Hand" Click="Number_Click"  />
         <ui:Button x:Name="PageNext" Content="▷" Appearance="Secondary" Margin="0 0 25 0" Padding="0" Width="28" Height="32" Click="PageNext_Click" Cursor="Hand" />
         <ui:NumberBox x:Name="PageNumber" Value="1" MaxDecimalPlaces="0" AcceptsExpression="False" Margin="0 0 5 0" ClearButtonEnabled="False" />
-        <ui:Button x:Name="PageJump" Content="Jump" Appearance="Secondary" Margin="0 0 5 0" Padding="5 0 5 0" Height="32" Click="PageJump_Click" Cursor="Hand" />
+        <ui:Button x:Name="PageJump" Content="{DynamicResource Portal.Pagination.PageJump}" Appearance="Secondary" Margin="0 0 5 0" Padding="5 0 5 0" Height="32" Click="PageJump_Click" Cursor="Hand" />
     </StackPanel>
 </UserControl>
