@@ -7,6 +7,7 @@
         Live,
         Test,
         Temp,
+        Wiki,
         Bundle,
         Update,
         Import,

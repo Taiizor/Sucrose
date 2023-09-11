@@ -3,6 +3,7 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
+    <system:String x:Key="Watchdog.HelpButton">Yardım</system:String>
     <system:String x:Key="Watchdog.CloseButton">Çıkış</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Beklenmeyen bir hata oluştu:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Hata</system:String>

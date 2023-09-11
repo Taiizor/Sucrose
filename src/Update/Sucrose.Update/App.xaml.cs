@@ -16,6 +16,7 @@ using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -23,6 +24,7 @@ using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SUMI = Sucrose.Update.Manage.Intrnal;
 using SUMM = Sucrose.Update.Manage.Manager;
 using SUVDIB = Sucrose.Update.View.DarkInfoBox;
 using SUVDUB = Sucrose.Update.View.DarkUpdateBox;
@@ -128,11 +130,13 @@ namespace Sucrose.Update
                 switch (SUMM.Theme)
                 {
                     case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path);
+                        SSWDEMB DarkMessageBox = new(Message, Path, SUMI.Source, SSRER.GetValue("Update", "HelpText"));
+                        DarkMessageBox.Topmost = true;
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SSWLEMB LightMessageBox = new(Message, Path);
+                        SSWLEMB LightMessageBox = new(Message, Path, SUMI.Source, SSRER.GetValue("Update", "HelpText"));
+                        LightMessageBox.Topmost = true;
                         LightMessageBox.ShowDialog();
                         break;
                 }
@@ -195,9 +199,9 @@ namespace Sucrose.Update
                                 {
                                     Info(SSDEUT.Updating);
 
-                                    string Source = Asset.BrowserDownloadUrl;
+                                    SUMI.Source = Asset.BrowserDownloadUrl;
 
-                                    Bundle = Path.Combine(SUMM.CachePath, Path.GetFileName(Source));
+                                    Bundle = Path.Combine(SUMM.CachePath, Path.GetFileName(SUMI.Source));
 
                                     if (File.Exists(Bundle))
                                     {
@@ -211,7 +215,7 @@ namespace Sucrose.Update
 
                                     Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
-                                    using HttpResponseMessage Response = await Client.GetAsync(Source);
+                                    using HttpResponseMessage Response = await Client.GetAsync(SUMI.Source);
 
                                     Response.EnsureSuccessStatusCode();
 

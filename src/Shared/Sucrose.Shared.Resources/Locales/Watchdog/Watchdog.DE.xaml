@@ -3,6 +3,7 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
+    <system:String x:Key="Watchdog.HelpButton">Helfen</system:String>
     <system:String x:Key="Watchdog.CloseButton">Ausfahrt</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Ein unerwarteter Fehler ist aufgetreten:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Fehler</system:String>

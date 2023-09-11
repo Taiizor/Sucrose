@@ -15,14 +15,20 @@ namespace Sucrose.Shared.Watchdog
     public partial class DarkErrorMessageBox : Window
     {
         private static string Path = string.Empty;
+        private static string Text = string.Empty;
+        private static string Address = string.Empty;
 
-        public DarkErrorMessageBox(string ErrorMessage, string LogPath)
+        public DarkErrorMessageBox(string ErrorMessage, string LogPath, string HelpAddress = null, string HelpText = null)
         {
             InitializeComponent();
 
             Path = LogPath;
+            Text = HelpText;
+            Address = HelpAddress;
 
             SystemSounds.Hand.Play();
+
+            Help_Button.Content = Text ?? Help_Button.Content;
 
             Error_Message.Text += Environment.NewLine + ErrorMessage;
 
@@ -32,6 +38,18 @@ namespace Sucrose.Shared.Watchdog
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
             SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Log}{SMR.ValueSeparator}{Path}");
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Address))
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{SMR.WikiWebsite}");
+            }
+            else
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{Address}");
+            }
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

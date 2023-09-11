@@ -3,6 +3,7 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
+    <system:String x:Key="Watchdog.HelpButton">Aide</system:String>
     <system:String x:Key="Watchdog.CloseButton">Fermer</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Une erreur inattendue est apparue:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Erreur</system:String>

@@ -60,6 +60,11 @@
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
             </Button.Effect>
         </Button>
+        <Button x:Name="Help_Button" Content="{DynamicResource Watchdog.HelpButton}" Cursor="Hand" Width="100" Height="25" Margin="0 0 0 20" HorizontalAlignment="Center" Grid.Row="1" Click="HelpButton_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
+            </Button.Effect>
+        </Button>
         <Button x:Name="Close_Button" Content="{DynamicResource Watchdog.CloseButton}" Cursor="Hand" Width="100" Height="25" Margin="0 0 20 20" HorizontalAlignment="Right" Grid.Row="1" Click="CloseButton_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
