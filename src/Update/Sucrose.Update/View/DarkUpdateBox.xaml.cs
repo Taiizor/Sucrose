@@ -1,7 +1,10 @@
 ﻿using System.Media;
 using System.Windows;
+using SMR = Sucrose.Memory.Readonly;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 
 namespace Sucrose.Update.View
@@ -30,7 +33,7 @@ namespace Sucrose.Update.View
             if (Run)
             {
                 Run = false;
-                SSSHP.Run(Path);
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Bundle}{SMR.ValueSeparator}{Path}");
             }
             else
             {

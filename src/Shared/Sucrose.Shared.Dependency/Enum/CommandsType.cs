@@ -7,6 +7,7 @@
         Live,
         Test,
         Temp,
+        Bundle,
         Update,
         Import,
         Export,

@@ -224,6 +224,10 @@ namespace Sucrose.Update
                                         using Stream CStream = await Content.ReadAsStreamAsync();
                                         using FileStream FStream = new(Bundle, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
 
+                                        await Task.Delay(MinDelay);
+
+                                        await CStream.CopyToAsync(FStream);
+
                                         await Task.Delay(MaxDelay);
 
                                         HasBundle = true;

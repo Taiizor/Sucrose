@@ -85,6 +85,9 @@ namespace Sucrose.Commandog.Helper
                                     case SSDECT.Temp:
                                         SSSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
+                                    case SSDECT.Bundle:
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        break;
                                     case SSDECT.Update:
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
