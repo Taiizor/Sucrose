@@ -63,7 +63,7 @@ namespace Sucrose.WPF.CS
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                SSWW.Watch_GlobalUnhandledExceptionHandler(Exception);
+                SSWW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
                 Message(Exception.Message);

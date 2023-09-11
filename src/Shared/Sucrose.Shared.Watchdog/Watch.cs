@@ -25,14 +25,14 @@ namespace Sucrose.Shared.Watchdog
             WatchLog(Exception, "UNOBSERVED TASK");
         }
 
+        public static void Watch_GlobalUnhandledException(Exception Exception)
+        {
+            WatchLog(Exception, "GLOBAL UNHANDLED");
+        }
+
         public static void Watch_DispatcherUnhandledException(Exception Exception)
         {
             WatchLog(Exception, "DISPATCHER UNHANDLED");
-        }
-
-        public static void Watch_GlobalUnhandledExceptionHandler(Exception Exception)
-        {
-            WatchLog(Exception, "GLOBAL UNHANDLED");
         }
 
         private static void WatchLog(Exception Exception, string Type)

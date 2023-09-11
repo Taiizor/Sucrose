@@ -56,7 +56,7 @@ namespace Sucrose.Live.Aurora
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                SSWW.Watch_GlobalUnhandledExceptionHandler(Exception);
+                SSWW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
                 Message(Exception.Message);

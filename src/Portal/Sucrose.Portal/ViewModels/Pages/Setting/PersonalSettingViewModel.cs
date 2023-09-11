@@ -93,6 +93,38 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Confirm);
 
+            SPVCEC Delete = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                IsExpand = true
+            };
+
+            Delete.Title.Text = "Bozuk Temalar";
+            Delete.LeftIcon.Symbol = SymbolRegular.ImageProhibited24;
+            Delete.Description.Text = "Kütüphanedeki bozuk ya da eksik temaların otomatik silinip silinmeyeceği.";
+
+            ToggleSwitch DeleteState = new()
+            {
+                IsChecked = SMMM.LibraryDelete
+            };
+
+            DeleteState.Checked += (s, e) => DeleteStateChecked(true);
+            DeleteState.Unchecked += (s, e) => DeleteStateChecked(false);
+
+            TextBlock DeleteHint = new()
+            {
+                Text = "Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıpları yaşanabilir.",
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            Delete.FooterCard = DeleteHint;
+
+            Delete.HeaderFrame = DeleteState;
+
+            Contents.Add(Delete);
+
             TextBlock AppearanceBehaviorArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
@@ -180,8 +212,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             SPVCEC Adaptive = new()
             {
-                Margin = new Thickness(0, 10, 0, 0),
-                IsExpand = true
+                Margin = new Thickness(0, 10, 0, 0)
             };
 
             Adaptive.Title.Text = "Uyarlanabilir Düzen";
@@ -320,6 +351,11 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void AdultStateChecked(bool State)
         {
             SMMI.PortalSettingManager.SetSetting(SMC.Adult, State);
+        }
+
+        private void DeleteStateChecked(bool State)
+        {
+            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryDelete, State);
         }
 
         private void ConfirmStateChecked(bool State)
