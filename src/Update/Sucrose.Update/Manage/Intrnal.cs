@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Update.Manage
 {
-    internal static class Intrnal
+    internal static class Internal
     {
         public static string Source = string.Empty;
     }

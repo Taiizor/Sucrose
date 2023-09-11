@@ -113,7 +113,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DeleteHint = new()
             {
-                Text = "Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıpları yaşanabilir.",
+                Text = "Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir",
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
