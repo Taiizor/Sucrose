@@ -1,12 +1,12 @@
 ﻿using System.Net;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SEWTT = Skylark.Enum.WindowsThemeType;
 using SEST = Skylark.Enum.ScreenType;
+using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal.Manage

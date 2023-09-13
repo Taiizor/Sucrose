@@ -3,13 +3,16 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
+using SEST = Skylark.Enum.ScreenType;
 using SMC = Sucrose.Memory.Constant;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
 using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSDEGET = Sucrose.Shared.Dependency.Enum.GifEngineType;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDEUET = Sucrose.Shared.Dependency.Enum.UrlEngineType;
 using SSDEVET = Sucrose.Shared.Dependency.Enum.VideoEngineType;
 using SSDEWET = Sucrose.Shared.Dependency.Enum.WebEngineType;
@@ -57,6 +60,22 @@ namespace Sucrose.Portal.ViewModels.Pages
             ScreenLayout.LeftIcon.Symbol = SymbolRegular.DesktopFlow24;
             ScreenLayout.Description.Text = "Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.";
 
+            ComboBox ScreenType = new();
+
+            ScreenType.SelectionChanged += (s, e) => ScreenTypeSelected(ScreenType.SelectedIndex);
+
+            foreach (SEST Type in Enum.GetValues(typeof(SEST)))
+            {
+                ScreenType.Items.Add(new ComboBoxItem()
+                {
+                    Content = $"{Type}"
+                });
+            }
+
+            ScreenType.SelectedIndex = (int)SPMM.ScreenType;
+
+            ScreenLayout.HeaderFrame = ScreenType;
+
             Contents.Add(ScreenLayout);
 
             SPVCEC StretchMode = new()
@@ -68,6 +87,22 @@ namespace Sucrose.Portal.ViewModels.Pages
             StretchMode.Title.Text = "Sığdırma Metodu";
             StretchMode.LeftIcon.Symbol = SymbolRegular.ArrowMinimize24;
             StretchMode.Description.Text = "Desteklenen duvar kağıtlarında ölçeklendirmeyi değiştirir.";
+
+            ComboBox StretchType = new();
+
+            StretchType.SelectionChanged += (s, e) => StretchTypeSelected(StretchType.SelectedIndex);
+
+            foreach (SSDEST Type in Enum.GetValues(typeof(SSDEST)))
+            {
+                StretchType.Items.Add(new ComboBoxItem()
+                {
+                    Content = $"{Type}"
+                });
+            }
+
+            StretchType.SelectedIndex = (int)SPMM.StretchType;
+
+            StretchMode.HeaderFrame = StretchType;
 
             Contents.Add(StretchMode);
 
@@ -313,6 +348,26 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void LoopStateChecked(bool State)
         {
             SMMI.EngineSettingManager.SetSetting(SMC.Loop, State);
+        }
+
+        private void ScreenTypeSelected(int Index)
+        {
+            SEST NewScreen = (SEST)Index;
+
+            if (NewScreen != SPMM.ScreenType)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.ScreenType, NewScreen);
+            }
+        }
+
+        private void StretchTypeSelected(int Index)
+        {
+            SSDEST NewStretch = (SSDEST)Index;
+
+            if (NewStretch != SPMM.StretchType)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.StretchType, NewStretch);
+            }
         }
 
         private void ShuffleStateChecked(bool State)
