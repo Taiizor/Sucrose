@@ -39,6 +39,28 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(StoreArea);
 
+            SPVCEC Start = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Start.Title.Text = "Otomatik Başlatma";
+            Start.LeftIcon.Symbol = SymbolRegular.PictureInPictureEnter24;
+            Start.Description.Text = "Mağazadan indirilen temanın otomatik olarak duvar kağıdı olarak ayarlanıp ayarlanmayacağı.";
+
+            ToggleSwitch StartState = new()
+            {
+                IsChecked = SMMM.Start
+            };
+
+            StartState.Checked += (s, e) => StartStateChecked(true);
+            StartState.Unchecked += (s, e) => StartStateChecked(false);
+
+            Start.HeaderFrame = StartState;
+
+            Contents.Add(Start);
+
             SPVCEC Adult = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
@@ -47,7 +69,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Adult.Title.Text = "Güvenli Olmayan İçerikler";
             Adult.LeftIcon.Symbol = SymbolRegular.ContentSettings24;
-            Adult.Description.Text = "Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilmesi.";
+            Adult.Description.Text = "Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilip gösterilmeyeceği.";
 
             ToggleSwitch AdultState = new()
             {
@@ -351,6 +373,11 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void AdultStateChecked(bool State)
         {
             SMMI.PortalSettingManager.SetSetting(SMC.Adult, State);
+        }
+
+        private void StartStateChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.Start, State);
         }
 
         private void DeleteStateChecked(bool State)

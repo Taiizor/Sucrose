@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
@@ -36,10 +37,88 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            TextBlock EngineArea = new()
+            TextBlock AppearanceBehaviorArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Görünüş & Davranış"
+            };
+
+            Contents.Add(AppearanceBehaviorArea);
+
+            SPVCEC ScreenLayout = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            ScreenLayout.Title.Text = "Ekran Yerleşimi";
+            ScreenLayout.LeftIcon.Symbol = SymbolRegular.DesktopFlow24;
+            ScreenLayout.Description.Text = "Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.";
+
+            Contents.Add(ScreenLayout);
+
+            SPVCEC StretchMode = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            StretchMode.Title.Text = "Sığdırma Metodu";
+            StretchMode.LeftIcon.Symbol = SymbolRegular.ArrowMinimize24;
+            StretchMode.Description.Text = "Desteklenen duvar kağıtlarında ölçeklendirmeyi değiştirir.";
+
+            Contents.Add(StretchMode);
+
+            SPVCEC LoopMode = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            LoopMode.Title.Text = "Yineleme Durumu";
+            LoopMode.LeftIcon.Symbol = SymbolRegular.ArrowRepeatAll24;
+            LoopMode.Description.Text = "Desteklenen duvar kağıtlarında yineleme durumunu değiştirir.";
+
+            ToggleSwitch LoopState = new()
+            {
+                IsChecked = SMMM.Shuffle
+            };
+
+            LoopState.Checked += (s, e) => LoopStateChecked(true);
+            LoopState.Unchecked += (s, e) => LoopStateChecked(false);
+
+            LoopMode.HeaderFrame = LoopState;
+
+            Contents.Add(LoopMode);
+
+            SPVCEC ShuffleMode = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            ShuffleMode.Title.Text = "Karıştırma Durumu";
+            ShuffleMode.LeftIcon.Symbol = SymbolRegular.ArrowShuffle24;
+            ShuffleMode.Description.Text = "Desteklenen duvar kağıtlarında karıştırma durumunu değiştirir.";
+
+            ToggleSwitch ShuffleState = new()
+            {
+                IsChecked = SMMM.Shuffle
+            };
+
+            ShuffleState.Checked += (s, e) => ShuffleStateChecked(true);
+            ShuffleState.Unchecked += (s, e) => ShuffleStateChecked(false);
+
+            ShuffleMode.HeaderFrame = ShuffleState;
+
+            Contents.Add(ShuffleMode);
+
+            TextBlock EngineArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold,
                 Text = "Motorlar"
             };
@@ -229,6 +308,16 @@ namespace Sucrose.Portal.ViewModels.Pages
         public void OnNavigatedFrom()
         {
             //Dispose();
+        }
+
+        private void LoopStateChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.Loop, State);
+        }
+
+        private void ShuffleStateChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.Shuffle, State);
         }
 
         private void GifEngineSelected(ComboBoxItem Item)
