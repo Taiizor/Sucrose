@@ -16,19 +16,22 @@ namespace Sucrose.Shared.Watchdog
     {
         private static string Path = string.Empty;
         private static string Text = string.Empty;
-        private static string Address = string.Empty;
+        private static string Source = string.Empty;
 
-        public DarkErrorMessageBox(string ErrorMessage, string LogPath, string HelpAddress = null, string HelpText = null)
+        public DarkErrorMessageBox(string ErrorMessage, string LogPath, string HelpSource = null, string HelpText = null)
         {
             InitializeComponent();
 
             Path = LogPath;
             Text = HelpText;
-            Address = HelpAddress;
+            Source = HelpSource;
 
             SystemSounds.Hand.Play();
 
-            Help_Button.Content = Text ?? Help_Button.Content;
+            if (!string.IsNullOrEmpty(Source))
+            {
+                Help_Button.Content = Text;
+            }
 
             Error_Message.Text += Environment.NewLine + ErrorMessage;
 
@@ -42,13 +45,13 @@ namespace Sucrose.Shared.Watchdog
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(Address))
+            if (string.IsNullOrEmpty(Source))
             {
                 SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{SMR.WikiWebsite}");
             }
             else
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{Address}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{Source}");
             }
         }
 

@@ -125,18 +125,24 @@ namespace Sucrose.Update
             {
                 HasError = false;
 
+                string Source = SUMI.Source;
                 string Path = SMMI.UpdateLogManager.LogFile();
+                string Text = SSRER.GetValue("Update", "HelpText");
 
                 switch (SUMM.Theme)
                 {
                     case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path, SUMI.Source, SSRER.GetValue("Update", "HelpText"));
-                        DarkMessageBox.Topmost = true;
+                        SSWDEMB DarkMessageBox = new(Message, Path, Source, Text)
+                        {
+                            Topmost = true
+                        };
                         DarkMessageBox.ShowDialog();
                         break;
                     default:
-                        SSWLEMB LightMessageBox = new(Message, Path, SUMI.Source, SSRER.GetValue("Update", "HelpText"));
-                        LightMessageBox.Topmost = true;
+                        SSWLEMB LightMessageBox = new(Message, Path, Source, Text)
+                        {
+                            Topmost = true
+                        };
                         LightMessageBox.ShowDialog();
                         break;
                 }
