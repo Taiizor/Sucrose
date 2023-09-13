@@ -150,6 +150,70 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(ShuffleMode);
 
+            TextBlock ExtensionArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Eklentiler"
+            };
+
+            Contents.Add(ExtensionArea);
+
+            SPVCEC GifPlayer = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            GifPlayer.Title.Text = "Gif Eklentisi";
+            GifPlayer.LeftIcon.Symbol = SymbolRegular.Gif24;
+            GifPlayer.Description.Text = "Kütüphanenizde bulunan Gif türündeki temaları oynatacak olan eklentiyi seçin.";
+
+            ComboBox GifEngine = new();
+
+            GifEngine.SelectionChanged += (s, e) => GifEngineSelected(GifEngine.SelectedItem as ComboBoxItem);
+
+            foreach (SSDEGET Type in Enum.GetValues(typeof(SSDEGET)))
+            {
+                GifEngine.Items.Add(new ComboBoxItem()
+                {
+                    IsSelected = Type == (SSDEGET)SSLMM.GApp,
+                    Content = $"{Type}"
+                });
+            }
+
+            GifPlayer.HeaderFrame = GifEngine;
+
+            Contents.Add(GifPlayer);
+
+            SPVCEC VideoPlayer = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            VideoPlayer.Title.Text = "Video Eklentisi";
+            VideoPlayer.LeftIcon.Symbol = SymbolRegular.VideoClip24;
+            VideoPlayer.Description.Text = "Kütüphanenizde bulunan Video türündeki temaları oynatacak olan eklentiyi seçin.";
+
+            ComboBox VideoEngine = new();
+
+            VideoEngine.SelectionChanged += (s, e) => VideoEngineSelected(VideoEngine.SelectedItem as ComboBoxItem);
+
+            foreach (SSDEVET Type in Enum.GetValues(typeof(SSDEVET)))
+            {
+                VideoEngine.Items.Add(new ComboBoxItem()
+                {
+                    IsSelected = Type == (SSDEVET)SSLMM.VApp,
+                    Content = $"{Type}"
+                });
+            }
+
+            VideoPlayer.HeaderFrame = VideoEngine;
+
+            Contents.Add(VideoPlayer);
+
             TextBlock EngineArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
@@ -267,70 +331,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             ApplicationPlayer.HeaderFrame = ApplicationEngine;
 
             Contents.Add(ApplicationPlayer);
-
-            TextBlock ExtensionArea = new()
-            {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Eklentiler"
-            };
-
-            Contents.Add(ExtensionArea);
-
-            SPVCEC GifPlayer = new()
-            {
-                Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
-            };
-
-            GifPlayer.Title.Text = "Gif Eklentisi";
-            GifPlayer.LeftIcon.Symbol = SymbolRegular.Gif24;
-            GifPlayer.Description.Text = "Kütüphanenizde bulunan Gif türündeki temaları oynatacak olan eklentiyi seçin.";
-
-            ComboBox GifEngine = new();
-
-            GifEngine.SelectionChanged += (s, e) => GifEngineSelected(GifEngine.SelectedItem as ComboBoxItem);
-
-            foreach (SSDEGET Type in Enum.GetValues(typeof(SSDEGET)))
-            {
-                GifEngine.Items.Add(new ComboBoxItem()
-                {
-                    IsSelected = Type == (SSDEGET)SSLMM.GApp,
-                    Content = $"{Type}"
-                });
-            }
-
-            GifPlayer.HeaderFrame = GifEngine;
-
-            Contents.Add(GifPlayer);
-
-            SPVCEC VideoPlayer = new()
-            {
-                Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
-            };
-
-            VideoPlayer.Title.Text = "Video Eklentisi";
-            VideoPlayer.LeftIcon.Symbol = SymbolRegular.VideoClip24;
-            VideoPlayer.Description.Text = "Kütüphanenizde bulunan Video türündeki temaları oynatacak olan eklentiyi seçin.";
-
-            ComboBox VideoEngine = new();
-
-            VideoEngine.SelectionChanged += (s, e) => VideoEngineSelected(VideoEngine.SelectedItem as ComboBoxItem);
-
-            foreach (SSDEVET Type in Enum.GetValues(typeof(SSDEVET)))
-            {
-                VideoEngine.Items.Add(new ComboBoxItem()
-                {
-                    IsSelected = Type == (SSDEVET)SSLMM.VApp,
-                    Content = $"{Type}"
-                });
-            }
-
-            VideoPlayer.HeaderFrame = VideoEngine;
-
-            Contents.Add(VideoPlayer);
 
             _isInitialized = true;
         }
