@@ -25,12 +25,12 @@ namespace Sucrose.Update.View
             SourceInitialized += DarkUpdateBox_SourceInitialized;
         }
 
-        private void InstallButton_Click(object sender, RoutedEventArgs e)
+        private async void InstallButton_Click(object sender, RoutedEventArgs e)
         {
             if (Run)
             {
                 Run = false;
-                SSSHP.Run(Path);
+                await Task.Run(() => SSSHP.Run(Path));
             }
             else
             {

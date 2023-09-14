@@ -21,12 +21,12 @@ namespace Sucrose.Update.View
             SystemSounds.Asterisk.Play();
         }
 
-        private void InstallButton_Click(object sender, RoutedEventArgs e)
+        private async void InstallButton_Click(object sender, RoutedEventArgs e)
         {
             if (Run)
             {
                 Run = false;
-                SSSHP.Run(Path);
+                await Task.Run(() => SSSHP.Run(Path));
             }
             else
             {
