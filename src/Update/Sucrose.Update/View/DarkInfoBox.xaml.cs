@@ -22,7 +22,7 @@ namespace Sucrose.Update.View
                     Info_Image.Visibility = Visibility.Visible;
                     break;
                 case SSDEUT.Update:
-                    Success_Image.Visibility = Visibility.Visible;
+                    Firework_Image.Visibility = Visibility.Visible;
                     break;
                 case SSDEUT.Status:
                     Warn_Image.Visibility = Visibility.Visible;
@@ -32,7 +32,7 @@ namespace Sucrose.Update.View
                     break;
                 case SSDEUT.Updating:
                     Countdown();
-                    Success_Image.Visibility = Visibility.Visible;
+                    Confetti_Image.Visibility = Visibility.Visible;
                     break;
                 case SSDEUT.Releases:
                     Warn_Image.Visibility = Visibility.Visible;
@@ -51,6 +51,14 @@ namespace Sucrose.Update.View
 
         private async void Countdown()
         {
+            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 5";
+
+            await Task.Delay(1000);
+
+            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 4";
+
+            await Task.Delay(1000);
+
             Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 3";
 
             await Task.Delay(1000);
