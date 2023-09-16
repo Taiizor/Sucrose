@@ -151,7 +151,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                         if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMM.Adult))
                         {
                             string Title = Wallpaper.Key.ToLowerInvariant();
-                            string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SSSHC.FileName(Wallpaper.Key));
+                            string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
 
                             if (SearchControl(Text, Theme, Title))
                             {
