@@ -1,6 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Wpf.Ui.Controls;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
+using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -21,7 +29,15 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            //
+            TextBlock SystemResourcesArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Sistem Kaynakları"
+            };
+
+            Contents.Add(SystemResourcesArea);
 
             _isInitialized = true;
         }
