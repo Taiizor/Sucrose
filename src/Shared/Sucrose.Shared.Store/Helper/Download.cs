@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net.Http;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSHG = Skylark.Standard.Helper.GitHub;
@@ -24,7 +25,7 @@ namespace Sucrose.Shared.Store.Helper
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= SSSMI.RequiredDuration)
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMM.StoreDuration))
                     {
                         File.Delete(Store);
                     }
@@ -87,7 +88,7 @@ namespace Sucrose.Shared.Store.Helper
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= SSSMI.RequiredDuration)
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMM.StoreDuration))
                     {
                         File.Delete(Info);
                         File.Delete(Cover);

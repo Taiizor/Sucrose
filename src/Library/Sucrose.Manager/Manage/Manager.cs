@@ -14,6 +14,8 @@ namespace Sucrose.Manager.Manage
 
         public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
+        public static int BackgroundOpacity => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.BackgroundOpacity, 100), 0, 100);
+
         public static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, 100);
 
         public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 36), 1, 100);
@@ -28,6 +30,8 @@ namespace Sucrose.Manager.Manage
 
         public static int AdaptiveMargin => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 8), 5, 25);
 
+        public static int StoreDuration => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.StoreDuration, 12), 1, 24);
+
         public static List<string> WebArguments => SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
 
         public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMC.DiscordDelay, 60), 60, 3600);
@@ -38,7 +42,7 @@ namespace Sucrose.Manager.Manage
 
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
 
-        public static int BackgroundOpacity => SMMI.PortalSettingManager.GetSettingStable(SMC.BackgroundOpacity, 100);
+        public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
@@ -67,8 +71,6 @@ namespace Sucrose.Manager.Manage
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
 
         public static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
-
-        public static int Volume => SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100);
 
         public static bool Shuffle => SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true);
 

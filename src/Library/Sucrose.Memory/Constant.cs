@@ -78,6 +78,8 @@
 
         public const string VolumeDesktop = "VolumeDesktop";
 
+        public const string StoreDuration = "StoreDuration";
+
         public const string LibraryConfirm = "LibraryConfirm";
 
         public const string AdaptiveLayout = "AdaptiveLayout";

@@ -39,6 +39,31 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(StoreArea);
 
+            SPVCEC Duration = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Duration.Title.Text = "Mağaza Yenileme";
+            Duration.LeftIcon.Symbol = SymbolRegular.ClockAlarm24;
+            Duration.Description.Text = "Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.";
+
+            NumberBox StoreDuration = new()
+            {
+                ClearButtonEnabled = false,
+                Value = SMMM.StoreDuration,
+                MaxLength = 2,
+                Maximum = 24,
+                Minimum = 1
+            };
+
+            StoreDuration.ValueChanged += (s, e) => StoreDurationChanged(StoreDuration.Value);
+
+            Duration.HeaderFrame = StoreDuration;
+
+            Contents.Add(Duration);
+
             SPVCEC Start = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
@@ -397,6 +422,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewValue != SMMM.TitleLength)
             {
                 SMMI.PortalSettingManager.SetSetting(SMC.TitleLength, NewValue);
+            }
+        }
+
+        private void StoreDurationChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.StoreDuration)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.StoreDuration, NewValue);
             }
         }
 
