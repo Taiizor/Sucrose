@@ -39,7 +39,7 @@ namespace Sucrose.Backgroundog.Extension
         {
             return new JObject
             {
-                { "Name", SBMI.CpuData.Name },
+                { "Name", SBMI.MemoryData.Name },
                 { "MemoryUsed", SBMI.MemoryData.MemoryUsed },
                 { "MemoryLoad", SBMI.MemoryData.MemoryLoad },
                 { "MemoryAvailable", SBMI.MemoryData.MemoryAvailable },
@@ -85,8 +85,8 @@ namespace Sucrose.Backgroundog.Extension
                     {
                         { "Text", SBMI.NetworkData.UploadData.Text },
                         { "Value", SBMI.NetworkData.UploadData.Value },
-                        { "Type", SBMI.NetworkData.UploadData.Type.ToString() },
-                        { "Short", SBMI.NetworkData.UploadData.Short.ToString() },
+                        { "Type", $"{SBMI.NetworkData.UploadData.Type}" },
+                        { "Short", $"{SBMI.NetworkData.UploadData.Short}" }
                     }
                 },
                 {
@@ -94,8 +94,8 @@ namespace Sucrose.Backgroundog.Extension
                     {
                         { "Text", SBMI.NetworkData.DownloadData.Text },
                         { "Value", SBMI.NetworkData.DownloadData.Value },
-                        { "Type", SBMI.NetworkData.DownloadData.Type.ToString() },
-                        { "Short", SBMI.NetworkData.DownloadData.Short.ToString() },
+                        { "Type", $"{SBMI.NetworkData.DownloadData.Type}" },
+                        { "Short", $"{SBMI.NetworkData.DownloadData.Short}" }
                     }
                 },
             };

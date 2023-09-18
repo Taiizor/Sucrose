@@ -6,9 +6,34 @@ option csharp_namespace = "Sucrose.Grpc.Common";
 import "google/protobuf/empty.proto";
 
 service Backgroundog {
-    rpc StateBackgroundog (google.protobuf.Empty) returns (BackgroundogStateResponse);
+    rpc MotherboardBackgroundog (google.protobuf.Empty) returns (BackgroundogMotherboardResponse);
+    rpc NetworkBackgroundog (google.protobuf.Empty) returns (BackgroundogNetworkResponse);
+    rpc BatteryBackgroundog (google.protobuf.Empty) returns (BackgroundogBatteryResponse);
+    rpc MemoryBackgroundog (google.protobuf.Empty) returns (BackgroundogMemoryResponse);
+    rpc DateBackgroundog (google.protobuf.Empty) returns (BackgroundogDateResponse);
+    rpc CpuBackgroundog (google.protobuf.Empty) returns (BackgroundogCpuResponse);
 }
 
-message BackgroundogStateResponse {
-    bool state = 1;
+message BackgroundogMotherboardResponse {
+    string info = 1;
+}
+
+message BackgroundogNetworkResponse {
+    string info = 1;
+}
+
+message BackgroundogBatteryResponse {
+    string info = 1;
+}
+
+message BackgroundogMemoryResponse {
+    string info = 1;
+}
+
+message BackgroundogDateResponse {
+    string info = 1;
+}
+
+message BackgroundogCpuResponse {
+    string info = 1;
 }

@@ -13,8 +13,6 @@ namespace Sucrose.Backgroundog.Manage
     {
         public static bool Exit = true;
 
-        public static bool State = true;
-
         public static bool Condition = false;
 
         public static bool Processing = true;
@@ -51,15 +49,15 @@ namespace Sucrose.Backgroundog.Manage
 
         public static Computer Computer = new()
         {
-            IsCpuEnabled = false,
-            IsGpuEnabled = true,
+            IsCpuEnabled = true,
+            IsGpuEnabled = false,
             IsPsuEnabled = false,
-            IsMemoryEnabled = false,
+            IsMemoryEnabled = true,
+            IsBatteryEnabled = true,
             IsNetworkEnabled = false,
             IsStorageEnabled = false,
-            IsBatteryEnabled = false,
             IsControllerEnabled = false,
-            IsMotherboardEnabled = false,
+            IsMotherboardEnabled = true,
         };
 
         public static SBSDBS BatteryData = new()

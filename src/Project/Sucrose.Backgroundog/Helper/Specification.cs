@@ -18,7 +18,6 @@ namespace Sucrose.Backgroundog.Helper
             if (SBMI.Exit)
             {
                 Console.WriteLine("Specification");
-                //Libredeki cpu, ram, net bilgileri değişkene atılacak
 
                 SBMI.Computer.Accept(new UpdateVisitor());
 
@@ -42,25 +41,9 @@ namespace Sucrose.Backgroundog.Helper
                                     Thread = SBMI.CpuData.Thread,
                                     Fullname = SBMI.CpuData.Fullname
                                 };
+
+                                break;
                             }
-                        }
-
-                        if (SBMI.CpuManagement)
-                        {
-                            SBMI.CpuManagement = false;
-
-                            _ = Task.Run(() =>
-                            {
-                                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
-
-                                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
-                                {
-                                    SBMI.CpuData.Core = Convert.ToInt32(Object["NumberOfCores"]);
-                                    SBMI.CpuData.Fullname = Object["Name"].ToString().TrimStart().TrimEnd();
-                                    SBMI.CpuData.Thread = Convert.ToInt32(Object["NumberOfLogicalProcessors"]);
-                                    break;
-                                }
-                            });
                         }
                     }
                     else if (Hardware.HardwareType == HardwareType.Memory)
@@ -166,6 +149,24 @@ namespace Sucrose.Backgroundog.Helper
 
                 _ = Task.Run(() =>
                 {
+                    if (SBMI.CpuManagement)
+                    {
+                        SBMI.CpuManagement = false;
+
+                        ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
+
+                        foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                        {
+                            SBMI.CpuData.Core = Convert.ToInt32(Object["NumberOfCores"]);
+                            SBMI.CpuData.Fullname = Object["Name"].ToString().TrimStart().TrimEnd();
+                            SBMI.CpuData.Thread = Convert.ToInt32(Object["NumberOfLogicalProcessors"]);
+                            break;
+                        }
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
                     foreach (string Name in SSSHN.InstanceNetworkInterfaces())
                     {
                         if (SMMM.NetworkAdapter == Name)
@@ -192,12 +193,12 @@ namespace Sucrose.Backgroundog.Helper
                     }
                 });
 
-                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetCpuInfo(), Formatting.Indented));
-                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetDateInfo(), Formatting.Indented));
-                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetMemoryInfo(), Formatting.Indented));
-                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetBatteryInfo(), Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(Data.GetNetworkInfo(), Formatting.Indented));
-                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetMotherboardInfo(), Formatting.Indented));
+                Console.WriteLine("Cpu" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetCpuInfo(), Formatting.Indented));
+                Console.WriteLine("Date" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetDateInfo(), Formatting.Indented));
+                Console.WriteLine("Memory" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetMemoryInfo(), Formatting.Indented));
+                Console.WriteLine("Battery" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetBatteryInfo(), Formatting.Indented));
+                Console.WriteLine("Network" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetNetworkInfo(), Formatting.Indented));
+                Console.WriteLine("Motherboard" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetMotherboardInfo(), Formatting.Indented));
 
                 //foreach (IHardware Hardware in SBMI.Computer.Hardware)
                 //{
