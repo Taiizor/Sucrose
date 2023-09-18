@@ -13,7 +13,7 @@ namespace Sucrose.Backgroundog.Helper
         {
             SBMI.Computer.Open();
             TimerCallback Callback = InitializeTimer_Callback;
-            SBMI.InitializeTimer = new(Callback, null, 0, 1000);
+            SBMI.InitializeTimer = new(Callback, null, 0, 250);
         }
 
         public static void Stop()

@@ -1,8 +1,8 @@
 ﻿using System.Windows.Threading;
+using SGCBBC = Sucrose.Grpc.Common.Backgroundog.BackgroundogClient;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
-using SGCBBC = Sucrose.Grpc.Common.Backgroundog.BackgroundogClient;
 
 namespace Sucrose.Shared.Engine.Manage
 {

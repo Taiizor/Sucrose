@@ -2,10 +2,10 @@
 
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using Newtonsoft.Json;
 using Sucrose.Grpc.Common;
 using static Sucrose.Grpc.Common.Backgroundog;
 using SBED = Sucrose.Backgroundog.Extension.Data;
-using Newtonsoft.Json;
 
 namespace Sucrose.Shared.Server.Services
 {
