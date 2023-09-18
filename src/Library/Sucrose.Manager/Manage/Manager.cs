@@ -80,8 +80,6 @@ namespace Sucrose.Manager.Manage
 
         public static bool Shuffle => SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true);
 
-        public static int Port => SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0);
-
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
         public static bool Start => SMMI.EngineSettingManager.GetSetting(SMC.Start, false);

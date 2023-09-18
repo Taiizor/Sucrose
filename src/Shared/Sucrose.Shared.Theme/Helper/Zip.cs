@@ -172,10 +172,40 @@ namespace Sucrose.Shared.Theme.Helper
                         return SSDECT.StretchMode;
                     }
 
-                    // Compatible içindeki ComputerDate değeri boş değil ve {0} içermiyor mu?
-                    if (!string.IsNullOrEmpty(Compatible.ComputerDate) && !Compatible.ComputerDate.Contains("{0}"))
+                    // Compatible içindeki SystemCpu değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemCpu) && !Compatible.SystemCpu.Contains("{0}"))
                     {
-                        return SSDECT.ComputerDate;
+                        return SSDECT.SystemCpu;
+                    }
+
+                    // Compatible içindeki SystemDate değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemDate) && !Compatible.SystemDate.Contains("{0}"))
+                    {
+                        return SSDECT.SystemDate;
+                    }
+
+                    // Compatible içindeki SystemMemory değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemMemory) && !Compatible.SystemMemory.Contains("{0}"))
+                    {
+                        return SSDECT.SystemMemory;
+                    }
+
+                    // Compatible içindeki SystemBattery değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemBattery) && !Compatible.SystemBattery.Contains("{0}"))
+                    {
+                        return SSDECT.SystemBattery;
+                    }
+
+                    // Compatible içindeki SystemNetwork değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemNetwork) && !Compatible.SystemNetwork.Contains("{0}"))
+                    {
+                        return SSDECT.SystemNetwork;
+                    }
+
+                    // Compatible içindeki SystemMotherboard değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemMotherboard) && !Compatible.SystemMotherboard.Contains("{0}"))
+                    {
+                        return SSDECT.SystemMotherboard;
                     }
                 }
 

@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using SEDST = Skylark.Enum.DuplicateScreenType;
+﻿using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -53,21 +52,6 @@ namespace Sucrose.Shared.Engine.Helper
         public static SSDEDT GetDisplayType()
         {
             return SSEMM.DisplayType;
-        }
-
-        public static JObject GetComputerDate()
-        {
-            DateTime Date = DateTime.Now;
-
-            return new JObject
-            {
-                { "Year", Date.Year },
-                { "Month", Date.Month },
-                { "Day", Date.Day },
-                { "Hour", Date.Hour },
-                { "Minute", Date.Minute },
-                { "Second", Date.Second }
-            };
         }
 
         public static SEEST GetExpandScreenType()

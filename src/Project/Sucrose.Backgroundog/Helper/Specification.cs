@@ -1,9 +1,7 @@
 ﻿using LibreHardwareMonitor.Hardware;
-using Newtonsoft.Json;
 using Skylark.Enum;
 using Skylark.Helper;
 using Skylark.Standard.Extension.Storage;
-using Sucrose.Backgroundog.Extension;
 using System.Management;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -193,13 +191,6 @@ namespace Sucrose.Backgroundog.Helper
                     }
                 });
 
-                Console.WriteLine("Cpu" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetCpuInfo(), Formatting.Indented));
-                Console.WriteLine("Date" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetDateInfo(), Formatting.Indented));
-                Console.WriteLine("Memory" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetMemoryInfo(), Formatting.Indented));
-                Console.WriteLine("Battery" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetBatteryInfo(), Formatting.Indented));
-                Console.WriteLine("Network" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetNetworkInfo(), Formatting.Indented));
-                Console.WriteLine("Motherboard" + Environment.NewLine + JsonConvert.SerializeObject(Data.GetMotherboardInfo(), Formatting.Indented));
-
                 //foreach (IHardware Hardware in SBMI.Computer.Hardware)
                 //{
                 //    Console.WriteLine("Hardware: {0}", Hardware.Name);
@@ -220,7 +211,7 @@ namespace Sucrose.Backgroundog.Helper
                 //    }
                 //}
 
-                Console.WriteLine("----------------------------------------------");
+                //Console.WriteLine("----------------------------------------------");
             }
 
             await Task.CompletedTask;

@@ -428,7 +428,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 if (SSSHP.Work(SMR.Launcher))
                 {
-                    SGSGSS.ChannelCreate($"{SPMM.Host}", SMMM.Port);
+                    SGSGSS.ChannelCreate($"{SPMM.Host}", SPMM.Port);
                     SGCLLC Client = new(SGSGSS.ChannelInstance);
 
                     if (State)

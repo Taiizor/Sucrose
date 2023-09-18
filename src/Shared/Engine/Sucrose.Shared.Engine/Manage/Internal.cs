@@ -2,11 +2,14 @@
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SGCBBC = Sucrose.Grpc.Common.Backgroundog.BackgroundogClient;
 
 namespace Sucrose.Shared.Engine.Manage
 {
     internal static class Internal
     {
+        public static SGCBBC Client = null;
+
         public static bool Initialized = false;
 
         public static SSTHP Properties = new();

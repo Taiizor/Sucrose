@@ -1,4 +1,5 @@
-﻿using SEDST = Skylark.Enum.DuplicateScreenType;
+﻿using System.Net;
+using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -17,6 +18,8 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
 
+        public static IPAddress Host => SMMI.BackgroundogSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
+
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 
         public static SSDEDT DisplayType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);
@@ -24,6 +27,8 @@ namespace Sucrose.Shared.Engine.Manage
         public static SSDEST StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
 
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+
+        public static int Port => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.Port, 0);
 
         public static SSDEST DefaultStretchType => SSDEST.None;
 

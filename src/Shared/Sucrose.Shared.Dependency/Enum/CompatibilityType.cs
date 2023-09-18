@@ -46,6 +46,10 @@
         /// </summary>
         Thumbnail,
         /// <summary>
+        /// Geçersiz sistem işlemci değeri!
+        /// </summary>
+        SystemCpu,
+        /// <summary>
         /// Tema bu uygulamanın daha yüksek bir sürümü için oluşturulmuş!
         /// </summary>
         AppVersion,
@@ -53,6 +57,22 @@
         /// Geçersiz url adresi!
         /// </summary>
         InvalidUrl,
+        /// <summary>
+        /// Geçersiz sistem zamanı değeri!
+        /// </summary>
+        SystemDate,
+        /// <summary>
+        /// Geçersiz sistem belleği değeri!
+        /// </summary>
+        SystemMemory,
+        /// <summary>
+        /// Geçersiz sistem pil değeri!
+        /// </summary>
+        SystemBattery,
+        /// <summary>
+        /// Geçersiz sistem ağ değeri!
+        /// </summary>
+        SystemNetwork,
         /// <summary>
         /// Geçersiz tetikleme zamanı!
         /// </summary>
@@ -74,10 +94,6 @@
         /// </summary>
         InvalidFile,
         /// <summary>
-        /// Geçersiz bilgisayar zamanı değeri!
-        /// </summary>
-        ComputerDate,
-        /// <summary>
         /// Geçersiz dosya uzantısı!
         /// </summary>
         InvalidExtension,
@@ -85,6 +101,10 @@
         /// Geçersiz özellik dinleyici değeri!
         /// </summary>
         PropertyListener,
+        /// <summary>
+        /// Geçersiz sistem anakart değeri!
+        /// </summary>
+        SystemMotherboard,
         /// <summary>
         /// Öngörülemeyen sonuçlar.
         /// </summary>

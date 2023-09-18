@@ -25,6 +25,8 @@ namespace Sucrose.Portal.Manage
 
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
+        public static int Port => SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0);
+
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
 
         public static Stretch DefaultBackgroundStretch => Stretch.UniformToFill;

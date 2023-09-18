@@ -13,6 +13,12 @@ namespace Sucrose.Shared.Theme.Helper
         [JsonProperty("LoopMode", Required = Required.Default)]
         public string LoopMode { get; set; }
 
+        [JsonProperty("SystemCpu", Required = Required.Default)]
+        public string SystemCpu { get; set; }
+
+        [JsonProperty("SystemDate", Required = Required.Default)]
+        public string SystemDate { get; set; }
+
         [JsonProperty("VolumeLevel", Required = Required.Default)]
         public string VolumeLevel { get; set; }
 
@@ -22,8 +28,17 @@ namespace Sucrose.Shared.Theme.Helper
         [JsonProperty("StretchMode", Required = Required.Default)]
         public string StretchMode { get; set; }
 
-        [JsonProperty("ComputerDate", Required = Required.Default)]
-        public string ComputerDate { get; set; }
+        [JsonProperty("SystemMemory", Required = Required.Default)]
+        public string SystemMemory { get; set; }
+
+        [JsonProperty("SystemBattery", Required = Required.Default)]
+        public string SystemBattery { get; set; }
+
+        [JsonProperty("SystemNetwork", Required = Required.Default)]
+        public string SystemNetwork { get; set; }
+
+        [JsonProperty("SystemMotherboard", Required = Required.Default)]
+        public string SystemMotherboard { get; set; }
     }
 
     internal partial class Compatible
