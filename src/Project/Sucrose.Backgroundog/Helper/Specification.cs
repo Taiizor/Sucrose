@@ -1,8 +1,13 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using Newtonsoft.Json;
+using Skylark.Enum;
+using Skylark.Helper;
+using Skylark.Standard.Extension.Storage;
 using Sucrose.Backgroundog.Extension;
 using System.Management;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -159,11 +164,40 @@ namespace Sucrose.Backgroundog.Helper
                     }
                 }
 
-                Console.WriteLine(JsonConvert.SerializeObject(Data.GetCpuInfo(), Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(Data.GetDateInfo(), Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(Data.GetMemoryInfo(), Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(Data.GetBatteryInfo(), Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(Data.GetMotherboardInfo(), Formatting.Indented));
+                _ = Task.Run(() =>
+                {
+                    foreach (string Name in SSSHN.InstanceNetworkInterfaces())
+                    {
+                        if (SMMM.NetworkAdapter == Name)
+                        {
+                            if (SMMM.NetworkAdapter != SBMI.NetworkData.Name)
+                            {
+                                SBMI.NetworkData.Name = SMMM.NetworkAdapter;
+
+                                SBMI.UploadCounter = new("Network Interface", "Bytes Sent/sec", Name);
+                                SBMI.DownloadCounter = new("Network Interface", "Bytes Received/sec", Name);
+                            }
+
+                            SBMI.NetworkData.Upload = SBMI.UploadCounter.NextValue();
+                            SBMI.NetworkData.Download = SBMI.DownloadCounter.NextValue();
+
+                            SBMI.NetworkData.UploadData = StorageExtension.AutoConvert(SBMI.NetworkData.Upload, StorageType.Byte, ModeStorageType.Palila);
+                            SBMI.NetworkData.DownloadData = StorageExtension.AutoConvert(SBMI.NetworkData.Download, StorageType.Byte, ModeStorageType.Palila);
+
+                            SBMI.NetworkData.FormatUploadData = Numeric.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.UploadData.Text;
+                            SBMI.NetworkData.FormatDownloadData = Numeric.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.DownloadData.Text;
+
+                            break;
+                        }
+                    }
+                });
+
+                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetCpuInfo(), Formatting.Indented));
+                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetDateInfo(), Formatting.Indented));
+                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetMemoryInfo(), Formatting.Indented));
+                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetBatteryInfo(), Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(Data.GetNetworkInfo(), Formatting.Indented));
+                //Console.WriteLine(JsonConvert.SerializeObject(Data.GetMotherboardInfo(), Formatting.Indented));
 
                 //foreach (IHardware Hardware in SBMI.Computer.Hardware)
                 //{

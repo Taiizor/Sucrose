@@ -88,6 +88,8 @@
 
         public const string DiscordRefresh = "DiscordRefresh";
 
+        public const string NetworkAdapter = "NetworkAdapter";
+
         public const string StorePagination = "StorePagination";
 
         public const string LibraryLocation = "LibraryLocation";

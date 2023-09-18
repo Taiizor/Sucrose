@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Diagnostics;
+using System.Net;
 using System.Net.NetworkInformation;
 using SMR = Sucrose.Memory.Readonly;
 
@@ -23,6 +24,13 @@ namespace Sucrose.Shared.Space.Helper
         public static bool IsInternetAvailable()
         {
             return NetworkInterface.GetIsNetworkAvailable();
+        }
+
+        public static string[] InstanceNetworkInterfaces()
+        {
+            PerformanceCounterCategory Category = new("Network Interface");
+
+            return Category.GetInstanceNames();
         }
 
         public static NetworkInterface[] AllNetworkInterfaces()

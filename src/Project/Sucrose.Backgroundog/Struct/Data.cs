@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using SSSSS = Skylark.Struct.Storage.StorageStruct;
 
 namespace Sucrose.Backgroundog.Struct.Data
 {
@@ -140,6 +141,42 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public float? RemainingTimeEstimated;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public struct NetworkStruct
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// 
+        /// </summary>
+        public float Upload;
+        /// <summary>
+        /// 
+        /// </summary>
+        public float Download;
+        /// <summary>
+        /// 
+        /// </summary>
+        public SSSSS UploadData;
+        /// <summary>
+        /// 
+        /// </summary>
+        public SSSSS DownloadData;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FormatUploadData;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FormatDownloadData;
     }
 
     /// <summary>

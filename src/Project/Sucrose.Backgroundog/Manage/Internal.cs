@@ -1,8 +1,10 @@
 ﻿using LibreHardwareMonitor.Hardware;
+using System.Diagnostics;
 using SBSDBS = Sucrose.Backgroundog.Struct.Data.BatteryStruct;
 using SBSDCS = Sucrose.Backgroundog.Struct.Data.CpuStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
+using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
 using Timer = System.Threading.Timer;
 
 namespace Sucrose.Backgroundog.Manage
@@ -20,6 +22,10 @@ namespace Sucrose.Backgroundog.Manage
         public static bool CpuManagement = true;
 
         public static Timer InitializeTimer = null;
+
+        public static PerformanceCounter UploadCounter = null;
+
+        public static PerformanceCounter DownloadCounter = null;
 
         public static SBSDCS CpuData = new()
         {
@@ -45,15 +51,15 @@ namespace Sucrose.Backgroundog.Manage
 
         public static Computer Computer = new()
         {
-            IsCpuEnabled = true,
-            IsGpuEnabled = false,
+            IsCpuEnabled = false,
+            IsGpuEnabled = true,
             IsPsuEnabled = false,
-            IsMemoryEnabled = true,
+            IsMemoryEnabled = false,
             IsNetworkEnabled = false,
             IsStorageEnabled = false,
-            IsBatteryEnabled = true,
+            IsBatteryEnabled = false,
             IsControllerEnabled = false,
-            IsMotherboardEnabled = true,
+            IsMotherboardEnabled = false,
         };
 
         public static SBSDBS BatteryData = new()
@@ -73,6 +79,17 @@ namespace Sucrose.Backgroundog.Manage
             ChargeDischargeRate = 0f,
             ChargeDischargeCurrent = 0f,
             RemainingTimeEstimated = 0f
+        };
+
+        public static SBSDNS NetworkData = new()
+        {
+            Upload = 0f,
+            Download = 0f,
+            UploadData = new(),
+            Name = string.Empty,
+            DownloadData = new(),
+            FormatUploadData = string.Empty,
+            FormatDownloadData = string.Empty
         };
 
         public static SBSDMDS MotherboardData = new()

@@ -71,6 +71,36 @@ namespace Sucrose.Backgroundog.Extension
             };
         }
 
+        public static JObject GetNetworkInfo()
+        {
+            return new JObject
+            {
+                { "Name", SBMI.NetworkData.Name },
+                { "Upload", SBMI.NetworkData.Upload },
+                { "Download", SBMI.NetworkData.Download },
+                { "FormatUploadData", SBMI.NetworkData.FormatUploadData },
+                { "FormatDownloadData", SBMI.NetworkData.FormatDownloadData },
+                {
+                    "UploadData", new JObject
+                    {
+                        { "Text", SBMI.NetworkData.UploadData.Text },
+                        { "Value", SBMI.NetworkData.UploadData.Value },
+                        { "Type", SBMI.NetworkData.UploadData.Type.ToString() },
+                        { "Short", SBMI.NetworkData.UploadData.Short.ToString() },
+                    }
+                },
+                {
+                    "DownloadData", new JObject
+                    {
+                        { "Text", SBMI.NetworkData.DownloadData.Text },
+                        { "Value", SBMI.NetworkData.DownloadData.Value },
+                        { "Type", SBMI.NetworkData.DownloadData.Type.ToString() },
+                        { "Short", SBMI.NetworkData.DownloadData.Short.ToString() },
+                    }
+                },
+            };
+        }
+
         public static JObject GetMotherboardInfo()
         {
             return new JObject

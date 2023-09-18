@@ -38,6 +38,8 @@ namespace Sucrose.Manager.Manage
 
         public static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 25), 10, 100);
 
+        public static string NetworkAdapter => SMMI.BackgroundogSettingManager.GetSetting(SMC.NetworkAdapter, string.Empty);
+
         public static bool PerformanceCounter => SMMI.BackgroundogSettingManager.GetSetting(SMC.PerformanceCounter, true);
 
         public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
