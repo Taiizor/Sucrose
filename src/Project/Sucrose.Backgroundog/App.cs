@@ -1,4 +1,6 @@
 ﻿using System.Globalization;
+using SBHI = Sucrose.Backgroundog.Helper.Initialize;
+using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SGCB = Sucrose.Grpc.Common.Backgroundog;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
@@ -15,7 +17,7 @@ namespace Sucrose.Backgroundog
 {
     internal class App
     {
-        internal static void Main()
+        internal static async Task Main()
         {
             try
             {
@@ -32,7 +34,14 @@ namespace Sucrose.Backgroundog
 
                     SGSGSS.ServerInstance.Start();
 
-                    Console.ReadKey();
+                    SBHI.Start();
+
+                    do
+                    {
+                        await Task.Delay(1000);
+                    } while (SBMI.Exit);
+
+                    SBHI.Stop();
 
                     SGSGSS.ServerInstance.KillAsync().Wait();
                     //SGSGSS.ServerInstance.ShutdownAsync().Wait();

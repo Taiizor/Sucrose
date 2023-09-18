@@ -110,6 +110,8 @@
 
         public const string DescriptionLength = "DescriptionLength";
 
+        public const string PerformanceCounter = "PerformanceCounter";
+
         public const string DuplicateScreenType = "DuplicateScreenType";
     }
 }

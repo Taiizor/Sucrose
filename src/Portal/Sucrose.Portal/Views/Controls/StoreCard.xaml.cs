@@ -14,6 +14,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
@@ -25,7 +26,6 @@ using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -154,16 +154,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     if (SSSHL.Run())
                     {
-                        SSSHL.Kill();
-
-                        if (!string.IsNullOrEmpty(SMMM.App))
-                        {
-                            SSSHP.Kill(SMMM.App);
-                        }
-
-                        SWUD.RefreshDesktop();
-
-                        SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+                        SSLHK.Stop();
                     }
 
                     SSLHR.Start();

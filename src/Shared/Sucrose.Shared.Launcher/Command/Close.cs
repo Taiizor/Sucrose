@@ -1,11 +1,10 @@
 ﻿using SELLT = Skylark.Enum.LevelLogType;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SWUD = Skylark.Wing.Utility.Desktop;
 using WinForms = System.Windows.Forms.Application;
 
 namespace Sucrose.Shared.Launcher.Command
@@ -20,16 +19,7 @@ namespace Sucrose.Shared.Launcher.Command
             {
                 if (SSSHL.Run())
                 {
-                    SSSHL.Kill();
-
-                    if (!string.IsNullOrEmpty(SMMM.App))
-                    {
-                        SSSHP.Kill(SMMM.App);
-                    }
-
-                    SWUD.RefreshDesktop();
-
-                    SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+                    SSLHK.Stop();
                 }
 
                 if (SSSHP.Work(SMR.Portal))
@@ -45,11 +35,6 @@ namespace Sucrose.Shared.Launcher.Command
                 if (SSSHP.Work(SMR.Commandog))
                 {
                     SSSHP.Kill(SMR.Commandog);
-                }
-
-                if (SSSHP.Work(SMR.Backgroundog))
-                {
-                    SSSHP.Kill(SMR.Backgroundog);
                 }
             }
 

@@ -1,11 +1,9 @@
-﻿using SMC = Sucrose.Memory.Constant;
-using SMMI = Sucrose.Manager.Manage.Internal;
+﻿using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Shared.Launcher.Command
 {
@@ -15,16 +13,7 @@ namespace Sucrose.Shared.Launcher.Command
         {
             if (State && SSSHL.Run())
             {
-                SSSHL.Kill();
-
-                if (!string.IsNullOrEmpty(SMMM.App))
-                {
-                    SSSHP.Kill(SMMM.App);
-                }
-
-                SWUD.RefreshDesktop();
-
-                SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+                SSLHK.Stop();
             }
             else if (!SSSHL.Run() && SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
             {

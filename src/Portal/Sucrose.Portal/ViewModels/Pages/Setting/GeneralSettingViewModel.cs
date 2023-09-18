@@ -26,6 +26,7 @@ using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
@@ -33,7 +34,6 @@ using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -629,16 +629,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         {
                             if (SSSHL.Run())
                             {
-                                SSSHL.Kill();
-
-                                if (!string.IsNullOrEmpty(SMMM.App))
-                                {
-                                    SSSHP.Kill(SMMM.App);
-                                }
-
-                                SWUD.RefreshDesktop();
-
-                                SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+                                SSLHK.Stop();
 
                                 await Task.Delay(500);
 
@@ -663,16 +654,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         {
                             if (SSSHL.Run())
                             {
-                                SSSHL.Kill();
-
-                                if (!string.IsNullOrEmpty(SMMM.App))
-                                {
-                                    SSSHP.Kill(SMMM.App);
-                                }
-
-                                SWUD.RefreshDesktop();
-
-                                SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+                                SSLHK.Stop();
                             }
 
                             SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);

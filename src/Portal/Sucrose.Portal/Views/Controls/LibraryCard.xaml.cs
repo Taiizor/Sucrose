@@ -11,12 +11,12 @@ using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -46,16 +46,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (SSSHL.Run())
                 {
-                    SSSHL.Kill();
-
-                    if (!string.IsNullOrEmpty(SMMM.App))
-                    {
-                        SSSHP.Kill(SMMM.App);
-                    }
-
-                    SWUD.RefreshDesktop();
-
-                    SMMI.AuroraSettingManager.SetSetting(SMC.App, string.Empty);
+                    SSLHK.Stop();
                 }
 
                 SSLHR.Start();

@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Live</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Kill.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Run.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\Manager.cs" />
   </ItemGroup>

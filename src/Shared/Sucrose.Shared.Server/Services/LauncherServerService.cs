@@ -3,8 +3,8 @@
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Sucrose.Grpc.Common;
-using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using static Sucrose.Grpc.Common.Launcher;
+using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 
 namespace Sucrose.Shared.Server.Services
 {
