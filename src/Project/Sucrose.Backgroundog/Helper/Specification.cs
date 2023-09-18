@@ -29,7 +29,8 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     Min = Sensor.Min,
                                     Max = Sensor.Max,
-                                    Now = Sensor.Value
+                                    Now = Sensor.Value,
+                                    Name = Hardware.Name
                                 };
                             }
                         }
@@ -37,6 +38,8 @@ namespace Sucrose.Backgroundog.Helper
                     else if (Hardware.HardwareType == HardwareType.Memory)
                     {
                         Hardware.Update();
+
+                        SBMI.MemoryData.Name = Hardware.Name;
 
                         foreach (ISensor Sensor in Hardware.Sensors)
                         {
@@ -65,10 +68,68 @@ namespace Sucrose.Backgroundog.Helper
                             }
                         }
                     }
+                    else if (Hardware.HardwareType == HardwareType.Battery)
+                    {
+                        Hardware.Update();
+
+                        SBMI.BatteryData.Name = Hardware.Name;
+
+                        foreach (ISensor Sensor in Hardware.Sensors)
+                        {
+                            switch (Sensor.Name)
+                            {
+                                case "Charge Level" when Sensor.SensorType == SensorType.Level:
+                                    SBMI.BatteryData.ChargeLevel = Sensor.Value;
+                                    break;
+                                case "Discharge Level" when Sensor.SensorType == SensorType.Level:
+                                    SBMI.BatteryData.DischargeLevel = Sensor.Value;
+                                    break;
+                                case "Voltage" when Sensor.SensorType == SensorType.Voltage:
+                                    SBMI.BatteryData.Voltage = Sensor.Value;
+                                    break;
+                                case "Charge Current" when Sensor.SensorType == SensorType.Current:
+                                    SBMI.BatteryData.ChargeCurrent = Sensor.Value;
+                                    break;
+                                case "Discharge Current" when Sensor.SensorType == SensorType.Current:
+                                    SBMI.BatteryData.DischargeCurrent = Sensor.Value;
+                                    break;
+                                case "Charge / Discharge Current" when Sensor.SensorType == SensorType.Current:
+                                    SBMI.BatteryData.ChargeDischargeCurrent = Sensor.Value;
+                                    break;
+                                case "Designed Capacity" when Sensor.SensorType == SensorType.Energy:
+                                    SBMI.BatteryData.DesignedCapacity = Sensor.Value;
+                                    break;
+                                case "Full Charged Capacity" when Sensor.SensorType == SensorType.Energy:
+                                    SBMI.BatteryData.FullChargedCapacity = Sensor.Value;
+                                    break;
+                                case "Remaining Capacity" when Sensor.SensorType == SensorType.Energy:
+                                    SBMI.BatteryData.RemainingCapacity = Sensor.Value;
+                                    break;
+                                case "Charge Rate" when Sensor.SensorType == SensorType.Power:
+                                    SBMI.BatteryData.ChargeRate = Sensor.Value;
+                                    break;
+                                case "Discharge Rate" when Sensor.SensorType == SensorType.Power:
+                                    SBMI.BatteryData.DischargeRate = Sensor.Value;
+                                    break;
+                                case "Charge / Discharge Rate" when Sensor.SensorType == SensorType.Power:
+                                    SBMI.BatteryData.ChargeDischargeRate = Sensor.Value;
+                                    break;
+                                case "Degradation Level" when Sensor.SensorType == SensorType.Level:
+                                    SBMI.BatteryData.DegradationLevel = Sensor.Value;
+                                    break;
+                                case "Remaining Time (Estimated)" when Sensor.SensorType == SensorType.TimeSpan:
+                                    SBMI.BatteryData.RemainingTimeEstimated = Sensor.Value;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
                 }
 
                 Console.WriteLine(JsonConvert.SerializeObject(SBMI.CpuData, Formatting.Indented));
                 Console.WriteLine(JsonConvert.SerializeObject(SBMI.MemoryData, Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(SBMI.BatteryData, Formatting.Indented));
 
                 //foreach (IHardware Hardware in SBMI.Computer.Hardware)
                 //{

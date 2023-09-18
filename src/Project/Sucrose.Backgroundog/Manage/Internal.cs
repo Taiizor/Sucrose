@@ -1,4 +1,5 @@
 ﻿using LibreHardwareMonitor.Hardware;
+using SBSDBS = Sucrose.Backgroundog.Struct.Data.BatteryStruct;
 using SBSDCS = Sucrose.Backgroundog.Struct.Data.CpuStruct;
 using SBSDMS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using Timer = System.Threading.Timer;
@@ -21,13 +22,15 @@ namespace Sucrose.Backgroundog.Manage
         {
             Min = 0f,
             Now = 0f,
-            Max = 0f
+            Max = 0f,
+            Name = string.Empty
         };
 
         public static SBSDMS MemoryData = new()
         {
             MemoryUsed = 0f,
             MemoryLoad = 0f,
+            Name = string.Empty,
             MemoryAvailable = 0f,
             VirtualMemoryUsed = 0f,
             VirtualMemoryLoad = 0f,
@@ -45,6 +48,25 @@ namespace Sucrose.Backgroundog.Manage
             IsBatteryEnabled = true,
             IsControllerEnabled = false,
             IsMotherboardEnabled = false,
+        };
+
+        public static SBSDBS BatteryData = new()
+        {
+            Voltage = 0f,
+            ChargeRate = 0f,
+            ChargeLevel = 0f,
+            ChargeCurrent = 0f,
+            DischargeRate = 0f,
+            DischargeLevel = 0f,
+            Name = string.Empty,
+            DischargeCurrent = 0f,
+            DegradationLevel = 0f,
+            DesignedCapacity = 0f,
+            RemainingCapacity = 0f,
+            FullChargedCapacity = 0f,
+            ChargeDischargeRate = 0f,
+            ChargeDischargeCurrent = 0f,
+            RemainingTimeEstimated = 0f
         };
     }
 }
