@@ -25,6 +25,8 @@ namespace Sucrose.Backgroundog
 
                 if (SBMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Backgroundog) <= 1)
                 {
+                    SBMM.Mutex.ReleaseMutex();
+
                     Console.WriteLine("Start");
 
                     SGSGSS.ServerCreate(SGCB.BindService(new SSSSBSS()));

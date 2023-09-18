@@ -1,15 +1,11 @@
-﻿using SBMI = Sucrose.Backgroundog.Manage.Internal;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
-
-namespace Sucrose.Backgroundog.Helper
+﻿namespace Sucrose.Backgroundog.Helper
 {
     internal static class Performance
     {
-        public static void Start()
+        public static async Task Start()
         {
-            
+            Console.WriteLine("Run");
+            //Performans şartları kontrol edilecek...
         }
     }
 }
