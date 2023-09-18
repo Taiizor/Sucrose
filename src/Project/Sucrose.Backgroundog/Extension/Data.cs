@@ -12,7 +12,26 @@ namespace Sucrose.Backgroundog.Extension
                 { "Min", SBMI.CpuData.Min },
                 { "Now", SBMI.CpuData.Now },
                 { "Max", SBMI.CpuData.Max },
-                { "Name", SBMI.CpuData.Name }
+                { "Name", SBMI.CpuData.Name },
+                { "Core", SBMI.CpuData.Core },
+                { "Thread", SBMI.CpuData.Thread },
+                { "Fullname", SBMI.CpuData.Fullname }
+            };
+        }
+
+        public static JObject GetDateInfo()
+        {
+            DateTime Date = DateTime.Now;
+
+            return new JObject
+            {
+                { "Year", Date.Year },
+                { "Month", Date.Month },
+                { "Day", Date.Day },
+                { "Hour", Date.Hour },
+                { "Minute", Date.Minute },
+                { "Second", Date.Second },
+                { "Millisecond", Date.Millisecond }
             };
         }
 
@@ -49,6 +68,14 @@ namespace Sucrose.Backgroundog.Extension
                 { "ChargeDischargeRate", SBMI.BatteryData.ChargeDischargeRate },
                 { "ChargeDischargeCurrent", SBMI.BatteryData.ChargeDischargeCurrent },
                 { "RemainingTimeEstimated", SBMI.BatteryData.RemainingTimeEstimated }
+            };
+        }
+
+        public static JObject GetMotherboardInfo()
+        {
+            return new JObject
+            {
+                { "Name", SBMI.MotherboardData.Name }
             };
         }
     }

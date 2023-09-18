@@ -11,6 +11,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public int? Core;
+        /// <summary>
+        /// 
+        /// </summary>
         public float? Min;
         /// <summary>
         /// 
@@ -23,7 +27,15 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public string? Name;
+        public int? Thread;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Fullname;
     }
 
     /// <summary>
@@ -35,7 +47,7 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public string? Name;
+        public string Name;
         /// <summary>
         /// 
         /// </summary>
@@ -71,7 +83,7 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public string? Name;
+        public string Name;
         /// <summary>
         /// 
         /// </summary>
@@ -128,5 +140,17 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public float? RemainingTimeEstimated;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MotherboardStruct
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name;
     }
 }

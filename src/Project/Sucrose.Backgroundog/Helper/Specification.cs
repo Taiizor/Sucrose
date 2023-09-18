@@ -1,5 +1,7 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using Newtonsoft.Json;
+using Sucrose.Backgroundog.Extension;
+using System.Management;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 
 namespace Sucrose.Backgroundog.Helper
@@ -30,9 +32,30 @@ namespace Sucrose.Backgroundog.Helper
                                     Min = Sensor.Min,
                                     Max = Sensor.Max,
                                     Now = Sensor.Value,
-                                    Name = Hardware.Name
+                                    Name = Hardware.Name,
+                                    Core = SBMI.CpuData.Core,
+                                    Thread = SBMI.CpuData.Thread,
+                                    Fullname = SBMI.CpuData.Fullname
                                 };
                             }
+                        }
+
+                        if (SBMI.CpuManagement)
+                        {
+                            SBMI.CpuManagement = false;
+
+                            _ = Task.Run(() =>
+                            {
+                                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
+
+                                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                                {
+                                    SBMI.CpuData.Core = Convert.ToInt32(Object["NumberOfCores"]);
+                                    SBMI.CpuData.Fullname = Object["Name"].ToString().TrimStart().TrimEnd();
+                                    SBMI.CpuData.Thread = Convert.ToInt32(Object["NumberOfLogicalProcessors"]);
+                                    break;
+                                }
+                            });
                         }
                     }
                     else if (Hardware.HardwareType == HardwareType.Memory)
@@ -125,11 +148,22 @@ namespace Sucrose.Backgroundog.Helper
                             }
                         }
                     }
+                    else if (Hardware.HardwareType == HardwareType.Motherboard)
+                    {
+                        Hardware.Update();
+
+                        SBMI.MotherboardData = new()
+                        {
+                            Name = Hardware.Name
+                        };
+                    }
                 }
 
-                Console.WriteLine(JsonConvert.SerializeObject(SBMI.CpuData, Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(SBMI.MemoryData, Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(SBMI.BatteryData, Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(Data.GetCpuInfo(), Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(Data.GetDateInfo(), Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(Data.GetMemoryInfo(), Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(Data.GetBatteryInfo(), Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(Data.GetMotherboardInfo(), Formatting.Indented));
 
                 //foreach (IHardware Hardware in SBMI.Computer.Hardware)
                 //{
