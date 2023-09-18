@@ -23,6 +23,8 @@ namespace Sucrose.Shared.Live.Helper
 
                 if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                 {
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
+
                     switch (Info.Type)
                     {
                         case SSDEWT.Web:

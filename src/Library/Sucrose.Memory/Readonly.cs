@@ -78,6 +78,8 @@
 
         public static readonly string ValueSeparator = $"{ValueSeparatorChar}";
 
+        public static readonly string Backgroundog = "Sucrose.Backgroundog.exe";
+
         public static readonly string LogDescription = "SucroseWatchdog Thread";
 
         public static readonly string DiscordApplication = "1126294965950103612";
@@ -107,6 +109,8 @@
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
         public static readonly string KeyYouTube = $"https://www.youtube.com/watch?v=kRyML8axJxA";
+
+        public static readonly string BackgroundogMutex = "{Sucrose-Wallpaper-Engine-Backgroundog}";
 
         public static readonly string WikiWebsite = $"https://github.com/{Owner}/{Repository}/wiki";
 

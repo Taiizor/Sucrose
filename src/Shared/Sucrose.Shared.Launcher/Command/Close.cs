@@ -46,6 +46,11 @@ namespace Sucrose.Shared.Launcher.Command
                 {
                     SSSHP.Kill(SMR.Commandog);
                 }
+
+                if (SSSHP.Work(SMR.Backgroundog))
+                {
+                    SSSHP.Kill(SMR.Backgroundog);
+                }
             }
 
             WinForms.ExitThread();

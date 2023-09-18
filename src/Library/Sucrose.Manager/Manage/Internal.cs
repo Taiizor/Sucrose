@@ -47,6 +47,10 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMLM CefSharpLiveLogManager = new("CefSharpLive-{0}.log");
 
+        public static readonly SMLM BackgroundogLogManager = new("Backgroundog-{0}.log");
+
+        public static readonly SMSM BackgroundogSettingManager = new("Backgroundog.json");
+
         public static readonly SMLM MpvPlayerLiveLogManager = new("MpvPlayerLive-{0}.log");
     }
 }

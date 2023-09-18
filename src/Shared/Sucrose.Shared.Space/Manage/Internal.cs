@@ -40,6 +40,8 @@ namespace Sucrose.Shared.Space.Manage
 
         public static string Commandog => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Commandog), SMR.Commandog);
 
+        public static string Backgroundog => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Backgroundog), SMR.Backgroundog);
+
         public static Dictionary<SSDEET, string> EngineLive => new()
         {
             { SSDEET.AuroraLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.AuroraLive), SMR.AuroraLive) },

@@ -64,6 +64,8 @@ namespace Sucrose.Shared.Watchdog
             SMMI.WebViewLiveLogManager.Log(SELLT.Error, Text);
 #elif LIVE_CEFSHARP
             SMMI.CefSharpLiveLogManager.Log(SELLT.Error, Text);
+#elif BACKGROUNDOG
+            SMMI.BackgroundogLogManager.Log(SELLT.Error, Text);
 #elif LIVE_MPVPLAYER
             SMMI.MpvPlayerLiveLogManager.Log(SELLT.Error, Text);
 #endif

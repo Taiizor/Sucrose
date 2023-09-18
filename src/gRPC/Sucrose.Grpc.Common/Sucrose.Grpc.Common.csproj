@@ -12,10 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Proto\Launcher.proto" />
-    </ItemGroup>
-
-    <ItemGroup>
+        <Protobuf Include="Proto\Backgroundog.proto" />
         <Protobuf Include="Proto\Launcher.proto" />
         <Protobuf Include="Proto\Websiter.proto" />
     </ItemGroup>

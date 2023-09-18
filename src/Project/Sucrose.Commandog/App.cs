@@ -1,4 +1,7 @@
-﻿using SCHA = Sucrose.Commandog.Helper.Arguments;
+﻿using System.Globalization;
+using SCHA = Sucrose.Commandog.Helper.Arguments;
+using SHC = Skylark.Helper.Culture;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Commandog
@@ -9,6 +12,8 @@ namespace Sucrose.Commandog
         {
             try
             {
+                SHC.All = new CultureInfo(SMMM.Culture, true);
+
                 SCHA.Parse(Args);
             }
             catch (Exception Exception)

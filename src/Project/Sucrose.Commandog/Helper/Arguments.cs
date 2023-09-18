@@ -144,6 +144,9 @@ namespace Sucrose.Commandog.Helper
                                             SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         }
                                         break;
+                                    case SSDECT.Backgroundog:
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), string.Empty);
+                                        break;
                                     default:
                                         break;
                                 }

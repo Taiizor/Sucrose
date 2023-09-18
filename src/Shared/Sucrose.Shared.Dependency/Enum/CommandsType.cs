@@ -18,7 +18,8 @@
         StartupM,
         StartupP,
         Scheduler,
-        Interface
+        Interface,
+        Backgroundog
     }
 
     internal enum ArgumentCommandsType

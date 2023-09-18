@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Server</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BackgroundogServerService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LauncherServerService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\WebsiterServerService.cs" />
   </ItemGroup>

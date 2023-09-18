@@ -1,0 +1,14 @@
+﻿syntax = "proto3";
+
+package Sucrose.Grpc.Common.Proto.Backgroundog;
+option csharp_namespace = "Sucrose.Grpc.Common";
+
+import "google/protobuf/empty.proto";
+
+service Backgroundog {
+    rpc StateBackgroundog (google.protobuf.Empty) returns (BackgroundogStateResponse);
+}
+
+message BackgroundogStateResponse {
+    bool state = 1;
+}
