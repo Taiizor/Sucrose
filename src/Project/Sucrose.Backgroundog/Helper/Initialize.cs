@@ -11,30 +11,66 @@ namespace Sucrose.Backgroundog.Helper
     {
         public static void Start()
         {
-            SBMI.InitializeTimer.Tick += new EventHandler(InitializeTimer_Tick);
-            SBMI.InitializeTimer.Interval = new TimeSpan(0, 0, 1);
-            SBMI.InitializeTimer.Start();
+            TimerCallback Callback = InitializeTimer_Callback;
+            SBMI.InitializeTimer = new(Callback, null, 0, 1000);
         }
 
         public static void Stop()
         {
-            SBMI.InitializeTimer.Stop();
+            SBMI.InitializeTimer.Dispose();
         }
 
-        private static void InitializeTimer_Tick(object sender, EventArgs e)
+        private static async void InitializeTimer_Callback(object State)
         {
-            //Libredeki cpu, ram, net bilgileri değişkene atılacak
-            SBHC.Start();
+            if (SBMI.Processing)
+            {
+                SBMI.Processing = false;
+                Console.WriteLine("Callback");
 
-            if (SSSHL.Run())
-            {
-                //Performans şartları kontrol edilecek...
-                SBHP.Start();
-            }
-            else if (SBMI.Condition)
-            {
-                //Performans şartları sağlanıp live motoru kapatıldıysa veya durdurulduysa
-                //Live motoruna gRPC (Live.json) ile durdur mesajı gönderilir  
+                //Libredeki cpu, ram, net bilgileri değişkene atılacak
+                SBHC.Start();
+
+                if (SSSHL.Run())
+                {
+                    Console.WriteLine("Run");
+                    //Performans şartları kontrol edilecek...
+                    SBHP.Start();
+                }
+                else if (SBMI.Condition)
+                {
+                    Console.WriteLine("Condition");
+                    //Performans şartları sağlanıp live motoru kapatıldıysa veya durdurulduysa
+                    //Live motoruna gRPC (Live.json) ile durdur mesajı gönderilir  
+                }
+                else
+                {
+                    Console.WriteLine("Deneme");
+                    int MaxAttempts = 5;
+                    bool Success = false;
+                    int IntervalInSeconds = 1;
+
+                    for (int Attempt = 0; Attempt <= MaxAttempts; Attempt++)
+                    {
+                        Success = SSSHL.Run();
+
+                        if (Success)
+                        {
+                            Console.WriteLine("İşlem başarılı!");
+                            break;
+                        }
+
+                        await Task.Delay(IntervalInSeconds * 1000);
+                    }
+
+                    if (!Success)
+                    {
+                        Console.WriteLine("İşlem başarısız oldu ve 5 deneme sonunda hala true dönmedi.");
+                        SBMI.Exit = false;
+                        Stop();
+                    }
+                }
+
+                SBMI.Processing = true;
             }
         }
     }

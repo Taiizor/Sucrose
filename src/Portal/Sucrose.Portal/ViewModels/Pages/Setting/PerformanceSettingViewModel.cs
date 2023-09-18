@@ -50,7 +50,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Counter.Title.Text = "Performans Sayaçları";
             Counter.LeftIcon.Symbol = SymbolRegular.ShiftsActivity24;
-            Counter.Description.Text = "Tüm performans sayaçlarının çalışıp çalışmayacağı.";
+            Counter.Description.Text = "Tüm performans sayaçlarının arkaplanda çalışıp çalışmayacağı.";
 
             ToggleSwitch CounterState = new()
             {

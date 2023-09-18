@@ -1,4 +1,4 @@
-﻿using System.Windows.Threading;
+﻿using Timer = System.Threading.Timer;
 
 namespace Sucrose.Backgroundog.Manage
 {
@@ -10,6 +10,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool Condition = false;
 
-        public static DispatcherTimer InitializeTimer = new();
+        public static bool Processing = true;
+
+        public static Timer InitializeTimer = null;
     }
 }
