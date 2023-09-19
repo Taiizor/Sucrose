@@ -10,7 +10,6 @@ namespace Sucrose.Shared.Core.Helper
 {
     internal static class Memory
     {
-
         public static string Get()
         {
             Process CurrentProcess = Process.GetCurrentProcess();
