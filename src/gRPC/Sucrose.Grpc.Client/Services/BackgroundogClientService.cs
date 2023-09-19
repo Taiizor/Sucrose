@@ -34,6 +34,13 @@ namespace Sucrose.Grpc.Client.Services
             return Response;
         }
 
+        public static BackgroundogAudioResponse GetAudio(BackgroundogClient Client)
+        {
+            BackgroundogAudioResponse Response = Client.AudioBackgroundog(new Empty());
+
+            return Response;
+        }
+
         public static BackgroundogDateResponse GetDate(BackgroundogClient Client)
         {
             BackgroundogDateResponse Response = Client.DateBackgroundog(new Empty());

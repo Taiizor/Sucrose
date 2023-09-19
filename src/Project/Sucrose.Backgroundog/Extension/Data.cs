@@ -18,6 +18,7 @@ namespace Sucrose.Backgroundog.Extension
                 { "Fullname", SBMI.CpuData.Fullname }
             };
         }
+
         public static JObject GetBiosInfo()
         {
             return new JObject
@@ -35,17 +36,46 @@ namespace Sucrose.Backgroundog.Extension
 
         public static JObject GetDateInfo()
         {
-            DateTime Date = DateTime.Now;
-
             return new JObject
             {
-                { "Day", Date.Day },
-                { "Hour", Date.Hour },
-                { "Year", Date.Year },
-                { "Month", Date.Month },
-                { "Minute", Date.Minute },
-                { "Second", Date.Second },
-                { "Millisecond", Date.Millisecond }
+                { "Day", SBMI.DateData.Day },
+                { "Hour", SBMI.DateData.Hour },
+                { "Year", SBMI.DateData.Year },
+                { "Month", SBMI.DateData.Month },
+                { "Minute", SBMI.DateData.Minute },
+                { "Second", SBMI.DateData.Second },
+                { "Millisecond", SBMI.DateData.Millisecond }
+            };
+        }
+
+        public static JObject GetAudioInfo()
+        {
+            return new JObject
+            {
+                { "PID", SBMI.AudioData.PID },
+                { "Title", SBMI.AudioData.Title },
+                { "Artist", SBMI.AudioData.Artist },
+                { "Hwnd", $"{SBMI.AudioData.Hwnd}" },
+                { "Subtitle", SBMI.AudioData.Subtitle },
+                { "AlbumTitle", SBMI.AudioData.AlbumTitle },
+                { "SourceAppId", SBMI.AudioData.SourceAppId },
+                { "MediaType", $"{SBMI.AudioData.MediaType}" },
+                { "PlaybackRate", SBMI.AudioData.PlaybackRate },
+                { "PropsValid", $"{SBMI.AudioData.PropsValid}" },
+                { "RepeatMode", $"{SBMI.AudioData.RepeatMode}" },
+                { "SourceDeviceId", SBMI.AudioData.SourceDeviceId },
+                { "RenderDeviceId", SBMI.AudioData.RenderDeviceId },
+                { "ShuffleEnabled", SBMI.AudioData.ShuffleEnabled },
+                { "PlaybackCaps", $"{SBMI.AudioData.PlaybackCaps}" },
+                { "PlaybackMode", $"{SBMI.AudioData.PlaybackMode}" },
+                { "ThumbnailString", SBMI.AudioData.ThumbnailString },
+                { "PlaybackState", $"{SBMI.AudioData.PlaybackState}" },
+                { "ThumbnailAddress", SBMI.AudioData.ThumbnailAddress },
+                { "EndTime", SBMI.AudioData.EndTime.TotalMilliseconds },
+                { "Position", SBMI.AudioData.Position.TotalMilliseconds },
+                { "StartTime", SBMI.AudioData.StartTime.TotalMilliseconds },
+                { "MinSeekTime", SBMI.AudioData.MinSeekTime.TotalMilliseconds },
+                { "MaxSeekTime", SBMI.AudioData.MaxSeekTime.TotalMilliseconds }
             };
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text;
 using SCHA = Sucrose.Commandog.Helper.Arguments;
 using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -12,6 +13,7 @@ namespace Sucrose.Commandog
         {
             try
             {
+                Console.OutputEncoding = Encoding.UTF8;
                 SHC.All = new CultureInfo(SMMM.Culture, true);
 
                 SCHA.Parse(Args);

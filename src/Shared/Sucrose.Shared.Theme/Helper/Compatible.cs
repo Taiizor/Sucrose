@@ -22,6 +22,9 @@ namespace Sucrose.Shared.Theme.Helper
         [JsonProperty("SystemDate", Required = Required.Default)]
         public string SystemDate { get; set; }
 
+        [JsonProperty("SystemAudio", Required = Required.Default)]
+        public string SystemAudio { get; set; }
+
         [JsonProperty("VolumeLevel", Required = Required.Default)]
         public string VolumeLevel { get; set; }
 

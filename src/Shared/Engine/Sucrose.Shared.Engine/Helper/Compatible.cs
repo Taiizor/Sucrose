@@ -32,6 +32,11 @@ namespace Sucrose.Shared.Engine.Helper
                     Function(string.Format(SSEMI.Compatible.SystemDate, SSEHS.GetSystemDate()));
                 }
 
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio))
+                {
+                    Function(string.Format(SSEMI.Compatible.SystemAudio, SSEHS.GetSystemAudio()));
+                }
+
                 if (!string.IsNullOrEmpty(SSEMI.Compatible.VolumeLevel))
                 {
                     Function(string.Format(SSEMI.Compatible.VolumeLevel, SSEHD.GetVolume()));

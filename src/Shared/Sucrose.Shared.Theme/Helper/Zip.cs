@@ -184,6 +184,12 @@ namespace Sucrose.Shared.Theme.Helper
                         return SSDECT.SystemBios;
                     }
 
+                    // Compatible içindeki SystemAudio değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemAudio) && !Compatible.SystemAudio.Contains("{0}"))
+                    {
+                        return SSDECT.SystemAudio;
+                    }
+
                     // Compatible içindeki SystemDate değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemDate) && !Compatible.SystemDate.Contains("{0}"))
                     {

@@ -76,6 +76,28 @@ namespace Sucrose.Shared.Engine.Helper
             return string.Empty;
         }
 
+        public static string GetSystemAudio()
+        {
+            if (SSSHP.Work(SMR.Backgroundog))
+            {
+                try
+                {
+                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
+                    SSEMI.Client = new(SGSGSS.ChannelInstance);
+
+                    BackgroundogAudioResponse Response = SGCSBCS.GetAudio(SSEMI.Client);
+
+                    return Response.Info;
+                }
+                catch
+                {
+                    //
+                }
+            }
+
+            return string.Empty;
+        }
+
         public static string GetSystemMemory()
         {
             if (SSSHP.Work(SMR.Backgroundog))

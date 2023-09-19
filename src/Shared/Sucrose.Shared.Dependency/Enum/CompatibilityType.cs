@@ -66,6 +66,10 @@
         /// </summary>
         SystemDate,
         /// <summary>
+        /// Geçersiz sistem sesi değeri!
+        /// </summary>
+        SystemAudio,
+        /// <summary>
         /// Geçersiz sistem belleği değeri!
         /// </summary>
         SystemMemory,

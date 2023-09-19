@@ -1,9 +1,12 @@
 ﻿using LibreHardwareMonitor.Hardware;
+using NPSMLib;
 using System.Diagnostics;
 using SBHI = Sucrose.Backgroundog.Helper.Initialize;
+using SBSDAS = Sucrose.Backgroundog.Struct.Data.AudioStruct;
 using SBSDBSS = Sucrose.Backgroundog.Struct.Data.BiosStruct;
 using SBSDBYS = Sucrose.Backgroundog.Struct.Data.BatteryStruct;
 using SBSDCS = Sucrose.Backgroundog.Struct.Data.CpuStruct;
+using SBSDDS = Sucrose.Backgroundog.Struct.Data.DateStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
@@ -25,11 +28,21 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool BiosManagement = true;
 
+        public static bool AudioManagement = true;
+
         public static Timer InitializeTimer = null;
+
+        public static readonly object LockObject = new();
+
+        public static NowPlayingSession PlayingSession = null;
 
         public static PerformanceCounter UploadCounter = null;
 
+        public static MediaPlaybackDataSource DataSource = null;
+
         public static PerformanceCounter DownloadCounter = null;
+
+        public static NowPlayingSessionManager SessionManager = new();
 
         public static SBSDCS CpuData = new()
         {
@@ -52,6 +65,45 @@ namespace Sucrose.Backgroundog.Manage
             Manufacturer = string.Empty,
             SerialNumber = string.Empty,
             CurrentLanguage = string.Empty
+        };
+
+        public static SBSDDS DateData = new()
+        {
+            Day = 0,
+            Hour = 0,
+            Year = 0,
+            Month = 0,
+            Minute = 0,
+            Second = 0,
+            Millisecond = 0
+        };
+
+        public static SBSDAS AudioData = new()
+        {
+            PID = 0,
+            PlaybackRate = 0d,
+            Hwnd = IntPtr.Zero,
+            Title = string.Empty,
+            Artist = string.Empty,
+            ShuffleEnabled = false,
+            Subtitle = string.Empty,
+            EndTime = TimeSpan.Zero,
+            Position = TimeSpan.Zero,
+            AlbumTitle = string.Empty,
+            StartTime = TimeSpan.Zero,
+            SourceAppId = string.Empty,
+            MinSeekTime = TimeSpan.Zero,
+            MaxSeekTime = TimeSpan.Zero,
+            SourceDeviceId = string.Empty,
+            RenderDeviceId = string.Empty,
+            ThumbnailString = string.Empty,
+            ThumbnailAddress = string.Empty,
+            MediaType = MediaPlaybackMode.Unknown,
+            PlaybackMode = MediaPlaybackMode.Unknown,
+            PlaybackState = MediaPlaybackState.Unknown,
+            PropsValid = MediaPlaybackProps.Capabilities,
+            RepeatMode = MediaPlaybackRepeatMode.Unknown,
+            PlaybackCaps = MediaPlaybackCapabilities.None
         };
 
         public static SBSDMYS MemoryData = new()

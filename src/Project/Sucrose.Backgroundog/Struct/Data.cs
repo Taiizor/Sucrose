@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using NPSMLib;
+using System.Runtime.InteropServices;
 using SSSSS = Skylark.Struct.Storage.StorageStruct;
 
 namespace Sucrose.Backgroundog.Struct.Data
@@ -77,6 +78,146 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public string CurrentLanguage;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public struct DateStruct
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Day;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Hour;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Year;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Month;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Minute;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Second;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Millisecond;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public struct AudioStruct
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public uint? PID;
+        /// <summary>
+        /// 
+        /// </summary>
+        public IntPtr? Hwnd;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Title;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Artist;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Subtitle;
+        /// <summary>
+        /// 
+        /// </summary>
+        public TimeSpan EndTime;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AlbumTitle;
+        /// <summary>
+        /// 
+        /// </summary>
+        public TimeSpan Position;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SourceAppId;
+        /// <summary>
+        /// 
+        /// </summary>
+        public TimeSpan StartTime;
+        /// <summary>
+        /// 
+        /// </summary>
+        public double PlaybackRate;
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool ShuffleEnabled;
+        /// <summary>
+        /// 
+        /// </summary>
+        public TimeSpan MinSeekTime;
+        /// <summary>
+        /// 
+        /// </summary>
+        public TimeSpan MaxSeekTime;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SourceDeviceId;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string RenderDeviceId;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ThumbnailString;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ThumbnailAddress;
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaPlaybackMode MediaType;
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaPlaybackProps PropsValid;
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaPlaybackMode PlaybackMode;
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaPlaybackState PlaybackState;
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaPlaybackRepeatMode RepeatMode;
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaPlaybackCapabilities PlaybackCaps;
     }
 
     /// <summary>
