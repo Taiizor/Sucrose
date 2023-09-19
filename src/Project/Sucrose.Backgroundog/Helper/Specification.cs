@@ -15,8 +15,6 @@ namespace Sucrose.Backgroundog.Helper
         {
             if (SBMI.Exit)
             {
-                Console.WriteLine("Specification");
-
                 SBMI.Computer.Accept(new UpdateVisitor());
 
                 foreach (IHardware Hardware in SBMI.Computer.Hardware)

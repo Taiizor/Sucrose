@@ -7,30 +7,23 @@ namespace Sucrose.Backgroundog.Helper
     {
         public static async Task Start()
         {
-            Console.WriteLine("Deneme");
             int MaxAttempts = 5;
-            bool Success = false;
-            int IntervalInSeconds = 1;
+            int IntervalSeconds = 1;
 
-            for (int Attempt = 0; Attempt <= MaxAttempts; Attempt++)
+            for (int Attempt = 0; Attempt < MaxAttempts; Attempt++)
             {
-                Success = SSSHL.Run();
-
-                if (Success)
+                if (SSSHL.Run())
                 {
-                    Console.WriteLine("İşlem başarılı!");
-                    break;
+                    return;
                 }
 
-                await Task.Delay(IntervalInSeconds * 1000);
+                await Task.Delay(TimeSpan.FromSeconds(IntervalSeconds));
             }
 
-            if (!Success)
-            {
-                SBMI.Exit = false;
-                SBMI.Initialize.Stop();
-                Console.WriteLine("İşlem başarısız oldu ve 5 deneme sonunda hala true dönmedi.");
-            }
+            SBMI.Exit = false;
+            SBMI.Initialize.Stop();
+
+            await Task.CompletedTask;
         }
     }
 }

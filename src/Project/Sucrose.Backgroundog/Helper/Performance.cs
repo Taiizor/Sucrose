@@ -6,6 +6,8 @@
         {
             Console.WriteLine("Run");
             //Performans şartları kontrol edilecek...
+
+            await Task.CompletedTask;
         }
     }
 }
