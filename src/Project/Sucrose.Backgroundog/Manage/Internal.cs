@@ -1,7 +1,8 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using System.Diagnostics;
 using SBHI = Sucrose.Backgroundog.Helper.Initialize;
-using SBSDBS = Sucrose.Backgroundog.Struct.Data.BatteryStruct;
+using SBSDBSS = Sucrose.Backgroundog.Struct.Data.BiosStruct;
+using SBSDBYS = Sucrose.Backgroundog.Struct.Data.BatteryStruct;
 using SBSDCS = Sucrose.Backgroundog.Struct.Data.CpuStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
@@ -22,6 +23,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool CpuManagement = true;
 
+        public static bool BiosManagement = true;
+
         public static Timer InitializeTimer = null;
 
         public static PerformanceCounter UploadCounter = null;
@@ -37,6 +40,18 @@ namespace Sucrose.Backgroundog.Manage
             Thread = 0,
             Name = string.Empty,
             Fullname = string.Empty
+        };
+
+        public static SBSDBSS BiosData = new()
+        {
+            Name = string.Empty,
+            Caption = string.Empty,
+            Version = string.Empty,
+            Description = string.Empty,
+            ReleaseDate = string.Empty,
+            Manufacturer = string.Empty,
+            SerialNumber = string.Empty,
+            CurrentLanguage = string.Empty
         };
 
         public static SBSDMYS MemoryData = new()
@@ -63,7 +78,18 @@ namespace Sucrose.Backgroundog.Manage
             IsMotherboardEnabled = true,
         };
 
-        public static SBSDBS BatteryData = new()
+        public static SBSDNS NetworkData = new()
+        {
+            Upload = 0f,
+            Download = 0f,
+            UploadData = new(),
+            Name = string.Empty,
+            DownloadData = new(),
+            FormatUploadData = string.Empty,
+            FormatDownloadData = string.Empty
+        };
+
+        public static SBSDBYS BatteryData = new()
         {
             Voltage = 0f,
             ChargeRate = 0f,
@@ -80,17 +106,6 @@ namespace Sucrose.Backgroundog.Manage
             ChargeDischargeRate = 0f,
             ChargeDischargeCurrent = 0f,
             RemainingTimeEstimated = 0f
-        };
-
-        public static SBSDNS NetworkData = new()
-        {
-            Upload = 0f,
-            Download = 0f,
-            UploadData = new(),
-            Name = string.Empty,
-            DownloadData = new(),
-            FormatUploadData = string.Empty,
-            FormatDownloadData = string.Empty
         };
 
         public static SBSDMDS MotherboardData = new()

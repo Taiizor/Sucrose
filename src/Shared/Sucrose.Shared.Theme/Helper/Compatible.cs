@@ -16,6 +16,9 @@ namespace Sucrose.Shared.Theme.Helper
         [JsonProperty("SystemCpu", Required = Required.Default)]
         public string SystemCpu { get; set; }
 
+        [JsonProperty("SystemBios", Required = Required.Default)]
+        public string SystemBios { get; set; }
+
         [JsonProperty("SystemDate", Required = Required.Default)]
         public string SystemDate { get; set; }
 

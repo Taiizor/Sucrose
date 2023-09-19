@@ -11,6 +11,7 @@ service Backgroundog {
     rpc BatteryBackgroundog (google.protobuf.Empty) returns (BackgroundogBatteryResponse);
     rpc MemoryBackgroundog (google.protobuf.Empty) returns (BackgroundogMemoryResponse);
     rpc DateBackgroundog (google.protobuf.Empty) returns (BackgroundogDateResponse);
+    rpc BiosBackgroundog (google.protobuf.Empty) returns (BackgroundogBiosResponse);
     rpc CpuBackgroundog (google.protobuf.Empty) returns (BackgroundogCpuResponse);
 }
 
@@ -31,6 +32,10 @@ message BackgroundogMemoryResponse {
 }
 
 message BackgroundogDateResponse {
+    string info = 1;
+}
+
+message BackgroundogBiosResponse {
     string info = 1;
 }
 

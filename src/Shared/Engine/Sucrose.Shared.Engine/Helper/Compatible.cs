@@ -22,6 +22,11 @@ namespace Sucrose.Shared.Engine.Helper
                     Function(string.Format(SSEMI.Compatible.SystemCpu, SSEHS.GetSystemCpu()));
                 }
 
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemBios))
+                {
+                    Function(string.Format(SSEMI.Compatible.SystemBios, SSEHS.GetSystemBios()));
+                }
+
                 if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemDate))
                 {
                     Function(string.Format(SSEMI.Compatible.SystemDate, SSEHS.GetSystemDate()));

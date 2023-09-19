@@ -163,6 +163,29 @@ namespace Sucrose.Backgroundog.Helper
 
                 _ = Task.Run(() =>
                 {
+                    if (SBMI.BiosManagement)
+                    {
+                        SBMI.BiosManagement = false;
+
+                        ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_BIOS");
+
+                        foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                        {
+                            SBMI.BiosData.Name = Object["Name"].ToString();
+                            SBMI.BiosData.Caption = Object["Caption"].ToString();
+                            SBMI.BiosData.Version = Object["Version"].ToString();
+                            SBMI.BiosData.Description = Object["Description"].ToString();
+                            SBMI.BiosData.ReleaseDate = Object["ReleaseDate"].ToString();
+                            SBMI.BiosData.Manufacturer = Object["Manufacturer"].ToString();
+                            SBMI.BiosData.SerialNumber = Object["SerialNumber"].ToString();
+                            SBMI.BiosData.CurrentLanguage = Object["CurrentLanguage"].ToString();
+                            break;
+                        }
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
                     foreach (string Name in SSSHN.InstanceNetworkInterfaces())
                     {
                         if (SMMM.NetworkAdapter == Name)

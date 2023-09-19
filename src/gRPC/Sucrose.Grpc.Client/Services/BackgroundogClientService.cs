@@ -41,6 +41,13 @@ namespace Sucrose.Grpc.Client.Services
             return Response;
         }
 
+        public static BackgroundogBiosResponse GetBios(BackgroundogClient Client)
+        {
+            BackgroundogBiosResponse Response = Client.BiosBackgroundog(new Empty());
+
+            return Response;
+        }
+
         public static BackgroundogCpuResponse GetCpu(BackgroundogClient Client)
         {
             BackgroundogCpuResponse Response = Client.CpuBackgroundog(new Empty());

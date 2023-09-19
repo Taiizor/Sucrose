@@ -58,6 +58,10 @@
         /// </summary>
         InvalidUrl,
         /// <summary>
+        /// Geçersiz sistem bios değeri!
+        /// </summary>
+        SystemBios,
+        /// <summary>
         /// Geçersiz sistem zamanı değeri!
         /// </summary>
         SystemDate,

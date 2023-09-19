@@ -36,6 +36,11 @@ namespace Sucrose.Shared.Server.Services
             return Task.FromResult(new BackgroundogDateResponse { Info = JsonConvert.SerializeObject(SBED.GetDateInfo(), Formatting.Indented) });
         }
 
+        public override Task<BackgroundogBiosResponse> BiosBackgroundog(Empty _, ServerCallContext Context)
+        {
+            return Task.FromResult(new BackgroundogBiosResponse { Info = JsonConvert.SerializeObject(SBED.GetBiosInfo(), Formatting.Indented) });
+        }
+
         public override Task<BackgroundogCpuResponse> CpuBackgroundog(Empty _, ServerCallContext Context)
         {
             return Task.FromResult(new BackgroundogCpuResponse { Info = JsonConvert.SerializeObject(SBED.GetCpuInfo(), Formatting.Indented) });

@@ -18,6 +18,20 @@ namespace Sucrose.Backgroundog.Extension
                 { "Fullname", SBMI.CpuData.Fullname }
             };
         }
+        public static JObject GetBiosInfo()
+        {
+            return new JObject
+            {
+                { "Name", SBMI.BiosData.Name },
+                { "Caption", SBMI.BiosData.Caption },
+                { "Version", SBMI.BiosData.Version },
+                { "Description", SBMI.BiosData.Description },
+                { "ReleaseDate", SBMI.BiosData.ReleaseDate },
+                { "Manufacturer", SBMI.BiosData.Manufacturer },
+                { "SerialNumber", SBMI.BiosData.SerialNumber },
+                { "CurrentLanguage", SBMI.BiosData.CurrentLanguage }
+            };
+        }
 
         public static JObject GetDateInfo()
         {

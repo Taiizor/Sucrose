@@ -178,6 +178,12 @@ namespace Sucrose.Shared.Theme.Helper
                         return SSDECT.SystemCpu;
                     }
 
+                    // Compatible içindeki SystemBios değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemBios) && !Compatible.SystemBios.Contains("{0}"))
+                    {
+                        return SSDECT.SystemBios;
+                    }
+
                     // Compatible içindeki SystemDate değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemDate) && !Compatible.SystemDate.Contains("{0}"))
                     {
