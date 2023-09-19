@@ -1,5 +1,6 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using System.Diagnostics;
+using SBHI = Sucrose.Backgroundog.Helper.Initialize;
 using SBSDBS = Sucrose.Backgroundog.Struct.Data.BatteryStruct;
 using SBSDCS = Sucrose.Backgroundog.Struct.Data.CpuStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
@@ -16,6 +17,8 @@ namespace Sucrose.Backgroundog.Manage
         public static bool Condition = false;
 
         public static bool Processing = true;
+
+        public static SBHI Initialize = new();
 
         public static bool CpuManagement = true;
 

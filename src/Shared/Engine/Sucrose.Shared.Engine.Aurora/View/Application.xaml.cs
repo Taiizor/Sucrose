@@ -8,6 +8,7 @@ using SSEAHR = Sucrose.Shared.Engine.Aurora.Helper.Ready;
 using SSEAMI = Sucrose.Shared.Engine.Aurora.Manage.Internal;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
@@ -59,6 +60,8 @@ namespace Sucrose.Shared.Engine.Aurora.View
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             Dispose();
+
+            SSEHR.Control();
 
             SSEAHA.SetVolume(SSEHD.GetVolume());
 

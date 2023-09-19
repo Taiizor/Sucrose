@@ -3,6 +3,7 @@ using SSECSEW = Sucrose.Shared.Engine.CefSharp.Event.Web;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
@@ -41,6 +42,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             Dispose();
+
+            SSEHR.Control();
         }
 
         public void Dispose()

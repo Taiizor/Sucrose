@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEW = Sucrose.Shared.Engine.WebView.Event.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
@@ -34,6 +35,8 @@ namespace Sucrose.Shared.Engine.WebView.View
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             Dispose();
+
+            SSEHR.Control();
         }
 
         public void Dispose()

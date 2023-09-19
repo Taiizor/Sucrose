@@ -2,6 +2,7 @@
 using System.Windows.Media;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEVEG = Sucrose.Shared.Engine.Vexana.Event.Gif;
@@ -40,6 +41,8 @@ namespace Sucrose.Shared.Engine.Vexana.View
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             Dispose();
+
+            SSEHR.Control();
 
             SSEVHG.SetLoop(SSEHD.GetLoop());
 

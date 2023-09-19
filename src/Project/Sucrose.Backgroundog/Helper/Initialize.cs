@@ -7,22 +7,22 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 
 namespace Sucrose.Backgroundog.Helper
 {
-    internal static class Initialize
+    internal class Initialize : IDisposable
     {
-        public static void Start()
+        public void Start()
         {
             SBMI.Computer.Open();
             TimerCallback Callback = InitializeTimer_Callback;
             SBMI.InitializeTimer = new(Callback, null, 0, 250);
         }
 
-        public static void Stop()
+        public void Stop()
         {
             SBMI.Computer.Close();
             SBMI.InitializeTimer.Dispose();
         }
 
-        private static async void InitializeTimer_Callback(object State)
+        private async void InitializeTimer_Callback(object State)
         {
             _ = SBHS.Start();
 
@@ -46,6 +46,12 @@ namespace Sucrose.Backgroundog.Helper
 
                 SBMI.Processing = true;
             }
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

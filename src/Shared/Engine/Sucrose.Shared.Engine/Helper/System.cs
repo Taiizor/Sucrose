@@ -1,13 +1,10 @@
 ﻿using Sucrose.Grpc.Common;
 using SGCSBCS = Sucrose.Grpc.Client.Services.BackgroundogClientService;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
-using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -31,10 +28,6 @@ namespace Sucrose.Shared.Engine.Helper
                     //
                 }
             }
-            else if (SMMM.PerformanceCounter)
-            {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
-            }
 
             return string.Empty;
         }
@@ -56,10 +49,6 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     //
                 }
-            }
-            else if (SMMM.PerformanceCounter)
-            {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
             }
 
             return string.Empty;
@@ -83,10 +72,6 @@ namespace Sucrose.Shared.Engine.Helper
                     //
                 }
             }
-            else if (SMMM.PerformanceCounter)
-            {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
-            }
 
             return string.Empty;
         }
@@ -108,10 +93,6 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     //
                 }
-            }
-            else if (SMMM.PerformanceCounter)
-            {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
             }
 
             return string.Empty;
@@ -135,10 +116,6 @@ namespace Sucrose.Shared.Engine.Helper
                     //
                 }
             }
-            else if (SMMM.PerformanceCounter)
-            {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
-            }
 
             return string.Empty;
         }
@@ -160,10 +137,6 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     //
                 }
-            }
-            else if (SMMM.PerformanceCounter)
-            {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
             }
 
             return string.Empty;

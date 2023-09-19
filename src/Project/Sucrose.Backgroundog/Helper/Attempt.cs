@@ -1,5 +1,4 @@
-﻿using SBHI = Sucrose.Backgroundog.Helper.Initialize;
-using SBMI = Sucrose.Backgroundog.Manage.Internal;
+﻿using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 
 namespace Sucrose.Backgroundog.Helper
@@ -28,9 +27,9 @@ namespace Sucrose.Backgroundog.Helper
 
             if (!Success)
             {
-                Console.WriteLine("İşlem başarısız oldu ve 5 deneme sonunda hala true dönmedi.");
                 SBMI.Exit = false;
-                SBHI.Stop();
+                SBMI.Initialize.Stop();
+                Console.WriteLine("İşlem başarısız oldu ve 5 deneme sonunda hala true dönmedi.");
             }
         }
     }

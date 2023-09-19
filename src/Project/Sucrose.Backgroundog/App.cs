@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using SBHI = Sucrose.Backgroundog.Helper.Initialize;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SGCB = Sucrose.Grpc.Common.Backgroundog;
@@ -15,9 +14,9 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Backgroundog
 {
-    internal class App
+    internal class App : IDisposable
     {
-        internal static async Task Main()
+        public static async Task Main()
         {
             try
             {
@@ -36,14 +35,16 @@ namespace Sucrose.Backgroundog
 
                     SGSGSS.ServerInstance.Start();
 
-                    SBHI.Start();
+                    SBMI.Initialize.Start();
 
                     do
                     {
+                        SBMI.Initialize.Dispose();
+
                         await Task.Delay(1000);
                     } while (SBMI.Exit);
 
-                    SBHI.Stop();
+                    SBMI.Initialize.Stop();
 
                     SGSGSS.ServerInstance.KillAsync().Wait();
                     //SGSGSS.ServerInstance.ShutdownAsync().Wait();
@@ -61,10 +62,16 @@ namespace Sucrose.Backgroundog
             }
         }
 
-        protected static void Close()
+        public static void Close()
         {
             Environment.Exit(0);
             Application.Exit();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }

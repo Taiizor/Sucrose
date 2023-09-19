@@ -5,6 +5,7 @@ using SSECSHV = Sucrose.Shared.Engine.CefSharp.Helper.Video;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
@@ -46,6 +47,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
             if (SSEMI.Initialized)
             {
                 Dispose();
+
+                SSEHR.Control();
 
                 SSECSHV.SetLoop(SSEHD.GetLoop());
 

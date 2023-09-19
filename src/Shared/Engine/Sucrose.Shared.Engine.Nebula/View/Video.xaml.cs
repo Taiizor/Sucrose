@@ -2,6 +2,7 @@
 using System.Windows.Media;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENEV = Sucrose.Shared.Engine.Nebula.Event.Video;
@@ -42,6 +43,8 @@ namespace Sucrose.Shared.Engine.Nebula.View
         private void GeneralTimer_Tick(object sender, EventArgs e)
         {
             Dispose();
+
+            SSEHR.Control();
 
             SSENHV.SetLoop(SSEHD.GetLoop());
 

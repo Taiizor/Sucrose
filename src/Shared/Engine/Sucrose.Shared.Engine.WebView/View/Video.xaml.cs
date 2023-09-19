@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEV = Sucrose.Shared.Engine.WebView.Event.Video;
 using SSEWVHV = Sucrose.Shared.Engine.WebView.Helper.Video;
@@ -38,6 +39,8 @@ namespace Sucrose.Shared.Engine.WebView.View
             if (SSEMI.Initialized)
             {
                 Dispose();
+
+                SSEHR.Control();
 
                 SSEWVHV.SetLoop(SSEHD.GetLoop());
 

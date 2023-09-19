@@ -6,9 +6,9 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Commandog
 {
-    internal class App
+    internal class App : IDisposable
     {
-        internal static void Main(string[] Args)
+        public static void Main(string[] Args)
         {
             try
             {
@@ -26,10 +26,16 @@ namespace Sucrose.Commandog
             }
         }
 
-        protected static void Close()
+        public static void Close()
         {
             Environment.Exit(0);
             Application.Exit();
+        }
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }
