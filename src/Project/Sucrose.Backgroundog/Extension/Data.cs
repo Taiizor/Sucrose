@@ -53,11 +53,14 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "PID", SBMI.AudioData.PID },
+                { "State", SBMI.AudioData.State },
                 { "Title", SBMI.AudioData.Title },
                 { "Artist", SBMI.AudioData.Artist },
                 { "Hwnd", $"{SBMI.AudioData.Hwnd}" },
                 { "Subtitle", SBMI.AudioData.Subtitle },
                 { "AlbumTitle", SBMI.AudioData.AlbumTitle },
+                { "TrackNumber", SBMI.AudioData.TrackNumber },
+                { "AlbumArtist", SBMI.AudioData.AlbumArtist },
                 { "SourceAppId", SBMI.AudioData.SourceAppId },
                 { "MediaType", $"{SBMI.AudioData.MediaType}" },
                 { "PlaybackRate", SBMI.AudioData.PlaybackRate },
@@ -69,11 +72,14 @@ namespace Sucrose.Backgroundog.Extension
                 { "PlaybackCaps", $"{SBMI.AudioData.PlaybackCaps}" },
                 { "PlaybackMode", $"{SBMI.AudioData.PlaybackMode}" },
                 { "ThumbnailString", SBMI.AudioData.ThumbnailString },
+                { "AlbumTrackCount", SBMI.AudioData.AlbumTrackCount },
                 { "PlaybackState", $"{SBMI.AudioData.PlaybackState}" },
                 { "ThumbnailAddress", SBMI.AudioData.ThumbnailAddress },
                 { "EndTime", SBMI.AudioData.EndTime.TotalMilliseconds },
                 { "Position", SBMI.AudioData.Position.TotalMilliseconds },
                 { "StartTime", SBMI.AudioData.StartTime.TotalMilliseconds },
+                { "LastPlayingFileTime", SBMI.AudioData.LastPlayingFileTime },
+                { "PositionSetFileTime", SBMI.AudioData.PositionSetFileTime },
                 { "MinSeekTime", SBMI.AudioData.MinSeekTime.TotalMilliseconds },
                 { "MaxSeekTime", SBMI.AudioData.MaxSeekTime.TotalMilliseconds }
             };

@@ -129,6 +129,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public bool State;
+        /// <summary>
+        /// 
+        /// </summary>
         public IntPtr? Hwnd;
         /// <summary>
         /// 
@@ -149,11 +153,19 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public uint TrackNumber;
+        /// <summary>
+        /// 
+        /// </summary>
         public string AlbumTitle;
         /// <summary>
         /// 
         /// </summary>
         public TimeSpan Position;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AlbumArtist;
         /// <summary>
         /// 
         /// </summary>
@@ -170,6 +182,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public bool ShuffleEnabled;
+        /// <summary>
+        /// 
+        /// </summary>
+        public uint AlbumTrackCount;
         /// <summary>
         /// 
         /// </summary>
@@ -198,6 +214,14 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public MediaPlaybackMode MediaType;
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime LastPlayingFileTime;
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime PositionSetFileTime;
         /// <summary>
         /// 
         /// </summary>

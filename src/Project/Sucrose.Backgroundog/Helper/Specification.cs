@@ -84,8 +84,6 @@ namespace Sucrose.Backgroundog.Helper
 
                         SBMI.SessionManager.SessionListChanged += SessionListChanged;
                     }
-
-                    SessionListChanged(null, null);
                 });
 
                 _ = Task.Run(() =>
@@ -297,48 +295,62 @@ namespace Sucrose.Backgroundog.Helper
             {
                 lock (SBMI.LockObject)
                 {
-                    MediaObjectInfo mediaDetails = SBMI.DataSource.GetMediaObjectInfo();
-                    MediaPlaybackInfo mediaPlaybackInfo = SBMI.DataSource.GetMediaPlaybackInfo();
-                    MediaTimelineProperties mediaTimeline = SBMI.DataSource.GetMediaTimelineProperties();
+                    MediaObjectInfo MediaDetails = SBMI.DataSource.GetMediaObjectInfo();
+                    MediaPlaybackInfo MediaPlaybackInfo = SBMI.DataSource.GetMediaPlaybackInfo();
+                    MediaTimelineProperties MediaTimeline = SBMI.DataSource.GetMediaTimelineProperties();
 
-                    using Stream thumbnail = SBMI.DataSource.GetThumbnailStream();
-                    string thumbnailString = thumbnail is null ? null : CreateThumbnail(thumbnail);
+                    using Stream Thumbnail = SBMI.DataSource.GetThumbnailStream();
+                    string ThumbnailString = Thumbnail is null ? null : CreateThumbnail(Thumbnail);
 
-                    SBMI.AudioData.Title = mediaDetails.Title;
-                    SBMI.AudioData.Artist = mediaDetails.Artist;
-                    SBMI.AudioData.Subtitle = mediaDetails.Subtitle;
-                    SBMI.AudioData.AlbumTitle = mediaDetails.AlbumTitle;
-                    SBMI.AudioData.MediaType = MediaPlaybackDataSource.MediaSchemaToMediaPlaybackMode(mediaDetails.MediaClassPrimaryID);
+                    SBMI.AudioData.State = true;
+                    SBMI.AudioData.Title = MediaDetails.Title;
+                    SBMI.AudioData.Artist = MediaDetails.Artist;
+                    SBMI.AudioData.Subtitle = MediaDetails.Subtitle;
+                    SBMI.AudioData.AlbumTitle = MediaDetails.AlbumTitle;
+                    SBMI.AudioData.AlbumArtist = MediaDetails.AlbumArtist;
+                    SBMI.AudioData.TrackNumber = MediaDetails.TrackNumber;
+                    SBMI.AudioData.AlbumTrackCount = MediaDetails.AlbumTrackCount;
+                    SBMI.AudioData.MediaType = MediaPlaybackDataSource.MediaSchemaToMediaPlaybackMode(MediaDetails.MediaClassPrimaryID);
+
+                    SBMI.AudioData.PID = SBMI.PlayingSession?.PID;
+                    SBMI.AudioData.Hwnd = SBMI.PlayingSession?.Hwnd;
                     SBMI.AudioData.SourceAppId = SBMI.PlayingSession?.SourceAppId;
                     SBMI.AudioData.SourceDeviceId = SBMI.PlayingSession?.SourceDeviceId;
                     SBMI.AudioData.RenderDeviceId = SBMI.PlayingSession?.RenderDeviceId;
-                    SBMI.AudioData.Hwnd = SBMI.PlayingSession?.Hwnd;
-                    SBMI.AudioData.PID = SBMI.PlayingSession?.PID;
 
-                    SBMI.AudioData.PlaybackState = mediaPlaybackInfo.PlaybackState;
-                    SBMI.AudioData.PlaybackRate = mediaPlaybackInfo.PlaybackRate;
-                    SBMI.AudioData.PlaybackMode = mediaPlaybackInfo.PlaybackMode;
-                    SBMI.AudioData.ShuffleEnabled = mediaPlaybackInfo.ShuffleEnabled;
-                    SBMI.AudioData.RepeatMode = mediaPlaybackInfo.RepeatMode;
-                    SBMI.AudioData.PlaybackCaps = mediaPlaybackInfo.PlaybackCaps;
-                    SBMI.AudioData.PropsValid = mediaPlaybackInfo.PropsValid;
+                    SBMI.AudioData.RepeatMode = MediaPlaybackInfo.RepeatMode;
+                    SBMI.AudioData.PropsValid = MediaPlaybackInfo.PropsValid;
+                    SBMI.AudioData.PlaybackRate = MediaPlaybackInfo.PlaybackRate;
+                    SBMI.AudioData.PlaybackMode = MediaPlaybackInfo.PlaybackMode;
+                    SBMI.AudioData.PlaybackCaps = MediaPlaybackInfo.PlaybackCaps;
+                    SBMI.AudioData.PlaybackState = MediaPlaybackInfo.PlaybackState;
+                    SBMI.AudioData.ShuffleEnabled = MediaPlaybackInfo.ShuffleEnabled;
+                    SBMI.AudioData.LastPlayingFileTime = MediaPlaybackInfo.LastPlayingFileTime;
 
-                    SBMI.AudioData.StartTime = mediaTimeline.StartTime;
-                    SBMI.AudioData.EndTime = mediaTimeline.EndTime;
-                    SBMI.AudioData.MinSeekTime = mediaTimeline.MinSeekTime;
-                    SBMI.AudioData.MaxSeekTime = mediaTimeline.MaxSeekTime;
-                    SBMI.AudioData.Position = mediaTimeline.Position;
+                    SBMI.AudioData.EndTime = MediaTimeline.EndTime;
+                    SBMI.AudioData.Position = MediaTimeline.Position;
+                    SBMI.AudioData.StartTime = MediaTimeline.StartTime;
+                    SBMI.AudioData.MinSeekTime = MediaTimeline.MinSeekTime;
+                    SBMI.AudioData.MaxSeekTime = MediaTimeline.MaxSeekTime;
+                    SBMI.AudioData.PositionSetFileTime = MediaTimeline.PositionSetFileTime;
 
-                    SBMI.AudioData.ThumbnailString = thumbnailString;
-                    SBMI.AudioData.ThumbnailAddress = "data:image/png;base64," + thumbnailString;
+                    SBMI.AudioData.ThumbnailString = ThumbnailString;
+
+                    if (string.IsNullOrEmpty(ThumbnailString))
+                    {
+                        SBMI.AudioData.ThumbnailAddress = ThumbnailString;
+                    }
+                    else
+                    {
+                        SBMI.AudioData.ThumbnailAddress = "data:image/png;base64," + ThumbnailString;
+                    }
                 }
             }
             else
             {
                 lock (SBMI.LockObject)
                 {
-                    Console.Clear();
-                    Console.WriteLine("There are no active sessions.");
+                    SBMI.AudioData.State = false;
                 }
             }
         }
