@@ -32,6 +32,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static Timer InitializeTimer = null;
 
+        public static bool MotherboardManagement = true;
+
         public static readonly object LockObject = new();
 
         public static NowPlayingSession PlayingSession = null;
@@ -168,7 +170,10 @@ namespace Sucrose.Backgroundog.Manage
 
         public static SBSDMDS MotherboardData = new()
         {
-            Name = string.Empty
+            Name = string.Empty,
+            Product = string.Empty,
+            Version = string.Empty,
+            Manufacturer = string.Empty
         };
     }
 }

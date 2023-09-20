@@ -155,7 +155,10 @@ namespace Sucrose.Backgroundog.Extension
         {
             return new JObject
             {
-                { "Name", SBMI.MotherboardData.Name }
+                { "Name", SBMI.MotherboardData.Name },
+                { "Product", SBMI.MotherboardData.Product },
+                { "Version", SBMI.MotherboardData.Version },
+                { "Manufacturer", SBMI.MotherboardData.Manufacturer }
             };
         }
     }

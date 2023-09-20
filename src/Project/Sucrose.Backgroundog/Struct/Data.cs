@@ -394,5 +394,17 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public string Name;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Product;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Version;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Manufacturer;
     }
 }

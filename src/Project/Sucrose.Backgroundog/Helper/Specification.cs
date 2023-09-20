@@ -1,11 +1,9 @@
 ﻿using LibreHardwareMonitor.Hardware;
-using NPSMLib;
 using Skylark.Enum;
 using Skylark.Helper;
 using Skylark.Standard.Extension.Storage;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Management;
+using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -82,8 +80,10 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         SBMI.AudioManagement = false;
 
-                        SBMI.SessionManager.SessionListChanged += SessionListChanged;
+                        SBMI.SessionManager.SessionListChanged += (s, e) => SBEAS.SessionListChanged();
                     }
+
+                    SBEAS.SessionListChanged();
                 });
 
                 _ = Task.Run(() =>
@@ -109,6 +109,24 @@ namespace Sucrose.Backgroundog.Helper
                             SBMI.NetworkData.FormatUploadData = Numeric.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.UploadData.Text;
                             SBMI.NetworkData.FormatDownloadData = Numeric.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.DownloadData.Text;
 
+                            break;
+                        }
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    if (SBMI.MotherboardManagement)
+                    {
+                        SBMI.MotherboardManagement = false;
+
+                        ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_BaseBoard");
+
+                        foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                        {
+                            SBMI.MotherboardData.Product = Object["Product"].ToString();
+                            SBMI.MotherboardData.Version = Object["Version"].ToString();
+                            SBMI.MotherboardData.Manufacturer = Object["Manufacturer"].ToString();
                             break;
                         }
                     }
@@ -231,10 +249,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             Hardware.Update();
 
-                            SBMI.MotherboardData = new()
-                            {
-                                Name = Hardware.Name
-                            };
+                            SBMI.MotherboardData.Name = Hardware.Name;
                         }
                     }
                 });
@@ -266,133 +281,6 @@ namespace Sucrose.Backgroundog.Helper
             }
 
             await Task.CompletedTask;
-        }
-
-        private static void SessionListChanged(object sender, NowPlayingSessionManagerEventArgs e)
-        {
-            SBMI.PlayingSession = SBMI.SessionManager.CurrentSession;
-            SetupEvents();
-            PrintCurrentSession();
-        }
-
-        private static void SetupEvents()
-        {
-            if (SBMI.PlayingSession != null)
-            {
-                SBMI.DataSource = SBMI.PlayingSession.ActivateMediaPlaybackDataSource();
-                SBMI.DataSource.MediaPlaybackDataChanged += M_MediaPlaybackDataChanged;
-            }
-        }
-
-        private static void M_MediaPlaybackDataChanged(object sender, MediaPlaybackDataChangedArgs e)
-        {
-            PrintCurrentSession();
-        }
-
-        private static void PrintCurrentSession()
-        {
-            if (SBMI.PlayingSession != null)
-            {
-                lock (SBMI.LockObject)
-                {
-                    MediaObjectInfo MediaDetails = SBMI.DataSource.GetMediaObjectInfo();
-                    MediaPlaybackInfo MediaPlaybackInfo = SBMI.DataSource.GetMediaPlaybackInfo();
-                    MediaTimelineProperties MediaTimeline = SBMI.DataSource.GetMediaTimelineProperties();
-
-                    using Stream Thumbnail = SBMI.DataSource.GetThumbnailStream();
-                    string ThumbnailString = Thumbnail is null ? null : CreateThumbnail(Thumbnail);
-
-                    SBMI.AudioData.State = true;
-                    SBMI.AudioData.Title = MediaDetails.Title;
-                    SBMI.AudioData.Artist = MediaDetails.Artist;
-                    SBMI.AudioData.Subtitle = MediaDetails.Subtitle;
-                    SBMI.AudioData.AlbumTitle = MediaDetails.AlbumTitle;
-                    SBMI.AudioData.AlbumArtist = MediaDetails.AlbumArtist;
-                    SBMI.AudioData.TrackNumber = MediaDetails.TrackNumber;
-                    SBMI.AudioData.AlbumTrackCount = MediaDetails.AlbumTrackCount;
-                    SBMI.AudioData.MediaType = MediaPlaybackDataSource.MediaSchemaToMediaPlaybackMode(MediaDetails.MediaClassPrimaryID);
-
-                    SBMI.AudioData.PID = SBMI.PlayingSession?.PID;
-                    SBMI.AudioData.Hwnd = SBMI.PlayingSession?.Hwnd;
-                    SBMI.AudioData.SourceAppId = SBMI.PlayingSession?.SourceAppId;
-                    SBMI.AudioData.SourceDeviceId = SBMI.PlayingSession?.SourceDeviceId;
-                    SBMI.AudioData.RenderDeviceId = SBMI.PlayingSession?.RenderDeviceId;
-
-                    SBMI.AudioData.RepeatMode = MediaPlaybackInfo.RepeatMode;
-                    SBMI.AudioData.PropsValid = MediaPlaybackInfo.PropsValid;
-                    SBMI.AudioData.PlaybackRate = MediaPlaybackInfo.PlaybackRate;
-                    SBMI.AudioData.PlaybackMode = MediaPlaybackInfo.PlaybackMode;
-                    SBMI.AudioData.PlaybackCaps = MediaPlaybackInfo.PlaybackCaps;
-                    SBMI.AudioData.PlaybackState = MediaPlaybackInfo.PlaybackState;
-                    SBMI.AudioData.ShuffleEnabled = MediaPlaybackInfo.ShuffleEnabled;
-                    SBMI.AudioData.LastPlayingFileTime = MediaPlaybackInfo.LastPlayingFileTime;
-
-                    SBMI.AudioData.EndTime = MediaTimeline.EndTime;
-                    SBMI.AudioData.Position = MediaTimeline.Position;
-                    SBMI.AudioData.StartTime = MediaTimeline.StartTime;
-                    SBMI.AudioData.MinSeekTime = MediaTimeline.MinSeekTime;
-                    SBMI.AudioData.MaxSeekTime = MediaTimeline.MaxSeekTime;
-                    SBMI.AudioData.PositionSetFileTime = MediaTimeline.PositionSetFileTime;
-
-                    SBMI.AudioData.ThumbnailString = ThumbnailString;
-
-                    if (string.IsNullOrEmpty(ThumbnailString))
-                    {
-                        SBMI.AudioData.ThumbnailAddress = ThumbnailString;
-                    }
-                    else
-                    {
-                        SBMI.AudioData.ThumbnailAddress = "data:image/png;base64," + ThumbnailString;
-                    }
-                }
-            }
-            else
-            {
-                lock (SBMI.LockObject)
-                {
-                    SBMI.AudioData.State = false;
-                }
-            }
-        }
-
-        private static readonly bool isWindows11_OrGreater = Environment.OSVersion.Version.Build >= 22000;
-
-        private static string CreateThumbnail(Stream stream)
-        {
-            using MemoryStream ms = new();
-            ms.Seek(0, SeekOrigin.Begin);
-            stream.CopyTo(ms);
-            if (!isWindows11_OrGreater)
-            {
-                //In Win10 there is transparent borders for some apps
-                using Bitmap bmp = new(ms);
-                if (IsPixelAlpha(bmp, 0, 0))
-                {
-                    return CropImage(bmp, 34, 1, 233, 233);
-                }
-            }
-            byte[] array = ms.ToArray();
-            return Convert.ToBase64String(array);
-        }
-
-        private static string CropImage(Bitmap bmp, int x, int y, int width, int height)
-        {
-            Rectangle rect = new(x, y, width, height);
-
-            using Bitmap croppedBitmap = new(rect.Width, rect.Height, bmp.PixelFormat);
-
-            Graphics gfx = Graphics.FromImage(croppedBitmap);
-            gfx.DrawImage(bmp, 0, 0, rect, GraphicsUnit.Pixel);
-
-            using MemoryStream ms = new();
-            croppedBitmap.Save(ms, ImageFormat.Png);
-            byte[] byteImage = ms.ToArray();
-            return Convert.ToBase64String(byteImage);
-        }
-
-        private static bool IsPixelAlpha(Bitmap bmp, int x, int y)
-        {
-            return bmp.GetPixel(x, y).A == 0;
         }
     }
 }
