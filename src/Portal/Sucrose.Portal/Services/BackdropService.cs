@@ -1,12 +1,14 @@
 ﻿using System.Windows.Media;
+using SMMM = Sucrose.Manager.Manage.Manager;
+using SPMM = Sucrose.Portal.Manage.Manager;
 
 namespace Sucrose.Portal.Services
 {
     internal class BackdropService : IDisposable
     {
-        private int _BackdropOpacity;
-        private string _BackdropImage;
-        private Stretch _BackdropStretch;
+        private string _BackdropImage = SMMM.BackgroundImage;
+        private int _BackdropOpacity = SMMM.BackgroundOpacity;
+        private Stretch _BackdropStretch = SPMM.BackgroundStretch;
 
         public event EventHandler BackdropImageChanged;
         public event EventHandler BackdropStretchChanged;

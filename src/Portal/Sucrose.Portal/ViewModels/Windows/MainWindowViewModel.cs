@@ -18,6 +18,7 @@ using SPMM = Sucrose.Portal.Manage.Manager;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
+using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
@@ -79,6 +80,7 @@ namespace Sucrose.Portal.ViewModels.Windows
                 Timer.Tick += Memory_Tick;
                 Timer.Start();
 
+                Information();
                 Backdrop();
                 Donate();
             }
@@ -96,6 +98,19 @@ namespace Sucrose.Portal.ViewModels.Windows
             SPMI.BackdropService.BackdropImageChanged += (s, e) => Backgrounder = GetBackgrounder();
         }
 
+        private void Information()
+        {
+            Dictionary<string, string> Information = new()
+            {
+                ["Version"] = Version,
+                ["Framework"] = Framework,
+                ["Architecture"] = Architecture,
+                ["OperatingSystem"] = SSCHOS.GetText()
+            };
+
+            SMMI.CoreSettingManager.SetSetting(SMC.Information, Information);
+        }
+
         private void InitializeViewModel()
         {
             Memory = SSCHM.Get();
@@ -106,6 +121,7 @@ namespace Sucrose.Portal.ViewModels.Windows
             Version = SSCHV.GetText();
             Framework = SSCHF.GetName();
             Architecture = SSCHA.GetText();
+            OperatingSystem = SSCHOS.Get();
             Backgrounder = GetBackgrounder();
             WindowBackdropType = GetWindowBackdropType();
 
@@ -188,6 +204,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         private void Memory_Tick(object sender, EventArgs e)
         {
             Memory = SSCHM.Get();
+            Dispose();
         }
 
         public void Dispose()

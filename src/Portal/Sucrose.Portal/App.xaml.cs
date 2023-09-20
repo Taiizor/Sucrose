@@ -6,7 +6,6 @@ using System.Windows;
 using Wpf.Ui;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
@@ -37,11 +36,7 @@ using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SPVPSWSP = Sucrose.Portal.Views.Pages.Setting.WallpaperSettingPage;
 using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
-using SSSHA = Sucrose.Shared.Core.Helper.Architecture;
-using SSSHF = Sucrose.Shared.Core.Helper.Framework;
-using SSSHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSSHV = Sucrose.Shared.Core.Helper.Version;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -225,25 +220,10 @@ namespace Sucrose.Portal
 
         protected void Configure()
         {
-            Information();
-
             _host.Start();
 
             //Main Interface = new();
             //Interface.Show();
-        }
-
-        protected void Information()
-        {
-            Dictionary<string, string> Information = new()
-            {
-                ["Version"] = SSSHV.GetText(),
-                ["Framework"] = SSSHF.GetName(),
-                ["Architecture"] = SSSHA.GetText(),
-                ["OperatingSystem"] = SSSHOS.GetText()
-            };
-
-            SMMI.CoreSettingManager.SetSetting(SMC.Information, Information);
         }
 
         /// <summary>
