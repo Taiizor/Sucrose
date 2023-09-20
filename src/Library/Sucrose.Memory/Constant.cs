@@ -42,6 +42,8 @@
 
         public const string Startup = "Startup";
 
+        public const string CpuUsage = "CpuUsage";
+
         public const string UserAgent = "UserAgent";
 
         public const string ThemeType = "ThemeType";
@@ -51,6 +53,8 @@
         public const string ScreenType = "ScreenType";
 
         public const string UploadType = "UploadType";
+
+        public const string MemoryUsage = "MemoryUsage";
 
         public const string LibraryMove = "LibraryMove";
 
@@ -102,6 +106,8 @@
 
         public const string NetworkAdapter = "NetworkAdapter";
 
+        public const string CpuPerformance = "CpuPerformance";
+
         public const string StorePagination = "StorePagination";
 
         public const string LibraryLocation = "LibraryLocation";
@@ -125,6 +131,8 @@
         public const string DescriptionLength = "DescriptionLength";
 
         public const string NetworkInterfaces = "NetworkInterfaces";
+
+        public const string MemoryPerformance = "MemoryPerformance";
 
         public const string PerformanceCounter = "PerformanceCounter";
 

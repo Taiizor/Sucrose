@@ -78,6 +78,118 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(SystemResourcesArea);
 
+            SPVCEC Cpu = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Cpu.Title.Text = "İşemci Kullanımı";
+            Cpu.LeftIcon.Symbol = SymbolRegular.HeartPulse24;
+            Cpu.Description.Text = "İşlemci kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.";
+
+            ComboBox CpuPerformance = new();
+
+            CpuPerformance.SelectionChanged += (s, e) => CpuPerformanceSelected(CpuPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                CpuPerformance.Items.Add(Type);
+            }
+
+            CpuPerformance.SelectedIndex = (int)SPMM.CpuPerformance;
+
+            Cpu.HeaderFrame = CpuPerformance;
+
+            StackPanel CpuContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock CpuUsageText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "İşlemci Kullanımı (%):"
+            };
+
+            NumberBox CpuUsage = new()
+            {
+                Margin = new Thickness(0, 0, 10, 0),
+                ClearButtonEnabled = false,
+                Value = SMMM.CpuUsage,
+                MaxDecimalPlaces = 0,
+                Maximum = 100,
+                MaxLength = 3,
+                Minimum = 0
+            };
+
+            CpuUsage.ValueChanged += (s, e) => CpuUsageChanged(CpuUsage.Value);
+
+            CpuContent.Children.Add(CpuUsageText);
+            CpuContent.Children.Add(CpuUsage);
+
+            Cpu.FooterCard = CpuContent;
+
+            Contents.Add(Cpu);
+
+            SPVCEC Memory = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Memory.Title.Text = "Bellek Kullanımı";
+            Memory.LeftIcon.Symbol = SymbolRegular.Memory16;
+            Memory.Description.Text = "Bellek kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.";
+
+            ComboBox MemoryPerformance = new();
+
+            MemoryPerformance.SelectionChanged += (s, e) => MemoryPerformanceSelected(MemoryPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                MemoryPerformance.Items.Add(Type);
+            }
+
+            MemoryPerformance.SelectedIndex = (int)SPMM.MemoryPerformance;
+
+            Memory.HeaderFrame = MemoryPerformance;
+
+            StackPanel MemoryContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock MemoryUsageText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "Bellek Kullanımı (%):"
+            };
+
+            NumberBox MemoryUsage = new()
+            {
+                Margin = new Thickness(0, 0, 10, 0),
+                ClearButtonEnabled = false,
+                Value = SMMM.MemoryUsage,
+                MaxDecimalPlaces = 0,
+                Maximum = 100,
+                MaxLength = 3,
+                Minimum = 0
+            };
+
+            MemoryUsage.ValueChanged += (s, e) => MemoryUsageChanged(MemoryUsage.Value);
+
+            MemoryContent.Children.Add(MemoryUsageText);
+            MemoryContent.Children.Add(MemoryUsage);
+
+            Memory.FooterCard = MemoryContent;
+
+            Contents.Add(Memory);
+
             SPVCEC Network = new()
             {
                 Margin = new Thickness(0, 10, 0, 0)
@@ -240,6 +352,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             //Dispose();
         }
 
+        private void CpuUsageChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.CpuUsage)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.CpuUsage, NewValue);
+            }
+        }
+
         private void CounterStateChecked(bool State)
         {
             SMMI.BackgroundogSettingManager.SetSetting(SMC.PerformanceCounter, State);
@@ -254,6 +376,26 @@ namespace Sucrose.Portal.ViewModels.Pages
                 {
                     SSSHP.Kill(SMR.Backgroundog);
                 }
+            }
+        }
+
+        private void CpuPerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.CpuPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.CpuPerformance, Type);
+            }
+        }
+
+        private void MemoryUsageChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.MemoryUsage)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.MemoryUsage, NewValue);
             }
         }
 
@@ -282,6 +424,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (Value != SMMM.NetworkAdapter)
             {
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.NetworkAdapter, Value);
+            }
+        }
+
+        private void MemoryPerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.MemoryPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.MemoryPerformance, Type);
             }
         }
 

@@ -61,6 +61,8 @@ namespace Sucrose.Manager.Manage
 
         public static int UploadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800);
 
+        public static int MemoryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.MemoryUsage, 75);
+
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
         public static bool LibraryConfirm => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryConfirm, true);
@@ -74,6 +76,8 @@ namespace Sucrose.Manager.Manage
         public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
 
         public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
+
+        public static int CpuUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.CpuUsage, 75);
 
         public static int ScreenIndex => SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0);
 
