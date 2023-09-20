@@ -6,8 +6,8 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal.Manage

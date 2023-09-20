@@ -7,8 +7,8 @@ using SEST = Skylark.Enum.StorageType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
@@ -85,7 +85,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Network.Title.Text = "Ağ Kullanımı";
             Network.LeftIcon.Symbol = SymbolRegular.NetworkCheck24;
-            Network.Description.Text = "Ağ kullanımı belirlenen sınırı geçtiğinde duvar kağıdına ne olacağı.";
+            Network.Description.Text = "Ağ kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.";
 
             ComboBox NetworkPerformance = new();
 
@@ -156,6 +156,8 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Minimum = 0
             };
 
+            NetworkUpload.ValueChanged += (s, e) => NetworkUploadChanged(NetworkUpload.Value);
+
             ComboBox NetworkUploadType = new();
 
             NetworkUploadType.SelectionChanged += (s, e) => NetworkUploadTypeSelected(NetworkUploadType.SelectedIndex);
@@ -192,6 +194,8 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxLength = 8,
                 Minimum = 0
             };
+
+            NetworkDownload.ValueChanged += (s, e) => NetworkDownloadChanged(NetworkDownload.Value);
 
             ComboBox NetworkDownloadType = new();
 
@@ -253,6 +257,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void NetworkUploadChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.UploadValue)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.UploadValue, NewValue);
+            }
+        }
+
         private void NetworkUploadTypeSelected(int Index)
         {
             if (Index != (int)SMMM.UploadType)
@@ -278,6 +292,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSDEPT Type = (SSDEPT)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.NetworkPerformance, Type);
+            }
+        }
+
+        private void NetworkDownloadChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.DownloadValue)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.DownloadValue, NewValue);
             }
         }
 

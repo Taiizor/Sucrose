@@ -1,5 +1,4 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using LibreHardwareMonitor.Hardware;
+﻿using LibreHardwareMonitor.Hardware;
 using Skylark.Enum;
 using Skylark.Helper;
 using Skylark.Standard.Extension.Storage;
@@ -7,10 +6,10 @@ using System.Management;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
 
 namespace Sucrose.Backgroundog.Helper
 {

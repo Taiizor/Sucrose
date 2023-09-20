@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
@@ -153,6 +154,14 @@ namespace Sucrose.Portal.Views.Windows
         {
             Topmost = false;
             ShowInTaskbar = true;
+        }
+
+        private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                e.Handled = true;
+            }
         }
 
         private void NavigationChange_Click(object sender, RoutedEventArgs e)

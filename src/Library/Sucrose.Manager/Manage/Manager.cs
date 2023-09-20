@@ -51,15 +51,15 @@ namespace Sucrose.Manager.Manage
 
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
 
-        public static SEST DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SEST.Kilobyte);
+        public static SEST DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SEST.Megabyte);
 
         public static SEST UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SEST.Kilobyte);
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
-        public static int DownloadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 0);
+        public static int DownloadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 10);
 
-        public static int UploadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 0);
+        public static int UploadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800);
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 

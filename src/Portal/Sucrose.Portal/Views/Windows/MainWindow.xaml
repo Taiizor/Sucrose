@@ -10,6 +10,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{DynamicResource Portal.MainWindow.Title}"
     ContentRendered="MainWindow_ContentRendered"
+    PreviewKeyDown="MainWindow_PreviewKeyDown"
     Width="900" MinWidth="900"
     Height="600" MinHeight="600"
     ShowInTaskbar="False"
