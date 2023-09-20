@@ -64,6 +64,8 @@
 
         public const string Information = "Information";
 
+        public const string UploadValue = "UploadValue";
+
         public const string BackdropType = "BackdropType";
 
         public const string CefArguments = "CefArguments";
@@ -73,6 +75,8 @@
         public const string DiscordDelay = "DiscordDelay";
 
         public const string DiscordState = "DiscordState";
+
+        public const string DownloadValue = "DownloadValue";
 
         public const string DonateVisible = "DonateVisible";
 

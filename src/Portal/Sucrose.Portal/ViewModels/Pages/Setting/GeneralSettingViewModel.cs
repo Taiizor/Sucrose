@@ -258,6 +258,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.BackgroundOpacity,
                 ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 100,
                 Minimum = 0

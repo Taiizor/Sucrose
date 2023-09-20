@@ -48,6 +48,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static PerformanceCounter DownloadCounter = null;
 
+        public static readonly int THREAD_SUSPEND_RESUME = 0x0002;
+
         public static NowPlayingSessionManager SessionManager = new();
 
         public static SBSDCS CpuData = new()

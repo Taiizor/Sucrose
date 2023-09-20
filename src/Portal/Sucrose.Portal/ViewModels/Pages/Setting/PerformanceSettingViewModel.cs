@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
@@ -9,6 +10,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -74,6 +76,95 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(SystemResourcesArea);
 
+            SPVCEC Adapter = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Adapter.Title.Text = "Ağ Kullanımı";
+            Adapter.LeftIcon.Symbol = SymbolRegular.NetworkCheck24;
+            Adapter.Description.Text = "Ağ kullanımı belirlenen sınırı geçtiğinde duvar kağıdına ne olacağı.";
+
+            ComboBox NetworkAdapter = new()
+            {
+                MaxWidth = 250
+            };
+
+            NetworkAdapter.SelectionChanged += (s, e) => NetworkAdapterSelected($"{NetworkAdapter.SelectedValue}");
+
+            foreach (string Network in SSSHN.InstanceNetworkInterfaces())
+            {
+                NetworkAdapter.Items.Add(Network);
+            }
+
+            NetworkAdapter.SelectedValue = SMMM.NetworkAdapter;
+
+            Adapter.HeaderFrame = NetworkAdapter;
+
+            StackPanel AdapterContent = new();
+
+            StackPanel AdapterUploadContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock AdapterUploadText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "Yükleme Boyutu:"
+            };
+
+            NumberBox AdapterUpload = new()
+            {
+                ClearButtonEnabled = false,
+                Value = SMMM.UploadValue,
+                MaxDecimalPlaces = 0,
+                Maximum = 99999999,
+                MaxLength = 8,
+                Minimum = 0
+            };
+
+            StackPanel AdapterDownloadContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock AdapterDownloadText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "İndirme Boyutu:"
+            };
+
+            NumberBox AdapterDownload = new()
+            {
+                ClearButtonEnabled = false,
+                Value = SMMM.DownloadValue,
+                MaxDecimalPlaces = 0,
+                Maximum = 99999999,
+                MaxLength = 8,
+                Minimum = 0
+            };
+
+            AdapterUploadContent.Children.Add(AdapterUploadText);
+            AdapterUploadContent.Children.Add(AdapterUpload);
+
+            AdapterDownloadContent.Children.Add(AdapterDownloadText);
+            AdapterDownloadContent.Children.Add(AdapterDownload);
+
+            AdapterContent.Children.Add(AdapterUploadContent);
+            AdapterContent.Children.Add(AdapterDownloadContent);
+
+            Adapter.FooterCard = AdapterContent;
+
+            Contents.Add(Adapter);
+
             _isInitialized = true;
         }
 
@@ -101,6 +192,14 @@ namespace Sucrose.Portal.ViewModels.Pages
                 {
                     SSSHP.Kill(SMR.Backgroundog);
                 }
+            }
+        }
+
+        private void NetworkAdapterSelected(string Value)
+        {
+            if (Value != SMMM.NetworkAdapter)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.NetworkAdapter, Value);
             }
         }
 

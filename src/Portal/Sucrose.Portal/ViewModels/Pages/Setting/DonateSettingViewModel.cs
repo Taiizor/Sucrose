@@ -113,6 +113,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.AdvertisingDelay,
                 ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 720,
                 Minimum = 30

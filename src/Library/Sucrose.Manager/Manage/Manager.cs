@@ -50,6 +50,10 @@ namespace Sucrose.Manager.Manage
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
+        public static int DownloadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 0);
+
+        public static int UploadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 0);
+
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
         public static bool LibraryConfirm => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryConfirm, true);

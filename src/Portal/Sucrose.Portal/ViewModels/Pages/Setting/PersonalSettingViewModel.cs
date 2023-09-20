@@ -53,6 +53,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ClearButtonEnabled = false,
                 Value = SMMM.StoreDuration,
+                MaxDecimalPlaces = 0,
                 MaxLength = 2,
                 Maximum = 24,
                 Minimum = 1
@@ -211,6 +212,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ClearButtonEnabled = false,
                 Value = SMMM.TitleLength,
+                MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 100,
                 Minimum = 10
@@ -237,6 +239,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.DescriptionLength,
                 ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 100,
                 Minimum = 10
@@ -286,6 +289,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.AdaptiveMargin,
                 ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
                 MaxLength = 2,
                 Maximum = 25,
                 Minimum = 5
@@ -312,6 +316,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.AdaptiveLayout,
                 ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 100,
                 Minimum = 0
@@ -346,6 +351,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.StorePagination,
                 ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 100,
                 Minimum = 1
@@ -371,6 +377,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Value = SMMM.LibraryPagination,
                 ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
                 MaxLength = 3,
                 Maximum = 100,
                 Minimum = 1

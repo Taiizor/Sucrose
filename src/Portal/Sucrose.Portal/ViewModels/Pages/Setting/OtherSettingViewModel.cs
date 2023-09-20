@@ -105,6 +105,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ClearButtonEnabled = false,
                 Value = SMMM.DiscordDelay,
+                MaxDecimalPlaces = 0,
                 Maximum = 3600,
                 MaxLength = 4,
                 Minimum = 60
