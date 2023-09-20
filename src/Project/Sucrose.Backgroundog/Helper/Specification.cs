@@ -10,6 +10,8 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
+using SWUP = Skylark.Wing.Utility.Power;
+using SystemInformation = System.Windows.Forms.SystemInformation;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -90,6 +92,19 @@ namespace Sucrose.Backgroundog.Helper
                     }
 
                     SBEAS.SessionListChanged();
+                });
+
+                _ = Task.Run(() =>
+                {
+                    SBMI.BatteryData.ACPowerStatus = $"{SWUP.GetACPowerStatus()}";
+                    SBMI.BatteryData.SavingMode = SWUP.IsBatterySavingMode;
+                    SBMI.BatteryData.SaverStatus = $"{SWUP.GetBatterySaverStatus()}";
+
+                    SBMI.BatteryData.LifePercent = SystemInformation.PowerStatus.BatteryLifePercent;
+                    SBMI.BatteryData.PowerLineStatus = SystemInformation.PowerStatus.PowerLineStatus;
+                    SBMI.BatteryData.FullLifetime = SystemInformation.PowerStatus.BatteryFullLifetime;
+                    SBMI.BatteryData.ChargeStatus = SystemInformation.PowerStatus.BatteryChargeStatus;
+                    SBMI.BatteryData.LifeRemaining = SystemInformation.PowerStatus.BatteryLifeRemaining;
                 });
 
                 _ = Task.Run(() =>
@@ -215,58 +230,65 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             Hardware.Update();
 
-                            SBMI.BatteryData.State = true;
-                            SBMI.BatteryData.Name = Hardware.Name;
-
-                            foreach (ISensor Sensor in Hardware.Sensors)
+                            if (Hardware.Sensors.Any())
                             {
-                                switch (Sensor.Name)
+                                SBMI.BatteryData.State = true;
+                                SBMI.BatteryData.Name = Hardware.Name;
+
+                                foreach (ISensor Sensor in Hardware.Sensors)
                                 {
-                                    case "Charge Level" when Sensor.SensorType == SensorType.Level:
-                                        SBMI.BatteryData.ChargeLevel = Sensor.Value;
-                                        break;
-                                    case "Discharge Level" when Sensor.SensorType == SensorType.Level:
-                                        SBMI.BatteryData.DischargeLevel = Sensor.Value;
-                                        break;
-                                    case "Voltage" when Sensor.SensorType == SensorType.Voltage:
-                                        SBMI.BatteryData.Voltage = Sensor.Value;
-                                        break;
-                                    case "Charge Current" when Sensor.SensorType == SensorType.Current:
-                                        SBMI.BatteryData.ChargeCurrent = Sensor.Value;
-                                        break;
-                                    case "Discharge Current" when Sensor.SensorType == SensorType.Current:
-                                        SBMI.BatteryData.DischargeCurrent = Sensor.Value;
-                                        break;
-                                    case "Charge / Discharge Current" when Sensor.SensorType == SensorType.Current:
-                                        SBMI.BatteryData.ChargeDischargeCurrent = Sensor.Value;
-                                        break;
-                                    case "Designed Capacity" when Sensor.SensorType == SensorType.Energy:
-                                        SBMI.BatteryData.DesignedCapacity = Sensor.Value;
-                                        break;
-                                    case "Full Charged Capacity" when Sensor.SensorType == SensorType.Energy:
-                                        SBMI.BatteryData.FullChargedCapacity = Sensor.Value;
-                                        break;
-                                    case "Remaining Capacity" when Sensor.SensorType == SensorType.Energy:
-                                        SBMI.BatteryData.RemainingCapacity = Sensor.Value;
-                                        break;
-                                    case "Charge Rate" when Sensor.SensorType == SensorType.Power:
-                                        SBMI.BatteryData.ChargeRate = Sensor.Value;
-                                        break;
-                                    case "Discharge Rate" when Sensor.SensorType == SensorType.Power:
-                                        SBMI.BatteryData.DischargeRate = Sensor.Value;
-                                        break;
-                                    case "Charge / Discharge Rate" when Sensor.SensorType == SensorType.Power:
-                                        SBMI.BatteryData.ChargeDischargeRate = Sensor.Value;
-                                        break;
-                                    case "Degradation Level" when Sensor.SensorType == SensorType.Level:
-                                        SBMI.BatteryData.DegradationLevel = Sensor.Value;
-                                        break;
-                                    case "Remaining Time (Estimated)" when Sensor.SensorType == SensorType.TimeSpan:
-                                        SBMI.BatteryData.RemainingTimeEstimated = Sensor.Value;
-                                        break;
-                                    default:
-                                        break;
+                                    switch (Sensor.Name)
+                                    {
+                                        case "Charge Level" when Sensor.SensorType == SensorType.Level:
+                                            SBMI.BatteryData.ChargeLevel = Sensor.Value;
+                                            break;
+                                        case "Discharge Level" when Sensor.SensorType == SensorType.Level:
+                                            SBMI.BatteryData.DischargeLevel = Sensor.Value;
+                                            break;
+                                        case "Voltage" when Sensor.SensorType == SensorType.Voltage:
+                                            SBMI.BatteryData.Voltage = Sensor.Value;
+                                            break;
+                                        case "Charge Current" when Sensor.SensorType == SensorType.Current:
+                                            SBMI.BatteryData.ChargeCurrent = Sensor.Value;
+                                            break;
+                                        case "Discharge Current" when Sensor.SensorType == SensorType.Current:
+                                            SBMI.BatteryData.DischargeCurrent = Sensor.Value;
+                                            break;
+                                        case "Charge / Discharge Current" when Sensor.SensorType == SensorType.Current:
+                                            SBMI.BatteryData.ChargeDischargeCurrent = Sensor.Value;
+                                            break;
+                                        case "Designed Capacity" when Sensor.SensorType == SensorType.Energy:
+                                            SBMI.BatteryData.DesignedCapacity = Sensor.Value;
+                                            break;
+                                        case "Full Charged Capacity" when Sensor.SensorType == SensorType.Energy:
+                                            SBMI.BatteryData.FullChargedCapacity = Sensor.Value;
+                                            break;
+                                        case "Remaining Capacity" when Sensor.SensorType == SensorType.Energy:
+                                            SBMI.BatteryData.RemainingCapacity = Sensor.Value;
+                                            break;
+                                        case "Charge Rate" when Sensor.SensorType == SensorType.Power:
+                                            SBMI.BatteryData.ChargeRate = Sensor.Value;
+                                            break;
+                                        case "Discharge Rate" when Sensor.SensorType == SensorType.Power:
+                                            SBMI.BatteryData.DischargeRate = Sensor.Value;
+                                            break;
+                                        case "Charge / Discharge Rate" when Sensor.SensorType == SensorType.Power:
+                                            SBMI.BatteryData.ChargeDischargeRate = Sensor.Value;
+                                            break;
+                                        case "Degradation Level" when Sensor.SensorType == SensorType.Level:
+                                            SBMI.BatteryData.DegradationLevel = Sensor.Value;
+                                            break;
+                                        case "Remaining Time (Estimated)" when Sensor.SensorType == SensorType.TimeSpan:
+                                            SBMI.BatteryData.RemainingTimeEstimated = Sensor.Value;
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                 }
+                            }
+                            else
+                            {
+                                SBMI.BatteryData.State = false;
                             }
                         }
                         else if (Hardware.HardwareType == HardwareType.Motherboard)

@@ -355,7 +355,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Battery.Title.Text = "Pil Gücü";
-            Battery.LeftIcon.Symbol = SymbolRegular.Battery624;
+            Battery.LeftIcon.Symbol = BatterySymbol(SMMM.BatteryUsage);
             Battery.Description.Text = "Dizüstü bilgisayar pil gücünde çalışırken duvar kağıdına ne olacağı.";
 
             ComboBox BatteryPerformance = new();
@@ -396,7 +396,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Minimum = 0
             };
 
-            BatteryUsage.ValueChanged += (s, e) => BatteryUsageChanged(BatteryUsage.Value);
+            BatteryUsage.ValueChanged += (s, e) => BatteryUsageChanged(Battery, BatteryUsage.Value);
 
             BatteryContent.Children.Add(BatteryUsageText);
             BatteryContent.Children.Add(BatteryUsage);
@@ -443,6 +443,54 @@ namespace Sucrose.Portal.ViewModels.Pages
             //Dispose();
         }
 
+        private SymbolRegular BatterySymbol(int Value)
+        {
+            if (Value <= 0)
+            {
+                return SymbolRegular.Battery024;
+            }
+            else if (Value <= 10)
+            {
+                return SymbolRegular.Battery124;
+            }
+            else if (Value <= 20)
+            {
+                return SymbolRegular.Battery224;
+            }
+            else if (Value <= 30)
+            {
+                return SymbolRegular.Battery324;
+            }
+            else if (Value <= 40)
+            {
+                return SymbolRegular.Battery424;
+            }
+            else if (Value <= 50)
+            {
+                return SymbolRegular.Battery524;
+            }
+            else if (Value <= 60)
+            {
+                return SymbolRegular.Battery624;
+            }
+            else if (Value <= 70)
+            {
+                return SymbolRegular.Battery724;
+            }
+            else if (Value <= 80)
+            {
+                return SymbolRegular.Battery824;
+            }
+            else if (Value <= 90)
+            {
+                return SymbolRegular.Battery924;
+            }
+            else
+            {
+                return SymbolRegular.Battery1024;
+            }
+        }
+
         private void CpuUsageChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
@@ -487,16 +535,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewValue != SMMM.MemoryUsage)
             {
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.MemoryUsage, NewValue);
-            }
-        }
-
-        private void BatteryUsageChanged(double? Value)
-        {
-            int NewValue = Convert.ToInt32(Value);
-
-            if (NewValue != SMMM.BatteryUsage)
-            {
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.BatteryUsage, NewValue);
             }
         }
 
@@ -585,6 +623,18 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SEST Type = (SEST)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.DownloadType, Type);
+            }
+        }
+
+        private void BatteryUsageChanged(SPVCEC Battery, double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.BatteryUsage)
+            {
+                Battery.LeftIcon.Symbol = BatterySymbol(NewValue);
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.BatteryUsage, NewValue);
             }
         }
 

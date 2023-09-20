@@ -166,8 +166,12 @@ namespace Sucrose.Backgroundog.Manage
             State = false,
             ChargeRate = 0f,
             ChargeLevel = 0f,
+            LifePercent = 0f,
+            FullLifetime = 0,
+            LifeRemaining = 0,
             ChargeCurrent = 0f,
             DischargeRate = 0f,
+            SavingMode = false,
             DischargeLevel = 0f,
             Name = string.Empty,
             DischargeCurrent = 0f,
@@ -177,7 +181,10 @@ namespace Sucrose.Backgroundog.Manage
             FullChargedCapacity = 0f,
             ChargeDischargeRate = 0f,
             ChargeDischargeCurrent = 0f,
-            RemainingTimeEstimated = 0f
+            RemainingTimeEstimated = 0f,
+            ACPowerStatus = string.Empty,
+            PowerLineStatus = PowerLineStatus.Unknown,
+            ChargeStatus = BatteryChargeStatus.Unknown
         };
 
         public static SBSDMDS MotherboardData = new()

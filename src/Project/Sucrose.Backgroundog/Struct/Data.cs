@@ -317,11 +317,35 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public bool SavingMode;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int FullLifetime;
+        /// <summary>
+        /// 
+        /// </summary>
         public float? ChargeRate;
         /// <summary>
         /// 
         /// </summary>
+        public int LifeRemaining;
+        /// <summary>
+        /// 
+        /// </summary>
+        public float LifePercent;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SaverStatus;
+        /// <summary>
+        /// 
+        /// </summary>
         public float? ChargeLevel;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ACPowerStatus;
         /// <summary>
         /// 
         /// </summary>
@@ -366,6 +390,14 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public float? RemainingTimeEstimated;
+        /// <summary>
+        /// 
+        /// </summary>
+        public PowerLineStatus PowerLineStatus;
+        /// <summary>
+        /// 
+        /// </summary>
+        public BatteryChargeStatus ChargeStatus;
     }
 
     /// <summary>
