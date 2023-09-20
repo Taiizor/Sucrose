@@ -18,11 +18,15 @@ namespace Sucrose.Backgroundog.Manage
     {
         public static bool Exit = true;
 
+        public static int AppTime = 250;
+
         public static bool Condition = false;
 
         public static bool Processing = true;
 
         public static SBHI Initialize = new();
+
+        public static int InitializeTime = 250;
 
         public static bool CpuManagement = true;
 
@@ -53,12 +57,14 @@ namespace Sucrose.Backgroundog.Manage
             Max = 0f,
             Core = 0,
             Thread = 0,
+            State = false,
             Name = string.Empty,
             Fullname = string.Empty
         };
 
         public static SBSDBSS BiosData = new()
         {
+            State = false,
             Name = string.Empty,
             Caption = string.Empty,
             Version = string.Empty,
@@ -77,6 +83,7 @@ namespace Sucrose.Backgroundog.Manage
             Month = 0,
             Minute = 0,
             Second = 0,
+            State = false,
             Millisecond = 0
         };
 
@@ -116,6 +123,7 @@ namespace Sucrose.Backgroundog.Manage
 
         public static SBSDMYS MemoryData = new()
         {
+            State = false,
             MemoryUsed = 0f,
             MemoryLoad = 0f,
             Name = string.Empty,
@@ -141,6 +149,7 @@ namespace Sucrose.Backgroundog.Manage
         public static SBSDNS NetworkData = new()
         {
             Upload = 0f,
+            State = false,
             Download = 0f,
             UploadData = new(),
             Name = string.Empty,
@@ -152,6 +161,7 @@ namespace Sucrose.Backgroundog.Manage
         public static SBSDBYS BatteryData = new()
         {
             Voltage = 0f,
+            State = false,
             ChargeRate = 0f,
             ChargeLevel = 0f,
             ChargeCurrent = 0f,
@@ -170,6 +180,7 @@ namespace Sucrose.Backgroundog.Manage
 
         public static SBSDMDS MotherboardData = new()
         {
+            State = false,
             Name = string.Empty,
             Product = string.Empty,
             Version = string.Empty,

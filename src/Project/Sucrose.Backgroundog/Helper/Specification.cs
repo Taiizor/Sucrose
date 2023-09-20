@@ -27,6 +27,7 @@ namespace Sucrose.Backgroundog.Helper
 
                         foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                         {
+                            SBMI.CpuData.State = true;
                             SBMI.CpuData.Core = Convert.ToInt32(Object["NumberOfCores"]);
                             SBMI.CpuData.Fullname = Object["Name"].ToString().TrimStart().TrimEnd();
                             SBMI.CpuData.Thread = Convert.ToInt32(Object["NumberOfLogicalProcessors"]);
@@ -45,6 +46,7 @@ namespace Sucrose.Backgroundog.Helper
 
                         foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                         {
+                            SBMI.BiosData.State = true;
                             SBMI.BiosData.Name = Object["Name"].ToString();
                             SBMI.BiosData.Caption = Object["Caption"].ToString();
                             SBMI.BiosData.Version = Object["Version"].ToString();
@@ -53,6 +55,7 @@ namespace Sucrose.Backgroundog.Helper
                             SBMI.BiosData.Manufacturer = Object["Manufacturer"].ToString();
                             SBMI.BiosData.SerialNumber = Object["SerialNumber"].ToString();
                             SBMI.BiosData.CurrentLanguage = Object["CurrentLanguage"].ToString();
+
                             break;
                         }
                     }
@@ -64,6 +67,7 @@ namespace Sucrose.Backgroundog.Helper
 
                     SBMI.DateData = new()
                     {
+                        State = true,
                         Day = Date.Day,
                         Hour = Date.Hour,
                         Year = Date.Year,
@@ -94,6 +98,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             if (SMMM.NetworkAdapter != SBMI.NetworkData.Name)
                             {
+                                SBMI.NetworkData.State = true;
                                 SBMI.NetworkData.Name = SMMM.NetworkAdapter;
 
                                 SBMI.UploadCounter = new("Network Interface", "Bytes Sent/sec", Name);
@@ -124,9 +129,11 @@ namespace Sucrose.Backgroundog.Helper
 
                         foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                         {
+                            SBMI.MotherboardData.State = true;
                             SBMI.MotherboardData.Product = Object["Product"].ToString();
                             SBMI.MotherboardData.Version = Object["Version"].ToString();
                             SBMI.MotherboardData.Manufacturer = Object["Manufacturer"].ToString();
+
                             break;
                         }
                     }
@@ -146,6 +153,7 @@ namespace Sucrose.Backgroundog.Helper
                             {
                                 if (Sensor.SensorType == SensorType.Load && Sensor.Name == "CPU Total")
                                 {
+                                    SBMI.CpuData.State = true;
                                     SBMI.CpuData.Min = Sensor.Min;
                                     SBMI.CpuData.Max = Sensor.Max;
                                     SBMI.CpuData.Now = Sensor.Value;
@@ -159,6 +167,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             Hardware.Update();
 
+                            SBMI.MemoryData.State = true;
                             SBMI.MemoryData.Name = Hardware.Name;
 
                             foreach (ISensor Sensor in Hardware.Sensors)
@@ -192,6 +201,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             Hardware.Update();
 
+                            SBMI.BatteryData.State = true;
                             SBMI.BatteryData.Name = Hardware.Name;
 
                             foreach (ISensor Sensor in Hardware.Sensors)
@@ -249,6 +259,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             Hardware.Update();
 
+                            SBMI.MotherboardData.State = true;
                             SBMI.MotherboardData.Name = Hardware.Name;
                         }
                     }

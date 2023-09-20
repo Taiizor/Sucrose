@@ -14,6 +14,7 @@ namespace Sucrose.Backgroundog.Extension
                 { "Max", SBMI.CpuData.Max },
                 { "Name", SBMI.CpuData.Name },
                 { "Core", SBMI.CpuData.Core },
+                { "State", SBMI.CpuData.State },
                 { "Thread", SBMI.CpuData.Thread },
                 { "Fullname", SBMI.CpuData.Fullname }
             };
@@ -24,6 +25,7 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Name", SBMI.BiosData.Name },
+                { "State", SBMI.BiosData.State },
                 { "Caption", SBMI.BiosData.Caption },
                 { "Version", SBMI.BiosData.Version },
                 { "Description", SBMI.BiosData.Description },
@@ -41,6 +43,7 @@ namespace Sucrose.Backgroundog.Extension
                 { "Day", SBMI.DateData.Day },
                 { "Hour", SBMI.DateData.Hour },
                 { "Year", SBMI.DateData.Year },
+                { "State", SBMI.DateData.State },
                 { "Month", SBMI.DateData.Month },
                 { "Minute", SBMI.DateData.Minute },
                 { "Second", SBMI.DateData.Second },
@@ -90,6 +93,7 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Name", SBMI.MemoryData.Name },
+                { "State", SBMI.MemoryData.State },
                 { "MemoryUsed", SBMI.MemoryData.MemoryUsed },
                 { "MemoryLoad", SBMI.MemoryData.MemoryLoad },
                 { "MemoryAvailable", SBMI.MemoryData.MemoryAvailable },
@@ -104,6 +108,7 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Name", SBMI.BatteryData.Name },
+                { "State", SBMI.BatteryData.State },
                 { "Voltage", SBMI.BatteryData.Voltage },
                 { "ChargeRate", SBMI.BatteryData.ChargeRate },
                 { "ChargeLevel", SBMI.BatteryData.ChargeLevel },
@@ -126,6 +131,7 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Name", SBMI.NetworkData.Name },
+                { "State", SBMI.NetworkData.State },
                 { "Upload", SBMI.NetworkData.Upload },
                 { "Download", SBMI.NetworkData.Download },
                 { "FormatUploadData", SBMI.NetworkData.FormatUploadData },
@@ -156,6 +162,7 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Name", SBMI.MotherboardData.Name },
+                { "State", SBMI.MotherboardData.State },
                 { "Product", SBMI.MotherboardData.Product },
                 { "Version", SBMI.MotherboardData.Version },
                 { "Manufacturer", SBMI.MotherboardData.Manufacturer }

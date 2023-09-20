@@ -6,16 +6,16 @@ namespace Sucrose.Backgroundog.Extension
 {
     internal class Thumbnail
     {
-        public static string Create(Stream stream)
+        public static string Create(Stream Stream)
         {
-            using MemoryStream Stream = new();
+            using MemoryStream MemoryStream = new();
 
-            Stream.Seek(0, SeekOrigin.Begin);
-            stream.CopyTo(Stream);
+            MemoryStream.Seek(0, SeekOrigin.Begin);
+            Stream.CopyTo(MemoryStream);
 
             if (!SBMM.Windows11_OrGreater)
             {
-                using Bitmap Image = new(Stream);
+                using Bitmap Image = new(MemoryStream);
 
                 if (PixelAlpha(Image, 0, 0))
                 {
@@ -23,7 +23,9 @@ namespace Sucrose.Backgroundog.Extension
                 }
             }
 
-            byte[] Array = Stream.ToArray();
+            byte[] Array = MemoryStream.ToArray();
+
+            MemoryStream.Flush();
 
             return Convert.ToBase64String(Array);
         }
@@ -37,16 +39,18 @@ namespace Sucrose.Backgroundog.Extension
         {
             Rectangle Rect = new(X, Y, Width, Height);
 
-            using Bitmap CroppedBitmap = new(Rect.Width, Rect.Height, Image.PixelFormat);
+            using Bitmap CroppedImage = new(Rect.Width, Rect.Height, Image.PixelFormat);
 
-            Graphics Graphic = Graphics.FromImage(CroppedBitmap);
+            Graphics Graphic = Graphics.FromImage(CroppedImage);
             Graphic.DrawImage(Image, 0, 0, Rect, GraphicsUnit.Pixel);
 
             using MemoryStream Stream = new();
 
-            CroppedBitmap.Save(Stream, ImageFormat.Png);
+            CroppedImage.Save(Stream, ImageFormat.Png);
 
             byte[] ByteImage = Stream.ToArray();
+
+            Stream.Flush();
 
             return Convert.ToBase64String(ByteImage);
         }

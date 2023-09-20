@@ -29,6 +29,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public bool State;
+        /// <summary>
+        /// 
+        /// </summary>
         public int? Thread;
         /// <summary>
         /// 
@@ -46,6 +50,10 @@ namespace Sucrose.Backgroundog.Struct.Data
     [StructLayout(LayoutKind.Sequential)]
     public struct BiosStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool State;
         /// <summary>
         /// 
         /// </summary>
@@ -110,6 +118,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public int Second;
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool State;
         /// <summary>
         /// 
         /// </summary>
@@ -253,6 +265,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public bool State;
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name;
         /// <summary>
         /// 
@@ -286,6 +302,10 @@ namespace Sucrose.Backgroundog.Struct.Data
     [StructLayout(LayoutKind.Sequential)]
     public struct BatteryStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool State;
         /// <summary>
         /// 
         /// </summary>
@@ -357,6 +377,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public bool State;
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name;
         /// <summary>
         /// 
@@ -390,6 +414,10 @@ namespace Sucrose.Backgroundog.Struct.Data
     [StructLayout(LayoutKind.Sequential)]
     public struct MotherboardStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool State;
         /// <summary>
         /// 
         /// </summary>

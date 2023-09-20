@@ -43,7 +43,7 @@ namespace Sucrose.Backgroundog
                     {
                         SBMI.Initialize.Dispose();
 
-                        await Task.Delay(1000);
+                        await Task.Delay(SBMI.AppTime);
                     } while (SBMI.Exit);
 
                     SBMI.Initialize.Stop();
