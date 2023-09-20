@@ -339,6 +339,97 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Network);
 
+            TextBlock LaptopArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Dizüstü"
+            };
+
+            Contents.Add(LaptopArea);
+
+            SPVCEC Battery = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Battery.Title.Text = "Pil Gücü";
+            Battery.LeftIcon.Symbol = SymbolRegular.Battery624;
+            Battery.Description.Text = "Dizüstü bilgisayar pil gücünde çalışırken duvar kağıdına ne olacağı.";
+
+            ComboBox BatteryPerformance = new();
+
+            BatteryPerformance.SelectionChanged += (s, e) => BatteryPerformanceSelected(BatteryPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                BatteryPerformance.Items.Add(Type);
+            }
+
+            BatteryPerformance.SelectedIndex = (int)SPMM.BatteryPerformance;
+
+            Battery.HeaderFrame = BatteryPerformance;
+
+            StackPanel BatteryContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock BatteryUsageText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "Pil Durumu (%):"
+            };
+
+            NumberBox BatteryUsage = new()
+            {
+                Margin = new Thickness(0, 0, 10, 0),
+                ClearButtonEnabled = false,
+                Value = SMMM.BatteryUsage,
+                MaxDecimalPlaces = 0,
+                Maximum = 100,
+                MaxLength = 3,
+                Minimum = 0
+            };
+
+            BatteryUsage.ValueChanged += (s, e) => BatteryUsageChanged(BatteryUsage.Value);
+
+            BatteryContent.Children.Add(BatteryUsageText);
+            BatteryContent.Children.Add(BatteryUsage);
+
+            Battery.FooterCard = BatteryContent;
+
+            Contents.Add(Battery);
+
+            SPVCEC Saver = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Saver.Title.Text = "Pil Tasarrufu";
+            Saver.LeftIcon.Symbol = SymbolRegular.BatterySaver24;
+            Saver.Description.Text = "Dizüstü bilgisayar pil tasarrufu modundayken duvar kağıdına ne olacağı.";
+
+            ComboBox SaverPerformance = new();
+
+            SaverPerformance.SelectionChanged += (s, e) => SaverPerformanceSelected(SaverPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                SaverPerformance.Items.Add(Type);
+            }
+
+            SaverPerformance.SelectedIndex = (int)SPMM.SaverPerformance;
+
+            Saver.HeaderFrame = SaverPerformance;
+
+            Contents.Add(Saver);
+
             _isInitialized = true;
         }
 
@@ -399,6 +490,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void BatteryUsageChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.BatteryUsage)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.BatteryUsage, NewValue);
+            }
+        }
+
         private void NetworkUploadChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
@@ -406,6 +507,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewValue != SMMM.UploadValue)
             {
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.UploadValue, NewValue);
+            }
+        }
+
+        private void SaverPerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.SaverPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.SaverPerformance, Type);
             }
         }
 
@@ -444,6 +555,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSDEPT Type = (SSDEPT)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.NetworkPerformance, Type);
+            }
+        }
+
+        private void BatteryPerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.BatteryPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.BatteryPerformance, Type);
             }
         }
 

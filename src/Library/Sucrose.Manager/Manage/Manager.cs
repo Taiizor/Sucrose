@@ -59,6 +59,8 @@ namespace Sucrose.Manager.Manage
 
         public static int DownloadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 10);
 
+        public static int BatteryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.BatteryUsage, 75);
+
         public static int UploadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800);
 
         public static int MemoryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.MemoryUsage, 75);

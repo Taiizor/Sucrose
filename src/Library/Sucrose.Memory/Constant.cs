@@ -72,6 +72,8 @@
 
         public const string UploadValue = "UploadValue";
 
+        public const string BatteryUsage = "BatteryUsage";
+
         public const string BackdropType = "BackdropType";
 
         public const string CefArguments = "CefArguments";
@@ -122,6 +124,8 @@
 
         public const string ExpandScreenType = "ExpandScreenType";
 
+        public const string SaverPerformance = "SaverPerformance";
+
         public const string BackgroundOpacity = "BackgroundOpacity";
 
         public const string BackgroundStretch = "BackgroundStretch";
@@ -137,6 +141,8 @@
         public const string PerformanceCounter = "PerformanceCounter";
 
         public const string NetworkPerformance = "NetworkPerformance";
+
+        public const string BatteryPerformance = "BatteryPerformance";
 
         public const string DuplicateScreenType = "DuplicateScreenType";
     }
