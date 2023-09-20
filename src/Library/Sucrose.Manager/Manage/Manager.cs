@@ -1,4 +1,5 @@
-﻿using SHC = Skylark.Helper.Culture;
+﻿using SEST = Skylark.Enum.StorageType;
+using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -19,6 +20,8 @@ namespace Sucrose.Manager.Manage
         public static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, 100);
 
         public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 36), 1, 100);
+
+        public static string[] NetworkInterfaces => SMMI.SystemSettingManager.GetSetting(SMC.NetworkInterfaces, Array.Empty<string>());
 
         public static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
@@ -47,6 +50,10 @@ namespace Sucrose.Manager.Manage
         public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
+
+        public static SEST DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SEST.Kilobyte);
+
+        public static SEST UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SEST.Kilobyte);
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 

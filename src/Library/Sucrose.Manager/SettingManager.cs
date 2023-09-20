@@ -258,6 +258,17 @@ namespace Sucrose.Manager
 
                 return (T)(object)new KeyValuePair<string, string>(parts[0].Trim(), parts[1].Trim());
             }
+            else if (type == typeof(string[]))
+            {
+                if (value is string[] array)
+                {
+                    return (T)(object)array;
+                }
+                else if (value is JArray jArray)
+                {
+                    return (T)(object)jArray.Select(jValue => (string)jValue).ToArray();
+                }
+            }
             else if (type == typeof(List<string>))
             {
                 if (value is List<string> list)

@@ -50,6 +50,8 @@
 
         public const string ScreenType = "ScreenType";
 
+        public const string UploadType = "UploadType";
+
         public const string LibraryMove = "LibraryMove";
 
         public const string ScreenIndex = "ScreenIndex";
@@ -75,6 +77,8 @@
         public const string DiscordDelay = "DiscordDelay";
 
         public const string DiscordState = "DiscordState";
+
+        public const string DownloadType = "DownloadType";
 
         public const string DownloadValue = "DownloadValue";
 
@@ -120,7 +124,11 @@
 
         public const string DescriptionLength = "DescriptionLength";
 
+        public const string NetworkInterfaces = "NetworkInterfaces";
+
         public const string PerformanceCounter = "PerformanceCounter";
+
+        public const string NetworkPerformance = "NetworkPerformance";
 
         public const string DuplicateScreenType = "DuplicateScreenType";
     }

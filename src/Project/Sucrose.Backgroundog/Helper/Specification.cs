@@ -1,4 +1,5 @@
-﻿using LibreHardwareMonitor.Hardware;
+﻿using Google.Protobuf.WellKnownTypes;
+using LibreHardwareMonitor.Hardware;
 using Skylark.Enum;
 using Skylark.Helper;
 using Skylark.Standard.Extension.Storage;
@@ -8,6 +9,8 @@ using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMC = Sucrose.Memory.Constant;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -92,30 +95,42 @@ namespace Sucrose.Backgroundog.Helper
 
                 _ = Task.Run(() =>
                 {
-                    foreach (string Name in SSSHN.InstanceNetworkInterfaces())
+                    string[] Interfaces = SSSHN.InstanceNetworkInterfaces();
+
+                    SMMI.SystemSettingManager.SetSetting(SMC.NetworkInterfaces, Interfaces);
+
+                    if (Interfaces.Contains(SMMM.NetworkAdapter))
                     {
-                        if (SMMM.NetworkAdapter == Name)
+                        foreach (string Name in Interfaces)
                         {
-                            if (SMMM.NetworkAdapter != SBMI.NetworkData.Name)
+                            if (SMMM.NetworkAdapter == Name)
                             {
-                                SBMI.NetworkData.State = true;
-                                SBMI.NetworkData.Name = SMMM.NetworkAdapter;
+                                if (SMMM.NetworkAdapter != SBMI.NetworkData.Name)
+                                {
+                                    SBMI.NetworkData.State = true;
+                                    SBMI.NetworkData.Name = SMMM.NetworkAdapter;
 
-                                SBMI.UploadCounter = new("Network Interface", "Bytes Sent/sec", Name);
-                                SBMI.DownloadCounter = new("Network Interface", "Bytes Received/sec", Name);
+                                    SBMI.UploadCounter = new("Network Interface", "Bytes Sent/sec", Name);
+                                    SBMI.DownloadCounter = new("Network Interface", "Bytes Received/sec", Name);
+                                }
+
+                                SBMI.NetworkData.Upload = SBMI.UploadCounter.NextValue();
+                                SBMI.NetworkData.Download = SBMI.DownloadCounter.NextValue();
+
+                                SBMI.NetworkData.UploadData = StorageExtension.AutoConvert(SBMI.NetworkData.Upload, StorageType.Byte, ModeStorageType.Palila);
+                                SBMI.NetworkData.DownloadData = StorageExtension.AutoConvert(SBMI.NetworkData.Download, StorageType.Byte, ModeStorageType.Palila);
+
+                                SBMI.NetworkData.FormatUploadData = Numeric.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.UploadData.Text;
+                                SBMI.NetworkData.FormatDownloadData = Numeric.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.DownloadData.Text;
+
+                                break;
                             }
-
-                            SBMI.NetworkData.Upload = SBMI.UploadCounter.NextValue();
-                            SBMI.NetworkData.Download = SBMI.DownloadCounter.NextValue();
-
-                            SBMI.NetworkData.UploadData = StorageExtension.AutoConvert(SBMI.NetworkData.Upload, StorageType.Byte, ModeStorageType.Palila);
-                            SBMI.NetworkData.DownloadData = StorageExtension.AutoConvert(SBMI.NetworkData.Download, StorageType.Byte, ModeStorageType.Palila);
-
-                            SBMI.NetworkData.FormatUploadData = Numeric.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.UploadData.Text;
-                            SBMI.NetworkData.FormatDownloadData = Numeric.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.DownloadData.Text;
-
-                            break;
                         }
+                    }
+                    else
+                    {
+                        SBMI.NetworkData.State = false;
+                        SBMI.NetworkData.Name = SMMM.NetworkAdapter;
                     }
                 });
 

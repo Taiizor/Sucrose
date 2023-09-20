@@ -7,6 +7,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
+using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal.Manage
@@ -16,6 +17,8 @@ namespace Sucrose.Portal.Manage
         public static Stretch BackgroundStretch => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundStretch, DefaultBackgroundStretch);
 
         public static WindowBackdropType BackdropType => SMMI.PortalSettingManager.GetSetting(SMC.BackdropType, DefaultBackdropType);
+
+        public static SSDEPT NetworkPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.NetworkPerformance, SSDEPT.Resume);
 
         public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
 
