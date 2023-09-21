@@ -50,8 +50,9 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             SPVCEC Counter = new()
             {
-                Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                Expandable = !SMMM.PerformanceCounter,
+                IsExpand = !SMMM.PerformanceCounter,
+                Margin = new Thickness(0, 10, 0, 0)
             };
 
             Counter.Title.Text = "Performans Sayaçları";
@@ -63,8 +64,21 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsChecked = SMMM.PerformanceCounter
             };
 
-            CounterState.Checked += (s, e) => CounterStateChecked(true);
-            CounterState.Unchecked += (s, e) => CounterStateChecked(false);
+            CounterState.Checked += (s, e) => CounterStateChecked(Counter, true);
+            CounterState.Unchecked += (s, e) => CounterStateChecked(Counter, false);
+
+            TextBlock CounterHint = new()
+            {
+                Text = "Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.",
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                Margin = new Thickness(0, 0, 0, 0),
+                TextAlignment = TextAlignment.Left,
+                FontWeight = FontWeights.SemiBold
+            };
+
+            Counter.FooterCard = CounterHint;
 
             Counter.HeaderFrame = CounterState;
 
@@ -334,7 +348,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold,
-                Text = "Ping Değeri:"
+                Text = "Ping Değeri (MS):"
             };
 
             NumberBox NetworkPing = new()
@@ -547,23 +561,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
-        private void CounterStateChecked(bool State)
-        {
-            SMMI.BackgroundogSettingManager.SetSetting(SMC.PerformanceCounter, State);
-
-            if (State)
-            {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
-            }
-            else
-            {
-                if (SSSHP.Work(SMR.Backgroundog))
-                {
-                    SSSHP.Kill(SMR.Backgroundog);
-                }
-            }
-        }
-
         private void CpuPerformanceSelected(int Index)
         {
             if (Index != (int)SPMM.CpuPerformance)
@@ -687,6 +684,25 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SEST Type = (SEST)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.DownloadType, Type);
+            }
+        }
+
+        private void CounterStateChecked(SPVCEC Battery, bool State)
+        {
+            Battery.IsExpand = !State;
+            Battery.Expandable = !State;
+            SMMI.BackgroundogSettingManager.SetSetting(SMC.PerformanceCounter, State);
+
+            if (State)
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
+            }
+            else
+            {
+                if (SSSHP.Work(SMR.Backgroundog))
+                {
+                    SSSHP.Kill(SMR.Backgroundog);
+                }
             }
         }
 

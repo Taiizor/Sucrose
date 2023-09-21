@@ -29,8 +29,8 @@
                     VerticalAlignment="Stretch" HorizontalAlignment="Center" />
 
                 <StackPanel x:Name="Body" Grid.Column="1" VerticalAlignment="Center" Margin="10">
-                    <TextBlock x:Name="Title" Text="{DynamicResource Portal.ExpanderCard.TitleText}" FontSize="16" FontWeight="Regular" Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
-                    <TextBlock x:Name="Description" Text="{DynamicResource Portal.ExpanderCard.DescriptionText}" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}"/>
+                    <TextBlock x:Name="Title" Text="{DynamicResource Portal.ExpanderCard.TitleText}" FontSize="16" FontWeight="Regular" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                    <TextBlock x:Name="Description" Text="{DynamicResource Portal.ExpanderCard.DescriptionText}" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" TextAlignment="Left" />
                 </StackPanel>
 
                 <Frame x:Name="Header" Grid.Column="2" VerticalAlignment="Center" Margin="10" />
