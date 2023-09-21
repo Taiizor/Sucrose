@@ -6,4 +6,14 @@
         Pause,
         Resume
     }
+
+    internal enum CategoryPerformanceType
+    {
+        Not,
+        Cpu,
+        Saver,
+        Memory,
+        Network,
+        Battery
+    }
 }

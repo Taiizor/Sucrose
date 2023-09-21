@@ -1,4 +1,5 @@
-﻿using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
+﻿using System.Diagnostics;
+using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
@@ -37,6 +38,29 @@ namespace Sucrose.Shared.Space.Helper
             }
 
             return false;
+        }
+
+        public static Process Get()
+        {
+            foreach (KeyValuePair<SSDEET, string> Pair in SSSMI.EngineLive)
+            {
+                if (SSSHP.Work(Pair.Value))
+                {
+                    return SSSHP.Get(Pair.Value);
+                }
+            }
+
+            return null;
+        }
+
+        public static Process Get(SSDEET Live)
+        {
+            if (SSSHP.Work(SSSMI.EngineLive[Live]))
+            {
+                return SSSHP.Get(SSSMI.EngineLive[Live]);
+            }
+
+            return null;
         }
 
         public static void Kill()

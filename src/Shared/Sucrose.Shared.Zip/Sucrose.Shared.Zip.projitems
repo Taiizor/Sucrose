@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Extension\Zip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Archive.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Zip.cs" />
   </ItemGroup>
 </Project>

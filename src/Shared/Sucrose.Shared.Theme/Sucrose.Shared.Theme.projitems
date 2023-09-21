@@ -16,6 +16,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Serialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Various.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Filter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\Zip.cs" />
   </ItemGroup>
 </Project>

@@ -10,9 +10,9 @@ using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSZHZ = Sucrose.Shared.Zip.Helper.Zip;
 
-namespace Sucrose.Shared.Theme.Helper
+namespace Sucrose.Shared.Zip.Helper
 {
-    internal static class Zip
+    internal static class Archive
     {
         public static SSDECT Check(string Archive)
         {

@@ -10,6 +10,8 @@ using SBSDDS = Sucrose.Backgroundog.Struct.Data.DateStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
+using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
+using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using Timer = System.Threading.Timer;
 
 namespace Sucrose.Backgroundog.Manage
@@ -19,6 +21,10 @@ namespace Sucrose.Backgroundog.Manage
         public static bool Exit = true;
 
         public static int AppTime = 250;
+
+        public static Process App = null;
+
+        public static Process Live = null;
 
         public static bool Condition = false;
 
@@ -40,9 +46,13 @@ namespace Sucrose.Backgroundog.Manage
 
         public static readonly object LockObject = new();
 
+        public static SSDEPT Performance = SSDEPT.Resume;
+
         public static NowPlayingSession PlayingSession = null;
 
         public static PerformanceCounter UploadCounter = null;
+
+        public static SSDECPT CategoryPerformance = SSDECPT.Not;
 
         public static MediaPlaybackDataSource DataSource = null;
 
