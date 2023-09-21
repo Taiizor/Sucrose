@@ -9,6 +9,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SHS = Skylark.Helper.Skymath;
 
 namespace Sucrose.Shared.Engine.Manage
 {
@@ -20,6 +21,8 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static IPAddress Host => SMMI.BackgroundogSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
 
+        public static int Port => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.Port, 0), 0, 65535);
+
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 
         public static SSDEDT DisplayType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);
@@ -27,8 +30,6 @@ namespace Sucrose.Shared.Engine.Manage
         public static SSDEST StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
 
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        public static int Port => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.Port, 0);
 
         public static SSDEST DefaultStretchType => SSDEST.None;
 

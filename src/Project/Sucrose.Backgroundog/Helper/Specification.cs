@@ -1,6 +1,7 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using Skylark.Enum;
 using Skylark.Helper;
+using Skylark.Standard.Extension.Ping;
 using Skylark.Standard.Extension.Storage;
 using System.Management;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
@@ -9,6 +10,7 @@ using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SSDSHHS = Sucrose.Shared.Dependency.Struct.Host.HostStruct;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SWUP = Skylark.Wing.Utility.Power;
 using SystemInformation = System.Windows.Forms.SystemInformation;
@@ -105,6 +107,29 @@ namespace Sucrose.Backgroundog.Helper
                     SBMI.BatteryData.FullLifetime = SystemInformation.PowerStatus.BatteryFullLifetime;
                     SBMI.BatteryData.ChargeStatus = SystemInformation.PowerStatus.BatteryChargeStatus;
                     SBMI.BatteryData.LifeRemaining = SystemInformation.PowerStatus.BatteryLifeRemaining;
+                });
+
+                _ = Task.Run(() =>
+                {
+                    if (SSSHN.GetHostEntry())
+                    {
+                        List<SSDSHHS> Hosts = SSSHN.GetHost();
+
+                        foreach (SSDSHHS Host in Hosts)
+                        {
+                            if (SMMM.PingType == Host.Name)
+                            {
+                                SBMI.NetworkData.PingData = PingExtension.Send(Host.Address, 1000);
+                                SBMI.NetworkData.Ping = SBMI.NetworkData.PingData.RoundTrip;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        SBMI.NetworkData.Ping = 0;
+                        SBMI.NetworkData.PingData = new();
+                    }
                 });
 
                 _ = Task.Run(() =>

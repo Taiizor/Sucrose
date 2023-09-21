@@ -44,6 +44,10 @@
 
         public const string CpuUsage = "CpuUsage";
 
+        public const string PingType = "PingType";
+
+        public const string PingValue = "PingValue";
+
         public const string UserAgent = "UserAgent";
 
         public const string ThemeType = "ThemeType";

@@ -139,11 +139,23 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Name", SBMI.NetworkData.Name },
+                { "Ping", SBMI.NetworkData.Ping },
                 { "State", SBMI.NetworkData.State },
                 { "Upload", SBMI.NetworkData.Upload },
                 { "Download", SBMI.NetworkData.Download },
                 { "FormatUploadData", SBMI.NetworkData.FormatUploadData },
                 { "FormatDownloadData", SBMI.NetworkData.FormatDownloadData },
+                {
+                    "PingData", new JObject
+                    {
+                        { "Ttl", SBMI.NetworkData.PingData.Ttl },
+                        { "Buffer", SBMI.NetworkData.PingData.Buffer },
+                        { "Address", SBMI.NetworkData.PingData.Address },
+                        { "Fragment", SBMI.NetworkData.PingData.Fragment },
+                        { "Result", $"{SBMI.NetworkData.PingData.Result}" },
+                        { "RoundTrip", SBMI.NetworkData.PingData.RoundTrip }
+                    }
+                },
                 {
                     "UploadData", new JObject
                     {
@@ -161,7 +173,7 @@ namespace Sucrose.Backgroundog.Extension
                         { "Type", $"{SBMI.NetworkData.DownloadData.Type}" },
                         { "Short", $"{SBMI.NetworkData.DownloadData.Short}" }
                     }
-                },
+                }
             };
         }
 

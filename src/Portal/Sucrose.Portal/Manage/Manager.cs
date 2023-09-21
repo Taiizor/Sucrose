@@ -3,6 +3,7 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEST = Skylark.Enum.ScreenType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -32,11 +33,11 @@ namespace Sucrose.Portal.Manage
 
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 
+        public static int Port => SHS.Clamp(SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0), 0, 65535);
+
         public static SSDEST StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
 
         public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        public static int Port => SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0);
 
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
 

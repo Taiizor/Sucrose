@@ -12,7 +12,9 @@ using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
+using SSDSHHS = Sucrose.Shared.Dependency.Struct.Host.HostStruct;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -320,6 +322,45 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NetworkDownloadType.SelectedIndex = (int)SMMM.DownloadType;
 
+            StackPanel NetworkPingContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock NetworkPingText = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold,
+                Text = "Ping Değeri:"
+            };
+
+            NumberBox NetworkPing = new()
+            {
+                Margin = new Thickness(0, 0, 10, 0),
+                ClearButtonEnabled = false,
+                Value = SMMM.PingValue,
+                MaxDecimalPlaces = 0,
+                Maximum = 10000,
+                MaxLength = 5,
+                Minimum = 0
+            };
+
+            NetworkPing.ValueChanged += (s, e) => NetworkPingChanged(NetworkPing.Value);
+
+            ComboBox NetworkPingType = new();
+
+            NetworkPingType.SelectionChanged += (s, e) => NetworkPingTypeSelected($"{NetworkPingType.SelectedValue}");
+
+            foreach (SSDSHHS Host in SSSHN.GetHost())
+            {
+                NetworkPingType.Items.Add(Host.Name);
+            }
+
+            NetworkPingType.SelectedValue = SMMM.PingType;
+
             NetworkAdapterContent.Children.Add(NetworkAdapterText);
             NetworkAdapterContent.Children.Add(NetworkAdapter);
 
@@ -331,9 +372,14 @@ namespace Sucrose.Portal.ViewModels.Pages
             NetworkDownloadContent.Children.Add(NetworkDownload);
             NetworkDownloadContent.Children.Add(NetworkDownloadType);
 
+            NetworkPingContent.Children.Add(NetworkPingText);
+            NetworkPingContent.Children.Add(NetworkPing);
+            NetworkPingContent.Children.Add(NetworkPingType);
+
             NetworkContent.Children.Add(NetworkAdapterContent);
             NetworkContent.Children.Add(NetworkUploadContent);
             NetworkContent.Children.Add(NetworkDownloadContent);
+            NetworkContent.Children.Add(NetworkPingContent);
 
             Network.FooterCard = NetworkContent;
 
@@ -538,6 +584,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void NetworkPingChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.PingValue)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.PingValue, NewValue);
+            }
+        }
+
         private void NetworkUploadChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
@@ -583,6 +639,14 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSDEPT Type = (SSDEPT)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.MemoryPerformance, Type);
+            }
+        }
+
+        private void NetworkPingTypeSelected(string Value)
+        {
+            if (Value != SMMM.PingType)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.PingType, Value);
             }
         }
 

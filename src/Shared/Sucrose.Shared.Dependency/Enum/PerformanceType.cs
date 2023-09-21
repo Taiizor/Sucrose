@@ -10,6 +10,7 @@
     internal enum NetworkPerformanceType
     {
         Not,
+        Ping,
         Upload,
         Download
     }

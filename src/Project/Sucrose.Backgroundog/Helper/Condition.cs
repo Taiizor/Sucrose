@@ -1,10 +1,12 @@
-﻿using SBEL = Sucrose.Backgroundog.Extension.Lifecycle;
+﻿using Skylark.Enum;
+using Skylark.Standard.Extension.Storage;
+using SBEL = Sucrose.Backgroundog.Extension.Lifecycle;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
-using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
+using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -21,6 +23,7 @@ namespace Sucrose.Backgroundog.Helper
             {
                 SBMI.Condition = false;
                 SBMI.Performance = SSDEPT.Resume;
+                SBMI.NetworkPerformance = SSDENPT.Not;
                 SBMI.CategoryPerformance = SSDECPT.Not;
             }
             else
@@ -36,6 +39,11 @@ namespace Sucrose.Backgroundog.Helper
                 }
 
                 if (await MemoryCondition())
+                {
+                    return;
+                }
+
+                if (await NetworkCondition())
                 {
                     return;
                 }
@@ -83,7 +91,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SBMI.CpuData.Now < SMMM.CpuUsage || SBMM.CpuPerformance == SSDEPT.Resume)
+                while (SMMM.CpuUsage <= 0 || SBMI.CpuData.Now < SMMM.CpuUsage || SBMM.CpuPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -143,7 +151,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SBMI.MemoryData.MemoryLoad < SMMM.MemoryUsage || SBMM.MemoryPerformance == SSDEPT.Resume)
+                while (SMMM.MemoryUsage <= 0 || SBMI.MemoryData.MemoryLoad < SMMM.MemoryUsage || SBMM.MemoryPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {
@@ -166,6 +174,85 @@ namespace Sucrose.Backgroundog.Helper
             return false;
         }
 
+        private static async Task<bool> NetworkCondition()
+        {
+            if (SBMI.CategoryPerformance == SSDECPT.Network)
+            {
+                int Count = 0;
+                int MaxCount = 3;
+
+
+                if (SBMI.NetworkPerformance == SSDENPT.Ping)
+                {
+                    while (SMMM.PingValue <= 0 || SBMI.NetworkData.Ping < SMMM.PingValue || SBMM.NetworkPerformance == SSDEPT.Resume)
+                    {
+                        if (Count >= MaxCount)
+                        {
+                            Lifecycle();
+                            SBMI.Condition = false;
+                            SBMI.Performance = SSDEPT.Resume;
+                            SBMI.NetworkPerformance = SSDENPT.Not;
+                            SBMI.CategoryPerformance = SSDECPT.Not;
+
+                            return true;
+                        }
+                        else
+                        {
+                            Count++;
+                        }
+
+                        await Task.Delay(TimeSpan.FromSeconds(1));
+                    }
+                }
+                else if (SBMI.NetworkPerformance == SSDENPT.Upload)
+                {
+                    while (SMMM.UploadValue <= 0 || SBMI.NetworkData.Upload < StorageExtension.Convert(SMMM.UploadValue, SMMM.UploadType, StorageType.Byte, ModeStorageType.Palila) || SBMM.NetworkPerformance == SSDEPT.Resume)
+                    {
+                        if (Count >= MaxCount)
+                        {
+                            Lifecycle();
+                            SBMI.Condition = false;
+                            SBMI.Performance = SSDEPT.Resume;
+                            SBMI.NetworkPerformance = SSDENPT.Not;
+                            SBMI.CategoryPerformance = SSDECPT.Not;
+
+                            return true;
+                        }
+                        else
+                        {
+                            Count++;
+                        }
+
+                        await Task.Delay(TimeSpan.FromSeconds(1));
+                    }
+                }
+                else if (SBMI.NetworkPerformance == SSDENPT.Download)
+                {
+                    while (SMMM.DownloadValue <= 0 || SBMI.NetworkData.Download < StorageExtension.Convert(SMMM.DownloadValue, SMMM.DownloadType, StorageType.Byte, ModeStorageType.Palila) || SBMM.NetworkPerformance == SSDEPT.Resume)
+                    {
+                        if (Count >= MaxCount)
+                        {
+                            Lifecycle();
+                            SBMI.Condition = false;
+                            SBMI.Performance = SSDEPT.Resume;
+                            SBMI.NetworkPerformance = SSDENPT.Not;
+                            SBMI.CategoryPerformance = SSDECPT.Not;
+
+                            return true;
+                        }
+                        else
+                        {
+                            Count++;
+                        }
+
+                        await Task.Delay(TimeSpan.FromSeconds(1));
+                    }
+                }
+            }
+
+            return false;
+        }
+
         private static async Task<bool> BatteryCondition()
         {
             if (SBMI.CategoryPerformance == SSDECPT.Battery)
@@ -173,7 +260,7 @@ namespace Sucrose.Backgroundog.Helper
                 int Count = 0;
                 int MaxCount = 3;
 
-                while (SBMI.BatteryData.ChargeLevel > SMMM.BatteryUsage || SBMM.BatteryPerformance == SSDEPT.Resume)
+                while (SMMM.BatteryUsage <= 0 || SBMI.BatteryData.PowerLineStatus == PowerLineStatus.Online || SBMI.BatteryData.ACPowerStatus == "Online" || SBMI.BatteryData.ChargeLevel > SMMM.BatteryUsage || SBMM.BatteryPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {

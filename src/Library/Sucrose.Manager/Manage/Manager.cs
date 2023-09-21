@@ -15,11 +15,15 @@ namespace Sucrose.Manager.Manage
 
         public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
+        public static int DownloadValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 10), 0, 99999999);
+
         public static int BackgroundOpacity => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.BackgroundOpacity, 100), 0, 100);
 
         public static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 30), 10, 100);
 
         public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 36), 1, 100);
+
+        public static int UploadValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800), 0, 99999999);
 
         public static string[] NetworkInterfaces => SMMI.SystemSettingManager.GetSetting(SMC.NetworkInterfaces, Array.Empty<string>());
 
@@ -27,7 +31,13 @@ namespace Sucrose.Manager.Manage
 
         public static int StorePagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.StorePagination, 30), 1, 100);
 
+        public static int BatteryUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.BatteryUsage, 50), 0, 100);
+
+        public static int MemoryUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.MemoryUsage, 80), 0, 100);
+
         public static int AdaptiveLayout => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0), 0, 100);
+
+        public static int PingValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.PingValue, 100), 0, 10000);
 
         public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateManager.GetSettingStable(SMC.AdvertisingDelay, 30), 30, 720);
 
@@ -41,9 +51,13 @@ namespace Sucrose.Manager.Manage
 
         public static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 25), 10, 100);
 
+        public static int CpuUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.CpuUsage, 70), 0, 100);
+
         public static string GraphicAdapter => SMMI.BackgroundogSettingManager.GetSetting(SMC.GraphicAdapter, string.Empty);
 
         public static string NetworkAdapter => SMMI.BackgroundogSettingManager.GetSetting(SMC.NetworkAdapter, string.Empty);
+
+        public static int ScreenIndex => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0), 0, 100);
 
         public static bool PerformanceCounter => SMMI.BackgroundogSettingManager.GetSetting(SMC.PerformanceCounter, true);
 
@@ -53,17 +67,11 @@ namespace Sucrose.Manager.Manage
 
         public static SEST DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SEST.Megabyte);
 
+        public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0), 0, 10);
+
         public static SEST UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SEST.Kilobyte);
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
-
-        public static int DownloadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 10);
-
-        public static int BatteryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.BatteryUsage, 50);
-
-        public static int UploadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800);
-
-        public static int MemoryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.MemoryUsage, 80);
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
@@ -75,21 +83,17 @@ namespace Sucrose.Manager.Manage
 
         public static List<string> Themes => SMMI.ThemesManager.GetSetting(SMC.Themes, new List<string>());
 
+        public static string PingType => SMMI.BackgroundogSettingManager.GetSetting(SMC.PingType, "Bing");
+
         public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
 
         public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
-
-        public static int CpuUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.CpuUsage, 70);
-
-        public static int ScreenIndex => SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0);
 
         public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
 
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
 
         public static bool DonateVisible => SMMI.DonateManager.GetSetting(SMC.DonateVisible, true);
-
-        public static int Startup => SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0);
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
 

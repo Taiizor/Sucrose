@@ -10,8 +10,8 @@ using SBSDDS = Sucrose.Backgroundog.Struct.Data.DateStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
-using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
+using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using Timer = System.Threading.Timer;
 
@@ -163,9 +163,11 @@ namespace Sucrose.Backgroundog.Manage
 
         public static SBSDNS NetworkData = new()
         {
+            Ping = 0,
             Upload = 0f,
             State = false,
             Download = 0f,
+            PingData = new(),
             UploadData = new(),
             Name = string.Empty,
             DownloadData = new(),

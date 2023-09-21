@@ -1,5 +1,6 @@
 ﻿using NPSMLib;
 using System.Runtime.InteropServices;
+using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 using SSSSS = Skylark.Struct.Storage.StorageStruct;
 
 namespace Sucrose.Backgroundog.Struct.Data
@@ -409,6 +410,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public long Ping;
+        /// <summary>
+        /// 
+        /// </summary>
         public bool State;
         /// <summary>
         /// 
@@ -422,6 +427,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public float Download;
+        /// <summary>
+        /// 
+        /// </summary>
+        public SSPPSS PingData;
         /// <summary>
         /// 
         /// </summary>
