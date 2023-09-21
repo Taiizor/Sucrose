@@ -16,7 +16,23 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static SSTHC Compatible = new();
 
+        public static string CpuData = string.Empty;
+
+        public static string BiosData = string.Empty;
+
+        public static string DateData = string.Empty;
+
+        public static string AudioData = string.Empty;
+
+        public static string MemoryData = string.Empty;
+
+        public static string NetworkData = string.Empty;
+
+        public static string BatteryData = string.Empty;
+
         public delegate void ExecuteNormal(string Script);
+
+        public static string MotherboardData = string.Empty;
 
         public delegate Task<string> ExecuteTask(string script);
 

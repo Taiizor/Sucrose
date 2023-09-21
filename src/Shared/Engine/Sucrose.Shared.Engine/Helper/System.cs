@@ -10,18 +10,65 @@ namespace Sucrose.Shared.Engine.Helper
 {
     internal static class System
     {
-        public static string GetSystemCpu()
+        public static async void GetSystem()
         {
             if (SSSHP.Work(SMR.Backgroundog))
             {
                 try
                 {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
+                    if (SSEMI.Client == null)
+                    {
+                        SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
+                        SSEMI.Client = new(SGSGSS.ChannelInstance);
+                    }
 
-                    BackgroundogCpuResponse Response = SGCSBCS.GetCpu(SSEMI.Client);
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogCpuResponse Response = SGCSBCS.GetCpu(SSEMI.Client);
+                        SSEMI.CpuData = Response.Info;
+                    });
 
-                    return Response.Info;
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogBiosResponse Response = SGCSBCS.GetBios(SSEMI.Client);
+                        SSEMI.BiosData = Response.Info;
+                    });
+
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogDateResponse Response = SGCSBCS.GetDate(SSEMI.Client);
+                        SSEMI.DateData = Response.Info;
+                    });
+
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogAudioResponse Response = SGCSBCS.GetAudio(SSEMI.Client);
+                        SSEMI.AudioData = Response.Info;
+                    });
+
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogMemoryResponse Response = SGCSBCS.GetMemory(SSEMI.Client);
+                        SSEMI.MemoryData = Response.Info;
+                    });
+
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogBatteryResponse Response = SGCSBCS.GetBattery(SSEMI.Client);
+                        SSEMI.BatteryData = Response.Info;
+                    });
+
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogNetworkResponse Response = SGCSBCS.GetNetwork(SSEMI.Client);
+                        SSEMI.NetworkData = Response.Info;
+                    });
+
+                    _ = Task.Run(() =>
+                    {
+                        BackgroundogMotherboardResponse Response = SGCSBCS.GetMotherboard(SSEMI.Client);
+                        SSEMI.MotherboardData = Response.Info;
+                    });
                 }
                 catch
                 {
@@ -29,161 +76,7 @@ namespace Sucrose.Shared.Engine.Helper
                 }
             }
 
-            return string.Empty;
-        }
-
-        public static string GetSystemBios()
-        {
-            if (SSSHP.Work(SMR.Backgroundog))
-            {
-                try
-                {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
-
-                    BackgroundogBiosResponse Response = SGCSBCS.GetBios(SSEMI.Client);
-
-                    return Response.Info;
-                }
-                catch
-                {
-                    //
-                }
-            }
-
-            return string.Empty;
-        }
-
-        public static string GetSystemDate()
-        {
-            if (SSSHP.Work(SMR.Backgroundog))
-            {
-                try
-                {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
-
-                    BackgroundogDateResponse Response = SGCSBCS.GetDate(SSEMI.Client);
-
-                    return Response.Info;
-                }
-                catch
-                {
-                    //
-                }
-            }
-
-            return string.Empty;
-        }
-
-        public static string GetSystemAudio()
-        {
-            if (SSSHP.Work(SMR.Backgroundog))
-            {
-                try
-                {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
-
-                    BackgroundogAudioResponse Response = SGCSBCS.GetAudio(SSEMI.Client);
-
-                    return Response.Info;
-                }
-                catch
-                {
-                    //
-                }
-            }
-
-            return string.Empty;
-        }
-
-        public static string GetSystemMemory()
-        {
-            if (SSSHP.Work(SMR.Backgroundog))
-            {
-                try
-                {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
-
-                    BackgroundogMemoryResponse Response = SGCSBCS.GetMemory(SSEMI.Client);
-
-                    return Response.Info;
-                }
-                catch
-                {
-                    //
-                }
-            }
-
-            return string.Empty;
-        }
-
-        public static string GetSystemBattery()
-        {
-            if (SSSHP.Work(SMR.Backgroundog))
-            {
-                try
-                {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
-
-                    BackgroundogBatteryResponse Response = SGCSBCS.GetBattery(SSEMI.Client);
-
-                    return Response.Info;
-                }
-                catch
-                {
-                    //
-                }
-            }
-
-            return string.Empty;
-        }
-
-        public static string GetSystemNetwork()
-        {
-            if (SSSHP.Work(SMR.Backgroundog))
-            {
-                try
-                {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
-
-                    BackgroundogNetworkResponse Response = SGCSBCS.GetNetwork(SSEMI.Client);
-
-                    return Response.Info;
-                }
-                catch
-                {
-                    //
-                }
-            }
-
-            return string.Empty;
-        }
-
-        public static string GetSystemMotherboard()
-        {
-            if (SSSHP.Work(SMR.Backgroundog))
-            {
-                try
-                {
-                    SGSGSS.ChannelCreate($"{SSEMM.Host}", SSEMM.Port);
-                    SSEMI.Client = new(SGSGSS.ChannelInstance);
-
-                    BackgroundogMotherboardResponse Response = SGCSBCS.GetMotherboard(SSEMI.Client);
-
-                    return Response.Info;
-                }
-                catch
-                {
-                    //
-                }
-            }
-
-            return string.Empty;
+            await Task.CompletedTask;
         }
     }
 }
