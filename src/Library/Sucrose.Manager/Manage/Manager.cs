@@ -59,11 +59,11 @@ namespace Sucrose.Manager.Manage
 
         public static int DownloadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 10);
 
-        public static int BatteryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.BatteryUsage, 75);
+        public static int BatteryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.BatteryUsage, 50);
 
         public static int UploadValue => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800);
 
-        public static int MemoryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.MemoryUsage, 75);
+        public static int MemoryUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.MemoryUsage, 80);
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
@@ -79,7 +79,7 @@ namespace Sucrose.Manager.Manage
 
         public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
 
-        public static int CpuUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.CpuUsage, 75);
+        public static int CpuUsage => SMMI.BackgroundogSettingManager.GetSettingStable(SMC.CpuUsage, 70);
 
         public static int ScreenIndex => SMMI.EngineSettingManager.GetSettingStable(SMC.ScreenIndex, 0);
 

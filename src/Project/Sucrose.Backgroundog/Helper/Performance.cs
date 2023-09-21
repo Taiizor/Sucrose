@@ -2,6 +2,7 @@
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -14,10 +15,24 @@ namespace Sucrose.Backgroundog.Helper
     {
         public static async Task Start()
         {
-            Console.WriteLine("Run");
-            //Performans şartları kontrol edilecek...
+            Console.WriteLine("Performance");
 
             if (await CpuPerformance())
+            {
+                return;
+            }
+
+            if (await SaverPerformance())
+            {
+                return;
+            }
+
+            if (await MemoryPerformance())
+            {
+                return;
+            }
+
+            if (await BatteryPerformance())
             {
                 return;
             }
@@ -65,6 +80,96 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         SBMI.Performance = SBMM.CpuPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Cpu;
+                        SBMI.Condition = true;
+                        Lifecycle();
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> SaverPerformance()
+        {
+            if (SBMM.SaverPerformance != SSDEPT.Resume)
+            {
+                int Count = 0;
+                int MaxCount = 5;
+
+                while (SBMI.BatteryData.State && (SBMI.BatteryData.SavingMode || SBMI.BatteryData.SaverStatus == "On"))
+                {
+                    if (Count >= MaxCount)
+                    {
+                        SBMI.Performance = SBMM.SaverPerformance;
+                        SBMI.CategoryPerformance = SSDECPT.Saver;
+                        SBMI.Condition = true;
+                        Lifecycle();
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> MemoryPerformance()
+        {
+            if (SBMM.MemoryPerformance != SSDEPT.Resume)
+            {
+                int Count = 0;
+                int MaxCount = 5;
+
+                while (SBMI.MemoryData.State && SMMM.MemoryUsage > 0 && SBMI.MemoryData.MemoryLoad >= SMMM.MemoryUsage)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        SBMI.Performance = SBMM.MemoryPerformance;
+                        SBMI.CategoryPerformance = SSDECPT.Memory;
+                        SBMI.Condition = true;
+                        Lifecycle();
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> BatteryPerformance()
+        {
+            if (SBMM.BatteryPerformance != SSDEPT.Resume)
+            {
+                int Count = 0;
+                int MaxCount = 5;
+
+                while (SBMI.BatteryData.State && SMMM.BatteryUsage > 0 && SBMI.BatteryData.ChargeLevel <= SMMM.BatteryUsage)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        SBMI.Performance = SBMM.BatteryPerformance;
+                        SBMI.CategoryPerformance = SSDECPT.Battery;
                         SBMI.Condition = true;
                         Lifecycle();
 

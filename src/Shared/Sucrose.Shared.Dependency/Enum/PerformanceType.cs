@@ -7,6 +7,13 @@
         Resume
     }
 
+    internal enum NetworkPerformanceType
+    {
+        Not,
+        Upload,
+        Download
+    }
+
     internal enum CategoryPerformanceType
     {
         Not,
