@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using SMR = Sucrose.Memory.Readonly;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
-using SSEHM = Sucrose.Shared.Engine.Helper.Management;
+using SSSHM = Sucrose.Shared.Space.Helper.Management;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
@@ -10,7 +10,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
         public static void SetProcesses()
         {
             Process.GetProcesses()
-                .Where(Process => Process.ProcessName.Contains(SMR.CefSharpProcessName) && SSEHM.GetCommandLine(Process).Contains(SMR.AppName) && !SSECSMI.Processes.Contains(Process.Id))
+                .Where(Process => Process.ProcessName.Contains(SMR.CefSharpProcessName) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName) && !SSECSMI.Processes.Contains(Process.Id))
                 .ToList()
                 .ForEach(Process => SSECSMI.Processes.Add(Process.Id));
         }

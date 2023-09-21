@@ -18,9 +18,12 @@ namespace Sucrose.Backgroundog.Extension
 
         public static void SessionListChanged()
         {
-            SBMI.PlayingSession = SBMI.SessionManager.CurrentSession;
-            SetupEvents();
-            SetCurrentSession();
+            if (SBMI.SessionManager != null)
+            {
+                SBMI.PlayingSession = SBMI.SessionManager.CurrentSession;
+                SetupEvents();
+                SetCurrentSession();
+            }
         }
 
         private static void SetCurrentSession()

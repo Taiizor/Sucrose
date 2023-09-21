@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Copy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Graphic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Management.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Network.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Clean.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Size.cs" />

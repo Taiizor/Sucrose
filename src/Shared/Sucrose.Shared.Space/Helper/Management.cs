@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Management;
 
-namespace Sucrose.Shared.Engine.Helper
+namespace Sucrose.Shared.Space.Helper
 {
     internal static class Management
     {
