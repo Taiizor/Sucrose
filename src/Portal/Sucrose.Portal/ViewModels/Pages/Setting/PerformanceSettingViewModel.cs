@@ -357,8 +357,8 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ClearButtonEnabled = false,
                 Value = SMMM.PingValue,
                 MaxDecimalPlaces = 0,
-                Maximum = 10000,
-                MaxLength = 5,
+                Maximum = 1000,
+                MaxLength = 4,
                 Minimum = 0
             };
 

@@ -161,6 +161,7 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     SBMI.NetworkData.PingData = PingExtension.Send(Host.Address, 1000);
                                     SBMI.NetworkData.Ping = SBMI.NetworkData.PingData.RoundTrip;
+
                                     break;
                                 }
                             }

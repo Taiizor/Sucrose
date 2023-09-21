@@ -37,7 +37,7 @@ namespace Sucrose.Manager.Manage
 
         public static int AdaptiveLayout => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0), 0, 100);
 
-        public static int PingValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.PingValue, 100), 0, 10000);
+        public static int PingValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.PingValue, 100), 0, 1000);
 
         public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateManager.GetSettingStable(SMC.AdvertisingDelay, 30), 30, 720);
 
