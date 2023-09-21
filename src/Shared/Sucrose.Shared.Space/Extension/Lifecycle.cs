@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
-using SBMI = Sucrose.Backgroundog.Manage.Internal;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
-namespace Sucrose.Backgroundog.Extension
+namespace Sucrose.Shared.Space.Extension
 {
     internal static class Lifecycle
     {
@@ -48,7 +48,7 @@ namespace Sucrose.Backgroundog.Extension
         {
             foreach (ProcessThread Thread in Process.Threads)
             {
-                IntPtr Threading = OpenThread(SBMI.THREAD_SUSPEND_RESUME, false, Thread.Id);
+                IntPtr Threading = OpenThread(SSSMI.THREAD_SUSPEND_RESUME, false, Thread.Id);
 
                 ResumeThread(Threading);
             }
@@ -58,7 +58,7 @@ namespace Sucrose.Backgroundog.Extension
         {
             foreach (ProcessThread Thread in Process.Threads)
             {
-                IntPtr Threading = OpenThread(SBMI.THREAD_SUSPEND_RESUME, false, Thread.Id);
+                IntPtr Threading = OpenThread(SSSMI.THREAD_SUSPEND_RESUME, false, Thread.Id);
 
                 SuspendThread(Threading);
             }

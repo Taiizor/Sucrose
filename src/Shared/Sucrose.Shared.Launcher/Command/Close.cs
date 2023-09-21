@@ -21,6 +21,10 @@ namespace Sucrose.Shared.Launcher.Command
                 {
                     SSLHK.Stop();
                 }
+                else
+                {
+                    SSLHK.StopSubprocess();
+                }
 
                 if (SSSHP.Work(SMR.Portal))
                 {

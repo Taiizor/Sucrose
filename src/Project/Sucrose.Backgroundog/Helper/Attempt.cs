@@ -1,9 +1,5 @@
-﻿using System.Diagnostics;
-using SBEL = Sucrose.Backgroundog.Extension.Lifecycle;
-using SBMI = Sucrose.Backgroundog.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
+﻿using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
-using SSSHM = Sucrose.Shared.Space.Helper.Management;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -23,11 +19,6 @@ namespace Sucrose.Backgroundog.Helper
 
                 await Task.Delay(TimeSpan.FromSeconds(IntervalSeconds));
             }
-
-            Process.GetProcesses()
-                .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
-                .ToList()
-                .ForEach(Process => SBEL.Resume(Process));
 
             SBMI.Exit = false;
             SBMI.Initialize.Stop();

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using SMR = Sucrose.Memory.Readonly;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
 namespace Sucrose.Shared.Space.Helper
@@ -11,7 +11,7 @@ namespace Sucrose.Shared.Space.Helper
         {
             try
             {
-                SSSHL.Kill();
+                SSLHK.Stop();
                 SSSHP.Kill(Application);
 
                 foreach (string Setting in Settings(Destination))

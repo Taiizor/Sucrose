@@ -1,7 +1,6 @@
 ﻿using Skylark.Enum;
 using Skylark.Standard.Extension.Storage;
 using System.Diagnostics;
-using SBEL = Sucrose.Backgroundog.Extension.Lifecycle;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -10,9 +9,11 @@ using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
+using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -62,14 +63,23 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.Live != null && !SBMI.Live.HasExited)
                 {
-                    SBEL.Suspend(SBMI.Live);
+                    SSSEL.Suspend(SBMI.Live);
 
                     if (SMR.WebViewLive.Contains(SBMI.Live.ProcessName) || SMR.CefSharpLive.Contains(SBMI.Live.ProcessName))
                     {
-                        Process.GetProcesses()
-                            .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
-                            .ToList()
-                            .ForEach(Process => SBEL.Suspend(Process));
+                        try
+                        {
+                            Process[] Processes = Process.GetProcesses();
+
+                            Processes
+                                .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
+                                .ToList()
+                                .ForEach(Process => SSSEL.Suspend(Process));
+                        }
+                        catch (Exception Exception)
+                        {
+                            SSWW.Watch_CatchException(Exception);
+                        }
                     }
                 }
 
@@ -79,7 +89,7 @@ namespace Sucrose.Backgroundog.Helper
 
                     if (SBMI.App != null && !SBMI.App.HasExited)
                     {
-                        SBEL.Suspend(SBMI.App);
+                        SSSEL.Suspend(SBMI.App);
                     }
                 }
             }

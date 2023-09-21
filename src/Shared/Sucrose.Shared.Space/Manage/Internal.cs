@@ -26,6 +26,8 @@ namespace Sucrose.Shared.Space.Manage
 
         public static SSDEAET ApplicationEngine = SSDEAET.Aurora;
 
+        public static int THREAD_SUSPEND_RESUME => 0x0002;
+
         public static string This => Path.GetDirectoryName(App);
 
         public static string Folder => Path.Combine(This, @"..\");
