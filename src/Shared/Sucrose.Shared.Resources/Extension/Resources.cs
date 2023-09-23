@@ -24,6 +24,11 @@ namespace Sucrose.Shared.Resources.Extension
             return GetResource(Area + "." + Prefix + "." + Key + "." + Suffix, GetBack(Area, Prefix, Key, Suffix));
         }
 
+        public static string GetValue(string Area, string Prefix, string Key, string Suffix, string Last)
+        {
+            return GetResource(Area + "." + Prefix + "." + Key + "." + Suffix + "." + Last, GetBack(Area, Prefix, Key, Suffix, Last));
+        }
+
         public static T GetResource<T>(string Resource, T Back = default)
         {
             object Result = Application.Current.TryFindResource(Resource);
@@ -56,6 +61,11 @@ namespace Sucrose.Shared.Resources.Extension
         private static string GetBack(string Area, string Prefix, string Key, string Suffix)
         {
             return GetBack(Area + "." + Prefix + "." + Key + "." + Suffix);
+        }
+
+        private static string GetBack(string Area, string Prefix, string Key, string Suffix, string Last)
+        {
+            return GetBack(Area + "." + Prefix + "." + Key + "." + Suffix + "." + Last);
         }
     }
 }

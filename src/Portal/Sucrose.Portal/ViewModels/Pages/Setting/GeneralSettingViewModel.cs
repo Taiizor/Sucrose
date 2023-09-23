@@ -76,9 +76,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            ApplicationLanguage.Title.Text = "Uygulama Dili";
             ApplicationLanguage.LeftIcon.Symbol = SymbolRegular.LocalLanguage24;
-            ApplicationLanguage.Description.Text = "Uygulamayı görüntülemek istediğiniz dili seçin.";
+            ApplicationLanguage.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage");
+            ApplicationLanguage.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage", "Description");
 
             ComboBox Localization = new();
 
@@ -101,18 +101,18 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            ApplicationStartup.Title.Text = "Başlangıçta Çalıştır";
             ApplicationStartup.LeftIcon.Symbol = SymbolRegular.Play24;
-            ApplicationStartup.Description.Text = "Duvar kağıdını oynatabilmek için Sucrose arka planda çalışmalı.";
+            ApplicationStartup.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup");
+            ApplicationStartup.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Description");
 
             ComboBox Startup = new();
 
             Startup.SelectionChanged += (s, e) => StartupSelected(Startup.SelectedIndex);
 
-            Startup.Items.Add("Yok");
-            Startup.Items.Add("Normal");
-            Startup.Items.Add("Öncelik");
-            Startup.Items.Add("Zamanlayıcı");
+            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "None"));
+            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Normal"));
+            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Priority"));
+            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Scheduler"));
 
             Startup.SelectedIndex = SMMM.Startup;
 
@@ -126,16 +126,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            NotifyIcon.Title.Text = "Bildirim Alanı Simgesi";
             NotifyIcon.LeftIcon.Symbol = SymbolRegular.TrayItemAdd24;
-            NotifyIcon.Description.Text = "Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam eder.";
+            NotifyIcon.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon");
+            NotifyIcon.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Description");
 
             ComboBox Notify = new();
 
             Notify.SelectionChanged += (s, e) => NotifySelected(Notify.SelectedIndex);
 
-            Notify.Items.Add("Görünür");
-            Notify.Items.Add("Görünmez");
+            Notify.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Show"));
+            Notify.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Hide"));
 
             Notify.SelectedIndex = SMMM.Visible ? 0 : 1;
 
@@ -143,7 +143,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             CheckBox NotifyExit = new()
             {
-                Content = "Sistem Tepsisi kapatıldığında tüm Sucrose uygulamaları kapatılsın",
+                Content = SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "NotifyExit"),
                 IsChecked = SMMM.Exit
             };
 
@@ -159,9 +159,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            WindowBackdrop.Title.Text = "Pencere Arka Planı";
             WindowBackdrop.LeftIcon.Symbol = SymbolRegular.ColorBackground24;
-            WindowBackdrop.Description.Text = "Uygulama penceresinin arka planını değiştirmek için kullanılır.";
+            WindowBackdrop.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop");
+            WindowBackdrop.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "Description");
 
             ComboBox Backdrop = new();
 
@@ -171,8 +171,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Backdrop.Items.Add(new ComboBoxItem()
                 {
-                    IsEnabled = WindowBackdropSupport(Type),
-                    Content = $"{Type}"
+                    Content = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "Backdrop", $"{Type}"),
+                    IsEnabled = WindowBackdropSupport(Type)
                 });
             }
 
@@ -189,7 +189,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button BackgroundImage = new()
             {
-                Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? "Bir arkaplan resmi seçin" : SMMM.BackgroundImage,
+                Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMM.BackgroundImage,
                 Cursor = Cursors.Hand,
                 MaxWidth = 700,
                 MinWidth = 350
@@ -224,11 +224,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock BackdropStretchText = new()
             {
+                Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropStretch"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Konumlandırma:",
+                FontWeight = FontWeights.SemiBold
             };
 
             ComboBox BackdropStretch = new();
@@ -239,7 +239,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 BackdropStretch.Items.Add(new ComboBoxItem()
                 {
-                    Content = $"{Type}"
+                    Content = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropStretch", $"{Type}")
                 });
             }
 
@@ -247,11 +247,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock BackdropOpacityText = new()
             {
+                Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropOpacity"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(20, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Opaklık (%):",
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox BackdropOpacity = new()
@@ -297,9 +297,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            EngineVolume.Title.Text = "Ses Düzeyi";
             EngineVolume.LeftIcon.Symbol = VolumeSymbol(SMMM.Volume);
-            EngineVolume.Description.Text = "Tüm duvar kağıtları için ses seviyesi.";
+            EngineVolume.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume");
+            EngineVolume.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "Description");
 
             Slider Volume = new()
             {
@@ -320,7 +320,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             CheckBox VolumeDesktop = new()
             {
-                Content = "Sesi yalnızca masaüstü odaklandığında oynat",
+                Content = SSRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeDesktop"),
                 IsChecked = SMMM.VolumeDesktop
             };
 
@@ -346,9 +346,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            PrivateLibrary.Title.Text = "Kütüphane Konumu";
             PrivateLibrary.LeftIcon.Symbol = SymbolRegular.Folder24;
-            PrivateLibrary.Description.Text = "Kütüphanenize eklediğiniz temaların saklanacağı konum.";
+            PrivateLibrary.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary");
+            PrivateLibrary.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "Description");
 
             StackPanel LibraryContent = new();
 
@@ -460,7 +460,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                         SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
                         break;
                     case 2:
-                        SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupM}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
+                        SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
                         break;
                     case 3:
                         SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Create}{SMR.ValueSeparator}{SSSMI.Launcher}");
@@ -585,10 +585,10 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = "Image files (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif",
+                Filter = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Filter"),
                 FilterIndex = 1,
 
-                Title = SSRER.GetValue("Launcher", "SaveDialogTitle"),
+                Title = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Title"),
 
                 InitialDirectory = Startup
             };
@@ -624,7 +624,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 {
                     if (!SMMM.LibraryMove || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
                     {
-                        LibraryLocation.Content = "Konum değiştirilirken lütfen biraz bekleyin";
+                        LibraryLocation.Content = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Move");
 
                         if (SMMM.LibraryMove)
                         {
@@ -665,7 +665,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                     }
                     else
                     {
-                        LibraryLocation.Content = "Lütfen boş bir klasör seç";
+                        LibraryLocation.Content = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Empty");
 
                         await Task.Delay(2000);
 
@@ -694,7 +694,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void BackgroundImageRemoveClick(Button BackgroundImage)
         {
-            BackgroundImage.Content = "Bir arkaplan resmi seçin";
+            BackgroundImage.Content = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select");
 
             SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, string.Empty);
 
