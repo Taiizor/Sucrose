@@ -18,6 +18,7 @@ using SSEWVVU = Sucrose.Shared.Engine.WebView.View.Url;
 using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
 using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
 using SSEWVVYT = Sucrose.Shared.Engine.WebView.View.YouTube;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
@@ -139,6 +140,8 @@ namespace Sucrose.Live.WebView
 
                 if (File.Exists(InfoPath))
                 {
+                    SSLHK.StopSubprocess();
+
                     CoreWebView2EnvironmentOptions Options = new()
                     {
                         Language = SMMM.Culture

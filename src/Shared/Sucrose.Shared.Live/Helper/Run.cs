@@ -4,7 +4,6 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLMM = Sucrose.Shared.Live.Manage.Manager;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -24,8 +23,6 @@ namespace Sucrose.Shared.Live.Helper
 
                 if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                 {
-                    SSLHK.StopSubprocess();
-
                     if (SMMM.PerformanceCounter)
                     {
                         SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");

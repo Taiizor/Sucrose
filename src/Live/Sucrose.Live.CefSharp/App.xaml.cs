@@ -18,6 +18,7 @@ using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
@@ -139,6 +140,8 @@ namespace Sucrose.Live.CefSharp
 
                 if (File.Exists(InfoPath))
                 {
+                    SSLHK.StopSubprocess();
+
 #if NET48_OR_GREATER && DEBUG
                     CefRuntime.SubscribeAnyCpuAssemblyResolver();
 #endif

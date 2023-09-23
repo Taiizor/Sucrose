@@ -17,8 +17,6 @@ namespace Sucrose.Shared.Live.Helper
         {
             SSSHL.Kill();
 
-            StopSubprocess();
-
             if (!string.IsNullOrEmpty(SMMM.App))
             {
                 SSSHP.Kill(SMMM.App);
