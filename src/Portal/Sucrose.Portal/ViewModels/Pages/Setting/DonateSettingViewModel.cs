@@ -33,9 +33,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock DonateArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Donate"),
                 Margin = new Thickness(0, 0, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Bağış"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(DonateArea);
@@ -66,9 +66,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock SupportArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Support"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Destek"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(SupportArea);

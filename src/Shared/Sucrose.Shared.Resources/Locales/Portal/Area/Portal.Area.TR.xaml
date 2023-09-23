@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Ses</system:String>
+    <system:String x:Key="Portal.Area.Hook">Kanca</system:String>
+    <system:String x:Key="Portal.Area.Store">Mağaza</system:String>
+    <system:String x:Key="Portal.Area.Donate">Bağış</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Dizüstü</system:String>
+    <system:String x:Key="Portal.Area.Support">Destek</system:String>
+    <system:String x:Key="Portal.Area.Priority">Öncelik</system:String>
+    <system:String x:Key="Portal.Area.Engines">Motorlar</system:String>
+    <system:String x:Key="Portal.Area.Library">Kütüphane</system:String>
+    <system:String x:Key="Portal.Area.Developer">Geliştirici</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Eklentiler</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Sistem Kaynakları</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Görünüş &amp; Davranış</system:String>
+</ResourceDictionary>

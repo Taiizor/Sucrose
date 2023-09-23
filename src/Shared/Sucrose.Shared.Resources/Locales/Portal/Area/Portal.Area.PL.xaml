@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Dźwięk</system:String>
+    <system:String x:Key="Portal.Area.Hook">Hak</system:String>
+    <system:String x:Key="Portal.Area.Store">Sklep</system:String>
+    <system:String x:Key="Portal.Area.Donate">Donacja</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Laptop</system:String>
+    <system:String x:Key="Portal.Area.Support">Wsparcie</system:String>
+    <system:String x:Key="Portal.Area.Priority">Priorytet</system:String>
+    <system:String x:Key="Portal.Area.Engines">Silniki</system:String>
+    <system:String x:Key="Portal.Area.Library">Biblioteka</system:String>
+    <system:String x:Key="Portal.Area.Developer">Deweloper</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Rozszerzenia</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Zasoby Systemowe</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Wygląd i Zachowanie</system:String>
+</ResourceDictionary>

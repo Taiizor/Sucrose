@@ -32,9 +32,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock StoreArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Store"),
                 Margin = new Thickness(0, 0, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Mağaza"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(StoreArea);
@@ -112,9 +112,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock LibraryArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Library"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Kütüphane"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(LibraryArea);
@@ -176,9 +176,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock AppearanceBehaviorArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "AppearanceBehavior"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Görünüş & Davranış"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(AppearanceBehaviorArea);

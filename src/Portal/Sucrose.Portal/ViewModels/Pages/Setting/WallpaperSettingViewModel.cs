@@ -43,9 +43,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock AppearanceBehaviorArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "AppearanceBehavior"),
                 Margin = new Thickness(0, 0, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Görünüş & Davranış"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(AppearanceBehaviorArea);
@@ -150,15 +150,15 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(ShuffleMode);
 
-            TextBlock ExtensionArea = new()
+            TextBlock ExtensionsArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Extensions"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Eklentiler"
+                FontWeight = FontWeights.Bold
             };
 
-            Contents.Add(ExtensionArea);
+            Contents.Add(ExtensionsArea);
 
             SPVCEC GifPlayer = new()
             {
@@ -214,15 +214,15 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(VideoPlayer);
 
-            TextBlock EngineArea = new()
+            TextBlock EnginesArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Engines"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Motorlar"
+                FontWeight = FontWeights.Bold
             };
 
-            Contents.Add(EngineArea);
+            Contents.Add(EnginesArea);
 
             SPVCEC UrlPlayer = new()
             {

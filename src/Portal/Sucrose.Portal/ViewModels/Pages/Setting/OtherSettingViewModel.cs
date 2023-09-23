@@ -35,9 +35,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock HookArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Hook"),
                 Margin = new Thickness(0, 0, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Kanca"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(HookArea);
@@ -129,9 +129,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock PriorityArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Priority"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Öncelik"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(PriorityArea);
@@ -204,9 +204,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock DeveloperArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Developer"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Geliştirici"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(DeveloperArea);

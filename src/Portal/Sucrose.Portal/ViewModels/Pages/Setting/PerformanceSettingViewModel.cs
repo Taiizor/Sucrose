@@ -41,9 +41,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock AppearanceBehaviorArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "AppearanceBehavior"),
                 Margin = new Thickness(0, 0, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Görünüş & Davranış"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(AppearanceBehaviorArea);
@@ -87,9 +87,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock SystemResourcesArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "SystemResources"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Sistem Kaynakları"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(SystemResourcesArea);
@@ -413,9 +413,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBlock LaptopArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Laptop"),
                 Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold,
-                Text = "Dizüstü"
+                FontWeight = FontWeights.Bold
             };
 
             Contents.Add(LaptopArea);
