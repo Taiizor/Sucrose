@@ -47,29 +47,12 @@ namespace Sucrose.Update.View
 
         private async void Countdown()
         {
-            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 5";
+            for (int Count = 5; Count >= 0; Count--)
+            {
+                Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} {Count}";
 
-            await Task.Delay(1000);
-
-            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 4";
-
-            await Task.Delay(1000);
-
-            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 3";
-
-            await Task.Delay(1000);
-
-            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 2";
-
-            await Task.Delay(1000);
-
-            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 1";
-
-            await Task.Delay(1000);
-
-            Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} 0";
-
-            await Task.Delay(1000);
+                await Task.Delay(1000);
+            }
 
             Close();
         }

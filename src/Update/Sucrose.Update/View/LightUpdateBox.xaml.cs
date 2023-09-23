@@ -9,7 +9,6 @@ namespace Sucrose.Update.View
     /// </summary>
     public partial class LightUpdateBox : Window
     {
-        private static bool Run = true;
         private static string Path = string.Empty;
 
         public LightUpdateBox(string BundlePath)
@@ -23,15 +22,13 @@ namespace Sucrose.Update.View
 
         private async void InstallButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Run)
-            {
-                Run = false;
-                await Task.Run(() => SSSHP.Run(Path));
-            }
-            else
-            {
-                Close();
-            }
+            Install_Button.IsEnabled = false;
+
+            await Task.Run(() => SSSHP.Run(Path));
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            Install_Button.IsEnabled = true;
         }
     }
 }

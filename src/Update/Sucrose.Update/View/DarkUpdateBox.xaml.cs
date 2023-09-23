@@ -11,7 +11,6 @@ namespace Sucrose.Update.View
     /// </summary>
     public partial class DarkUpdateBox : Window
     {
-        private static bool Run = true;
         private static string Path = string.Empty;
 
         public DarkUpdateBox(string BundlePath)
@@ -27,15 +26,13 @@ namespace Sucrose.Update.View
 
         private async void InstallButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Run)
-            {
-                Run = false;
-                await Task.Run(() => SSSHP.Run(Path));
-            }
-            else
-            {
-                Close();
-            }
+            Install_Button.IsEnabled = false;
+
+            await Task.Run(() => SSSHP.Run(Path));
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            Install_Button.IsEnabled = true;
         }
 
         private void DarkUpdateBox_SourceInitialized(object sender, EventArgs e)
