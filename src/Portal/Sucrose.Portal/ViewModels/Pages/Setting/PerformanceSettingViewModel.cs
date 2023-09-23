@@ -249,14 +249,25 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxWidth = 700
             };
 
-            NetworkAdapter.SelectionChanged += (s, e) => NetworkAdapterSelected($"{NetworkAdapter.SelectedValue}");
-
-            foreach (string Interface in SMMM.NetworkInterfaces)
+            if (SMMM.NetworkInterfaces.Any())
             {
-                NetworkAdapter.Items.Add(Interface);
-            }
+                NetworkAdapter.SelectionChanged += (s, e) => NetworkAdapterSelected($"{NetworkAdapter.SelectedValue}");
 
-            NetworkAdapter.SelectedValue = SMMM.NetworkAdapter;
+                foreach (string Interface in SMMM.NetworkInterfaces)
+                {
+                    NetworkAdapter.Items.Add(Interface);
+                }
+
+                NetworkAdapter.SelectedValue = SMMM.NetworkAdapter;
+            }
+            else
+            {
+                NetworkAdapter.Items.Add(new ComboBoxItem()
+                {
+                    Content = "Ağ adaptörleri listesi henüz oluşturulmadı",
+                    IsSelected = true
+                });
+            }
 
             StackPanel NetworkUploadContent = new()
             {

@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using System.Windows;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSHV = Sucrose.Shared.Engine.CefSharp.Helper.Video;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
@@ -29,7 +30,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)
         {
-            //SSECSMI.CefEngine.ShowDevTools();
+            if (SMMM.DeveloperMode)
+            {
+                SSECSMI.CefEngine.ShowDevTools();
+            }
         }
     }
 }

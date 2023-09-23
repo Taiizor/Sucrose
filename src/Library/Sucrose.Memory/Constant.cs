@@ -100,6 +100,8 @@
 
         public const string StoreDuration = "StoreDuration";
 
+        public const string DeveloperMode = "DeveloperMode";
+
         public const string LibraryConfirm = "LibraryConfirm";
 
         public const string AdaptiveLayout = "AdaptiveLayout";

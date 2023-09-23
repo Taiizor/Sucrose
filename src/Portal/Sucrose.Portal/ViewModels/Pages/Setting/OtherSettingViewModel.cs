@@ -201,6 +201,38 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Key);
 
+            TextBlock DeveloperArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold,
+                Text = "Geliştirici"
+            };
+
+            Contents.Add(DeveloperArea);
+
+            SPVCEC Developer = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Developer.Title.Text = "Geliştirici Araçları";
+            Developer.LeftIcon.Symbol = SymbolRegular.WindowDevTools24;
+            Developer.Description.Text = "WebView ve CefSharp motoru için geliştirici araçlarının gösterilip gösterilmeyeceği.";
+
+            ToggleSwitch DeveloperState = new()
+            {
+                IsChecked = SMMM.DeveloperMode
+            };
+
+            DeveloperState.Checked += (s, e) => DeveloperStateChecked(true);
+            DeveloperState.Unchecked += (s, e) => DeveloperStateChecked(false);
+
+            Developer.HeaderFrame = DeveloperState;
+
+            Contents.Add(Developer);
+
             _isInitialized = true;
         }
 
@@ -232,6 +264,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
 
             SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, TextBox.Text);
+        }
+
+        private void DeveloperStateChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.DeveloperMode, State);
         }
 
         private void DiscordDelayChanged(double? Value)

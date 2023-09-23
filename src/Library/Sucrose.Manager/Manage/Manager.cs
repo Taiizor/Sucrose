@@ -79,6 +79,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
 
+        public static bool DeveloperMode => SMMI.EngineSettingManager.GetSetting(SMC.DeveloperMode, false);
+
         public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMC.VolumeDesktop, false);
 
         public static List<string> Themes => SMMI.ThemesManager.GetSetting(SMC.Themes, new List<string>());

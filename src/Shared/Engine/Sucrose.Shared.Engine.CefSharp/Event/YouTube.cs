@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using System.Windows;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
@@ -32,7 +33,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
             SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
 
-            //SSECSMI.CefEngine.ShowDevTools();
+            if (SMMM.DeveloperMode)
+            {
+                SSECSMI.CefEngine.ShowDevTools();
+            }
         }
     }
 }

@@ -29,7 +29,10 @@ namespace Sucrose.Shared.Engine.WebView.Event
             SSEWVMI.WebEngine.CoreWebView2.ContentLoading += WebEngineContentLoading;
             SSEWVMI.WebEngine.CoreWebView2.DOMContentLoaded += WebEngineDOMContentLoaded;
 
-            //SSEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();
+            if (SMMM.DeveloperMode)
+            {
+                SSEWVMI.WebEngine.CoreWebView2.OpenDevToolsWindow();
+            }
         }
     }
 }
