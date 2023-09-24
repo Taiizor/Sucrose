@@ -9,10 +9,14 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
     {
         public static void SetProcesses()
         {
-            Process.GetProcesses()
-                .Where(Process => Process.ProcessName.Contains(SMR.CefSharpProcessName) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName) && !SSECSMI.Processes.Contains(Process.Id))
-                .ToList()
-                .ForEach(Process => SSECSMI.Processes.Add(Process.Id));
+            try
+            {
+                Process.GetProcesses()
+                    .Where(Process => Process.ProcessName.Contains(SMR.CefSharpProcessName) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName) && !SSECSMI.Processes.Contains(Process.Id))
+                    .ToList()
+                    .ForEach(Process => SSECSMI.Processes.Add(Process.Id));
+            }
+            catch { }
         }
     }
 }

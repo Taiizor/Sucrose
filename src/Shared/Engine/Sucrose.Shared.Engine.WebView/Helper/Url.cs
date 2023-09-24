@@ -19,7 +19,11 @@ namespace Sucrose.Shared.Engine.WebView.Helper
                     }
                     catch
                     {
-                        SWEACAM.SetApplicationVolume(Process, Volume);
+                        try
+                        {
+                            SWEACAM.SetApplicationVolume(Process, Volume);
+                        }
+                        catch { }
                     }
                 }
             }

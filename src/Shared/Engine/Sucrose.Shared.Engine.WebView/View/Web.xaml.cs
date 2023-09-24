@@ -1,8 +1,10 @@
 ﻿using System.Windows;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEW = Sucrose.Shared.Engine.WebView.Event.Web;
+using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.WebView.View
@@ -37,6 +39,8 @@ namespace Sucrose.Shared.Engine.WebView.View
             Dispose();
 
             SSEHR.Control();
+
+            SSEWVHW.SetVolume(SSEHD.GetVolume());
         }
 
         public void Dispose()

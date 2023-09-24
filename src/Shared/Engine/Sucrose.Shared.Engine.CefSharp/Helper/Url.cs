@@ -19,7 +19,11 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
                     }
                     catch
                     {
-                        SWEACAM.SetApplicationVolume(Process, Volume);
+                        try
+                        {
+                            SWEACAM.SetApplicationVolume(Process, Volume);
+                        }
+                        catch { }
                     }
                 }
             }

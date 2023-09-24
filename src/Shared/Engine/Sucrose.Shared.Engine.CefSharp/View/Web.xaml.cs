@@ -1,8 +1,10 @@
 ﻿using System.Windows;
 using SSECSEW = Sucrose.Shared.Engine.CefSharp.Event.Web;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
+using SSECSHW = Sucrose.Shared.Engine.CefSharp.Helper.Web;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
@@ -44,6 +46,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
             Dispose();
 
             SSEHR.Control();
+
+            SSECSHW.SetVolume(SSEHD.GetVolume());
         }
 
         public void Dispose()
