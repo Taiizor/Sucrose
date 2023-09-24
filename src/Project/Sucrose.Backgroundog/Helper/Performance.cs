@@ -28,6 +28,11 @@ namespace Sucrose.Backgroundog.Helper
                 return;
             }
 
+            if (await FocusPerformance())
+            {
+                return;
+            }
+
             if (await SaverPerformance())
             {
                 return;
@@ -118,6 +123,36 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         SBMI.Performance = SBMM.CpuPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Cpu;
+                        SBMI.Condition = true;
+                        Lifecycle();
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> FocusPerformance()
+        {
+            if (SBMM.FocusPerformance != SSDEPT.Resume)
+            {
+                int Count = 0;
+                int MaxCount = 5;
+
+                while (!SBMI.FocusDesktop)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        SBMI.Performance = SBMM.FocusPerformance;
+                        SBMI.CategoryPerformance = SSDECPT.Focus;
                         SBMI.Condition = true;
                         Lifecycle();
 

@@ -561,6 +561,31 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Fullscreen);
 
+            SPVCEC Focus = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Focus.Title.Text = "Odaklanma Modu";
+            Focus.LeftIcon.Symbol = SymbolRegular.DesktopCursor24;
+            Focus.Description.Text = "Odağınızda her hangi başka bir uygulama varken duvar kağıdına ne olacağı.";
+
+            ComboBox FocusPerformance = new();
+
+            FocusPerformance.SelectionChanged += (s, e) => FocusPerformanceSelected(FocusPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                FocusPerformance.Items.Add(Type);
+            }
+
+            FocusPerformance.SelectedIndex = (int)SPMM.FocusPerformance;
+
+            Focus.HeaderFrame = FocusPerformance;
+
+            Contents.Add(Focus);
+
             _isInitialized = true;
         }
 
@@ -679,6 +704,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSDEPT Type = (SSDEPT)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.SaverPerformance, Type);
+            }
+        }
+
+        private void FocusPerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.FocusPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.FocusPerformance, Type);
             }
         }
 

@@ -19,6 +19,7 @@
     {
         Not,
         Cpu,
+        Focus,
         Saver,
         Memory,
         Remote,

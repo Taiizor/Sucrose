@@ -19,6 +19,7 @@
                 "rdpshell.exe",
                 "rdpviewer.exe",
                 "teamviewer.exe",
+                "quickassist.exe",
                 "ultravnc_viewer.exe"
             };
         }

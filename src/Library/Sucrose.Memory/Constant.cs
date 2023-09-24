@@ -146,6 +146,8 @@
 
         public const string MemoryPerformance = "MemoryPerformance";
 
+        public const string FocusPerformance = "FocusPerformance";
+
         public const string PerformanceCounter = "PerformanceCounter";
 
         public const string NetworkPerformance = "NetworkPerformance";

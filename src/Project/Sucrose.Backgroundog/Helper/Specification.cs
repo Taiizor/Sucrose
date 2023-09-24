@@ -4,6 +4,7 @@ using Skylark.Helper;
 using Skylark.Standard.Extension.Ping;
 using Skylark.Standard.Extension.Storage;
 using System.Management;
+using System.Text;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
@@ -12,16 +13,15 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
+using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWUP = Skylark.Wing.Utility.Power;
-using SWNM = Skylark.Wing.Native.Methods;
-using SystemInformation = System.Windows.Forms.SystemInformation;
-using System.Text;
 using SWHF = Skylark.Wing.Helper.Fullscreen;
-using SWUS = Skylark.Wing.Utility.Screene;
-using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
+using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
+using SWUP = Skylark.Wing.Utility.Power;
+using SWUS = Skylark.Wing.Utility.Screene;
+using SystemInformation = System.Windows.Forms.SystemInformation;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -272,17 +272,32 @@ namespace Sucrose.Backgroundog.Helper
                         StringBuilder Class = new(256);
                         SWNM.GetClassName((int)Foreground, Class, 256);
 
-                        foreach (SSMMS Screen in SWUS.Screens)
+                        if (!SBMI.FocusDesktop)
                         {
-                            if (SWHF.IsFullscreen(Foreground, Screen.rcMonitor) && (!SWUD.IsDesktopBasic() || !SWUD.IsDesktopAdvanced()))
+                            foreach (SSMMS Screen in SWUS.Screens)
                             {
-                                SBMI.Fullscreen = true;
+                                if (SWHF.IsFullscreen(Foreground, Screen.rcMonitor))
+                                {
+                                    SBMI.Fullscreen = true;
 
-                                return;
+                                    return;
+                                }
                             }
                         }
 
                         SBMI.Fullscreen = false;
+                    }
+                    catch (Exception Exception)
+                    {
+                        SSWW.Watch_CatchException(Exception);
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    try
+                    {
+                        SBMI.FocusDesktop = SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
                     }
                     catch (Exception Exception)
                     {

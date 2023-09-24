@@ -37,6 +37,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static int InitializeTime = 250;
 
+        public static bool FocusDesktop = false;
+
         public static bool CpuManagement = true;
 
         public static bool BiosManagement = true;
