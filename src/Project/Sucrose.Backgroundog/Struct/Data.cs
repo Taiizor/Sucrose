@@ -422,6 +422,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public string Host;
+        /// <summary>
+        /// 
+        /// </summary>
         public float Upload;
         /// <summary>
         /// 
@@ -439,6 +443,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public SSSSS DownloadData;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PingAddress;
         /// <summary>
         /// 
         /// </summary>

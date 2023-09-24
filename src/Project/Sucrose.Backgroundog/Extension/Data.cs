@@ -139,10 +139,12 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Name", SBMI.NetworkData.Name },
+                { "Host", SBMI.NetworkData.Host },
                 { "Ping", SBMI.NetworkData.Ping },
                 { "State", SBMI.NetworkData.State },
                 { "Upload", SBMI.NetworkData.Upload },
                 { "Download", SBMI.NetworkData.Download },
+                { "PingAddress", SBMI.NetworkData.PingAddress },
                 { "FormatUploadData", SBMI.NetworkData.FormatUploadData },
                 { "FormatDownloadData", SBMI.NetworkData.FormatDownloadData },
                 {
