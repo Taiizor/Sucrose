@@ -5,6 +5,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
+using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -17,6 +18,14 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static int GetVolume()
         {
+            if (SMMM.VolumeDesktop)
+            {
+                if (!SWUD.IsDesktopBasic() || !SWUD.IsDesktopAdvanced())
+                {
+                    return 0;
+                }
+            }
+
             return SMMM.Volume;
         }
 

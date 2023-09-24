@@ -31,6 +31,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool Processing = true;
 
+        public static bool Fullscreen = false;
+
         public static SBHI Initialize = new();
 
         public static int InitializeTime = 250;

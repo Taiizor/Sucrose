@@ -53,6 +53,11 @@ namespace Sucrose.Backgroundog.Helper
                 return;
             }
 
+            if (await FullscreenPerformance())
+            {
+                return;
+            }
+
             await Task.CompletedTask;
         }
 
@@ -305,6 +310,36 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         SBMI.Performance = SBMM.BatteryPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Battery;
+                        SBMI.Condition = true;
+                        Lifecycle();
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> FullscreenPerformance()
+        {
+            if (SBMM.FullscreenPerformance != SSDEPT.Resume)
+            {
+                int Count = 0;
+                int MaxCount = 5;
+
+                while (SBMI.Fullscreen)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        SBMI.Performance = SBMM.FullscreenPerformance;
+                        SBMI.CategoryPerformance = SSDECPT.Fullscreen;
                         SBMI.Condition = true;
                         Lifecycle();
 

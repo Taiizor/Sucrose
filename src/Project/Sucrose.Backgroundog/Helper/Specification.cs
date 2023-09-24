@@ -15,7 +15,13 @@ using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWUP = Skylark.Wing.Utility.Power;
+using SWNM = Skylark.Wing.Native.Methods;
 using SystemInformation = System.Windows.Forms.SystemInformation;
+using System.Text;
+using SWHF = Skylark.Wing.Helper.Fullscreen;
+using SWUS = Skylark.Wing.Utility.Screene;
+using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
+using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -234,18 +240,6 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     try
                     {
-                        SBMI.RemoteDesktop = SBER.DesktopActive();
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
-
-                _ = Task.Run(() =>
-                {
-                    try
-                    {
                         if (SBMI.MotherboardManagement)
                         {
                             SBMI.MotherboardManagement = false;
@@ -262,6 +256,45 @@ namespace Sucrose.Backgroundog.Helper
                                 break;
                             }
                         }
+                    }
+                    catch (Exception Exception)
+                    {
+                        SSWW.Watch_CatchException(Exception);
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    try
+                    {
+                        IntPtr Foreground = SWNM.GetForegroundWindow();
+
+                        StringBuilder Class = new(256);
+                        SWNM.GetClassName((int)Foreground, Class, 256);
+
+                        foreach (SSMMS Screen in SWUS.Screens)
+                        {
+                            if (SWHF.IsFullscreen(Foreground, Screen.rcMonitor) && (!SWUD.IsDesktopBasic() || !SWUD.IsDesktopAdvanced()))
+                            {
+                                SBMI.Fullscreen = true;
+
+                                return;
+                            }
+                        }
+
+                        SBMI.Fullscreen = false;
+                    }
+                    catch (Exception Exception)
+                    {
+                        SSWW.Watch_CatchException(Exception);
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    try
+                    {
+                        SBMI.RemoteDesktop = SBER.DesktopActive();
                     }
                     catch (Exception Exception)
                     {

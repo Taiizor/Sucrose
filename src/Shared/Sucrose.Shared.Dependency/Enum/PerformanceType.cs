@@ -23,6 +23,7 @@
         Memory,
         Remote,
         Network,
-        Battery
+        Battery,
+        Fullscreen
     }
 }

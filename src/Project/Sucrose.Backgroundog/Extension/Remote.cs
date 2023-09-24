@@ -11,9 +11,9 @@ namespace Sucrose.Backgroundog.Extension
             {
                 string Query = "SELECT * FROM Win32_Process WHERE ";
 
-                foreach (string appName in SSSHR.GetApp())
+                foreach (string Name in SSSHR.GetApp())
                 {
-                    Query += $"Name = '{appName}' OR ";
+                    Query += $"Name = '{Name}' OR ";
                 }
 
                 Query = Query.TrimEnd(" OR ".ToCharArray());

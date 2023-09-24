@@ -536,6 +536,31 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Remote);
 
+            SPVCEC Fullscreen = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Fullscreen.Title.Text = "Tam Ekran Modu";
+            Fullscreen.LeftIcon.Symbol = SymbolRegular.FullScreenMaximize24;
+            Fullscreen.Description.Text = "Tam ekranda her hangi bir uygulama çalışırken duvar kağıdına ne olacağı.";
+
+            ComboBox FullscreenPerformance = new();
+
+            FullscreenPerformance.SelectionChanged += (s, e) => FullscreenPerformanceSelected(FullscreenPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                FullscreenPerformance.Items.Add(Type);
+            }
+
+            FullscreenPerformance.SelectedIndex = (int)SPMM.FullscreenPerformance;
+
+            Fullscreen.HeaderFrame = FullscreenPerformance;
+
+            Contents.Add(Fullscreen);
+
             _isInitialized = true;
         }
 
@@ -740,6 +765,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SEST Type = (SEST)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.DownloadType, Type);
+            }
+        }
+
+        private void FullscreenPerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.FullscreenPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.FullscreenPerformance, Type);
             }
         }
 

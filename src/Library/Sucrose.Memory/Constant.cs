@@ -153,5 +153,7 @@
         public const string BatteryPerformance = "BatteryPerformance";
 
         public const string DuplicateScreenType = "DuplicateScreenType";
+
+        public const string FullscreenPerformance = "FullscreenPerformance";
     }
 }
