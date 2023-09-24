@@ -388,7 +388,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             CheckBox LibraryMove = new()
             {
-                Content = "Mevcut kütüphanenizi yeni konuma taşı",
+                Content = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryMove"),
                 Margin = new Thickness(0, 10, 0, 0),
                 IsChecked = SMMM.LibraryMove
             };

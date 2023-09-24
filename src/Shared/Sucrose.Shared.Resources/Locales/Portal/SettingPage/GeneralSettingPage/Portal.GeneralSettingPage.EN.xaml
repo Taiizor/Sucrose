@@ -4,4 +4,58 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+    
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Application Language</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Select the language in which you want to view the application.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Startup at Application Launch</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose needs to run in the background at startup to play the wallpaper.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">None</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priority</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Scheduler</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Notification Area Icon</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Visibility in the system tray. Sucrose will continue to run discreetly.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Show</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Hide</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Close all Sucrose applications when the system tray is closed</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Window Backdrop</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Used to customize the background of the application window.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mica</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">None</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Auto</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Tabbed</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Acrylic</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Select Background Image</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Select a background image</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Image Files (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Background Stretch:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">None</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Fill</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Uniform to Fill</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Uniform</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Background Opacity (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Engine Volume</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Volume that applies to all wallpapers.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Play sound only when focused on the desktop</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Library Location</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Location where themes you add to your library are stored.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Please select an empty folder</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Please wait while the location is being changed</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Move your current library to the new location</system:String>
 </ResourceDictionary>

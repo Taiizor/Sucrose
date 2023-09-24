@@ -9,15 +9,15 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Uygulamayı görüntülemek istediğiniz dili seçin.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Başlangıçta Çalıştır</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Duvar kağıdını oynatabilmek için Sucrose arka planda çalışmalı.</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Duvar kağıdını oynatabilmek için başlangıçta Sucrose'nin arka planda çalışması gerekmekte.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Yok</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Hiçbiri</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normal</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Öncelik</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Öncelikli</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Zamanlayıcı</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Bildirim Alanı Simgesi</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam eder.</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam edecek.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Görünür</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Görünmez</system:String>
@@ -27,34 +27,34 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Pencere Arka Planı</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Uygulama penceresinin arka planını özelleştirmek için kullanılır.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">Yok</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mika</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">Hiçbiri</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Otomatik</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Sekmeli</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Akrilik</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Resim Dosyası Seç</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Arkaplan Resmi Seç</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Bir arkaplan resmi seçin</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Konumlandırma:</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Arkaplan Boyutlandırma:</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">Yok</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">Hiçbiri</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Doldur</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Sığdır</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Hepsini Sığdır</system:String>
-    
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Opaklık (%):</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Orantılı Doldur</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Orantılı</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Ses Düzeyi</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Tüm duvar kağıtları için ses seviyesi.</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Arkaplan Opaklığı (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Ses Seviyesi</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Tüm duvar kağıtları için geçerli olan ses seviyesi.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Sesi yalnızca masaüstü odaklandığında oynat</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Kütüphane Konumu</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Kütüphanenize eklediğiniz temaların saklanacağı konum.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">"Lütfen boş bir klasör seç"</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Lütfen boş bir klasör seçin</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Konum değiştirilirken lütfen biraz bekleyin</system:String>
     
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Mevcut kütüphanenizi yeni konuma taşı</system:String>

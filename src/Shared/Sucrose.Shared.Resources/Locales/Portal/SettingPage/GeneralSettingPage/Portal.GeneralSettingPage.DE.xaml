@@ -4,4 +4,58 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Anwendungssprache</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Wählen Sie die Sprache aus, in der Sie die Anwendung anzeigen möchten.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Start bei Anwendungsstart</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose muss im Hintergrund bei jedem Start ausgeführt werden, um den Hintergrund abzuspielen.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Keine</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priorität</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Zeitplan</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Benachrichtigungssymbol im Bereich</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Sichtbarkeit im Systembereich. Sucrose wird diskret weiterlaufen.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Anzeigen</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Verbergen</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Alle Sucrose-Anwendungen schließen, wenn das Systembereichssymbol geschlossen wird</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Fensterhintergrund</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Wird verwendet, um den Hintergrund des Anwendungsfensters anzupassen.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mica</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">Keiner</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Automatisch</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Gestuft</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Acryl</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Hintergrundbild Auswählen</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Wählen Sie ein Hintergrundbild aus</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Bilddateien (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Hintergrund-Streckung:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">Keine</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Füllen</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Uniform Auffüllen</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Uniform</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Hintergrund-Deckkraft (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Motorenlautstärke</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Lautstärke, die für alle Hintergrundbilder gilt.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Ton nur wiedergeben, wenn der Fokus auf dem Desktop liegt</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Bibliotheksstandort</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Ort, an dem Themes gespeichert werden, die Sie Ihrer Bibliothek hinzufügen.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Bitte wählen Sie einen leeren Ordner aus</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Bitte warten Sie, während der Standort geändert wird</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Ihre aktuelle Bibliothek an den neuen Ort verschieben</system:String>
 </ResourceDictionary>
