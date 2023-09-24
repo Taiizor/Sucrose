@@ -5,10 +5,10 @@
 >
     <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Język aplikacji</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Język Aplikacji</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Wybierz język, w którym chcesz wyświetlać aplikację.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Uruchamianie aplikacji</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Uruchamianie Aplikacji</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose musi działać w tle podczas uruchamiania, aby odtwarzać tapetę.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Brak</system:String>
@@ -16,7 +16,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priorytet</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Harmonogram</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Ikona w obszarze powiadomień</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Ikona w Obszarze Powiadomień</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Widoczność w obszarze systemowym. Sucrose będzie działać dyskretnie.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Pokaż</system:String>
@@ -24,34 +24,34 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Zamknij wszystkie aplikacje Sucrose po zamknięciu obszaru powiadomień</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Tło okna</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Tło Okna</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Służy do dostosowywania tła okna aplikacji.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mika</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">Brak</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Auto</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Z kartami</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Z Kartami</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Akryl</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Wybierz obraz tła</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Wybierz Obraz Tła</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Wybierz obraz tła</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Pliki graficzne (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Pliki Graficzne (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Rozciąganie tła:</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Rozciąganie Tła:</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">Brak</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Wypełnij</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Jednolite wypełnianie</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Jednolite Wypełnianie</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Jednolite</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Przezroczystość tła (%):</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Przezroczystość Tła (%):</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Głośność silnika</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Głośność Silnika</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Głośność obowiązująca dla wszystkich tapet.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Odtwarzaj dźwięk tylko wtedy, gdy jesteś skoncentrowany na pulpicie</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Lokalizacja biblioteki</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Lokalizacja Biblioteki</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Lokalizacja, w której przechowywane są motywy, które dodajesz do swojej biblioteki.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Proszę wybrać pusty folder</system:String>

@@ -19,8 +19,8 @@
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Notification Area Icon</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Visibility in the system tray. Sucrose will continue to run discreetly.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Show</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Hide</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Visible</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Invisible</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Close all Sucrose applications when the system tray is closed</system:String>
 
