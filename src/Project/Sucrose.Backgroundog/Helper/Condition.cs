@@ -52,6 +52,11 @@ namespace Sucrose.Backgroundog.Helper
                     return;
                 }
 
+                if (await RemoteCondition())
+                {
+                    return;
+                }
+
                 if (await BatteryCondition())
                 {
                     return;
@@ -268,6 +273,36 @@ namespace Sucrose.Backgroundog.Helper
 
                         await Task.Delay(TimeSpan.FromSeconds(1));
                     }
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> RemoteCondition()
+        {
+            if (SBMI.CategoryPerformance == SSDECPT.Remote)
+            {
+                int Count = 0;
+                int MaxCount = 3;
+
+                while (!SBMI.RemoteDesktop || SBMM.RemotePerformance == SSDEPT.Resume)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        Lifecycle();
+                        SBMI.Condition = false;
+                        SBMI.Performance = SSDEPT.Resume;
+                        SBMI.CategoryPerformance = SSDECPT.Not;
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
                 }
             }
 

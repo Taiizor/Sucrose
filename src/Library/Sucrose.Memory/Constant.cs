@@ -132,6 +132,8 @@
 
         public const string SaverPerformance = "SaverPerformance";
 
+        public const string RemotePerformance = "RemotePerformance";
+
         public const string BackgroundOpacity = "BackgroundOpacity";
 
         public const string BackgroundStretch = "BackgroundStretch";

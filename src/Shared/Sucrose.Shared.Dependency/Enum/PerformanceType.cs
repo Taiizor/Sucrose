@@ -21,6 +21,7 @@
         Cpu,
         Saver,
         Memory,
+        Remote,
         Network,
         Battery
     }

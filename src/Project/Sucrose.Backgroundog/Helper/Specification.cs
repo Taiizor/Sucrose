@@ -5,12 +5,13 @@ using Skylark.Standard.Extension.Ping;
 using Skylark.Standard.Extension.Storage;
 using System.Management;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
+using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SSDSHHS = Sucrose.Shared.Dependency.Struct.Host.HostStruct;
+using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWUP = Skylark.Wing.Utility.Power;
@@ -153,9 +154,9 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         if (SSSHN.GetHostEntry())
                         {
-                            List<SSDSHHS> Hosts = SSSHN.GetHost();
+                            List<SSDSHS> Hosts = SSSHN.GetHost();
 
-                            foreach (SSDSHHS Host in Hosts)
+                            foreach (SSDSHS Host in Hosts)
                             {
                                 if (SMMM.PingType == Host.Name)
                                 {
@@ -222,6 +223,18 @@ namespace Sucrose.Backgroundog.Helper
                             SBMI.NetworkData.State = false;
                             SBMI.NetworkData.Name = SMMM.NetworkAdapter;
                         }
+                    }
+                    catch (Exception Exception)
+                    {
+                        SSWW.Watch_CatchException(Exception);
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    try
+                    {
+                        SBMI.RemoteDesktop = SBER.DesktopActive();
                     }
                     catch (Exception Exception)
                     {

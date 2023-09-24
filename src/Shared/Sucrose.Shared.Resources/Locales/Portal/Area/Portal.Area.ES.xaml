@@ -7,6 +7,7 @@
     <system:String x:Key="Portal.Area.Hook">Gancho</system:String>
     <system:String x:Key="Portal.Area.Store">Tienda</system:String>
     <system:String x:Key="Portal.Area.Donate">Donar</system:String>
+    <system:String x:Key="Portal.Area.System">Sistema</system:String>
     <system:String x:Key="Portal.Area.Laptop">Portátil</system:String>
     <system:String x:Key="Portal.Area.Support">Soporte</system:String>
     <system:String x:Key="Portal.Area.Priority">Prioridad</system:String>

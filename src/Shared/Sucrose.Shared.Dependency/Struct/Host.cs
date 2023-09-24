@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sucrose.Shared.Dependency.Struct.Host
+namespace Sucrose.Shared.Dependency.Struct
 {
     /// <summary>
     /// 

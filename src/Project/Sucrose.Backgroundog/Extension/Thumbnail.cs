@@ -4,7 +4,7 @@ using SBMM = Sucrose.Backgroundog.Manage.Manager;
 
 namespace Sucrose.Backgroundog.Extension
 {
-    internal class Thumbnail
+    internal static class Thumbnail
     {
         public static string Create(Stream Stream)
         {

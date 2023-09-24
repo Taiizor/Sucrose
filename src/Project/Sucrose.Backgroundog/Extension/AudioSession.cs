@@ -5,7 +5,7 @@ using SBMI = Sucrose.Backgroundog.Manage.Internal;
 
 namespace Sucrose.Backgroundog.Extension
 {
-    internal class AudioSession
+    internal static class AudioSession
     {
         private static void SetupEvents()
         {

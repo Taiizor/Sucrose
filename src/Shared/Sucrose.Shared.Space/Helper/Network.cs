@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.NetworkInformation;
 using SMR = Sucrose.Memory.Readonly;
-using SSDSHHS = Sucrose.Shared.Dependency.Struct.Host.HostStruct;
+using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -22,7 +22,7 @@ namespace Sucrose.Shared.Space.Helper
             }
         }
 
-        public static List<SSDSHHS> GetHost()
+        public static List<SSDSHS> GetHost()
         {
             return new()
             {

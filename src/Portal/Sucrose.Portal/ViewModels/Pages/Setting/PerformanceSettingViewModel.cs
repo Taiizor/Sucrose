@@ -12,7 +12,7 @@ using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
-using SSDSHHS = Sucrose.Shared.Dependency.Struct.Host.HostStruct;
+using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -67,6 +67,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             CounterState.Checked += (s, e) => CounterStateChecked(Counter, true);
             CounterState.Unchecked += (s, e) => CounterStateChecked(Counter, false);
 
+            Counter.HeaderFrame = CounterState;
+
             TextBlock CounterHint = new()
             {
                 Text = "Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.",
@@ -79,8 +81,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Counter.FooterCard = CounterHint;
-
-            Counter.HeaderFrame = CounterState;
 
             Contents.Add(Counter);
 
@@ -379,7 +379,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NetworkPingType.SelectionChanged += (s, e) => NetworkPingTypeSelected($"{NetworkPingType.SelectedValue}");
 
-            foreach (SSDSHHS Host in SSSHN.GetHost())
+            foreach (SSDSHS Host in SSSHN.GetHost())
             {
                 NetworkPingType.Items.Add(Host.Name);
             }
@@ -501,6 +501,41 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Saver);
 
+            TextBlock SystemArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "System"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(SystemArea);
+
+            SPVCEC Remote = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Remote.Title.Text = "Uzak Masaüstü";
+            Remote.LeftIcon.Symbol = SymbolRegular.Remote20;
+            Remote.Description.Text = "Uzak masaüstü uygulamaları çalışırken duvar kağıdına ne olacağı.";
+
+            ComboBox RemotePerformance = new();
+
+            RemotePerformance.SelectionChanged += (s, e) => RemotePerformanceSelected(RemotePerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                RemotePerformance.Items.Add(Type);
+            }
+
+            RemotePerformance.SelectedIndex = (int)SPMM.RemotePerformance;
+
+            Remote.HeaderFrame = RemotePerformance;
+
+            Contents.Add(Remote);
+
             _isInitialized = true;
         }
 
@@ -619,6 +654,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSDEPT Type = (SSDEPT)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.SaverPerformance, Type);
+            }
+        }
+
+        private void RemotePerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.RemotePerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.RemotePerformance, Type);
             }
         }
 
