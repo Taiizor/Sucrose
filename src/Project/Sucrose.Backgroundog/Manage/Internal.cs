@@ -109,11 +109,11 @@ namespace Sucrose.Backgroundog.Manage
 
         public static SBSDAS AudioData = new()
         {
-            PID = 0,
+            //PID = 0,
             State = false,
             TrackNumber = 0,
             PlaybackRate = 0d,
-            Hwnd = IntPtr.Zero,
+            //Hwnd = IntPtr.Zero,
             AlbumTrackCount = 0,
             Title = string.Empty,
             Artist = string.Empty,
@@ -129,8 +129,8 @@ namespace Sucrose.Backgroundog.Manage
             MaxSeekTime = TimeSpan.Zero,
             LastPlayingFileTime = new(),
             PositionSetFileTime = new(),
-            SourceDeviceId = string.Empty,
-            RenderDeviceId = string.Empty,
+            //SourceDeviceId = string.Empty,
+            //RenderDeviceId = string.Empty,
             ThumbnailString = string.Empty,
             ThumbnailAddress = string.Empty,
             MediaType = MediaPlaybackMode.Unknown,
@@ -138,7 +138,7 @@ namespace Sucrose.Backgroundog.Manage
             PlaybackState = MediaPlaybackState.Unknown,
             PropsValid = MediaPlaybackProps.Capabilities,
             RepeatMode = MediaPlaybackRepeatMode.Unknown,
-            PlaybackCaps = MediaPlaybackCapabilities.None
+            //PlaybackCaps = MediaPlaybackCapabilities.None
         };
 
         public static SBSDMYS MemoryData = new()
@@ -169,8 +169,9 @@ namespace Sucrose.Backgroundog.Manage
         public static SBSDGS GraphicData = new()
         {
             Amd = new(),
+            State = false,
             Intel = new(),
-            Nvidia = new(),
+            Nvidia = new()
         };
 
         public static SBSDNS NetworkData = new()

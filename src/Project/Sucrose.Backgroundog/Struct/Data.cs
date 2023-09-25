@@ -139,7 +139,7 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public uint? PID;
+        private uint? PID;
         /// <summary>
         /// 
         /// </summary>
@@ -147,11 +147,11 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public IntPtr? Hwnd;
+        public string Title;
         /// <summary>
         /// 
         /// </summary>
-        public string Title;
+        private IntPtr? Hwnd;
         /// <summary>
         /// 
         /// </summary>
@@ -211,11 +211,11 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public string SourceDeviceId;
+        private string SourceDeviceId;
         /// <summary>
         /// 
         /// </summary>
-        public string RenderDeviceId;
+        private string RenderDeviceId;
         /// <summary>
         /// 
         /// </summary>
@@ -255,7 +255,7 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public MediaPlaybackCapabilities PlaybackCaps;
+        private MediaPlaybackCapabilities PlaybackCaps;
     }
 
     /// <summary>
@@ -408,6 +408,10 @@ namespace Sucrose.Backgroundog.Struct.Data
     [StructLayout(LayoutKind.Sequential)]
     public struct GraphicStruct
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool State;
         /// <summary>
         /// 
         /// </summary>

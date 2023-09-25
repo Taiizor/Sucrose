@@ -146,6 +146,7 @@ namespace Sucrose.Shared.Engine.Helper
                 SSEMI.AudioData = string.Empty;
                 SSEMI.MemoryData = string.Empty;
                 SSEMI.BatteryData = string.Empty;
+                SSEMI.GraphicData = string.Empty;
                 SSEMI.NetworkData = string.Empty;
                 SSEMI.MotherboardData = string.Empty;
             }

@@ -55,11 +55,11 @@ namespace Sucrose.Backgroundog.Extension
         {
             return new JObject
             {
-                { "PID", SBMI.AudioData.PID },
+                //{ "PID", SBMI.AudioData.PID },
                 { "State", SBMI.AudioData.State },
                 { "Title", SBMI.AudioData.Title },
                 { "Artist", SBMI.AudioData.Artist },
-                { "Hwnd", $"{SBMI.AudioData.Hwnd}" },
+                //{ "Hwnd", $"{SBMI.AudioData.Hwnd}" },
                 { "Subtitle", SBMI.AudioData.Subtitle },
                 { "AlbumTitle", SBMI.AudioData.AlbumTitle },
                 { "TrackNumber", SBMI.AudioData.TrackNumber },
@@ -69,10 +69,10 @@ namespace Sucrose.Backgroundog.Extension
                 { "PlaybackRate", SBMI.AudioData.PlaybackRate },
                 { "PropsValid", $"{SBMI.AudioData.PropsValid}" },
                 { "RepeatMode", $"{SBMI.AudioData.RepeatMode}" },
-                { "SourceDeviceId", SBMI.AudioData.SourceDeviceId },
-                { "RenderDeviceId", SBMI.AudioData.RenderDeviceId },
+                //{ "SourceDeviceId", SBMI.AudioData.SourceDeviceId },
+                //{ "RenderDeviceId", SBMI.AudioData.RenderDeviceId },
                 { "ShuffleEnabled", SBMI.AudioData.ShuffleEnabled },
-                { "PlaybackCaps", $"{SBMI.AudioData.PlaybackCaps}" },
+                //{ "PlaybackCaps", $"{SBMI.AudioData.PlaybackCaps}" },
                 { "PlaybackMode", $"{SBMI.AudioData.PlaybackMode}" },
                 { "ThumbnailString", SBMI.AudioData.ThumbnailString },
                 { "AlbumTrackCount", SBMI.AudioData.AlbumTrackCount },
@@ -139,6 +139,7 @@ namespace Sucrose.Backgroundog.Extension
             return new JObject
             {
                 { "Amd", SBMI.GraphicData.Amd },
+                { "State", SBMI.GraphicData.State },
                 { "Intel", SBMI.GraphicData.Intel },
                 { "Nvidia", SBMI.GraphicData.Nvidia }
             };

@@ -1,20 +1,23 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Skylark.Enum;
-using Skylark.Helper;
-using Skylark.Standard.Extension.Ping;
-using Skylark.Standard.Extension.Storage;
 using System.Management;
 using System.Text;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
+using SBSSSS = Sucrose.Backgroundog.Struct.Sensor.SensorStruct;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SEMST = Skylark.Enum.ModeStorageType;
+using SEST = Skylark.Enum.StorageType;
+using SHN = Skylark.Helper.Numeric;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
+using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
+using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -169,7 +172,7 @@ namespace Sucrose.Backgroundog.Helper
                             {
                                 if (SMMM.PingType == Host.Name)
                                 {
-                                    SBMI.NetworkData.PingData = PingExtension.Send(Host.Address, 1000);
+                                    SBMI.NetworkData.PingData = SSEPPE.Send(Host.Address, 1000);
 
                                     SBMI.NetworkData.Host = Host.Address;
                                     SBMI.NetworkData.Ping = SBMI.NetworkData.PingData.RoundTrip;
@@ -231,11 +234,11 @@ namespace Sucrose.Backgroundog.Helper
                                     SBMI.NetworkData.Upload = SBMI.UploadCounter.NextValue();
                                     SBMI.NetworkData.Download = SBMI.DownloadCounter.NextValue();
 
-                                    SBMI.NetworkData.UploadData = StorageExtension.AutoConvert(SBMI.NetworkData.Upload, StorageType.Byte, ModeStorageType.Palila);
-                                    SBMI.NetworkData.DownloadData = StorageExtension.AutoConvert(SBMI.NetworkData.Download, StorageType.Byte, ModeStorageType.Palila);
+                                    SBMI.NetworkData.UploadData = SSESSE.AutoConvert(SBMI.NetworkData.Upload, SEST.Byte, SEMST.Palila);
+                                    SBMI.NetworkData.DownloadData = SSESSE.AutoConvert(SBMI.NetworkData.Download, SEST.Byte, SEMST.Palila);
 
-                                    SBMI.NetworkData.FormatUploadData = Numeric.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.UploadData.Text;
-                                    SBMI.NetworkData.FormatDownloadData = Numeric.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', ClearNumericType.None) + " " + SBMI.NetworkData.DownloadData.Text;
+                                    SBMI.NetworkData.FormatUploadData = SHN.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', SECNT.None) + " " + SBMI.NetworkData.UploadData.Text;
+                                    SBMI.NetworkData.FormatDownloadData = SHN.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', SECNT.None) + " " + SBMI.NetworkData.DownloadData.Text;
 
                                     break;
                                 }
@@ -470,14 +473,25 @@ namespace Sucrose.Backgroundog.Helper
                             {
                                 Hardware.Update();
 
-                                List<string> Sensors = new()
+                                List<SBSSSS> Sensors = new()
                                 {
-                                    $"Name: {Hardware.Name}"
+                                    new SBSSSS
+                                    {
+                                        Name = Hardware.Name,
+                                        Type = $"{Hardware.HardwareType}"
+                                    }
                                 };
 
                                 foreach (ISensor Sensor in Hardware.Sensors)
                                 {
-                                    Sensors.Add($"Sensor: {Sensor.Name}, Type: {Sensor.SensorType}, Max: {Sensor.Max}, Min: {Sensor.Min}, Now: {Sensor.Value}");
+                                    Sensors.Add(new SBSSSS
+                                    {
+                                        Max = Sensor.Max,
+                                        Min = Sensor.Min,
+                                        Name = Sensor.Name,
+                                        Now = Sensor.Value,
+                                        Type = $"{Sensor.SensorType}"
+                                    });
                                 }
 
                                 string Result = JsonConvert.SerializeObject(Sensors, Formatting.Indented);
@@ -485,12 +499,15 @@ namespace Sucrose.Backgroundog.Helper
                                 switch (Hardware.HardwareType)
                                 {
                                     case HardwareType.GpuAmd:
+                                        SBMI.GraphicData.State = true;
                                         SBMI.GraphicData.Amd = JArray.Parse(Result);
                                         break;
                                     case HardwareType.GpuIntel:
+                                        SBMI.GraphicData.State = true;
                                         SBMI.GraphicData.Intel = JArray.Parse(Result);
                                         break;
                                     case HardwareType.GpuNvidia:
+                                        SBMI.GraphicData.State = true;
                                         SBMI.GraphicData.Nvidia = JArray.Parse(Result);
                                         break;
                                     default:

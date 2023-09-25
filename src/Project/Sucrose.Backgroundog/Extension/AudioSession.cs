@@ -57,17 +57,17 @@ namespace Sucrose.Backgroundog.Extension
                     SBMI.AudioData.AlbumTrackCount = MediaDetails.AlbumTrackCount;
                     SBMI.AudioData.MediaType = MediaPlaybackDataSource.MediaSchemaToMediaPlaybackMode(MediaDetails.MediaClassPrimaryID);
 
-                    SBMI.AudioData.PID = SBMI.PlayingSession?.PID;
-                    SBMI.AudioData.Hwnd = SBMI.PlayingSession?.Hwnd;
+                    //SBMI.AudioData.PID = SBMI.PlayingSession?.PID;
+                    //SBMI.AudioData.Hwnd = SBMI.PlayingSession?.Hwnd;
                     SBMI.AudioData.SourceAppId = SBMI.PlayingSession?.SourceAppId;
-                    SBMI.AudioData.SourceDeviceId = SBMI.PlayingSession?.SourceDeviceId;
-                    SBMI.AudioData.RenderDeviceId = SBMI.PlayingSession?.RenderDeviceId;
+                    //SBMI.AudioData.SourceDeviceId = SBMI.PlayingSession?.SourceDeviceId;
+                    //SBMI.AudioData.RenderDeviceId = SBMI.PlayingSession?.RenderDeviceId;
 
                     SBMI.AudioData.RepeatMode = MediaPlaybackInfo.RepeatMode;
                     SBMI.AudioData.PropsValid = MediaPlaybackInfo.PropsValid;
                     SBMI.AudioData.PlaybackRate = MediaPlaybackInfo.PlaybackRate;
                     SBMI.AudioData.PlaybackMode = MediaPlaybackInfo.PlaybackMode;
-                    SBMI.AudioData.PlaybackCaps = MediaPlaybackInfo.PlaybackCaps;
+                    //SBMI.AudioData.PlaybackCaps = MediaPlaybackInfo.PlaybackCaps;
                     SBMI.AudioData.PlaybackState = MediaPlaybackInfo.PlaybackState;
                     SBMI.AudioData.ShuffleEnabled = MediaPlaybackInfo.ShuffleEnabled;
                     SBMI.AudioData.LastPlayingFileTime = MediaPlaybackInfo.LastPlayingFileTime;
