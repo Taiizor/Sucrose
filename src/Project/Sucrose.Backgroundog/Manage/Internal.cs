@@ -44,6 +44,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool BiosManagement = true;
 
+        public static bool PingManagement = true;
+
         public static bool RemoteDesktop = false;
 
         public static bool AudioManagement = true;
