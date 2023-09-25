@@ -8,6 +8,7 @@ import "google/protobuf/empty.proto";
 service Backgroundog {
     rpc MotherboardBackgroundog (google.protobuf.Empty) returns (BackgroundogMotherboardResponse);
     rpc NetworkBackgroundog (google.protobuf.Empty) returns (BackgroundogNetworkResponse);
+    rpc GraphicBackgroundog (google.protobuf.Empty) returns (BackgroundogGraphicResponse);
     rpc BatteryBackgroundog (google.protobuf.Empty) returns (BackgroundogBatteryResponse);
     rpc MemoryBackgroundog (google.protobuf.Empty) returns (BackgroundogMemoryResponse);
     rpc AudioBackgroundog (google.protobuf.Empty) returns (BackgroundogAudioResponse);
@@ -21,6 +22,10 @@ message BackgroundogMotherboardResponse {
 }
 
 message BackgroundogNetworkResponse {
+    string info = 1;
+}
+
+message BackgroundogGraphicResponse {
     string info = 1;
 }
 

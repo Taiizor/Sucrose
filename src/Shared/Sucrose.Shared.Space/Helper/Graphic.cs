@@ -4,7 +4,7 @@ namespace Sucrose.Shared.Space.Helper
 {
     internal static class Graphic
     {
-        public static List<string> AllVideoController()
+        public static string[] AllVideoController()
         {
             List<string> Names = new();
 
@@ -15,7 +15,7 @@ namespace Sucrose.Shared.Space.Helper
                 Names.Add(Object["Name"].ToString().TrimStart().TrimEnd());
             }
 
-            return Names;
+            return Names.ToArray();
         }
     }
 }

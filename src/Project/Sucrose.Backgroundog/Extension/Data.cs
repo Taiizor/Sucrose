@@ -134,6 +134,16 @@ namespace Sucrose.Backgroundog.Extension
             };
         }
 
+        public static JObject GetGraphicInfo()
+        {
+            return new JObject
+            {
+                { "Amd", SBMI.GraphicData.Amd },
+                { "Intel", SBMI.GraphicData.Intel },
+                { "Nvidia", SBMI.GraphicData.Nvidia }
+            };
+        }
+
         public static JObject GetNetworkInfo()
         {
             return new JObject

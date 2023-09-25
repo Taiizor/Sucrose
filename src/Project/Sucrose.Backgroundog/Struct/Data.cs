@@ -1,4 +1,5 @@
-﻿using NPSMLib;
+﻿using Newtonsoft.Json.Linq;
+using NPSMLib;
 using System.Runtime.InteropServices;
 using SSPPSS = Skylark.Struct.Ping.PingSendStruct;
 using SSSSS = Skylark.Struct.Storage.StorageStruct;
@@ -399,6 +400,26 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// 
         /// </summary>
         public BatteryChargeStatus ChargeStatus;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public struct GraphicStruct
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public JArray Amd;
+        /// <summary>
+        /// 
+        /// </summary>
+        public JArray Intel;
+        /// <summary>
+        /// 
+        /// </summary>
+        public JArray Nvidia;
     }
 
     /// <summary>

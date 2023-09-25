@@ -132,6 +132,8 @@
 
         public const string SaverPerformance = "SaverPerformance";
 
+        public const string FocusPerformance = "FocusPerformance";
+
         public const string RemotePerformance = "RemotePerformance";
 
         public const string BackgroundOpacity = "BackgroundOpacity";
@@ -142,11 +144,11 @@
 
         public const string DescriptionLength = "DescriptionLength";
 
+        public const string GraphicInterfaces = "GraphicInterfaces";
+
         public const string NetworkInterfaces = "NetworkInterfaces";
 
         public const string MemoryPerformance = "MemoryPerformance";
-
-        public const string FocusPerformance = "FocusPerformance";
 
         public const string PerformanceCounter = "PerformanceCounter";
 

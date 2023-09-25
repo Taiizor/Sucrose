@@ -7,6 +7,7 @@ using SBSDBSS = Sucrose.Backgroundog.Struct.Data.BiosStruct;
 using SBSDBYS = Sucrose.Backgroundog.Struct.Data.BatteryStruct;
 using SBSDCS = Sucrose.Backgroundog.Struct.Data.CpuStruct;
 using SBSDDS = Sucrose.Backgroundog.Struct.Data.DateStruct;
+using SBSDGS = Sucrose.Backgroundog.Struct.Data.GraphicStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
@@ -155,7 +156,7 @@ namespace Sucrose.Backgroundog.Manage
         public static Computer Computer = new()
         {
             IsCpuEnabled = true,
-            IsGpuEnabled = false,
+            IsGpuEnabled = true,
             IsPsuEnabled = false,
             IsMemoryEnabled = true,
             IsBatteryEnabled = true,
@@ -163,6 +164,13 @@ namespace Sucrose.Backgroundog.Manage
             IsStorageEnabled = false,
             IsControllerEnabled = false,
             IsMotherboardEnabled = true,
+        };
+
+        public static SBSDGS GraphicData = new()
+        {
+            Amd = new(),
+            Intel = new(),
+            Nvidia = new(),
         };
 
         public static SBSDNS NetworkData = new()

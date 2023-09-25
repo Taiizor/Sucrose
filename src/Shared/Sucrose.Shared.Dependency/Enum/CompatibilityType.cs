@@ -78,6 +78,10 @@
         /// </summary>
         SystemBattery,
         /// <summary>
+        /// Geçersiz sistem grafik değeri!
+        /// </summary>
+        SystemGraphic,
+        /// <summary>
         /// Geçersiz sistem ağ değeri!
         /// </summary>
         SystemNetwork,

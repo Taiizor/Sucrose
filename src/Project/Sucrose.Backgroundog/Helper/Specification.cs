@@ -1,4 +1,6 @@
 ﻿using LibreHardwareMonitor.Hardware;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Skylark.Enum;
 using Skylark.Helper;
 using Skylark.Standard.Extension.Ping;
@@ -14,6 +16,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
+using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHF = Skylark.Wing.Helper.Fullscreen;
@@ -181,6 +184,20 @@ namespace Sucrose.Backgroundog.Helper
                             SBMI.NetworkData.Ping = 0;
                             SBMI.NetworkData.PingData = new();
                         }
+                    }
+                    catch (Exception Exception)
+                    {
+                        SSWW.Watch_CatchException(Exception);
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    try
+                    {
+                        string[] Interfaces = SSSHG.AllVideoController();
+
+                        SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, Interfaces);
                     }
                     catch (Exception Exception)
                     {
@@ -449,6 +466,37 @@ namespace Sucrose.Backgroundog.Helper
                                 SBMI.MotherboardData.State = true;
                                 SBMI.MotherboardData.Name = Hardware.Name;
                             }
+                            else if (Hardware.HardwareType is HardwareType.GpuAmd or HardwareType.GpuIntel or HardwareType.GpuNvidia)
+                            {
+                                Hardware.Update();
+
+                                List<string> Sensors = new()
+                                {
+                                    $"Name: {Hardware.Name}"
+                                };
+
+                                foreach (ISensor Sensor in Hardware.Sensors)
+                                {
+                                    Sensors.Add($"Sensor: {Sensor.Name}, Type: {Sensor.SensorType}, Max: {Sensor.Max}, Min: {Sensor.Min}, Now: {Sensor.Value}");
+                                }
+
+                                string Result = JsonConvert.SerializeObject(Sensors, Formatting.Indented);
+
+                                switch (Hardware.HardwareType)
+                                {
+                                    case HardwareType.GpuAmd:
+                                        SBMI.GraphicData.Amd = JArray.Parse(Result);
+                                        break;
+                                    case HardwareType.GpuIntel:
+                                        SBMI.GraphicData.Intel = JArray.Parse(Result);
+                                        break;
+                                    case HardwareType.GpuNvidia:
+                                        SBMI.GraphicData.Nvidia = JArray.Parse(Result);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
                         }
                     }
                     catch (Exception Exception)
@@ -462,6 +510,7 @@ namespace Sucrose.Backgroundog.Helper
                 //    foreach (IHardware Hardware in SBMI.Computer.Hardware)
                 //    {
                 //        Console.WriteLine("Hardware: {0}", Hardware.Name);
+                //        Console.WriteLine("Hardware Type: {0}", Hardware.HardwareType);
 
                 //        foreach (IHardware Subhardware in Hardware.SubHardware)
                 //        {

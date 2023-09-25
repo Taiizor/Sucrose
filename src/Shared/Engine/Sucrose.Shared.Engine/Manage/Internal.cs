@@ -28,6 +28,8 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static string NetworkData = string.Empty;
 
+        public static string GraphicData = string.Empty;
+
         public static string BatteryData = string.Empty;
 
         public delegate void ExecuteNormal(string Script);

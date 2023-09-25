@@ -40,6 +40,9 @@ namespace Sucrose.Shared.Theme.Helper
         [JsonProperty("SystemBattery", Required = Required.Default)]
         public string SystemBattery { get; set; }
 
+        [JsonProperty("SystemGraphic", Required = Required.Default)]
+        public string SystemGraphic { get; set; }
+
         [JsonProperty("SystemNetwork", Required = Required.Default)]
         public string SystemNetwork { get; set; }
 

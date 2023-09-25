@@ -208,6 +208,12 @@ namespace Sucrose.Shared.Zip.Helper
                         return SSDECT.SystemBattery;
                     }
 
+                    // Compatible içindeki SystemGraphic değeri boş değil ve {0} içermiyor mu?
+                    if (!string.IsNullOrEmpty(Compatible.SystemGraphic) && !Compatible.SystemGraphic.Contains("{0}"))
+                    {
+                        return SSDECT.SystemGraphic;
+                    }
+
                     // Compatible içindeki SystemNetwork değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemNetwork) && !Compatible.SystemNetwork.Contains("{0}"))
                     {

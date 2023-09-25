@@ -103,6 +103,19 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     try
                     {
+                        BackgroundogGraphicResponse Response = SGCSBCS.GetGraphic(SSEMI.Client);
+                        SSEMI.GraphicData = Response.Info;
+                    }
+                    catch
+                    {
+                        SSEMI.GraphicData = string.Empty;
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    try
+                    {
                         BackgroundogNetworkResponse Response = SGCSBCS.GetNetwork(SSEMI.Client);
                         SSEMI.NetworkData = Response.Info;
                     }

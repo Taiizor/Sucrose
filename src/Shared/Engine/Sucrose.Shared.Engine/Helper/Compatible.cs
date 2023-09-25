@@ -64,6 +64,11 @@ namespace Sucrose.Shared.Engine.Helper
                     Function(string.Format(SSEMI.Compatible.SystemBattery, SSEMI.BatteryData));
                 }
 
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemGraphic))
+                {
+                    Function(string.Format(SSEMI.Compatible.SystemGraphic, SSEMI.GraphicData));
+                }
+
                 if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemNetwork))
                 {
                     Function(string.Format(SSEMI.Compatible.SystemNetwork, SSEMI.NetworkData));

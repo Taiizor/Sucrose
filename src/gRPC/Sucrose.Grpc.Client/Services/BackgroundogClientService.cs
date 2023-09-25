@@ -20,6 +20,13 @@ namespace Sucrose.Grpc.Client.Services
             return Response;
         }
 
+        public static BackgroundogGraphicResponse GetGraphic(BackgroundogClient Client)
+        {
+            BackgroundogGraphicResponse Response = Client.GraphicBackgroundog(new Empty());
+
+            return Response;
+        }
+
         public static BackgroundogBatteryResponse GetBattery(BackgroundogClient Client)
         {
             BackgroundogBatteryResponse Response = Client.BatteryBackgroundog(new Empty());

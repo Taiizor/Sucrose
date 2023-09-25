@@ -25,6 +25,8 @@ namespace Sucrose.Manager.Manage
 
         public static int UploadValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800), 0, 99999999);
 
+        public static string[] GraphicInterfaces => SMMI.SystemSettingManager.GetSetting(SMC.GraphicInterfaces, Array.Empty<string>());
+
         public static string[] NetworkInterfaces => SMMI.SystemSettingManager.GetSetting(SMC.NetworkInterfaces, Array.Empty<string>());
 
         public static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
