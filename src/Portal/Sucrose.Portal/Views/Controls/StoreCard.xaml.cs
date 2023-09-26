@@ -242,10 +242,10 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void StoreCard_Loaded(object sender, RoutedEventArgs e)
         {
-            bool Result = await Task.Run(DownloadCache);
-
             try
             {
+                bool Result = await Task.Run(DownloadCache);
+
                 if (Result)
                 {
                     ToolTip TitleTip = new()
