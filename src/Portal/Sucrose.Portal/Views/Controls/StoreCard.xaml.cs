@@ -102,7 +102,7 @@ namespace Sucrose.Portal.Views.Controls
             Start();
         }
 
-        private async void DownloadCache()
+        private async Task<bool> DownloadCache()
         {
             if (SPMI.StoreDownloader.ContainsKey(Theme))
             {
@@ -112,19 +112,31 @@ namespace Sucrose.Portal.Views.Controls
                 }
 
                 Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+
+                return true;
             }
             else
             {
-                SPMI.StoreDownloader[Theme] = true;
+                SPMI.StoreDownloader[Theme] = false;
 
-                SSSHD.Cache(Wallpaper, Theme, Agent, Key);
+                SPMI.StoreDownloader[Theme] = SSSHD.Cache(Wallpaper, Theme, Agent, Key);
 
-                while (!SPMI.StoreDownloading.ContainsKey(Theme) || !SPMI.StoreDownloading[Theme])
+                if (SPMI.StoreDownloader[Theme])
                 {
-                    await Task.Delay(100);
-                }
+                    while (!SPMI.StoreDownloading.ContainsKey(Theme) || !SPMI.StoreDownloading[Theme])
+                    {
+                        await Task.Delay(100);
+                    }
 
-                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+
+                    return true;
+                }
+                else
+                {
+                    SPMI.StoreDownloader.Remove(Theme);
+                    return false;
+                }
             }
         }
 
@@ -230,48 +242,58 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void StoreCard_Loaded(object sender, RoutedEventArgs e)
         {
-            await Task.Run(DownloadCache);
+            bool Result = await Task.Run(DownloadCache);
 
             try
             {
-                ToolTip TitleTip = new()
+                if (Result)
                 {
-                    Content = Info.Title
-                };
+                    ToolTip TitleTip = new()
+                    {
+                        Content = Info.Title
+                    };
 
-                ToolTip DescriptionTip = new()
-                {
-                    Content = Info.Description
-                };
+                    ToolTip DescriptionTip = new()
+                    {
+                        Content = Info.Description
+                    };
 
-                ThemeTitle.ToolTip = TitleTip;
-                ThemeDescription.ToolTip = DescriptionTip;
+                    ThemeTitle.ToolTip = TitleTip;
+                    ThemeDescription.ToolTip = DescriptionTip;
 
-                ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
-                ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
+                    ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
+                    ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
 
-                string ImagePath = Path.Combine(Theme, Info.Thumbnail);
+                    string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 
-                if (File.Exists(ImagePath))
-                {
-                    Imagine.ImageSource = await Loader.LoadOptimalAsync(ImagePath);
+                    if (File.Exists(ImagePath))
+                    {
+                        Imagine.ImageSource = await Loader.LoadOptimalAsync(ImagePath);
+                    }
+
+                    if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+                    {
+                        DownloadSymbol.Visibility = Visibility.Hidden;
+                        IncompatibleVersion.Visibility = Visibility.Visible;
+                    }
+
+                    await Task.Delay(100);
+
+                    Card.Visibility = Visibility.Visible;
+                    Progress.Visibility = Visibility.Collapsed;
                 }
-
-                if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+                else
                 {
-                    DownloadSymbol.Visibility = Visibility.Hidden;
-                    IncompatibleVersion.Visibility = Visibility.Visible;
+                    Warn.Visibility = Visibility.Visible;
+                    Progress.Visibility = Visibility.Collapsed;
                 }
-
-                await Task.Delay(100);
-
-                Card.Visibility = Visibility.Visible;
-                Progress.Visibility = Visibility.Collapsed;
 
                 Dispose();
             }
             catch
             {
+                Warn.Visibility = Visibility.Visible;
+                Progress.Visibility = Visibility.Collapsed;
                 Dispose();
             }
         }

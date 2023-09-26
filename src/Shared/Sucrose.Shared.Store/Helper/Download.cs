@@ -132,11 +132,18 @@ namespace Sucrose.Shared.Store.Helper
 
                 InitializeClient(Agent, Key);
 
-                using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}").Result;
-                using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}").Result;
+                using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
+                using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
 
-                ResponseInfo.EnsureSuccessStatusCode();
-                ResponseCover.EnsureSuccessStatusCode();
+                try
+                {
+                    ResponseInfo.EnsureSuccessStatusCode();
+                    ResponseCover.EnsureSuccessStatusCode();
+                }
+                catch
+                {
+                    return false;
+                }
 
                 if (ResponseInfo.IsSuccessStatusCode && ResponseCover.IsSuccessStatusCode)
                 {
@@ -174,6 +181,11 @@ namespace Sucrose.Shared.Store.Helper
             SSSMI.StoreService.Info[Keys] = new SSSID(0, 0, 0, "0%", "0/0");
 
             return await DownloadFolder(Source, Output, Agent, Keys, Key, Sub);
+        }
+
+        private static string EncodeSpacesOnly(string Source)
+        {
+            return Source.Replace(" ", "%20");
         }
 
         private static void InitializeClient(string Agent, string Key)
