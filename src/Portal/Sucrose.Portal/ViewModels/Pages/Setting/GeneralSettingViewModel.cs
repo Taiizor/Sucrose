@@ -80,7 +80,12 @@ namespace Sucrose.Portal.ViewModels.Pages
             ApplicationLanguage.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage");
             ApplicationLanguage.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage", "Description");
 
-            ComboBox Localization = new();
+            ComboBox Localization = new()
+            {
+                MaxDropDownHeight = 200
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(Localization, ScrollBarVisibility.Auto);
 
             Localization.SelectionChanged += (s, e) => LocalizationSelected(Localization.SelectedIndex);
 

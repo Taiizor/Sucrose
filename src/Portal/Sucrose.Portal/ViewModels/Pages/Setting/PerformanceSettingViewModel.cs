@@ -297,7 +297,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NetworkUpload.ValueChanged += (s, e) => NetworkUploadChanged(NetworkUpload.Value);
 
-            ComboBox NetworkUploadType = new();
+            ComboBox NetworkUploadType = new()
+            {
+                MaxDropDownHeight = 200
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(NetworkUploadType, ScrollBarVisibility.Auto);
 
             NetworkUploadType.SelectionChanged += (s, e) => NetworkUploadTypeSelected(NetworkUploadType.SelectedIndex);
 
@@ -336,7 +341,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NetworkDownload.ValueChanged += (s, e) => NetworkDownloadChanged(NetworkDownload.Value);
 
-            ComboBox NetworkDownloadType = new();
+            ComboBox NetworkDownloadType = new()
+            {
+                MaxDropDownHeight = 200
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(NetworkDownloadType, ScrollBarVisibility.Auto);
 
             NetworkDownloadType.SelectionChanged += (s, e) => NetworkDownloadTypeSelected(NetworkDownloadType.SelectedIndex);
 
@@ -375,7 +385,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NetworkPing.ValueChanged += (s, e) => NetworkPingChanged(NetworkPing.Value);
 
-            ComboBox NetworkPingType = new();
+            ComboBox NetworkPingType = new()
+            {
+                MaxDropDownHeight = 200
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(NetworkPingType, ScrollBarVisibility.Auto);
 
             NetworkPingType.SelectionChanged += (s, e) => NetworkPingTypeSelected($"{NetworkPingType.SelectedValue}");
 
