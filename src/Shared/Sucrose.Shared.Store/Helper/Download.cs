@@ -132,11 +132,7 @@ namespace Sucrose.Shared.Store.Helper
 
                 InitializeClient(Agent, Key);
 
-                bool ResponseOne = Response($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}", $"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}", Theme, Cover, Info);
-                bool ResponseTwo = Response(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}"), EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}"), Theme, Cover, Info);
-                bool ResponseThree = Response(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}?v={DateTimeOffset.Now.ToUnixTimeSeconds()}"), EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}?v={DateTimeOffset.Now.ToUnixTimeSeconds()}"), Theme, Cover, Info);
-
-                return ResponseOne || ResponseTwo || ResponseThree;
+                return Response($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}", $"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}", Theme, Cover, Info) || Response(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}"), EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}"), Theme, Cover, Info) || Response(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}?v={DateTimeOffset.Now.ToUnixTimeSeconds()}"), EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}?v={DateTimeOffset.Now.ToUnixTimeSeconds()}"), Theme, Cover, Info);
             }
         }
 
