@@ -42,33 +42,40 @@ namespace Sucrose.Shared.Store.Helper
 
             InitializeClient(Agent, Key);
 
-            List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, SMR.StoreSource, SMR.Branch, Agent, Key);
-
-            foreach (SSIIC Content in Contents)
+            try
             {
-                if (Content.Name == SMR.StoreFile)
+                List<SSIIC> Contents = SSHG.ContentsList(SMR.Owner, SMR.StoreRepository, SMR.StoreSource, SMR.Branch, Agent, Key);
+
+                foreach (SSIIC Content in Contents)
                 {
-                    using HttpResponseMessage Response = SSSMI.Client.GetAsync(Content.DownloadUrl).Result;
-
-                    Response.EnsureSuccessStatusCode();
-
-                    if (Response.IsSuccessStatusCode)
+                    if (Content.Name == SMR.StoreFile)
                     {
-                        using HttpContent HContent = Response.Content;
+                        using HttpResponseMessage Response = SSSMI.Client.GetAsync(Content.DownloadUrl).Result;
 
-                        using Stream Stream = HContent.ReadAsStreamAsync().Result;
-                        using FileStream FStream = new(Store, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                        Response.EnsureSuccessStatusCode();
 
-                        Stream.CopyTo(FStream);
+                        if (Response.IsSuccessStatusCode)
+                        {
+                            using HttpContent HContent = Response.Content;
 
-                        Stream.Dispose();
-                        FStream.Dispose();
+                            using Stream Stream = HContent.ReadAsStreamAsync().Result;
+                            using FileStream FStream = new(Store, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
 
-                        return true;
+                            Stream.CopyTo(FStream);
+
+                            Stream.Dispose();
+                            FStream.Dispose();
+
+                            return true;
+                        }
+
+                        break;
                     }
-
-                    break;
                 }
+            }
+            catch
+            {
+                return false;
             }
 
             return false;

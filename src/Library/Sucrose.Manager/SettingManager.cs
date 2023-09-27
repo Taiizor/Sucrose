@@ -228,6 +228,41 @@ namespace Sucrose.Manager
             }
         }
 
+        public string ReadSetting()
+        {
+            _lock.EnterReadLock();
+
+            try
+            {
+                lock (lockObject)
+                {
+                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
+
+                    try
+                    {
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
+
+                        return SMHR.Read(_settingsFilePath);
+                    }
+                    finally
+                    {
+                        Mutex.ReleaseMutex();
+                    }
+                }
+            }
+            finally
+            {
+                _lock.ExitReadLock();
+            }
+        }
+
         public void ApplySetting()
         {
             _lock.EnterWriteLock();
@@ -279,7 +314,7 @@ namespace Sucrose.Manager
         {
             if (CheckFile())
             {
-                string json = SMHR.Read(_settingsFilePath);
+                string json = ReadSetting();
 
                 if (string.IsNullOrEmpty(json))
                 {
@@ -294,6 +329,10 @@ namespace Sucrose.Manager
                         if (settings != null && settings.Properties != null)
                         {
                             return;
+                        }
+                        else
+                        {
+                            ApplySetting();
                         }
                     }
                     catch

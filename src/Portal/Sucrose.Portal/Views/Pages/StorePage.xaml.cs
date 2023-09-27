@@ -71,7 +71,7 @@ namespace Sucrose.Portal.Views.Pages
 
                 FrameStore.Content = FullStorePage;
             }
-            else if (StoreStage == SSDESST.Broken)
+            else if (StoreStage == SSDESST.Unknown)
             {
                 UnknownStorePage = new();
 
