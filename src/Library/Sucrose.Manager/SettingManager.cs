@@ -34,6 +34,8 @@ namespace Sucrose.Manager
             };
 
             _lock = new ReaderWriterLockSlim(); //ReaderWriterLock
+
+            ControlFile();
         }
 
         public T GetSetting<T>(string key, T back = default)
@@ -226,6 +228,43 @@ namespace Sucrose.Manager
             }
         }
 
+        public void ApplySetting()
+        {
+            _lock.EnterWriteLock();
+
+            try
+            {
+                lock (lockObject)
+                {
+                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
+
+                    try
+                    {
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
+
+                        Settings settings = new();
+
+                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
+                    }
+                    finally
+                    {
+                        Mutex.ReleaseMutex();
+                    }
+                }
+            }
+            finally
+            {
+                _lock.ExitWriteLock();
+            }
+        }
+
         public bool CheckFile()
         {
             return File.Exists(_settingsFilePath);
@@ -234,6 +273,39 @@ namespace Sucrose.Manager
         public string SettingFile()
         {
             return _settingsFilePath;
+        }
+
+        private void ControlFile()
+        {
+            if (CheckFile())
+            {
+                string json = SMHR.Read(_settingsFilePath);
+
+                if (string.IsNullOrEmpty(json))
+                {
+                    ApplySetting();
+                }
+                else
+                {
+                    try
+                    {
+                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+
+                        if (settings != null && settings.Properties != null)
+                        {
+                            return;
+                        }
+                    }
+                    catch
+                    {
+                        ApplySetting();
+                    }
+                }
+            }
+            else
+            {
+                ApplySetting();
+            }
         }
 
         private T ConvertToType<T>(object value)
