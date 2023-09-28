@@ -37,15 +37,15 @@ namespace Sucrose.Undo
             Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
         }
 
-        private static void DeleteDirectory(string Path)
+        private static void DeleteDirectory(string Location)
         {
-            if (Directory.Exists(Path))
+            if (Directory.Exists(Location))
             {
-                string[] Files = Directory.GetFiles(Path, "*", SearchOption.AllDirectories);
+                string[] Files = Directory.GetFiles(Location, "*", SearchOption.AllDirectories);
 
                 foreach (string Record in Files)
                 {
-                    if (Record == TemporaryFile)
+                    if (Path.GetFileName(Record) == TemporaryFile)
                     {
                         try
                         {
@@ -59,11 +59,11 @@ namespace Sucrose.Undo
                     }
                 }
 
-                string[] Folders = Directory.GetDirectories(Path);
+                string[] Folders = Directory.GetDirectories(Location);
 
                 foreach (string Record in Folders)
                 {
-                    if (Record == TemporaryFolder)
+                    if (Path.GetFileName(Record) == TemporaryFolder)
                     {
                         try
                         {
@@ -79,7 +79,7 @@ namespace Sucrose.Undo
 
                 try
                 {
-                    Directory.Delete(Path, true);
+                    Directory.Delete(Location, true);
                 }
                 catch { }
             }

@@ -106,27 +106,27 @@ namespace Sucrose.Bundle
             }
         }
 
-        private static async Task ControlDirectory(string Path)
+        private static async Task ControlDirectory(string Location)
         {
-            if (Directory.Exists(Path))
+            if (Directory.Exists(Location))
             {
-                Directory.Delete(Path, true);
+                Directory.Delete(Location, true);
             }
 
             await Task.Delay(MinDelay);
 
-            Directory.CreateDirectory(Path);
+            Directory.CreateDirectory(Location);
         }
 
-        private static async Task ControlDirectoryStable(string Path)
+        private static async Task ControlDirectoryStable(string Location)
         {
-            if (Directory.Exists(Path))
+            if (Directory.Exists(Location))
             {
-                string[] Files = Directory.GetFiles(Path, "*", SearchOption.AllDirectories);
+                string[] Files = Directory.GetFiles(Location, "*", SearchOption.AllDirectories);
 
                 foreach (string Record in Files)
                 {
-                    if (Record == TemporaryFile)
+                    if (Path.GetFileName(Record) == TemporaryFile)
                     {
                         try
                         {
@@ -140,11 +140,11 @@ namespace Sucrose.Bundle
                     }
                 }
 
-                string[] Folders = Directory.GetDirectories(Path);
+                string[] Folders = Directory.GetDirectories(Location);
 
                 foreach (string Record in Folders)
                 {
-                    if (Record == TemporaryFolder)
+                    if (Path.GetFileName(Record) == TemporaryFolder)
                     {
                         try
                         {
