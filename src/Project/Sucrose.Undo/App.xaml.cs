@@ -19,6 +19,10 @@ namespace Sucrose.Undo
 
         private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
 
+        private static string TemporaryFile => "Sucrose.Backgroundog.sys";
+
+        private static string TemporaryFolder => "Sucrose.Backgroundog";
+
         private static string Text => "Sucrose Wallpaper Engine";
 
         private static string Shortcut => $"{Text}.lnk";
@@ -37,7 +41,47 @@ namespace Sucrose.Undo
         {
             if (Directory.Exists(Path))
             {
-                Directory.Delete(Path, recursive: true);
+                string[] Files = Directory.GetFiles(Path, "*", SearchOption.AllDirectories);
+
+                foreach (string Record in Files)
+                {
+                    if (Record == TemporaryFile)
+                    {
+                        try
+                        {
+                            File.Delete(Record);
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        File.Delete(Record);
+                    }
+                }
+
+                string[] Folders = Directory.GetDirectories(Path);
+
+                foreach (string Record in Folders)
+                {
+                    if (Record == TemporaryFolder)
+                    {
+                        try
+                        {
+                            Directory.Delete(Record);
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        Directory.Delete(Record, true);
+                    }
+                }
+
+                try
+                {
+                    Directory.Delete(Path, true);
+                }
+                catch { }
             }
         }
 

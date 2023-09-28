@@ -38,6 +38,10 @@ namespace Sucrose.Bundle
 
         private static string Launcher => Path.Combine(InstallPath, Department, Executable);
 
+        private static string TemporaryFile => "Sucrose.Backgroundog.sys";
+
+        private static string TemporaryFolder => "Sucrose.Backgroundog";
+
         private static string QuietUninstall => $"\"{Uninstall}\" -s";
 
         private static string Executable => "Sucrose.Launcher.exe";
@@ -112,6 +116,50 @@ namespace Sucrose.Bundle
             await Task.Delay(MinDelay);
 
             Directory.CreateDirectory(Path);
+        }
+
+        private static async Task ControlDirectoryStable(string Path)
+        {
+            if (Directory.Exists(Path))
+            {
+                string[] Files = Directory.GetFiles(Path, "*", SearchOption.AllDirectories);
+
+                foreach (string Record in Files)
+                {
+                    if (Record == TemporaryFile)
+                    {
+                        try
+                        {
+                            File.Delete(Record);
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        File.Delete(Record);
+                    }
+                }
+
+                string[] Folders = Directory.GetDirectories(Path);
+
+                foreach (string Record in Folders)
+                {
+                    if (Record == TemporaryFolder)
+                    {
+                        try
+                        {
+                            Directory.Delete(Record);
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        Directory.Delete(Record, true);
+                    }
+                }
+            }
+
+            await Task.CompletedTask;
         }
 
         private static async Task ExtractResources(string SourcePath, string ExtractPath)
@@ -201,7 +249,7 @@ namespace Sucrose.Bundle
             await Task.Delay(MaxDelay);
 
             await ControlDirectory(PackagePath);
-            await ControlDirectory(InstallPath);
+            await ControlDirectoryStable(InstallPath);
 
             await Task.Delay(MaxDelay);
 
