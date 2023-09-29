@@ -11,6 +11,7 @@ using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
+using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
@@ -59,6 +60,11 @@ namespace Sucrose.Portal.Views.Windows
             {
                 ApplySetting(false);
                 RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPSGSP));
+            }
+            else if (Args.Count() > 1 && Args[1] == $"{SSDEACT.SystemSetting}")
+            {
+                ApplySetting(false);
+                RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPSSSP));
             }
             else
             {

@@ -24,7 +24,8 @@
 
     internal enum ArgumentCommandsType
     {
-        Setting
+        Setting,
+        SystemSetting
     }
 
     internal enum SchedulerCommandsType

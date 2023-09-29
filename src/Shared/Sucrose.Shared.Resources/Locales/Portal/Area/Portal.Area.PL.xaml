@@ -8,8 +8,10 @@
     <system:String x:Key="Portal.Area.Store">Sklep</system:String>
     <system:String x:Key="Portal.Area.Donate">Donacja</system:String>
     <system:String x:Key="Portal.Area.System">Systemowe</system:String>
+    <system:String x:Key="Portal.Area.Cache">Pamięć Podręczna</system:String>
     <system:String x:Key="Portal.Area.Laptop">Laptop</system:String>
     <system:String x:Key="Portal.Area.Support">Wsparcie</system:String>
+    <system:String x:Key="Portal.Area.Backup">Kopia Zapasowa</system:String>
     <system:String x:Key="Portal.Area.Priority">Priorytet</system:String>
     <system:String x:Key="Portal.Area.Engines">Silniki</system:String>
     <system:String x:Key="Portal.Area.Library">Biblioteka</system:String>

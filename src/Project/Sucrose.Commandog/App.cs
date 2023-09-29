@@ -9,14 +9,14 @@ namespace Sucrose.Commandog
 {
     internal class App : IDisposable
     {
-        public static void Main(string[] Args)
+        public static async Task Main(string[] Args)
         {
             try
             {
                 Console.OutputEncoding = Encoding.UTF8;
                 SHC.All = new CultureInfo(SMMM.Culture, true);
 
-                SCHA.Parse(Args);
+                await SCHA.Parse(Args);
             }
             catch (Exception Exception)
             {

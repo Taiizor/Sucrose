@@ -16,7 +16,7 @@ namespace Sucrose.Commandog.Helper
 {
     internal static class Arguments
     {
-        public static void Parse(string[] Arguments)
+        public static async Task Parse(string[] Arguments)
         {
             if (Arguments.Any())
             {
@@ -83,7 +83,7 @@ namespace Sucrose.Commandog.Helper
                                         }
                                         break;
                                     case SSDECT.Temp:
-                                        SSSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                        await SSSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSDECT.Wiki:
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
@@ -95,10 +95,10 @@ namespace Sucrose.Commandog.Helper
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSDECT.Import:
-                                        SSSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                        await SSSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSDECT.Export:
-                                        SSSHE.Start(SCHP.ArgumentValue<string>(Values[0]));
+                                        await SSSHE.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                         break;
                                     case SSDECT.Report:
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
@@ -155,6 +155,8 @@ namespace Sucrose.Commandog.Helper
                     }
                 }
             }
+
+            await Task.CompletedTask;
         }
     }
 }

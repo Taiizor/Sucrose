@@ -1,37 +1,61 @@
 ﻿using System.IO;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SEMST = Skylark.Enum.ModeStorageType;
+using SEST = Skylark.Enum.StorageType;
+using SHN = Skylark.Helper.Numeric;
+using SMR = Sucrose.Memory.Readonly;
+using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
+using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SSSSS = Skylark.Struct.Storage.StorageStruct;
 
 namespace Sucrose.Shared.Space.Helper
 {
     internal static class Temporary
     {
-        public static void Delete(string Path, string Application)
+        public static async Task Delete(string Path, string Application)
         {
-            try
+            SSLHK.Stop();
+            SSSHP.Kill(SMR.Portal);
+            SSSHP.Kill(SMR.Update);
+            SSSHP.Kill(SMR.Launcher);
+            SSSHP.Kill(SMR.Backgroundog);
+
+            await Task.Delay(TimeSpan.FromSeconds(1));
+
+            Directory.Delete(Path, true);
+
+            await Task.Delay(TimeSpan.FromSeconds(1));
+
+            SSSHP.Run(Application);
+            SSSHP.Run(SSSMI.Portal, $"{SSDEACT.SystemSetting}");
+
+            await Task.CompletedTask;
+        }
+
+        public static async Task<string> Size(string Path)
+        {
+            long Total = 0;
+
+            if (Directory.Exists(Path))
             {
-                SSLHK.Stop();
-                SSSHP.Kill(Application);
+                string[] Files = Directory.GetFiles(Path, "*", SearchOption.AllDirectories);
 
-                Directory.Delete(Path, true);
+                foreach (string Record in Files)
+                {
+                    FileInfo Info = new(Record);
+                    Total += Info.Length;
+                }
 
-                SSSHP.Run(Application);
+                SSSSS Result = await SSESSE.AutoConvertAsync(Total, SEST.Byte, SEMST.Palila);
+
+                return await SHN.NumeralAsync(Result.Value, true, true, 2, '0', SECNT.None) + " " + Result.Short;
             }
-            catch
+            else
             {
-                try
-                {
-                    SSLHK.Stop();
-                    SSSHP.Kill(Application);
-
-                    File.Delete(Path);
-
-                    SSSHP.Run(Application);
-                }
-                catch
-                {
-                    //
-                }
+                return await Task.FromResult("0 b");
             }
         }
 

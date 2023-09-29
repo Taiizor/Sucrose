@@ -8,8 +8,10 @@
     <system:String x:Key="Portal.Area.Store">Mağaza</system:String>
     <system:String x:Key="Portal.Area.Donate">Bağış</system:String>
     <system:String x:Key="Portal.Area.System">Sistem</system:String>
+    <system:String x:Key="Portal.Area.Cache">Önbellek</system:String>
     <system:String x:Key="Portal.Area.Laptop">Dizüstü</system:String>
     <system:String x:Key="Portal.Area.Support">Destek</system:String>
+    <system:String x:Key="Portal.Area.Backup">Yedekleme</system:String>
     <system:String x:Key="Portal.Area.Priority">Öncelik</system:String>
     <system:String x:Key="Portal.Area.Engines">Motorlar</system:String>
     <system:String x:Key="Portal.Area.Library">Kütüphane</system:String>

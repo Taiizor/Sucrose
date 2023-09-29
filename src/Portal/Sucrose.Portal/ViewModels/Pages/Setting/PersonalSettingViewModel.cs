@@ -159,6 +159,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             DeleteState.Checked += (s, e) => DeleteStateChecked(true);
             DeleteState.Unchecked += (s, e) => DeleteStateChecked(false);
 
+            Delete.HeaderFrame = DeleteState;
+
             TextBlock DeleteHint = new()
             {
                 Text = "Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir",
@@ -168,8 +170,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Delete.FooterCard = DeleteHint;
-
-            Delete.HeaderFrame = DeleteState;
 
             Contents.Add(Delete);
 
