@@ -60,8 +60,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             SPVCEC CacheTemporary = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = true,
-                IsExpand = true
+                Expandable = true
             };
 
             CacheTemporary.Title.Text = "Önbellek Temizleme";
@@ -97,8 +96,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             SPVCEC StoreTemporary = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = true,
-                IsExpand = true
+                Expandable = true
             };
 
             StoreTemporary.Title.Text = "Mağaza Temizleme";
@@ -131,6 +129,52 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(StoreTemporary);
 
+            TextBlock ResetArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Reset"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(ResetArea);
+
+            SPVCEC SettingReset = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = true
+            };
+
+            SettingReset.Title.Text = "Ayar Sıfırlama";
+            SettingReset.LeftIcon.Symbol = SymbolRegular.LauncherSettings24;
+            SettingReset.Description.Text = "Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.";
+
+            Button SettingResetStart = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Appearance = ControlAppearance.Secondary,
+                Margin = new Thickness(0, 0, 0, 0),
+                Content = "Sıfırlamaya Başla",
+                Padding = new Thickness(8),
+                Cursor = Cursors.Hand,
+            };
+
+            SettingResetStart.Click += (s, e) => SettingResetStartClick(SettingResetStart);
+
+            SettingReset.HeaderFrame = SettingResetStart;
+
+            TextBlock SettingResetHint = new()
+            {
+                Text = "Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.",
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            SettingReset.FooterCard = SettingResetHint;
+
+            Contents.Add(SettingReset);
+
             TextBlock BackupArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
@@ -147,7 +191,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = true
             };
 
-            SettingBackup.Title.Text = "Ayar Yedekleme";
+            SettingBackup.Title.Text = "Ayar Dosyaları";
             SettingBackup.LeftIcon.Symbol = SymbolRegular.PeopleSettings24;
             SettingBackup.Description.Text = "Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını yönetme.";
 
@@ -187,7 +231,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SettingBackupHint = new()
             {
-                Text = "Not: Yedekleme işlemi başladığında tüm uygulamalar kapanacaktır.",
+                Text = "Not: Seçtiğiniz işlem başladığında tüm uygulamalar kapanacaktır.",
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
@@ -213,6 +257,13 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             //Dispose();
             InitializeTimer.Stop();
+        }
+
+        private void SettingResetStartClick(Button SettingResetStart)
+        {
+            SettingResetStart.IsEnabled = false;
+
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reset}{SMR.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private void CacheTemporaryStartClick(Button CacheTemporaryStart)

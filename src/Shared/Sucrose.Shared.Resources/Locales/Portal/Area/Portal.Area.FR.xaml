@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Area.Cache">Cache</system:String>
     <system:String x:Key="Portal.Area.Laptop">Ordinateur Portable</system:String>
     <system:String x:Key="Portal.Area.Support">Support</system:String>
+    <system:String x:Key="Portal.Area.Reset">Réinitialisation</system:String>
     <system:String x:Key="Portal.Area.Backup">Sauvegarde</system:String>
     <system:String x:Key="Portal.Area.Priority">Priorité</system:String>
     <system:String x:Key="Portal.Area.Engines">Moteurs</system:String>

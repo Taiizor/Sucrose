@@ -8,6 +8,7 @@
         Test,
         Temp,
         Wiki,
+        Reset,
         Bundle,
         Update,
         Import,

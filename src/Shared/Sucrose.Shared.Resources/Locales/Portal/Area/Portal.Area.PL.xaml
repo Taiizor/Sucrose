@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Area.Cache">Pamięć Podręczna</system:String>
     <system:String x:Key="Portal.Area.Laptop">Laptop</system:String>
     <system:String x:Key="Portal.Area.Support">Wsparcie</system:String>
+    <system:String x:Key="Portal.Area.Reset">Resetowanie</system:String>
     <system:String x:Key="Portal.Area.Backup">Kopia Zapasowa</system:String>
     <system:String x:Key="Portal.Area.Priority">Priorytet</system:String>
     <system:String x:Key="Portal.Area.Engines">Silniki</system:String>

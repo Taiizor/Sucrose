@@ -7,6 +7,7 @@ using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
 using SSSHE = Sucrose.Shared.Space.Helper.Export;
 using SSSHI = Sucrose.Shared.Space.Helper.Import;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHR = Sucrose.Shared.Space.Helper.Reset;
 using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
 using SWHWS = Skylark.Wing.Helper.WindowsStartup;
 using SWHWSM = Skylark.Wing.Helper.WindowsStartupMachine;
@@ -87,6 +88,9 @@ namespace Sucrose.Commandog.Helper
                                         break;
                                     case SSDECT.Wiki:
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                        break;
+                                    case SSDECT.Reset:
+                                        await SSSHR.Start(SCHP.ArgumentValue<string>(Values[0]));
                                         break;
                                     case SSDECT.Bundle:
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
