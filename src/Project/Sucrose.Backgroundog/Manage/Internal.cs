@@ -36,6 +36,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static SBHI Initialize = new();
 
+        public static bool Virtuality = false;
+
         public static int InitializeTime = 250;
 
         public static bool FocusDesktop = false;

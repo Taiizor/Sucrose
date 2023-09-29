@@ -150,6 +150,8 @@
 
         public const string MemoryPerformance = "MemoryPerformance";
 
+        public const string VirtualPerformance = "VirtualPerformance";
+
         public const string PerformanceCounter = "PerformanceCounter";
 
         public const string NetworkPerformance = "NetworkPerformance";

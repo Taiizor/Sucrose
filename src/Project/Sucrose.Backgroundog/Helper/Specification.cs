@@ -6,6 +6,7 @@ using System.Text;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
+using SBEV = Sucrose.Backgroundog.Extension.Virtual;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBSSSS = Sucrose.Backgroundog.Struct.Sensor.SensorStruct;
 using SECNT = Skylark.Enum.ClearNumericType;
@@ -323,6 +324,18 @@ namespace Sucrose.Backgroundog.Helper
                         }
 
                         SBMI.Fullscreen = false;
+                    }
+                    catch (Exception Exception)
+                    {
+                        SSWW.Watch_CatchException(Exception);
+                    }
+                });
+
+                _ = Task.Run(() =>
+                {
+                    try
+                    {
+                        SBMI.Virtuality = SBEV.VirtualityActive();
                     }
                     catch (Exception Exception)
                     {

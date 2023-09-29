@@ -23,6 +23,7 @@
         Saver,
         Memory,
         Remote,
+        Virtual,
         Network,
         Battery,
         Fullscreen

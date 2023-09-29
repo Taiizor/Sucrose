@@ -52,12 +52,17 @@ namespace Sucrose.Backgroundog.Helper
                     return;
                 }
 
-                if (await NetworkCondition())
+                if (await RemoteCondition())
                 {
                     return;
                 }
 
-                if (await RemoteCondition())
+                if (await VirtualCondition())
+                {
+                    return;
+                }
+
+                if (await NetworkCondition())
                 {
                     return;
                 }
@@ -357,6 +362,36 @@ namespace Sucrose.Backgroundog.Helper
                 int MaxCount = 3;
 
                 while (SMMM.BatteryUsage <= 0 || SBMI.BatteryData.PowerLineStatus == PowerLineStatus.Online || SBMI.BatteryData.ACPowerStatus == "Online" || SBMI.BatteryData.ChargeLevel > SMMM.BatteryUsage || SBMM.BatteryPerformance == SSDEPT.Resume)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        Lifecycle();
+                        SBMI.Condition = false;
+                        SBMI.Performance = SSDEPT.Resume;
+                        SBMI.CategoryPerformance = SSDECPT.Not;
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> VirtualCondition()
+        {
+            if (SBMI.CategoryPerformance == SSDECPT.Virtual)
+            {
+                int Count = 0;
+                int MaxCount = 3;
+
+                while (!SBMI.Virtuality || SBMM.VirtualPerformance == SSDEPT.Resume)
                 {
                     if (Count >= MaxCount)
                     {

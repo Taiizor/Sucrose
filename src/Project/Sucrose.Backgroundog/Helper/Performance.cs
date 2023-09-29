@@ -48,6 +48,11 @@ namespace Sucrose.Backgroundog.Helper
                 return;
             }
 
+            if (await VirtualPerformance())
+            {
+                return;
+            }
+
             if (await NetworkPerformance())
             {
                 return;
@@ -345,6 +350,36 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         SBMI.Performance = SBMM.BatteryPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Battery;
+                        SBMI.Condition = true;
+                        Lifecycle();
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> VirtualPerformance()
+        {
+            if (SBMM.VirtualPerformance != SSDEPT.Resume)
+            {
+                int Count = 0;
+                int MaxCount = 5;
+
+                while (SBMI.Virtuality)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        SBMI.Performance = SBMM.VirtualPerformance;
+                        SBMI.CategoryPerformance = SSDECPT.Virtual;
                         SBMI.Condition = true;
                         Lifecycle();
 

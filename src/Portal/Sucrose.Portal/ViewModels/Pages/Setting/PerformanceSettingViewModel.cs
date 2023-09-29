@@ -258,7 +258,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                     NetworkAdapter.Items.Add(Interface);
                 }
 
-                NetworkAdapter.SelectedValue = SMMM.NetworkAdapter;
+                string SelectedAdapter = SMMM.NetworkAdapter;
+
+                if (string.IsNullOrEmpty(SelectedAdapter))
+                {
+                    NetworkAdapter.SelectedIndex = 0;
+                }
+                else
+                {
+                    NetworkAdapter.SelectedValue = SelectedAdapter;
+                }
             }
             else
             {
@@ -526,6 +535,31 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(SystemArea);
 
+            SPVCEC Virtual = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Virtual.Title.Text = "Sanallaştırma";
+            Virtual.LeftIcon.Symbol = SymbolRegular.DesktopCheckmark24;
+            Virtual.Description.Text = "Sanallaştırma uygulamaları çalışırken duvar kağıdına ne olacağı.";
+
+            ComboBox VirtualPerformance = new();
+
+            VirtualPerformance.SelectionChanged += (s, e) => VirtualPerformanceSelected(VirtualPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                VirtualPerformance.Items.Add(Type);
+            }
+
+            VirtualPerformance.SelectedIndex = (int)SPMM.VirtualPerformance;
+
+            Virtual.HeaderFrame = VirtualPerformance;
+
+            Contents.Add(Virtual);
+
             SPVCEC Remote = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
@@ -767,6 +801,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSDEPT Type = (SSDEPT)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.MemoryPerformance, Type);
+            }
+        }
+
+        private void VirtualPerformanceSelected(int Index)
+        {
+            if (Index != (int)SPMM.VirtualPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.VirtualPerformance, Type);
             }
         }
 
