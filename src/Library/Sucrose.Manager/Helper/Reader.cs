@@ -4,7 +4,7 @@ namespace Sucrose.Manager.Helper
 {
     internal static class Reader
     {
-        public static string Read(string filePath)
+        public static async Task<string> Read(string filePath)
         {
             try
             {
@@ -24,12 +24,24 @@ namespace Sucrose.Manager.Helper
                 }
                 catch
                 {
-                    return string.Empty;
+                    try
+                    {
+                        await Task.Delay(5);
+
+                        using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
+                        using StreamReader reader = new(fileStream);
+
+                        return SMHC.Clean(reader.ReadToEnd());
+                    }
+                    catch
+                    {
+                        return string.Empty;
+                    }
                 }
             }
         }
 
-        public static string ReadBasic(string filePath)
+        public static async Task<string> ReadBasic(string filePath)
         {
             try
             {
@@ -43,7 +55,16 @@ namespace Sucrose.Manager.Helper
                 }
                 catch
                 {
-                    return string.Empty;
+                    try
+                    {
+                        await Task.Delay(5);
+
+                        return SMHC.Clean(File.ReadAllText(filePath));
+                    }
+                    catch
+                    {
+                        return string.Empty;
+                    }
                 }
             }
         }

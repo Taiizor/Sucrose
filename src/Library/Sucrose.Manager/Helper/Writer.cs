@@ -4,7 +4,7 @@ namespace Sucrose.Manager.Helper
 {
     internal static class Writer
     {
-        public static void Write(string filePath, string fileContent)
+        public static async void Write(string filePath, string fileContent)
         {
             FileMode fileMode = File.Exists(filePath) ? FileMode.Truncate : FileMode.CreateNew;
 
@@ -26,12 +26,24 @@ namespace Sucrose.Manager.Helper
                 }
                 catch
                 {
-                    //
+                    try
+                    {
+                        await Task.Delay(5);
+
+                        using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
+                        using StreamWriter writer = new(fileStream);
+
+                        writer.Write(SMHC.Clean(fileContent));
+                    }
+                    catch
+                    {
+                        //
+                    }
                 }
             }
         }
 
-        public static void WriteBasic(string filePath, string fileContent)
+        public static async void WriteBasic(string filePath, string fileContent)
         {
             try
             {
@@ -49,12 +61,23 @@ namespace Sucrose.Manager.Helper
                 }
                 catch
                 {
-                    //
+                    try
+                    {
+                        await Task.Delay(5);
+
+                        using StreamWriter writer = File.AppendText(filePath);
+
+                        writer.WriteLine(SMHC.Clean(fileContent));
+                    }
+                    catch
+                    {
+                        //
+                    }
                 }
             }
         }
 
-        public static void WriteStable(string filePath, string fileContent)
+        public static async void WriteStable(string filePath, string fileContent)
         {
             try
             {
@@ -68,7 +91,16 @@ namespace Sucrose.Manager.Helper
                 }
                 catch
                 {
-                    //
+                    try
+                    {
+                        await Task.Delay(5);
+
+                        File.WriteAllText(filePath, SMHC.Clean(fileContent));
+                    }
+                    catch
+                    {
+                        //
+                    }
                 }
             }
         }

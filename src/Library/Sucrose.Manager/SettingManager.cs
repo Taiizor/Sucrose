@@ -61,7 +61,7 @@ namespace Sucrose.Manager
 
                         if (CheckFile())
                         {
-                            string json = SMHR.Read(_settingsFilePath);
+                            string json = SMHR.Read(_settingsFilePath).Result;
 
                             Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -108,7 +108,7 @@ namespace Sucrose.Manager
 
                         if (CheckFile())
                         {
-                            string json = SMHR.Read(_settingsFilePath);
+                            string json = SMHR.Read(_settingsFilePath).Result;
 
                             Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -155,7 +155,7 @@ namespace Sucrose.Manager
 
                         if (CheckFile())
                         {
-                            string json = SMHR.Read(_settingsFilePath);
+                            string json = SMHR.Read(_settingsFilePath).Result;
 
                             Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
@@ -204,7 +204,7 @@ namespace Sucrose.Manager
 
                         if (CheckFile())
                         {
-                            string json = SMHR.Read(_settingsFilePath);
+                            string json = SMHR.Read(_settingsFilePath).Result;
                             settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
                         }
                         else
@@ -249,7 +249,7 @@ namespace Sucrose.Manager
                             //
                         }
 
-                        return SMHR.Read(_settingsFilePath);
+                        return SMHR.Read(_settingsFilePath).Result;
                     }
                     finally
                     {

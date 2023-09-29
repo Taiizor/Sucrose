@@ -10,6 +10,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
@@ -286,6 +287,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (TextBox.Text.Length == 93)
             {
                 SMMI.PrivateSettingManager.SetSetting(SMC.Key, TextBox.Text);
+                SSSMI.State = true;
             }
             else
             {

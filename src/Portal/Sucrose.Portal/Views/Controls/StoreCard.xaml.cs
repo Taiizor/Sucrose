@@ -134,7 +134,6 @@ namespace Sucrose.Portal.Views.Controls
                 }
                 else
                 {
-                    SPMI.StoreDownloader.Remove(Theme);
                     return false;
                 }
             }
@@ -294,6 +293,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 Warn.Visibility = Visibility.Visible;
                 Progress.Visibility = Visibility.Collapsed;
+
                 Dispose();
             }
         }

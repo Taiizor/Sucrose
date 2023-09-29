@@ -139,7 +139,45 @@ namespace Sucrose.Shared.Store.Helper
 
                 InitializeClient(Agent, Key);
 
-                return Response($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}", $"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}", Theme, Cover, Info) || Response(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}"), EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}"), Theme, Cover, Info) || Response(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}?v={DateTimeOffset.Now.ToUnixTimeSeconds()}"), EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}?v={DateTimeOffset.Now.ToUnixTimeSeconds()}"), Theme, Cover, Info);
+                try
+                {
+                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
+                    using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
+
+                    ResponseInfo.EnsureSuccessStatusCode();
+                    ResponseCover.EnsureSuccessStatusCode();
+
+                    if (ResponseInfo.IsSuccessStatusCode && ResponseCover.IsSuccessStatusCode)
+                    {
+                        using HttpContent InfoContent = ResponseInfo.Content;
+                        using HttpContent CoverContent = ResponseCover.Content;
+
+                        using Stream InfoStream = InfoContent.ReadAsStreamAsync().Result;
+                        using Stream CoverStream = CoverContent.ReadAsStreamAsync().Result;
+
+                        using FileStream InfoFile = new(Info, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                        using FileStream CoverFile = new(Cover, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+
+                        InfoStream.CopyTo(InfoFile);
+                        CoverStream.CopyTo(CoverFile);
+
+                        InfoStream.Dispose();
+                        CoverStream.Dispose();
+
+                        InfoFile.Dispose();
+                        CoverFile.Dispose();
+
+                        SPMI.StoreDownloading[Theme] = true;
+
+                        return true;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
+
+                return false;
             }
         }
 
@@ -159,15 +197,20 @@ namespace Sucrose.Shared.Store.Helper
 
         private static void InitializeClient(string Agent, string Key)
         {
-            SSSHS.Apply();
-
-            SSSMI.Client.DefaultRequestHeaders.Clear();
-
-            SSSMI.Client.DefaultRequestHeaders.Add("User-Agent", Agent);
-
-            if (!string.IsNullOrEmpty(Key))
+            if (SSSMI.State)
             {
-                SSSMI.Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Key}");
+                SSSMI.State = false;
+
+                SSSHS.Apply();
+
+                SSSMI.Client.DefaultRequestHeaders.Clear();
+
+                SSSMI.Client.DefaultRequestHeaders.Add("User-Agent", Agent);
+
+                if (!string.IsNullOrEmpty(Key))
+                {
+                    SSSMI.Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Key}");
+                }
             }
         }
 
@@ -201,49 +244,6 @@ namespace Sucrose.Shared.Store.Helper
             }
 
             return Count;
-        }
-
-        private static bool Response(string InfoSource, string CoverSource, string Theme, string Cover, string Info)
-        {
-            try
-            {
-                using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(InfoSource).Result;
-                using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(CoverSource).Result;
-
-                ResponseInfo.EnsureSuccessStatusCode();
-                ResponseCover.EnsureSuccessStatusCode();
-
-                if (ResponseInfo.IsSuccessStatusCode && ResponseCover.IsSuccessStatusCode)
-                {
-                    using HttpContent InfoContent = ResponseInfo.Content;
-                    using HttpContent CoverContent = ResponseCover.Content;
-
-                    using Stream InfoStream = InfoContent.ReadAsStreamAsync().Result;
-                    using Stream CoverStream = CoverContent.ReadAsStreamAsync().Result;
-
-                    using FileStream InfoFile = new(Info, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-                    using FileStream CoverFile = new(Cover, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-
-                    InfoStream.CopyTo(InfoFile);
-                    CoverStream.CopyTo(CoverFile);
-
-                    InfoStream.Dispose();
-                    CoverStream.Dispose();
-
-                    InfoFile.Dispose();
-                    CoverFile.Dispose();
-
-                    SPMI.StoreDownloading[Theme] = true;
-
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return false;
         }
 
         private static async Task<bool> DownloadFilesRecursively(string Source, string Output, string Agent, string Keys, string Key, bool Sub)
