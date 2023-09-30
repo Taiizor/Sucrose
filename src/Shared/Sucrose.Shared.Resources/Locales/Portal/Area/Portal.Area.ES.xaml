@@ -4,6 +4,7 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.Area.Sound">Sonido</system:String>
+    <system:String x:Key="Portal.Area.Log">Registro</system:String>
     <system:String x:Key="Portal.Area.Hook">Gancho</system:String>
     <system:String x:Key="Portal.Area.Store">Tienda</system:String>
     <system:String x:Key="Portal.Area.Donate">Donar</system:String>

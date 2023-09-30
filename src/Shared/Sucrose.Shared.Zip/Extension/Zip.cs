@@ -93,6 +93,11 @@ namespace Sucrose.Shared.Zip.Extension
 
                 foreach (string Source in Sources)
                 {
+                    if (!Directory.Exists(Source))
+                    {
+                        Directory.CreateDirectory(Source);
+                    }
+
                     string[] Files = Directory.GetFiles(Source, "*", SearchOption.TopDirectoryOnly);
 
                     foreach (string Record in Files)

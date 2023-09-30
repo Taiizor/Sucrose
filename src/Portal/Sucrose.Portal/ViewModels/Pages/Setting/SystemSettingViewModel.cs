@@ -9,13 +9,18 @@ using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using DialogResult = System.Windows.Forms.DialogResult;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
+using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SMV = Sucrose.Memory.Valuable;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -24,13 +29,21 @@ namespace Sucrose.Portal.ViewModels.Pages
     {
         private string StoreTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store);
 
+        private string SettingTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder);
+
         private string CacheTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder);
 
+        private string LogTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder);
+
         private DispatcherTimer InitializeTimer = new();
+
+        private TextBlock LibraryTemporaryHint = new();
 
         private TextBlock StoreTemporaryHint = new();
 
         private TextBlock CacheTemporaryHint = new();
+
+        private TextBlock LogTemporaryHint = new();
 
         [ObservableProperty]
         private List<UIElement> _Contents = new();
@@ -47,11 +60,123 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
+            TextBlock LogArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Log"),
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(LogArea);
+
+            SPVCEC LogTemporary = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = true
+            };
+
+            LogTemporary.Title.Text = "Günlük Dosyaları";
+            LogTemporary.LeftIcon.Symbol = SymbolRegular.PersonNote24;
+            LogTemporary.Description.Text = "Uygulamanın oluşturmuş olduğu tüm günlük dosyalarını yönetme.";
+
+            StackPanel LogTemporaryContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            Button LogTemporaryCreate = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Appearance = ControlAppearance.Secondary,
+                Margin = new Thickness(0, 0, 0, 0),
+                Padding = new Thickness(8),
+                Cursor = Cursors.Hand,
+                Content = "Oluştur"
+            };
+
+            LogTemporaryCreate.Click += (s, e) => LogTemporaryCreateClick(LogTemporaryCreate);
+
+            Button LogTemporaryDelete = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Appearance = ControlAppearance.Secondary,
+                Margin = new Thickness(10, 0, 0, 0),
+                Padding = new Thickness(8),
+                Cursor = Cursors.Hand,
+                Content = "Temizle"
+            };
+
+            LogTemporaryDelete.Click += (s, e) => LogTemporaryDeleteClick(LogTemporaryDelete);
+
+            LogTemporaryContent.Children.Add(LogTemporaryCreate);
+            LogTemporaryContent.Children.Add(LogTemporaryDelete);
+
+            LogTemporary.HeaderFrame = LogTemporaryContent;
+
+            LogTemporaryHint = new()
+            {
+                Text = "Not: Günlük dosyalarının kapladığı toplam alan 0 b. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.",
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            LogTemporary.FooterCard = LogTemporaryHint;
+
+            Contents.Add(LogTemporary);
+
+            TextBlock ResetArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Reset"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(ResetArea);
+
+            SPVCEC SettingReset = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = true
+            };
+
+            SettingReset.Title.Text = "Ayar Sıfırlama";
+            SettingReset.LeftIcon.Symbol = SymbolRegular.LauncherSettings24;
+            SettingReset.Description.Text = "Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.";
+
+            Button SettingResetStart = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Appearance = ControlAppearance.Secondary,
+                Margin = new Thickness(0, 0, 0, 0),
+                Content = "Sıfırlamaya Başla",
+                Padding = new Thickness(8),
+                Cursor = Cursors.Hand,
+            };
+
+            SettingResetStart.Click += (s, e) => SettingResetStartClick(SettingResetStart);
+
+            SettingReset.HeaderFrame = SettingResetStart;
+
+            TextBlock SettingResetHint = new()
+            {
+                Text = "Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.",
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            SettingReset.FooterCard = SettingResetHint;
+
+            Contents.Add(SettingReset);
+
             TextBlock CacheArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Text = SSRER.GetValue("Portal", "Area", "Cache"),
-                Margin = new Thickness(0, 0, 0, 0),
+                Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
 
@@ -129,51 +254,51 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(StoreTemporary);
 
-            TextBlock ResetArea = new()
+            TextBlock LibraryArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Reset"),
+                Text = SSRER.GetValue("Portal", "Area", "Library"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
 
-            Contents.Add(ResetArea);
+            Contents.Add(LibraryArea);
 
-            SPVCEC SettingReset = new()
+            SPVCEC LibraryTemporary = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = true
             };
 
-            SettingReset.Title.Text = "Ayar Sıfırlama";
-            SettingReset.LeftIcon.Symbol = SymbolRegular.LauncherSettings24;
-            SettingReset.Description.Text = "Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.";
+            LibraryTemporary.Title.Text = "Kütüphane Temizleme";
+            LibraryTemporary.LeftIcon.Symbol = SymbolRegular.FolderLink24;
+            LibraryTemporary.Description.Text = "Kütüphanenizde bulunan veya oluşturmuş olduğunuz tüm tema dosyalarını temizleme.";
 
-            Button SettingResetStart = new()
+            Button LibraryTemporaryStart = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
-                Content = "Sıfırlamaya Başla",
+                Content = "Temizliğe Başla",
                 Padding = new Thickness(8),
                 Cursor = Cursors.Hand,
             };
 
-            SettingResetStart.Click += (s, e) => SettingResetStartClick(SettingResetStart);
+            LibraryTemporaryStart.Click += (s, e) => LibraryTemporaryStartClick(LibraryTemporaryStart);
 
-            SettingReset.HeaderFrame = SettingResetStart;
+            LibraryTemporary.HeaderFrame = LibraryTemporaryStart;
 
-            TextBlock SettingResetHint = new()
+            LibraryTemporaryHint = new()
             {
-                Text = "Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.",
+                Text = "Not: Kütüphanenizdeki temaların kapladığı toplam alan 0 b. Temizliğe başlandığında tüm uygulamalar kapanacaktır.",
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
 
-            SettingReset.FooterCard = SettingResetHint;
+            LibraryTemporary.FooterCard = LibraryTemporaryHint;
 
-            Contents.Add(SettingReset);
+            Contents.Add(LibraryTemporary);
 
             TextBlock BackupArea = new()
             {
@@ -259,11 +384,53 @@ namespace Sucrose.Portal.ViewModels.Pages
             InitializeTimer.Stop();
         }
 
+        private async Task CreateLog()
+        {
+            SaveFileDialog SaveDialog = new()
+            {
+                FileName = SMV.LogCompress,
+
+                Filter = SSRER.GetValue("Portal", "SystemSettingPage", "LogSaveDialogFilter"),
+                FilterIndex = 1,
+
+                Title = SSRER.GetValue("Portal", "SystemSettingPage", "LogSaveDialogTitle"),
+
+                InitialDirectory = SMR.DesktopPath
+            };
+
+            if (SaveDialog.ShowDialog() == true)
+            {
+                string Destination = SaveDialog.FileName;
+
+                string[] Sources = new[]
+                {
+                    LogTemporaryPath,
+                    SettingTemporaryPath,
+                };
+
+                string[] Excludes = new[]
+                {
+                    SMMI.PrivateSettingManager.SettingFile()
+                };
+
+                SSZEZ.Compress(Sources, Excludes, Destination);
+            }
+
+            await Task.CompletedTask;
+        }
+
         private void SettingResetStartClick(Button SettingResetStart)
         {
             SettingResetStart.IsEnabled = false;
 
             SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reset}{SMR.ValueSeparator}{SSSMI.Launcher}");
+        }
+
+        private void LogTemporaryDeleteClick(Button LogTemporaryDelete)
+        {
+            LogTemporaryDelete.IsEnabled = false;
+
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{LogTemporaryPath}{SMR.ValueSeparator}{SSSMI.Launcher}");
         }
 
         private void CacheTemporaryStartClick(Button CacheTemporaryStart)
@@ -322,10 +489,30 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void LibraryTemporaryStartClick(Button LibraryTemporaryStart)
+        {
+            LibraryTemporaryStart.IsEnabled = false;
+
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{SMMM.LibraryLocation}{SMR.ValueSeparator}{SSSMI.Launcher}");
+        }
+
+        private async void LogTemporaryCreateClick(Button LogTemporaryCreate)
+        {
+            LogTemporaryCreate.IsEnabled = false;
+
+            await Task.Run(CreateLog);
+
+            LogTemporaryCreate.IsEnabled = true;
+        }
+
         private async void InitializeTimer_Tick(object sender, EventArgs e)
         {
             try
             {
+                string LogTemporarySize = await SSSHT.Size(LogTemporaryPath);
+
+                LogTemporaryHint.Text = $"Not: Günlük dosyalarının kapladığı toplam alan {LogTemporarySize}. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.";
+
                 string CacheTemporarySize = await SSSHT.Size(CacheTemporaryPath);
 
                 CacheTemporaryHint.Text = $"Not: Önbellek dosyalarının kapladığı toplam alan {CacheTemporarySize}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.";
@@ -333,6 +520,10 @@ namespace Sucrose.Portal.ViewModels.Pages
                 string StoreTemporarySize = await SSSHT.Size(StoreTemporaryPath);
 
                 StoreTemporaryHint.Text = $"Not: Mağaza dosyalarının kapladığı toplam alan {StoreTemporarySize}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.";
+
+                string LibraryTemporarySize = await SSSHT.Size(SMMM.LibraryLocation);
+
+                LibraryTemporaryHint.Text = $"Not: Kütüphanenizdeki temaların kapladığı toplam alan {LibraryTemporarySize}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.";
             }
             catch { }
         }

@@ -42,6 +42,6 @@ Add any other context about the problem here.
 
 **Log File (Important)**
 Share the diagnostic files by:
-Open Sucrose settings (Gear icon) top-right -> System -> Log File -> Save
+Open Sucrose settings (Gear icon) top-right -> System -> Log Files -> Create
 or 
 Navigate to the Appdata folder `C:\Users\<UserName>\AppData\Roaming\Sucrose\Log`

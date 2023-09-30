@@ -4,6 +4,7 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.Area.Sound">Ses</system:String>
+    <system:String x:Key="Portal.Area.Log">Günlük</system:String>
     <system:String x:Key="Portal.Area.Hook">Kanca</system:String>
     <system:String x:Key="Portal.Area.Store">Mağaza</system:String>
     <system:String x:Key="Portal.Area.Donate">Bağış</system:String>

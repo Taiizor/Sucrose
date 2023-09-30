@@ -4,4 +4,7 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogTitle">Protokolldatei Speichern</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogFilter">ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*</system:String>
 </ResourceDictionary>
