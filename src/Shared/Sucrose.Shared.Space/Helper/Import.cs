@@ -17,7 +17,17 @@ namespace Sucrose.Shared.Space.Helper
             SSSHP.Kill(SMR.Launcher);
             SSSHP.Kill(SMR.Backgroundog);
 
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            await Task.Delay(TimeSpan.FromSeconds(3));
+
+            if (!Directory.Exists(Destination))
+            {
+                Directory.CreateDirectory(Destination);
+            }
+
+            if (!Directory.Exists(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder)))
+            {
+                Directory.CreateDirectory(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder));
+            }
 
             foreach (string Setting in Settings(Destination))
             {
@@ -32,11 +42,11 @@ namespace Sucrose.Shared.Space.Helper
             await Task.CompletedTask;
         }
 
-        public static string[] Settings(string Path)
+        public static string[] Settings(string Destination)
         {
             try
             {
-                return Directory.GetFiles(Path, "*.json", SearchOption.TopDirectoryOnly);
+                return Directory.GetFiles(Destination, "*.json", SearchOption.TopDirectoryOnly);
             }
             catch
             {

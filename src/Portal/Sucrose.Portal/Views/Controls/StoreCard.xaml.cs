@@ -23,6 +23,7 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -159,16 +160,19 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SSSHC.Folder(TemporaryPath, LibraryPath);
 
-                if (SMMM.Start)
+                if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
-                    SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
-
-                    if (SSSHL.Run())
+                    if (SMMM.Start)
                     {
-                        SSLHK.Stop();
-                    }
+                        SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
 
-                    SSLHR.Start();
+                        if (SSSHL.Run())
+                        {
+                            SSLHK.Stop();
+                        }
+
+                        SSLHR.Start();
+                    }
                 }
             }
         }

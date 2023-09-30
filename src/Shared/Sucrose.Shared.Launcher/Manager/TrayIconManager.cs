@@ -20,6 +20,8 @@ using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHA = Sucrose.Shared.Space.Helper.Assets;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Shared.Launcher.Manager
@@ -70,7 +72,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             SSLSSS Separator1 = new(SSLMM.Theme);
 
-            if (SSSHL.Run())
+            if (SSSHL.Run() && (!SMMM.PausePerformance || !SSSHP.Work(SSSMI.Backgroundog)))
             {
                 ContextMenu.Items.Add(Separator1.Strip);
 
@@ -86,7 +88,7 @@ namespace Sucrose.Shared.Launcher.Manager
                     ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCustomizeText"), null, null);
                 }
             }
-            else if (SMMI.LibrarySettingManager.CheckFile())
+            else if (SMMI.LibrarySettingManager.CheckFile() && ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog)))
             {
                 string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
 

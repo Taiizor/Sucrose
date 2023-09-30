@@ -15,7 +15,7 @@ namespace Sucrose.Shared.Space.Helper
 {
     internal static class Temporary
     {
-        public static async Task Delete(string Path, string Application)
+        public static async Task Delete(string Destination, string Application)
         {
             SSLHK.Stop();
             SSSHP.Kill(SMR.Portal);
@@ -23,9 +23,16 @@ namespace Sucrose.Shared.Space.Helper
             SSSHP.Kill(SMR.Launcher);
             SSSHP.Kill(SMR.Backgroundog);
 
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            await Task.Delay(TimeSpan.FromSeconds(3));
 
-            Directory.Delete(Path, true);
+            if (Directory.Exists(Destination))
+            {
+                Directory.Delete(Destination, true);
+            }
+            else
+            {
+                Directory.CreateDirectory(Destination);
+            }
 
             await Task.Delay(TimeSpan.FromSeconds(1));
 
@@ -35,13 +42,13 @@ namespace Sucrose.Shared.Space.Helper
             await Task.CompletedTask;
         }
 
-        public static async Task<string> Size(string Path)
+        public static async Task<string> Size(string Destination)
         {
             long Total = 0;
 
-            if (Directory.Exists(Path))
+            if (Directory.Exists(Destination))
             {
-                string[] Files = Directory.GetFiles(Path, "*", SearchOption.AllDirectories);
+                string[] Files = Directory.GetFiles(Destination, "*", SearchOption.AllDirectories);
 
                 foreach (string Record in Files)
                 {
@@ -59,13 +66,13 @@ namespace Sucrose.Shared.Space.Helper
             }
         }
 
-        public static bool Check(string Path)
+        public static bool Check(string Destination)
         {
-            if (Directory.Exists(Path))
+            if (Directory.Exists(Destination))
             {
                 return true;
             }
-            else if (File.Exists(Path))
+            else if (File.Exists(Destination))
             {
                 return true;
             }

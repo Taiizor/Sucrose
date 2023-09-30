@@ -58,7 +58,7 @@ namespace Sucrose.Shared.Space.Helper
 
         public static void Run(string Application, string Arguments, ProcessWindowStyle Style, bool Window)
         {
-            ProcessStartInfo ProcessInfo = new(Application, Arguments)
+            ProcessStartInfo ProcessInfo = new(Application, Parse(Arguments))
             {
                 CreateNoWindow = Window,
                 UseShellExecute = true,
@@ -75,7 +75,7 @@ namespace Sucrose.Shared.Space.Helper
 
         public static void Runas(string Application, string Arguments, ProcessWindowStyle Style, bool Window)
         {
-            ProcessStartInfo ProcessInfo = new(Application, Arguments)
+            ProcessStartInfo ProcessInfo = new(Application, Parse(Arguments))
             {
                 CreateNoWindow = Window,
                 UseShellExecute = true,
@@ -156,6 +156,21 @@ namespace Sucrose.Shared.Space.Helper
         public static bool Kill(params string[] Applications)
         {
             return Applications.Any(Kill);
+        }
+
+        private static string Parse(string Arguments)
+        {
+            if (!Arguments.StartsWith("\""))
+            {
+                Arguments = $"\"{Arguments}";
+            }
+
+            if (!Arguments.EndsWith("\""))
+            {
+                Arguments = $"{Arguments}\"";
+            }
+
+            return Arguments;
         }
     }
 }

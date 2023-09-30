@@ -69,6 +69,10 @@ namespace Sucrose.Manager.Manage
 
         public static SEST DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SEST.Megabyte);
 
+        public static bool PausePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformance, false);
+
+        public static bool ClosePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.ClosePerformance, false);
+
         public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0), 0, 10);
 
         public static SEST UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SEST.Kilobyte);

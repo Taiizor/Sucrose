@@ -21,139 +21,136 @@ namespace Sucrose.Commandog.Helper
         {
             if (Arguments.Any())
             {
-                for (int Count = 0; Count < Arguments.Length; Count++)
+                string Combined = string.Join(" ", Arguments);
+
+                if (Combined.StartsWith(SMR.StartCommand) && Combined.Contains(SMR.ValueSeparatorChar))
                 {
-                    string Argument = Arguments[Count];
 
-                    if (Argument.StartsWith(SMR.StartCommand) && Argument.Contains(SMR.ValueSeparatorChar))
+#if NET6_0_OR_GREATER
+                    string[] ArgumentParts = Combined[1..].Split(SMR.ValueSeparatorChar);
+#else
+                    string[] ArgumentParts = Combined.Substring(1).Split(SMR.ValueSeparatorChar);
+#endif
+
+                    if (ArgumentParts.Length >= 2)
                     {
+                        string Name = ArgumentParts[0];
 
 #if NET6_0_OR_GREATER
-                        string[] ArgumentParts = Argument[1..].Split(SMR.ValueSeparatorChar);
+                        List<string> Values = new(ArgumentParts[1..]);
 #else
-                        string[] ArgumentParts = Argument.Substring(1).Split(SMR.ValueSeparatorChar);
-#endif
+                        List<string> Values = new();
 
-                        if (ArgumentParts.Length >= 2)
+                        for (int Index = 1; Index < ArgumentParts.Length; Index++)
                         {
-                            string Name = ArgumentParts[0];
-
-#if NET6_0_OR_GREATER
-                            List<string> Values = new(ArgumentParts[1..]);
-#else
-                            List<string> Values = new();
-
-                            for (int Index = 1; Index < ArgumentParts.Length; Index++)
-                            {
-                                Values.Add(ArgumentParts[Index]);
-                            }
+                            Values.Add(ArgumentParts[Index]);
+                        }
 #endif
 
-                            if (Enum.TryParse(Name, true, out SSDECT Command))
+                        if (Enum.TryParse(Name, true, out SSDECT Command))
+                        {
+                            switch (Command)
                             {
-                                switch (Command)
-                                {
-                                    case SSDECT.Log:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Kill:
-                                        SSSHP.Kill(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Live:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Test:
-                                        Console.WriteLine("Test Values:");
+                                case SSDECT.Log:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Kill:
+                                    SSSHP.Kill(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Live:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Test:
+                                    Console.WriteLine("Test Values:");
 
-                                        foreach (string Value in Values)
-                                        {
-                                            Type Types = SCHM.GetType(Value);
+                                    foreach (string Value in Values)
+                                    {
+                                        Type Types = SCHM.GetType(Value);
 
-                                            if (Types == typeof(int))
-                                            {
-                                                Console.WriteLine(SCHP.ArgumentValue<int>(Value));
-                                            }
-                                            else if (Types == typeof(bool))
-                                            {
-                                                Console.WriteLine(SCHP.ArgumentValue<bool>(Value));
-                                            }
-                                            else if (Types == typeof(string))
-                                            {
-                                                Console.WriteLine(SCHP.ArgumentValue<string>(Value));
-                                            }
-                                        }
-                                        break;
-                                    case SSDECT.Temp:
-                                        await SSSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
-                                        break;
-                                    case SSDECT.Wiki:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Reset:
-                                        await SSSHR.Start(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Bundle:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Update:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Import:
-                                        await SSSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
-                                        break;
-                                    case SSDECT.Export:
-                                        await SSSHE.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
-                                        break;
-                                    case SSDECT.Report:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Publish:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                        break;
-                                    case SSDECT.Startup:
-                                        SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
-                                        break;
-                                    case SSDECT.StartupM:
-                                        SWHWSM.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
-                                        break;
-                                    case SSDECT.StartupP:
-                                        SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
-                                        break;
-                                    case SSDECT.Scheduler:
-                                        switch (SCHP.ArgumentValue<SSDESCT>(Values[0]))
+                                        if (Types == typeof(int))
                                         {
-                                            case SSDESCT.Create:
-                                                SCHS.CreateTask(SCHP.ArgumentValue<string>(Values[1]));
-                                                break;
-                                            case SSDESCT.Enable:
-                                                SCHS.EnableTask();
-                                                break;
-                                            case SSDESCT.Disable:
-                                                SCHS.DisableTask();
-                                                break;
-                                            case SSDESCT.Delete:
-                                                SCHS.DeleteTask();
-                                                break;
-                                            default:
-                                                break;
+                                            Console.WriteLine(SCHP.ArgumentValue<int>(Value));
                                         }
-                                        break;
-                                    case SSDECT.Interface:
-                                        if (Values.Count() > 1)
+                                        else if (Types == typeof(bool))
                                         {
-                                            SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                            Console.WriteLine(SCHP.ArgumentValue<bool>(Value));
                                         }
-                                        else
+                                        else if (Types == typeof(string))
                                         {
-                                            SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                            Console.WriteLine(SCHP.ArgumentValue<string>(Value));
                                         }
-                                        break;
-                                    case SSDECT.Backgroundog:
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), string.Empty);
-                                        break;
-                                    default:
-                                        break;
-                                }
+                                    }
+                                    break;
+                                case SSDECT.Temp:
+                                    await SSSHT.Delete(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    break;
+                                case SSDECT.Wiki:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Reset:
+                                    await SSSHR.Start(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Bundle:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Update:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Import:
+                                    await SSSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    break;
+                                case SSDECT.Export:
+                                    await SSSHE.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    break;
+                                case SSDECT.Report:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Publish:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Startup:
+                                    SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
+                                    break;
+                                case SSDECT.StartupM:
+                                    SWHWSM.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
+                                    break;
+                                case SSDECT.StartupP:
+                                    SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
+                                    break;
+                                case SSDECT.Scheduler:
+                                    switch (SCHP.ArgumentValue<SSDESCT>(Values[0]))
+                                    {
+                                        case SSDESCT.Create:
+                                            SCHS.CreateTask(SCHP.ArgumentValue<string>(Values[1]));
+                                            break;
+                                        case SSDESCT.Enable:
+                                            SCHS.EnableTask();
+                                            break;
+                                        case SSDESCT.Disable:
+                                            SCHS.DisableTask();
+                                            break;
+                                        case SSDESCT.Delete:
+                                            SCHS.DeleteTask();
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    break;
+                                case SSDECT.Interface:
+                                    if (Values.Count() > 1)
+                                    {
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    }
+                                    else
+                                    {
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    }
+                                    break;
+                                case SSDECT.Backgroundog:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), string.Empty);
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                     }

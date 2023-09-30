@@ -16,6 +16,7 @@ using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Controls
@@ -40,18 +41,21 @@ namespace Sucrose.Portal.Views.Controls
 
         private void Use()
         {
-            if (SMMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+            if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
-
-                if (SSSHL.Run())
+                if (SMMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
                 {
-                    SSLHK.Stop();
+                    SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
+
+                    if (SSSHL.Run())
+                    {
+                        SSLHK.Stop();
+                    }
+
+                    SSLHR.Start();
+
+                    Cursor = Cursors.Arrow;
                 }
-
-                SSLHR.Start();
-
-                Cursor = Cursors.Arrow;
             }
         }
 
@@ -128,23 +132,31 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
-            if (SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+            if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                MenuUse.IsEnabled = false;
-                MenuDelete.IsEnabled = false;
-            }
-            else
-            {
-                if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                if (SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
                 {
-                    MenuUse.IsEnabled = true;
+                    MenuUse.IsEnabled = false;
+                    MenuDelete.IsEnabled = false;
                 }
                 else
                 {
-                    MenuUse.IsEnabled = false;
-                }
+                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                    {
+                        MenuUse.IsEnabled = true;
+                    }
+                    else
+                    {
+                        MenuUse.IsEnabled = false;
+                    }
 
-                MenuDelete.IsEnabled = true;
+                    MenuDelete.IsEnabled = true;
+                }
+            }
+            else
+            {
+                MenuUse.IsEnabled = false;
+                MenuDelete.IsEnabled = false;
             }
         }
 

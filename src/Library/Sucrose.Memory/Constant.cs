@@ -124,6 +124,10 @@
 
         public const string BackgroundImage = "BackgroundImage";
 
+        public const string ClosePerformance = "ClosePerformance";
+
+        public const string PausePerformance = "PausePerformance";
+
         public const string AdvertisingState = "AdvertisingState";
 
         public const string AdvertisingDelay = "AdvertisingDelay";

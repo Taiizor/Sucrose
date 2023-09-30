@@ -4,6 +4,8 @@ using SBHP = Sucrose.Backgroundog.Helper.Performance;
 using SBHS = Sucrose.Backgroundog.Helper.Specification;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -14,6 +16,9 @@ namespace Sucrose.Backgroundog.Helper
             SBMI.Computer.Open();
             TimerCallback Callback = InitializeTimer_Callback;
             SBMI.InitializeTimer = new(Callback, null, 0, SBMI.InitializeTime);
+
+            SMMI.BackgroundogSettingManager.SetSetting(SMC.ClosePerformance, false);
+            SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, false);
         }
 
         public void Stop()

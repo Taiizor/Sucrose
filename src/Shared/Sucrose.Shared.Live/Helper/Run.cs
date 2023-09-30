@@ -15,41 +15,44 @@ namespace Sucrose.Shared.Live.Helper
     {
         public static void Start()
         {
-            string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
-
-            if (File.Exists(InfoPath))
+            if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
-                SSTHI Info = SSTHI.ReadJson(InfoPath);
+                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
 
-                if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                if (File.Exists(InfoPath))
                 {
-                    if (SMMM.PerformanceCounter)
-                    {
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
-                    }
+                    SSTHI Info = SSTHI.ReadJson(InfoPath);
 
-                    switch (Info.Type)
+                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                     {
-                        case SSDEWT.Web:
-                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.WApp]}");
-                            break;
-                        case SSDEWT.Url:
-                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.UApp]}");
-                            break;
-                        case SSDEWT.Gif:
-                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.GApp]}");
-                            break;
-                        case SSDEWT.Video:
-                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.VApp]}");
-                            break;
-                        case SSDEWT.YouTube:
-                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.YApp]}");
-                            break;
-                        case SSDEWT.Application:
-                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.AApp]}");
-                            break;
-                        default:
-                            break;
+                        if (SMMM.PerformanceCounter)
+                        {
+                            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
+                        }
+
+                        switch (Info.Type)
+                        {
+                            case SSDEWT.Web:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.WApp]}");
+                                break;
+                            case SSDEWT.Url:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.UApp]}");
+                                break;
+                            case SSDEWT.Gif:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.GApp]}");
+                                break;
+                            case SSDEWT.Video:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.VApp]}");
+                                break;
+                            case SSDEWT.YouTube:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.YApp]}");
+                                break;
+                            case SSDEWT.Application:
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSLMM.AApp]}");
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }

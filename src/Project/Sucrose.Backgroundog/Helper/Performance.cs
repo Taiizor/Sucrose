@@ -3,6 +3,8 @@ using Skylark.Standard.Extension.Storage;
 using System.Diagnostics;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBMM = Sucrose.Backgroundog.Manage.Manager;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
@@ -75,10 +77,12 @@ namespace Sucrose.Backgroundog.Helper
         {
             if (SBMI.Performance == SSDEPT.Close)
             {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.ClosePerformance, true);
                 SSLHK.Stop();
             }
             else
             {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, true);
                 SBMI.Live = SSSHL.Get();
 
                 if (SBMI.Live != null && !SBMI.Live.HasExited)
