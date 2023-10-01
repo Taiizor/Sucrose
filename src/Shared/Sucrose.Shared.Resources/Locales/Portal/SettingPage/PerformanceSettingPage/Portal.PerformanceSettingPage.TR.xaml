@@ -10,7 +10,7 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">İşemci Kullanımı</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">İşlemci Kullanımı</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">İşlemci kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">İşlemci Kullanımı (%):</system:String>

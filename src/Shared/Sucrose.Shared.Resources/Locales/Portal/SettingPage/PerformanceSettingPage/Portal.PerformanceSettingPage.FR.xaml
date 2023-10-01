@@ -4,4 +4,51 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Compteurs de Performances</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Si tous les compteurs de performances doivent fonctionner en arrière-plan.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Remarque: Certaines images d'arrière-plan à thème web peuvent ne pas fonctionner correctement, et aucun des paramètres de performance ci-dessous ne fonctionnera.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Utilisation du Processeur</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Ce qui se passe avec l'arrière-plan en fonction de vos paramètres d'utilisation du processeur.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Utilisation du Processeur (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Utilisation de la Mémoire</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Ce qui se passe avec l'arrière-plan en fonction de vos paramètres d'utilisation de la mémoire.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Utilisation de la Mémoire (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Utilisation du Réseau</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Ce qui se passe avec l'arrière-plan en fonction de vos paramètres d'utilisation du réseau.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Adaptateur Réseau :</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Aucune liste d'adaptateurs réseau n'a encore été créée</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Taille de Téléchargement :</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Taille de Téléchargement :</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Valeur de Ping (ms) :</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Alimentation de la Batterie</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Ce qui se passe avec l'arrière-plan lorsqu'il fonctionne sur l'alimentation de la batterie de l'ordinateur portable.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">État de la Batterie (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Économie de Batterie</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Ce qui se passe avec l'arrière-plan en mode d'économie de batterie de l'ordinateur portable.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualisation</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Ce qui se passe avec l'arrière-plan lorsque des applications de virtualisation sont en cours d'exécution.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Bureau à Distance</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Ce qui se passe avec l'arrière-plan lorsque des applications de bureau à distance sont en cours d'exécution.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Mode Plein Ècran</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Ce qui se passe avec l'arrière-plan lorsque n'importe quelle application est en mode plein écran.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Mode de Mise au Point</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Ce qui se passe avec l'arrière-plan lorsque qu'une autre application est en premier plan.</system:String>
 </ResourceDictionary>

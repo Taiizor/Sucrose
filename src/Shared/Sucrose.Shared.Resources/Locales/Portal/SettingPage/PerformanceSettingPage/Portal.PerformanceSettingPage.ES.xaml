@@ -4,4 +4,51 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Contadores de Rendimiento</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Si todos los contadores de rendimiento deben ejecutarse en segundo plano.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Algunos fondos de pantalla con temas web pueden no funcionar correctamente, y ninguno de los ajustes de rendimiento a continuación funcionará.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Uso de CPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Qué sucede con el fondo de pantalla según la configuración de uso de CPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Uso de CPU (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Uso de Memoria</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Qué sucede con el fondo de pantalla según la configuración de uso de memoria.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Uso de Memoria (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Uso de la Red</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Qué sucede con el fondo de pantalla según la configuración de uso de red.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Adaptador de Red:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Aún no se ha creado la lista de adaptadores de red</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Tamaño de Carga:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Tamaño de Descarga:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Valor de Ping (MS):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Energía de la Batería</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Qué sucede con el fondo de pantalla cuando se ejecuta con la energía de la batería de la computadora portátil.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Estado de la Batería (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Ahorro de Batería</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Qué sucede con el fondo de pantalla cuando está en modo de ahorro de batería de la computadora portátil.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualización</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Qué sucede con el fondo de pantalla cuando se ejecutan aplicaciones de virtualización.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Escritorio Remoto</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Qué sucede con el fondo de pantalla cuando se ejecutan aplicaciones de escritorio remoto.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Modo Pantalla Completa</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Qué sucede con el fondo de pantalla cuando se ejecuta cualquier aplicación en modo de pantalla completa.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Modo de Enfoque</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Qué sucede con el fondo de pantalla cuando otra aplicación tiene el enfoque.</system:String>
 </ResourceDictionary>

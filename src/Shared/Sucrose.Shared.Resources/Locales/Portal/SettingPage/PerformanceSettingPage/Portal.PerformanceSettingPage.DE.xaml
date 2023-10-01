@@ -4,4 +4,51 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Leistungszähler</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Ob alle Leistungszähler im Hintergrund ausgeführt werden sollen.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Hinweis: Einige webbasierte Wallpaper funktionieren möglicherweise nicht ordnungsgemäß, und keine der unten aufgeführten Leistungseinstellungen wird funktionieren.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-Auslastung</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Was mit dem Hintergrundbild basierend auf Ihren CPU-Auslastungseinstellungen passiert.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-Auslastung (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Speicherauslastung</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Was mit dem Hintergrundbild basierend auf Ihren Speicherauslastungseinstellungen passiert.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Speicherauslastung (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Netzwerkauslastung</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Was mit dem Hintergrundbild basierend auf Ihren Netzwerkauslastungseinstellungen passiert.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Netzwerkadapter:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Keine Liste von Netzwerkadaptern wurde bisher erstellt</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Upload-Größe:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Download-Größe:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping-Wert (MS):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Akku</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Was mit dem Hintergrundbild passiert, wenn es mit dem Akku eines Laptops läuft.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Akku-Status (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Energiesparmodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Was mit dem Hintergrundbild passiert, wenn es im Energiesparmodus eines Laptops ist.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualisierung</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Was mit dem Hintergrundbild passiert, wenn Virtualisierungsanwendungen ausgeführt werden.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Remote Desktop</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Was mit dem Hintergrundbild passiert, wenn Remote-Desktop-Anwendungen ausgeführt werden.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Vollbildmodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Was mit dem Hintergrundbild passiert, wenn eine Anwendung im Vollbildmodus läuft.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Fokusmodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Was mit dem Hintergrundbild passiert, wenn eine andere Anwendung im Vordergrund steht.</system:String>
 </ResourceDictionary>

@@ -4,4 +4,51 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Performance Counters</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Whether all performance counters should run in the background.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Note: Some web-themed wallpapers may not work properly, and none of the performance settings below will work.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Processor Usage</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">What happens to the wallpaper based on your processor usage settings.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Processor Usage (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Memory Usage</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">What happens to the wallpaper based on your memory usage settings.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Memory Usage (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Network Usage</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">What happens to the wallpaper based on your network usage settings.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Network Adapter:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">No network adapters list created yet</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Upload Size:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Download Size:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping Value (MS):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Battery Power</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">What happens to the wallpaper when running on laptop battery power.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Battery Status (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Battery Saver</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">What happens to the wallpaper when in laptop battery saver mode.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualization</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">What happens to the wallpaper when virtualization applications are running.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Remote Desktop</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">What happens to the wallpaper when remote desktop applications are running.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Full Screen Mode</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">What happens to the wallpaper when any application is running in full screen mode.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Focus Mode</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">What happens to the wallpaper when another application has focus.</system:String>
 </ResourceDictionary>

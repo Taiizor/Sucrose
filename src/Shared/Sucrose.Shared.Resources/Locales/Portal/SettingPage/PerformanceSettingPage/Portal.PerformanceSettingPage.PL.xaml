@@ -4,4 +4,51 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Liczniki Wydajności</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Czy wszystkie liczniki wydajności powinny działać w tle.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Uwaga: Niektóre tapety o tematyce internetowej mogą nie działać poprawnie, i żadne z poniższych ustawień wydajności nie będzie działać.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Użycie CPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Co dzieje się z tapetą na podstawie ustawień użycia CPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Użycie CPU (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Użycie Pamięci</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Co dzieje się z tapetą na podstawie ustawień użycia pamięci.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Użycie Pamięci (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Użycie Sieci</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Co dzieje się z tapetą na podstawie ustawień użycia sieci.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Karta Sieciowa:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Nie utworzono jeszcze listy kart sieciowych</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Wielkość Wysyłania:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Wielkość Pobierania:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Wartość Ping (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Zasilanie Baterii</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Co dzieje się z tapetą, gdy działa na zasilaniu baterii laptopa.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Stan Baterii (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Tryb Oszczędzania Baterii</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Co dzieje się z tapetą w trybie oszczędzania baterii laptopa.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Wirtualizacja</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Co dzieje się z tapetą podczas działania aplikacji wirtualizacji.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Pulpit Zdalny</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Co dzieje się z tapetą podczas działania aplikacji pulpitu zdalnego.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Tryb Pełnoekranowy</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Co dzieje się z tapetą, gdy dowolna aplikacja działa w trybie pełnoekranowym.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Tryb Skupienia</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Co dzieje się z tapetą, gdy inna aplikacja ma pierwszy plan.</system:String>
 </ResourceDictionary>
