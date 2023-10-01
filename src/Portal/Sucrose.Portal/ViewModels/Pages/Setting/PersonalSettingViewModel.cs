@@ -45,9 +45,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Duration.Title.Text = "Mağaza Yenileme";
             Duration.LeftIcon.Symbol = SymbolRegular.ClockAlarm24;
-            Duration.Description.Text = "Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.";
+            Duration.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Duration");
+            Duration.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Duration", "Description");
 
             NumberBox StoreDuration = new()
             {
@@ -71,9 +71,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Start.Title.Text = "Otomatik Başlatma";
             Start.LeftIcon.Symbol = SymbolRegular.PictureInPictureEnter24;
-            Start.Description.Text = "Mağazadan indirilen temanın otomatik olarak duvar kağıdı olarak ayarlanıp ayarlanmayacağı.";
+            Start.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Start");
+            Start.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Start", "Description");
 
             ToggleSwitch StartState = new()
             {
@@ -93,9 +93,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Adult.Title.Text = "Güvenli Olmayan İçerikler";
-            Adult.LeftIcon.Symbol = SymbolRegular.ContentSettings24;
-            Adult.Description.Text = "Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilip gösterilmeyeceği.";
+            Adult.LeftIcon.Symbol = SymbolRegular.ShieldGlobe24;
+            Adult.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adult");
+            Adult.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adult", "Description");
 
             ToggleSwitch AdultState = new()
             {
@@ -125,9 +125,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Confirm.Title.Text = "Silme Onayı";
             Confirm.LeftIcon.Symbol = SymbolRegular.DeleteDismiss24;
-            Confirm.Description.Text = "Kütüphanedeki temaları silerken onay isteyip istemeyeceği.";
+            Confirm.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Confirm");
+            Confirm.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Confirm", "Description");
 
             ToggleSwitch ConfirmState = new()
             {
@@ -147,9 +147,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            Delete.Title.Text = "Bozuk Temalar";
             Delete.LeftIcon.Symbol = SymbolRegular.ImageProhibited24;
-            Delete.Description.Text = "Kütüphanedeki bozuk ya da eksik temaların otomatik silinip silinmeyeceği.";
+            Delete.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Delete");
+            Delete.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Delete", "Description");
 
             ToggleSwitch DeleteState = new()
             {
@@ -163,7 +163,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DeleteHint = new()
             {
-                Text = "Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir",
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Delete", "DeleteHint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
@@ -188,9 +188,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Theme.Title.Text = "Tema Özelleştirme";
             Theme.LeftIcon.Symbol = SymbolRegular.DrawText24;
-            Theme.Description.Text = "Görüntülenen temaların ismini veya açıklamasını özelleştirin.";
+            Theme.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme");
+            Theme.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme", "Description");
 
             StackPanel ThemeContent = new();
 
@@ -201,10 +201,10 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock TitleLengthText = new()
             {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme", "TitleLength"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                Text = "Başlık Uzunluğu (Karakter):",
                 FontWeight = FontWeights.SemiBold
             };
 
@@ -228,10 +228,10 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DescriptionLengthText = new()
             {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme", "DescriptionLength"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                Text = "Açıklama Uzunluğu (Karakter):",
                 FontWeight = FontWeights.SemiBold
             };
 
@@ -265,9 +265,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Adaptive.Title.Text = "Uyarlanabilir Düzen";
             Adaptive.LeftIcon.Symbol = SymbolRegular.BroadActivityFeed24;
-            Adaptive.Description.Text = "Görüntülenen temaların düzenini veya mesafesini özelleştirin.";
+            Adaptive.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive");
+            Adaptive.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "Description");
 
             StackPanel AdaptiveContent = new();
 
@@ -278,10 +278,10 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdaptiveMarginText = new()
             {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "AdaptiveMargin"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                Text = "Boşluk Mesafesi (Piksel):",
                 FontWeight = FontWeights.SemiBold
             };
 
@@ -305,11 +305,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdaptiveLayoutText = new()
             {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "AdaptiveLayout"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Düzen Sırası (Adet):"
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox AdaptiveLayout = new()
@@ -343,9 +343,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Store.Title.Text = "Mağaza Sayfalama";
             Store.LeftIcon.Symbol = SymbolRegular.DualScreenPagination24;
-            Store.Description.Text = "Mağazadaki her bir sayfa için kaç tane tema olacağını belirleyin.";
+            Store.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Store");
+            Store.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Store", "Description");
 
             NumberBox StorePagination = new()
             {
@@ -369,9 +369,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Library.Title.Text = "Kütüphane Sayfalama";
             Library.LeftIcon.Symbol = SymbolRegular.DualScreenPagination24;
-            Library.Description.Text = "Kütüphanenizdeki her bir sayfa için kaç tane tema olacağını belirleyin.";
+            Library.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Library");
+            Library.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Library", "Description");
 
             NumberBox LibraryPagination = new()
             {

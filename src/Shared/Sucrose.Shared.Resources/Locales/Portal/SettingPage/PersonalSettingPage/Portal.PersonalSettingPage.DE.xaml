@@ -4,4 +4,41 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Store-Aktualisierung</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Wie oft werden die im Store aufgelisteten Themen aktualisiert?</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Start">Automatischer Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Ob Themes, die aus dem Store heruntergeladen wurden, automatisch als Hintergrundbilder festgelegt werden sollen.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Unsichere Inhalte</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Ob als nicht sicher für die Arbeit (NSFW) gekennzeichnete Inhalte im Store angezeigt werden sollen.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Löschbestätigung</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Ob eine Bestätigung beim Löschen von Themes aus der Bibliothek angefordert werden soll.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Beschädigte Themes</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Ob beschädigte oder fehlende Themes automatisch aus der Bibliothek gelöscht werden sollen.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Hinweis: Vorsicht ist geboten, da dies zu Datenverlust führen kann.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Theme-Anpassung</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Passen Sie den Namen oder die Beschreibung der angezeigten Themes an.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Titellänge (Zeichen):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Beschreibungslänge (Zeichen):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Adaptive Layout</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Passen Sie das Layout oder den Abstand der angezeigten Themes an.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Abstand (Pixel):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Layout-Reihenfolge (Anzahl):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Store-Paginierung</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Legen Sie fest, wie viele Themes pro Seite im Store angezeigt werden sollen.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Bibliotheks-Paginierung</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Legen Sie fest, wie viele Themes pro Seite in Ihrer Bibliothek angezeigt werden sollen.</system:String>
 </ResourceDictionary>

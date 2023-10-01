@@ -4,4 +4,41 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Mağaza Yenileme</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Start">Otomatik Başlatma</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Mağazadan indirilen temanın otomatik olarak duvar kağıdı olarak ayarlanıp ayarlanmayacağı.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Güvenli Olmayan İçerikler</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilip gösterilmeyeceği.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Silme Onayı</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Kütüphanedeki temaları silerken onay isteyip istemeyeceği.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Bozuk Temalar</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Kütüphanedeki bozuk ya da eksik temaların otomatik silinip silinmeyeceği.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Tema Özelleştirme</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Görüntülenen temaların ismini veya açıklamasını özelleştirin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Başlık Uzunluğu (Karakter):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Açıklama Uzunluğu (Karakter):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Uyarlanabilir Düzen</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Görüntülenen temaların düzenini veya mesafesini özelleştirin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Boşluk Mesafesi (Piksel):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Düzen Sırası (Adet):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Mağaza Sayfalama</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Mağazadaki her bir sayfa için kaç tane tema olacağını belirleyin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Kütüphane Sayfalama</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Kütüphanenizdeki her bir sayfa için kaç tane tema olacağını belirleyin.</system:String>
 </ResourceDictionary>

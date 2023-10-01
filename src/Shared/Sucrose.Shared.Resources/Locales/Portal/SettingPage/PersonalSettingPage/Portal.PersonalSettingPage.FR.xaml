@@ -4,4 +4,41 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Actualisation du Magasin</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">À quelle fréquence les thèmes répertoriés dans le magasin seront-ils actualisés ?</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Start">Démarrage Automatique</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Si les thèmes téléchargés depuis le magasin doivent être automatiquement définis comme fonds d'écran.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Contenu Non Sécurisé</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Si le contenu marqué comme non sécurisé au travail (NSFW) doit être affiché dans le magasin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Confirmation de Suppression</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Si une confirmation doit être demandée lors de la suppression de thèmes de la bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Thèmes Corrompus</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Si les thèmes corrompus ou manquants doivent être automatiquement supprimés de la bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Remarque: Il est conseillé de faire preuve de prudence, car cela peut entraîner une perte de données.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Personnalisation du Thème</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personnalisez le nom ou la description des thèmes affichés.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Longueur du Titre (Caractères):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Longueur de la Description (Caractères):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Mise en Page Adaptative</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Personnalisez la mise en page ou l'espacement des thèmes affichés.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Distance d'Espacement (Pixels):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Ordre de Mise en Page (Nombre):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Pagination du Magasin</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Déterminez combien de thèmes il y aura par page dans le magasin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Pagination de la Bibliothèque</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Déterminez combien de thèmes il y aura par page dans votre bibliothèque.</system:String>
 </ResourceDictionary>
