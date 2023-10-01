@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Układ Ekranu</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Zmień układ swoich tapet na ekranie.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Tryb Rozciągania</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Zmień tryb skalowania dla obsługiwanych tapet.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Tryb Pętli</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Zmień zachowanie pętli dla obsługiwanych tapet.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Tryb Tasowania</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Zmień zachowanie tasowania dla obsługiwanych tapet.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Odtwarzacz Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Wybierz wtyczkę, która odtworzy tematyczne tapety Gif w twojej bibliotece.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Odtwarzacz Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Wybierz wtyczkę, która odtworzy tematyczne tapety Video w twojej bibliotece.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Silnik Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Wybierz silnik, który uruchomi tematyczne tapety Url w twojej bibliotece.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Silnik Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Wybierz silnik, który uruchomi tematyczne tapety Web w twojej bibliotece.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Silnik YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Wybierz silnik, który uruchomi tematyczne tapety YouTube w twojej bibliotece.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Silnik Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Wybierz silnik, który uruchomi tematyczne tapety Application w twojej bibliotece.</system:String>
 </ResourceDictionary>

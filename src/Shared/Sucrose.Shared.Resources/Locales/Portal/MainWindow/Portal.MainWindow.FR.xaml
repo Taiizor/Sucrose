@@ -14,7 +14,7 @@
     <system:String x:Key="Portal.MainWindow.MenuGeneral">Général</system:String>
     <system:String x:Key="Portal.MainWindow.MenuPersonal">Personnel</system:String>
     <system:String x:Key="Portal.MainWindow.MenuPerformance">Performance</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Fond d'écran</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Fond d'Ècran</system:String>
     <system:String x:Key="Portal.MainWindow.MenuSystem">Système</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonate">Faire un Don</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOther">Autre</system:String>

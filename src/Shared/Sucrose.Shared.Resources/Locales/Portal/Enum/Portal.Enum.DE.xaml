@@ -8,6 +8,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform Auffüllen</system:String>
 
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Füllen</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Keine</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform Auffüllen</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Schließen</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Anhalten</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Fortsetzen</system:String>
@@ -17,4 +22,7 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Automatisch</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Gestuft</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acryl</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Arbeitsbereich</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Anzeigegrenze</system:String>
 </ResourceDictionary>

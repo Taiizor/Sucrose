@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Ekran Yerleşimi</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Sığdırma Metodu</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Desteklenen duvar kağıtlarında ölçeklendirmeyi değiştirir.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Yineleme Durumu</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Desteklenen duvar kağıtlarında yineleme durumunu değiştirir.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Karıştırma Durumu</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Desteklenen duvar kağıtlarında karıştırma durumunu değiştirir.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif Eklentisi</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Kütüphanenizde bulunan Gif türündeki temaları oynatacak olan eklentiyi seçin.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video Eklentisi</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Kütüphanenizde bulunan Video türündeki temaları oynatacak olan eklentiyi seçin.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url Motoru</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Kütüphanenizde bulunan Url türündeki temaları çalıştıracak olan motoru seçin.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web Motoru</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Kütüphanenizde bulunan Web türündeki temaları çalıştıracak olan motoru seçin.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube Motoru</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Kütüphanenizde bulunan YouTube türündeki temaları çalıştıracak olan motoru seçin.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application Motoru</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Kütüphanenizde bulunan Application türündeki temaları çalıştıracak olan motoru seçin.</system:String>
 </ResourceDictionary>

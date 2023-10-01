@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Bildschirmlayout</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Ändern Sie das Layout Ihrer Hintergrundbilder auf dem Bildschirm.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Streckmodus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Ändern Sie den Skalierungsmodus für unterstützte Hintergrundbilder.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Wiederholungsmodus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Ändern Sie das Wiederholungsverhalten für unterstützte Hintergrundbilder.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Mischen-Modus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Ändern Sie das Mischverhalten für unterstützte Hintergrundbilder.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif-Player</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Wählen Sie das Plugin aus, das Gif-Themen-Hintergrundbilder in Ihrer Bibliothek abspielen wird.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video-Player</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Wählen Sie das Plugin aus, das Video-Themen-Hintergrundbilder in Ihrer Bibliothek abspielen wird.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url-Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Wählen Sie die Engine aus, die Url-Themen-Hintergrundbilder in Ihrer Bibliothek ausführen wird.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web-Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Wählen Sie die Engine aus, die Web-Themen-Hintergrundbilder in Ihrer Bibliothek ausführen wird.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube-Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Wählen Sie die Engine aus, die YouTube-Themen-Hintergrundbilder in Ihrer Bibliothek ausführen wird.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application-Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Wählen Sie die Engine aus, die Application-Themen-Hintergrundbilder in Ihrer Bibliothek ausführen wird.</system:String>
 </ResourceDictionary>

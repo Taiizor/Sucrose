@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Disposition de l'écran</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Modifiez la disposition de vos fonds d'écran sur l'écran.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Mode d'étirement</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Modifiez le mode de mise à l'échelle pour les fonds d'écran pris en charge.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Mode de Boucle</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Modifiez le comportement de bouclage pour les fonds d'écran pris en charge.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Mode de Mélange</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Modifiez le comportement de mélange pour les fonds d'écran pris en charge.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Lecteur Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Sélectionnez le plugin qui lira les fonds d'écran thématiques Gif de votre bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Lecteur Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Sélectionnez le plugin qui lira les fonds d'écran thématiques Video de votre bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Moteur Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Sélectionnez le moteur qui exécutera les fonds d'écran thématiques Url de votre bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Moteur Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Sélectionnez le moteur qui exécutera les fonds d'écran thématiques Web de votre bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Moteur YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Sélectionnez le moteur qui exécutera les fonds d'écran thématiques YouTube de votre bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Moteur Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Sélectionnez le moteur qui exécutera les fonds d'écran thématiques Application de votre bibliothèque.</system:String>
 </ResourceDictionary>

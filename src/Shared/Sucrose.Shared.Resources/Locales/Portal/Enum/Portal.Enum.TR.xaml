@@ -8,6 +8,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Orantılı</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Orantılı Doldur</system:String>
 
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Doldur</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Hiçbiri</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Orantılı</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Orantılı Doldur</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Kapat</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Durdur</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Sürdür</system:String>
@@ -17,4 +22,7 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Otomatik</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Sekmeli</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akrilik</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Çalışma Alanı</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Ekran Sınırları</system:String>
 </ResourceDictionary>

@@ -56,9 +56,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            ScreenLayout.Title.Text = "Ekran Yerleşimi";
             ScreenLayout.LeftIcon.Symbol = SymbolRegular.DesktopFlow24;
-            ScreenLayout.Description.Text = "Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.";
+            ScreenLayout.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ScreenLayout");
+            ScreenLayout.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ScreenLayout", "Description");
 
             ComboBox ScreenType = new();
 
@@ -68,7 +68,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ScreenType.Items.Add(new ComboBoxItem()
                 {
-                    Content = $"{Type}"
+                    Content = SSRER.GetValue("Portal", "Enum", "ScreenType", $"{Type}")
                 });
             }
 
@@ -84,9 +84,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            StretchMode.Title.Text = "Sığdırma Metodu";
             StretchMode.LeftIcon.Symbol = SymbolRegular.ArrowMinimize24;
-            StretchMode.Description.Text = "Desteklenen duvar kağıtlarında ölçeklendirmeyi değiştirir.";
+            StretchMode.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "StretchMode");
+            StretchMode.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "StretchMode", "Description");
 
             ComboBox StretchType = new();
 
@@ -96,7 +96,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 StretchType.Items.Add(new ComboBoxItem()
                 {
-                    Content = $"{Type}"
+                    Content = SSRER.GetValue("Portal", "Enum", "StretchType", $"{Type}")
                 });
             }
 
@@ -112,9 +112,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            LoopMode.Title.Text = "Yineleme Durumu";
             LoopMode.LeftIcon.Symbol = SymbolRegular.ArrowRepeatAll24;
-            LoopMode.Description.Text = "Desteklenen duvar kağıtlarında yineleme durumunu değiştirir.";
+            LoopMode.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "LoopMode");
+            LoopMode.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "LoopMode", "Description");
 
             ToggleSwitch LoopState = new()
             {
@@ -134,9 +134,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            ShuffleMode.Title.Text = "Karıştırma Durumu";
             ShuffleMode.LeftIcon.Symbol = SymbolRegular.ArrowShuffle24;
-            ShuffleMode.Description.Text = "Desteklenen duvar kağıtlarında karıştırma durumunu değiştirir.";
+            ShuffleMode.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ShuffleMode");
+            ShuffleMode.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ShuffleMode", "Description");
 
             ToggleSwitch ShuffleState = new()
             {
@@ -166,9 +166,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            GifPlayer.Title.Text = "Gif Eklentisi";
             GifPlayer.LeftIcon.Symbol = SymbolRegular.Gif24;
-            GifPlayer.Description.Text = "Kütüphanenizde bulunan Gif türündeki temaları oynatacak olan eklentiyi seçin.";
+            GifPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "GifPlayer");
+            GifPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "GifPlayer", "Description");
 
             ComboBox GifEngine = new();
 
@@ -193,9 +193,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            VideoPlayer.Title.Text = "Video Eklentisi";
             VideoPlayer.LeftIcon.Symbol = SymbolRegular.VideoClip24;
-            VideoPlayer.Description.Text = "Kütüphanenizde bulunan Video türündeki temaları oynatacak olan eklentiyi seçin.";
+            VideoPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "VideoPlayer");
+            VideoPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "VideoPlayer", "Description");
 
             ComboBox VideoEngine = new();
 
@@ -230,9 +230,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            UrlPlayer.Title.Text = "Url Motoru";
-            UrlPlayer.LeftIcon.Symbol = SymbolRegular.WindowDevTools24;
-            UrlPlayer.Description.Text = "Kütüphanenizde bulunan Url türündeki temaları çalıştıracak olan motoru seçin.";
+            UrlPlayer.LeftIcon.Symbol = SymbolRegular.SlideLink24;
+            UrlPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "UrlPlayer");
+            UrlPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "UrlPlayer", "Description");
 
             ComboBox UrlEngine = new();
 
@@ -257,9 +257,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            WebPlayer.Title.Text = "Web Motoru";
-            WebPlayer.LeftIcon.Symbol = SymbolRegular.WindowDevTools24;
-            WebPlayer.Description.Text = "Kütüphanenizde bulunan Web türündeki temaları çalıştıracak olan motoru seçin.";
+            WebPlayer.LeftIcon.Symbol = SymbolRegular.GlobeDesktop24;
+            WebPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "WebPlayer");
+            WebPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "WebPlayer", "Description");
 
             ComboBox WebEngine = new();
 
@@ -284,9 +284,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            YouTubePlayer.Title.Text = "YouTube Motoru";
             YouTubePlayer.LeftIcon.Symbol = SymbolRegular.VideoRecording20;
-            YouTubePlayer.Description.Text = "Kütüphanenizde bulunan YouTube türündeki temaları çalıştıracak olan motoru seçin.";
+            YouTubePlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "YouTubePlayer");
+            YouTubePlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "YouTubePlayer", "Description");
 
             ComboBox YouTubeEngine = new();
 
@@ -311,9 +311,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            ApplicationPlayer.Title.Text = "Application Motoru";
             ApplicationPlayer.LeftIcon.Symbol = SymbolRegular.AppGeneric24;
-            ApplicationPlayer.Description.Text = "Kütüphanenizde bulunan Application türündeki temaları çalıştıracak olan motoru seçin.";
+            ApplicationPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ApplicationPlayer");
+            ApplicationPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ApplicationPlayer", "Description");
 
             ComboBox ApplicationEngine = new();
 

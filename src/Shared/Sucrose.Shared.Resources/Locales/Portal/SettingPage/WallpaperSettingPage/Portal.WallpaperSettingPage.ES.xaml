@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Diseño de Pantalla</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Cambie la disposición de sus fondos de pantalla en la pantalla.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Modo de Estiramiento</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Cambie el modo de escalado para fondos de pantalla compatibles.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Modo de Repetición</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Cambie el comportamiento de repetición para fondos de pantalla compatibles.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Modo de Mezcla</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Cambie el comportamiento de mezcla para fondos de pantalla compatibles.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Reproductor de Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Seleccione el complemento que reproducirá fondos de pantalla temáticos de Gif en su biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Reproductor de Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Seleccione el complemento que reproducirá fondos de pantalla temáticos de Video en su biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Motor de Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Seleccione el motor que ejecutará fondos de pantalla temáticos de Url en su biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Motor Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Seleccione el motor que ejecutará fondos de pantalla temáticos de Web en su biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Motor de YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Seleccione el motor que ejecutará fondos de pantalla temáticos de YouTube en su biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Motor de Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Seleccione el motor que ejecutará fondos de pantalla temáticos de Application en su biblioteca.</system:String>
 </ResourceDictionary>

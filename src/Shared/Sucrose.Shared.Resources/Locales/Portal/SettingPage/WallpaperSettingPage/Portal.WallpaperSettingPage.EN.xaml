@@ -4,4 +4,34 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+    
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Screen Layout</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Change the layout of your wallpapers on the screen.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Stretch Mode</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Change the scaling mode for supported wallpapers.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Loop Mode</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Change the looping behavior for supported wallpapers.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Shuffle Mode</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Change the shuffle behavior for supported wallpapers.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif Player</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Select the plugin that will play Gif-themed wallpapers in your library.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video Player</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Select the plugin that will play Video-themed wallpapers in your library.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Select the engine that will run Url-themed wallpapers in your library.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Select the engine that will run Web-themed wallpapers in your library.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Select the engine that will run YouTube-themed wallpapers in your library.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Select the engine that will run Application-themed wallpapers in your library.</system:String>
 </ResourceDictionary>
