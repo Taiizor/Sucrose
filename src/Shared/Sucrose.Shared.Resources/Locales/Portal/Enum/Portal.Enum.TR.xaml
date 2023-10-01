@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Doldur</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Hiçbiri</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Orantılı</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Orantılı Doldur</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Kapat</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Durdur</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Sürdür</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mika</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Hiçbiri</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Otomatik</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Sekmeli</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akrilik</system:String>
+</ResourceDictionary>

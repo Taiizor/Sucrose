@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.Description">Nécessaire pour une utilisation fluide du magasin et des mises à jour de l'application.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Cliquez ici si vous ne savez pas comment obtenir un jeton d'accès personnel.</system:String>
+    
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Veuillez entrer un jeton d'accès personnel</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Veuillez entrer un jeton d'accès personnel valide</system:String>
 

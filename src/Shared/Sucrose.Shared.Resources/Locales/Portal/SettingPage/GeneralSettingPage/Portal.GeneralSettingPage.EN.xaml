@@ -27,22 +27,11 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Window Backdrop</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Used to customize the background of the application window.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mica</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">None</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Auto</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Tabbed</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Acrylic</system:String>
-
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Select Background Image</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Select a background image</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Image Files (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Background Stretch:</system:String>
-
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">None</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Fill</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Uniform to Fill</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Uniform</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Background Opacity (%):</system:String>
 

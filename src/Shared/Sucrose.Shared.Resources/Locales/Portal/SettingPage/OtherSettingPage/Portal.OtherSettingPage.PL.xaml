@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.Description">Wymagane do płynnego korzystania ze sklepu i aktualizacji aplikacji.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Kliknij tutaj, jeśli nie wiesz, jak uzyskać osobisty token dostępu.</system:String>
+    
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Proszę wprowadzić osobisty token dostępu</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Proszę wprowadzić prawidłowy osobisty token dostępu</system:String>
 

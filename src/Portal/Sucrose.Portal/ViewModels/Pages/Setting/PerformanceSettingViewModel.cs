@@ -55,9 +55,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Counter.Title.Text = "Performans Sayaçları";
             Counter.LeftIcon.Symbol = SymbolRegular.ShiftsActivity24;
-            Counter.Description.Text = "Tüm performans sayaçlarının arkaplanda çalışıp çalışmayacağı.";
+            Counter.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Counter");
+            Counter.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Counter", "Description");
 
             ToggleSwitch CounterState = new()
             {
@@ -71,7 +71,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock CounterHint = new()
             {
-                Text = "Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.",
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Counter", "CounterHint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
@@ -99,9 +99,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Cpu.Title.Text = "İşemci Kullanımı";
             Cpu.LeftIcon.Symbol = SymbolRegular.HeartPulse24;
-            Cpu.Description.Text = "İşlemci kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.";
+            Cpu.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu");
+            Cpu.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu", "Description");
 
             ComboBox CpuPerformance = new();
 
@@ -109,7 +109,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                CpuPerformance.Items.Add(Type);
+                CpuPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             CpuPerformance.SelectedIndex = (int)SPMM.CpuPerformance;
@@ -123,11 +123,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock CpuUsageText = new()
             {
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu", "CpuUsage"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "İşlemci Kullanımı (%):"
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox CpuUsage = new()
@@ -155,9 +155,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Memory.Title.Text = "Bellek Kullanımı";
             Memory.LeftIcon.Symbol = SymbolRegular.Memory16;
-            Memory.Description.Text = "Bellek kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.";
+            Memory.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Memory");
+            Memory.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Memory", "Description");
 
             ComboBox MemoryPerformance = new();
 
@@ -165,7 +165,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                MemoryPerformance.Items.Add(Type);
+                MemoryPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             MemoryPerformance.SelectedIndex = (int)SPMM.MemoryPerformance;
@@ -179,11 +179,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock MemoryUsageText = new()
             {
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Memory", "MemoryUsage"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Bellek Kullanımı (%):"
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox MemoryUsage = new()
@@ -211,9 +211,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Network.Title.Text = "Ağ Kullanımı";
             Network.LeftIcon.Symbol = SymbolRegular.NetworkCheck24;
-            Network.Description.Text = "Ağ kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.";
+            Network.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network");
+            Network.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "Description");
 
             ComboBox NetworkPerformance = new();
 
@@ -221,7 +221,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                NetworkPerformance.Items.Add(Type);
+                NetworkPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             NetworkPerformance.SelectedIndex = (int)SPMM.NetworkPerformance;
@@ -237,11 +237,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkAdapterText = new()
             {
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkAdapter"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Ağ Adaptörü:"
+                FontWeight = FontWeights.SemiBold
             };
 
             ComboBox NetworkAdapter = new()
@@ -273,7 +273,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 NetworkAdapter.Items.Add(new ComboBoxItem()
                 {
-                    Content = "Ağ adaptörleri listesi henüz oluşturulmadı",
+                    Content = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkAdapter", "Empty"),
                     IsSelected = true
                 });
             }
@@ -286,11 +286,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkUploadText = new()
             {
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkUpload"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Yükleme Boyutu:"
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox NetworkUpload = new()
@@ -330,11 +330,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkDownloadText = new()
             {
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkDownload"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "İndirme Boyutu:"
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox NetworkDownload = new()
@@ -374,11 +374,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkPingText = new()
             {
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkPing"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Ping Değeri (MS):"
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox NetworkPing = new()
@@ -449,9 +449,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Battery.Title.Text = "Pil Gücü";
             Battery.LeftIcon.Symbol = BatterySymbol(SMMM.BatteryUsage);
-            Battery.Description.Text = "Dizüstü bilgisayar pil gücünde çalışırken duvar kağıdına ne olacağı.";
+            Battery.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Battery");
+            Battery.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Battery", "Description");
 
             ComboBox BatteryPerformance = new();
 
@@ -459,7 +459,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                BatteryPerformance.Items.Add(Type);
+                BatteryPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             BatteryPerformance.SelectedIndex = (int)SPMM.BatteryPerformance;
@@ -473,11 +473,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock BatteryUsageText = new()
             {
+                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Battery", "BatteryUsage"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Pil Durumu (%):"
+                FontWeight = FontWeights.SemiBold
             };
 
             NumberBox BatteryUsage = new()
@@ -506,9 +506,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Saver.Title.Text = "Pil Tasarrufu";
             Saver.LeftIcon.Symbol = SymbolRegular.BatterySaver24;
-            Saver.Description.Text = "Dizüstü bilgisayar pil tasarrufu modundayken duvar kağıdına ne olacağı.";
+            Saver.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Saver");
+            Saver.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Saver", "Description");
 
             ComboBox SaverPerformance = new();
 
@@ -516,7 +516,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                SaverPerformance.Items.Add(Type);
+                SaverPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             SaverPerformance.SelectedIndex = (int)SPMM.SaverPerformance;
@@ -541,9 +541,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Virtual.Title.Text = "Sanallaştırma";
             Virtual.LeftIcon.Symbol = SymbolRegular.DesktopCheckmark24;
-            Virtual.Description.Text = "Sanallaştırma uygulamaları çalışırken duvar kağıdına ne olacağı.";
+            Virtual.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Virtual");
+            Virtual.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Virtual", "Description");
 
             ComboBox VirtualPerformance = new();
 
@@ -551,7 +551,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                VirtualPerformance.Items.Add(Type);
+                VirtualPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             VirtualPerformance.SelectedIndex = (int)SPMM.VirtualPerformance;
@@ -566,9 +566,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Remote.Title.Text = "Uzak Masaüstü";
             Remote.LeftIcon.Symbol = SymbolRegular.Remote20;
-            Remote.Description.Text = "Uzak masaüstü uygulamaları çalışırken duvar kağıdına ne olacağı.";
+            Remote.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Remote");
+            Remote.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Remote", "Description");
 
             ComboBox RemotePerformance = new();
 
@@ -576,7 +576,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                RemotePerformance.Items.Add(Type);
+                RemotePerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             RemotePerformance.SelectedIndex = (int)SPMM.RemotePerformance;
@@ -591,9 +591,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Fullscreen.Title.Text = "Tam Ekran Modu";
             Fullscreen.LeftIcon.Symbol = SymbolRegular.FullScreenMaximize24;
-            Fullscreen.Description.Text = "Tam ekranda her hangi bir uygulama çalışırken duvar kağıdına ne olacağı.";
+            Fullscreen.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Fullscreen");
+            Fullscreen.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Fullscreen", "Description");
 
             ComboBox FullscreenPerformance = new();
 
@@ -601,7 +601,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                FullscreenPerformance.Items.Add(Type);
+                FullscreenPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             FullscreenPerformance.SelectedIndex = (int)SPMM.FullscreenPerformance;
@@ -616,9 +616,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Focus.Title.Text = "Odaklanma Modu";
             Focus.LeftIcon.Symbol = SymbolRegular.DesktopCursor24;
-            Focus.Description.Text = "Odağınızda her hangi başka bir uygulama varken duvar kağıdına ne olacağı.";
+            Focus.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Focus");
+            Focus.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Focus", "Description");
 
             ComboBox FocusPerformance = new();
 
@@ -626,7 +626,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                FocusPerformance.Items.Add(Type);
+                FocusPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             FocusPerformance.SelectedIndex = (int)SPMM.FocusPerformance;

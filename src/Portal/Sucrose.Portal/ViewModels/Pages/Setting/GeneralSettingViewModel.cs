@@ -176,7 +176,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Backdrop.Items.Add(new ComboBoxItem()
                 {
-                    Content = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "Backdrop", $"{Type}"),
+                    Content = SSRER.GetValue("Portal", "Enum", "WindowBackdropType", $"{Type}"),
                     IsEnabled = WindowBackdropSupport(Type)
                 });
             }
@@ -244,7 +244,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 BackdropStretch.Items.Add(new ComboBoxItem()
                 {
-                    Content = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropStretch", $"{Type}")
+                    Content = SSRER.GetValue("Portal", "Enum", "Stretch", $"{Type}")
                 });
             }
 

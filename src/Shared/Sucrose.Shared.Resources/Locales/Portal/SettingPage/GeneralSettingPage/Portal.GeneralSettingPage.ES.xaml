@@ -27,22 +27,11 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Fondo de Ventana</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Se utiliza para personalizar el fondo de la ventana de la aplicación.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mica</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">Ninguno</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Automático</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Con Pestañas</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Acrílico</system:String>
-
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Seleccionar Imagen de Fondo</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Seleccionar una imagen de fondo</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Archivos de Imagen (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Estiramiento de Fondo:</system:String>
-
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">Ninguno</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Rellenar</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Uniforme Para Rellenar</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Uniforme</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Opacidad de Fondo (%):</system:String>
 

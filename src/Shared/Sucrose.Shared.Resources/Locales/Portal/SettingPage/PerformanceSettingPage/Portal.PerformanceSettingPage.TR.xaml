@@ -4,4 +4,51 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Performans Sayaçları</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Tüm performans sayaçlarının arkaplanda çalışıp çalışmayacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">İşemci Kullanımı</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">İşlemci kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">İşlemci Kullanımı (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Bellek Kullanımı</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Bellek kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Bellek Kullanımı (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Ağ Kullanımı</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Ağ kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Ağ Adaptörü:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Ağ adaptörleri listesi henüz oluşturulmadı</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Yükleme Boyutu:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">İndirme Boyutu:</system:String>
+    
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping Değeri (MS):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Pil Gücü</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Dizüstü bilgisayar pil gücünde çalışırken duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Pil Durumu (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Pil Tasarrufu</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Dizüstü bilgisayar pil tasarrufu modundayken duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Sanallaştırma</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Sanallaştırma uygulamaları çalışırken duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Uzak Masaüstü</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Uzak masaüstü uygulamaları çalışırken duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Tam Ekran Modu</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Tam ekranda her hangi bir uygulama çalışırken duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Odaklanma Modu</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Odağınızda her hangi başka bir uygulama varken duvar kağıdına ne olacağı.</system:String>
 </ResourceDictionary>

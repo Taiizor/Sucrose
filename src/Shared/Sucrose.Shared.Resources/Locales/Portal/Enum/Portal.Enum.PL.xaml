@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Wypełnij</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Brak</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Jednolite</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Jednolite Wypełnianie</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Zamknij</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Wstrzymaj</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Wznów</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mika</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Brak</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Auto</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Z Kartami</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akryl</system:String>
+</ResourceDictionary>

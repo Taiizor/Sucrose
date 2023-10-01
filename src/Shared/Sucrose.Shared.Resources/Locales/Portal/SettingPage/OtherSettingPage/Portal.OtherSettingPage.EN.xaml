@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.Description">Required for smooth use of the store and application updates.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Click here if you don't know how to obtain a personal access token.</system:String>
+    
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Please enter a personal access token</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Please enter a valid personal access token</system:String>
 

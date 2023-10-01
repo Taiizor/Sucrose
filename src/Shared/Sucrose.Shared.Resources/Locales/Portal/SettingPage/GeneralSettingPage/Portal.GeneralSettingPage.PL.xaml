@@ -27,22 +27,11 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Tło Okna</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Służy do dostosowywania tła okna aplikacji.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mika</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">Brak</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Auto</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Z Kartami</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Akryl</system:String>
-
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Wybierz Obraz Tła</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Wybierz obraz tła</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Pliki Graficzne (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Rozciąganie Tła:</system:String>
-
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">Brak</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Wypełnij</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Jednolite Wypełnianie</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Jednolite</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Przezroczystość Tła (%):</system:String>
 

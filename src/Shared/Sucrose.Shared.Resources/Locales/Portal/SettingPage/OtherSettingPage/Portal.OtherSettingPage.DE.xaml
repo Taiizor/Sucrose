@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.Description">Erforderlich für reibungslose Nutzung des Geschäfts und der Anwendungsaktualisierungen.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Klicken Sie hier, wenn Sie nicht wissen, wie Sie einen persönlichen Zugriffstoken erhalten.</system:String>
+    
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Bitte geben Sie einen persönlichen Zugriffstoken ein</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Bitte geben Sie einen gültigen persönlichen Zugriffstoken ein</system:String>
 

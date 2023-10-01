@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Fill</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">None</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform to Fill</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Close</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pause</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Resume</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mica</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">None</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Auto</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Tabbed</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrylic</system:String>
+</ResourceDictionary>

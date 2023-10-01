@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.Description">Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.</system:String>
+    
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Lütfen bir kişisel erişim belirteci girin</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Lütfen geçerli bir kişisel erişim belirteci girin</system:String>
 

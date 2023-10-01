@@ -27,22 +27,11 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Fond de Fenêtre</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Utilisé pour personnaliser l'arrière-plan de la fenêtre de l'application.</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Mica">Mica</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.None">Aucun</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Auto">Auto</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Tabbed">Onglets</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Backdrop.Acrylic">Acrylique</system:String>
-
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Sélectionner Une Image de Fond</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Sélectionner une image de fond</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Fichiers d'Image (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Étirement de l'Arrière-Plan:</system:String>
-
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.None">Aucun</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Fill">Remplir</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.UniformToFill">Uniformément Pour Remplir</system:String>
-    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch.Uniform">Uniforme</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Opacité de l'Arrière-Plan (%):</system:String>
 
