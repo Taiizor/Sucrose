@@ -4,4 +4,23 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose facilite la communication avec Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Actualisation de la Connexion:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Intervalle d'Actualisation (Secondes):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Agent Internet</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Votre identité dans les situations nécessitant une connexion Internet.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Jeton d'Accès Personnel</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Nécessaire pour une utilisation fluide du magasin et des mises à jour de l'application.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Cliquez ici si vous ne savez pas comment obtenir un jeton d'accès personnel.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Veuillez entrer un jeton d'accès personnel</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Veuillez entrer un jeton d'accès personnel valide</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Outils de Développeur</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Affichage ou non des outils de développement pour WebView et le moteur CefSharp.</system:String>
 </ResourceDictionary>

@@ -49,9 +49,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            DiscordHook.Title.Text = "Discord";
             DiscordHook.LeftIcon.Symbol = SymbolRegular.SquareHintApps24;
-            DiscordHook.Description.Text = "Sucrose, Discord ile arasındaki bağlantıyı sağlar.";
+            DiscordHook.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook");
+            DiscordHook.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "Description");
 
             ToggleSwitch DiscordState = new()
             {
@@ -72,11 +72,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DiscordRefreshText = new()
             {
+                Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "DiscordRefresh"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold,
-                Text = "Bağlantı Yenileme:",
+                FontWeight = FontWeights.SemiBold
             };
 
             ToggleSwitch DiscordRefresh = new()
@@ -95,10 +95,10 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DiscordDelayText = new()
             {
+                Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "DiscordDelay"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                Text = "Yenileme Süresi (Saniye):",
                 FontWeight = FontWeights.SemiBold
             };
 
@@ -143,9 +143,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Agent.Title.Text = "İnternet Temsilcisi";
             Agent.LeftIcon.Symbol = SymbolRegular.VideoPersonSparkle24;
-            Agent.Description.Text = "İnternet bağlantısı gerektiren durumlardaki temsilci kimliğiniz.";
+            Agent.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Agent");
+            Agent.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Agent", "Description");
 
             TextBox UserAgent = new()
             {
@@ -168,15 +168,15 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Key.Title.Text = "Kişisel Erişim Belirteci";
             Key.LeftIcon.Symbol = SymbolRegular.ShieldKeyhole24;
-            Key.Description.Text = "Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.";
+            Key.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Key");
+            Key.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "Description");
 
             StackPanel KeyContent = new();
 
             Hyperlink HintKey = new()
             {
-                Content = "Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.",
+                Content = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "HintKey"),
                 Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Transparent,
                 BorderBrush = Brushes.Transparent,
@@ -186,7 +186,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBox PersonalKey = new()
             {
-                PlaceholderText = "Lütfen bir kişisel erişim belirteci girin",
+                PlaceholderText = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 Margin = new Thickness(0, 10, 0, 0),
                 Text = SMMM.Key,
@@ -218,9 +218,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Developer.Title.Text = "Geliştirici Araçları";
             Developer.LeftIcon.Symbol = SymbolRegular.WindowDevTools24;
-            Developer.Description.Text = "WebView ve CefSharp motoru için geliştirici araçlarının gösterilip gösterilmeyeceği.";
+            Developer.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Developer");
+            Developer.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Developer", "Description");
 
             ToggleSwitch DeveloperState = new()
             {
@@ -292,7 +292,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             else
             {
                 SMMI.PrivateSettingManager.SetSetting(SMC.Key, SMR.Key);
-                TextBox.PlaceholderText = "Lütfen geçerli bir kişisel erişim belirteci girin";
+                TextBox.PlaceholderText = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey", "Valid");
             }
         }
 

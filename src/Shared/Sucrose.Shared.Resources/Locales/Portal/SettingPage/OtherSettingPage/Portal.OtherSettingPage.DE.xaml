@@ -4,4 +4,23 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose erleichtert die Kommunikation mit Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Verbindung Aktualisieren:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Aktualisierungsintervall (Sekunden):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Internetagent</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Ihre Identität in Situationen, die eine Internetverbindung erfordern.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Persönlicher Zugriffstoken</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Erforderlich für reibungslose Nutzung des Geschäfts und der Anwendungsaktualisierungen.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Klicken Sie hier, wenn Sie nicht wissen, wie Sie einen persönlichen Zugriffstoken erhalten.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Bitte geben Sie einen persönlichen Zugriffstoken ein</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Bitte geben Sie einen gültigen persönlichen Zugriffstoken ein</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Entwicklertools</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Ob Entwicklertools für WebView und den CefSharp-Motor angezeigt werden sollen oder nicht.</system:String>
 </ResourceDictionary>

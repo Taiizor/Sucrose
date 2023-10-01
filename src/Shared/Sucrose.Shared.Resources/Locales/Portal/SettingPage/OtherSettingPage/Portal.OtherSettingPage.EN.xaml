@@ -4,4 +4,23 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose facilitates communication with Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Connection Refresh:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Refresh Interval (Seconds):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Internet Agent</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Your identity in situations requiring an internet connection.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Personal Access Token</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Required for smooth use of the store and application updates.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Click here if you don't know how to obtain a personal access token.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Please enter a personal access token</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Please enter a valid personal access token</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Developer Tools</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Whether developer tools for WebView and CefSharp engine should be displayed or not.</system:String>
 </ResourceDictionary>

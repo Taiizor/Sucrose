@@ -4,4 +4,23 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose, Discord ile arasındaki haberleşmeyi sağlar.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Bağlantı Yenileme:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Yenileme Süresi (Saniye):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">İnternet Temsilcisi</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">İnternet bağlantısı gerektiren durumlardaki temsilci kimliğiniz.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Kişisel Erişim Belirteci</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Lütfen bir kişisel erişim belirteci girin</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Lütfen geçerli bir kişisel erişim belirteci girin</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Geliştirici Araçları</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView ve CefSharp motoru için geliştirici araçlarının gösterilip gösterilmeyeceği.</system:String>
 </ResourceDictionary>
