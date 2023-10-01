@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using Wpf.Ui.Controls;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -13,6 +14,9 @@ namespace Sucrose.Portal.Views.Controls
         {
             InitializeComponent();
             UpdatePagination();
+
+            PageNumber.IconPlacement = ElementPlacement.Left;
+            PageNumber.Icon = new SymbolIcon(SymbolRegular.DocumentPageBottomCenter24);
         }
 
         public event EventHandler SelectPageChanged;

@@ -261,6 +261,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox BackdropOpacity = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.PositionBackward24),
+                IconPlacement = ElementPlacement.Left,
                 Value = SMMM.BackgroundOpacity,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,

@@ -111,6 +111,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox AdvertisingDelay = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.Timer20),
+                IconPlacement = ElementPlacement.Left,
                 Value = SMMM.AdvertisingDelay,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,

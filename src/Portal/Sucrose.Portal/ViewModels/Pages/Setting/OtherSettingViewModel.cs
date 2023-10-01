@@ -104,6 +104,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox DiscordDelay = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.TimePicker24),
+                IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
                 Value = SMMM.DiscordDelay,
                 MaxDecimalPlaces = 0,
@@ -149,6 +151,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBox UserAgent = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.PersonHeart24),
+                IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
                 Text = SMMM.UserAgent,
                 IsReadOnly = true,
@@ -187,7 +191,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             TextBox PersonalKey = new()
             {
                 PlaceholderText = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey"),
+                Icon = new SymbolIcon(SymbolRegular.PersonKey20),
                 HorizontalAlignment = HorizontalAlignment.Left,
+                IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 10, 0, 0),
                 Text = SMMM.Key,
                 MaxLength = 93

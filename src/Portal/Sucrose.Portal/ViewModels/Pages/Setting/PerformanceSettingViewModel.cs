@@ -99,7 +99,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Cpu.LeftIcon.Symbol = SymbolRegular.HeartPulse24;
+            Cpu.LeftIcon.Symbol = SymbolRegular.DeveloperBoardLightning20;
             Cpu.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu");
             Cpu.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu", "Description");
 
@@ -132,6 +132,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox CpuUsage = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.DeveloperBoard24),
+                IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
                 Value = SMMM.CpuUsage,
@@ -188,6 +190,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox MemoryUsage = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.DataUsage24),
+                IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
                 Value = SMMM.MemoryUsage,
@@ -295,6 +299,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox NetworkUpload = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.ArrowUpload24),
+                IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
                 Value = SMMM.UploadValue,
@@ -339,6 +345,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox NetworkDownload = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.ArrowDownload24),
+                IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
                 Value = SMMM.DownloadValue,
@@ -383,6 +391,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox NetworkPing = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.HeartPulse24),
+                IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
                 Value = SMMM.PingValue,
@@ -482,6 +492,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox BatteryUsage = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.BatteryWarning24),
+                IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
                 Value = SMMM.BatteryUsage,

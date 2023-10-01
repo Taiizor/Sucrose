@@ -51,6 +51,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox StoreDuration = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.Clock24),
+                IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
                 Value = SMMM.StoreDuration,
                 MaxDecimalPlaces = 0,
@@ -213,6 +215,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox TitleLength = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.TextCaseTitle24),
+                IconPlacement = ElementPlacement.Left,
                 ClearButtonEnabled = false,
                 Value = SMMM.TitleLength,
                 MaxDecimalPlaces = 0,
@@ -240,6 +244,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox DescriptionLength = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.TextDescription24),
+                IconPlacement = ElementPlacement.Left,
                 Value = SMMM.DescriptionLength,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
@@ -290,6 +296,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox AdaptiveMargin = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.DocumentMargins24),
+                IconPlacement = ElementPlacement.Left,
                 Value = SMMM.AdaptiveMargin,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
@@ -317,6 +325,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox AdaptiveLayout = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.NumberRow24),
+                IconPlacement = ElementPlacement.Left,
                 Value = SMMM.AdaptiveLayout,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
@@ -352,6 +362,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox StorePagination = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.TextWordCount24),
+                IconPlacement = ElementPlacement.Left,
                 Value = SMMM.StorePagination,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
@@ -378,6 +390,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox LibraryPagination = new()
             {
+                Icon = new SymbolIcon(SymbolRegular.TextWordCount24),
+                IconPlacement = ElementPlacement.Left,
                 Value = SMMM.LibraryPagination,
                 ClearButtonEnabled = false,
                 MaxDecimalPlaces = 0,
