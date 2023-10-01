@@ -165,6 +165,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Delete", "DeleteHint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };

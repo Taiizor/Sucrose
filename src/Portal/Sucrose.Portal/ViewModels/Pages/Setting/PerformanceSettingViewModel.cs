@@ -75,8 +75,8 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
-                Margin = new Thickness(0, 0, 0, 0),
                 TextAlignment = TextAlignment.Left,
+                Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
 

@@ -125,6 +125,9 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising", "AdvertisingHint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
