@@ -8,7 +8,7 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Contadores de Rendimiento</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Si todos los contadores de rendimiento deben ejecutarse en segundo plano.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Algunos fondos de pantalla con temas web pueden no funcionar correctamente, y ninguno de los ajustes de rendimiento a continuación funcionará.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Algunos fondos de pantalla con temas Web pueden no funcionar correctamente, y ninguno de los ajustes de rendimiento a continuación funcionará.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Uso de CPU</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Qué sucede con el fondo de pantalla según la configuración de uso de CPU.</system:String>
