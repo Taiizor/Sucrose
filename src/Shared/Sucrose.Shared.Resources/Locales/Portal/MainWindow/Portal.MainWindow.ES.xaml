@@ -36,4 +36,8 @@
 
     <system:String x:Key="Portal.MainWindow.MenuLightTip">Tema Claro</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tema Oscuro</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Crear Fondo de Pantalla</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferencias de Pantalla</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Opciones de Donación</system:String>
 </ResourceDictionary>

@@ -36,4 +36,8 @@
 
     <system:String x:Key="Portal.MainWindow.MenuLightTip">Helle Thema</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Dunkle Thema</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Hintergrundbild Erstellen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Anzeigeeinstellungen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Spendenoptionen</system:String>
 </ResourceDictionary>

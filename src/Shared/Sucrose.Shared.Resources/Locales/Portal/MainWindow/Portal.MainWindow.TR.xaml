@@ -36,4 +36,8 @@
     
     <system:String x:Key="Portal.MainWindow.MenuLightTip">Aydınlık Tema</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Karanlık Tema</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Duvar Kağıdı Oluştur</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Ekran Tercihleri</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Bağış Seçenekleri</system:String>
 </ResourceDictionary>

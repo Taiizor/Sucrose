@@ -36,4 +36,8 @@
 
     <system:String x:Key="Portal.MainWindow.MenuLightTip">Jasny motyw</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Ciemny motyw</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Utwórz Tapetę</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferencje Wyświetlania</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Opcje Dotacji</system:String>
 </ResourceDictionary>

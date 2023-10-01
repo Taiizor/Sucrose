@@ -178,27 +178,27 @@
                     <ui:Button
                         Cursor="Hand"
                         Margin="0 0 5 0"
-                        IsEnabled="False"
+                        x:Name="Wallpaper"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
                         Icon="{ui:SymbolIcon Add16}"
-                        ToolTipService.ToolTip="Duvar Kağıdı Oluştur" />
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuCreateWallpaperTip}" />
                     <ui:Button
                         Cursor="Hand"
+                        x:Name="Display"
                         Margin="0 0 5 0"
-                        IsEnabled="False"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
-                        ToolTipService.ToolTip="Ekran Tercihleri"
-                        Icon="{ui:SymbolIcon ShareScreenPerson16}" />
+                        Icon="{ui:SymbolIcon ShareScreenPerson16}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDisplayPreferencesTip}" />
                     <ui:Button
                         Cursor="Hand"
                         Margin="0 0 5 0"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
                         Icon="{ui:SymbolIcon DrinkMargarita16}"
-                        ToolTipService.ToolTip="Bağış Seçenekleri"
-                        Visibility="{Binding ViewModel.Donater, Mode=OneWay}" />
+                        Visibility="{Binding ViewModel.Donater, Mode=OneWay}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDonateOptionsTip}" />
                     <ui:NavigationViewItemSeparator Background="{DynamicResource TextFillColorSecondaryBrush}" />
                     <!--<Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />-->
                 </DockPanel>
