@@ -99,7 +99,7 @@
       <td>Web</td>
       <td>
         <img src=".screenshots/Web.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animal/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animals/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> Theme
       </td>
       <td>Yes</td>
       <td>Fixed</td>

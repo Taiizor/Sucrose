@@ -4,4 +4,16 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">Menú de Donación</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">Visibilidad del menú de donación en la interfaz.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">Mostrar</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">Ocultar</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">Soporte Publicitario</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">Contribuye al desarrollo de la aplicación viendo anuncios.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">Retraso de Anuncios (Minutos):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">Consejo: Los anuncios se mostrarán de manera que minimice las molestias.</system:String>
 </ResourceDictionary>

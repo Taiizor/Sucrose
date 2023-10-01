@@ -46,16 +46,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            DonateMenu.Title.Text = "Bağış Menüsü";
             DonateMenu.LeftIcon.Symbol = SymbolRegular.BuildingRetailMoney24;
-            DonateMenu.Description.Text = "Arayüzdeki bağış menüsünün görünürlüğü.";
+            DonateMenu.Title.Text = SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu");
+            DonateMenu.Description.Text = SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "Description");
 
             ComboBox DonateVisible = new();
 
             DonateVisible.SelectionChanged += (s, e) => DonateVisibleSelected(DonateVisible.SelectedIndex);
 
-            DonateVisible.Items.Add("Görünür");
-            DonateVisible.Items.Add("Görünmez");
+            DonateVisible.Items.Add(SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Show"));
+            DonateVisible.Items.Add(SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Hide"));
 
             DonateVisible.SelectedIndex = SMMM.DonateVisible ? 0 : 1;
 
@@ -79,9 +79,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            Advertising.Title.Text = "Reklamlı Destek";
             Advertising.LeftIcon.Symbol = SymbolRegular.ReceiptMoney24;
-            Advertising.Description.Text = "Reklam izleyerek uygulamanın geliştirilmesine katkıda bulun.";
+            Advertising.Title.Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising");
+            Advertising.Description.Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising", "Description");
 
             ToggleSwitch AdvertisingState = new()
             {
@@ -102,10 +102,10 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdvertisingDelayText = new()
             {
+                Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising", "AdvertisingDelay"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
-                Text = "Reklam Süresi (Dakika):",
                 FontWeight = FontWeights.SemiBold
             };
 
@@ -123,7 +123,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdvertisingHint = new()
             {
-                Text = "İpucu: Reklamlar size en az seviyede rahatsızlık verecek şekilde gösterilecek.",
+                Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising", "AdvertisingHint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.SemiBold

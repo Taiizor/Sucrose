@@ -4,4 +4,16 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">Bağış Menüsü</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">Arayüzdeki bağış menüsünün görünürlüğü.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">Görünür</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">Görünmez</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">Reklamlı Destek</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">Reklam izleyerek uygulamanın geliştirilmesine katkıda bulunun.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">Reklam Süresi (Dakika):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">İpucu: Reklamlar size en az seviyede rahatsızlık verecek şekilde gösterilecek.</system:String>
 </ResourceDictionary>
