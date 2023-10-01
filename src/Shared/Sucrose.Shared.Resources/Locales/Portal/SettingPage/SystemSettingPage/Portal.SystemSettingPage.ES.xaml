@@ -5,6 +5,52 @@
 >
     <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogTitle">Guardar Archivo de Registro</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogFilter">Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Archivos de Registro</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Administrar todos los archivos de registro generados por la aplicación.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Crear</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Borrar</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Nota: El espacio total ocupado por los archivos de registro es {0}. Todas las aplicaciones se cerrarán solo cuando comience la limpieza.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Restablecer Configuración</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Restablecer todos los archivos de configuración generados por la aplicación.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Iniciar Restablecimiento</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Nota: Todas las aplicaciones se cerrarán cuando comience el proceso de restablecimiento.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Borrar Caché</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Borrar todos los archivos de caché creados por la aplicación.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Iniciar Limpieza</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Nota: El espacio total ocupado por los archivos de caché es {0}. Todas las aplicaciones se cerrarán solo cuando comience la limpieza.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Borrar Tienda</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Borrar todos los archivos de la tienda creados por la aplicación.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Iniciar Limpieza</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Nota: El espacio total ocupado por los archivos de la tienda es {0}. Todas las aplicaciones se cerrarán solo cuando comience la limpieza.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Borrar Biblioteca</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Borrar todos los archivos de temas en su biblioteca, ya sea en su biblioteca o creados por usted.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Iniciar Limpieza</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Nota: El espacio total ocupado por los temas en su biblioteca es {0}. Todas las aplicaciones se cerrarán solo cuando comience la limpieza.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Copias de Seguridad de Configuración</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Administrar todos los archivos de configuración generados por la aplicación.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Copia de Seguridad</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Restaurar</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Nota: Todas las aplicaciones se cerrarán cuando comience la operación seleccionada.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Guardar Archivo de Registro</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*</system:String>
 </ResourceDictionary>

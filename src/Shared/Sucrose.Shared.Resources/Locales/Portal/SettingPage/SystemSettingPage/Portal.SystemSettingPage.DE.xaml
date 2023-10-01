@@ -5,6 +5,52 @@
 >
     <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogTitle">Protokolldatei Speichern</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogFilter">ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Protokolldateien</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Verwalten Sie alle von der Anwendung generierten Protokolldateien.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Erstellen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Löschen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Hinweis: Der gesamte Speicherplatz, der von Protokolldateien belegt wird, beträgt {0}. Alle Anwendungen werden erst geschlossen, wenn die Bereinigung beginnt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Einstellungen Zurücksetzen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Setzen Sie alle von der Anwendung generierten Einstellungsdateien zurück.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Zurücksetzen Starten</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Hinweis: Alle Anwendungen werden geschlossen, wenn der Zurücksetzungsvorgang beginnt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Cache Löschen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Löschen Sie alle von der Anwendung erstellten Cache-Dateien.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Bereinigung Starten</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Hinweis: Der gesamte Speicherplatz, der von Cache-Dateien belegt wird, beträgt {0}. Alle Anwendungen werden erst geschlossen, wenn die Bereinigung beginnt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Shop Löschen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Löschen Sie alle von der Anwendung erstellten Shop-Dateien.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Bereinigung Starten</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Hinweis: Der gesamte Speicherplatz, der von Shop-Dateien belegt wird, beträgt {0}. Alle Anwendungen werden erst geschlossen, wenn die Bereinigung beginnt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Bibliothek Löschen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Löschen Sie alle Themendateien in Ihrer Bibliothek, unabhängig davon, ob sie in Ihrer Bibliothek oder von Ihnen erstellt wurden.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Bereinigung Starten</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Hinweis: Der gesamte Speicherplatz, der von Themen in Ihrer Bibliothek belegt wird, beträgt {0}. Alle Anwendungen werden erst geschlossen, wenn die Bereinigung beginnt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Sicherung der Einstellungen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Verwalten Sie alle von der Anwendung generierten Einstellungsdateien.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Sichern</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Wiederherstellen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Hinweis: Alle Anwendungen werden geschlossen, wenn der ausgewählte Vorgang beginnt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Protokolldatei Speichern</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*</system:String>
 </ResourceDictionary>

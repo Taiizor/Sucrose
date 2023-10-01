@@ -76,9 +76,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = true
             };
 
-            LogTemporary.Title.Text = "Günlük Dosyaları";
             LogTemporary.LeftIcon.Symbol = SymbolRegular.PersonNote24;
-            LogTemporary.Description.Text = "Uygulamanın oluşturmuş olduğu tüm günlük dosyalarını yönetme.";
+            LogTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary");
+            LogTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Description");
 
             StackPanel LogTemporaryContent = new()
             {
@@ -87,24 +87,24 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button LogTemporaryCreate = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Create"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
-                Content = "Oluştur"
+                Cursor = Cursors.Hand
             };
 
             LogTemporaryCreate.Click += (s, e) => LogTemporaryCreateClick(LogTemporaryCreate);
 
             Button LogTemporaryDelete = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Delete"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(10, 0, 0, 0),
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
-                Content = "Temizle"
+                Cursor = Cursors.Hand
             };
 
             LogTemporaryDelete.Click += (s, e) => LogTemporaryDeleteClick(LogTemporaryDelete);
@@ -116,8 +116,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             LogTemporaryHint = new()
             {
-                Text = "Not: Günlük dosyalarının kapladığı toplam alan 0 b. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.",
+                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Hint"), "0 b"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
@@ -142,18 +145,18 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = true
             };
 
-            SettingReset.Title.Text = "Ayar Sıfırlama";
             SettingReset.LeftIcon.Symbol = SymbolRegular.LauncherSettings24;
-            SettingReset.Description.Text = "Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.";
+            SettingReset.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset");
+            SettingReset.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Description");
 
             Button SettingResetStart = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Start"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
-                Content = "Sıfırlamaya Başla",
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
+                Cursor = Cursors.Hand
             };
 
             SettingResetStart.Click += (s, e) => SettingResetStartClick(SettingResetStart);
@@ -162,8 +165,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SettingResetHint = new()
             {
-                Text = "Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.",
+                Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Hint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
@@ -188,18 +194,18 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = true
             };
 
-            CacheTemporary.Title.Text = "Önbellek Temizleme";
             CacheTemporary.LeftIcon.Symbol = SymbolRegular.FolderBriefcase20;
-            CacheTemporary.Description.Text = "Uygulamanın oluşturmuş olduğu tüm önbellek dosyalarını temizleme.";
+            CacheTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary");
+            CacheTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Description");
 
             Button CacheTemporaryStart = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Start"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
-                Content = "Temizliğe Başla",
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
+                Cursor = Cursors.Hand
             };
 
             CacheTemporaryStart.Click += (s, e) => CacheTemporaryStartClick(CacheTemporaryStart);
@@ -208,8 +214,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             CacheTemporaryHint = new()
             {
-                Text = "Not: Önbellek dosyalarının kapladığı toplam alan 0 b. Temizliğe başlandığında tüm uygulamalar kapanacaktır.",
+                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Hint"), "0 b"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
@@ -224,18 +233,18 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = true
             };
 
-            StoreTemporary.Title.Text = "Mağaza Temizleme";
             StoreTemporary.LeftIcon.Symbol = SymbolRegular.FolderGlobe20;
-            StoreTemporary.Description.Text = "Uygulamanın oluşturmuş olduğu tüm mağaza dosyalarını temizleme.";
+            StoreTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary");
+            StoreTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Description");
 
             Button StoreTemporaryStart = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Start"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
-                Content = "Temizliğe Başla",
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
+                Cursor = Cursors.Hand
             };
 
             StoreTemporaryStart.Click += (s, e) => StoreTemporaryStartClick(StoreTemporaryStart);
@@ -244,8 +253,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             StoreTemporaryHint = new()
             {
-                Text = "Not: Mağaza dosyalarının kapladığı toplam alan 0 b. Temizliğe başlandığında tüm uygulamalar kapanacaktır.",
+                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), "0 b"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
@@ -270,18 +282,18 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = true
             };
 
-            LibraryTemporary.Title.Text = "Kütüphane Temizleme";
             LibraryTemporary.LeftIcon.Symbol = SymbolRegular.FolderLink24;
-            LibraryTemporary.Description.Text = "Kütüphanenizde bulunan veya oluşturmuş olduğunuz tüm tema dosyalarını temizleme.";
+            LibraryTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary");
+            LibraryTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Description");
 
             Button LibraryTemporaryStart = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Start"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
-                Content = "Temizliğe Başla",
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
+                Cursor = Cursors.Hand
             };
 
             LibraryTemporaryStart.Click += (s, e) => LibraryTemporaryStartClick(LibraryTemporaryStart);
@@ -290,8 +302,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             LibraryTemporaryHint = new()
             {
-                Text = "Not: Kütüphanenizdeki temaların kapladığı toplam alan 0 b. Temizliğe başlandığında tüm uygulamalar kapanacaktır.",
+                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), "0 b"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
@@ -316,9 +331,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = true
             };
 
-            SettingBackup.Title.Text = "Ayar Dosyaları";
             SettingBackup.LeftIcon.Symbol = SymbolRegular.PeopleSettings24;
-            SettingBackup.Description.Text = "Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını yönetme.";
+            SettingBackup.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup");
+            SettingBackup.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Description");
 
             StackPanel SettingBackupContent = new()
             {
@@ -327,24 +342,24 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button SettingBackupExport = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Export"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
-                Content = "Yedekle"
+                Cursor = Cursors.Hand
             };
 
             SettingBackupExport.Click += (s, e) => SettingBackupExportClick(SettingBackupExport);
 
             Button SettingBackupImport = new()
             {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Import"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(10, 0, 0, 0),
                 Padding = new Thickness(8),
-                Cursor = Cursors.Hand,
-                Content = "Geri Yükle"
+                Cursor = Cursors.Hand
             };
 
             SettingBackupImport.Click += (s, e) => SettingBackupImportClick(SettingBackupImport);
@@ -356,8 +371,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SettingBackupHint = new()
             {
-                Text = "Not: Seçtiğiniz işlem başladığında tüm uygulamalar kapanacaktır.",
+                Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Hint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.SemiBold
             };
@@ -390,10 +408,10 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 FileName = SMV.LogCompress,
 
-                Filter = SSRER.GetValue("Portal", "SystemSettingPage", "LogSaveDialogFilter"),
+                Filter = SSRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogFilter"),
                 FilterIndex = 1,
 
-                Title = SSRER.GetValue("Portal", "SystemSettingPage", "LogSaveDialogTitle"),
+                Title = SSRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogTitle"),
 
                 InitialDirectory = SMR.DesktopPath
             };
@@ -511,19 +529,19 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 string LogTemporarySize = await SSSHT.Size(LogTemporaryPath);
 
-                LogTemporaryHint.Text = $"Not: Günlük dosyalarının kapladığı toplam alan {LogTemporarySize}. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.";
+                LogTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Hint"), LogTemporarySize);
 
                 string CacheTemporarySize = await SSSHT.Size(CacheTemporaryPath);
 
-                CacheTemporaryHint.Text = $"Not: Önbellek dosyalarının kapladığı toplam alan {CacheTemporarySize}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.";
+                CacheTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Hint"), CacheTemporarySize);
 
                 string StoreTemporarySize = await SSSHT.Size(StoreTemporaryPath);
 
-                StoreTemporaryHint.Text = $"Not: Mağaza dosyalarının kapladığı toplam alan {StoreTemporarySize}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.";
+                StoreTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), StoreTemporarySize);
 
                 string LibraryTemporarySize = await SSSHT.Size(SMMM.LibraryLocation);
 
-                LibraryTemporaryHint.Text = $"Not: Kütüphanenizdeki temaların kapladığı toplam alan {LibraryTemporarySize}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.";
+                LibraryTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), LibraryTemporarySize);
             }
             catch { }
         }

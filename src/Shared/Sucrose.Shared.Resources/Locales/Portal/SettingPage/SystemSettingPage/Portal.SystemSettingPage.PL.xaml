@@ -5,6 +5,52 @@
 >
     <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogTitle">Zapisz Plik Dziennika</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Pliki Dziennika</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Zarządzaj wszystkimi plikami dziennika generowanymi przez aplikację.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Utwórz</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Wyczyść</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Uwaga: Całkowita przestrzeń zajmowana przez pliki dziennika wynosi {0}. Wszystkie aplikacje zostaną zamknięte tylko wtedy, gdy rozpocznie się czyszczenie.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Resetowanie Ustawień</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Zresetuj wszystkie pliki ustawień generowane przez aplikację.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Rozpocznij Resetowanie</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Uwaga: Wszystkie aplikacje zostaną zamknięte, gdy rozpocznie się proces resetowania.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Wyczyść Pamięć Podręczną</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Wyczyść wszystkie pliki pamięci podręcznej utworzone przez aplikację.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Rozpocznij Czyszczenie</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Uwaga: Całkowita przestrzeń zajmowana przez pliki pamięci podręcznej wynosi {0}. Wszystkie aplikacje zostaną zamknięte tylko wtedy, gdy rozpocznie się czyszczenie.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Wyczyść Sklep</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Wyczyść wszystkie pliki sklepu utworzone przez aplikację.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Rozpocznij Czyszczenie</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Uwaga: Całkowita przestrzeń zajmowana przez pliki sklepu wynosi {0}. Wszystkie aplikacje zostaną zamknięte tylko wtedy, gdy rozpocznie się czyszczenie.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Wyczyść Bibliotekę</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Wyczyść wszystkie pliki tematów w swojej bibliotece, niezależnie od tego, czy są one w twojej bibliotece, czy utworzone przez ciebie.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Rozpocznij Czyszczenie</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Uwaga: Całkowita przestrzeń zajmowana przez tematy w twojej bibliotece wynosi {0}. Wszystkie aplikacje zostaną zamknięte tylko wtedy, gdy rozpocznie się czyszczenie.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Kopia Zapasowa Ustawień</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Zarządzaj wszystkimi plikami ustawień generowanymi przez aplikację.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Kopia Zapasowa</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Przywróć</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Uwaga: Wszystkie aplikacje zostaną zamknięte, gdy rozpocznie się wybrane działanie.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Zapisz Plik Dziennika</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>
 </ResourceDictionary>

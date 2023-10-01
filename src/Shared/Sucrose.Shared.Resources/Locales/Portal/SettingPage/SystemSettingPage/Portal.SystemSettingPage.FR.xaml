@@ -5,6 +5,52 @@
 >
     <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogTitle">Enregistrer le Fichier Journal</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Fichiers de Journal</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Gérer tous les fichiers journaux générés par l'application.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Créer</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Effacer</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Remarque: L'espace total occupé par les fichiers journaux est de {0}. Toutes les applications seront fermées uniquement lorsque le nettoyage commencera.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Réinitialiser les Paramètres</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Réinitialiser tous les fichiers de paramètres générés par l'application.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Démarrer la Réinitialisation</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Remarque: Toutes les applications seront fermées lorsque le processus de réinitialisation commencera.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Effacer le Cache</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Effacer tous les fichiers de cache créés par l'application.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Démarrer le Nettoyage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Remarque: L'espace total occupé par les fichiers de cache est de {0}. Toutes les applications seront fermées uniquement lorsque le nettoyage commencera.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Effacer le Magasin</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Effacer tous les fichiers de magasin créés par l'application.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Démarrer le Nettoyage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Remarque: L'espace total occupé par les fichiers de magasin est de {0}. Toutes les applications seront fermées uniquement lorsque le nettoyage commencera.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Effacer la Bibliothèque</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Effacer tous les fichiers de thèmes de votre bibliothèque, qu'ils soient dans votre bibliothèque ou créés par vous.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Démarrer le Nettoyage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Remarque: L'espace total occupé par les thèmes dans votre bibliothèque est de {0}. Toutes les applications seront fermées uniquement lorsque le nettoyage commencera.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Sauvegarde des Paramètres</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Gérer tous les fichiers de paramètres générés par l'application.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Sauvegarde</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Restaurer</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Remarque: Toutes les applications seront fermées lorsque l'opération sélectionnée commencera.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
 </ResourceDictionary>

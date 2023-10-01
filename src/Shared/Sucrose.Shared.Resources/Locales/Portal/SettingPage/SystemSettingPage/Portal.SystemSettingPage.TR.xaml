@@ -5,6 +5,52 @@
 >
     <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.LogSaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Günlük Dosyaları</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Uygulamanın oluşturmuş olduğu tüm günlük dosyalarını yönetme.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Oluştur</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Temizle</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Not: Günlük dosyalarının kapladığı toplam alan {0}. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Ayar Sıfırlama</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Sıfırlamaya Başla</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Önbellek Temizleme</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Uygulamanın oluşturmuş olduğu tüm önbellek dosyalarını temizleme.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Temizliğe Başla</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Not: Önbellek dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Mağaza Temizleme</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Uygulamanın oluşturmuş olduğu tüm mağaza dosyalarını temizleme.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Temizliğe Başla</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Not: Mağaza dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Kütüphane Temizleme</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Kütüphanenizde bulunan veya oluşturmuş olduğunuz tüm tema dosyalarını temizleme.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Temizliğe Başla</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Not: Kütüphanenizdeki temaların kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Ayar Dosyaları</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını yönetme.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Yedekle</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Geri Yükle</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Not: Seçtiğiniz işlem başladığında tüm uygulamalar kapanacaktır.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
 </ResourceDictionary>
