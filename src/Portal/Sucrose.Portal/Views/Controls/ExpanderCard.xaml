@@ -65,9 +65,5 @@
         <ui:Card x:Name="FooterControl" Margin="0 3 0 0" Background="{DynamicResource CardStrokeColorDefaultBrush}" xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromBottom}, Event=Visibility}">
             <Frame x:Name="Footer" />
         </ui:Card>
-
-        <ui:Card x:Name="FooterControl2" Margin="0 3 0 0" Background="{DynamicResource CardStrokeColorDefaultBrush}" xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromBottom}, Event=Visibility}">
-            <Frame x:Name="Footer2" />
-        </ui:Card>
     </StackPanel>
 </UserControl>

@@ -50,12 +50,6 @@ namespace Sucrose.Portal.Views.Controls
             set => Footer.Margin = value;
         }
 
-        public Thickness FooterFrameMargin2
-        {
-            get => Footer2.Margin;
-            set => Footer2.Margin = value;
-        }
-
         public object HeaderFrame
         {
             get => Header.Content;
@@ -66,12 +60,6 @@ namespace Sucrose.Portal.Views.Controls
         {
             get => Footer.Content;
             set => Footer.Content = value;
-        }
-
-        public object FooterCard2
-        {
-            get => Footer2.Content;
-            set => Footer2.Content = value;
         }
 
         public bool IsExpand
@@ -117,10 +105,8 @@ namespace Sucrose.Portal.Views.Controls
                 ExpandUp.Visibility = IsExpand ? Visibility.Visible : Visibility.Collapsed;
                 ExpandDown.Visibility = IsExpand ? Visibility.Collapsed : Visibility.Visible;
                 FooterControl.Visibility = IsExpand ? Visibility.Visible : Visibility.Collapsed;
-                FooterControl2.Visibility = IsExpand && Footer2.Content != null ? Visibility.Visible : Visibility.Collapsed;
 
                 FooterFrameMargin = new Thickness(Body.Margin.Left + 32, 0, 0, 0);
-                FooterFrameMargin2 = new Thickness(Body.Margin.Left + 32, 0, 0, 0);
             }
             else
             {
@@ -132,7 +118,6 @@ namespace Sucrose.Portal.Views.Controls
                 ExpandUp.Visibility = Visibility.Collapsed;
                 ExpandDown.Visibility = Visibility.Collapsed;
                 FooterControl.Visibility = Visibility.Collapsed;
-                FooterControl2.Visibility = Visibility.Collapsed;
             }
         }
 

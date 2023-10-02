@@ -2,7 +2,8 @@
     x:Class="Sucrose.Portal.Views.Controls.DisplayPreferences"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
@@ -16,18 +17,27 @@
         <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:DisplayPreferences}" />
     </ui:ContentDialog.Resources>
 
-    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+    <StackPanel x:Name="Panel" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
         <Border Background="{DynamicResource ControlFillColorDefaultBrush}" CornerRadius="5" Margin="0 10 0 10" MinHeight="150">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <WrapPanel x:Name="Contents" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-                    <Border BorderBrush="CornflowerBlue" Cursor="Hand" CornerRadius="5" BorderThickness="2" Margin="5" Visibility="Collapsed">
-                        <Grid>
-                            <Rectangle Fill="{DynamicResource ControlAltFillColorSecondaryBrush}" Width="Auto" Height="100" />
-                            <TextBlock Text="All Monitors" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="72" FontWeight="SemiBold" Margin="5 0 5 0" />
-                        </Grid>
-                    </Border>
-                </WrapPanel>
+                <WrapPanel x:Name="Contents" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
             </ScrollViewer>
         </Border>
+
+        <vcontrols:ExpanderCard x:Name="Expander" TitleText="Yerleştirme Modu" DescriptionText="Duvar kağıtlarının aktif ekranlara nasıl uygulanacağı." LeftIconSymbol="DualScreenSpan24" IsExpand="True" Expandable="True">
+            <vcontrols:ExpanderCard.FooterCard>
+                <StackPanel>
+                    <RadioButton />
+                    <RadioButton />
+                    <RadioButton />
+
+                    <ui:NavigationViewItemSeparator Margin="0 10 0 10" />
+
+                    <ui:TextBlock Margin="0 0 0 10" />
+
+                    <RadioButton />
+                </StackPanel>
+            </vcontrols:ExpanderCard.FooterCard>
+        </vcontrols:ExpanderCard>
     </StackPanel>
 </ui:ContentDialog>
