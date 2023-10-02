@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Sucrose.Shared.Theme.Helper;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
@@ -23,6 +24,7 @@ using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
+using SPVCDP = Sucrose.Portal.Views.Controls.DisplayPreferences;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
@@ -199,6 +201,16 @@ namespace Sucrose.Portal.ViewModels.Windows
             {
                 WindowBackdrop.RemoveBackdrop(Application.Current.MainWindow);
             }
+        }
+
+        [RelayCommand]
+        private async Task OnDisplayPreferences()
+        {
+            SPVCDP DisplayPreferences = new();
+
+            await DisplayPreferences.ShowAsync();
+
+            DisplayPreferences.Dispose();
         }
 
         private void Memory_Tick(object sender, EventArgs e)

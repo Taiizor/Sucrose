@@ -190,6 +190,7 @@
                         Appearance="Transparent"
                         BorderBrush="Transparent"
                         Icon="{ui:SymbolIcon ShareScreenPerson16}"
+                        Command="{Binding ViewModel.DisplayPreferencesCommand, Mode=OneWay}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDisplayPreferencesTip}" />
                     <ui:Button
                         Cursor="Hand"
