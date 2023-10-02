@@ -17,19 +17,13 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
-        <Border Background="{DynamicResource ControlFillColorDefaultBrush}" CornerRadius="5" Margin="0 10 0 10" MaxHeight="200">
+        <Border Background="{DynamicResource ControlFillColorDefaultBrush}" CornerRadius="5" Margin="0 10 0 10" MinHeight="150">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
-                    <Border BorderBrush="Black" Cursor="Hand" CornerRadius="5" BorderThickness="2" Margin="5" MouseDown="MonitorClicked">
+                <WrapPanel x:Name="Contents" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                    <Border BorderBrush="CornflowerBlue" Cursor="Hand" CornerRadius="5" BorderThickness="2" Margin="5" Visibility="Collapsed">
                         <Grid>
-                            <Rectangle Fill="Transparent" Width="200" Height="100" />
-                            <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="72" FontWeight="SemiBold" />
-                        </Grid>
-                    </Border>
-                    <Border BorderBrush="Black" Cursor="Hand" CornerRadius="5" BorderThickness="2" Margin="5" MouseDown="MonitorClicked">
-                        <Grid>
-                            <Rectangle Fill="Transparent" Width="200" Height="100" />
-                            <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="72" FontWeight="SemiBold" />
+                            <Rectangle Fill="{DynamicResource ControlAltFillColorSecondaryBrush}" Width="Auto" Height="100" />
+                            <TextBlock Text="All Monitors" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="72" FontWeight="SemiBold" Margin="5 0 5 0" />
                         </Grid>
                     </Border>
                 </WrapPanel>

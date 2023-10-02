@@ -10,6 +10,9 @@ using SMR = Sucrose.Memory.Readonly;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
+using SEDST = Skylark.Enum.DuplicateScreenType;
+using SEEST = Skylark.Enum.ExpandScreenType;
 
 namespace Sucrose.Portal.Manage
 {
@@ -33,15 +36,21 @@ namespace Sucrose.Portal.Manage
 
         public static SSDEPT FocusPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.FocusPerformance, SSDEPT.Resume);
 
+        public static SEDST DuplicateScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default);
+
         public static SSDEPT SaverPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.SaverPerformance, SSDEPT.Pause);
 
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Close);
+
+        public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
 
         public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
 
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 
         public static int Port => SHS.Clamp(SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0), 0, 65535);
+
+        public static SSDEDT DisplayType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);
 
         public static SSDEST StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
 
