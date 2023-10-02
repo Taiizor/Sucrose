@@ -9,7 +9,7 @@
     <Border x:Name="Border" BorderBrush="{DynamicResource ControlAltFillColorTertiaryBrush}" Cursor="Hand" CornerRadius="5" BorderThickness="2" Margin="5">
         <Grid>
             <Rectangle x:Name="Rectangle" Fill="{DynamicResource ControlAltFillColorSecondaryBrush}" Width="200" Height="100" />
-            <TextBlock x:Name="Index" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="72" FontWeight="SemiBold" />
+            <TextBlock x:Name="Index" Text="#" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="72" FontWeight="SemiBold" />
         </Grid>
     </Border>
 </UserControl>

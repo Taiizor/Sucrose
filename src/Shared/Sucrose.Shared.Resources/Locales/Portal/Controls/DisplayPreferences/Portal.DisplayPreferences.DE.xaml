@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Anzeigeeinstellungen</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Schließen</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Platzierungsmodus</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Wie Hintergrundbilder auf aktive Bildschirme angewendet werden.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Nur Ausgewählter Bildschirm</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Auf Alle Bildschirme Erweitern</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Alle Monitore</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Wählen Sie den Modus "Auf Alle Bildschirme Erweitern"</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Dasselbe Hintergrundbild Duplizieren</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Wählen Sie den Modus "Dasselbe Hintergrundbild Duplizieren"</system:String>
+</ResourceDictionary>

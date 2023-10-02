@@ -7,10 +7,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    CloseButtonText="{DynamicResource Portal.DisplayPreferences.Close}"
+    Title="{DynamicResource Portal.DisplayPreferences.Title}"
     Loaded="ContentDialog_Loaded"
-    Title="Ekran Tercihleri"
-    CloseButtonText="Kapat"
-    DialogMaxWidth="750"
+    DialogMaxWidth="775"
     mc:Ignorable="d">
 
     <ui:ContentDialog.Resources>
@@ -24,7 +24,7 @@
             </ScrollViewer>
         </Border>
 
-        <vcontrols:ExpanderCard x:Name="Expander" TitleText="Yerleştirme Modu" DescriptionText="Duvar kağıtlarının aktif ekranlara nasıl uygulanacağı." LeftIconSymbol="DualScreenSpan24" IsExpand="True" Expandable="True">
+        <vcontrols:ExpanderCard x:Name="Expander" LeftIconSymbol="DualScreenSpan24" IsExpand="True" Expandable="True">
             <vcontrols:ExpanderCard.FooterCard>
                 <StackPanel>
                     <RadioButton />

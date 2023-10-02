@@ -23,6 +23,10 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Onglets</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrylique</system:String>
 
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Défaut</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Zone de Travail</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Limites d'Affichage</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Défaut</system:String>
 </ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Ekran Tercihleri</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Kapat</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Yerleştirme Modu</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Duvar kağıtlarının aktif ekranlara nasıl uygulanacağı.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Sadece seçili ekran</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Ekranlar arasında uzat</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Tüm Monitörler</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Ekranlar arasında uzatma modunu seçin</system:String>
+    
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Aynı duvar kağıdını çoğalt</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Aynı duvar kağıdını çoğaltma modunu seçin</system:String>
+</ResourceDictionary>

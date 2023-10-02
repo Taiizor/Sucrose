@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Display Preferences</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Close</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Placement Mode</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">How wallpapers will be applied to active screens.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Selected Screen Only</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Expand Across Screens</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">All Monitors</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Select the expand across screens mode</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Duplicate Same Wallpaper</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Select the duplicate same wallpaper mode</system:String>
+</ResourceDictionary>

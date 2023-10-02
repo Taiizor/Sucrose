@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Preferencje Wyświetlania</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Zamknij</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Tryb Lokalizacji</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Sposób zastosowania tapet do aktywnych ekranów.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Tylko Wybrany Ekran</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Rozszerz na Wszystkie Ekrany</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Wszystkie Monitory</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Wybierz tryb rozszerzenia na wszystkie ekrany</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Zduplikuj Ten Sam Tapetę</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Wybierz tryb zduplikowania tej samej tapety</system:String>
+</ResourceDictionary>

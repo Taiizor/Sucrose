@@ -23,6 +23,10 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Tabbed</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrylic</system:String>
 
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Default</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Working Area</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Display Bound</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Default</system:String>
 </ResourceDictionary>

@@ -8,5 +8,6 @@
         <ResourceDictionary Source="LibraryCard/Portal.LibraryCard.FR.xaml" />
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.FR.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.FR.xaml" />
+        <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.FR.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

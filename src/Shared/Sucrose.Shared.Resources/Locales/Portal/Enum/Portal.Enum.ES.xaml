@@ -23,6 +23,10 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Con Pestañas</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrílico</system:String>
 
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Por Defecto</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Área de Trabajo</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Límite de Pantalla</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Por Defecto</system:String>
 </ResourceDictionary>

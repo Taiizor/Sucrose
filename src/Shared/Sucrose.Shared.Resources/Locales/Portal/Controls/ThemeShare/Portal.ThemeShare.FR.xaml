@@ -15,6 +15,4 @@
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Enregistrer le Fichier du Thème</system:String>
-
-
 </ResourceDictionary>

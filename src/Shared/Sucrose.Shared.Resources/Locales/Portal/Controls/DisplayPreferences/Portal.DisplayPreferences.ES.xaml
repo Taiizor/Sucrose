@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Preferencias de Pantalla</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Cerrar</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Modo de Colocación</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Cómo se aplicarán los fondos de pantalla a las pantallas activas.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Solo Pantalla Seleccionada</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Expandir en Todas las Pantallas</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Todas las Pantallas</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Seleccione el modo de expansión en todas las pantallas</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Duplicar el Mismo Fondo de Pantalla</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Seleccione el modo de duplicar el mismo fondo de pantalla</system:String>
+</ResourceDictionary>

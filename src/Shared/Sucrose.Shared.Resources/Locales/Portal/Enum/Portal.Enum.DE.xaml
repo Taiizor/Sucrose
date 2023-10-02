@@ -23,6 +23,10 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Gestuft</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acryl</system:String>
 
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standard</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Arbeitsbereich</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Anzeigegrenze</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standard</system:String>
 </ResourceDictionary>

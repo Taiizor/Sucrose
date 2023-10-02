@@ -23,6 +23,10 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Z Kartami</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akryl</system:String>
 
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Domyślny</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Obszar Roboczy</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Granica Wyświetlacza</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Domyślny</system:String>
 </ResourceDictionary>

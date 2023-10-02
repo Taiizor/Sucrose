@@ -133,6 +133,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ES.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.FR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.PL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Locales\Portal\Controls\ExpanderCard\Portal.ExpanderCard.PL.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

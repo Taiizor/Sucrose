@@ -23,6 +23,10 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Sekmeli</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akrilik</system:String>
 
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Varsayılan</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Çalışma Alanı</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Ekran Sınırları</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Varsayılan</system:String>
 </ResourceDictionary>

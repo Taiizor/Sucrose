@@ -19,5 +19,4 @@
     <system:String x:Key="Portal.ThemeReview.ThemeCreate">Utworzenie</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Nieznane</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeContact">Adres Kontaktowy Tematu</system:String>
-
 </ResourceDictionary>

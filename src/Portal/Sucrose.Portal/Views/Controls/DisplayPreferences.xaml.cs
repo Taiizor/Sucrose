@@ -36,23 +36,10 @@ namespace Sucrose.Portal.Views.Controls
             InitializeComponent();
         }
 
-        private async Task Test(SSDEDT Display)
-        {
-            switch (Display)
-            {
-                case SSDEDT.Expand:
-                    break;
-                case SSDEDT.Duplicate:
-                    break;
-                default:
-                    break;
-            }
-
-            await Task.CompletedTask;
-        }
-
         private async Task ScreenMonitor()
         {
+            Contents.Children.Clear();
+
             int ScreenCount = SWUS.Screens.Count();
 
             while (SMMM.ScreenIndex > ScreenCount - 1)
@@ -84,9 +71,11 @@ namespace Sucrose.Portal.Views.Controls
 
         private async Task ExpandMonitor()
         {
+            Contents.Children.Clear();
+
             SPVCDE Expand = new();
 
-            Expand.Content.Text = "All Monitors";
+            Expand.Content.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expand", "Monitor");
 
             Contents.Children.Add(Expand);
 
@@ -97,6 +86,8 @@ namespace Sucrose.Portal.Views.Controls
 
         private async Task DuplicateMonitor()
         {
+            Contents.Children.Clear();
+
             for (int Count = 0; Count < SWUS.Screens.Count(); Count++)
             {
                 SPVCDD Duplicate = new();
@@ -133,24 +124,30 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void ScreenChecked()
+        private async void ScreenChecked()
         {
+            await ScreenMonitor();
+
             ExpanderCustomContent.Visibility = Visibility.Collapsed;
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
             SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Screen);
         }
 
-        private void ExpandChecked()
+        private async void ExpandChecked()
         {
+            await ExpandMonitor();
+
             ExpanderCustomContent.Visibility = Visibility.Visible;
             ExpanderExpandContent.Visibility = Visibility.Visible;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
             SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Expand);
         }
 
-        private void DuplicateChecked()
+        private async void DuplicateChecked()
         {
+            await DuplicateMonitor();
+
             ExpanderCustomContent.Visibility = Visibility.Visible;
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Visible;
@@ -167,13 +164,16 @@ namespace Sucrose.Portal.Views.Controls
             SMMI.EngineSettingManager.SetSetting(SMC.DuplicateScreenType, Type);
         }
 
-        private async void ContentDialog_Loaded(object sender, RoutedEventArgs e)
+        private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
+            Expander.Title.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expander");
+            Expander.Description.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expander", "Description");
+
             StackPanel ExpanderContent = new();
 
             RadioButton Screen = new()
             {
-                Content = "Sadece seçili ekran",
+                Content = SSRER.GetValue("Portal", "DisplayPreferences", "Screen"),
                 GroupName = "DisplayType"
             };
 
@@ -181,7 +181,7 @@ namespace Sucrose.Portal.Views.Controls
 
             RadioButton Expand = new()
             {
-                Content = "Ekranlar arasında uzat",
+                Content = SSRER.GetValue("Portal", "DisplayPreferences", "Expand"),
                 GroupName = "DisplayType"
             };
 
@@ -189,7 +189,7 @@ namespace Sucrose.Portal.Views.Controls
 
             RadioButton Duplicate = new()
             {
-                Content = "Aynı duvar kağıdını çoğalt",
+                Content = SSRER.GetValue("Portal", "DisplayPreferences", "Duplicate"),
                 GroupName = "DisplayType"
             };
 
@@ -209,7 +209,7 @@ namespace Sucrose.Portal.Views.Controls
 
             TextBlock ExpandHint = new()
             {
-                Text = "Ekranlar arasında uzatma modunu seçin",
+                Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expand", "Hint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
@@ -224,9 +224,9 @@ namespace Sucrose.Portal.Views.Controls
             {
                 RadioButton Radio = new()
                 {
+                    Content = SSRER.GetValue("Portal", "Enum", "ExpandScreenType", $"{Type}"),
                     IsChecked = SPMM.ExpandScreenType == Type,
-                    GroupName = "ExpandScreenType",
-                    Content = $"{Type}"
+                    GroupName = "ExpandScreenType"
                 };
 
                 Radio.Checked += (s, e) => ExpandScreenTypeChecked(Type);
@@ -236,7 +236,7 @@ namespace Sucrose.Portal.Views.Controls
 
             TextBlock DuplicateHint = new()
             {
-                Text = "Aynı duvar kağıdını çoğaltma modunu seçin",
+                Text = SSRER.GetValue("Portal", "DisplayPreferences", "Duplicate", "Hint"),
                 Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
@@ -251,9 +251,9 @@ namespace Sucrose.Portal.Views.Controls
             {
                 RadioButton Radio = new()
                 {
+                    Content = SSRER.GetValue("Portal", "Enum", "DuplicateScreenType", $"{Type}"),
                     IsChecked = SPMM.DuplicateScreenType == Type,
-                    GroupName = "DuplicateScreenType",
-                    Content = $"{Type}"
+                    GroupName = "DuplicateScreenType"
                 };
 
                 Radio.Checked += (s, e) => DuplicateScreenTypeChecked(Type);
@@ -264,15 +264,12 @@ namespace Sucrose.Portal.Views.Controls
             switch (SPMM.DisplayType)
             {
                 case SSDEDT.Expand:
-                    await ExpandMonitor();
                     Expand.IsChecked = true;
                     break;
                 case SSDEDT.Duplicate:
-                    await DuplicateMonitor();
                     Duplicate.IsChecked = true;
                     break;
                 default:
-                    await ScreenMonitor();
                     Screen.IsChecked = true;
                     break;
             }
