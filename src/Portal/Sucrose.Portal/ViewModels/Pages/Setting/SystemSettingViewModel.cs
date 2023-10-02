@@ -129,55 +129,6 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(LogTemporary);
 
-            TextBlock ResetArea = new()
-            {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Reset"),
-                Margin = new Thickness(0, 10, 0, 0),
-                FontWeight = FontWeights.Bold
-            };
-
-            Contents.Add(ResetArea);
-
-            SPVCEC SettingReset = new()
-            {
-                Margin = new Thickness(0, 10, 0, 0),
-                Expandable = true
-            };
-
-            SettingReset.LeftIcon.Symbol = SymbolRegular.LauncherSettings24;
-            SettingReset.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset");
-            SettingReset.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Description");
-
-            Button SettingResetStart = new()
-            {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Start"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Appearance = ControlAppearance.Secondary,
-                Margin = new Thickness(0, 0, 0, 0),
-                Padding = new Thickness(8),
-                Cursor = Cursors.Hand
-            };
-
-            SettingResetStart.Click += (s, e) => SettingResetStartClick(SettingResetStart);
-
-            SettingReset.HeaderFrame = SettingResetStart;
-
-            TextBlock SettingResetHint = new()
-            {
-                Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Hint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
-                HorizontalAlignment = HorizontalAlignment.Left,
-                TextWrapping = TextWrapping.WrapWithOverflow,
-                TextAlignment = TextAlignment.Left,
-                Margin = new Thickness(0, 0, 0, 0),
-                FontWeight = FontWeights.SemiBold
-            };
-
-            SettingReset.FooterCard = SettingResetHint;
-
-            Contents.Add(SettingReset);
-
             TextBlock CacheArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
@@ -383,6 +334,55 @@ namespace Sucrose.Portal.ViewModels.Pages
             SettingBackup.FooterCard = SettingBackupHint;
 
             Contents.Add(SettingBackup);
+
+            TextBlock ResetArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Reset"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(ResetArea);
+
+            SPVCEC SettingReset = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = true
+            };
+
+            SettingReset.LeftIcon.Symbol = SymbolRegular.LauncherSettings24;
+            SettingReset.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset");
+            SettingReset.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Description");
+
+            Button SettingResetStart = new()
+            {
+                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Start"),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Appearance = ControlAppearance.Secondary,
+                Margin = new Thickness(0, 0, 0, 0),
+                Padding = new Thickness(8),
+                Cursor = Cursors.Hand
+            };
+
+            SettingResetStart.Click += (s, e) => SettingResetStartClick(SettingResetStart);
+
+            SettingReset.HeaderFrame = SettingResetStart;
+
+            TextBlock SettingResetHint = new()
+            {
+                Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Hint"),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            SettingReset.FooterCard = SettingResetHint;
+
+            Contents.Add(SettingReset);
 
             InitializeTimer.Tick += new EventHandler(InitializeTimer_Tick);
             InitializeTimer.Interval = new TimeSpan(0, 0, 3);

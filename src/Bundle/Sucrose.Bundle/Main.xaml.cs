@@ -159,6 +159,8 @@ namespace Sucrose.Bundle
                 }
             }
 
+            await Task.Delay(MinDelay);
+
             await Task.CompletedTask;
         }
 

@@ -14,13 +14,6 @@
 
     <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Not: Günlük dosyalarının kapladığı toplam alan {0}. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Ayar Sıfırlama</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Sıfırlamaya Başla</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.</system:String>
-
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Önbellek Temizleme</system:String>
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Uygulamanın oluşturmuş olduğu tüm önbellek dosyalarını temizleme.</system:String>
 
@@ -50,6 +43,13 @@
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Geri Yükle</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Not: Seçtiğiniz işlem başladığında tüm uygulamalar kapanacaktır.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Ayar Sıfırlama</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Sıfırlamaya Başla</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>

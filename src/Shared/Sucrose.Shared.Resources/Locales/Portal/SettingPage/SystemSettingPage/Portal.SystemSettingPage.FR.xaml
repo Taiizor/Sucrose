@@ -14,13 +14,6 @@
 
     <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Remarque: L'espace total occupé par les fichiers journaux est de {0}. Toutes les applications seront fermées uniquement lorsque le nettoyage commencera.</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Réinitialiser les Paramètres</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Réinitialiser tous les fichiers de paramètres générés par l'application.</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Démarrer la Réinitialisation</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Remarque: Toutes les applications seront fermées lorsque le processus de réinitialisation commencera.</system:String>
-
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Effacer le Cache</system:String>
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Effacer tous les fichiers de cache créés par l'application.</system:String>
 
@@ -50,6 +43,13 @@
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Restaurer</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Remarque: Toutes les applications seront fermées lorsque l'opération sélectionnée commencera.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Réinitialiser les Paramètres</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Réinitialiser tous les fichiers de paramètres générés par l'application.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Démarrer la Réinitialisation</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Remarque: Toutes les applications seront fermées lorsque le processus de réinitialisation commencera.</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>

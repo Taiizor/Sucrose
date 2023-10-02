@@ -14,13 +14,6 @@
 
     <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Uwaga: Całkowita przestrzeń zajmowana przez pliki dziennika wynosi {0}. Wszystkie aplikacje zostaną zamknięte tylko wtedy, gdy rozpocznie się czyszczenie.</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Resetowanie Ustawień</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Zresetuj wszystkie pliki ustawień generowane przez aplikację.</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Rozpocznij Resetowanie</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Uwaga: Wszystkie aplikacje zostaną zamknięte, gdy rozpocznie się proces resetowania.</system:String>
-
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Wyczyść Pamięć Podręczną</system:String>
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Wyczyść wszystkie pliki pamięci podręcznej utworzone przez aplikację.</system:String>
 
@@ -50,6 +43,13 @@
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Przywróć</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Uwaga: Wszystkie aplikacje zostaną zamknięte, gdy rozpocznie się wybrane działanie.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Resetowanie Ustawień</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Zresetuj wszystkie pliki ustawień generowane przez aplikację.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Rozpocznij Resetowanie</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Uwaga: Wszystkie aplikacje zostaną zamknięte, gdy rozpocznie się proces resetowania.</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Zapisz Plik Dziennika</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>

@@ -14,13 +14,6 @@
 
     <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Hinweis: Der gesamte Speicherplatz, der von Protokolldateien belegt wird, beträgt {0}. Alle Anwendungen werden erst geschlossen, wenn die Bereinigung beginnt.</system:String>
 
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Einstellungen Zurücksetzen</system:String>
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Setzen Sie alle von der Anwendung generierten Einstellungsdateien zurück.</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Zurücksetzen Starten</system:String>
-
-    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Hinweis: Alle Anwendungen werden geschlossen, wenn der Zurücksetzungsvorgang beginnt.</system:String>
-
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Cache Löschen</system:String>
     <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Löschen Sie alle von der Anwendung erstellten Cache-Dateien.</system:String>
 
@@ -50,6 +43,13 @@
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Wiederherstellen</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Hinweis: Alle Anwendungen werden geschlossen, wenn der ausgewählte Vorgang beginnt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Einstellungen Zurücksetzen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Setzen Sie alle von der Anwendung generierten Einstellungsdateien zurück.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Zurücksetzen Starten</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Hinweis: Alle Anwendungen werden geschlossen, wenn der Zurücksetzungsvorgang beginnt.</system:String>
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Protokolldatei Speichern</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*</system:String>
