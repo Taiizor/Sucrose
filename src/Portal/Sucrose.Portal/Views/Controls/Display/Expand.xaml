@@ -3,13 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d">
 
     <Border x:Name="Border" BorderBrush="CornflowerBlue" Cursor="Hand" CornerRadius="5" BorderThickness="2" Margin="5">
         <Grid>
             <Rectangle x:Name="Rectangle" Fill="{DynamicResource ControlAltFillColorSecondaryBrush}" Width="Auto" Height="100" />
-            <TextBlock x:Name="Content" Text="#" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="72" FontWeight="SemiBold" Margin="10 0 10 0" />
+            <TextBlock x:Name="Title" Text="#" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="72" FontWeight="SemiBold" Margin="10 0 10 0" />
         </Grid>
     </Border>
 </UserControl>

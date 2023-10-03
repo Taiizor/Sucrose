@@ -14,7 +14,12 @@ using SPVCDD = Sucrose.Portal.Views.Controls.Display.Duplicate;
 using SPVCDE = Sucrose.Portal.Views.Controls.Display.Expand;
 using SPVCDS = Sucrose.Portal.Views.Controls.Display.Screen;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
+using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWUS = Skylark.Wing.Utility.Screene;
 using TextBlock = System.Windows.Controls.TextBlock;
 
@@ -34,6 +39,19 @@ namespace Sucrose.Portal.Views.Controls
         public DisplayPreferences() : base(SPMI.ContentDialogService.GetContentPresenter())
         {
             InitializeComponent();
+        }
+
+        private void Restart()
+        {
+            if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+            {
+                if (SSSHL.Run())
+                {
+                    SSLHK.Stop();
+                }
+
+                SSLHR.Start();
+            }
         }
 
         private async Task ScreenMonitor()
@@ -75,7 +93,7 @@ namespace Sucrose.Portal.Views.Controls
 
             SPVCDE Expand = new();
 
-            Expand.Content.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expand", "Monitor");
+            Expand.Title.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expand", "Monitor");
 
             Contents.Children.Add(Expand);
 
@@ -131,7 +149,13 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderCustomContent.Visibility = Visibility.Collapsed;
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
-            SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Screen);
+
+            if (SPMM.DisplayType != SSDEDT.Screen)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Screen);
+
+                Restart();
+            }
         }
 
         private async void ExpandChecked()
@@ -141,7 +165,13 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderCustomContent.Visibility = Visibility.Visible;
             ExpanderExpandContent.Visibility = Visibility.Visible;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
-            SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Expand);
+
+            if (SPMM.DisplayType != SSDEDT.Expand)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Expand);
+
+                Restart();
+            }
         }
 
         private async void DuplicateChecked()
@@ -151,17 +181,33 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderCustomContent.Visibility = Visibility.Visible;
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Visible;
-            SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Duplicate);
+
+            if (SPMM.DisplayType != SSDEDT.Duplicate)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Duplicate);
+
+                Restart();
+            }
         }
 
         private void ExpandScreenTypeChecked(SEEST Type)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.ExpandScreenType, Type);
+            if (SPMM.ExpandScreenType != Type)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.ExpandScreenType, Type);
+
+                Restart();
+            }
         }
 
         private void DuplicateScreenTypeChecked(SEDST Type)
         {
-            SMMI.EngineSettingManager.SetSetting(SMC.DuplicateScreenType, Type);
+            if (SPMM.DuplicateScreenType != Type)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.DuplicateScreenType, Type);
+
+                Restart();
+            }
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
