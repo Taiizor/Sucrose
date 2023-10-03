@@ -1,21 +1,12 @@
 ﻿using System.IO;
 using System.Windows;
-using Wpf.Ui.Controls;
-using SECNT = Skylark.Enum.ClearNumericType;
-using SEMST = Skylark.Enum.ModeStorageType;
-using SEST = Skylark.Enum.StorageType;
-using SMR = Sucrose.Memory.Readonly;
-using SHC = Skylark.Helper.Culture;
-using SHN = Skylark.Helper.Numeric;
-using SPMI = Sucrose.Portal.Manage.Internal;
-using SPEIL = Sucrose.Portal.Extension.ImageLoader;
-using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
-using SSSHS = Sucrose.Shared.Space.Helper.Size;
-using SSSSS = Skylark.Struct.Storage.StorageStruct;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using System.Windows.Input;
+using Wpf.Ui.Controls;
+using SMR = Sucrose.Memory.Readonly;
+using SPEIL = Sucrose.Portal.Extension.ImageLoader;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -73,6 +64,21 @@ namespace Sucrose.Portal.Views.Controls
                 if (string.IsNullOrEmpty(ThemeTitle.Text))
                 {
                     ThemeTitle.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(ThemeAuthor.Text))
+                {
+                    ThemeAuthor.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(ThemeContact.Text))
+                {
+                    ThemeContact.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(ThemeDescription.Text))
+                {
+                    ThemeDescription.Focus();
                     return;
                 }
                 else

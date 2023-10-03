@@ -4,6 +4,7 @@ using SHV = Skylark.Helper.Versionly;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
@@ -85,7 +86,17 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 if (File.Exists(PropertiesPath))
                 {
-                    ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCustomizeText"), null, null);
+                    string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+
+                    if (File.Exists(InfoPath))
+                    {
+                        SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                        if (Info.Type == SSDEWT.Web)
+                        {
+                            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCustomizeText"), null, null);
+                        }
+                    }
                 }
             }
             else if (SMMI.LibrarySettingManager.CheckFile() && ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog)))
