@@ -60,11 +60,9 @@ namespace Sucrose.Portal.Views.Controls
 
             int ScreenCount = SWUS.Screens.Count();
 
-            while (SMMM.ScreenIndex > ScreenCount - 1)
+            if (SMMM.ScreenIndex > ScreenCount - 1)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.ScreenIndex, SMMM.ScreenIndex - 1);
-
-                await Task.Delay(10);
+                SMMI.EngineSettingManager.SetSetting(SMC.ScreenIndex, ScreenCount - 1);
             }
 
             for (int Count = 0; Count < ScreenCount; Count++)

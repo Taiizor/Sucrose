@@ -62,6 +62,25 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private void UpdateInfo()
+        {
+            ToolTip TitleTip = new()
+            {
+                Content = Info.Title
+            };
+
+            ToolTip DescriptionTip = new()
+            {
+                Content = Info.Description
+            };
+
+            ThemeTitle.ToolTip = TitleTip;
+            ThemeDescription.ToolTip = DescriptionTip;
+
+            ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
+            ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
+        }
+
         private void MenuUse_Click(object sender, RoutedEventArgs e)
         {
             if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
@@ -83,27 +102,13 @@ namespace Sucrose.Portal.Views.Controls
                 Theme = Theme
             };
 
-            ContentDialogResult result = await ThemeEdit.ShowAsync();
+            ContentDialogResult Result = await ThemeEdit.ShowAsync();
 
-            if (result == ContentDialogResult.Primary)
+            if (Result == ContentDialogResult.Primary)
             {
                 Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
 
-                ToolTip TitleTip = new()
-                {
-                    Content = Info.Title
-                };
-
-                ToolTip DescriptionTip = new()
-                {
-                    Content = Info.Description
-                };
-
-                ThemeTitle.ToolTip = TitleTip;
-                ThemeDescription.ToolTip = DescriptionTip;
-
-                ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
-                ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
+                UpdateInfo();
             }
 
             ThemeEdit.Dispose();
@@ -199,21 +204,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void LibraryCard_Loaded(object sender, RoutedEventArgs e)
         {
-            ToolTip TitleTip = new()
-            {
-                Content = Info.Title
-            };
-
-            ToolTip DescriptionTip = new()
-            {
-                Content = Info.Description
-            };
-
-            ThemeTitle.ToolTip = TitleTip;
-            ThemeDescription.ToolTip = DescriptionTip;
-
-            ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
-            ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
+            UpdateInfo();
 
             string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 

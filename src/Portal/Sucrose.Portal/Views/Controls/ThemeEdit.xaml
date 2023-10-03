@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    CloseButtonText="Kapat"
-    PrimaryButtonText="Kaydet"
-    Title="Tema Düzenleme"
+    PrimaryButtonText="{DynamicResource Portal.ThemeEdit.Save}"
+    CloseButtonText="{DynamicResource Portal.ThemeEdit.Close}"
+    Title="{DynamicResource Portal.ThemeEdit.Title}"
     PreviewKeyDown="ContentDialog_PreviewKeyDown"
     Loaded="ContentDialog_Loaded"
     DialogMaxWidth="750"
@@ -20,21 +20,21 @@
 
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
         <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="20" Width="Auto" Height="300" />
-        
-        <TextBlock Text="Başlık" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+
+        <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeTitle}" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <ui:TextBox x:Name="ThemeTitle" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
 
-        <TextBlock Text="Açıklama" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeDescription}" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
         <ui:TextBox x:Name="ThemeDescription" Margin="0 3 0 0" MaxLength="500" MaxLines="10" TextWrapping="WrapWithOverflow" MinLines="5" AcceptsReturn="True" AcceptsTab="False" />
 
-        <TextBlock Text="Yazar" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeAuthor}" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <ui:TextBox x:Name="ThemeAuthor" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
 
-        <TextBlock Text="İletişim" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeContact}" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <ui:TextBox x:Name="ThemeContact" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" Cursor="IBeam" />
 
         <StackPanel x:Name="Arguments">
-            <TextBlock Margin="0 10 0 0" Text="Argümanlar" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <TextBlock Margin="0 10 0 0" Text="{DynamicResource Portal.ThemeEdit.ThemeArguments}" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <ui:TextBox x:Name="ThemeArguments" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
         </StackPanel>
     </StackPanel>

@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">Edit Theme</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">Close</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">Save</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">Title</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Description</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Author</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">Contact</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Arguments</system:String>
+</ResourceDictionary>
