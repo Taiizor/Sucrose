@@ -4,6 +4,7 @@ using Wpf.Ui.Controls;
 using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
+using SMR = Sucrose.Memory.Readonly;
 using SHC = Skylark.Helper.Culture;
 using SHN = Skylark.Helper.Numeric;
 using SPMI = Sucrose.Portal.Manage.Internal;
@@ -14,6 +15,7 @@ using SSSSS = Skylark.Struct.Storage.StorageStruct;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using System.Windows.Input;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -29,8 +31,6 @@ namespace Sucrose.Portal.Views.Controls
         public ThemeEdit() : base(SPMI.ContentDialogService.GetContentPresenter())
         {
             InitializeComponent();
-            ThemeDescription.GotFocus += (s, e) => ThemeTitle.Text = ThemeDescription.IsFocused.ToString();
-            ThemeDescription.LostFocus += (s, e) => ThemeTitle.Text = ThemeDescription.IsFocused.ToString();
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
@@ -43,15 +43,59 @@ namespace Sucrose.Portal.Views.Controls
             }
 
             ThemeTitle.Text = Info.Title;
+            ThemeAuthor.Text = Info.Author;
+            ThemeContact.Text = Info.Contact;
+            ThemeArguments.Text = Info.Arguments;
             ThemeDescription.Text = Info.Description;
+
+            if (Info.Type != SSDEWT.Application)
+            {
+                Arguments.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (ThemeDescription.IsFocused && (e.Key == Key.Escape || e.Key == Key.Enter))
+            if (e.Key == Key.Escape && (ThemeTitle.IsFocused || ThemeAuthor.IsFocused || ThemeContact.IsFocused || ThemeArguments.IsFocused || ThemeDescription.IsFocused))
             {
                 e.Handled = true;
             }
+            else if (e.Key == Key.Enter && (ThemeTitle.IsFocused || ThemeAuthor.IsFocused || ThemeContact.IsFocused || ThemeArguments.IsFocused))
+            {
+                e.Handled = true;
+            }
+        }
+
+        protected override void OnButtonClick(ContentDialogButton Button)
+        {
+            if (Button == ContentDialogButton.Primary)
+            {
+                if (string.IsNullOrEmpty(ThemeTitle.Text))
+                {
+                    ThemeTitle.Focus();
+                    return;
+                }
+                else
+                {
+                    Info.Title = ThemeTitle.Text;
+                    Info.Author = ThemeAuthor.Text;
+                    Info.Contact = ThemeContact.Text;
+                    Info.Description = ThemeDescription.Text;
+
+                    if (string.IsNullOrEmpty(ThemeArguments.Text))
+                    {
+                        Info.Arguments = null;
+                    }
+                    else
+                    {
+                        Info.Arguments = ThemeArguments.Text;
+                    }
+
+                    SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                }
+            }
+
+            base.OnButtonClick(Button);
         }
 
         public void Dispose()

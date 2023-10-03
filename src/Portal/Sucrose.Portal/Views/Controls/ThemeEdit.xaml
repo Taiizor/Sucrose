@@ -21,10 +21,21 @@
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
         <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="20" Width="Auto" Height="300" />
         
-        <TextBlock Text="Title" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <ui:TextBox x:Name="ThemeTitle" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+        <TextBlock Text="Başlık" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <ui:TextBox x:Name="ThemeTitle" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
 
-        <TextBlock Text="Description" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <ui:TextBox x:Name="ThemeDescription" MaxLength="500" MaxLines="10" TextWrapping="WrapWithOverflow" MinLines="5" AcceptsReturn="True" AcceptsTab="False" />
+        <TextBlock Text="Açıklama" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <ui:TextBox x:Name="ThemeDescription" Margin="0 3 0 0" MaxLength="500" MaxLines="10" TextWrapping="WrapWithOverflow" MinLines="5" AcceptsReturn="True" AcceptsTab="False" />
+
+        <TextBlock Text="Yazar" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <ui:TextBox x:Name="ThemeAuthor" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+
+        <TextBlock Text="İletişim" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <ui:TextBox x:Name="ThemeContact" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" Cursor="IBeam" />
+
+        <StackPanel x:Name="Arguments">
+            <TextBlock Margin="0 10 0 0" Text="Argümanlar" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="ThemeArguments" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
+        </StackPanel>
     </StackPanel>
 </ui:ContentDialog>

@@ -10,6 +10,7 @@ namespace Sucrose.Shared.Theme.Helper
         {
             MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
             DateParseHandling = DateParseHandling.None,
+            Formatting = Formatting.Indented,
             Converters =
             {
                 new IsoDateTimeConverter

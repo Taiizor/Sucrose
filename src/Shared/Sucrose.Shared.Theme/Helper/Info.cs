@@ -54,5 +54,10 @@ namespace Sucrose.Shared.Theme.Helper
         {
             return JsonConvert.DeserializeObject<Info>(File.ReadAllText(Json), Converter.Settings);
         }
+
+        public static void WriteJson(string Path, Info Info)
+        {
+            File.WriteAllText(Path, JsonConvert.SerializeObject(Info, Converter.Settings));
+        }
     }
 }

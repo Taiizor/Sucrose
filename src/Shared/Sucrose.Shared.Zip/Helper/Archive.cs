@@ -57,6 +57,24 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.Description;
                 }
 
+                // Info içindeki Author değeri boş değil ve 50 karakterden uzun mu?
+                if (!string.IsNullOrEmpty(Info.Author) && Info.Author.Length > 50)
+                {
+                    return SSDECT.Author;
+                }
+
+                // Info içindeki Contact değeri boş değil ve 250 karakterden uzun mu?
+                if (!string.IsNullOrEmpty(Info.Contact) && Info.Contact.Length > 250)
+                {
+                    return SSDECT.Contact;
+                }
+
+                // Info içindeki Arguments değeri boş değil ve 250 karakterden uzun mu?
+                if (!string.IsNullOrEmpty(Info.Arguments) && Info.Arguments.Length > 250)
+                {
+                    return SSDECT.Arguments;
+                }
+
                 // Info içindeki Thumbnail dosyası var mı?
                 if (!SSZHZ.CheckFile(Archive, Info.Thumbnail))
                 {

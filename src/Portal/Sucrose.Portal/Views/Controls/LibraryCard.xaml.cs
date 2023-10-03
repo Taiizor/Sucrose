@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Wpf.Ui.Controls;
 using SHA = Skylark.Helper.Adaptation;
 using SHV = Skylark.Helper.Versionly;
+using SMR = Sucrose.Memory.Readonly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -30,7 +31,7 @@ namespace Sucrose.Portal.Views.Controls
     {
         private readonly SPEIL Loader = new();
         private readonly string Theme = null;
-        private readonly SSTHI Info = null;
+        private SSTHI Info = null;
         private bool Delete;
 
         internal LibraryCard(string Theme, SSTHI Info)
@@ -82,16 +83,28 @@ namespace Sucrose.Portal.Views.Controls
                 Theme = Theme
             };
 
-            var result = await ThemeEdit.ShowAsync();
+            ContentDialogResult result = await ThemeEdit.ShowAsync();
 
-            string DialogResultText = result switch
+            if (result == ContentDialogResult.Primary)
             {
-                ContentDialogResult.Primary => "User saved their work",
-                ContentDialogResult.Secondary => "User did not save their work",
-                _ => "User cancelled the dialog"
-            };
+                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
 
-            System.Windows.MessageBox.Show(DialogResultText);
+                ToolTip TitleTip = new()
+                {
+                    Content = Info.Title
+                };
+
+                ToolTip DescriptionTip = new()
+                {
+                    Content = Info.Description
+                };
+
+                ThemeTitle.ToolTip = TitleTip;
+                ThemeDescription.ToolTip = DescriptionTip;
+
+                ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
+                ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
+            }
 
             ThemeEdit.Dispose();
         }

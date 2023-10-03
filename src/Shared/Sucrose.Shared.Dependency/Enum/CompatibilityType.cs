@@ -18,9 +18,17 @@
         /// </summary>
         Type,
         /// <summary>
+        /// Author boş değil ve çok uzun!
+        /// </summary>
+        Author,
+        /// <summary>
         /// Source dosyası bulunamadı!
         /// </summary>
         Source,
+        /// <summary>
+        /// Contact boş değil ve çok uzun!
+        /// </summary>
+        Contact,
         /// <summary>
         /// Preview dosyası bulunamadı!
         /// </summary>
@@ -41,6 +49,10 @@
         /// Geçersiz döngü modu değeri!
         /// </summary>
         LoopMode,
+        /// <summary>
+        /// Arguments boş değil ve çok uzun!
+        /// </summary>
+        Arguments,
         /// <summary>
         /// Seçilen dosya .zip uzantılı değil!
         /// </summary>
