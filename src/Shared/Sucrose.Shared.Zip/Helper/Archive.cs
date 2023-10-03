@@ -45,6 +45,18 @@ namespace Sucrose.Shared.Zip.Helper
                 // Arşivdeki SucroseInfo.json dosyasını okuma
                 SSTHI Info = SSTHI.FromJson(SSZHZ.ReadFile(Archive, SMR.SucroseInfo));
 
+                // Info içindeki Title değeri boş mu veya 50 karakterden uzun mu?
+                if (string.IsNullOrEmpty(Info.Title) || Info.Title.Length > 50)
+                {
+                    return SSDECT.Title;
+                }
+
+                // Info içindeki Description değeri boş mu veya 500 karakterden uzun mu?
+                if (string.IsNullOrEmpty(Info.Description) || Info.Description.Length > 500)
+                {
+                    return SSDECT.Description;
+                }
+
                 // Info içindeki Thumbnail dosyası var mı?
                 if (!SSZHZ.CheckFile(Archive, Info.Thumbnail))
                 {

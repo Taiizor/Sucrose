@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Wpf.Ui.Controls;
 using SHA = Skylark.Helper.Adaptation;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
@@ -9,6 +10,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -70,6 +72,28 @@ namespace Sucrose.Portal.Views.Controls
         private void MenuFind_Click(object sender, RoutedEventArgs e)
         {
             SSSHP.Run(Theme);
+        }
+
+        private async void MenuEdit_Click(object sender, RoutedEventArgs e)
+        {
+            SPVCTE ThemeEdit = new()
+            {
+                Info = Info,
+                Theme = Theme
+            };
+
+            var result = await ThemeEdit.ShowAsync();
+
+            string DialogResultText = result switch
+            {
+                ContentDialogResult.Primary => "User saved their work",
+                ContentDialogResult.Secondary => "User did not save their work",
+                _ => "User cancelled the dialog"
+            };
+
+            System.Windows.MessageBox.Show(DialogResultText);
+
+            ThemeEdit.Dispose();
         }
 
         private async void MenuShare_Click(object sender, RoutedEventArgs e)

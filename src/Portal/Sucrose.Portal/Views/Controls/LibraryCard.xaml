@@ -24,7 +24,7 @@
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuFind}" Icon="{ui:SymbolIcon Folder24}" Click="MenuFind_Click" />
             <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuShare}" Icon="{ui:SymbolIcon Share24}" Click="MenuShare_Click" />
             <ui:MenuItem x:Name="MenuDelete" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuDelete}" Icon="{ui:SymbolIcon Delete24}" Click="MenuDelete_Click" />
-            <ui:MenuItem Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuEdit}" Icon="{ui:SymbolIcon Pen24}" IsEnabled="False" />
+            <ui:MenuItem x:Name="MenuEdit" Cursor="Hand" Header="{DynamicResource Portal.LibraryCard.MenuEdit}" Icon="{ui:SymbolIcon Pen24}" Click="MenuEdit_Click" />
         </ContextMenu>
     </UserControl.ContextMenu>
     

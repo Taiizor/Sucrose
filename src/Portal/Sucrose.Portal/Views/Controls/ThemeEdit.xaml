@@ -1,0 +1,30 @@
+﻿<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.ThemeEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    CloseButtonText="Kapat"
+    PrimaryButtonText="Kaydet"
+    Title="Tema Düzenleme"
+    PreviewKeyDown="ContentDialog_PreviewKeyDown"
+    Loaded="ContentDialog_Loaded"
+    DialogMaxWidth="750"
+    mc:Ignorable="d">
+
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeEdit}" />
+    </ui:ContentDialog.Resources>
+
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+        <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="20" Width="Auto" Height="300" />
+        
+        <TextBlock Text="Title" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <ui:TextBox x:Name="ThemeTitle" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+
+        <TextBlock Text="Description" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <ui:TextBox x:Name="ThemeDescription" MaxLength="500" MaxLines="10" TextWrapping="WrapWithOverflow" MinLines="5" AcceptsReturn="True" AcceptsTab="False" />
+    </StackPanel>
+</ui:ContentDialog>

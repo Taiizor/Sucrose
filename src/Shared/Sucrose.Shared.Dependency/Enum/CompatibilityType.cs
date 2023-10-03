@@ -10,6 +10,10 @@
         /// </summary>
         Pass,
         /// <summary>
+        /// Title boş veya çok uzun!
+        /// </summary>
+        Title,
+        /// <summary>
         /// Tema bu uygulamanın desteklemediği bir tür için oluşturulmuş!
         /// </summary>
         Type,
@@ -69,6 +73,10 @@
         /// Geçersiz sistem sesi değeri!
         /// </summary>
         SystemAudio,
+        /// <summary>
+        /// Description boş veya çok uzun!
+        /// </summary>
+        Description,
         /// <summary>
         /// Geçersiz sistem belleği değeri!
         /// </summary>
