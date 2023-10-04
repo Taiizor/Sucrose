@@ -2,7 +2,7 @@
 
 namespace Sucrose.Shared.Core.Enum
 {
-    internal enum BundleType
+    internal enum UpdateType
     {
         [DisplayAttribute(Name = "7z", Description = ".7z")]
         Compressed,

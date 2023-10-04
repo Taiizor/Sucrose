@@ -25,6 +25,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Varsayılan</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Sıkıştırılmış</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Yürütülebilir</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Çalışma Alanı</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Ekran Sınırları</system:String>
 

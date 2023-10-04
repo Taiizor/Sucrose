@@ -8,7 +8,9 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
+using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -208,6 +210,41 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Key);
 
+            TextBlock UpdateArea = new()
+            {
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SSRER.GetValue("Portal", "Area", "Update"),
+                Margin = new Thickness(0, 10, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(UpdateArea);
+
+            SPVCEC Update = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Update.LeftIcon.Symbol = SymbolRegular.ArrowSwap24;
+            Update.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Update");
+            Update.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Update", "Description");
+
+            ComboBox UpdateType = new();
+
+            UpdateType.SelectionChanged += (s, e) => UpdateTypeSelected(UpdateType.SelectedIndex);
+
+            foreach (SSCEUT Type in Enum.GetValues(typeof(SSCEUT)))
+            {
+                UpdateType.Items.Add(SSRER.GetValue("Portal", "Enum", "UpdateType", $"{Type}"));
+            }
+
+            UpdateType.SelectedIndex = (int)SPMM.UpdateType;
+
+            Update.HeaderFrame = UpdateType;
+
+            Contents.Add(Update);
+
             TextBlock DeveloperArea = new()
             {
                 Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
@@ -251,6 +288,16 @@ namespace Sucrose.Portal.ViewModels.Pages
         public void OnNavigatedFrom()
         {
             //Dispose();
+        }
+
+        private void UpdateTypeSelected(int Index)
+        {
+            if (Index != (int)SPMM.UpdateType)
+            {
+                SSCEUT Type = (SSCEUT)Index;
+
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateType, Type);
+            }
         }
 
         private void DiscordStateChecked(bool State)

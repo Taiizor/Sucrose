@@ -16,6 +16,7 @@
     <system:String x:Key="Portal.Area.Backup">Yedekleme</system:String>
     <system:String x:Key="Portal.Area.Priority">Öncelik</system:String>
     <system:String x:Key="Portal.Area.Engines">Motorlar</system:String>
+    <system:String x:Key="Portal.Area.Update">Güncelleme</system:String>
     <system:String x:Key="Portal.Area.Library">Kütüphane</system:String>
     <system:String x:Key="Portal.Area.Developer">Geliştirici</system:String>
     <system:String x:Key="Portal.Area.Extensions">Eklentiler</system:String>

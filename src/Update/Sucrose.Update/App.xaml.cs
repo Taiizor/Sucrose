@@ -9,10 +9,10 @@ using SHV = Skylark.Helper.Versionly;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SSCEBT = Sucrose.Shared.Core.Enum.BundleType;
+using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
-using SSCHB = Sucrose.Shared.Core.Helper.Bundle;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
+using SSCHU = Sucrose.Shared.Core.Helper.Update;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
@@ -195,11 +195,11 @@ namespace Sucrose.Update
                         {
                             foreach (SSIIA Asset in Assets)
                             {
-                                string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHB.GetDescription(SUMM.BundleType)}";
+                                string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMI.UpdateType)}";
 
                                 string[] Required =
                                 {
-                                    SSCHB.GetDescription(SUMM.BundleType),
+                                    SSCHU.GetDescription(SUMI.UpdateType),
                                     SSCHF.GetDescription(),
                                     SSCHA.GetText(),
                                     $"{Latest}",
@@ -284,11 +284,11 @@ namespace Sucrose.Update
 
             if (HasBundle)
             {
-                if (SUMM.BundleType == SSCEBT.Executable || SSSZHZ.CheckArchive(Bundle))
+                if (SUMI.UpdateType == SSCEUT.Executable || SSSZHZ.CheckArchive(Bundle))
                 {
                     SSDECT Result = SSDECT.Pass;
 
-                    if (SUMM.BundleType == SSCEBT.Compressed)
+                    if (SUMI.UpdateType == SSCEUT.Compressed)
                     {
                         Result = SSSZEZ.Extract(Bundle, SUMM.CachePath);
 
@@ -296,7 +296,7 @@ namespace Sucrose.Update
                         {
                             await Task.Delay(MinDelay);
 
-                            Bundle = Path.ChangeExtension(Bundle, SSCHB.GetDescription(SSCEBT.Executable));
+                            Bundle = Path.ChangeExtension(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
                         }
                         else
                         {

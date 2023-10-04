@@ -25,6 +25,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Défaut</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Compressé</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Exécutable</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Zone de Travail</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Limites d'Affichage</system:String>
 

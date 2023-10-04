@@ -25,6 +25,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standard</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Komprimiert</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Ausführbar</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Arbeitsbereich</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Anzeigegrenze</system:String>
 

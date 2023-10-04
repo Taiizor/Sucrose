@@ -9,10 +9,10 @@
     <Import_RootNamespace>Sucrose.Shared.Core</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Enum\BundleType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\UpdateType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\FrameworkType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Attribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helper\Bundle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Update.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Memory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Version.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\OperatingSystem.cs" />

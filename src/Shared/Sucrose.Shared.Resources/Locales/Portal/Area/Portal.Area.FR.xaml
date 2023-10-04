@@ -16,6 +16,7 @@
     <system:String x:Key="Portal.Area.Backup">Sauvegarde</system:String>
     <system:String x:Key="Portal.Area.Priority">Priorité</system:String>
     <system:String x:Key="Portal.Area.Engines">Moteurs</system:String>
+    <system:String x:Key="Portal.Area.Update">Mise à Jour</system:String>
     <system:String x:Key="Portal.Area.Library">Bibliothèque</system:String>
     <system:String x:Key="Portal.Area.Developer">Développeur</system:String>
     <system:String x:Key="Portal.Area.Extensions">Extensions</system:String>

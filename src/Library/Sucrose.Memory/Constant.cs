@@ -58,7 +58,7 @@
 
         public const string UploadType = "UploadType";
 
-        public const string BundleType = "BundleType";
+        public const string UpdateType = "UpdateType";
 
         public const string MemoryUsage = "MemoryUsage";
 

@@ -22,6 +22,9 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Veuillez entrer un jeton d'accès personnel</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Veuillez entrer un jeton d'accès personnel valide</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Update">Méthode de Mise à Jour</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">La méthode utilisée pour le processus de mise à jour.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Outils de Développeur</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Affichage ou non des outils de développement pour WebView et le moteur CefSharp.</system:String>
 </ResourceDictionary>

@@ -22,6 +22,9 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Bitte geben Sie einen persönlichen Zugriffstoken ein</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Bitte geben Sie einen gültigen persönlichen Zugriffstoken ein</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Update">Aktualisierungsmethode</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Die Methode, die für den Aktualisierungsvorgang verwendet wird.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Entwicklertools</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Ob Entwicklertools für WebView und den CefSharp-Motor angezeigt werden sollen oder nicht.</system:String>
 </ResourceDictionary>

@@ -25,6 +25,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Default</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Compressed</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Executable</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Working Area</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Display Bound</system:String>
 

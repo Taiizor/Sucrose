@@ -25,6 +25,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Domyślny</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Skompresowany</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Wykonywalny</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Obszar Roboczy</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Granica Wyświetlacza</system:String>
 

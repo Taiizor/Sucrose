@@ -9,6 +9,7 @@ using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
+using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
@@ -45,6 +46,8 @@ namespace Sucrose.Portal.Manage
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
 
         public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
+
+        public static SSCEUT UpdateType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
 
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 

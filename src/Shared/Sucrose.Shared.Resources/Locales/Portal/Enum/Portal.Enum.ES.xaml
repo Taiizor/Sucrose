@@ -25,6 +25,9 @@
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Por Defecto</system:String>
 
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Comprimido</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Ejecutable</system:String>
+
     <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Área de Trabajo</system:String>
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Límite de Pantalla</system:String>
 
