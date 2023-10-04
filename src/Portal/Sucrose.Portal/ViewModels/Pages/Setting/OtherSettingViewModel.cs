@@ -223,7 +223,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             SPVCEC Update = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                Expandable = false,
+                IsEnabled = false
             };
 
             Update.LeftIcon.Symbol = SymbolRegular.ArrowSwap24;

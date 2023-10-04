@@ -69,7 +69,7 @@
             </Grid>
 
             <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch">
-                <TextBlock x:Name="Text_Message" Margin="10 0 0 0" Text="{DynamicResource Update.InfoBox.TextMessage}" TextWrapping="WrapWithOverflow" TextAlignment="Left" Foreground="White" FontSize="14" />
+                <TextBlock x:Name="Text_Message" Margin="10 0 0 0" Text="{DynamicResource Update.InfoBox.TextMessage}" TextWrapping="WrapWithOverflow" TextAlignment="Left" Foreground="#333333" FontSize="14" />
             </Grid>
 
             <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">

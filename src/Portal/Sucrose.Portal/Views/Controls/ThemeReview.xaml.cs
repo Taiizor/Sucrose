@@ -62,10 +62,12 @@ namespace Sucrose.Portal.Views.Controls
             {
                 if (SSTHV.IsMail(Info.Contact))
                 {
-                    Info.Contact = $"mailto:{Info.Contact}";
+                    ThemeContact.NavigateUri = $"mailto:{Info.Contact}";
                 }
-
-                ThemeContact.NavigateUri = Info.Contact;
+                else
+                {
+                    ThemeContact.NavigateUri = Info.Contact;
+                }
             }
 
             string ImagePath = Path.Combine(Theme, Info.Thumbnail);
