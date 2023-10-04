@@ -11,13 +11,12 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
-using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -33,7 +32,6 @@ namespace Sucrose.Portal.Views.Controls
         private readonly SPEIL Loader = new();
         private readonly string Theme = null;
         private SSTHI Info = null;
-        private bool Delete;
 
         internal LibraryCard(string Theme, SSTHI Info)
         {
@@ -143,17 +141,23 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            SPVCTD ThemeDelete = new()
+            bool Confirm = SMMM.LibraryConfirm;
+            ContentDialogResult Result = ContentDialogResult.None;
+
+            if (Confirm)
             {
-                Info = Info,
-                Theme = Theme
-            };
+                SPVCTD ThemeDelete = new()
+                {
+                    Info = Info,
+                    Theme = Theme
+                };
 
-            ContentDialogResult Result = await ThemeDelete.ShowAsync();
+                Result = await ThemeDelete.ShowAsync();
 
-            ThemeDelete.Dispose();
+                ThemeDelete.Dispose();
+            }
 
-            if (!SMMM.LibraryConfirm || Result == ContentDialogResult.Primary)
+            if (!Confirm || Result == ContentDialogResult.Primary)
             {
                 Dispose();
 

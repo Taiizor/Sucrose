@@ -26,13 +26,6 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
-
-            if (File.Exists(ImagePath))
-            {
-                ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath);
-            }
-
             ThemeTitle.Text = Info.Title;
             ThemeAuthor.Text = Info.Author;
             ThemeContact.Text = Info.Contact;
@@ -42,6 +35,13 @@ namespace Sucrose.Portal.Views.Controls
             if (Info.Type != SSDEWT.Application)
             {
                 Arguments.Visibility = Visibility.Collapsed;
+            }
+
+            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
+
+            if (File.Exists(ImagePath))
+            {
+                ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath);
             }
         }
 

@@ -19,7 +19,7 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
-        <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="20" Width="Auto" Height="300" />
+        <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="25" Width="Auto" Height="300" />
 
         <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeTitle}" Margin="0 10 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <ui:TextBox x:Name="ThemeTitle" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
