@@ -8,7 +8,7 @@ namespace Sucrose.Shared.Launcher.Manage
 {
     internal static class Manager
     {
-        public static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
+        public static SEWTT ThemeType => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         public static Mutex Mutex => new(true, SMR.LauncherMutex);
     }

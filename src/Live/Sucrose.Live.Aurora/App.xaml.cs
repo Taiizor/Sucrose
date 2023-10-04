@@ -104,7 +104,7 @@ namespace Sucrose.Live.Aurora
 
                 string Path = SMMI.AuroraLiveLogManager.LogFile();
 
-                switch (SSEMM.Theme)
+                switch (SSEMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);

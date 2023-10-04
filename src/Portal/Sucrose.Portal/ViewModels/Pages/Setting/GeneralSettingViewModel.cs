@@ -485,7 +485,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ApplicationTheme Theme = ApplicationTheme.Dark;
                 WindowBackdropType Type = (WindowBackdropType)Index;
 
-                if (SPMM.Theme == SEWTT.Light)
+                if (SPMM.ThemeType == SEWTT.Light)
                 {
                     Theme = ApplicationTheme.Light;
                 }

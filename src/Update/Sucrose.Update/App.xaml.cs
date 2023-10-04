@@ -111,7 +111,7 @@ namespace Sucrose.Update
 
         internal void Info(SSDEUT Type)
         {
-            switch (SUMM.Theme)
+            switch (SUMM.ThemeType)
             {
                 case SEWTT.Dark:
                     SUVDIB DarkInfoBox = new(Type);
@@ -134,7 +134,7 @@ namespace Sucrose.Update
                 string Path = SMMI.UpdateLogManager.LogFile();
                 string Text = SSRER.GetValue("Update", "HelpText");
 
-                switch (SUMM.Theme)
+                switch (SUMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path, Source, Text)
@@ -306,7 +306,7 @@ namespace Sucrose.Update
 
                     if (Result == SSDECT.Pass)
                     {
-                        switch (SUMM.Theme)
+                        switch (SUMM.ThemeType)
                         {
                             case SEWTT.Dark:
                                 SUVDUB DarkUpdateBox = new(Bundle);

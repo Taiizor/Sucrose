@@ -110,7 +110,7 @@ namespace Sucrose.Launcher
 
                 string Path = SMMI.LauncherLogManager.LogFile();
 
-                switch (SSLMM.Theme)
+                switch (SSLMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);

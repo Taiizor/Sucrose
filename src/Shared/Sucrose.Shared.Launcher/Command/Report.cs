@@ -14,7 +14,7 @@ namespace Sucrose.Shared.Launcher.Command
             {
                 SSLMI.ReportBox = false;
 
-                switch (SSLMM.Theme)
+                switch (SSLMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSLVDRB DarkReportBox = new();

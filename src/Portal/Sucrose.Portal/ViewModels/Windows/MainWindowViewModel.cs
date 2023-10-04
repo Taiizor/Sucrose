@@ -185,7 +185,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private void OnChangeTheme()
         {
-            if (SPMM.Theme == SEWTT.Dark)
+            if (SPMM.ThemeType == SEWTT.Dark)
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Light);
                 WUAT.Apply(WUAAT.Light, GetWindowBackdropType(), true, true);

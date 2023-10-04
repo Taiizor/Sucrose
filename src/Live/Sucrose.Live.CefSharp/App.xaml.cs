@@ -114,7 +114,7 @@ namespace Sucrose.Live.CefSharp
 
                 string Path = SMMI.CefSharpLiveLogManager.LogFile();
 
-                switch (SSEMM.Theme)
+                switch (SSEMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);

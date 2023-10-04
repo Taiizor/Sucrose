@@ -60,7 +60,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             SSLHR.Corner(ContextMenu);
 
-            if (SSLMM.Theme == SEWTT.Dark)
+            if (SSLMM.ThemeType == SEWTT.Dark)
             {
                 ContextMenu.Renderer = new SSLRDR();
             }
@@ -71,7 +71,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
 
-            SSLSSS Separator1 = new(SSLMM.Theme);
+            SSLSSS Separator1 = new(SSLMM.ThemeType);
 
             if (SSSHL.Run() && (!SMMM.PausePerformance || !SSSHP.Work(SSSMI.Backgroundog)))
             {
@@ -116,14 +116,14 @@ namespace Sucrose.Shared.Launcher.Manager
                 }
             }
 
-            SSLSSS Separator2 = new(SSLMM.Theme);
+            SSLSSS Separator2 = new(SSLMM.ThemeType);
             ContextMenu.Items.Add(Separator2.Strip);
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
 
-            SSLSSS Separator3 = new(SSLMM.Theme);
+            SSLSSS Separator3 = new(SSLMM.ThemeType);
             ContextMenu.Items.Add(Separator3.Strip);
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ExitIcon"))), CommandClose);

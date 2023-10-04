@@ -15,6 +15,9 @@ using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SMMI = Sucrose.Manager.Manage.Internal;
+using SMC = Sucrose.Memory.Constant;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -32,15 +35,33 @@ namespace Sucrose.Portal.Views.Windows
 
             InitializeComponent();
 
-            if (SPMM.Theme == SEWTT.Dark)
+            if (SPMM.BackdropType == WindowBackdropType.Auto)
             {
-                WUAT.Apply(WUAAT.Dark);
-                Light.Visibility = Visibility.Collapsed;
+                if (SWHWT.GetTheme() == SEWTT.Dark)
+                {
+                    WUAT.Apply(WUAAT.Dark);
+                    Light.Visibility = Visibility.Collapsed;
+                    SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Dark);
+                }
+                else
+                {
+                    WUAT.Apply(WUAAT.Light);
+                    Dark.Visibility = Visibility.Collapsed;
+                    SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Light);
+                }
             }
             else
             {
-                WUAT.Apply(WUAAT.Light);
-                Dark.Visibility = Visibility.Collapsed;
+                if (SPMM.ThemeType == SEWTT.Dark)
+                {
+                    WUAT.Apply(WUAAT.Dark);
+                    Light.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    WUAT.Apply(WUAAT.Light);
+                    Dark.Visibility = Visibility.Collapsed;
+                }
             }
 
             RootView.SetServiceProvider(ServiceProvider);

@@ -202,7 +202,7 @@ namespace Sucrose.Portal
 
                 string Path = SMMI.PortalLogManager.LogFile();
 
-                switch (SPMM.Theme)
+                switch (SPMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);

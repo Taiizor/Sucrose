@@ -104,7 +104,7 @@ namespace Sucrose.Live.Nebula
 
                 string Path = SMMI.NebulaLiveLogManager.LogFile();
 
-                switch (SSEMM.Theme)
+                switch (SSEMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);
