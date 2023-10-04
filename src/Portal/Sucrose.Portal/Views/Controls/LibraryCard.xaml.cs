@@ -14,6 +14,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
+using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
@@ -142,7 +143,17 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (Delete || !SMMM.LibraryConfirm)
+            SPVCTD ThemeDelete = new()
+            {
+                Info = Info,
+                Theme = Theme
+            };
+
+            ContentDialogResult Result = await ThemeDelete.ShowAsync();
+
+            ThemeDelete.Dispose();
+
+            if (!SMMM.LibraryConfirm || Result == ContentDialogResult.Primary)
             {
                 Dispose();
 
@@ -156,14 +167,6 @@ namespace Sucrose.Portal.Views.Controls
                 SPMI.Themes.Remove(Path.GetFileName(Theme));
 
                 await Task.Run(() => Directory.Delete(Theme, true));
-            }
-            else
-            {
-                Delete = true;
-
-                await Task.Delay(250);
-
-                MenuDelete.Header = SSRER.GetValue("Portal", "LibraryCard", "MenuDelete", "Approve");
             }
         }
 

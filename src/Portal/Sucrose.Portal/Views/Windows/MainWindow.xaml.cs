@@ -5,6 +5,8 @@ using Wpf.Ui;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
@@ -13,11 +15,9 @@ using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
 using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SMMI = Sucrose.Manager.Manage.Internal;
-using SMC = Sucrose.Memory.Constant;
 
 namespace Sucrose.Portal.Views.Windows
 {

@@ -16,7 +16,6 @@
     <system:String x:Key="Portal.LibraryCard.MenuFind">Finden</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Teilen</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Löschen</system:String>
-    <system:String x:Key="Portal.LibraryCard.MenuDelete.Approve">Löschen (Bestätigen)</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Bearbeiten</system:String>
 
 </ResourceDictionary>

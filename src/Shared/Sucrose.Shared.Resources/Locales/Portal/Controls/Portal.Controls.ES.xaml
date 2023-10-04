@@ -7,6 +7,7 @@
         <ResourceDictionary Source="Pagination/Portal.Pagination.ES.xaml" />
         <ResourceDictionary Source="ThemeShare/Portal.ThemeShare.ES.xaml" />
         <ResourceDictionary Source="LibraryCard/Portal.LibraryCard.ES.xaml" />
+        <ResourceDictionary Source="ThemeDelete/Portal.ThemeDelete.ES.xaml" />
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.ES.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.ES.xaml" />
         <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.ES.xaml" />

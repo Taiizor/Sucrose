@@ -16,6 +16,5 @@
     <system:String x:Key="Portal.LibraryCard.MenuFind">Buscar</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Compartir</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Eliminar</system:String>
-    <system:String x:Key="Portal.LibraryCard.MenuDelete.Approve">Eliminar (Confirmar)</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Editar</system:String>
 </ResourceDictionary>
