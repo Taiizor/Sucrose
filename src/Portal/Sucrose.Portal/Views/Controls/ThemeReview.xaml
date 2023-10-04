@@ -17,6 +17,8 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+        <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="25" Width="Auto" Height="300" Margin="0 0 0 12" />
+        
         <TextBlock x:Name="ThemeTitle" Text="{DynamicResource Portal.ThemeReview.ThemeTitle}" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <TextBlock x:Name="ThemeDescription" Text="{DynamicResource Portal.ThemeReview.ThemeDescription}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 

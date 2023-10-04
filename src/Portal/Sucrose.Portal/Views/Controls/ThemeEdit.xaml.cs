@@ -6,6 +6,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSSHV = Sucrose.Shared.Space.Helper.Versionly;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Controls
@@ -87,6 +88,7 @@ namespace Sucrose.Portal.Views.Controls
                     Info.Author = ThemeAuthor.Text;
                     Info.Contact = ThemeContact.Text;
                     Info.Description = ThemeDescription.Text;
+                    Info.Version = SSSHV.Increment(Info.Version);
 
                     if (string.IsNullOrEmpty(ThemeArguments.Text))
                     {

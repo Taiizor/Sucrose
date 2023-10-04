@@ -6,6 +6,7 @@ using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Culture;
 using SHN = Skylark.Helper.Numeric;
+using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSSHS = Sucrose.Shared.Space.Helper.Size;
@@ -20,6 +21,7 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class ThemeReview : ContentDialog, IDisposable
     {
+        private readonly SPEIL Loader = new();
         internal string Theme = string.Empty;
         internal SSTHI Info = new();
 
@@ -64,6 +66,13 @@ namespace Sucrose.Portal.Views.Controls
                 }
 
                 ThemeContact.NavigateUri = Info.Contact;
+            }
+
+            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
+
+            if (File.Exists(ImagePath))
+            {
+                ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath);
             }
         }
 

@@ -3,7 +3,8 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Portal.ThemeDelete.Title">Themenbewertung</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Title">Thema Löschen</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">Löschen</system:String>
     <system:String x:Key="Portal.ThemeDelete.Close">Schließen</system:String>
 
     <system:String x:Key="Portal.ThemeDelete.ThemeTitle">Titel</system:String>
