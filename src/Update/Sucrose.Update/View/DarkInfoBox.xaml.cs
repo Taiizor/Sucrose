@@ -27,6 +27,9 @@ namespace Sucrose.Update.View
                 case SSDEUT.Status:
                     Warn_Image.Visibility = Visibility.Visible;
                     break;
+                case SSDEUT.Extract:
+                    Bang_Image.Visibility = Visibility.Visible;
+                    break;
                 case SSDEUT.Network:
                     Error_Image.Visibility = Visibility.Visible;
                     break;
@@ -36,6 +39,12 @@ namespace Sucrose.Update.View
                     break;
                 case SSDEUT.Releases:
                     Warn_Image.Visibility = Visibility.Visible;
+                    break;
+                case SSDEUT.Download:
+                    Defective_Image.Visibility = Visibility.Visible;
+                    break;
+                case SSDEUT.Condition:
+                    Winter_Image.Visibility = Visibility.Visible;
                     break;
                 default:
                     Sad_Image.Visibility = Visibility.Visible;

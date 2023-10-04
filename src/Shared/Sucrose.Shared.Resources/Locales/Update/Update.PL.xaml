@@ -11,10 +11,14 @@
     <system:String x:Key="Update.InfoBox.WindowTitle">Aktualizacja Sucrose</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage">Wiadomość</system:String>
     <system:String x:Key="Update.InfoBox.CloseText">Zamknąć</system:String>
+    
     <system:String x:Key="Update.InfoBox.TextMessage.Empty">Jesteśmy w chwilach, gdy pliki aktualizacji są ukryte jak zaginiony klejnot. Możesz także cieszyć się doświadczeniem, korzystając z obecnej wersji.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Update">Aplikacja jest już z Tobą, podobnie jak najnowsza strona książki, w jej najnowszej i innowacyjnej formie. Tutaj, aby w każdej chwili zapewnić Ci najlepsze i najnowsze doświadczenie.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Status">Stojąc na progu snu, w którym nie można uzyskać dostępu do plików aktualizacji. Niemniej jednak możesz kontynuować życie swojego snu za pomocą obecnej wersji.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Podczas próby wyodrębnienia pliku aktualizacji napotkaliśmy przeszkodę ze spodów morza. Na razie kontynuuj podróż z aktualną wersją, ponieważ wrócimy, aby znaleźć nowe skarby, gdy morza staną się spokojniejsze.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Network">Słabość Twojego połączenia, jak chmury zakrywające słońce. Kiedy chmury się rozeszły, czeka Cię jaśniejsze doświadczenie.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Updating">Aktualizacja aplikacji postępuje podstępnie, podobnie jak nowe skarby przyniesione na brzeg przez fale morza. Te cenne nowości są zbierane w tle dla Ciebie.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Releases">Przeżywamy chwilę, gdy gwiazda aktualizacji w aplikacji jeszcze się nie narodziła. Obecnie nie ma żadnych informacji o aktualizacji, ale możesz nadal korzystać z obecnej wersji.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Podczas pobierania pliku aktualizacji odkryliśmy, że gwiazdy na niebie są źle ustawione. Na razie kontynuuj podróż z aktualną wersją, ponieważ dostarczymy Ci lepszą aktualizację, gdy gwiazdy ustawią się prawidłowo.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Warunki w plikach aktualizacji wydają się brakować, aby odblokować klucz. Na razie kontynuuj podróż z bieżącą wersją i bądź gotowy na przyszłe aktualizacje.</system:String>
 </ResourceDictionary>

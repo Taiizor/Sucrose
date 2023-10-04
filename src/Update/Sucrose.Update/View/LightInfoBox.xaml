@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="{DynamicResource Update.InfoBox.WindowTitle}"
         WindowStartupLocation="CenterScreen"
-        MinHeight="200" MinWidth="400"
+        MinHeight="220" MinWidth="400"
         MaxHeight="400" MaxWidth="400"
-        Height="200" Width="400"
+        Height="220" Width="400"
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Topmost="True">
@@ -55,12 +55,16 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Image x:Name="Snowflake_Image" Source="pack://application:,,,/Assets/Icon/Snowflake.png" Visibility="Hidden" />
+                <Image x:Name="Defective_Image" Source="pack://application:,,,/Assets/Icon/Defective.png" Visibility="Hidden" />
                 <Image x:Name="Firework_Image" Source="pack://application:,,,/Assets/Icon/Firework.png" Visibility="Hidden" />
                 <Image x:Name="Confetti_Image" Source="pack://application:,,,/Assets/Icon/Confetti.png" Visibility="Hidden" />
                 <Image x:Name="Success_Image" Source="pack://application:,,,/Assets/Icon/Success.png" Visibility="Hidden" />
+                <Image x:Name="Winter_Image" Source="pack://application:,,,/Assets/Icon/Winter.png" Visibility="Hidden" />
                 <Image x:Name="Error_Image" Source="pack://application:,,,/Assets/Icon/Error.png" Visibility="Hidden" />
                 <Image x:Name="Warn_Image" Source="pack://application:,,,/Assets/Icon/Warn.png" Visibility="Hidden" />
                 <Image x:Name="Info_Image" Source="pack://application:,,,/Assets/Icon/Info.png" Visibility="Hidden" />
+                <Image x:Name="Bang_Image" Source="pack://application:,,,/Assets/Icon/Bang.png" Visibility="Hidden" />
                 <Image x:Name="Sad_Image" Source="pack://application:,,,/Assets/Icon/Sad.png" Visibility="Hidden" />
             </Grid>
 

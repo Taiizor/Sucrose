@@ -9,9 +9,12 @@ using SHV = Skylark.Helper.Versionly;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SSCEBT = Sucrose.Shared.Core.Enum.BundleType;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
+using SSCHB = Sucrose.Shared.Core.Helper.Bundle;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
@@ -21,6 +24,8 @@ using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
+using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -190,10 +195,11 @@ namespace Sucrose.Update
                         {
                             foreach (SSIIA Asset in Assets)
                             {
-                                string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}";
+                                string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHB.GetDescription(SUMM.BundleType)}";
 
                                 string[] Required =
                                 {
+                                    SSCHB.GetDescription(SUMM.BundleType),
                                     SSCHF.GetDescription(),
                                     SSCHA.GetText(),
                                     $"{Latest}",
@@ -250,6 +256,11 @@ namespace Sucrose.Update
                                     }
                                 }
                             }
+
+                            if (string.IsNullOrEmpty(Bundle))
+                            {
+                                Info(SSDEUT.Condition);
+                            }
                         }
                         else
                         {
@@ -273,16 +284,44 @@ namespace Sucrose.Update
 
             if (HasBundle)
             {
-                switch (SUMM.Theme)
+                if (SUMM.BundleType == SSCEBT.Executable || SSSZHZ.CheckArchive(Bundle))
                 {
-                    case SEWTT.Dark:
-                        SUVDUB DarkUpdateBox = new(Bundle);
-                        DarkUpdateBox.ShowDialog();
-                        break;
-                    default:
-                        SUVLUB LightUpdateBox = new(Bundle);
-                        LightUpdateBox.ShowDialog();
-                        break;
+                    SSDECT Result = SSDECT.Pass;
+
+                    if (SUMM.BundleType == SSCEBT.Compressed)
+                    {
+                        Result = SSSZEZ.Extract(Bundle, SUMM.CachePath);
+
+                        if (Result == SSDECT.Pass)
+                        {
+                            await Task.Delay(MinDelay);
+
+                            Bundle = Path.ChangeExtension(Bundle, SSCHB.GetDescription(SSCEBT.Executable));
+                        }
+                        else
+                        {
+                            Info(SSDEUT.Extract);
+                        }
+                    }
+
+                    if (Result == SSDECT.Pass)
+                    {
+                        switch (SUMM.Theme)
+                        {
+                            case SEWTT.Dark:
+                                SUVDUB DarkUpdateBox = new(Bundle);
+                                DarkUpdateBox.ShowDialog();
+                                break;
+                            default:
+                                SUVLUB LightUpdateBox = new(Bundle);
+                                LightUpdateBox.ShowDialog();
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    Info(SSDEUT.Download);
                 }
             }
 

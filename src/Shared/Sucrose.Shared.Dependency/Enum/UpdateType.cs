@@ -5,8 +5,11 @@
         Empty,
         Update,
         Status,
+        Extract,
         Network,
         Updating,
-        Releases
+        Releases,
+        Download,
+        Condition
     }
 }
