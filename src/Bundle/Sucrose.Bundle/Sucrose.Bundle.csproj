@@ -32,11 +32,6 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        <PublishSingleFile Condition="!$(TargetFramework.StartsWith('net48'))">true</PublishSingleFile>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
         <ServerGarbageCollection>true</ServerGarbageCollection>
         <RetainVMGarbageCollection>true</RetainVMGarbageCollection>
@@ -45,6 +40,11 @@
         <!-- Supported as of .NET Core SDK 3.0 Preview 1 -->
         <TieredCompilation>true</TieredCompilation>
         <InvariantGlobalization>false</InvariantGlobalization>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <PublishSingleFile Condition="!$(TargetFramework.StartsWith('net48'))">true</PublishSingleFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(PlatformTarget)' == 'x86'">

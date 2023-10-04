@@ -8,6 +8,6 @@ namespace Sucrose.Update.Manage
     {
         public static string Source = string.Empty;
 
-        public static readonly SSCEUT UpdateType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Executable);
+        public static readonly SSCEUT UpdateType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
     }
 }
