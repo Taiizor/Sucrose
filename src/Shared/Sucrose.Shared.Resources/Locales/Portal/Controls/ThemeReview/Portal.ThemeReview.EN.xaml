@@ -18,5 +18,7 @@
     <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeCreate">Creation</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Unknown</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">Modification</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">Unknown</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeContact">Theme Contact Address</system:String>
 </ResourceDictionary>
