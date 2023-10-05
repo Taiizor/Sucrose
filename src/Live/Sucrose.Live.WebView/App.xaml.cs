@@ -28,6 +28,7 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Live.WebView
 {
@@ -243,7 +244,7 @@ namespace Sucrose.Live.WebView
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSEMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
+            if (!SWUSI.IsAppMutexRunning(SMR.LiveMutex) && SSEHR.Check())
             {
                 SSEMI.Mutex.ReleaseMutex();
                 Configure();

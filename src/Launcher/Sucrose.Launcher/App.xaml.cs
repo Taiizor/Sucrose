@@ -20,6 +20,7 @@ using SSSSLSS = Sucrose.Shared.Server.Services.LauncherServerService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Launcher
 {
@@ -176,7 +177,7 @@ namespace Sucrose.Launcher
 
             SMMI.LauncherLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (SSLMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Launcher) <= 1)
+            if (!SWUSI.IsAppMutexRunning(SMR.LauncherMutex) && SSSHP.WorkCount(SMR.Launcher) <= 1)
             {
                 SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 

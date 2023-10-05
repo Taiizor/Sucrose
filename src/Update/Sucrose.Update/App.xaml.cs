@@ -35,6 +35,7 @@ using SUVDIB = Sucrose.Update.View.DarkInfoBox;
 using SUVDUB = Sucrose.Update.View.DarkUpdateBox;
 using SUVLIB = Sucrose.Update.View.LightInfoBox;
 using SUVLUB = Sucrose.Update.View.LightUpdateBox;
+using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Update
 {
@@ -345,7 +346,7 @@ namespace Sucrose.Update
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SUMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Update) <= 1)
+            if (!SWUSI.IsAppMutexRunning(SMR.UpdateMutex) && SSSHP.WorkCount(SMR.Update) <= 1)
             {
                 SUMI.Mutex.ReleaseMutex();
 

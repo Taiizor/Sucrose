@@ -41,6 +41,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Portal
 {
@@ -248,7 +249,7 @@ namespace Sucrose.Portal
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 
-            if (SPMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Portal) <= 1)
+            if (!SWUSI.IsAppMutexRunning(SMR.PortalMutex) && SSSHP.WorkCount(SMR.Portal) <= 1)
             {
                 SPMI.Mutex.ReleaseMutex();
 

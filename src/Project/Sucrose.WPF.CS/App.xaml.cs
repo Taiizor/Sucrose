@@ -19,6 +19,7 @@ using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.WPF.CS
 {
@@ -183,7 +184,7 @@ namespace Sucrose.WPF.CS
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount("Sucrose.WPF.CS.exe") <= 1)
+            if (!SWUSI.IsAppMutexRunning(SMR.LiveMutex) && SSSHP.WorkCount("Sucrose.WPF.CS.exe") <= 1)
             {
                 Mutex.ReleaseMutex();
 
