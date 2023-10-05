@@ -3,9 +3,9 @@ using SBHC = Sucrose.Backgroundog.Helper.Condition;
 using SBHP = Sucrose.Backgroundog.Helper.Performance;
 using SBHS = Sucrose.Backgroundog.Helper.Specification;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 
 namespace Sucrose.Backgroundog.Helper
 {

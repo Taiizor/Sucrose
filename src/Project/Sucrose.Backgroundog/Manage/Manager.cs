@@ -1,6 +1,5 @@
 ﻿using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 
 namespace Sucrose.Backgroundog.Manage
@@ -26,7 +25,5 @@ namespace Sucrose.Backgroundog.Manage
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Pause);
 
         public static bool Windows11_OrGreater => Environment.OSVersion.Version.Build >= 22000;
-
-        public static Mutex Mutex => new(true, SMR.BackgroundogMutex);
     }
 }

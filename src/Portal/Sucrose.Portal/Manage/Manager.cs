@@ -8,7 +8,6 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
@@ -62,7 +61,5 @@ namespace Sucrose.Portal.Manage
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
 
         public static Stretch DefaultBackgroundStretch => Stretch.UniformToFill;
-
-        public static Mutex Mutex => new(true, SMR.PortalMutex);
     }
 }

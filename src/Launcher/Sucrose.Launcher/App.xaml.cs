@@ -176,11 +176,11 @@ namespace Sucrose.Launcher
 
             SMMI.LauncherLogManager.Log(SELLT.Info, "Application initializing..");
 
-            if (SSLMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Launcher) <= 1)
+            if (SSLMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Launcher) <= 1)
             {
                 SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being releasing.");
 
-                SSLMM.Mutex.ReleaseMutex();
+                SSLMI.Mutex.ReleaseMutex();
 
                 SMMI.LauncherLogManager.Log(SELLT.Info, "Application mutex is being released.");
 

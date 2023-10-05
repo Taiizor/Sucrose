@@ -6,9 +6,11 @@ using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Culture;
 using SHN = Skylark.Helper.Numeric;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHS = Sucrose.Shared.Space.Helper.Size;
 using SSSSS = Skylark.Struct.Storage.StorageStruct;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -59,6 +61,19 @@ namespace Sucrose.Portal.Views.Controls
             {
                 ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath);
             }
+        }
+
+        protected override void OnButtonClick(ContentDialogButton Button)
+        {
+            if (Button == ContentDialogButton.Primary)
+            {
+                if (SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())
+                {
+                    return;
+                }
+            }
+
+            base.OnButtonClick(Button);
         }
 
         public void Dispose()

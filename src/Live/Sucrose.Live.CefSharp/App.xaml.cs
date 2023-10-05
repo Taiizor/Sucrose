@@ -256,9 +256,9 @@ namespace Sucrose.Live.CefSharp
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSEMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
+            if (SSEMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
-                SSEMM.Mutex.ReleaseMutex();
+                SSEMI.Mutex.ReleaseMutex();
 
                 Configure();
             }

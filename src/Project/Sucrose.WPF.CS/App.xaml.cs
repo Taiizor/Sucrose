@@ -31,7 +31,7 @@ namespace Sucrose.WPF.CS
 
         private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
-        private static Mutex Mutex => new(true, SMR.LiveMutex);
+        private static Mutex Mutex = new(true, SMR.LiveMutex);
 
         private static bool HasError { get; set; } = true;
 

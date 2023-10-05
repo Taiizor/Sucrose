@@ -10,6 +10,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMAC = Sucrose.Portal.Models.AppConfig;
+using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
@@ -247,9 +248,9 @@ namespace Sucrose.Portal
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 
-            if (SPMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Portal) <= 1)
+            if (SPMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Portal) <= 1)
             {
-                SPMM.Mutex.ReleaseMutex();
+                SPMI.Mutex.ReleaseMutex();
 
                 Configure();
             }

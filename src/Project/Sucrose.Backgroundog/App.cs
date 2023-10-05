@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.Text;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
-using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SGCB = Sucrose.Grpc.Common.Backgroundog;
 using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SHC = Skylark.Helper.Culture;
@@ -24,9 +23,9 @@ namespace Sucrose.Backgroundog
                 Console.OutputEncoding = Encoding.UTF8;
                 SHC.All = new CultureInfo(SMMM.Culture, true);
 
-                if (SBMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Backgroundog) <= 1)
+                if (SBMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Backgroundog) <= 1)
                 {
-                    SBMM.Mutex.ReleaseMutex();
+                    SBMI.Mutex.ReleaseMutex();
 
                     Console.WriteLine("Start");
 

@@ -10,6 +10,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEAVA = Sucrose.Shared.Engine.Aurora.View.Application;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
@@ -189,9 +190,9 @@ namespace Sucrose.Live.Aurora
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSEMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
+            if (SSEMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSEHR.Check())
             {
-                SSEMM.Mutex.ReleaseMutex();
+                SSEMI.Mutex.ReleaseMutex();
 
                 Configure();
             }

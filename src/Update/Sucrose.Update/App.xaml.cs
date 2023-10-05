@@ -345,9 +345,9 @@ namespace Sucrose.Update
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SUMM.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Update) <= 1)
+            if (SUMI.Mutex.WaitOne(TimeSpan.Zero, true) && SSSHP.WorkCount(SMR.Update) <= 1)
             {
-                SUMM.Mutex.ReleaseMutex();
+                SUMI.Mutex.ReleaseMutex();
 
                 Configure();
             }

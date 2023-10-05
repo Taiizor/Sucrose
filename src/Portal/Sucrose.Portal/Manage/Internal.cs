@@ -2,6 +2,7 @@
 using System.Windows.Media.Imaging;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
+using SMR = Sucrose.Memory.Readonly;
 using SPSBS = Sucrose.Portal.Services.BackdropService;
 using SPSCES = Sucrose.Portal.Services.CultureService;
 using SPSCYS = Sucrose.Portal.Services.CategoryService;
@@ -29,6 +30,8 @@ namespace Sucrose.Portal.Manage
         public static ISnackbarService SnackbarService;
 
         public static INavigationService NavigationService;
+
+        public static Mutex Mutex = new(true, SMR.PortalMutex);
 
         public static IContentDialogService ContentDialogService;
 

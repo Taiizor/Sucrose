@@ -1,5 +1,6 @@
 ﻿using System.Windows.Threading;
 using SGCBBC = Sucrose.Grpc.Common.Backgroundog.BackgroundogClient;
+using SMR = Sucrose.Memory.Readonly;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -35,6 +36,8 @@ namespace Sucrose.Shared.Engine.Manage
         public delegate void ExecuteNormal(string Script);
 
         public static string MotherboardData = string.Empty;
+
+        public static Mutex Mutex = new(true, SMR.LiveMutex);
 
         public delegate Task<string> ExecuteTask(string script);
 

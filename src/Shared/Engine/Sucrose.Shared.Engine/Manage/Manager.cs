@@ -6,7 +6,6 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SMR = Sucrose.Memory.Readonly;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -32,7 +31,5 @@ namespace Sucrose.Shared.Engine.Manage
         public static SSDEST StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
 
         public static SSDEST DefaultStretchType => SSDEST.None;
-
-        public static Mutex Mutex => new(true, SMR.LiveMutex);
     }
 }
