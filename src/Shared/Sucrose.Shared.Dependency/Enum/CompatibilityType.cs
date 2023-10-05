@@ -50,6 +50,10 @@
         /// </summary>
         LoopMode,
         /// <summary>
+        /// Contact boş değil, url ve mail değil!
+        /// </summary>
+        Contact2,
+        /// <summary>
         /// Arguments boş değil ve çok uzun!
         /// </summary>
         Arguments,

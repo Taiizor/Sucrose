@@ -8,6 +8,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHV = Sucrose.Shared.Space.Helper.Versionly;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -42,7 +43,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if (File.Exists(ImagePath))
             {
-                ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath);
+                ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath, true, 600);
             }
         }
 
@@ -68,14 +69,14 @@ namespace Sucrose.Portal.Views.Controls
                     ThemeAuthor.Focus();
                     return;
                 }
-                else if (string.IsNullOrEmpty(ThemeContact.Text))
-                {
-                    ThemeContact.Focus();
-                    return;
-                }
                 else if (string.IsNullOrEmpty(ThemeDescription.Text))
                 {
                     ThemeDescription.Focus();
+                    return;
+                }
+                else if (!SSTHV.IsUrl(ThemeContact.Text) && !SSTHV.IsMail(ThemeContact.Text))
+                {
+                    ThemeContact.Focus();
                     return;
                 }
                 else

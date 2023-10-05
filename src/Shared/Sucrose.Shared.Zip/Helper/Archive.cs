@@ -69,6 +69,12 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.Contact;
                 }
 
+                // Info içindeki Contact değeri boş değil, Url ve Mail değil mi?
+                if (!string.IsNullOrEmpty(Info.Contact) && !SSTHV.IsUrl(Info.Contact) && !SSTHV.IsMail(Info.Contact))
+                {
+                    return SSDECT.Contact2;
+                }
+
                 // Info içindeki Arguments değeri boş değil ve 250 karakterden uzun mu?
                 if (!string.IsNullOrEmpty(Info.Arguments) && Info.Arguments.Length > 250)
                 {

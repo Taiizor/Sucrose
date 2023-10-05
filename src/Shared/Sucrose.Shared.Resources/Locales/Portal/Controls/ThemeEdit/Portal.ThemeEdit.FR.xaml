@@ -12,4 +12,10 @@
     <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Auteur</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeContact">Contact</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Arguments</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Veuillez saisir un titre valide</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Veuillez saisir une description valide</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Veuillez saisir un nom d'auteur valide</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Veuillez saisir une adresse de contact valide</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Veuillez saisir des arguments d'application valides</system:String>
 </ResourceDictionary>

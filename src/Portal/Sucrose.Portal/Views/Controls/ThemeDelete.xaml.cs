@@ -59,7 +59,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if (File.Exists(ImagePath))
             {
-                ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath);
+                ThemeThumbnail.Source = Loader.LoadOptimal(ImagePath, true, 600);
             }
         }
 

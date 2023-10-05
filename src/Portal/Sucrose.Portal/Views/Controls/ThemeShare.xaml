@@ -20,7 +20,7 @@
         <ui:Card>
             
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                <ui:Image x:Name="ThemeThumbnail" Margin="10 0 0 0" Stretch="UniformToFill" CornerRadius="25" Width="250" Height="150" />
+                <ui:Image x:Name="ThemeThumbnail" Margin="10 0 0 0" Stretch="UniformToFill" CornerRadius="10" Width="250" MinHeight="150" Height="Auto" />
 
                 <StackPanel Margin="10 10 0 10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
                     <TextBlock x:Name="ThemeTitle" Margin="10 0 10 0" Text="{DynamicResource Portal.ThemeShare.ThemeTitle}" TextWrapping="WrapWithOverflow" TextAlignment="Center" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />

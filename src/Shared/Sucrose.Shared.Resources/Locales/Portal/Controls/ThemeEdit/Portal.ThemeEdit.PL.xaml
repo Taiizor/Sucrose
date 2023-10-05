@@ -3,7 +3,7 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Portal.ThemeEdit.Title">Edycja Motywu</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Title">Edytuj Temat</system:String>
     <system:String x:Key="Portal.ThemeEdit.Close">Zamknij</system:String>
     <system:String x:Key="Portal.ThemeEdit.Save">Zapisz</system:String>
 
@@ -12,4 +12,10 @@
     <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Autor</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeContact">Kontakt</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argumenty</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Proszę podać poprawny tytuł</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Proszę podać poprawny opis</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Proszę podać poprawne imię autora</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Proszę podać poprawny adres kontaktowy</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Proszę podać poprawne argumenty aplikacji</system:String>
 </ResourceDictionary>
