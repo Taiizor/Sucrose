@@ -121,7 +121,15 @@ namespace Sucrose.Shared.Launcher.Manager
 
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
             ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
-            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
+
+            ToolStripMenuItem Update = new(SSRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
+
+            if (SSSHP.Work(SSSMI.Update))
+            {
+                Update.Enabled = false;
+            }
+
+            ContextMenu.Items.Add(Update);
 
             SSLSSS Separator3 = new(SSLMM.ThemeType);
             ContextMenu.Items.Add(Separator3.Strip);

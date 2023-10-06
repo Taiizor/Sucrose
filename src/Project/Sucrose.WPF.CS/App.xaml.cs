@@ -13,13 +13,12 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSSWSS = Sucrose.Shared.Server.Services.WebsiterServerService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.WPF.CS
 {
@@ -30,9 +29,7 @@ namespace Sucrose.WPF.CS
     {
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
 
-        private static SEWTT Theme => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        private static Mutex Mutex = new(true, SMR.LiveMutex);
+        private static SEWTT ThemeType => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static bool HasError { get; set; } = true;
 
@@ -134,7 +131,7 @@ namespace Sucrose.WPF.CS
 
                 string Path = SMMI.CefSharpLiveLogManager.LogFile();
 
-                switch (Theme)
+                switch (ThemeType)
                 {
                     case SEWTT.Dark:
                         SSWDEMB DarkMessageBox = new(Message, Path);
@@ -184,10 +181,8 @@ namespace Sucrose.WPF.CS
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (!SWUSI.IsAppMutexRunning(SMR.LiveMutex) && SSSHP.WorkCount("Sucrose.WPF.CS.exe") <= 1)
+            if (SSSHI.Basic(SMR.LiveMutex, "Sucrose.WPF.CS.exe"))
             {
-                Mutex.ReleaseMutex();
-
                 Configure();
             }
             else

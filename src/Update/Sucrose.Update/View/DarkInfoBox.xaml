@@ -60,8 +60,10 @@
                 <Image x:Name="Firework_Image" Source="pack://application:,,,/Assets/Icon/Firework.png" Visibility="Hidden" />
                 <Image x:Name="Confetti_Image" Source="pack://application:,,,/Assets/Icon/Confetti.png" Visibility="Hidden" />
                 <Image x:Name="Success_Image" Source="pack://application:,,,/Assets/Icon/Success.png" Visibility="Hidden" />
+                <Image x:Name="Crowbar_Image" Source="pack://application:,,,/Assets/Icon/Crowbar.png" Visibility="Hidden" />
                 <Image x:Name="Winter_Image" Source="pack://application:,,,/Assets/Icon/Winter.png" Visibility="Hidden" />
                 <Image x:Name="Error_Image" Source="pack://application:,,,/Assets/Icon/Error.png" Visibility="Hidden" />
+                <Image x:Name="Cloud_Image" Source="pack://application:,,,/Assets/Icon/Cloud.png" Visibility="Hidden" />
                 <Image x:Name="Warn_Image" Source="pack://application:,,,/Assets/Icon/Warn.png" Visibility="Hidden" />
                 <Image x:Name="Info_Image" Source="pack://application:,,,/Assets/Icon/Info.png" Visibility="Hidden" />
                 <Image x:Name="Bang_Image" Source="pack://application:,,,/Assets/Icon/Bang.png" Visibility="Hidden" />

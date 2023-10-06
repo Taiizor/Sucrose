@@ -126,6 +126,12 @@
 
         public const string BackgroundImage = "BackgroundImage";
 
+        public const string UpdateLimitType = "UpdateLimitType";
+
+        public const string UpdatePercentage = "UpdatePercentage";
+
+        public const string UpdateLimitValue = "UpdateLimitValue";
+
         public const string ClosePerformance = "ClosePerformance";
 
         public const string PausePerformance = "PausePerformance";

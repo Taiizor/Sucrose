@@ -13,6 +13,7 @@
     <system:String x:Key="Update.InfoBox.CloseText">Close</system:String>
     
     <system:String x:Key="Update.InfoBox.TextMessage.Empty">We are in moments when update files are hidden like a lost gem. You can still enjoy the experience using the current version.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">While downloading the update file, we discovered a crack in the path, and this journey has come to an end for now. Continue your journey with the current version because a stronger update awaits when these cracks are repaired.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Update">The application is already with you, like the latest page of a book, in its most up-to-date and innovative form. Here to provide you with the best and most current experience at all times.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Status">We are on the threshold of a dream where update files cannot be accessed. But you can continue to live your dream using the current version.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Extract">While attempting to extract the update file, we encountered an obstacle from the depths of the sea. For now, continue your journey with the current version, as we will return to find new treasures when the seas are calmer.</system:String>
@@ -20,5 +21,6 @@
     <system:String x:Key="Update.InfoBox.TextMessage.Updating">Application update is progressing stealthily, like new treasures brought by the waves of the sea to the shore. These valuable innovations are being gathered for you in the background.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Releases">We are experiencing a moment when the update star in the application has not yet risen. Currently, there is no update information available, but you can continue to use the existing version.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Download">While downloading the update file, we discovered that the stars in the sky are in the wrong alignment. For now, continue your journey with the current version, as we will provide you with a better update when the stars align correctly.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">The download of the update file has been canceled because our paths diverged suddenly. Continue your journey with the current version and be prepared for future updates because a new beginning is always possible.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Condition">The conditions in the update files seem to be missing to unlock the key. For now, continue your journey with the current version and be prepared for future updates.</system:String>
 </ResourceDictionary>

@@ -20,6 +20,7 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -28,7 +29,6 @@ using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Live.CefSharp
 {
@@ -257,10 +257,8 @@ namespace Sucrose.Live.CefSharp
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (!SWUSI.IsAppMutexRunning(SMR.LiveMutex) && SSEHR.Check())
+            if (SSSHI.Basic(SMR.LiveMutex, SMR.CefSharpLive) && SSEHR.Check())
             {
-                SSEMI.Mutex.ReleaseMutex();
-
                 Configure();
             }
             else

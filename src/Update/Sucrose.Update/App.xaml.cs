@@ -1,11 +1,17 @@
-﻿using System.Globalization;
+﻿using Downloader;
+using System.ComponentModel;
+using System.Globalization;
 using System.IO;
-using System.Net.Http;
 using System.Windows;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SEMST = Skylark.Enum.ModeStorageType;
+using SEST = Skylark.Enum.StorageType;
 using SEVT = Skylark.Enum.VersionType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
+using SHN = Skylark.Helper.Numeric;
 using SHV = Skylark.Helper.Versionly;
+using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
@@ -16,13 +22,14 @@ using SSCHU = Sucrose.Shared.Core.Helper.Update;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
+using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
@@ -35,7 +42,6 @@ using SUVDIB = Sucrose.Update.View.DarkInfoBox;
 using SUVDUB = Sucrose.Update.View.DarkUpdateBox;
 using SUVLIB = Sucrose.Update.View.LightInfoBox;
 using SUVLUB = Sucrose.Update.View.LightUpdateBox;
-using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Update
 {
@@ -49,8 +55,6 @@ namespace Sucrose.Update
         private static bool HasBundle { get; set; } = false;
 
         private static bool HasError { get; set; } = true;
-
-        private static int MaxDelay => 3000;
 
         private static int MinDelay => 1000;
 
@@ -221,40 +225,24 @@ namespace Sucrose.Update
                                         File.Delete(Bundle);
                                     }
 
-                                    using HttpClient Client = new()
+                                    if (SMMM.UpdateLimitValue > 0)
                                     {
-                                        Timeout = Timeout.InfiniteTimeSpan
-                                    };
+                                        double UpdateLimit = SSESSE.Convert(SMMM.UpdateLimitValue, SMMM.UpdateLimitType, SEST.Byte, SEMST.Palila);
 
-                                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+                                        long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
 
-                                    using HttpResponseMessage Response = await Client.GetAsync(SUMI.Source);
-
-                                    Response.EnsureSuccessStatusCode();
-
-                                    await Task.Delay(MinDelay);
-
-                                    if (Response.IsSuccessStatusCode)
-                                    {
-                                        using HttpContent Content = Response.Content;
-
-                                        using Stream CStream = await Content.ReadAsStreamAsync();
-                                        using FileStream FStream = new(Bundle, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-
-                                        await Task.Delay(MinDelay);
-
-                                        await CStream.CopyToAsync(FStream);
-
-                                        await Task.Delay(MaxDelay);
-
-                                        HasBundle = true;
-
-                                        break;
+                                        SUMI.DownloadConfiguration.MaximumBytesPerSecond = Limit;
                                     }
-                                    else
-                                    {
-                                        Info(SSDEUT.Status);
-                                    }
+
+                                    SUMI.DownloadService = new(SUMI.DownloadConfiguration);
+
+                                    SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
+                                    SUMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
+                                    SUMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
+
+                                    await SUMI.DownloadService.DownloadFileTaskAsync(SUMI.Source, Bundle);
+
+                                    break;
                                 }
                             }
 
@@ -346,15 +334,42 @@ namespace Sucrose.Update
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (!SWUSI.IsAppMutexRunning(SMR.UpdateMutex) && SSSHP.WorkCount(SMR.Update) <= 1)
+            if (SSSHI.Basic(SMR.UpdateMutex, SMR.Update))
             {
-                SUMI.Mutex.ReleaseMutex();
-
                 Configure();
             }
             else
             {
                 Close();
+            }
+        }
+
+        private void OnDownloadStarted(object sender, DownloadStartedEventArgs e)
+        {
+            HasBundle = true;
+        }
+
+        private void OnDownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                Info(SSDEUT.Error);
+                HasBundle = false;
+            }
+            else if (e.Cancelled)
+            {
+                Info(SSDEUT.Cancelled);
+                HasBundle = false;
+            }
+        }
+
+        private static void OnDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            string Percentage = $"{SHN.Numeral(e.ProgressPercentage, true, true, 2, '0', SECNT.None)}%";
+
+            if (SMMM.UpdatePercentage != Percentage)
+            {
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdatePercentage, Percentage);
             }
         }
     }

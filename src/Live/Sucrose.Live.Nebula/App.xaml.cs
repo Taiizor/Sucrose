@@ -13,13 +13,13 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSENVV = Sucrose.Shared.Engine.Nebula.View.Video;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Live.Nebula
 {
@@ -187,10 +187,8 @@ namespace Sucrose.Live.Nebula
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (!SWUSI.IsAppMutexRunning(SMR.LiveMutex) && SSEHR.Check())
+            if (SSSHI.Basic(SMR.LiveMutex, SMR.NebulaLive) && SSEHR.Check())
             {
-                SSEMI.Mutex.ReleaseMutex();
-
                 Configure();
             }
             else

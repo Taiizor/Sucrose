@@ -13,13 +13,13 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Live.Vexana
 {
@@ -187,10 +187,8 @@ namespace Sucrose.Live.Vexana
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (!SWUSI.IsAppMutexRunning(SMR.LiveMutex) && SSEHR.Check())
+            if (SSSHI.Basic(SMR.LiveMutex, SMR.VexanaLive) && SSEHR.Check())
             {
-                SSEMI.Mutex.ReleaseMutex();
-
                 Configure();
             }
             else

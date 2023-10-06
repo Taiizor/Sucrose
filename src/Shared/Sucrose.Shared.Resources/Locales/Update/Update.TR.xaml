@@ -11,8 +11,9 @@
     <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Güncelleme</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage">Mesaj</system:String>
     <system:String x:Key="Update.InfoBox.CloseText">Çıkış</system:String>
-    
+
     <system:String x:Key="Update.InfoBox.TextMessage.Empty">Güncelleme dosyalarının kayıp bir mücevher gibi gizlendiği anlardayız. Şu an mevcut sürümü kullanarak da deneyimden keyif alabilirsiniz.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Güncelleme dosyasını indirirken, yolda bir çatlak oluştuğunu ve bu yolculuğun şimdilik sona erdiğini fark ettik. Mevcut sürümle yolculuğunuza devam edin, çünkü bu çatlaklar tamir edildiğinde daha güçlü bir güncelleme sizi bekliyor olacak.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Update">Uygulama, bir kitabın en yeni sayfası gibi zaten en güncel ve yenilikçi haliyle sizinle. Her an en iyi ve en güncel deneyimi yaşatmak için burada.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Status">Güncelleme dosyalarına erişilemeyen bir rüyanın eşiğindeyiz. Ancak mevcut sürümle de rüyanızı yaşamaya devam edebilirsiniz.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Extract">Güncelleme dosyasını çıkartmaya çalışırken, denizin derinliklerinden kaynaklanan bir engelle karşılaştık. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü denizler daha sakin olduğunda yeni hazineleri bulmak için geri döneceğiz.</system:String>
@@ -20,5 +21,6 @@
     <system:String x:Key="Update.InfoBox.TextMessage.Updating">Uygulama güncellemesi, denizin dalgalarının kıyıya getirdiği yeni hazineler gibi sinsi bir şekilde ilerliyor. Bu değerli yenilikler, arkaplanda sizin için toplanıyor.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Releases">Uygulamada güncelleme yıldızının henüz doğmadığı bir anı yaşıyoruz. Şu an için herhangi bir güncelleme bilgisi yok, ancak zaten mevcut olan sürümü kullanmaya devam edebilirsiniz.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Download">Güncelleme dosyasını indirirken, gökyüzündeki yıldızların yanlış bir sıralamaya sahip olduğunu keşfettik. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü yıldızlar doğru hizaya geldiğinde size daha iyi bir güncelleme sunacağız.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Güncelleme dosyasının indirilmesi iptal edildi, çünkü yollarımız aniden ayrıldı. Mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun, çünkü yeni bir başlangıç her zaman mümkündür.</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage.Condition">Güncelleme dosyalarındaki şartlar, anahtarın kilidini açmak için eksik gibi görünüyor. Şimdilik mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun.</system:String>
 </ResourceDictionary>

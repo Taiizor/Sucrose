@@ -21,6 +21,9 @@ namespace Sucrose.Update.View
                 case SSDEUT.Empty:
                     Info_Image.Visibility = Visibility.Visible;
                     break;
+                case SSDEUT.Error:
+                    Cloud_Image.Visibility = Visibility.Visible;
+                    break;
                 case SSDEUT.Update:
                     Firework_Image.Visibility = Visibility.Visible;
                     break;
@@ -42,6 +45,9 @@ namespace Sucrose.Update.View
                     break;
                 case SSDEUT.Download:
                     Defective_Image.Visibility = Visibility.Visible;
+                    break;
+                case SSDEUT.Cancelled:
+                    Crowbar_Image.Visibility = Visibility.Visible;
                     break;
                 case SSDEUT.Condition:
                     Winter_Image.Visibility = Visibility.Visible;

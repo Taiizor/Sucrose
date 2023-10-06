@@ -8,10 +8,9 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSSBSS = Sucrose.Shared.Server.Services.BackgroundogServerService;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Backgroundog
 {
@@ -24,10 +23,8 @@ namespace Sucrose.Backgroundog
                 Console.OutputEncoding = Encoding.UTF8;
                 SHC.All = new CultureInfo(SMMM.Culture, true);
 
-                if (!SWUSI.IsAppMutexRunning(SMR.BackgroundogMutex) && SSSHP.WorkCount(SMR.Backgroundog) <= 1)
+                if (SSSHI.Basic(SMR.BackgroundogMutex, SMR.Backgroundog))
                 {
-                    SBMI.Mutex.ReleaseMutex();
-
                     Console.WriteLine("Start");
 
                     SGSGSS.ServerCreate(SGCB.BindService(new SSSSBSS()));

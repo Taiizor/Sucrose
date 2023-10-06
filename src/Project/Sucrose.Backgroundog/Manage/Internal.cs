@@ -11,7 +11,6 @@ using SBSDGS = Sucrose.Backgroundog.Struct.Data.GraphicStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
-using SMR = Sucrose.Memory.Readonly;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
@@ -74,8 +73,6 @@ namespace Sucrose.Backgroundog.Manage
         public static PerformanceCounter DownloadCounter = null;
 
         public static NowPlayingSessionManager SessionManager = null;
-
-        public static Mutex Mutex = new(true, SMR.BackgroundogMutex);
 
         public static SBSDCS CpuData = new()
         {

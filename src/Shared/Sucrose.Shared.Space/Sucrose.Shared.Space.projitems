@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Extension\Lifecycle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Copy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Instance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Reset.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Graphic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Management.cs" />

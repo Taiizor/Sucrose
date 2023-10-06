@@ -10,7 +10,6 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMAC = Sucrose.Portal.Models.AppConfig;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
@@ -37,11 +36,10 @@ using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SPVPSWSP = Sucrose.Portal.Views.Pages.Setting.WallpaperSettingPage;
 using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWUSI = Skylark.Wing.Utility.SingleInstance;
 
 namespace Sucrose.Portal
 {
@@ -249,10 +247,8 @@ namespace Sucrose.Portal
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 
-            if (!SWUSI.IsAppMutexRunning(SMR.PortalMutex) && SSSHP.WorkCount(SMR.Portal) <= 1)
+            if (SSSHI.Basic(SMR.PortalMutex, SMR.Portal))
             {
-                SPMI.Mutex.ReleaseMutex();
-
                 Configure();
             }
             else

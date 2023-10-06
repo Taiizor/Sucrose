@@ -15,6 +15,8 @@ namespace Sucrose.Manager.Manage
 
         public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
+        public static int UpdateLimitValue => SHS.Clamp(SMMI.UpdateSettingManager.GetSettingStable(SMC.UpdateLimitValue, 100), 0, 99999999);
+
         public static int DownloadValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 10), 0, 99999999);
 
         public static int BackgroundOpacity => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.BackgroundOpacity, 100), 0, 100);
@@ -67,6 +69,8 @@ namespace Sucrose.Manager.Manage
 
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
 
+        public static SEST UpdateLimitType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateLimitType, SEST.Megabyte);
+
         public static SEST DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SEST.Megabyte);
 
         public static bool PausePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformance, false);
@@ -78,6 +82,8 @@ namespace Sucrose.Manager.Manage
         public static SEST UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SEST.Kilobyte);
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
+
+        public static string UpdatePercentage => SMMI.UpdateSettingManager.GetSetting(SMC.UpdatePercentage, "0%");
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 

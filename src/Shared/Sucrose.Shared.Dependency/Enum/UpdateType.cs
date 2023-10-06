@@ -3,6 +3,7 @@
     internal enum UpdateType
     {
         Empty,
+        Error,
         Update,
         Status,
         Extract,
@@ -10,6 +11,7 @@
         Updating,
         Releases,
         Download,
+        Cancelled,
         Condition
     }
 }
