@@ -20,4 +20,8 @@
     <system:String x:Key="Launcher.WallStartText">Iniciar Fondo de Pantalla</system:String>
     <system:String x:Key="Launcher.WallStopText">Detener Fondo de Pantalla</system:String>
     <system:String x:Key="Launcher.UpdateText">Buscar Actualizaciones</system:String>
+    
+    <system:String x:Key="Launcher.UpdateText.Done">Actualizaciones Pendientes</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Buscando Actualizaciones</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Progreso de Actualización {0}</system:String>
 </ResourceDictionary>

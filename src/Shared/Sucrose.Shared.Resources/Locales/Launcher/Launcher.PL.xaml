@@ -20,4 +20,8 @@
     <system:String x:Key="Launcher.WallStartText">Uruchom Tapetę</system:String>
     <system:String x:Key="Launcher.WallStopText">Zatrzymaj Tapetę</system:String>
     <system:String x:Key="Launcher.UpdateText">Sprawdź Aktualizacje</system:String>
+    
+    <system:String x:Key="Launcher.UpdateText.Done">Oczekujące Aktualizacje</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Sprawdzanie Aktualizacji</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Postęp Aktualizacji {0}</system:String>
 </ResourceDictionary>

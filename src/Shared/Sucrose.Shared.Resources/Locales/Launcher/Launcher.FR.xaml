@@ -19,5 +19,9 @@
     <system:String x:Key="Launcher.WallOpenText">Ouvrir le Papier Peint</system:String>
     <system:String x:Key="Launcher.WallStartText">Démarrer le Papier Peint</system:String>
     <system:String x:Key="Launcher.WallStopText">Arrêter le Papier Peint</system:String>
-    <system:String x:Key="Launcher.UpdateText">Vérifier les mises à jour</system:String>
+    <system:String x:Key="Launcher.UpdateText">Vérifier les Mises à Jour</system:String>
+    
+    <system:String x:Key="Launcher.UpdateText.Done">Mises à Jour en Attente</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Vérification des Mises à Jour</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Avancement de la Mise à Jour {0}</system:String>
 </ResourceDictionary>

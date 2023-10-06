@@ -20,4 +20,8 @@
     <system:String x:Key="Launcher.WallStartText">Duvar Kağıdını Başlat</system:String>
     <system:String x:Key="Launcher.WallStopText">Duvar Kağıdını Durdur</system:String>
     <system:String x:Key="Launcher.UpdateText">Güncellemeleri Denetle</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Güncellemeler Bekliyor</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Güncellemeler Denetleniyor</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Güncelleme İlerlemesi {0}</system:String>
 </ResourceDictionary>

@@ -20,4 +20,8 @@
     <system:String x:Key="Launcher.WallStartText">Hintergrund Starten</system:String>
     <system:String x:Key="Launcher.WallStopText">Hintergrund Stoppen</system:String>
     <system:String x:Key="Launcher.UpdateText">Auf Updates Prüfen</system:String>
+    
+    <system:String x:Key="Launcher.UpdateText.Done">Ausstehende Aktualisierungen</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Aktualisierungen Überprüfen</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Aktualisierungsfortschritt {0}</system:String>
 </ResourceDictionary>

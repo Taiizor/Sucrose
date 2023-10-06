@@ -111,6 +111,8 @@ namespace Sucrose.Update
 
         protected void Close()
         {
+            SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, false);
+
             Environment.Exit(0);
             Current.Shutdown();
             Shutdown();
@@ -377,6 +379,10 @@ namespace Sucrose.Update
             {
                 HasBundle = false;
                 HasFile = false;
+            }
+            else
+            {
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdatePercentage, $"{SHN.Numeral(100, true, true, 2, '0', SECNT.None)}%");
             }
         }
 

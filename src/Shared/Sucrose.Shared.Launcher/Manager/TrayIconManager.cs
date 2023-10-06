@@ -126,7 +126,23 @@ namespace Sucrose.Shared.Launcher.Manager
 
             if (SSSHP.Work(SSSMI.Update))
             {
-                Update.Enabled = false;
+                Update.Click -= CommandUpdate;
+
+                if (SMMM.UpdateState)
+                {
+                    if (SMMM.UpdatePercentage.Contains("100"))
+                    {
+                        Update.Text = SSRER.GetValue("Launcher", "UpdateText", "Done");
+                    }
+                    else
+                    {
+                        Update.Text = string.Format(SSRER.GetValue("Launcher", "UpdateText", "Progress"), SMMM.UpdatePercentage);
+                    }
+                }
+                else
+                {
+                    Update.Text = SSRER.GetValue("Launcher", "UpdateText", "Check");
+                }
             }
 
             ContextMenu.Items.Add(Update);
