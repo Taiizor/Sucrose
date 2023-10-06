@@ -8,18 +8,28 @@ using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Manager
 {
-    public class SettingManager
+    public class SettingManager2
     {
+        private Settings _settings = new();
         private static object lockObject = new();
         private readonly string _settingsFilePath;
+        private readonly string _settingsFileName;
+        private DateTime _lastWrite = DateTime.Now;
         private readonly ReaderWriterLockSlim _lock;
+        private readonly FileSystemWatcher _settingsFileWatcher;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public SettingManager(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
+        public SettingManager2(string settingsFileName, Formatting formatting = Formatting.Indented, TypeNameHandling typeNameHandling = TypeNameHandling.None)
         {
             _settingsFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder, settingsFileName);
 
+            _settingsFileWatcher = new(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.SettingFolder));
+
             Directory.CreateDirectory(Path.GetDirectoryName(_settingsFilePath));
+
+            _settingsFileWatcher.NotifyFilter = NotifyFilters.LastWrite;
+
+            _settingsFileWatcher.Changed += SettingsFile_Changed;
 
             _serializerSettings = new JsonSerializerSettings
             {
@@ -36,50 +46,17 @@ namespace Sucrose.Manager
             _lock = new ReaderWriterLockSlim(); //ReaderWriterLock
 
             ControlFile();
+
+            _settingsFileName = settingsFileName;
+
+            _settingsFileWatcher.EnableRaisingEvents = true;
         }
 
         public T GetSetting<T>(string key, T back = default)
         {
-            _lock.EnterReadLock();
-
-            try
+            if (_settings.Properties.TryGetValue(key, out object value))
             {
-                lock (lockObject)
-                {
-                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
-
-                    try
-                    {
-                        try
-                        {
-                            Mutex.WaitOne();
-                        }
-                        catch
-                        {
-                            //
-                        }
-
-                        if (CheckFile())
-                        {
-                            string json = SMHR.Read(_settingsFilePath).Result;
-
-                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                            if (settings.Properties.TryGetValue(key, out object value))
-                            {
-                                return ConvertToType<T>(value);
-                            }
-                        }
-                    }
-                    finally
-                    {
-                        Mutex.ReleaseMutex();
-                    }
-                }
-            }
-            finally
-            {
-                _lock.ExitReadLock();
+                return ConvertToType<T>(value);
             }
 
             return back;
@@ -87,46 +64,9 @@ namespace Sucrose.Manager
 
         public T GetSettingStable<T>(string key, T back = default)
         {
-            _lock.EnterReadLock();
-
-            try
+            if (_settings.Properties.TryGetValue(key, out object value))
             {
-                lock (lockObject)
-                {
-                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
-
-                    try
-                    {
-                        try
-                        {
-                            Mutex.WaitOne();
-                        }
-                        catch
-                        {
-                            //
-                        }
-
-                        if (CheckFile())
-                        {
-                            string json = SMHR.Read(_settingsFilePath).Result;
-
-                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                            if (settings.Properties.TryGetValue(key, out object value))
-                            {
-                                return JsonConvert.DeserializeObject<T>(value.ToString());
-                            }
-                        }
-                    }
-                    finally
-                    {
-                        Mutex.ReleaseMutex();
-                    }
-                }
-            }
-            finally
-            {
-                _lock.ExitReadLock();
+                return JsonConvert.DeserializeObject<T>(value.ToString());
             }
 
             return back;
@@ -134,52 +74,22 @@ namespace Sucrose.Manager
 
         public T GetSettingAddress<T>(string key, T back = default)
         {
-            _lock.EnterReadLock();
-
-            try
+            if (_settings.Properties.TryGetValue(key, out object value))
             {
-                lock (lockObject)
-                {
-                    using Mutex Mutex = new(false, Path.GetFileName(_settingsFilePath));
-
-                    try
-                    {
-                        try
-                        {
-                            Mutex.WaitOne();
-                        }
-                        catch
-                        {
-                            //
-                        }
-
-                        if (CheckFile())
-                        {
-                            string json = SMHR.Read(_settingsFilePath).Result;
-
-                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-
-                            if (settings.Properties.TryGetValue(key, out object value))
-                            {
-                                return ConvertToType<T>(value);
-                            }
-                        }
-                    }
-                    finally
-                    {
-                        Mutex.ReleaseMutex();
-                    }
-                }
-            }
-            finally
-            {
-                _lock.ExitReadLock();
+                return ConvertToType<T>(value);
             }
 
             return back;
         }
 
         public void SetSetting<T>(string key, T value)
+        {
+            _settings.Properties[key] = ConvertToType<T>(value);
+
+            SaveSetting();
+        }
+
+        public void SaveSetting()
         {
             _lock.EnterWriteLock();
 
@@ -200,21 +110,8 @@ namespace Sucrose.Manager
                             //
                         }
 
-                        Settings settings;
-
-                        if (CheckFile())
-                        {
-                            string json = SMHR.Read(_settingsFilePath).Result;
-                            settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
-                        }
-                        else
-                        {
-                            settings = new Settings();
-                        }
-
-                        settings.Properties[key] = ConvertToType<T>(value);
-
-                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
+                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(_settings, _serializerSettings));
+                        _lastWrite = DateTime.Now;
                     }
                     finally
                     {
@@ -284,9 +181,10 @@ namespace Sucrose.Manager
                             //
                         }
 
-                        Settings settings = new();
+                        _settings = new();
 
-                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
+                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(_settings, _serializerSettings));
+                        _lastWrite = DateTime.Now;
                     }
                     finally
                     {
@@ -324,9 +222,9 @@ namespace Sucrose.Manager
                 {
                     try
                     {
-                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                        _settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                        if (settings != null && settings.Properties != null)
+                        if (_settings != null && _settings.Properties != null)
                         {
                             return;
                         }
@@ -404,6 +302,15 @@ namespace Sucrose.Manager
             }
 
             return (T)value;
+        }
+
+        private void SettingsFile_Changed(object sender, FileSystemEventArgs e)
+        {
+            if (e.Name == _settingsFileName && File.GetLastWriteTime(_settingsFilePath) > _lastWrite)
+            {
+                _settings = JsonConvert.DeserializeObject<Settings>(ReadSetting(), _serializerSettings);
+                _lastWrite = DateTime.Now;
+            }
         }
 
         private class Settings
