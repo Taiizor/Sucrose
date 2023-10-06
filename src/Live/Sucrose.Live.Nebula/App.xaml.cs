@@ -9,7 +9,6 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
-using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSENVV = Sucrose.Shared.Engine.Nebula.View.Video;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;

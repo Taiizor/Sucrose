@@ -78,6 +78,8 @@
 
         public const string UploadValue = "UploadValue";
 
+        public const string UpdateState = "UpdateState";
+
         public const string BatteryUsage = "BatteryUsage";
 
         public const string BackdropType = "BackdropType";

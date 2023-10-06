@@ -1,4 +1,5 @@
 ﻿using SMHC = Sucrose.Manager.Helper.Cleaner;
+using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Manager.Helper
 {
@@ -19,6 +20,8 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
+                    await Task.Delay(SMR.Randomise.Next(10, 100));
+
                     using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                     using StreamWriter writer = new(fileStream);
 
@@ -28,7 +31,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(5);
+                        await Task.Delay(SMR.Randomise.Next(10, 100));
 
                         using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                         using StreamWriter writer = new(fileStream);
@@ -55,6 +58,8 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
+                    await Task.Delay(SMR.Randomise.Next(10, 100));
+
                     using StreamWriter writer = File.AppendText(filePath);
 
                     writer.WriteLine(SMHC.Clean(fileContent));
@@ -63,7 +68,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(5);
+                        await Task.Delay(SMR.Randomise.Next(10, 100));
 
                         using StreamWriter writer = File.AppendText(filePath);
 
@@ -87,13 +92,15 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
+                    await Task.Delay(SMR.Randomise.Next(10, 100));
+
                     File.WriteAllText(filePath, SMHC.Clean(fileContent));
                 }
                 catch
                 {
                     try
                     {
-                        await Task.Delay(5);
+                        await Task.Delay(SMR.Randomise.Next(10, 100));
 
                         File.WriteAllText(filePath, SMHC.Clean(fileContent));
                     }

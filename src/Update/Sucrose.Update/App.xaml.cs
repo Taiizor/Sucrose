@@ -56,6 +56,8 @@ namespace Sucrose.Update
 
         private static bool HasError { get; set; } = true;
 
+        private static bool HasFile { get; set; } = false;
+
         private static int MinDelay => 1000;
 
         public App()
@@ -313,6 +315,17 @@ namespace Sucrose.Update
                     Info(SSDEUT.Download);
                 }
             }
+            else
+            {
+                if (HasFile)
+                {
+                    Info(SSDEUT.Error);
+                }
+                else
+                {
+                    Info(SSDEUT.Cancelled);
+                }
+            }
 
             Close();
         }
@@ -336,6 +349,9 @@ namespace Sucrose.Update
 
             if (SSSHI.Basic(SMR.UpdateMutex, SMR.Update))
             {
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdatePercentage, "0%");
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, false);
+
                 Configure();
             }
             else
@@ -346,6 +362,7 @@ namespace Sucrose.Update
 
         private void OnDownloadStarted(object sender, DownloadStartedEventArgs e)
         {
+            SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, true);
             HasBundle = true;
         }
 
@@ -353,13 +370,13 @@ namespace Sucrose.Update
         {
             if (e.Error != null)
             {
-                Info(SSDEUT.Error);
                 HasBundle = false;
+                HasFile = true;
             }
             else if (e.Cancelled)
             {
-                Info(SSDEUT.Cancelled);
                 HasBundle = false;
+                HasFile = false;
             }
         }
 
