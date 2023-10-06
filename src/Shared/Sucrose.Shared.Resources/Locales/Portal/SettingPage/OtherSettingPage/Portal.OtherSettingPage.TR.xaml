@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.OtherSettingPage.Update">Güncelleme Yöntemi</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">Güncelleme işleminin hangi yöntemle yapılıp yapılmayacağı.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">İndirme Bant Genişliği Sınırı:</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Geliştirici Araçları</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView ve CefSharp motoru için geliştirici araçlarının gösterilip gösterilmeyeceği.</system:String>
 </ResourceDictionary>

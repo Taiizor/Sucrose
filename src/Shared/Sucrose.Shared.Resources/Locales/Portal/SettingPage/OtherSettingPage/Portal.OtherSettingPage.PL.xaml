@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.OtherSettingPage.Update">Metoda Aktualizacji</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">Metoda używana w procesie aktualizacji.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limit Przepustowości Pobierania:</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Narzędzia Deweloperskie</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Czy wyświetlać narzędzia deweloperskie dla WebView i silnika CefSharp, czy nie.</system:String>
 </ResourceDictionary>

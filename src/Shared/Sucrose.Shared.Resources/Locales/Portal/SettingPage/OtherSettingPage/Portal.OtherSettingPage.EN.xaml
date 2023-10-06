@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.OtherSettingPage.Update">Update Method</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">The method used for the update process.</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Download Bandwidth Limit:</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Developer Tools</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Whether developer tools for WebView and CefSharp engine should be displayed or not.</system:String>
 </ResourceDictionary>

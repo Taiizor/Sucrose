@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
+using SEST = Skylark.Enum.StorageType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -223,7 +224,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             SPVCEC Update = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                IsExpand = true
             };
 
             Update.LeftIcon.Symbol = SymbolRegular.ArrowSwap24;
@@ -242,6 +243,57 @@ namespace Sucrose.Portal.ViewModels.Pages
             UpdateType.SelectedIndex = (int)SPMM.UpdateType;
 
             Update.HeaderFrame = UpdateType;
+
+            StackPanel UpdateContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock UpdateLimitText = new()
+            {
+                Text = SSRER.GetValue("Portal", "OtherSettingPage", "Update", "Limit"),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            NumberBox UpdateLimit = new()
+            {
+                Icon = new SymbolIcon(SymbolRegular.ArrowBetweenDown24),
+                IconPlacement = ElementPlacement.Left,
+                Margin = new Thickness(0, 0, 10, 0),
+                Value = SMMM.UpdateLimitValue,
+                ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
+                Maximum = 99999999,
+                MaxLength = 8,
+                Minimum = 0
+            };
+
+            UpdateLimit.ValueChanged += (s, e) => UpdateLimitChanged(UpdateLimit.Value);
+
+            ComboBox UpdateLimitType = new()
+            {
+                MaxDropDownHeight = 200
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(UpdateLimitType, ScrollBarVisibility.Auto);
+
+            UpdateLimitType.SelectionChanged += (s, e) => UpdateLimitTypeSelected(UpdateLimitType.SelectedIndex);
+
+            foreach (SEST Type in Enum.GetValues(typeof(SEST)))
+            {
+                UpdateLimitType.Items.Add(Type);
+            }
+
+            UpdateLimitType.SelectedIndex = (int)SMMM.DownloadType;
+
+            UpdateContent.Children.Add(UpdateLimitText);
+            UpdateContent.Children.Add(UpdateLimit);
+            UpdateContent.Children.Add(UpdateLimitType);
+
+            Update.FooterCard = UpdateContent;
 
             Contents.Add(Update);
 
@@ -323,6 +375,26 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void DeveloperStateChecked(bool State)
         {
             SMMI.EngineSettingManager.SetSetting(SMC.DeveloperMode, State);
+        }
+
+        private void UpdateLimitChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.UpdateLimitValue)
+            {
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateLimitValue, NewValue);
+            }
+        }
+
+        private void UpdateLimitTypeSelected(int Index)
+        {
+            if (Index != (int)SMMM.UpdateLimitType)
+            {
+                SEST Type = (SEST)Index;
+
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateLimitType, Type);
+            }
         }
 
         private void DiscordDelayChanged(double? Value)

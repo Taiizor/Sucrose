@@ -56,6 +56,8 @@ namespace Sucrose.Update
 
         private static bool HasError { get; set; } = true;
 
+        private static bool HasInfo { get; set; } = false;
+
         private static bool HasFile { get; set; } = false;
 
         private static int MinDelay => 1000;
@@ -120,16 +122,40 @@ namespace Sucrose.Update
 
         internal void Info(SSDEUT Type)
         {
-            switch (SUMM.ThemeType)
+            if (!HasInfo)
             {
-                case SEWTT.Dark:
-                    SUVDIB DarkInfoBox = new(Type);
-                    DarkInfoBox.ShowDialog();
-                    break;
-                default:
-                    SUVLIB LightInfoBox = new(Type);
-                    LightInfoBox.ShowDialog();
-                    break;
+                if (Type != SSDEUT.Updating)
+                {
+                    HasInfo = true;
+                }
+
+                switch (SUMM.ThemeType)
+                {
+                    case SEWTT.Dark:
+                        SUVDIB DarkInfoBox = new(Type);
+                        DarkInfoBox.ShowDialog();
+                        break;
+                    default:
+                        SUVLIB LightInfoBox = new(Type);
+                        LightInfoBox.ShowDialog();
+                        break;
+                }
+            }
+        }
+
+        protected static void UpdateLimit()
+        {
+            if (SMMM.UpdateLimitValue > 0)
+            {
+                double UpdateLimit = SSESSE.Convert(SMMM.UpdateLimitValue, SMMM.UpdateLimitType, SEST.Byte, SEMST.Palila);
+
+                long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
+
+                SUMI.DownloadConfiguration.MaximumBytesPerSecond = Limit;
+            }
+            else
+            {
+                SUMI.DownloadConfiguration.MaximumBytesPerSecond = 0;
             }
         }
 
@@ -229,14 +255,7 @@ namespace Sucrose.Update
                                         File.Delete(Bundle);
                                     }
 
-                                    if (SMMM.UpdateLimitValue > 0)
-                                    {
-                                        double UpdateLimit = SSESSE.Convert(SMMM.UpdateLimitValue, SMMM.UpdateLimitType, SEST.Byte, SEMST.Palila);
-
-                                        long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
-
-                                        SUMI.DownloadConfiguration.MaximumBytesPerSecond = Limit;
-                                    }
+                                    UpdateLimit();
 
                                     SUMI.DownloadService = new(SUMI.DownloadConfiguration);
 
@@ -394,6 +413,8 @@ namespace Sucrose.Update
             {
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdatePercentage, Percentage);
             }
+
+            UpdateLimit();
         }
     }
 }
