@@ -46,8 +46,8 @@
   [![Code Size](https://img.shields.io/github/languages/code-size/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
   [![Repo Size](https://img.shields.io/github/repo-size/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
 
-  <!--[![Windows Support](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
-  [![Xbox Support](https://img.shields.io/badge/Xbox-107C10?style=for-the-badge&logo=xbox&logoColor=white)](https://www.microsoft.com/store/apps/9P1JZMGT34M2)
+  <!--[![Windows Support](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/store/apps/XP8JGPBHTJGLC)
+  [![Xbox Support](https://img.shields.io/badge/Xbox-107C10?style=for-the-badge&logo=xbox&logoColor=white)](https://www.microsoft.com/store/apps/XP8JGPBHTJGLC)
   [![MacOS Support](https://img.shields.io/badge/MACOS-adb8c5?style=for-the-badge&logo=macos&logoColor=white)](https://github.com/Taiizor/Sucrose/releases/latest)-->
 
   <!--[![Ubuntu Support](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/Taiizor/Sucrose/releases/latest)
@@ -176,17 +176,17 @@
     <tr align="center">
       <td><a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48">.NET Framework 4.8</a></td>
       <td>
-        <a href='https://apps.microsoft.com/store/detail/XP8JGPBHTJGLCQ?launch=true&mode=full'>
+        <a href='https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full'>
           <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 x64' width='160' />
         </a>
       </td>
       <td>
-        <a href='https://apps.microsoft.com/store/detail/XP8JGPBHTJGLCQ?launch=true&mode=full'>
+        <a href='https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full'>
           <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 x86' width='160' />
         </a>
       </td>
       <td>
-        <a href='https://apps.microsoft.com/store/detail/XP8JGPBHTJGLCQ?launch=true&mode=full'>
+        <a href='https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full'>
           <img src='.images/Badges/Microsoft/English_get it from MS_864X312.png' alt='Sucrose .NET Framework 4.8 ARM64' width='160' />
         </a>
       </td>
