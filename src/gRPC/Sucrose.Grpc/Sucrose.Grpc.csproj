@@ -2,9 +2,10 @@
 
     <PropertyGroup>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
-        <TargetFrameworks>netstandard2.0;netstandard2.1;net48;net481;net6.0;net7.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net48;net481;net6.0;net7.0;net8.0</TargetFrameworks>
+        <OutputPath>..\..\Sucrose\Grpc\$(Platform)</OutputPath>
         <AssemblyVersion>$(Version)</AssemblyVersion>
-        <OutputPath>..\..\Sucrose\Grpc</OutputPath>
+        <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
         <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>preview</AnalysisLevel>
         <FileVersion>$(Version)</FileVersion>
