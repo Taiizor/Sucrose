@@ -1,54 +1,153 @@
-﻿Field,Type,Turkish,English,German,French,Polish,Italian,Irish,Russian,Swedish,Norwegian,Spanish
+﻿Field,Type,Turkish,English,German,Spanish,French,Italian,Polish,Irish,Swedish,Norwegian,Russian
 ProductName,Text,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine,Sucrose Wallpaper Engine
-Description,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.,"Sucrose to wszechstronny silnik tapet, który ożywia pulpit dzięki szerokiemu spektrum interaktywnych motywów.",Sucrose è un motore di sfondo versatile che dà vita al tuo desktop con una vasta gamma di temi interattivi.,Is é motar fuinneoige é Sucrose a thugann beocht d'fhónasc níos leithne do do lárchlár le réimse leathan téamaí idirghníomhacha.,"Sucrose - это универсальный движок обоев, который оживляет ваш рабочий стол с широким спектром интерактивных тем.",Sucrose är en mångsidig tapetmotor som ger liv åt din skrivbord med ett brett utbud av interaktiva teman.,Sucrose er en allsidig tapetmotor som gir liv til skrivebordet ditt med et bredt utvalg av interaktive temaer.,Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.
+Description,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.,Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.,Sucrose è un motore di sfondo versatile che dà vita al tuo desktop con una vasta gamma di temi interattivi.,"Sucrose to wszechstronny silnik tapet, który ożywia pulpit dzięki szerokiemu spektrum interaktywnych motywów.",Is é motar fuinneoige é Sucrose a thugann beocht d'fhónasc níos leithne do do lárchlár le réimse leathan téamaí idirghníomhacha.,Sucrose är en mångsidig tapetmotor som ger liv åt din skrivbord med ett brett utbud av interaktiva teman.,Sucrose er en allsidig tapetmotor som gir liv til skrivebordet ditt med et bredt utvalg av interaktive temaer.,"Sucrose - это универсальный движок обоев, который оживляет ваш рабочий стол с широким спектром интерактивных тем."
 WhatsNew,Text,"Yenilikler ve Hata Düzeltmelerinden bazıları aşağıda listelenmiştir:
 
+- Diğer ayar sayfası eklendi.
+- Genel ayar sayfası eklendi.
+- Tema silme sayfası eklendi.
+- Sistem ayar sayfası eklendi.
+- Kişisel ayar sayfası eklendi.
 - Tema inceleme sayfası eklendi.
 - Tema paylaşma sayfası eklendi.
-- Mağaza sayfası yeniden tasarlandı.","Some of What's New and Bug Fixes are listed below:
+- Performans ayar sayfası eklendi.
+- Tema düzenleme sayfası eklendi.
+- Duvar Kağıdı ayar sayfası eklendi.
+- Mağaza sayfası yeniden tasarlandı.
+- Ekran Tercihleri açılır penceresi eklendi.","Some of What's New and Bug Fixes are listed below:
 
-- Added theme share page.
-- Added theme review page.
-- The store page has been redesigned.","Einige der Neuerungen und Fehlerbehebungen sind unten aufgeführt:
+- Redesigned Store page.
+- Added Theme Review page.
+- Added Theme Editing page.
+- Added Other Settings page.
+- Added Theme Sharing page.
+- Added Theme Deletion page.
+- Added System Settings page.
+- Added General Settings page.
+- Added Personal Settings page.
+- Added Wallpaper Settings page.
+- Added Screen Preferences popup.
+- Added Performance Settings page.","Einige der Neuerungen und Fehlerbehebungen sind unten aufgeführt:
 
-- Hinzugefügte Thema-Teilen-Seite.
-- Die Shop-Seite wurde neu gestaltet.
-- Hinzugefügte Thema-Überprüfen-Seite.","Voici quelques-unes des nouveautés et des corrections de bugs répertoriées ci-dessous :
+- Neugestaltete Store-Seite.
+- Hinzugefügte Seite für Systemeinstellungen.
+- Hinzugefügte Seite für andere Einstellungen.
+- Hinzugefügte Seite für das Teilen von Themes.
+- Hinzugefügte Seite für Leistungseinstellungen.
+- Hinzugefügte Seite für Wallpaper-Einstellungen.
+- Hinzugefügte Seite für das Löschen von Themes.
+- Hinzugefügte Seite für allgemeine Einstellungen.
+- Hinzugefügte Seite für persönliche Einstellungen.
+- Hinzugefügtes Popup für Bildschirmeinstellungen.
+- Hinzugefügte Seite für das Bearbeiten von Themes.
+- Hinzugefügte Seite für die Überprüfung von Themes.","A continuación se enumeran algunas de las novedades y correcciones de errores:
 
-- La page du magasin a été repensée.
-- Ajout de la page d'examen du thème.
-- Ajout de la page de partage de thème.","Oto niektóre z nowości i poprawek:
+- Se rediseñó la página de la Tienda.
+- Se agregó la página de Compartir Temas.
+- Se agregó la página de Edición de Temas.
+- Se agregó la página de Revisión de Temas.
+- Se agregó la página de Eliminación de Temas.
+- Se agregó la página de Otras Configuraciones.
+- Se agregó la página de Configuración General.
+- Se agregó la página de Configuración Personal.
+- Se agregó la página de Configuración del Sistema.
+- Se agregó la página de Configuración de Rendimiento.
+- Se agregó la página de Configuración de Fondos de Pantalla.
+- Se agregó una ventana emergente de Preferencias de Pantalla.","Voici quelques-unes des nouveautés et des corrections de bugs répertoriées ci-dessous:
 
-- Dodano stronę recenzji motywów.
-- Strona sklepu została przeprojektowana.
-- Dodano stronę udostępniania motywów.","Di seguito sono elencate alcune delle novità e correzioni di bug:
+- Refonte de la page du magasin.
+- Ajout de la page Autres paramètres.
+- Ajout de la page Paramètres système.
+- Ajout de la page d'édition de thèmes.
+- Ajout de la page Paramètres généraux.
+- Ajout de la page d'examen des thèmes.
+- Ajout de la page de partage de thèmes.
+- Ajout de la page Paramètres personnels.
+- Ajout de la page de suppression de thèmes.
+- Ajout de la page de paramètres de papier peint.
+- Ajout de la page de paramètres de performance.
+- Ajout de la fenêtre contextuelle des préférences d'écran.","Di seguito sono elencate alcune delle novità e correzioni di bug:
 
-- La pagina del negozio è stata ridisegnata.
-- Aggiunta la pagina di recensione del tema.
-- Aggiunta la pagina di condivisione del tema.","Tá roinnt de na nua-ábhar agus na srianta sulaithrithe le feiceáil thíos:
+- Ridisegnata la pagina del Negozio.
+- Aggiunta la pagina di Modifica dei Temi.
+- Aggiunta la pagina di Revisione del Tema.
+- Aggiunta la pagina delle Impostazioni Altro.
+- Aggiunta la pagina di Eliminazione dei Temi.
+- Aggiunta la pagina di Condivisione del Tema.
+- Aggiunta la pagina delle Impostazioni Sfondo.
+- Aggiunta la pagina delle Impostazioni Generali.
+- Aggiunta la pagina delle Impostazioni Personali.
+- Aggiunta la pagina delle Impostazioni di Sistema.
+- Aggiunta la pagina delle Impostazioni di Performance.
+- Aggiunta la finestra popup delle Preferenze dello Schermo.","Oto niektóre z nowości i poprawek:
 
-- Athdhearadh leathanach an siopa.
-- Cuireadh leathanach roinnte téama leis.
-- Cuireadh leathanach athbhreithnithe téama leis.","Часть нововведений и исправлений ошибок:
+- Przebudowano stronę Sklepu.
+- Dodano stronę Ustawienia Inne.
+- Dodano stronę Edycji Motywów.
+- Dodano stronę Ustawienia Tapet.
+- Dodano okno preferencji ekranu.
+- Dodano stronę Recenzji Motywów.
+- Dodano stronę Ustawienia Ogólne.
+- Dodano stronę Usuwanie Motywów.
+- Dodano stronę Ustawienia Osobiste.
+- Dodano stronę Ustawienia Systemowe.
+- Dodano stronę Ustawienia Wydajności.
+- Dodano stronę Udostępniania Motywów.","Tá roinnt de na nua-ábhar agus na srianta sulaithrithe le feiceáil thíos:
+
+- Cuirtear le Leathanach Roinnt Téama.
+- Cuirtear le Leathanach Socruithe Eile.
+- Cuirtear le Leathanach Socruithe Córais.
+- Cuirtear le Leathanach Socruithe Luiche.
+- Cuirtear le Leathanach Scriosadh Téama.
+- Cuirtear le Fuinneog Roghnóirí Scáileáin.
+- Cuirtear le Leathanach Siopa athdheartha.
+- Cuirtear le Leathanach Socruithe Pearsanta.
+- Cuirtear le Leathanach Socruithe Ginearálta.
+- Cuirtear le Leathanach Athbhreithnithe Téama.
+- Cuirtear le Leathanach Socruithe Feidhmíochta.
+- Cuirtear le Leathanach Eagarthóireachta Téama.","Några av de nya funktionerna och felkorrigeringarna listas nedan:
+
+- Omdesignade butikssidan.
+- Lade till temadelningssidan.
+- Lade till tema raderingssidan.
+- Lade till temarecensionssidan.
+- Lade till temaredigeringssidan.
+- Lade till tapetinställningar-sidan.
+- Lade till andra inställningar-sidan.
+- Lade till systeminställningar-sidan.
+- Lade till allmänna inställningar-sidan.
+- Lade till prestandainställningar-sidan.
+- Lade till fönstret för skärmpreferenser.
+- Lade till personliga inställningar-sidan.","Noen av nyhetene og feilrettingene er listet opp nedenfor:
+
+- Redesignet butikksiden.
+- Lagt til temadelingsside.
+- Lagt til tema slettingsside.
+- Lagt til temaredigeringsside.
+- Lagt til temaanmeldelsesside.
+- Lagt til annen innstillinger-side.
+- Lagt til systeminnstillinger-side.
+- Lagt til ytelsesinnstillinger-side.
+- Lagt til generelle innstillinger-side.
+- Lagt til bakgrunnsinnstillinger-side.
+- Lagt til personlige innstillinger-side.
+- Lagt til popup-vinduet for skjermvalg.","Часть нововведений и исправлений ошибок:
 
 - Добавлена страница обзора темы.
+- Добавлена страница удаления темы.
+- Добавлена страница обмена темами.
+- Добавлена страница настроек обоев.
+- Добавлена страница общих настроек.
+- Добавлена страница других настроек.
 - Страница магазина была переработана.
-- Добавлена страница для обмена темами.","Några av de nya funktionerna och felkorrigeringarna listas nedan:
-
-- Butikssidan har omdesignats.
-- Lade till delningssida för teman.
-- Lade till översiktssida för teman.","Noen av nyhetene og feilrettingene er listet opp nedenfor:
-
-- Lagt til temadelingsside.
-- Butikksiden har blitt redesignet.
-- Lagt til temagjennomgangsside.","A continuación se enumeran algunas de las novedades y correcciones de errores:
-
-- Se rediseñó la página de la tienda.
-- Se agregó la página de compartir temas.
-- Se agregó la página de revisión de temas."
-ProductFeatures1,Text,Aydınlık ve Karanlık tema özelliği.,Light and Dark theme feature.,Funktion für helle und dunkle Themen.,Fonctionnalité de thème clair et sombre.,Cechy jasnego i ciemnego motywu.,Caratteristica tema chiara e scura.,Gnè téama Soilse agus Dorcha.,Функция светлой и темной темы.,Ljus- och mörker tema funktion.,Lys og mørk tema funksjon.,Característica de tema claro y oscuro.
-ProductFeatures2,Text,Birden fazla ekranı ve tüm ekran çözünürlüklerini destekler.,Supports multiple screens and all screen resolutions.,Unterstützt mehrere Bildschirme und alle Bildschirmauflösungen.,Prend en charge plusieurs écrans et toutes les résolutions d'écran.,Obsługuje wiele ekranów i wszystkie rozdzielczości ekranu.,Supporta più schermi e tutte le risoluzioni dello schermo.,"Iomlán oscailte agus saor in aisce, ní gá íoc as aon ghné.",Поддерживает несколько экранов и все разрешения экрана.,Stöd för flera skärmar och alla skärmupplösningar.,Støtter flere skjermer og alle skjermoppløsninger.,Admite varias pantallas y todas las resoluciones de pantalla.
-ProductFeatures3,Text,"Tamamen açık kaynaklı ve ücretsiz, hiçbir özellik ödeme gerektirmez.","Completely open-source and free, no feature requires payment.","Vollständig Open Source und kostenlos, es ist keine Funktion zahlungspflichtig.","Complètement open-source et gratuit, aucune fonction ne nécessite de paiement.","Całkowicie otwarty i darmowy, żadna funkcja nie wymaga płatności.","Completamente open-source e gratuito, nessuna caratteristica richiede pagamento.",Tacaíonn sé le móran scáileán agus le gach réiteach scáileáin.,"Полностью открыт и бесплатен, ни одна функция не требует платы.","Helt öppen källkod och gratis, inga funktioner kräver betalning.","Helt åpen kildekode og gratis, ingen funksjon krever betaling.","Completamente de código abierto y gratuito, ninguna característica requiere pago."
+- Добавлена страница системных настроек.
+- Добавлена страница редактирования темы.
+- Добавлена страница персональных настроек.
+- Добавлено всплывающее окно настроек экрана.
+- Добавлена страница настроек производительности."
+ProductFeatures1,Text,Aydınlık ve Karanlık tema özelliği.,Light and Dark theme feature.,Funktion für helle und dunkle Themen.,Característica de tema claro y oscuro.,Fonctionnalité de thème clair et sombre.,Caratteristica tema chiara e scura.,Cechy jasnego i ciemnego motywu.,Gnè téama Soilse agus Dorcha.,Ljus- och mörker tema funktion.,Lys og mørk tema funksjon.,Функция светлой и темной темы.
+ProductFeatures2,Text,Birden fazla ekranı ve tüm ekran çözünürlüklerini destekler.,Supports multiple screens and all screen resolutions.,Unterstützt mehrere Bildschirme und alle Bildschirmauflösungen.,Admite varias pantallas y todas las resoluciones de pantalla.,Prend en charge plusieurs écrans et toutes les résolutions d'écran.,Supporta più schermi e tutte le risoluzioni dello schermo.,Obsługuje wiele ekranów i wszystkie rozdzielczości ekranu.,"Iomlán oscailte agus saor in aisce, ní gá íoc as aon ghné.",Stöd för flera skärmar och alla skärmupplösningar.,Støtter flere skjermer og alle skjermoppløsninger.,Поддерживает несколько экранов и все разрешения экрана.
+ProductFeatures3,Text,"Tamamen açık kaynaklı ve ücretsiz, hiçbir özellik ödeme gerektirmez.","Completely open-source and free, no feature requires payment.","Vollständig Open Source und kostenlos, es ist keine Funktion zahlungspflichtig.","Completamente de código abierto y gratuito, ninguna característica requiere pago.","Complètement open-source et gratuit, aucune fonction ne nécessite de paiement.","Completamente open-source e gratuito, nessuna caratteristica richiede pagamento.","Całkowicie otwarty i darmowy, żadna funkcja nie wymaga płatności.",Tacaíonn sé le móran scáileán agus le gach réiteach scáileáin.,"Helt öppen källkod och gratis, inga funktioner kräver betalning.","Helt åpen kildekode og gratis, ingen funksjon krever betaling.","Полностью открыт и бесплатен, ни одна функция не требует платы."
 ProductFeatures4,Text,,,,,,,,,,,
 ProductFeatures5,Text,,,,,,,,,,,
 ProductFeatures6,Text,,,,,,,,,,,
@@ -66,14 +165,14 @@ ProductFeatures17,Text,,,,,,,,,,,
 ProductFeatures18,Text,,,,,,,,,,,
 ProductFeatures19,Text,,,,,,,,,,,
 ProductFeatures20,Text,,,,,,,,,,,
-ShortDescription,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.,"Sucrose to wszechstronny silnik tapet, który ożywia pulpit dzięki szerokiemu spektrum interaktywnych motywów.",Sucrose è un motore di sfondo versatile che dà vita al tuo desktop con una vasta gamma di temi interattivi.,Is é motar fuinneoige é Sucrose a thugann beocht d'fhónasc níos leithne do do lárchlár le réimse leathan téamaí idirghníomhacha.,"Sucrose - это универсальный движок обоев, который оживляет ваш рабочий стол с широким спектром интерактивных тем.",Sucrose är en mångsidig tapetmotor som ger liv åt din skrivbord med ett brett utbud av interaktiva teman.,Sucrose er en allsidig tapetmotor som gir liv til skrivebordet ditt med et bredt utvalg av interaktive temaer.,Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.
-SearchTerms1,Text,desktop dynamic wallpaper,wallpaper engine,wallpaper-engine,fond d'écran interactif,tapety na pulpit,wallpaper engine sucrose,fuinneoige sucraí,интерактивные обои,sucrose-tapetmotor,desktop wallpaper engine,sucrose wallpaper engine
-SearchTerms2,Text,fluent dynamics theme,interactive wallpaper,desktop-animationen,sucrose wallpaper engine,żywe tapety,temi animati sucrose,imeartha taobhscáile doiopacha,скачать обои,interaktiva tapeter,interactive desktop backgrounds,temas versátiles
-SearchTerms3,Text,wallpaper engine,desktop themes,wallpaper-design,polyvalent wallpaper engine,interaktywne tapety,sfondi dinamici sucrose,táirge fuinneoige microsoft,движок обоев,mangsidig skrivbordsbakgrund,customizable desktop themes,fondos para escritorio
-SearchTerms4,Text,yenilikçi masaüstü araçları,custom wallpaper,hintergrundbilder,personnalisation de bureau,silnik tapet,sucrose,riachtanais córasaitheois cuimsitheach,sucrose wallpaper engine,livfulla tapeter,dynamic desktop wallpapers,personaliza tu escritorio
-SearchTerms5,Text,etkileşimli masaüstü temaları,sucrose wallpaper,interaktive themes,sucrose wallpaper,motywy tapet,wallpaper,sucrose,анимированные обои,tematiska bakgrunder,high-quality wallpapers,descarga sucrose
-SearchTerms6,Text,sucrose duvar kâğıdı,personalized desktop,sucrose-wallpaper-motor,live wallpapers,motywy interaktywne,engine,wallpaper,универсальный движок обоев,desktop-engine för tapeter,wallpaper animations,wallpaper engine
-SearchTerms7,Text,sucrose wallpaper engine,live wallpapers,vielseitiges wallpaper-tool,interactive wallpaper,sucrose wallpaper engine,sucrose wallpaper engine,engine,синхронизация обоев,personlig skrivbordstapet,windows wallpaper engine,wallpaper
+ShortDescription,Text,"Sucrose, çok çeşitli etkileşimli temalarla masaüstünüze hayat getiren çok yönlü bir duvar kağıdı motorudur.",Sucrose is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.,"Sucrose ist ein vielseitiger Wallpaper-Motor, der Ihrem Desktop mit einer breiten Palette interaktiver Themen Leben einhaucht.",Sucrose es un motor de fondos de pantalla versátil que da vida a tu escritorio con una amplia variedad de temas interactivos.,Sucrose est un moteur de papier peint polyvalent qui donne vie à votre bureau avec une large gamme de thèmes interactifs.,Sucrose è un motore di sfondo versatile che dà vita al tuo desktop con una vasta gamma di temi interattivi.,"Sucrose to wszechstronny silnik tapet, który ożywia pulpit dzięki szerokiemu spektrum interaktywnych motywów.",Is é motar fuinneoige é Sucrose a thugann beocht d'fhónasc níos leithne do do lárchlár le réimse leathan téamaí idirghníomhacha.,Sucrose är en mångsidig tapetmotor som ger liv åt din skrivbord med ett brett utbud av interaktiva teman.,Sucrose er en allsidig tapetmotor som gir liv til skrivebordet ditt med et bredt utvalg av interaktive temaer.,"Sucrose - это универсальный движок обоев, который оживляет ваш рабочий стол с широким спектром интерактивных тем."
+SearchTerms1,Text,desktop dynamic wallpaper,wallpaper engine,wallpaper-engine,sucrose wallpaper engine,fond d'écran interactif,wallpaper engine sucrose,tapety na pulpit,fuinneoige sucraí,sucrose-tapetmotor,desktop wallpaper engine,интерактивные обои
+SearchTerms2,Text,fluent dynamics theme,interactive wallpaper,desktop-animationen,temas versátiles,sucrose wallpaper engine,temi animati sucrose,żywe tapety,imeartha taobhscáile doiopacha,interaktiva tapeter,interactive desktop backgrounds,скачать обои
+SearchTerms3,Text,wallpaper engine,desktop themes,wallpaper-design,fondos para escritorio,polyvalent wallpaper engine,sfondi dinamici sucrose,interaktywne tapety,táirge fuinneoige microsoft,mangsidig skrivbordsbakgrund,customizable desktop themes,движок обоев
+SearchTerms4,Text,yenilikçi masaüstü araçları,custom wallpaper,hintergrundbilder,personaliza tu escritorio,personnalisation de bureau,sucrose,silnik tapet,riachtanais córasaitheois cuimsitheach,livfulla tapeter,dynamic desktop wallpapers,sucrose wallpaper engine
+SearchTerms5,Text,etkileşimli masaüstü temaları,sucrose wallpaper,interaktive themes,descarga sucrose,sucrose wallpaper,wallpaper,motywy tapet,sucrose,tematiska bakgrunder,high-quality wallpapers,анимированные обои
+SearchTerms6,Text,sucrose duvar kâğıdı,personalized desktop,sucrose-wallpaper-motor,wallpaper engine,live wallpapers,engine,motywy interaktywne,wallpaper,desktop-engine för tapeter,wallpaper animations,универсальный движок обоев
+SearchTerms7,Text,sucrose wallpaper engine,live wallpapers,vielseitiges wallpaper-tool,wallpaper,interactive wallpaper,sucrose wallpaper engine,sucrose wallpaper engine,engine,personlig skrivbordstapet,windows wallpaper engine,синхронизация обоев
 Applicable license terms,Text,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE,https://github.com/Taiizor/Sucrose/blob/develop/LICENSE
 Copyright,Text,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors,Sucrose is copyright © 2023 Sucrose Contributors
 DevelopedBy,Text,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors,Sucrose Contributors
