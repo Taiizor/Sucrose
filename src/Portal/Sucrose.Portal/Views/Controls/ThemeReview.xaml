@@ -40,7 +40,7 @@
         <TextBlock x:Name="ThemeModify" Text="{DynamicResource Portal.ThemeReview.ThemeModify}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <TextBlock x:Name="ThemeModifyDate" Text="{DynamicResource Portal.ThemeReview.ThemeModifyDate}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:Hyperlink
+        <ui:HyperlinkButton
             x:Name="ThemeContact"
             Cursor="Hand"
             FontSize="14"

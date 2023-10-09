@@ -181,7 +181,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             StackPanel KeyContent = new();
 
-            Hyperlink HintKey = new()
+            HyperlinkButton HintKey = new()
             {
                 Content = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "HintKey"),
                 Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
