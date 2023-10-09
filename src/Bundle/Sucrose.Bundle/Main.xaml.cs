@@ -38,6 +38,8 @@ namespace Sucrose.Bundle
 
         private static string Launcher => Path.Combine(InstallPath, Department, Executable);
 
+        private static string RedistPath => Path.Combine(Path.GetTempPath(), Redist);
+
         private static string TemporaryFile => "Sucrose.Backgroundog.sys";
 
         private static string TemporaryFolder => "Sucrose.Backgroundog";
@@ -57,6 +59,8 @@ namespace Sucrose.Bundle
         private static string Packages => "Packages";
 
         private static string Publisher => "Taiizor";
+
+        private static string Redist => "Redist";
 
         private static string Caches => "Caches";
 
@@ -90,6 +94,39 @@ namespace Sucrose.Bundle
             {
                 //
             }
+        }
+
+        private static async Task InstallRedist()
+        {
+            string Command = $"/q /norestart";
+
+#if X86
+            string Executable = Path.Combine(RedistPath, "x86.exe");
+#elif ARM64
+            string Executable = Path.Combine(RedistPath, "arm64.exe");
+#else
+            string Executable = Path.Combine(RedistPath, "x64.exe");
+#endif
+
+            ProcessStartInfo Starter = new()
+            {
+                Arguments = Command,
+                FileName = Executable,
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardError = true,
+                RedirectStandardOutput = true
+            };
+
+            using (Process Installer = new())
+            {
+                Installer.StartInfo = Starter;
+                Installer.Start();
+
+                Installer.WaitForExit();
+            }
+
+            await Task.CompletedTask;
         }
 
         private static void TerminateProcess(string Name)
@@ -148,7 +185,7 @@ namespace Sucrose.Bundle
                     {
                         try
                         {
-                            Directory.Delete(Record);
+                            Directory.Delete(Record, true);
                         }
                         catch { }
                     }
@@ -250,10 +287,15 @@ namespace Sucrose.Bundle
 
             await Task.Delay(MaxDelay);
 
+            await ControlDirectory(RedistPath);
             await ControlDirectory(PackagePath);
             await ControlDirectoryStable(InstallPath);
 
             await Task.Delay(MaxDelay);
+
+            await ExtractResources(Redist, RedistPath);
+
+            await Task.Delay(MinDelay);
 
             await ExtractResources(Caches, PackagePath);
 
@@ -262,6 +304,10 @@ namespace Sucrose.Bundle
             await ExtractResources(Packages, InstallPath);
 
             await Task.Delay(MaxDelay);
+
+            await InstallRedist();
+
+            await Task.Delay(MinDelay);
 
             SWHS.Create(Desktop, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
             SWHS.Create(StartMenu, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
