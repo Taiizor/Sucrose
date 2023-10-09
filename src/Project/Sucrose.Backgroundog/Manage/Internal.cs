@@ -52,7 +52,23 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool AudioManagement = true;
 
+        public static bool FocusManagement = true;
+
+        public static bool RemoteManagement = true;
+
         public static Timer InitializeTimer = null;
+
+        public static bool GraphicManagement = true;
+
+        public static bool NetworkManagement = true;
+
+        public static bool BatteryManagement = true;
+
+        public static bool EqualizerManagement = true;
+
+        public static bool FullscreenManagement = true;
+
+        public static bool VirtualityManagement = true;
 
         public static bool MotherboardManagement = true;
 
@@ -73,6 +89,8 @@ namespace Sucrose.Backgroundog.Manage
         public static PerformanceCounter DownloadCounter = null;
 
         public static NowPlayingSessionManager SessionManager = null;
+
+        public static string[] NetworkInterfaces = Array.Empty<string>();
 
         public static SBSDCS CpuData = new()
         {

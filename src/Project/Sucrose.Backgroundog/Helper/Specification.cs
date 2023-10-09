@@ -38,14 +38,14 @@ namespace Sucrose.Backgroundog.Helper
         {
             if (SBMI.Exit)
             {
-                _ = Task.Run(() =>
+                if (SBMI.CpuManagement)
                 {
-                    try
-                    {
-                        if (SBMI.CpuManagement)
-                        {
-                            SBMI.CpuManagement = false;
+                    SBMI.CpuManagement = false;
 
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
                             ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
 
                             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
@@ -57,21 +57,22 @@ namespace Sucrose.Backgroundog.Helper
                                 break;
                             }
                         }
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
-
-                _ = Task.Run(() =>
-                {
-                    try
-                    {
-                        if (SBMI.BiosManagement)
+                        catch (Exception Exception)
                         {
-                            SBMI.BiosManagement = false;
+                            SBMI.CpuManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
 
+                if (SBMI.BiosManagement)
+                {
+                    SBMI.BiosManagement = false;
+
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
                             ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_BIOS");
 
                             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
@@ -89,12 +90,13 @@ namespace Sucrose.Backgroundog.Helper
                                 break;
                             }
                         }
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
+                        catch (Exception Exception)
+                        {
+                            SBMI.BiosManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
 
                 _ = Task.Run(() =>
                 {
@@ -141,34 +143,42 @@ namespace Sucrose.Backgroundog.Helper
                     }
                 });
 
-                _ = Task.Run(() =>
+                if (SBMI.BatteryManagement)
                 {
-                    try
-                    {
-                        SBMI.BatteryData.ACPowerStatus = $"{SWUP.GetACPowerStatus()}";
-                        SBMI.BatteryData.SavingMode = SWUP.IsBatterySavingMode;
-                        SBMI.BatteryData.SaverStatus = $"{SWUP.GetBatterySaverStatus()}";
+                    SBMI.BatteryManagement = false;
 
-                        SBMI.BatteryData.LifePercent = SystemInformation.PowerStatus.BatteryLifePercent;
-                        SBMI.BatteryData.PowerLineStatus = SystemInformation.PowerStatus.PowerLineStatus;
-                        SBMI.BatteryData.FullLifetime = SystemInformation.PowerStatus.BatteryFullLifetime;
-                        SBMI.BatteryData.ChargeStatus = SystemInformation.PowerStatus.BatteryChargeStatus;
-                        SBMI.BatteryData.LifeRemaining = SystemInformation.PowerStatus.BatteryLifeRemaining;
-                    }
-                    catch (Exception Exception)
+                    _ = Task.Run(() =>
                     {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
-
-                _ = Task.Run(() =>
-                {
-                    try
-                    {
-                        if (SBMI.PingManagement)
+                        try
                         {
-                            SBMI.PingManagement = false;
+                            SBMI.BatteryData.ACPowerStatus = $"{SWUP.GetACPowerStatus()}";
+                            SBMI.BatteryData.SavingMode = SWUP.IsBatterySavingMode;
+                            SBMI.BatteryData.SaverStatus = $"{SWUP.GetBatterySaverStatus()}";
 
+                            SBMI.BatteryData.LifePercent = SystemInformation.PowerStatus.BatteryLifePercent;
+                            SBMI.BatteryData.PowerLineStatus = SystemInformation.PowerStatus.PowerLineStatus;
+                            SBMI.BatteryData.FullLifetime = SystemInformation.PowerStatus.BatteryFullLifetime;
+                            SBMI.BatteryData.ChargeStatus = SystemInformation.PowerStatus.BatteryChargeStatus;
+                            SBMI.BatteryData.LifeRemaining = SystemInformation.PowerStatus.BatteryLifeRemaining;
+
+                            SBMI.BatteryManagement = true;
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.BatteryManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SBMI.PingManagement)
+                {
+                    SBMI.PingManagement = false;
+
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
                             if (SSSHN.GetHostEntry())
                             {
                                 List<SSDSHS> Hosts = SSSHN.GetHost();
@@ -195,93 +205,118 @@ namespace Sucrose.Backgroundog.Helper
 
                             SBMI.PingManagement = true;
                         }
-                    }
-                    catch (Exception Exception)
-                    {
-                        SBMI.PingManagement = true;
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
-
-                _ = Task.Run(() =>
-                {
-                    try
-                    {
-                        string[] Interfaces = SSSHG.AllVideoController();
-
-                        SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, Interfaces);
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
-
-                _ = Task.Run(() =>
-                {
-                    try
-                    {
-                        string[] Interfaces = SSSHN.InstanceNetworkInterfaces();
-
-                        SMMI.SystemSettingManager.SetSetting(SMC.NetworkInterfaces, Interfaces);
-
-                        if (Interfaces.Contains(SMMM.NetworkAdapter))
+                        catch (Exception Exception)
                         {
-                            foreach (string Name in Interfaces)
+                            SBMI.PingManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SBMI.GraphicManagement)
+                {
+                    SBMI.GraphicManagement = false;
+
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
+                            string[] Interfaces = SSSHG.AllVideoController();
+
+                            SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, Interfaces);
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.GraphicManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SBMI.NetworkManagement)
+                {
+                    SBMI.NetworkManagement = false;
+
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
+                            SBMI.NetworkInterfaces = SSSHN.InstanceNetworkInterfaces();
+
+                            SMMI.SystemSettingManager.SetSetting(SMC.NetworkInterfaces, SBMI.NetworkInterfaces);
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.NetworkManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SBMI.NetworkInterfaces.Any())
+                {
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
+                            if (SBMI.NetworkInterfaces.Contains(SMMM.NetworkAdapter))
                             {
-                                if (SMMM.NetworkAdapter == Name)
+                                foreach (string Name in SBMI.NetworkInterfaces)
                                 {
-                                    if (SMMM.NetworkAdapter != SBMI.NetworkData.Name)
+                                    if (SMMM.NetworkAdapter == Name)
                                     {
-                                        SBMI.NetworkData.State = true;
-                                        SBMI.NetworkData.Name = SMMM.NetworkAdapter;
+                                        if (SMMM.NetworkAdapter != SBMI.NetworkData.Name)
+                                        {
+                                            SBMI.NetworkData.State = true;
+                                            SBMI.NetworkData.Name = SMMM.NetworkAdapter;
 
-                                        SBMI.UploadCounter = new("Network Interface", "Bytes Sent/sec", Name);
-                                        SBMI.DownloadCounter = new("Network Interface", "Bytes Received/sec", Name);
+                                            SBMI.UploadCounter = new("Network Interface", "Bytes Sent/sec", Name);
+                                            SBMI.DownloadCounter = new("Network Interface", "Bytes Received/sec", Name);
+                                        }
+
+                                        if (SBMI.UploadCounter != null)
+                                        {
+                                            SBMI.NetworkData.Upload = SBMI.UploadCounter.NextValue();
+
+                                            SBMI.NetworkData.UploadData = SSESSE.AutoConvert(SBMI.NetworkData.Upload, SEST.Byte, SEMST.Palila);
+
+                                            SBMI.NetworkData.FormatUploadData = SHN.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', SECNT.None) + " " + SBMI.NetworkData.UploadData.Text;
+                                        }
+
+                                        if (SBMI.DownloadCounter != null)
+                                        {
+                                            SBMI.NetworkData.Download = SBMI.DownloadCounter.NextValue();
+
+                                            SBMI.NetworkData.DownloadData = SSESSE.AutoConvert(SBMI.NetworkData.Download, SEST.Byte, SEMST.Palila);
+
+                                            SBMI.NetworkData.FormatDownloadData = SHN.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', SECNT.None) + " " + SBMI.NetworkData.DownloadData.Text;
+                                        }
+
+                                        break;
                                     }
-
-                                    if (SBMI.UploadCounter != null)
-                                    {
-                                        SBMI.NetworkData.Upload = SBMI.UploadCounter.NextValue();
-
-                                        SBMI.NetworkData.UploadData = SSESSE.AutoConvert(SBMI.NetworkData.Upload, SEST.Byte, SEMST.Palila);
-
-                                        SBMI.NetworkData.FormatUploadData = SHN.Numeral(SBMI.NetworkData.UploadData.Value, true, true, 2, '0', SECNT.None) + " " + SBMI.NetworkData.UploadData.Text;
-                                    }
-
-                                    if (SBMI.DownloadCounter != null)
-                                    {
-                                        SBMI.NetworkData.Download = SBMI.DownloadCounter.NextValue();
-
-                                        SBMI.NetworkData.DownloadData = SSESSE.AutoConvert(SBMI.NetworkData.Download, SEST.Byte, SEMST.Palila);
-
-                                        SBMI.NetworkData.FormatDownloadData = SHN.Numeral(SBMI.NetworkData.DownloadData.Value, true, true, 2, '0', SECNT.None) + " " + SBMI.NetworkData.DownloadData.Text;
-                                    }
-
-                                    break;
                                 }
                             }
+                            else
+                            {
+                                SBMI.NetworkData.State = false;
+                                SBMI.NetworkData.Name = SMMM.NetworkAdapter;
+                            }
                         }
-                        else
+                        catch (Exception Exception)
                         {
-                            SBMI.NetworkData.State = false;
-                            SBMI.NetworkData.Name = SMMM.NetworkAdapter;
+                            SSWW.Watch_CatchException(Exception);
                         }
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (SBMI.MotherboardManagement)
                 {
-                    try
-                    {
-                        if (SBMI.MotherboardManagement)
-                        {
-                            SBMI.MotherboardManagement = false;
+                    SBMI.MotherboardManagement = false;
 
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
                             ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_BaseBoard");
 
                             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
@@ -294,78 +329,116 @@ namespace Sucrose.Backgroundog.Helper
                                 break;
                             }
                         }
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
-
-                _ = Task.Run(() =>
-                {
-                    try
-                    {
-                        IntPtr Foreground = SWNM.GetForegroundWindow();
-
-                        StringBuilder Class = new(256);
-                        SWNM.GetClassName((int)Foreground, Class, 256);
-
-                        if (!SBMI.FocusDesktop)
+                        catch (Exception Exception)
                         {
-                            foreach (SSMMS Screen in SWUS.Screens)
-                            {
-                                if (SWHF.IsFullscreen(Foreground, Screen.rcMonitor))
-                                {
-                                    SBMI.Fullscreen = true;
+                            SBMI.MotherboardManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
 
-                                    return;
+                if (SBMI.FullscreenManagement)
+                {
+                    SBMI.FullscreenManagement = false;
+
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
+                            IntPtr Foreground = SWNM.GetForegroundWindow();
+
+                            StringBuilder Class = new(256);
+                            SWNM.GetClassName((int)Foreground, Class, 256);
+
+                            if (!SBMI.FocusDesktop)
+                            {
+                                foreach (SSMMS Screen in SWUS.Screens)
+                                {
+                                    if (SWHF.IsFullscreen(Foreground, Screen.rcMonitor))
+                                    {
+                                        SBMI.FullscreenManagement = true;
+
+                                        SBMI.Fullscreen = true;
+
+                                        return;
+                                    }
                                 }
                             }
+
+                            SBMI.Fullscreen = false;
+                            SBMI.FullscreenManagement = true;
                         }
+                        catch (Exception Exception)
+                        {
+                            SBMI.FullscreenManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
 
-                        SBMI.Fullscreen = false;
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
-
-                _ = Task.Run(() =>
+                if (SBMI.VirtualityManagement)
                 {
-                    try
-                    {
-                        SBMI.Virtuality = SBEV.VirtualityActive();
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
+                    SBMI.VirtualityManagement = false;
 
-                _ = Task.Run(() =>
-                {
-                    try
+                    _ = Task.Run(async () =>
                     {
-                        SBMI.FocusDesktop = SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
-                    }
-                    catch (Exception Exception)
-                    {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
+                        try
+                        {
+                            SBMI.Virtuality = SBEV.VirtualityActive();
 
-                _ = Task.Run(() =>
+                            await Task.Delay(SBMI.InitializeTime * 8);
+
+                            SBMI.VirtualityManagement = true;
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.VirtualityManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SBMI.FocusManagement)
                 {
-                    try
+                    SBMI.FocusManagement = false;
+
+                    _ = Task.Run(() =>
                     {
-                        SBMI.RemoteDesktop = SBER.DesktopActive();
-                    }
-                    catch (Exception Exception)
+                        try
+                        {
+                            SBMI.FocusDesktop = SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
+
+                            SBMI.FocusManagement = true;
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.FocusManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SBMI.RemoteManagement)
+                {
+                    SBMI.RemoteManagement = false;
+
+                    _ = Task.Run(async () =>
                     {
-                        SSWW.Watch_CatchException(Exception);
-                    }
-                });
+                        try
+                        {
+                            SBMI.RemoteDesktop = SBER.DesktopActive();
+
+                            await Task.Delay(SBMI.InitializeTime * 8);
+
+                            SBMI.RemoteManagement = true;
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.RemoteManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
 
                 _ = Task.Run(() =>
                 {
@@ -381,7 +454,7 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     try
                                     {
-                                        Hardware.Update();
+                                        //Hardware.Update();
 
                                         foreach (ISensor Sensor in Hardware.Sensors)
                                         {
@@ -409,7 +482,7 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     try
                                     {
-                                        Hardware.Update();
+                                        //Hardware.Update();
 
                                         SBMI.MemoryData.State = true;
                                         SBMI.MemoryData.Name = Hardware.Name;
@@ -453,7 +526,7 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     try
                                     {
-                                        Hardware.Update();
+                                        //Hardware.Update();
 
                                         if (Hardware.Sensors.Any())
                                         {
@@ -528,7 +601,7 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     try
                                     {
-                                        Hardware.Update();
+                                        //Hardware.Update();
 
                                         SBMI.MotherboardData.State = true;
                                         SBMI.MotherboardData.Name = Hardware.Name;
@@ -545,16 +618,16 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     try
                                     {
-                                        Hardware.Update();
+                                        //Hardware.Update();
 
                                         List<SBSSSS> Sensors = new()
-                                    {
-                                        new SBSSSS
                                         {
-                                            Name = Hardware.Name,
-                                            Type = $"{Hardware.HardwareType}"
-                                        }
-                                    };
+                                            new SBSSSS
+                                            {
+                                                Name = Hardware.Name,
+                                                Type = $"{Hardware.HardwareType}"
+                                            }
+                                        };
 
                                         foreach (ISensor Sensor in Hardware.Sensors)
                                         {
