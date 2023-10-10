@@ -21,6 +21,9 @@
     
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Please enter a personal access token</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Please enter a valid personal access token</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Update Channel</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">The channel through which updates will or will not be performed.</system:String>
     
     <system:String x:Key="Portal.OtherSettingPage.Update">Update Method</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">The method used for the update process.</system:String>

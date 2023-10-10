@@ -22,6 +22,9 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Veuillez entrer un jeton d'accès personnel</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Veuillez entrer un jeton d'accès personnel valide</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Mise à Jour</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Le canal par lequel les mises à jour seront effectuées ou non.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Update">Méthode de Mise à Jour</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">La méthode utilisée pour le processus de mise à jour.</system:String>
 

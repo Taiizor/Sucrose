@@ -8,6 +8,7 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
@@ -47,6 +48,8 @@ namespace Sucrose.Portal.Manage
         public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
 
         public static SSCEUT UpdateType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
+
+        public static SSCECT ChannelType => SMMI.UpdateSettingManager.GetSetting(SMC.ChannelType, SSCECT.Release);
 
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 

@@ -60,6 +60,8 @@
 
         public const string UpdateType = "UpdateType";
 
+        public const string ChannelType = "ChannelType";
+
         public const string MemoryUsage = "MemoryUsage";
 
         public const string LibraryMove = "LibraryMove";

@@ -23,6 +23,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Z Kartami</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akryl</system:String>
 
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Domyślny</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Deweloper</system:String>
+
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Domyślny</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Skompresowany</system:String>

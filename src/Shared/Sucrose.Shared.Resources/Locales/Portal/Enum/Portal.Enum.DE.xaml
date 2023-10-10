@@ -23,6 +23,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Gestuft</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acryl</system:String>
 
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Standard</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Entwickler</system:String>
+
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standard</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Komprimiert</system:String>

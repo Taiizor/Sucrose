@@ -23,6 +23,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Con Pestañas</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrílico</system:String>
 
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Por Defecto</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Desarrollador</system:String>
+
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Por Defecto</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Comprimido</system:String>

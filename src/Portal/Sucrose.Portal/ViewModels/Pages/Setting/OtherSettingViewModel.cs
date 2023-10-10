@@ -11,6 +11,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
+using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
@@ -221,6 +222,31 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(UpdateArea);
 
+            SPVCEC Channel = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Channel.LeftIcon.Symbol = SymbolRegular.ChannelShare24;
+            Channel.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Channel");
+            Channel.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Channel", "Description");
+
+            ComboBox ChannelType = new();
+
+            ChannelType.SelectionChanged += (s, e) => ChannelTypeSelected(ChannelType.SelectedIndex);
+
+            foreach (SSCECT Type in Enum.GetValues(typeof(SSCECT)))
+            {
+                ChannelType.Items.Add(SSRER.GetValue("Portal", "Enum", "ChannelType", $"{Type}"));
+            }
+
+            ChannelType.SelectedIndex = (int)SPMM.ChannelType;
+
+            Channel.HeaderFrame = ChannelType;
+
+            Contents.Add(Channel);
+
             SPVCEC Update = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
@@ -364,6 +390,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSCEUT Type = (SSCEUT)Index;
 
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdateType, Type);
+            }
+        }
+
+        private void ChannelTypeSelected(int Index)
+        {
+            if (Index != (int)SPMM.ChannelType)
+            {
+                SSCECT Type = (SSCECT)Index;
+
+                SMMI.UpdateSettingManager.SetSetting(SMC.ChannelType, Type);
             }
         }
 

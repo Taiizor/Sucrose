@@ -22,6 +22,9 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Proszę wprowadzić osobisty token dostępu</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Proszę wprowadzić prawidłowy osobisty token dostępu</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Kanał Aktualizacji</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Kanał, przez który będą lub nie będą wykonywane aktualizacje.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Update">Metoda Aktualizacji</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">Metoda używana w procesie aktualizacji.</system:String>
 
