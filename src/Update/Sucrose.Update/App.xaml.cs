@@ -262,6 +262,7 @@ namespace Sucrose.Update
                                     SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
                                     SUMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
                                     SUMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
+                                    SUMI.DownloadService.ChunkDownloadProgressChanged += OnChunkDownloadProgressChanged;
 
                                     await SUMI.DownloadService.DownloadFileTaskAsync(SUMI.Source, Bundle);
 
@@ -414,6 +415,11 @@ namespace Sucrose.Update
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdatePercentage, Percentage);
             }
 
+            UpdateLimit();
+        }
+
+        private static void OnChunkDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
             UpdateLimit();
         }
     }

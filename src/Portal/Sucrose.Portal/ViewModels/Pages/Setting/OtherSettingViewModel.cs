@@ -284,7 +284,22 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SEST Type in Enum.GetValues(typeof(SEST)))
             {
-                UpdateLimitType.Items.Add(Type);
+                if (Type >= SEST.Megabyte)
+                {
+                    UpdateLimitType.Items.Add(new ComboBoxItem()
+                    {
+                        IsEnabled = true,
+                        Content = Type
+                    });
+                }
+                else
+                {
+                    UpdateLimitType.Items.Add(new ComboBoxItem()
+                    {
+                        IsEnabled = false,
+                        Content = Type
+                    });
+                }
             }
 
             UpdateLimitType.SelectedIndex = (int)SMMM.DownloadType;

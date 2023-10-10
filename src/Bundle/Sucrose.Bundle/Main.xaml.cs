@@ -114,8 +114,8 @@ namespace Sucrose.Bundle
                 FileName = Executable,
                 CreateNoWindow = true,
                 UseShellExecute = false,
-                RedirectStandardError = true,
-                RedirectStandardOutput = true
+                RedirectStandardError = false,
+                RedirectStandardOutput = false
             };
 
             using (Process Installer = new())
@@ -197,8 +197,6 @@ namespace Sucrose.Bundle
             }
 
             await Task.Delay(MinDelay);
-
-            await Task.CompletedTask;
         }
 
         private static async Task ExtractResources(string SourcePath, string ExtractPath)
