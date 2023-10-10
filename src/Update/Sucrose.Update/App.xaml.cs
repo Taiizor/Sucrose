@@ -15,6 +15,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -217,72 +218,84 @@ namespace Sucrose.Update
 
                 if (Releases.Any())
                 {
-                    SSIIR Release = Releases.First();
+                    SSIIR Release = Release = Releases.FirstOrDefault();
 
-                    Version Current = new(SSCHV.GetText());
-                    Version Latest = SHV.Clear(Release.TagName);
-
-                    if (SHV.Compare(Current, Latest) == SEVT.Latest)
+                    if (SUMM.ChannelType == SSCECT.Release)
                     {
-                        List<SSIIA> Assets = Release.Assets;
+                        Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
+                    }
 
-                        if (Assets.Any())
+                    if (Release == null)
+                    {
+                        Info(SSDEUT.Channel);
+                    }
+                    else
+                    {
+                        Version Current = new(SSCHV.GetText());
+                        Version Latest = SHV.Clear(Release.TagName);
+
+                        if (SHV.Compare(Current, Latest) == SEVT.Latest)
                         {
-                            foreach (SSIIA Asset in Assets)
+                            List<SSIIA> Assets = Release.Assets;
+
+                            if (Assets.Any())
                             {
-                                string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMI.UpdateType)}";
-
-                                string[] Required =
+                                foreach (SSIIA Asset in Assets)
                                 {
-                                    SSCHU.GetDescription(SUMI.UpdateType),
-                                    SSCHF.GetDescription(),
-                                    SSCHA.GetText(),
-                                    $"{Latest}",
-                                    SMR.AppName,
-                                    SMR.Bundle
-                                };
+                                    string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMI.UpdateType)}";
 
-                                if (Asset.Name.Contains(Name) && Required.All(Asset.Name.Contains))
-                                {
-                                    Info(SSDEUT.Updating);
-
-                                    SUMI.Source = Asset.BrowserDownloadUrl;
-
-                                    Bundle = Path.Combine(SUMM.CachePath, Path.GetFileName(SUMI.Source));
-
-                                    if (File.Exists(Bundle))
+                                    string[] Required =
                                     {
-                                        File.Delete(Bundle);
+                                        SSCHU.GetDescription(SUMI.UpdateType),
+                                        SSCHF.GetDescription(),
+                                        SSCHA.GetText(),
+                                        $"{Latest}",
+                                        SMR.AppName,
+                                        SMR.Bundle
+                                    };
+
+                                    if (Asset.Name.Contains(Name) && Required.All(Asset.Name.Contains))
+                                    {
+                                        Info(SSDEUT.Updating);
+
+                                        SUMI.Source = Asset.BrowserDownloadUrl;
+
+                                        Bundle = Path.Combine(SUMM.CachePath, Path.GetFileName(SUMI.Source));
+
+                                        if (File.Exists(Bundle))
+                                        {
+                                            File.Delete(Bundle);
+                                        }
+
+                                        UpdateLimit();
+
+                                        SUMI.DownloadService = new(SUMI.DownloadConfiguration);
+
+                                        SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
+                                        SUMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
+                                        SUMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
+                                        SUMI.DownloadService.ChunkDownloadProgressChanged += OnChunkDownloadProgressChanged;
+
+                                        await SUMI.DownloadService.DownloadFileTaskAsync(SUMI.Source, Bundle);
+
+                                        break;
                                     }
+                                }
 
-                                    UpdateLimit();
-
-                                    SUMI.DownloadService = new(SUMI.DownloadConfiguration);
-
-                                    SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
-                                    SUMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
-                                    SUMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
-                                    SUMI.DownloadService.ChunkDownloadProgressChanged += OnChunkDownloadProgressChanged;
-
-                                    await SUMI.DownloadService.DownloadFileTaskAsync(SUMI.Source, Bundle);
-
-                                    break;
+                                if (string.IsNullOrEmpty(Bundle))
+                                {
+                                    Info(SSDEUT.Condition);
                                 }
                             }
-
-                            if (string.IsNullOrEmpty(Bundle))
+                            else
                             {
-                                Info(SSDEUT.Condition);
+                                Info(SSDEUT.Empty);
                             }
                         }
                         else
                         {
-                            Info(SSDEUT.Empty);
+                            Info(SSDEUT.Update);
                         }
-                    }
-                    else
-                    {
-                        Info(SSDEUT.Update);
                     }
                 }
                 else

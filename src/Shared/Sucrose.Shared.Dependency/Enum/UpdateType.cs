@@ -6,6 +6,7 @@
         Error,
         Update,
         Status,
+        Channel,
         Extract,
         Network,
         Updating,

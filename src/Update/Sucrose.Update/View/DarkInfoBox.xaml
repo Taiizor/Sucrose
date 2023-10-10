@@ -66,6 +66,7 @@
                 <Image x:Name="Cloud_Image" Source="pack://application:,,,/Assets/Icon/Cloud.png" Visibility="Hidden" />
                 <Image x:Name="Warn_Image" Source="pack://application:,,,/Assets/Icon/Warn.png" Visibility="Hidden" />
                 <Image x:Name="Info_Image" Source="pack://application:,,,/Assets/Icon/Info.png" Visibility="Hidden" />
+                <Image x:Name="Lost_Image" Source="pack://application:,,,/Assets/Icon/Lost.png" Visibility="Hidden" />
                 <Image x:Name="Bang_Image" Source="pack://application:,,,/Assets/Icon/Bang.png" Visibility="Hidden" />
                 <Image x:Name="Sad_Image" Source="pack://application:,,,/Assets/Icon/Sad.png" Visibility="Hidden" />
             </Grid>

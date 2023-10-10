@@ -28,6 +28,9 @@ namespace Sucrose.Update.View
                 case SSDEUT.Status:
                     Warn_Image.Visibility = Visibility.Visible;
                     break;
+                case SSDEUT.Channel:
+                    Lost_Image.Visibility = Visibility.Visible;
+                    break;
                 case SSDEUT.Extract:
                     Bang_Image.Visibility = Visibility.Visible;
                     break;
