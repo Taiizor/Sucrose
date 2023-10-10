@@ -23,8 +23,6 @@ namespace Sucrose.Backgroundog.Helper
     {
         public static async Task Start()
         {
-            Console.WriteLine("Performance");
-
             if (await CpuPerformance())
             {
                 return;

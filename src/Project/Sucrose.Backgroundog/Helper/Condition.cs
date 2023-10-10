@@ -23,8 +23,6 @@ namespace Sucrose.Backgroundog.Helper
     {
         public static async Task Start()
         {
-            Console.WriteLine("Condition");
-
             if (SBMI.Performance == SSDEPT.Pause && ((SBMI.App != null && SBMI.App.HasExited) || (SBMI.Live != null && SBMI.Live.HasExited)))
             {
                 SBMI.Condition = false;

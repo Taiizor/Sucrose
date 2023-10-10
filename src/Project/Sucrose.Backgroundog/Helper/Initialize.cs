@@ -34,7 +34,6 @@ namespace Sucrose.Backgroundog.Helper
             if (SBMI.Processing)
             {
                 SBMI.Processing = false;
-                Console.WriteLine("Callback");
 
                 if (SSSHL.Run() && !SBMI.Condition)
                 {

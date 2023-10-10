@@ -323,8 +323,8 @@ namespace Sucrose.Backgroundog.Helper
                             {
                                 SBMI.MotherboardData.State = true;
                                 SBMI.MotherboardData.Product = Object["Product"].ToString();
-                                SBMI.MotherboardData.Version = Object["Version"].ToString();
                                 SBMI.MotherboardData.Manufacturer = Object["Manufacturer"].ToString();
+                                SBMI.MotherboardData.Version = Object["Version"].ToString().TrimStart().TrimEnd();
 
                                 break;
                             }

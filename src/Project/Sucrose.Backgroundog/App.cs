@@ -25,8 +25,6 @@ namespace Sucrose.Backgroundog
 
                 if (SSSHI.Basic(SMR.BackgroundogMutex, SMR.Backgroundog))
                 {
-                    Console.WriteLine("Start");
-
                     SGSGSS.ServerCreate(SGCB.BindService(new SSSSBSS()));
 
                     SMMI.BackgroundogSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
@@ -47,8 +45,6 @@ namespace Sucrose.Backgroundog
 
                     SGSGSS.ServerInstance.KillAsync().Wait();
                     //SGSGSS.ServerInstance.ShutdownAsync().Wait();
-
-                    Console.WriteLine("Stop");
                 }
             }
             catch (Exception Exception)
