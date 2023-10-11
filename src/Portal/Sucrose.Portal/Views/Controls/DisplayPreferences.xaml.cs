@@ -58,6 +58,8 @@ namespace Sucrose.Portal.Views.Controls
         {
             Contents.Children.Clear();
 
+            SWUS.Initialize();
+
             int ScreenCount = SWUS.Screens.Count();
 
             if (SMMM.ScreenIndex > ScreenCount - 1)
@@ -104,6 +106,8 @@ namespace Sucrose.Portal.Views.Controls
         {
             Contents.Children.Clear();
 
+            SWUS.Initialize();
+
             for (int Count = 0; Count < SWUS.Screens.Count(); Count++)
             {
                 SPVCDD Duplicate = new();
@@ -138,6 +142,8 @@ namespace Sucrose.Portal.Views.Controls
                     }
                 }
             }
+
+            Restart();
         }
 
         private async void ScreenChecked()
