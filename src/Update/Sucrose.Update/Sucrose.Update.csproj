@@ -69,9 +69,9 @@
     
     <ItemGroup>
         <PackageReference Include="Downloader" Version="3.0.6" />
-        <PackageReference Include="Skylark.Wing" Version="3.1.1.4" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.1.5" />
         <PackageReference Include="SharpCompress" Version="0.34.1" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.1.8" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.1.9" />
     </ItemGroup>
     
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
