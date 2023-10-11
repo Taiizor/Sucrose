@@ -8,6 +8,7 @@ using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBEV = Sucrose.Backgroundog.Extension.Virtual;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
+using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SBSSSS = Sucrose.Backgroundog.Struct.Sensor.SensorStruct;
 using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
@@ -16,6 +17,8 @@ using SHN = Skylark.Helper.Numeric;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
+using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
@@ -352,6 +355,8 @@ namespace Sucrose.Backgroundog.Helper
 
                             if (!SBMI.FocusDesktop)
                             {
+                                SWUS.Initialize();
+
                                 foreach (SSMMS Screen in SWUS.Screens)
                                 {
                                     if (SWHF.IsFullscreen(Foreground, Screen.rcMonitor))
@@ -376,7 +381,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.VirtualityManagement)
+                if (SBMI.VirtualityManagement && (SBMM.VirtualPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Virtual))
                 {
                     SBMI.VirtualityManagement = false;
 
@@ -386,7 +391,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.Virtuality = SBEV.VirtualityActive();
 
-                            await Task.Delay(SBMI.InitializeTime * 8);
+                            await Task.Delay(SBMI.InitializeTime * 4);
 
                             SBMI.VirtualityManagement = true;
                         }
@@ -418,7 +423,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.RemoteManagement)
+                if (SBMI.RemoteManagement && (SBMM.RemotePerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Remote))
                 {
                     SBMI.RemoteManagement = false;
 
@@ -428,7 +433,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.RemoteDesktop = SBER.DesktopActive();
 
-                            await Task.Delay(SBMI.InitializeTime * 8);
+                            await Task.Delay(SBMI.InitializeTime * 4);
 
                             SBMI.RemoteManagement = true;
                         }

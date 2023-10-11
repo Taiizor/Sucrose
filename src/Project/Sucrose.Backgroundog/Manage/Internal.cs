@@ -22,7 +22,7 @@ namespace Sucrose.Backgroundog.Manage
     {
         public static bool Exit = true;
 
-        public static int AppTime = 250;
+        public static int AppTime = 1000;
 
         public static Process App = null;
 
@@ -38,7 +38,7 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool Virtuality = false;
 
-        public static int InitializeTime = 250;
+        public static int InitializeTime = 500;
 
         public static bool FocusDesktop = false;
 

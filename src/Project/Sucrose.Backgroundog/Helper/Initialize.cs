@@ -14,6 +14,7 @@ namespace Sucrose.Backgroundog.Helper
         public void Start()
         {
             SBMI.Computer.Open();
+
             TimerCallback Callback = InitializeTimer_Callback;
             SBMI.InitializeTimer = new(Callback, null, 0, SBMI.InitializeTime);
 

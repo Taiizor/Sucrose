@@ -44,6 +44,7 @@ namespace Sucrose.Backgroundog.Extension
                         {
                             ThumbnailString = SBET.Create(Thumbnail);
                             Thumbnail.Flush();
+                            Thumbnail.Dispose();
                         }
                     }
 
