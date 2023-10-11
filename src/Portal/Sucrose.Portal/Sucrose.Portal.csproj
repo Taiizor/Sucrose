@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -79,8 +79,8 @@
         <!-- .NET 6-7 x64 x86 (Probably on ARM64) -->
         <!-- Could not load file or assembly 'System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' -->
         <!-- Could not load file or assembly 'System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' -->
-        <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-        <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net6'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.2.23479.6" />
+        <PackageReference Condition="$(TargetFramework.StartsWith('net7'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.2.23479.6" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net8'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.2.23479.6" />
         <PackageReference Condition="$(TargetFramework.StartsWith('net48'))" Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.2.23479.6" />
     </ItemGroup>
