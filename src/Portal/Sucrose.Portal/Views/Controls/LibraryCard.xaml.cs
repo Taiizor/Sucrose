@@ -221,24 +221,32 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void LibraryCard_Loaded(object sender, RoutedEventArgs e)
+        private async void LibraryCard_Loaded(object sender, RoutedEventArgs e)
         {
-            UpdateInfo();
-
-            if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
             {
-                ThemeMore.Visibility = Visibility.Collapsed;
-                IncompatibleVersion.Visibility = Visibility.Visible;
-            }
+                UpdateInfo();
 
-            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
+                if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+                {
+                    ThemeMore.Visibility = Visibility.Collapsed;
+                    IncompatibleVersion.Visibility = Visibility.Visible;
+                }
 
-            if (File.Exists(ImagePath))
-            {
-                Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
-            }
+                string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 
-            Dispose();
+                if (File.Exists(ImagePath))
+                {
+                    Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
+                }
+
+                await Task.Delay(100);
+
+                Card.Visibility = Visibility.Visible;
+                Progress.Visibility = Visibility.Collapsed;
+
+                Dispose();
+            });
         }
 
         private void LibraryCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

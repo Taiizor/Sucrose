@@ -160,6 +160,11 @@ namespace Sucrose.Shared.Space.Helper
 
         private static string Parse(string Arguments)
         {
+            if (string.IsNullOrEmpty(Arguments))
+            {
+                Arguments = string.Empty;
+            }
+
             if (!Arguments.StartsWith("\""))
             {
                 Arguments = $"\"{Arguments}";
@@ -171,6 +176,11 @@ namespace Sucrose.Shared.Space.Helper
             }
 
             return Arguments;
+        }
+
+        private static string Parse2(string Arguments)
+        {
+            return $"\"{Arguments.Trim('\"')}\"";
         }
     }
 }

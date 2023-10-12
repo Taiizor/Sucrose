@@ -39,28 +39,38 @@
         </Border.Effect>
 
         <Grid>
-            <Grid.Background>
-                <ImageBrush x:Name="Imagine" Stretch="UniformToFill" ImageSource="{x:Null}" />
-            </Grid.Background>
-
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+            <Grid x:Name="Progress">
                 <Grid.Background>
-                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75" />
+                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.5" />
                 </Grid.Background>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
 
-                <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="{DynamicResource Portal.LibraryCard.TitleText}" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
-                <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="{DynamicResource Portal.LibraryCard.DescriptionText}" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
+                <ui:ProgressRing IsIndeterminate="True" Width="160" Height="160" />
+            </Grid>
 
-                <ui:Button x:Name="ThemeMore" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeMore_Click" Content="•••" ToolTipService.ToolTip="{DynamicResource Portal.LibraryCard.MoreTip}" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
-                <ui:Button x:Name="IncompatibleVersion" Visibility="Collapsed" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" FontSize="17" Content="{ui:SymbolIcon BoxDismiss24}" ToolTipService.ToolTip="{DynamicResource Portal.LibraryCard.VersionTip}" Foreground="{DynamicResource PaletteRedBrush}" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+            <Grid x:Name="Card" Visibility="Hidden">
+                <Grid.Background>
+                    <ImageBrush x:Name="Imagine" Stretch="UniformToFill" ImageSource="{x:Null}" />
+                </Grid.Background>
+
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75" />
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="{DynamicResource Portal.LibraryCard.TitleText}" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
+                    <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="{DynamicResource Portal.LibraryCard.DescriptionText}" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
+
+                    <ui:Button x:Name="ThemeMore" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Click="ThemeMore_Click" Content="•••" ToolTipService.ToolTip="{DynamicResource Portal.LibraryCard.MoreTip}" Cursor="Hand" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                    <ui:Button x:Name="IncompatibleVersion" Visibility="Collapsed" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" FontSize="17" Content="{ui:SymbolIcon BoxDismiss24}" ToolTipService.ToolTip="{DynamicResource Portal.LibraryCard.VersionTip}" Foreground="{DynamicResource PaletteRedBrush}" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                </Grid>
             </Grid>
         </Grid>
     </Border>
