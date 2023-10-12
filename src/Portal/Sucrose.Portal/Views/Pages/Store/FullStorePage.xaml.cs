@@ -136,56 +136,59 @@ namespace Sucrose.Portal.Views.Pages.Store
 
         private async Task AddThemes(int Page, string Text, string Tag)
         {
-            int Count = 0;
-
-            PageScroll.ScrollToVerticalOffset(0);
-
-            ThemePagination.Visibility = Visibility.Collapsed;
-
-            foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
+            await Application.Current.Dispatcher.InvokeAsync(async () =>
             {
-                if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.Key == SPMI.CategoryService.CategoryTag)
+                int Count = 0;
+
+                PageScroll.ScrollToVerticalOffset(0);
+
+                ThemePagination.Visibility = Visibility.Collapsed;
+
+                foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
                 {
-                    foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
+                    if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.Key == SPMI.CategoryService.CategoryTag)
                     {
-                        if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMM.Adult))
+                        foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
                         {
-                            string Title = Wallpaper.Key.ToLowerInvariant();
-                            string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
-
-                            if (SearchControl(Text, Theme, Title))
+                            if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMM.Adult))
                             {
-                                if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchText == Text)
+                                string Title = Wallpaper.Key.ToLowerInvariant();
+                                string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
+
+                                if (SearchControl(Text, Theme, Title))
                                 {
-                                    if (SMMM.StorePagination * Page > Count && SMMM.StorePagination * Page <= Count + SMMM.StorePagination)
+                                    if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchText == Text)
                                     {
-                                        SPVCSC StoreCard = new(Theme, Wallpaper, SMMM.UserAgent, SMMM.Key);
+                                        if (SMMM.StorePagination * Page > Count && SMMM.StorePagination * Page <= Count + SMMM.StorePagination)
+                                        {
+                                            SPVCSC StoreCard = new(Theme, Wallpaper, SMMM.UserAgent, SMMM.Key);
 
-                                        ThemeStore.Children.Add(StoreCard);
+                                            ThemeStore.Children.Add(StoreCard);
 
-                                        Empty.Visibility = Visibility.Collapsed;
+                                            Empty.Visibility = Visibility.Collapsed;
 
-                                        await Task.Delay(50);
+                                            await Task.Delay(50);
+                                        }
+
+                                        Count++;
                                     }
-
-                                    Count++;
-                                }
-                                else
-                                {
-                                    break;
+                                    else
+                                    {
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            if (ThemeStore.Children.Count <= 0)
-            {
-                Empty.Visibility = Visibility.Visible;
-            }
+                if (ThemeStore.Children.Count <= 0)
+                {
+                    Empty.Visibility = Visibility.Visible;
+                }
 
-            ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMM.StorePagination);
+                ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMM.StorePagination);
+            });
         }
 
         private bool SearchControl(string Search, string Theme, string Title)

@@ -209,26 +209,6 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void LibraryCard_Loaded(object sender, RoutedEventArgs e)
-        {
-            UpdateInfo();
-
-            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
-
-            if (File.Exists(ImagePath))
-            {
-                Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
-            }
-
-            if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
-            {
-                ThemeMore.Visibility = Visibility.Collapsed;
-                IncompatibleVersion.Visibility = Visibility.Visible;
-            }
-
-            Dispose();
-        }
-
         private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
             if ((SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
@@ -239,6 +219,26 @@ namespace Sucrose.Portal.Views.Controls
             {
                 Cursor = Cursors.Hand;
             }
+        }
+
+        private void LibraryCard_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateInfo();
+
+            if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+            {
+                ThemeMore.Visibility = Visibility.Collapsed;
+                IncompatibleVersion.Visibility = Visibility.Visible;
+            }
+
+            string ImagePath = Path.Combine(Theme, Info.Thumbnail);
+
+            if (File.Exists(ImagePath))
+            {
+                Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
+            }
+
+            Dispose();
         }
 
         private void LibraryCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
