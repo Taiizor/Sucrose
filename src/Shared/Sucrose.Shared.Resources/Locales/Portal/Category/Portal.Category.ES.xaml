@@ -47,9 +47,11 @@
     <system:String x:Key="Portal.Category.Space">Espacio</system:String>
     <system:String x:Key="Portal.Category.Sports">Deportes</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Superhéroes</system:String>
+    <system:String x:Key="Portal.Category.System">Sistema</system:String>
     <system:String x:Key="Portal.Category.Tavern">Taberna</system:String>
     <system:String x:Key="Portal.Category.Technology">Tecnología</system:String>
     <system:String x:Key="Portal.Category.Temple">Templo</system:String>
+    <system:String x:Key="Portal.Category.Time">Tiempo</system:String>
     <system:String x:Key="Portal.Category.UnderwaterandMarine">Bajo el Agua y Marino</system:String>
     <system:String x:Key="Portal.Category.Vehicles">Vehículos</system:String>
     <system:String x:Key="Portal.Category.Vintage">Vintage</system:String>

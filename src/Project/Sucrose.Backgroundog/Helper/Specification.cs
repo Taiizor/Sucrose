@@ -391,7 +391,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.Virtuality = SBEV.VirtualityActive();
 
-                            await Task.Delay(SBMI.InitializeTime * 4);
+                            await Task.Delay(SBMI.InitializeTime * 8);
 
                             SBMI.VirtualityManagement = true;
                         }
@@ -433,7 +433,7 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.RemoteDesktop = SBER.DesktopActive();
 
-                            await Task.Delay(SBMI.InitializeTime * 4);
+                            await Task.Delay(SBMI.InitializeTime * 8);
 
                             SBMI.RemoteManagement = true;
                         }

@@ -38,7 +38,7 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool Virtuality = false;
 
-        public static int InitializeTime = 500;
+        public static int InitializeTime = 250;
 
         public static bool FocusDesktop = false;
 
