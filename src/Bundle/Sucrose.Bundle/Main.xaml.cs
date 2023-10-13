@@ -161,37 +161,43 @@ namespace Sucrose.Bundle
             {
                 string[] Files = Directory.GetFiles(Location, "*", SearchOption.AllDirectories);
 
-                foreach (string Record in Files)
+                if (Files.Any())
                 {
-                    if (Path.GetFileName(Record) == TemporaryFile)
+                    foreach (string Record in Files)
                     {
-                        try
+                        if (Path.GetFileName(Record) == TemporaryFile)
+                        {
+                            try
+                            {
+                                File.Delete(Record);
+                            }
+                            catch { }
+                        }
+                        else
                         {
                             File.Delete(Record);
                         }
-                        catch { }
-                    }
-                    else
-                    {
-                        File.Delete(Record);
                     }
                 }
 
                 string[] Folders = Directory.GetDirectories(Location);
 
-                foreach (string Record in Folders)
+                if (Folders.Any())
                 {
-                    if (Path.GetFileName(Record) == TemporaryFolder)
+                    foreach (string Record in Folders)
                     {
-                        try
+                        if (Path.GetFileName(Record) == TemporaryFolder)
+                        {
+                            try
+                            {
+                                Directory.Delete(Record, true);
+                            }
+                            catch { }
+                        }
+                        else
                         {
                             Directory.Delete(Record, true);
                         }
-                        catch { }
-                    }
-                    else
-                    {
-                        Directory.Delete(Record, true);
                     }
                 }
             }
