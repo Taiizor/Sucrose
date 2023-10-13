@@ -237,7 +237,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (File.Exists(ImagePath))
                 {
-                    Imagine.ImageSource = Loader.LoadOptimal(ImagePath);
+                    Imagine.ImageSource = await Loader.LoadOptimalAsync(ImagePath);
                 }
 
                 await Task.Delay(100);

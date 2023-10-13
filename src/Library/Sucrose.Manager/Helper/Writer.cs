@@ -20,7 +20,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(10, 100));
+                    await Task.Delay(SMR.Randomise.Next(5, 50));
 
                     using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                     using StreamWriter writer = new(fileStream);
@@ -31,7 +31,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(10, 100));
+                        await Task.Delay(SMR.Randomise.Next(5, 50));
 
                         using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
                         using StreamWriter writer = new(fileStream);
@@ -58,7 +58,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(10, 100));
+                    await Task.Delay(SMR.Randomise.Next(5, 50));
 
                     using StreamWriter writer = File.AppendText(filePath);
 
@@ -68,7 +68,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(10, 100));
+                        await Task.Delay(SMR.Randomise.Next(5, 50));
 
                         using StreamWriter writer = File.AppendText(filePath);
 
@@ -92,7 +92,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(10, 100));
+                    await Task.Delay(SMR.Randomise.Next(5, 50));
 
                     File.WriteAllText(filePath, SMHC.Clean(fileContent));
                 }
@@ -100,7 +100,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(10, 100));
+                        await Task.Delay(SMR.Randomise.Next(5, 50));
 
                         File.WriteAllText(filePath, SMHC.Clean(fileContent));
                     }

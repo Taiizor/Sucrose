@@ -18,7 +18,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(10, 100));
+                    await Task.Delay(SMR.Randomise.Next(5, 50));
 
                     using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
                     using StreamReader reader = new(fileStream);
@@ -29,7 +29,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(10, 100));
+                        await Task.Delay(SMR.Randomise.Next(5, 50));
 
                         using FileStream fileStream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.None);
                         using StreamReader reader = new(fileStream);
@@ -54,7 +54,7 @@ namespace Sucrose.Manager.Helper
             {
                 try
                 {
-                    await Task.Delay(SMR.Randomise.Next(10, 100));
+                    await Task.Delay(SMR.Randomise.Next(5, 50));
 
                     return SMHC.Clean(File.ReadAllText(filePath));
                 }
@@ -62,7 +62,7 @@ namespace Sucrose.Manager.Helper
                 {
                     try
                     {
-                        await Task.Delay(SMR.Randomise.Next(10, 100));
+                        await Task.Delay(SMR.Randomise.Next(5, 50));
 
                         return SMHC.Clean(File.ReadAllText(filePath));
                     }
