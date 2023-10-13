@@ -21,122 +21,149 @@ namespace Sucrose.Shared.Engine.Helper
                 }
                 catch { }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemCpu))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogCpuResponse Response = SGCSBCS.GetCpu(SSEMI.Client);
-                        SSEMI.CpuData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.CpuData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogCpuResponse Response = SGCSBCS.GetCpu(SSEMI.Client);
+                            SSEMI.CpuData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.CpuData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemBios))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogBiosResponse Response = SGCSBCS.GetBios(SSEMI.Client);
-                        SSEMI.BiosData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.BiosData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogBiosResponse Response = SGCSBCS.GetBios(SSEMI.Client);
+                            SSEMI.BiosData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.BiosData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemDate))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogDateResponse Response = SGCSBCS.GetDate(SSEMI.Client);
-                        SSEMI.DateData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.DateData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogDateResponse Response = SGCSBCS.GetDate(SSEMI.Client);
+                            SSEMI.DateData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.DateData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogAudioResponse Response = SGCSBCS.GetAudio(SSEMI.Client);
-                        SSEMI.AudioData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.AudioData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogAudioResponse Response = SGCSBCS.GetAudio(SSEMI.Client);
+                            SSEMI.AudioData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.AudioData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemMemory))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogMemoryResponse Response = SGCSBCS.GetMemory(SSEMI.Client);
-                        SSEMI.MemoryData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.MemoryData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogMemoryResponse Response = SGCSBCS.GetMemory(SSEMI.Client);
+                            SSEMI.MemoryData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.MemoryData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemBattery))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogBatteryResponse Response = SGCSBCS.GetBattery(SSEMI.Client);
-                        SSEMI.BatteryData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.BatteryData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogBatteryResponse Response = SGCSBCS.GetBattery(SSEMI.Client);
+                            SSEMI.BatteryData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.BatteryData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemGraphic))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogGraphicResponse Response = SGCSBCS.GetGraphic(SSEMI.Client);
-                        SSEMI.GraphicData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.GraphicData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogGraphicResponse Response = SGCSBCS.GetGraphic(SSEMI.Client);
+                            SSEMI.GraphicData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.GraphicData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemNetwork))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogNetworkResponse Response = SGCSBCS.GetNetwork(SSEMI.Client);
-                        SSEMI.NetworkData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.NetworkData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogNetworkResponse Response = SGCSBCS.GetNetwork(SSEMI.Client);
+                            SSEMI.NetworkData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.NetworkData = string.Empty;
+                        }
+                    });
+                }
 
-                _ = Task.Run(() =>
+                if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemMotherboard))
                 {
-                    try
+                    _ = Task.Run(() =>
                     {
-                        BackgroundogMotherboardResponse Response = SGCSBCS.GetMotherboard(SSEMI.Client);
-                        SSEMI.MotherboardData = Response.Info;
-                    }
-                    catch
-                    {
-                        SSEMI.MotherboardData = string.Empty;
-                    }
-                });
+                        try
+                        {
+                            BackgroundogMotherboardResponse Response = SGCSBCS.GetMotherboard(SSEMI.Client);
+                            SSEMI.MotherboardData = Response.Info;
+                        }
+                        catch
+                        {
+                            SSEMI.MotherboardData = string.Empty;
+                        }
+                    });
+                }
             }
             else
             {

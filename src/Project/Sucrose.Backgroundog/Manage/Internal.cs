@@ -58,11 +58,17 @@ namespace Sucrose.Backgroundog.Manage
 
         public static Timer InitializeTimer = null;
 
+        public static bool SessionManagement = true;
+
         public static bool GraphicManagement = true;
 
         public static bool NetworkManagement = true;
 
         public static bool BatteryManagement = true;
+
+        public static bool NetworkManagement2 = true;
+
+        public static bool ComputerManagement = true;
 
         public static bool EqualizerManagement = true;
 
@@ -87,6 +93,10 @@ namespace Sucrose.Backgroundog.Manage
         public static MediaPlaybackDataSource DataSource = null;
 
         public static PerformanceCounter DownloadCounter = null;
+
+        public static int SpecificationTime = InitializeTime * 8;
+
+        public static int SpecificationLessTime = InitializeTime * 4;
 
         public static NowPlayingSessionManager SessionManager = null;
 
