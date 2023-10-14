@@ -14,7 +14,9 @@
 
     internal enum GifEngineType
     {
-        Vexana = EngineType.VexanaLive
+        Vexana = EngineType.VexanaLive,
+        WebView = EngineType.WebViewLive,
+        CefSharp = EngineType.CefSharpLive
     }
 
     internal enum UrlEngineType

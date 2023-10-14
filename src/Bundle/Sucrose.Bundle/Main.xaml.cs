@@ -175,7 +175,11 @@ namespace Sucrose.Bundle
                         }
                         else
                         {
-                            File.Delete(Record);
+                            try
+                            {
+                                File.Delete(Record);
+                            }
+                            catch { }
                         }
                     }
                 }
@@ -196,7 +200,11 @@ namespace Sucrose.Bundle
                         }
                         else
                         {
-                            Directory.Delete(Record, true);
+                            try
+                            {
+                                Directory.Delete(Record, true);
+                            }
+                            catch { }
                         }
                     }
                 }

@@ -52,6 +52,8 @@
 
         public static readonly string Portal = "Sucrose.Portal.exe";
 
+        public static readonly string GifContent = "GifContent.html";
+
         public static readonly string TaskName = "Autorun for Sucrose";
 
         public static readonly string SucroseInfo = "SucroseInfo.json";

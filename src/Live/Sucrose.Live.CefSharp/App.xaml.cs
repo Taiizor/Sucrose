@@ -11,6 +11,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSECSVG = Sucrose.Shared.Engine.CefSharp.View.Gif;
 using SSECSVU = Sucrose.Shared.Engine.CefSharp.View.Url;
 using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
 using SSECSVW = Sucrose.Shared.Engine.CefSharp.View.Web;
@@ -203,6 +204,10 @@ namespace Sucrose.Live.CefSharp
 
                         switch (Info.Type)
                         {
+                            case SSDEWT.Gif:
+                                SSECSVG Gif = new(Source);
+                                Gif.Show();
+                                break;
                             case SSDEWT.Url:
                                 SSECSVU Url = new(Source);
                                 Url.Show();

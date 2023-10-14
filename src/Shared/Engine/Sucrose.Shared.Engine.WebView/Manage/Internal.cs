@@ -6,6 +6,8 @@ namespace Sucrose.Shared.Engine.WebView.Manage
     {
         public static int Try = 0;
 
+        public static string Gif = string.Empty;
+
         public static string Url = string.Empty;
 
         public static string Web = string.Empty;

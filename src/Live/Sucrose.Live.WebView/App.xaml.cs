@@ -14,6 +14,7 @@ using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SSEWVVG = Sucrose.Shared.Engine.WebView.View.Gif;
 using SSEWVVU = Sucrose.Shared.Engine.WebView.View.Url;
 using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
 using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
@@ -190,6 +191,10 @@ namespace Sucrose.Live.WebView
 
                         switch (Info.Type)
                         {
+                            case SSDEWT.Gif:
+                                SSEWVVG Gif = new(Source);
+                                Gif.Show();
+                                break;
                             case SSDEWT.Url:
                                 SSEWVVU Url = new(Source);
                                 Url.Show();
