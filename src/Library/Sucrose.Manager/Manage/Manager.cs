@@ -77,6 +77,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool ClosePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.ClosePerformance, false);
 
+        public static bool LibraryPreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreviewHide, false);
+
         public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0), 0, 10);
 
         public static SEST UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SEST.Kilobyte);
@@ -85,9 +87,13 @@ namespace Sucrose.Manager.Manage
 
         public static string UpdatePercentage => SMMI.UpdateSettingManager.GetSetting(SMC.UpdatePercentage, "0%");
 
+        public static bool StorePreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.StorePreviewHide, false);
+
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 
         public static bool LibraryConfirm => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryConfirm, true);
+
+        public static bool LibraryPreview => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreview, false);
 
         public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
 
@@ -100,6 +106,8 @@ namespace Sucrose.Manager.Manage
         public static string PingType => SMMI.BackgroundogSettingManager.GetSetting(SMC.PingType, "Bing");
 
         public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
+
+        public static bool StorePreview => SMMI.PortalSettingManager.GetSetting(SMC.StorePreview, false);
 
         public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
 

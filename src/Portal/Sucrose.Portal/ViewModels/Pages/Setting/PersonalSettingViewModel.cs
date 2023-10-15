@@ -188,6 +188,113 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(AppearanceBehaviorArea);
 
+            SPVCEC Preview = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Preview.LeftIcon.Symbol = SymbolRegular.ResizeVideo24;
+            Preview.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview");
+            Preview.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "Description");
+
+            StackPanel PreviewContent = new();
+
+            StackPanel PreviewStoreContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock StorePreviewText = new()
+            {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "StorePreview"),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ToggleSwitch StorePreview = new()
+            {
+                IsChecked = SMMM.StorePreview
+            };
+
+            StorePreview.Checked += (s, e) => StorePreviewChecked(true);
+            StorePreview.Unchecked += (s, e) => StorePreviewChecked(false);
+
+            TextBlock StorePreviewHideText = new()
+            {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "StorePreviewHide"),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(20, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ToggleSwitch StorePreviewHide = new()
+            {
+                IsChecked = SMMM.StorePreviewHide
+            };
+
+            StorePreviewHide.Checked += (s, e) => StorePreviewHideChecked(true);
+            StorePreviewHide.Unchecked += (s, e) => StorePreviewHideChecked(false);
+
+            StackPanel PreviewLibraryContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock LibraryPreviewText = new()
+            {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "LibraryPreview"),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ToggleSwitch LibraryPreview = new()
+            {
+                IsChecked = SMMM.LibraryPreview
+            };
+
+            LibraryPreview.Checked += (s, e) => LibraryPreviewChecked(true);
+            LibraryPreview.Unchecked += (s, e) => LibraryPreviewChecked(false);
+
+            TextBlock LibraryPreviewHideText = new()
+            {
+                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "LibraryPreviewHide"),
+                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(20, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ToggleSwitch LibraryPreviewHide = new()
+            {
+                IsChecked = SMMM.LibraryPreviewHide
+            };
+
+            LibraryPreviewHide.Checked += (s, e) => LibraryPreviewHideChecked(true);
+            LibraryPreviewHide.Unchecked += (s, e) => LibraryPreviewHideChecked(false);
+
+            PreviewStoreContent.Children.Add(StorePreviewText);
+            PreviewStoreContent.Children.Add(StorePreview);
+            PreviewStoreContent.Children.Add(StorePreviewHideText);
+            PreviewStoreContent.Children.Add(StorePreviewHide);
+
+            PreviewLibraryContent.Children.Add(LibraryPreviewText);
+            PreviewLibraryContent.Children.Add(LibraryPreview);
+            PreviewLibraryContent.Children.Add(LibraryPreviewHideText);
+            PreviewLibraryContent.Children.Add(LibraryPreviewHide);
+
+            PreviewContent.Children.Add(PreviewStoreContent);
+            PreviewContent.Children.Add(PreviewLibraryContent);
+
+            Preview.FooterCard = PreviewContent;
+
+            Contents.Add(Preview);
+
             SPVCEC Theme = new()
             {
                 Margin = new Thickness(0, 10, 0, 0)
@@ -439,6 +546,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             SMMI.LibrarySettingManager.SetSetting(SMC.LibraryConfirm, State);
         }
 
+        private void StorePreviewChecked(bool State)
+        {
+            SMMI.PortalSettingManager.SetSetting(SMC.StorePreview, State);
+        }
+
+        private void LibraryPreviewChecked(bool State)
+        {
+            SMMI.PortalSettingManager.SetSetting(SMC.LibraryPreview, State);
+        }
+
         private void TitleLengthChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
@@ -459,6 +576,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void StorePreviewHideChecked(bool State)
+        {
+            SMMI.PortalSettingManager.SetSetting(SMC.StorePreviewHide, State);
+        }
+
         private void AdaptiveMarginChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
@@ -477,6 +599,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 SMMI.PortalSettingManager.SetSetting(SMC.AdaptiveLayout, NewValue);
             }
+        }
+
+        private void LibraryPreviewHideChecked(bool State)
+        {
+            SMMI.PortalSettingManager.SetSetting(SMC.LibraryPreviewHide, State);
         }
 
         private void StorePaginationChanged(double? Value)

@@ -3,10 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     MouseLeftButtonUp="StoreCard_MouseLeftButtonUp"
+    MouseLeave="StoreCard_MouseLeave"
+    MouseEnter="StoreCard_MouseEnter"
     MinHeight="160" MaxHeight="160"
     MaxWidth="360" MinWidth="260"
     Loaded="StoreCard_Loaded"
@@ -50,10 +53,17 @@
 
             <Grid x:Name="Card" Visibility="Hidden">
                 <Grid.Background>
-                    <ImageBrush x:Name="Imagine" Stretch="UniformToFill" ImageSource="{x:Null}" />
+                    <VisualBrush Stretch="UniformToFill">
+                        <VisualBrush.Visual>
+                            <Grid>
+                                <Image x:Name="Imagine" Stretch="UniformToFill" Source="{x:Null}" />
+                                <Image x:Name="Imaginer" Stretch="UniformToFill" StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Stretch" xag:AnimationBehavior.SourceUri="{x:Null}" xag:AnimationBehavior.RepeatBehavior="Forever" xag:AnimationBehavior.AnimateInDesignMode="False" xag:AnimationBehavior.CacheFramesInMemory="False" xag:AnimationBehavior.AutoStart="True" />
+                            </Grid>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
                 </Grid.Background>
 
-                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                <Grid x:Name="Preview" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                     <Grid.Background>
                         <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75" />
                     </Grid.Background>

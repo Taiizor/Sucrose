@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
+using XamlAnimatedGif;
 using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
 using SHV = Skylark.Helper.Versionly;
@@ -243,6 +244,49 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private void StoreCard_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (Info != null && SMMM.StorePreview)
+            {
+                Imaginer.Source = null;
+                AnimationBehavior.SetSourceUri(Imaginer, null);
+
+                Imagine.Visibility = Visibility.Visible;
+                Imaginer.Visibility = Visibility.Hidden;
+
+                if (SMMM.StorePreviewHide)
+                {
+                    Preview.Visibility = Visibility.Visible;
+                }
+
+                Dispose();
+            }
+        }
+
+        private void StoreCard_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (Info != null && SMMM.StorePreview)
+            {
+                string GifPath = $"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
+
+                AnimationBehavior.SetSourceUri(Imaginer, new(GifPath));
+                AnimationBehavior.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);
+            }
+        }
+
+        private void Imaginer_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            Imagine.Visibility = Visibility.Hidden;
+            Imaginer.Visibility = Visibility.Visible;
+
+            if (SMMM.StorePreviewHide)
+            {
+                Preview.Visibility = Visibility.Hidden;
+            }
+
+            Dispose();
+        }
+
         private async void StoreCard_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -271,7 +315,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     if (File.Exists(ImagePath))
                     {
-                        Imagine.ImageSource = await Loader.LoadOptimalAsync(ImagePath);
+                        Imagine.Source = await Loader.LoadOptimalAsync(ImagePath);
                     }
 
                     if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)

@@ -82,6 +82,8 @@
 
         public const string UpdateState = "UpdateState";
 
+        public const string StorePreview = "StorePreview";
+
         public const string BatteryUsage = "BatteryUsage";
 
         public const string BackdropType = "BackdropType";
@@ -107,6 +109,8 @@
         public const string StoreDuration = "StoreDuration";
 
         public const string DeveloperMode = "DeveloperMode";
+
+        public const string LibraryPreview = "LibraryPreview";
 
         public const string LibraryConfirm = "LibraryConfirm";
 
@@ -150,6 +154,8 @@
 
         public const string FocusPerformance = "FocusPerformance";
 
+        public const string StorePreviewHide = "StorePreviewHide";
+
         public const string RemotePerformance = "RemotePerformance";
 
         public const string BackgroundOpacity = "BackgroundOpacity";
@@ -165,6 +171,8 @@
         public const string NetworkInterfaces = "NetworkInterfaces";
 
         public const string MemoryPerformance = "MemoryPerformance";
+
+        public const string LibraryPreviewHide = "LibraryPreviewHide";
 
         public const string VirtualPerformance = "VirtualPerformance";
 

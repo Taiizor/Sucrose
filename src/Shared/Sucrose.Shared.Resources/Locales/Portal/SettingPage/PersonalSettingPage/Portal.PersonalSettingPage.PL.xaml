@@ -22,6 +22,15 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Uwaga: Zaleca się ostrożność, ponieważ może to prowadzić do utraty danych.</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Podgląd Motywu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Czy motywy powinny być wyświetlane przy najechaniu myszką.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Podgląd Sklepu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Ukryj Szczegóły</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Podgląd Biblioteki</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ukryj Szczegóły</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Dostosowanie Tematu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Dostosuj nazwę lub opis wyświetlanych tematów.</system:String>
 

@@ -9,7 +9,7 @@
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Start">Otomatik Başlatma</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Mağazadan indirilen temanın otomatik olarak duvar kağıdı olarak ayarlanıp ayarlanmayacağı.</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Mağazadan indirilen temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Adult">Güvenli Olmayan İçerikler</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilip gösterilmeyeceği.</system:String>
@@ -21,6 +21,15 @@
     <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Kütüphanedeki bozuk ya da eksik temaların otomatik silinip silinmeyeceği.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Tema Önizleme</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Görüntülenen temaların üzerine gelince önizlenip önizlenmeyeceği.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Mağaza Önizlemesi</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Detayların Gizlenmesi</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Kütüphane Önizlemesi</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Detayların Gizlenmesi</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Tema Özelleştirme</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Görüntülenen temaların ismini veya açıklamasını özelleştirin.</system:String>

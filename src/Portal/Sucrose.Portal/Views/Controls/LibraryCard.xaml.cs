@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
+using XamlAnimatedGif;
 using SHA = Skylark.Helper.Adaptation;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
@@ -164,7 +165,8 @@ namespace Sucrose.Portal.Views.Controls
                 MinWidth = 0;
                 MinHeight = 0;
 
-                Imagine.ImageSource = null;
+                Imagine.Source = null;
+                Imaginer.Source = null;
 
                 Visibility = Visibility.Hidden;
 
@@ -209,6 +211,38 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private void Imaginer_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            Imagine.Visibility = Visibility.Hidden;
+            Imaginer.Visibility = Visibility.Visible;
+
+            if (SMMM.LibraryPreviewHide)
+            {
+                Preview.Visibility = Visibility.Hidden;
+            }
+
+            Dispose();
+        }
+
+        private void LibraryCard_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (SMMM.LibraryPreview)
+            {
+                Imaginer.Source = null;
+                AnimationBehavior.SetSourceUri(Imaginer, null);
+
+                Imagine.Visibility = Visibility.Visible;
+                Imaginer.Visibility = Visibility.Hidden;
+
+                if (SMMM.LibraryPreviewHide)
+                {
+                    Preview.Visibility = Visibility.Visible;
+                }
+
+                Dispose();
+            }
+        }
+
         private void LibraryCard_MouseEnter(object sender, MouseEventArgs e)
         {
             if ((SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run()) || Info.AppVersion.CompareTo(SHV.Entry()) > 0)
@@ -218,6 +252,17 @@ namespace Sucrose.Portal.Views.Controls
             else
             {
                 Cursor = Cursors.Hand;
+            }
+
+            if (SMMM.LibraryPreview)
+            {
+                string GifPath = Path.Combine(Theme, Info.Preview);
+
+                if (File.Exists(GifPath))
+                {
+                    AnimationBehavior.SetSourceUri(Imaginer, new(GifPath));
+                    AnimationBehavior.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);
+                }
             }
         }
 
@@ -237,7 +282,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (File.Exists(ImagePath))
                 {
-                    Imagine.ImageSource = await Loader.LoadOptimalAsync(ImagePath);
+                    Imagine.Source = await Loader.LoadOptimalAsync(ImagePath);
                 }
 
                 await Task.Delay(100);
