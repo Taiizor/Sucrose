@@ -1,0 +1,75 @@
+﻿<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.OtherHelp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    CloseButtonText="{DynamicResource Portal.OtherHelp.Close}"
+    Title="{DynamicResource Portal.OtherHelp.Title}"
+    DialogMaxWidth="750"
+    mc:Ignorable="d">
+
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:OtherHelp}" />
+    </ui:ContentDialog.Resources>
+
+    <StackPanel x:Name="Panel" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+        <vcontrols:ExpanderCard TitleText="İnternet Sayfası" DescriptionText="Sucrose Wallpaper Engine resmi internet sayfası" LeftIconSymbol="WebAsset24" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Click="WebPage_Click"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard TitleText="Dokümantasyon" DescriptionText="Sucrose Wallpaper Engine resmi dökümantasyon sayfası" LeftIconSymbol="BookOpenGlobe24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    Click="Documentation_Click"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard TitleText="Tartışmalar" DescriptionText="Sucrose Wallpaper Engine resmi tartışmalar sayfası" LeftIconSymbol="GlobePerson24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Appearance="Transparent"
+                    Click="Discussions_Click"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard TitleText="Kaynak Kodu" DescriptionText="Sucrose Wallpaper Engine resmi kaynak kodu sayfası" LeftIconSymbol="CodeBlock24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Appearance="Transparent"
+                    Click="Repository_Click"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard TitleText="Hata Bildir" DescriptionText="Sucrose Wallpaper Engine resmi hata bildirme sayfası" LeftIconSymbol="Bug24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Click="Report_Click"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+    </StackPanel>
+</ui:ContentDialog>

@@ -112,11 +112,11 @@ namespace Sucrose.Portal.Views.Windows
         {
             if (ViewModel.Donater == Visibility.Visible)
             {
-                SearchBox.Margin = new Thickness(0, 0, ((Width - SearchBox.MaxWidth) / 2) - 210, 0);
+                SearchBox.Margin = new Thickness(0, 0, ((Width - SearchBox.MaxWidth) / 2) - 230, 0);
             }
             else
             {
-                SearchBox.Margin = new Thickness(0, 0, ((Width - SearchBox.MaxWidth) / 2) - 190, 0);
+                SearchBox.Margin = new Thickness(0, 0, ((Width - SearchBox.MaxWidth) / 2) - 210, 0);
             }
         }
 
@@ -175,6 +175,12 @@ namespace Sucrose.Portal.Views.Windows
             ApplyTheme(sender as Button);
 
             Dispose();
+        }
+
+        private void OtherOptions_Click(object sender, RoutedEventArgs e)
+        {
+            OtherOptions.ContextMenu.PlacementTarget = OtherOptions;
+            OtherOptions.ContextMenu.IsOpen = true;
         }
 
         private void MainWindow_ContentRendered(object sender, EventArgs e)

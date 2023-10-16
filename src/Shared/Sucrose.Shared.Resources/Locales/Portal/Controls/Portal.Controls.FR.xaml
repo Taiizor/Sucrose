@@ -2,8 +2,10 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="OtherHelp/Portal.OtherHelp.FR.xaml" />
         <ResourceDictionary Source="ThemeEdit/Portal.ThemeEdit.FR.xaml" />
         <ResourceDictionary Source="StoreCard/Portal.StoreCard.FR.xaml" />
+        <ResourceDictionary Source="OtherAbout/Portal.OtherAbout.FR.xaml" />
         <ResourceDictionary Source="Pagination/Portal.Pagination.FR.xaml" />
         <ResourceDictionary Source="ThemeShare/Portal.ThemeShare.FR.xaml" />
         <ResourceDictionary Source="LibraryCard/Portal.LibraryCard.FR.xaml" />

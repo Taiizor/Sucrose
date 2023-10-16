@@ -5,6 +5,12 @@
 >
     <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
 
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Yardım</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Hakkında</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Yardım Görüntüleme</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Hakkında Görüntüleme</system:String>
+
     <system:String x:Key="Portal.MainWindow.MenuLibrary">Kütüphane</system:String>
     <system:String x:Key="Portal.MainWindow.MenuStore">Mağaza</system:String>
     
@@ -40,4 +46,5 @@
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Duvar Kağıdı Oluştur</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Ekran Tercihleri</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Bağış Seçenekleri</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Diğer Seçenekler</system:String>
 </ResourceDictionary>

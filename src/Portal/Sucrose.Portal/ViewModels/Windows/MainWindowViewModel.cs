@@ -15,6 +15,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
+using SPVCOH = Sucrose.Portal.Views.Controls.OtherHelp;
 using SPVCDP = Sucrose.Portal.Views.Controls.DisplayPreferences;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -200,6 +201,22 @@ namespace Sucrose.Portal.ViewModels.Windows
             {
                 WindowBackdrop.RemoveBackdrop(Application.Current.MainWindow);
             }
+        }
+
+        [RelayCommand]
+        private async Task OnOtherHelp()
+        {
+            SPVCOH OtherHelp = new();
+
+            await OtherHelp.ShowAsync();
+
+            OtherHelp.Dispose();
+        }
+
+        [RelayCommand]
+        private async Task OnOtherAbout()
+        {
+
         }
 
         [RelayCommand]

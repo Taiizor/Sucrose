@@ -5,6 +5,12 @@
 >
     <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
 
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Help</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">About</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">View Help</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">View About</system:String>
+
     <system:String x:Key="Portal.MainWindow.MenuLibrary">Library</system:String>
     <system:String x:Key="Portal.MainWindow.MenuStore">Store</system:String>
     
@@ -40,4 +46,5 @@
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Create Wallpaper</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Display Preferences</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Donation Options</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Other Options</system:String>
 </ResourceDictionary>
