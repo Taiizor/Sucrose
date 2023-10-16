@@ -194,7 +194,7 @@ namespace Sucrose.Bundle
                         {
                             try
                             {
-                                Directory.Delete(Record, true);
+                                Directory.Delete(Record);
                             }
                             catch { }
                         }
@@ -202,7 +202,7 @@ namespace Sucrose.Bundle
                         {
                             try
                             {
-                                Directory.Delete(Record, true);
+                                Directory.Delete(Record);
                             }
                             catch { }
                         }

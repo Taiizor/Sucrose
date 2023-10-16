@@ -43,37 +43,51 @@ namespace Sucrose.Undo
             {
                 string[] Files = Directory.GetFiles(Location, "*", SearchOption.AllDirectories);
 
-                foreach (string Record in Files)
+                if (Files.Any())
                 {
-                    if (Path.GetFileName(Record) == TemporaryFile)
+                    foreach (string Record in Files)
                     {
-                        try
+                        if (Path.GetFileName(Record) == TemporaryFile)
                         {
-                            File.Delete(Record);
+                            try
+                            {
+                                File.Delete(Record);
+                            }
+                            catch { }
                         }
-                        catch { }
-                    }
-                    else
-                    {
-                        File.Delete(Record);
+                        else
+                        {
+                            try
+                            {
+                                File.Delete(Record);
+                            }
+                            catch { }
+                        }
                     }
                 }
 
                 string[] Folders = Directory.GetDirectories(Location);
 
-                foreach (string Record in Folders)
+                if (Folders.Any())
                 {
-                    if (Path.GetFileName(Record) == TemporaryFolder)
+                    foreach (string Record in Folders)
                     {
-                        try
+                        if (Path.GetFileName(Record) == TemporaryFolder)
                         {
-                            Directory.Delete(Record);
+                            try
+                            {
+                                Directory.Delete(Record);
+                            }
+                            catch { }
                         }
-                        catch { }
-                    }
-                    else
-                    {
-                        Directory.Delete(Record, true);
+                        else
+                        {
+                            try
+                            {
+                                Directory.Delete(Record);
+                            }
+                            catch { }
+                        }
                     }
                 }
 
