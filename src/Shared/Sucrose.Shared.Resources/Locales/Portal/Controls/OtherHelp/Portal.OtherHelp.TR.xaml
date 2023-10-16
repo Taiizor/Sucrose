@@ -5,4 +5,19 @@
 >
     <system:String x:Key="Portal.OtherHelp.Title">Yardım</system:String>
     <system:String x:Key="Portal.OtherHelp.Close">Kapat</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.WebPage">İnternet Sayfası</system:String>
+    <system:String x:Key="Portal.OtherHelp.WebPage.Description">Sucrose Wallpaper Engine resmi internet sayfası</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Documentation">Dokümantasyon</system:String>
+    <system:String x:Key="Portal.OtherHelp.Documentation.Description">Sucrose Wallpaper Engine resmi dökümantasyon sayfası</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Repository">Kaynak Kodu</system:String>
+    <system:String x:Key="Portal.OtherHelp.Repository.Description">Sucrose Wallpaper Engine resmi kaynak kodu sayfası</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Discussions">Tartışmalar</system:String>
+    <system:String x:Key="Portal.OtherHelp.Discussions.Description">Sucrose Wallpaper Engine resmi tartışmalar sayfası</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Report">Hata Bildir</system:String>
+    <system:String x:Key="Portal.OtherHelp.Report.Description">Sucrose Wallpaper Engine resmi hata bildirme sayfası</system:String>
 </ResourceDictionary>

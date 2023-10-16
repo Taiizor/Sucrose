@@ -112,13 +112,19 @@
 
         public static readonly string KeyYouTube = $"https://www.youtube.com/watch?v=kRyML8axJxA";
 
+        public static readonly string OfficialWebsite = $"https://github.com/{Owner}/{Repository}";
+
         public static readonly string BackgroundogMutex = "{Sucrose-Wallpaper-Engine-Backgroundog}";
 
         public static readonly string WikiWebsite = $"https://github.com/{Owner}/{Repository}/wiki";
 
         public static readonly string StoreWebsite = $"https://github.com/{Owner}/{StoreRepository}";
 
+        public static readonly string RepositoryWebsite = $"https://github.com/{Owner}/{Repository}";
+
         public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        public static readonly string DiscussionsWebsite = $"https://github.com/{Owner}/{Repository}/discussions";
 
         public static readonly string ReportWebsite = $"https://github.com/{Owner}/{Repository}/issues/new/choose";
 

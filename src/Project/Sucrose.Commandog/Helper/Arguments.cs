@@ -117,6 +117,9 @@ namespace Sucrose.Commandog.Helper
                                 case SSDECT.StartupP:
                                     SWHWSP.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<bool>(Values[1]));
                                     break;
+                                case SSDECT.Official:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
                                 case SSDECT.Scheduler:
                                     switch (SCHP.ArgumentValue<SSDESCT>(Values[0]))
                                     {
@@ -145,6 +148,12 @@ namespace Sucrose.Commandog.Helper
                                     {
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                     }
+                                    break;
+                                case SSDECT.Repository:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Discussions:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                     break;
                                 case SSDECT.Backgroundog:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), string.Empty);

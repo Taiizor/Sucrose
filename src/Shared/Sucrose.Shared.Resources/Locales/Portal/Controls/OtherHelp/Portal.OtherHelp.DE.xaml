@@ -3,6 +3,21 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Portal.OtherHelp.Title">Yardım</system:String>
-    <system:String x:Key="Portal.OtherHelp.Close">Kapat</system:String>
+    <system:String x:Key="Portal.OtherHelp.Title">Hilfe</system:String>
+    <system:String x:Key="Portal.OtherHelp.Close">Schließen</system:String>
+    
+    <system:String x:Key="Portal.OtherHelp.WebPage">Webseite</system:String>
+    <system:String x:Key="Portal.OtherHelp.WebPage.Description">Offizielle Sucrose Wallpaper Engine Webseite</system:String>
+    
+    <system:String x:Key="Portal.OtherHelp.Documentation">Dokumentation</system:String>
+    <system:String x:Key="Portal.OtherHelp.Documentation.Description">Offizielle Sucrose Wallpaper Engine Dokumentationsseite</system:String>
+    
+    <system:String x:Key="Portal.OtherHelp.Repository">Quellcode</system:String>
+    <system:String x:Key="Portal.OtherHelp.Repository.Description">Offizielle Sucrose Wallpaper Engine Quellcode-Seite</system:String>
+    
+    <system:String x:Key="Portal.OtherHelp.Discussions">Diskussionen</system:String>
+    <system:String x:Key="Portal.OtherHelp.Discussions.Description">Offizielle Sucrose Wallpaper Engine Diskussionen-Seite</system:String>
+    
+    <system:String x:Key="Portal.OtherHelp.Report">Fehler Melden</system:String>
+    <system:String x:Key="Portal.OtherHelp.Report.Description">Offizielle Sucrose Wallpaper Engine Fehlermeldungsseite</system:String>
 </ResourceDictionary>

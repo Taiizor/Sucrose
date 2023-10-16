@@ -18,8 +18,11 @@
         Startup,
         StartupM,
         StartupP,
+        Official,
         Scheduler,
         Interface,
+        Repository,
+        Discussions,
         Backgroundog
     }
 
