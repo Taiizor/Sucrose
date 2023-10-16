@@ -1,0 +1,76 @@
+﻿<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.OtherAbout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    CloseButtonText="{DynamicResource Portal.OtherAbout.Close}"
+    Title="{DynamicResource Portal.OtherAbout.Title}"
+    Loaded="ContentDialog_Loaded"
+    DialogMaxWidth="750"
+    mc:Ignorable="d">
+
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:OtherAbout}" />
+    </ui:ContentDialog.Resources>
+
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+        <vcontrols:ExpanderCard x:Name="WebPage" LeftIconSymbol="WebAsset24" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Click="WebPage_Click"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard x:Name="Documentation" LeftIconSymbol="BookOpenGlobe24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    Click="Documentation_Click"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard x:Name="Repository" LeftIconSymbol="CodeBlock24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Appearance="Transparent"
+                    Click="Repository_Click"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard x:Name="Discussions" LeftIconSymbol="GlobePerson24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Appearance="Transparent"
+                    Click="Discussions_Click"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+
+        <vcontrols:ExpanderCard x:Name="Report" LeftIconSymbol="Bug24" Margin="0 3 0 0" Expandable="False">
+            <vcontrols:ExpanderCard.HeaderFrame>
+                <ui:Button
+                    Cursor="Hand"
+                    Click="Report_Click"
+                    Appearance="Transparent"
+                    BorderBrush="Transparent"
+                    Icon="{ui:SymbolIcon LinkSquare24}" />
+            </vcontrols:ExpanderCard.HeaderFrame>
+        </vcontrols:ExpanderCard>
+    </StackPanel>
+</ui:ContentDialog>

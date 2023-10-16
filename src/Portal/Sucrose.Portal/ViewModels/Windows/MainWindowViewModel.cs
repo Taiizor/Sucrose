@@ -17,6 +17,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCDP = Sucrose.Portal.Views.Controls.DisplayPreferences;
 using SPVCOH = Sucrose.Portal.Views.Controls.OtherHelp;
+using SPVCOA = Sucrose.Portal.Views.Controls.OtherAbout;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
@@ -216,7 +217,11 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private async Task OnOtherAbout()
         {
+            SPVCOA OtherAbout = new();
 
+            await OtherAbout.ShowAsync();
+
+            OtherAbout.Dispose();
         }
 
         [RelayCommand]
