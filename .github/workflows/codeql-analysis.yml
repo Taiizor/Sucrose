@@ -39,10 +39,7 @@ jobs:
             Release
         ]
         solution: [
-            src/gRPC/Sucrose.Grpc/Sucrose.Grpc.csproj,
-            src/gRPC/Sucrose.Grpc.Client/Sucrose.Grpc.Client.csproj,
-            src/gRPC/Sucrose.Grpc.Common/Sucrose.Grpc.Common.csproj,
-
+            src/Library/Sucrose.Signal/Sucrose.Signal.csproj,
             src/Library/Sucrose.Memory/Sucrose.Memory.csproj,
             src/Library/Sucrose.Manager/Sucrose.Manager.csproj
         ]
