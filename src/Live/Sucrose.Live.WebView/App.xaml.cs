@@ -173,6 +173,8 @@ namespace Sucrose.Live.WebView
                         Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
                     }
 
+                    SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, false);
+
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {
                         SSSHS.Apply();

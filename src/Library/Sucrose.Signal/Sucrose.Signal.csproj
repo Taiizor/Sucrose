@@ -11,8 +11,8 @@
         <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
-    <ItemGroup Condition="$(TargetFramework.StartsWith('net48')) OR $(TargetFramework.StartsWith('netstandard'))">
-        <PackageReference Include="System.Text.Json" Version="8.0.0-rc.2.23479.6" />
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
     <ItemGroup>

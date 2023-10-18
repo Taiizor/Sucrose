@@ -1,8 +1,12 @@
 ﻿using SHS = Skylark.Helper.Skymath;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SSMI = Sucrose.Signal.Manage.Internal;
+using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 
@@ -16,6 +20,8 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             {
                 SSEMI.CompatibleTimer.Interval = TimeSpan.FromMilliseconds(SHS.Clamp(SSEMI.Compatible.TriggerTime, 1, int.MaxValue));
                 SSEMI.CompatibleTimer.Tick += (s, e) => SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, true);
+                SSMI.BackgroundogManager.StartChannel(SSSSBSS.Handler);
                 SSEMI.CompatibleTimer.Start();
             }
         }

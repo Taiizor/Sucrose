@@ -82,9 +82,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\gRPC\Sucrose.Grpc\Sucrose.Grpc.csproj" />
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
-        <ProjectReference Include="..\..\gRPC\Sucrose.Grpc.Client\Sucrose.Grpc.Client.csproj" />
     </ItemGroup>
 
     <Import Project="..\..\Shared\Sucrose.Shared.Zip\Sucrose.Shared.Zip.projitems" Label="Shared" />

@@ -54,6 +54,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool FocusManagement = true;
 
+        public static bool SignalManagement = true;
+
         public static bool RemoteManagement = true;
 
         public static Timer InitializeTimer = null;

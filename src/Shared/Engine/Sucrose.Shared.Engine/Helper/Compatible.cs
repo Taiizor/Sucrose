@@ -1,7 +1,6 @@
 ﻿using SESMIEN = Sucrose.Shared.Engine.Manage.Internal.ExecuteNormal;
 using SESMIET = Sucrose.Shared.Engine.Manage.Internal.ExecuteTask;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
-using SSEHS = Sucrose.Shared.Engine.Helper.System;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.Helper
@@ -12,8 +11,6 @@ namespace Sucrose.Shared.Engine.Helper
         {
             if (SSEMI.Initialized)
             {
-                _ = Task.Run(SSEHS.GetSystem);
-
                 if (!string.IsNullOrEmpty(SSEMI.Compatible.LoopMode))
                 {
                     Function(string.Format(SSEMI.Compatible.LoopMode, SSEHD.GetLoop()));

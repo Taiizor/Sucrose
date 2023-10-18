@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System.Management;
 using System.Text;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
+using SBED = Sucrose.Backgroundog.Extension.Data;
 using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBEV = Sucrose.Backgroundog.Extension.Virtual;
@@ -22,6 +23,8 @@ using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
+using SSIB = Sucrose.Signal.Interface.Backgroundog;
+using SSMI = Sucrose.Signal.Manage.Internal;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -712,6 +715,37 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.ComputerManagement = true;
+                            SSWW.Watch_CatchException(Exception);
+                        }
+                    });
+                }
+
+                if (SMMM.SignalRequired && SBMI.SignalManagement)
+                {
+                    SBMI.SignalManagement = false;
+
+                    _ = Task.Run(() =>
+                    {
+                        try
+                        {
+                            SSMI.BackgroundogManager.FileSave<SSIB>(new()
+                            {
+                                Cpu = SBED.GetCpuInfo(),
+                                Bios = SBED.GetBiosInfo(),
+                                Date = SBED.GetDateInfo(),
+                                Audio = SBED.GetAudioInfo(),
+                                Memory = SBED.GetMemoryInfo(),
+                                Battery = SBED.GetBatteryInfo(),
+                                Graphic = SBED.GetGraphicInfo(),
+                                Network = SBED.GetNetworkInfo(),
+                                Motherboard = SBED.GetMotherboardInfo()
+                            });
+
+                            SBMI.SignalManagement = true;
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.SignalManagement = true;
                             SSWW.Watch_CatchException(Exception);
                         }
                     });

@@ -1,9 +1,9 @@
 #if BROWSER
 
+using Sucrose.WPF.CS;
 using System.IO;
 using SSIW = Sucrose.Signal.Interface.Websiter;
 using SSMI = Sucrose.Signal.Manage.Internal;
-using Sucrose.WPF.CS;
 
 namespace Sucrose.Shared.Signal.Services
 {

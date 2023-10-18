@@ -4,6 +4,7 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
+using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
@@ -137,6 +138,8 @@ namespace Sucrose.Live.MpvPlayer
                     {
                         Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
                     }
+
+                    SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, false);
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))
                     {

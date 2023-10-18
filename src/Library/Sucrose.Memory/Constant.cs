@@ -126,6 +126,8 @@
 
         public const string CpuPerformance = "CpuPerformance";
 
+        public const string SignalRequired = "SignalRequired";
+
         public const string StorePagination = "StorePagination";
 
         public const string LibraryLocation = "LibraryLocation";

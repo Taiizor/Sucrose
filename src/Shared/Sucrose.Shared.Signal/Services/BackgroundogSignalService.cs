@@ -1,59 +1,63 @@
-﻿#if BACKGROUNDOG
+﻿#if LIVE_WEBVIEW || LIVE_CEFSHARP
 
-using Google.Protobuf.WellKnownTypes;
-using Grpc.Core;
 using Newtonsoft.Json;
-using Sucrose.Grpc.Common;
-using static Sucrose.Grpc.Common.Backgroundog;
-using SBED = Sucrose.Backgroundog.Extension.Data;
+using System.IO;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSIB = Sucrose.Signal.Interface.Backgroundog;
+using SSMI = Sucrose.Signal.Manage.Internal;
 
 namespace Sucrose.Shared.Signal.Services
 {
-    public class BackgroundogServerService : BackgroundogBase
+    public static class BackgroundogSignalService
     {
-        public override Task<BackgroundogMotherboardResponse> MotherboardBackgroundog(Empty _, ServerCallContext Context)
+        public static void Handler(object sender, FileSystemEventArgs e)
         {
-            return Task.FromResult(new BackgroundogMotherboardResponse { Info = JsonConvert.SerializeObject(SBED.GetMotherboardInfo(), Formatting.Indented) });
-        }
+            SSIB Data = SSMI.BackgroundogManager.FileRead<SSIB>(e.FullPath, new());
 
-        public override Task<BackgroundogNetworkResponse> NetworkBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogNetworkResponse { Info = JsonConvert.SerializeObject(SBED.GetNetworkInfo(), Formatting.Indented) });
-        }
+            if (Data.Cpu != null)
+            {
+                SSEMI.CpuData = JsonConvert.SerializeObject(Data.Cpu, Formatting.Indented);
+            }
 
-        public override Task<BackgroundogGraphicResponse> GraphicBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogGraphicResponse { Info = JsonConvert.SerializeObject(SBED.GetGraphicInfo(), Formatting.Indented) });
-        }
+            if (Data.Bios != null)
+            {
+                SSEMI.BiosData = JsonConvert.SerializeObject(Data.Bios, Formatting.Indented);
+            }
 
-        public override Task<BackgroundogBatteryResponse> BatteryBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogBatteryResponse { Info = JsonConvert.SerializeObject(SBED.GetBatteryInfo(), Formatting.Indented) });
-        }
+            if (Data.Date != null)
+            {
+                SSEMI.DateData = JsonConvert.SerializeObject(Data.Date, Formatting.Indented);
+            }
 
-        public override Task<BackgroundogMemoryResponse> MemoryBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogMemoryResponse { Info = JsonConvert.SerializeObject(SBED.GetMemoryInfo(), Formatting.Indented) });
-        }
+            if (Data.Audio != null)
+            {
+                SSEMI.AudioData = JsonConvert.SerializeObject(Data.Audio, Formatting.Indented);
+            }
 
-        public override Task<BackgroundogAudioResponse> AudioBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogAudioResponse { Info = JsonConvert.SerializeObject(SBED.GetAudioInfo(), Formatting.Indented) });
-        }
+            if (Data.Memory != null)
+            {
+                SSEMI.MemoryData = JsonConvert.SerializeObject(Data.Memory, Formatting.Indented);
+            }
 
-        public override Task<BackgroundogDateResponse> DateBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogDateResponse { Info = JsonConvert.SerializeObject(SBED.GetDateInfo(), Formatting.Indented) });
-        }
+            if (Data.Battery != null)
+            {
+                SSEMI.BatteryData = JsonConvert.SerializeObject(Data.Battery, Formatting.Indented);
+            }
 
-        public override Task<BackgroundogBiosResponse> BiosBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogBiosResponse { Info = JsonConvert.SerializeObject(SBED.GetBiosInfo(), Formatting.Indented) });
-        }
+            if (Data.Graphic != null)
+            {
+                SSEMI.GraphicData = JsonConvert.SerializeObject(Data.Graphic, Formatting.Indented);
+            }
 
-        public override Task<BackgroundogCpuResponse> CpuBackgroundog(Empty _, ServerCallContext Context)
-        {
-            return Task.FromResult(new BackgroundogCpuResponse { Info = JsonConvert.SerializeObject(SBED.GetCpuInfo(), Formatting.Indented) });
+            if (Data.Network != null)
+            {
+                SSEMI.NetworkData = JsonConvert.SerializeObject(Data.Network, Formatting.Indented);
+            }
+
+            if (Data.Motherboard != null)
+            {
+                SSEMI.MotherboardData = JsonConvert.SerializeObject(Data.Motherboard, Formatting.Indented);
+            }
         }
     }
 }

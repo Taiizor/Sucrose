@@ -1,15 +1,16 @@
-﻿using System.Text.Json;
+﻿using Newtonsoft.Json;
 using SMR = Sucrose.Memory.Readonly;
+using SSHD = Sucrose.Signal.Helper.Deleter;
 using SSHR = Sucrose.Signal.Helper.Reader;
 using SSHW = Sucrose.Signal.Helper.Writer;
+using Timer = System.Timers.Timer;
 
 namespace Sucrose.Signal
 {
     public class SignalT(string Name)
     {
+        private readonly JsonSerializerSettings SerializerSettings = new() { TypeNameHandling = TypeNameHandling.None, Formatting = Formatting.Indented };
         private readonly string Source = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Signal);
-        private readonly JsonSerializerOptions Options = new() { WriteIndented = true };
-        private readonly Random Random = new();
         private FileSystemWatcher FileWatcher;
 
         public FileSystemEventHandler CreatedEventHandler;
@@ -95,10 +96,10 @@ namespace Sucrose.Signal
 
             while (File.Exists(Destination))
             {
-                Destination = Path.Combine(Source, $"{Path.GetFileNameWithoutExtension(Name)}-{Random.Next(0, int.MaxValue)}{Path.GetExtension(Name)}");
+                Destination = Path.Combine(Source, $"{Path.GetFileNameWithoutExtension(Name)}-{SMR.Randomise.Next(0, int.MaxValue)}{Path.GetExtension(Name)}");
             }
 
-            SSHW.Write(Destination, JsonSerializer.Serialize(Data, Options));
+            SSHW.Write(Destination, JsonConvert.SerializeObject(Data, SerializerSettings));
         }
 
         public string FileName(string Source)
@@ -106,13 +107,23 @@ namespace Sucrose.Signal
             return Path.GetFileName(Source);
         }
 
-        public T FileRead<T>(string Source, T Default)
+        public async void FileDelete(string Source)
+        {
+            await SSHD.Delete(Source);
+        }
+
+        public T FileRead<T>(string Source, T Default, bool Delete = true)
         {
             try
             {
                 string Data = SSHR.Read(Source).Result;
 
-                return JsonSerializer.Deserialize<T>(Data, Options);
+                if (Delete)
+                {
+                    DeletionTimer(Source);
+                }
+
+                return JsonConvert.DeserializeObject<T>(Data, SerializerSettings);
             }
             catch
             {
@@ -120,11 +131,16 @@ namespace Sucrose.Signal
             }
         }
 
-        public string FileRead(string Source, string Default)
+        public string FileRead(string Source, string Default, bool Delete = true)
         {
             try
             {
                 string Data = SSHR.Read(Source).Result;
+
+                if (Delete)
+                {
+                    DeletionTimer(Source);
+                }
 
                 return Data;
             }
@@ -144,6 +160,15 @@ namespace Sucrose.Signal
             {
                 return false;
             }
+        }
+
+        private void DeletionTimer(string Source)
+        {
+            Timer Deletion = new(3000);
+
+            Deletion.Elapsed += (sender, e) => FileDelete(Source);
+            Deletion.AutoReset = false;
+            Deletion.Start();
         }
     }
 }

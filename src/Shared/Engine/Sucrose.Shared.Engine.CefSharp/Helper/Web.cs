@@ -1,9 +1,13 @@
 ﻿using CefSharp;
 using SHS = Skylark.Helper.Skymath;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSMI = Sucrose.Signal.Manage.Internal;
+using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 
@@ -17,6 +21,8 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SSEMI.CompatibleTimer.Interval = TimeSpan.FromMilliseconds(SHS.Clamp(SSEMI.Compatible.TriggerTime, 1, int.MaxValue));
                 SSEMI.CompatibleTimer.Tick += (s, e) => SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, true);
+                SSMI.BackgroundogManager.StartChannel(SSSSBSS.Handler);
                 SSEMI.CompatibleTimer.Start();
             }
         }

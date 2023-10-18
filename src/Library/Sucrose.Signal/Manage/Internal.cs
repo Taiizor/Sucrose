@@ -9,5 +9,7 @@ namespace Sucrose.Signal.Manage
         public static readonly SSST LauncherManager = new("Launcher.sgnl");
 
         public static readonly SSST WebsiterManager = new("Websiter.sgnl");
+
+        public static readonly SSST BackgroundogManager = new("Backgroundog.sgnl");
     }
 }

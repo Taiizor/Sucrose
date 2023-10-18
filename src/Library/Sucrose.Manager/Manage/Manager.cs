@@ -85,6 +85,8 @@ namespace Sucrose.Manager.Manage
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
+        public static bool SignalRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.SignalRequired, false);
+
         public static string UpdatePercentage => SMMI.UpdateSettingManager.GetSetting(SMC.UpdatePercentage, "0%");
 
         public static bool StorePreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.StorePreviewHide, false);
