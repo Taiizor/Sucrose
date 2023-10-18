@@ -1,20 +1,18 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
-using Grpc.Core;
 using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGCW = Sucrose.Grpc.Common.Websiter;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
+using SSSSWSS = Sucrose.Shared.Signal.Services.WebsiterSignalService;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSSSWSS = Sucrose.Shared.Server.Services.WebsiterServerService;
+using SSMI = Sucrose.Signal.Manage.Internal;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -149,15 +147,7 @@ namespace Sucrose.WPF.CS
 
         protected void Configure()
         {
-            SGSGSS.ServerCreate(new List<ServerServiceDefinition>
-            {
-                SGCW.BindService(new SSSSWSS())
-            });
-
-            SMMI.ServerManager.SetSetting(SMC.Host, SGSGSS.Host);
-            SMMI.ServerManager.SetSetting(SMC.Port, SGSGSS.Port);
-
-            SGSGSS.ServerInstance.Start();
+            SSMI.WebsiterManager.StartChannel(SSSSWSS.Handler);
 
             Main Browser = new();
             Browser.Show();
@@ -167,8 +157,7 @@ namespace Sucrose.WPF.CS
         {
             base.OnExit(e);
 
-            SGSGSS.ServerInstance.KillAsync().Wait();
-            //SGSGSS.ServerInstance.ShutdownAsync().Wait();
+            SSMI.WebsiterManager.StopChannel();
 
             Close();
         }

@@ -12,6 +12,8 @@
 
         public static readonly string LogFolder = "Log";
 
+        public static readonly string Signal = "Signal";
+
         public static readonly string GifFolder = "Gif";
 
         public static readonly string Bundle = "Bundle";

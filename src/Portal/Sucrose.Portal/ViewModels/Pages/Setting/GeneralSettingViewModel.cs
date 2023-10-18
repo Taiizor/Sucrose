@@ -13,9 +13,6 @@ using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGCLLC = Sucrose.Grpc.Common.Launcher.LauncherClient;
-using SGCSLCS = Sucrose.Grpc.Client.Services.LauncherClientService;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -26,8 +23,10 @@ using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
+using SSIL = Sucrose.Signal.Interface.Launcher;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
+using SSMI = Sucrose.Signal.Manage.Internal;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
@@ -436,16 +435,13 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 if (SSSHP.Work(SMR.Launcher))
                 {
-                    SGSGSS.ChannelCreate($"{SPMM.Host}", SPMM.Port);
-                    SGCLLC Client = new(SGSGSS.ChannelInstance);
-
                     if (State)
                     {
-                        SGCSLCS.GetShow(Client);
+                        SSMI.LauncherManager.FileSave<SSIL>(new() { Show = true });
                     }
                     else
                     {
-                        SGCSLCS.GetHide(Client);
+                        SSMI.LauncherManager.FileSave<SSIL>(new() { Hide = true });
                     }
                 }
             }

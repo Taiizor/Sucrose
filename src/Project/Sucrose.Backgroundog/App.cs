@@ -9,7 +9,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSSSBSS = Sucrose.Shared.Server.Services.BackgroundogServerService;
+using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogServerService;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Backgroundog

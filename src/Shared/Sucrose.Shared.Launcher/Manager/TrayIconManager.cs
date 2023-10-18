@@ -162,11 +162,6 @@ namespace Sucrose.Shared.Launcher.Manager
             return true;
         }
 
-        public bool State()
-        {
-            return TrayIcon.Visible;
-        }
-
         public bool Show()
         {
             return TrayIcon.Visible = true;

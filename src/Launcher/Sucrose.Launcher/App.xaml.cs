@@ -3,10 +3,7 @@ using System.Windows;
 using Application = System.Windows.Application;
 using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SGCL = Sucrose.Grpc.Common.Launcher;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
 using SHC = Skylark.Helper.Culture;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
@@ -14,9 +11,10 @@ using SSDH = Sucrose.Shared.Discord.Hook;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSLMM = Sucrose.Shared.Launcher.Manage.Manager;
+using SSMI = Sucrose.Signal.Manage.Internal;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSSSLSS = Sucrose.Shared.Server.Services.LauncherServerService;
+using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
 using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
 using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -132,16 +130,11 @@ namespace Sucrose.Launcher
 
             SSLMI.TrayIconManager.Start();
 
-            SGSGSS.ServerCreate(SGCL.BindService(new SSSSLSS()));
-
-            SMMI.LauncherSettingManager.SetSetting(SMC.Host, SGSGSS.Host);
-            SMMI.LauncherSettingManager.SetSetting(SMC.Port, SGSGSS.Port);
-
             SMMI.LauncherLogManager.Log(SELLT.Info, "Configuration initialized..");
 
             SMMI.LauncherLogManager.Log(SELLT.Info, "Server initializing..");
 
-            SGSGSS.ServerInstance.Start();
+            SSMI.LauncherManager.StartChannel(SSSSLSS.Handler);
 
             SMMI.LauncherLogManager.Log(SELLT.Info, "Server initialized..");
 
@@ -158,8 +151,7 @@ namespace Sucrose.Launcher
 
             Discord.Dispose();
 
-            SGSGSS.ServerInstance.KillAsync().Wait();
-            //SGSGSS.ServerInstance.ShutdownAsync().Wait();
+            SSMI.LauncherManager.StopChannel();
 
             SSLMI.TrayIconManager.Dispose();
 

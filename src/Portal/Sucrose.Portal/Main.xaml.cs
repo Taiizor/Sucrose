@@ -1,9 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using SGCSWCS = Sucrose.Grpc.Client.Services.WebsiterClientService;
-using SGCWWC = Sucrose.Grpc.Common.Websiter.WebsiterClient;
-using SGSGSS = Sucrose.Grpc.Services.GeneralServerService;
-using SMMI = Sucrose.Manager.Manage.Internal;
+using SSIW = Sucrose.Signal.Interface.Websiter;
+using SSMI = Sucrose.Signal.Manage.Internal;
 
 namespace Sucrose.Portal
 {
@@ -30,40 +28,37 @@ namespace Sucrose.Portal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SGSGSS.ChannelCreate(SMMI.ServerManager.GetSetting<string>("Host"), SMMI.ServerManager.GetSettingStable<int>("Port"));
-            SGCWWC Client = new(SGSGSS.ChannelInstance);
-
             switch ((sender as Button).Content)
             {
                 case "Design 1":
-                    SGCSWCS.ChangeAddress(Client, Uri1, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri1, Hook = true });
                     break;
                 case "Design 2":
-                    SGCSWCS.ChangeAddress(Client, Uri2, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri2, Hook = true });
                     break;
                 case "Design 3":
-                    SGCSWCS.ChangeAddress(Client, Uri3, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri3, Hook = true });
                     break;
                 case "Design 4":
-                    SGCSWCS.ChangeAddress(Client, Uri4, false);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri4, Hook = false });
                     break;
                 case "Design 5":
-                    SGCSWCS.ChangeAddress(Client, Uri5, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri5, Hook = true });
                     break;
                 case "Design 6":
-                    SGCSWCS.ChangeAddress(Client, Uri6, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri6, Hook = true });
                     break;
                 case "Design 7":
-                    SGCSWCS.ChangeAddress(Client, Uri7, false);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri7, Hook = false });
                     break;
                 case "Design 8":
-                    SGCSWCS.ChangeAddress(Client, Uri8, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri8, Hook = true });
                     break;
                 case "Design 9":
-                    SGCSWCS.ChangeAddress(Client, Uri9, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri9, Hook = true });
                     break;
                 case "Design 10":
-                    SGCSWCS.ChangeAddress(Client, Uri10, true);
+                    SSMI.WebsiterManager.FileSave<SSIW>(new() { Url = Uri10, Hook = true });
                     break;
                 default:
                     break;

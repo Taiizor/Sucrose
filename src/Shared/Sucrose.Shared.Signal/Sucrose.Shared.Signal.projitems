@@ -6,11 +6,11 @@
     <SharedGUID>f46507e3-5e5d-429f-97bb-1559dd4c2b38</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Sucrose.Shared.Server</Import_RootNamespace>
+    <Import_RootNamespace>Sucrose.Shared.Signal</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Services\BackgroundogServerService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\LauncherServerService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\WebsiterServerService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BackgroundogSignalService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\LauncherSignalService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\WebsiterSignalService.cs" />
   </ItemGroup>
 </Project>

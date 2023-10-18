@@ -7,7 +7,7 @@ using Sucrose.Grpc.Common;
 using static Sucrose.Grpc.Common.Backgroundog;
 using SBED = Sucrose.Backgroundog.Extension.Data;
 
-namespace Sucrose.Shared.Server.Services
+namespace Sucrose.Shared.Signal.Services
 {
     public class BackgroundogServerService : BackgroundogBase
     {
