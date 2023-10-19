@@ -1,11 +1,9 @@
-﻿using System.Net;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SEDST = Skylark.Enum.DuplicateScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
@@ -45,15 +43,11 @@ namespace Sucrose.Portal.Manage
 
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
 
-        public static IPAddress Host => SMMI.LauncherSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
-
         public static SSCEUT UpdateType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
 
         public static SSCECT ChannelType => SMMI.UpdateSettingManager.GetSetting(SMC.ChannelType, SSCECT.Release);
 
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
-
-        public static int Port => SHS.Clamp(SMMI.LauncherSettingManager.GetSettingStable(SMC.Port, 0), 0, 65535);
 
         public static SSDEDT DisplayType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);
 

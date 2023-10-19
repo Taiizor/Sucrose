@@ -18,10 +18,6 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
 
-        public static IPAddress Host => SMMI.BackgroundogSettingManager.GetSettingAddress(SMC.Host, IPAddress.Loopback);
-
-        public static int Port => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.Port, 0), 0, 65535);
-
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 
         public static SSDEDT DisplayType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);

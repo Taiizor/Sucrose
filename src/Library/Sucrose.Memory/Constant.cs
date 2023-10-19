@@ -8,10 +8,6 @@
 
         public const string Exit = "Exit";
 
-        public const string Host = "Host";
-
-        public const string Port = "Port";
-
         public const string Loop = "Loop";
 
         public const string AApp = "AApp";
@@ -59,6 +55,8 @@
         public const string UploadType = "UploadType";
 
         public const string UpdateType = "UpdateType";
+
+        public const string UpdateTime = "UpdateTime";
 
         public const string ChannelType = "ChannelType";
 

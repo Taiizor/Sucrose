@@ -214,6 +214,8 @@ namespace Sucrose.Update
             {
                 SSSHS.Apply();
 
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateTime, DateTime.Now);
+
                 List<SSIIR> Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key);
 
                 if (Releases.Any())
