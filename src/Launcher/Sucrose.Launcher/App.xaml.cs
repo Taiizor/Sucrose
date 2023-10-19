@@ -12,8 +12,8 @@ using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
+using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Launcher

@@ -21,11 +21,11 @@ using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Live.WebView

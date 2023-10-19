@@ -32,6 +32,7 @@ using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -41,7 +42,6 @@ using SUVDIB = Sucrose.Update.View.DarkInfoBox;
 using SUVDUB = Sucrose.Update.View.DarkUpdateBox;
 using SUVLIB = Sucrose.Update.View.LightInfoBox;
 using SUVLUB = Sucrose.Update.View.LightUpdateBox;
-using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 
 namespace Sucrose.Update
 {

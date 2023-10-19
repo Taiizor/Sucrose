@@ -1,18 +1,16 @@
 ﻿using System.Globalization;
 using System.Windows;
 using Application = System.Windows.Application;
-using SELLT = Skylark.Enum.LevelLogType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SWMM = Sucrose.Watchdog.Manage.Manager;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
-using SSSHI = Sucrose.Shared.Space.Helper.Instance;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWMM = Sucrose.Watchdog.Manage.Manager;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
-using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Watchdog
 {
@@ -127,6 +125,8 @@ namespace Sucrose.Watchdog
                             LightMessageBox.ShowDialog();
                             break;
                     }
+
+                    Close();
                 }
                 else
                 {

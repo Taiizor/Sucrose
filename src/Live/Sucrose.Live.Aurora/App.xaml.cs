@@ -13,10 +13,10 @@ using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 
 namespace Sucrose.Live.Aurora
 {
