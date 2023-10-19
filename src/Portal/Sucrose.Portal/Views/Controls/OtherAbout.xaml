@@ -18,59 +18,150 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
-        <vcontrols:ExpanderCard x:Name="WebPage" LeftIconSymbol="WebAsset24" Expandable="False">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Cursor="Hand"
-                    Click="WebPage_Click"
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-        <vcontrols:ExpanderCard x:Name="Documentation" LeftIconSymbol="BookOpenGlobe24" Margin="0 3 0 0" Expandable="False">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Cursor="Hand"
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Click="Documentation_Click"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+                <WrapPanel Grid.Column="0" Margin="0 0 10 0">
+                    <ui:TextBlock
+                        TextAlignment="Left"
+                        VerticalAlignment="Center"
+                        TextWrapping="WrapWithOverflow"
+                        Text="{DynamicResource Portal.OtherAbout.About}" />
 
-        <vcontrols:ExpanderCard x:Name="Repository" LeftIconSymbol="CodeBlock24" Margin="0 3 0 0" Expandable="False">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Cursor="Hand"
-                    Appearance="Transparent"
-                    Click="Repository_Click"
-                    BorderBrush="Transparent"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        <ui:HyperlinkButton
+                            Cursor="Hand"
+                            Appearance="Transparent"
+                            BorderBrush="Transparent"
+                            NavigateUri="https://www.youtube.com/@iTaiizor"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            <ui:Image
+                                Height="32"
+                                Source="pack://application:,,,/Assets/Social/YouTube.png" />
+                        </ui:HyperlinkButton>
+                        <ui:HyperlinkButton
+                            Cursor="Hand"
+                            Appearance="Transparent"
+                            BorderBrush="Transparent"
+                            NavigateUri="https://www.facebook.com/iTaiizor"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            <ui:Image
+                                Height="32"
+                                Source="pack://application:,,,/Assets/Social/Facebook.png" />
+                        </ui:HyperlinkButton>
+                        <ui:HyperlinkButton
+                            Cursor="Hand"
+                            Appearance="Transparent"
+                            BorderBrush="Transparent"
+                            NavigateUri="https://www.instagram.com/Taiizor"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            <ui:Image
+                                Height="32"
+                                Source="pack://application:,,,/Assets/Social/Instagram.png" />
+                        </ui:HyperlinkButton>
+                        <ui:HyperlinkButton
+                            Cursor="Hand"
+                            Appearance="Transparent"
+                            BorderBrush="Transparent"
+                            NavigateUri="https://www.twitter.com/iTaiizor"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            <ui:Image
+                                Height="32"
+                                Source="pack://application:,,,/Assets/Social/Twitter.png" />
+                        </ui:HyperlinkButton>
+                        <ui:HyperlinkButton
+                            Cursor="Hand"
+                            Appearance="Transparent"
+                            BorderBrush="Transparent"
+                            NavigateUri="https://www.linkedin.com/in/Taiizor"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            <ui:Image
+                                Height="32"
+                                Source="pack://application:,,,/Assets/Social/LinkedIn.png" />
+                        </ui:HyperlinkButton>
+                    </StackPanel>
+                </WrapPanel>
 
-        <vcontrols:ExpanderCard x:Name="Discussions" LeftIconSymbol="GlobePerson24" Margin="0 3 0 0" Expandable="False">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
+                <ui:HyperlinkButton
                     Cursor="Hand"
+                    Grid.Column="1"
                     Appearance="Transparent"
-                    Click="Discussions_Click"
                     BorderBrush="Transparent"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+                    NavigateUri="https://github.com/Taiizor">
+                    <ui:Image
+                        Height="96"
+                        CornerRadius="90"
+                        BorderBrush="#33000000"
+                        Source="pack://application:,,,/Assets/Taiizor.jpeg" />
+                </ui:HyperlinkButton>
+            </Grid>
+        </ui:Card>
 
-        <vcontrols:ExpanderCard x:Name="Report" LeftIconSymbol="Bug24" Margin="0 3 0 0" Expandable="False">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Cursor="Hand"
-                    Click="Report_Click"
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+        <vcontrols:ExpanderCard x:Name="Update" LeftIconSymbol="ArrowSync24" Margin="0 3 0 0" Expandable="False" />
+
+        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}" Margin="0 3 0 0">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ui:TextBlock
+                    Grid.Row="0"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    TextWrapping="WrapWithOverflow"
+                    Text="{DynamicResource Portal.OtherAbout.Contributors}" />
+
+                <WrapPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0" Cursor="">
+                    <ui:HyperlinkButton
+                        Cursor="Hand"
+                        Appearance="Transparent"
+                        BorderBrush="Transparent"
+                        NavigateUri="https://github.com/Taiizor">
+                        <ui:Image
+                            Height="32"
+                            CornerRadius="90"
+                            BorderBrush="#33000000"
+                            Source="pack://application:,,,/Assets/Avatar/Taiizor.jpeg" />
+                    </ui:HyperlinkButton>
+                </WrapPanel>
+            </Grid>
+        </ui:Card>
+        
+        <ui:HyperlinkButton
+            Cursor="Hand"
+            FontSize="14"
+            Margin="0 9 0 0"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Content="{DynamicResource Portal.OtherAbout.TermsOfService}"
+            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+            NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/TERMS_OF_SERVICE.md" />
+
+        <ui:HyperlinkButton
+            Cursor="Hand"
+            FontSize="14"
+            Margin="0 3 0 0"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Content="{DynamicResource Portal.OtherAbout.PrivacyPolicy}"
+            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+            NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/PRIVACY_POLICY.md" />
+
+        <ui:HyperlinkButton
+            Cursor="Hand"
+            FontSize="14"
+            Margin="0 3 0 0"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Content="{DynamicResource Portal.OtherAbout.CodeOfConduct}"
+            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+            NavigateUri="https://github.com/Taiizor/Sucrose/blob/develop/CODE_OF_CONDUCT.md" />
     </StackPanel>
 </ui:ContentDialog>

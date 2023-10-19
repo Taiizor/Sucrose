@@ -5,4 +5,19 @@
 >
     <system:String x:Key="Portal.OtherAbout.Title">O Programie</system:String>
     <system:String x:Key="Portal.OtherAbout.Close">Zamknij</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.About">Cześć, nazywam się Bayram Emekli, jestem także znany pod pseudonimem Taiizor. Jestem twórcą bezpłatnej i otwartoźródłowej aplikacji Sucrose Wallpaper Engine. Dziękujemy za korzystanie z mojej aplikacji.</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Update">Wersja: v{0}</system:String>
+    <system:String x:Key="Portal.OtherAbout.Update.Description">Ostatnia Kontrola: {0}</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Update.Notes">Informacje o Wersji</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Contributors">Współtwórcy</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.TermsOfService">Warunki Świadczenia Usług</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.PrivacyPolicy">Polityka Prywatności</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.CodeOfConduct">Kodeks Postępowania Współtwórców</system:String>
 </ResourceDictionary>

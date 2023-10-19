@@ -1,11 +1,12 @@
 ﻿using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SMR = Sucrose.Memory.Readonly;
+using SHC = Skylark.Helper.Culture;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -19,47 +20,26 @@ namespace Sucrose.Portal.Views.Controls
             InitializeComponent();
         }
 
-        private void Report_Click(object sender, RoutedEventArgs e)
-        {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.ReportWebsite}");
-        }
-
-        private void WebPage_Click(object sender, RoutedEventArgs e)
-        {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Official}{SMR.ValueSeparator}{SMR.OfficialWebsite}");
-        }
-
-        private void Repository_Click(object sender, RoutedEventArgs e)
-        {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Repository}{SMR.ValueSeparator}{SMR.RepositoryWebsite}");
-        }
-
-        private void Discussions_Click(object sender, RoutedEventArgs e)
-        {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Discussions}{SMR.ValueSeparator}{SMR.DiscussionsWebsite}");
-        }
-
-        private void Documentation_Click(object sender, RoutedEventArgs e)
-        {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Wiki}{SMR.ValueSeparator}{SMR.WikiWebsite}");
-        }
-
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            WebPage.TitleText = SSRER.GetValue("Portal", "OtherHelp", "WebPage");
-            WebPage.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "WebPage", "Description");
+            string Version = SSCHV.GetText();
 
-            Documentation.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Documentation");
-            Documentation.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Documentation", "Description");
+            Update.TitleText = string.Format(SSRER.GetValue("Portal", "OtherAbout", "Update"), Version);
+            Update.DescriptionText = string.Format(SSRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMM.UpdateTime.ToString(SHC.CurrentUI));
 
-            Repository.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Repository");
-            Repository.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Repository", "Description");
+            HyperlinkButton Navigate = new()
+            {
+                NavigateUri = string.Format("https://github.com/Taiizor/Sucrose/releases/tag/v{0}", Version),
+                Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
+                Content = SSRER.GetValue("Portal", "OtherAbout", "Update", "Notes"),
+                Icon = new SymbolIcon(SymbolRegular.Notepad24),
+                Appearance = ControlAppearance.Transparent,
+                BorderBrush = Brushes.Transparent,
+                Cursor = Cursors.Hand,
+                FontSize = 14
+            };
 
-            Discussions.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Discussions");
-            Discussions.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Discussions", "Description");
-
-            Report.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Report");
-            Report.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Report", "Description");
+            Update.HeaderFrame = Navigate;
         }
 
         public void Dispose()

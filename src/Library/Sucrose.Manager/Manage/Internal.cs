@@ -5,8 +5,6 @@ namespace Sucrose.Manager.Manage
 {
     public static class Internal
     {
-        public static readonly SMSM ServerManager = new("Server.json");
-
         public static readonly SMSM ThemesManager = new("Themes.json");
 
         public static readonly SMSM DonateManager = new("Donate.json");
