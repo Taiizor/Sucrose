@@ -2,7 +2,6 @@
 using System.Windows;
 using Application = System.Windows.Application;
 using SELLT = Skylark.Enum.LevelLogType;
-using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -10,13 +9,11 @@ using SMR = Sucrose.Memory.Readonly;
 using SSDH = Sucrose.Shared.Discord.Hook;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
-using SSLMM = Sucrose.Shared.Launcher.Manage.Manager;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
-using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Launcher
@@ -108,17 +105,7 @@ namespace Sucrose.Launcher
 
                 string Path = SMMI.LauncherLogManager.LogFile();
 
-                switch (SSLMM.ThemeType)
-                {
-                    case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path);
-                        DarkMessageBox.ShowDialog();
-                        break;
-                    default:
-                        SSWLEMB LightMessageBox = new(Message, Path);
-                        LightMessageBox.ShowDialog();
-                        break;
-                }
+                SSSHW.Start(Message, Path);
 
                 Close();
             }

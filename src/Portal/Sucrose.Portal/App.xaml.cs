@@ -4,13 +4,11 @@ using Microsoft.Extensions.Hosting;
 using System.Globalization;
 using System.Windows;
 using Wpf.Ui;
-using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMAC = Sucrose.Portal.Models.AppConfig;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPSPS = Sucrose.Portal.Services.PageService;
@@ -37,8 +35,7 @@ using SPVPSWSP = Sucrose.Portal.Views.Pages.Setting.WallpaperSettingPage;
 using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Portal
@@ -202,17 +199,7 @@ namespace Sucrose.Portal
 
                 string Path = SMMI.PortalLogManager.LogFile();
 
-                switch (SPMM.ThemeType)
-                {
-                    case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path);
-                        DarkMessageBox.ShowDialog();
-                        break;
-                    default:
-                        SSWLEMB LightMessageBox = new(Message, Path);
-                        LightMessageBox.ShowDialog();
-                        break;
-                }
+                SSSHW.Start(Message, Path);
 
                 Close();
             }

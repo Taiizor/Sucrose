@@ -19,6 +19,7 @@
         StartupM,
         StartupP,
         Official,
+        Watchdog,
         Scheduler,
         Interface,
         Repository,

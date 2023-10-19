@@ -35,6 +35,8 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM LibrarySettingManager = new("Library.json");
 
+        public static readonly SMLM WatchdogLogManager = new("Watchdog-{0}.log");
+
         public static readonly SMLM LauncherLogManager = new("Launcher-{0}.log");
 
         public static readonly SMSM LauncherSettingManager = new("Launcher.json");

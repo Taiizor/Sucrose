@@ -17,8 +17,7 @@ using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Live.Nebula
@@ -106,17 +105,7 @@ namespace Sucrose.Live.Nebula
 
                 string Path = SMMI.NebulaLiveLogManager.LogFile();
 
-                switch (SSEMM.ThemeType)
-                {
-                    case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path);
-                        DarkMessageBox.ShowDialog();
-                        break;
-                    default:
-                        SSWLEMB LightMessageBox = new(Message, Path);
-                        LightMessageBox.ShowDialog();
-                        break;
-                }
+                SSSHW.Start(Message, Path);
 
                 Close();
             }

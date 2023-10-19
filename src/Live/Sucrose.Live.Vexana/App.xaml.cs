@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -10,15 +9,13 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
-using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
-using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Live.Vexana
@@ -106,17 +103,7 @@ namespace Sucrose.Live.Vexana
 
                 string Path = SMMI.VexanaLiveLogManager.LogFile();
 
-                switch (SSEMM.ThemeType)
-                {
-                    case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path);
-                        DarkMessageBox.ShowDialog();
-                        break;
-                    default:
-                        SSWLEMB LightMessageBox = new(Message, Path);
-                        LightMessageBox.ShowDialog();
-                        break;
-                }
+                SSSHW.Start(Message, Path);
 
                 Close();
             }

@@ -62,6 +62,8 @@
 
         public static readonly string Launcher = "Sucrose.Launcher.exe";
 
+        public static readonly string Watchdog = "Sucrose.Watchdog.exe";
+
         public static readonly string VideoContent = "VideoContent.html";
 
         public static readonly string Commandog = "Sucrose.Commandog.exe";

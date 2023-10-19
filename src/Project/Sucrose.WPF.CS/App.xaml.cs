@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
-using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -13,10 +12,8 @@ using SSMI = Sucrose.Signal.Manage.Internal;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSSWSS = Sucrose.Shared.Signal.Services.WebsiterSignalService;
-using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.WPF.CS
 {
@@ -26,8 +23,6 @@ namespace Sucrose.WPF.CS
     public partial class App : Application
     {
         private static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
-
-        private static SEWTT ThemeType => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 
         private static bool HasError { get; set; } = true;
 
@@ -129,17 +124,7 @@ namespace Sucrose.WPF.CS
 
                 string Path = SMMI.CefSharpLiveLogManager.LogFile();
 
-                switch (ThemeType)
-                {
-                    case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path);
-                        DarkMessageBox.ShowDialog();
-                        break;
-                    default:
-                        SSWLEMB LightMessageBox = new(Message, Path);
-                        LightMessageBox.ShowDialog();
-                        break;
-                }
+                SSSHW.Start(Message, Path);
 
                 Close();
             }

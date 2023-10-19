@@ -2,23 +2,21 @@
 using System.Windows;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SWHWI = Skylark.Wing.Helper.WindowInterop;
 
-namespace Sucrose.Shared.Watchdog
+namespace Sucrose.Watchdog.View
 {
     /// <summary>
-    /// Interaction logic for DarkErrorMessageBox.xaml
+    /// Interaction logic for LightErrorMessageBox.xaml
     /// </summary>
-    public partial class DarkErrorMessageBox : Window
+    public partial class LightErrorMessageBox : Window
     {
         private static string Path = string.Empty;
         private static string Text = string.Empty;
         private static string Source = string.Empty;
 
-        public DarkErrorMessageBox(string ErrorMessage, string LogPath, string HelpSource = null, string HelpText = null)
+        public LightErrorMessageBox(string ErrorMessage, string LogPath, string HelpSource = null, string HelpText = null)
         {
             InitializeComponent();
 
@@ -34,8 +32,6 @@ namespace Sucrose.Shared.Watchdog
             }
 
             Error_Message.Text += Environment.NewLine + ErrorMessage;
-
-            SourceInitialized += DarkErrorMessageBox_SourceInitialized;
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
@@ -58,11 +54,6 @@ namespace Sucrose.Shared.Watchdog
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void DarkErrorMessageBox_SourceInitialized(object sender, EventArgs e)
-        {
-            SSSHD.Apply(SWHWI.Handle(this));
         }
     }
 }

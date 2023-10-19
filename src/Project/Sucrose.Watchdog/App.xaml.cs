@@ -1,24 +1,20 @@
 ﻿using System.Globalization;
-using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
+using SELLT = Skylark.Enum.LevelLogType;
+using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
-using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSEAVA = Sucrose.Shared.Engine.Aurora.View.Application;
-using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SWMM = Sucrose.Watchdog.Manage.Manager;
 using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSSHS = Sucrose.Shared.Space.Helper.Security;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SSTHV = Sucrose.Shared.Theme.Helper.Various;
+using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
+using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 
-namespace Sucrose.Live.Aurora
+namespace Sucrose.Watchdog
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -29,18 +25,6 @@ namespace Sucrose.Live.Aurora
 
         public App()
         {
-            System.Windows.Forms.Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
-
-            System.Windows.Forms.Application.ThreadException += (s, e) =>
-            {
-                Exception Exception = e.Exception;
-
-                SSWW.Watch_ThreadException(Exception);
-
-                //Close();
-                Message(Exception.Message);
-            };
-
             AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
             {
                 Exception Exception = e.Exception;
@@ -101,55 +85,47 @@ namespace Sucrose.Live.Aurora
             {
                 HasError = false;
 
-                string Path = SMMI.AuroraLiveLogManager.LogFile();
+                string Path = SMMI.WatchdogLogManager.LogFile();
 
-                SSSHW.Start(Message, Path);
+                switch (SWMM.ThemeType)
+                {
+                    case SEWTT.Dark:
+                        SWVDEMB DarkMessageBox = new(Message, Path);
+                        DarkMessageBox.ShowDialog();
+                        break;
+                    default:
+                        SWVLEMB LightMessageBox = new(Message, Path);
+                        LightMessageBox.ShowDialog();
+                        break;
+                }
 
                 Close();
             }
         }
 
-        protected void Configure()
+        protected void Configure(string[] Args)
         {
-            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
+            if (Args.Any())
             {
-                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+                string[] Arguments = Args.First().Split(SMR.ValueSeparatorChar);
 
-                if (File.Exists(InfoPath))
+                if (Arguments.Any() && (Arguments.Count() == 2 || Arguments.Count() == 4))
                 {
-                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+                    string Path = Arguments[1];
+                    string Message = Arguments[0];
+                    string Source = Arguments.Count() == 4 ? Arguments[2] : string.Empty;
+                    string Text = Arguments.Count() == 4 ? Arguments[3] : string.Empty;
 
-                    string Source = Info.Source;
-
-                    if (SSTHV.IsUrl(Source))
+                    switch (SWMM.ThemeType)
                     {
-                        Close();
-                    }
-                    else
-                    {
-                        Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
-
-                        SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, false);
-
-                        if (File.Exists(Source))
-                        {
-                            SSSHS.Apply();
-
-                            switch (Info.Type)
-                            {
-                                case SSDEWT.Application:
-                                    SSEAVA Application = new(Source, Info.Arguments);
-                                    Application.Show();
-                                    break;
-                                default:
-                                    Close();
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            Close();
-                        }
+                        case SEWTT.Dark:
+                            SWVDEMB DarkMessageBox = new(Message, Path, Source, Text);
+                            DarkMessageBox.ShowDialog();
+                            break;
+                        default:
+                            SWVLEMB LightMessageBox = new(Message, Path, Source, Text);
+                            LightMessageBox.ShowDialog();
+                            break;
                     }
                 }
                 else
@@ -167,8 +143,6 @@ namespace Sucrose.Live.Aurora
         {
             base.OnExit(e);
 
-            //
-
             Close();
         }
 
@@ -178,16 +152,9 @@ namespace Sucrose.Live.Aurora
 
             SSRHR.SetLanguage(SMMM.Culture);
 
-            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            ShutdownMode = ShutdownMode.OnLastWindowClose;
 
-            if (SSSHI.Basic(SMR.LiveMutex, SMR.AuroraLive) && SSEHR.Check())
-            {
-                Configure();
-            }
-            else
-            {
-                Close();
-            }
+            Configure(e.Args);
         }
     }
 }

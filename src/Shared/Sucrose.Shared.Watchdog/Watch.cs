@@ -50,6 +50,8 @@ namespace Sucrose.Shared.Watchdog
             SMMI.PortalLogManager.Log(SELLT.Error, Text);
 #elif UPDATE
             SMMI.UpdateLogManager.Log(SELLT.Error, Text);
+#elif WATCHDOG
+            SMMI.WatchdogLogManager.Log(SELLT.Error, Text);
 #elif LAUNCHER
             SMMI.LauncherLogManager.Log(SELLT.Error, Text);
 #elif COMMANDOG

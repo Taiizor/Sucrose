@@ -34,8 +34,6 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
-using SSWDEMB = Sucrose.Shared.Watchdog.DarkErrorMessageBox;
-using SSWLEMB = Sucrose.Shared.Watchdog.LightErrorMessageBox;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SUMI = Sucrose.Update.Manage.Internal;
 using SUMM = Sucrose.Update.Manage.Manager;
@@ -43,6 +41,7 @@ using SUVDIB = Sucrose.Update.View.DarkInfoBox;
 using SUVDUB = Sucrose.Update.View.DarkUpdateBox;
 using SUVLIB = Sucrose.Update.View.LightInfoBox;
 using SUVLUB = Sucrose.Update.View.LightUpdateBox;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 
 namespace Sucrose.Update
 {
@@ -170,23 +169,7 @@ namespace Sucrose.Update
                 string Path = SMMI.UpdateLogManager.LogFile();
                 string Text = SSRER.GetValue("Update", "HelpText");
 
-                switch (SUMM.ThemeType)
-                {
-                    case SEWTT.Dark:
-                        SSWDEMB DarkMessageBox = new(Message, Path, Source, Text)
-                        {
-                            Topmost = true
-                        };
-                        DarkMessageBox.ShowDialog();
-                        break;
-                    default:
-                        SSWLEMB LightMessageBox = new(Message, Path, Source, Text)
-                        {
-                            Topmost = true
-                        };
-                        LightMessageBox.ShowDialog();
-                        break;
-                }
+                SSSHW.Start(Message, Path, Source, Text);
 
                 Close();
             }

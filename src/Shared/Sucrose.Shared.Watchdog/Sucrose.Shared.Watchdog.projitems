@@ -9,18 +9,6 @@
     <Import_RootNamespace>Sucrose.Shared.Watchdog</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)LightErrorMessageBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)DarkErrorMessageBox.xaml.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)LightErrorMessageBox.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Watch.cs" />
   </ItemGroup>
 </Project>

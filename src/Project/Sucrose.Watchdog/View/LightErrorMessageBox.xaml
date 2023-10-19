@@ -1,9 +1,9 @@
-﻿<Window x:Class="Sucrose.Shared.Watchdog.LightErrorMessageBox"
+﻿<Window x:Class="Sucrose.Watchdog.View.LightErrorMessageBox"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sucrose.Shared.Watchdog"
+        xmlns:local="clr-namespace:Sucrose.Watchdog"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip" MinHeight="250" MinWidth="500"
         Title="{DynamicResource Watchdog.WindowTitle}" Height="250" Width="500" WindowStartupLocation="CenterScreen">
