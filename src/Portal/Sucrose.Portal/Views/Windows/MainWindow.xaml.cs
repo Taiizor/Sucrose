@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using SCHB = Skylark.Clipboard.Helper.Board;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -223,6 +224,11 @@ namespace Sucrose.Portal.Views.Windows
             ApplySearch(e.NewSize.Width);
 
             Dispose();
+        }
+
+        private void Quoting_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            SCHB.SetText(Quoting.Text);
         }
 
         private void RootView_Navigated(NavigationView sender, NavigatedEventArgs args)

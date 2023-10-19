@@ -284,7 +284,7 @@
                 <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Memory, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="6" Margin="4,0,4,0" HorizontalContentAlignment="Center">
-                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Quoting, Mode=OneWay}" />
+                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Quoting, Mode=OneWay}" x:Name="Quoting" Cursor="Hand" MouseLeftButtonUp="Quoting_MouseLeftButtonUp" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="7">
                 <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{DynamicResource Portal.Copyright}" />

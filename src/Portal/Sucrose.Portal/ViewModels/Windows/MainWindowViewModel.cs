@@ -138,7 +138,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private string GetQuoting()
         {
-            return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(40)}");
+            return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(86)}");
         }
 
         private Stretch GetStretch()
