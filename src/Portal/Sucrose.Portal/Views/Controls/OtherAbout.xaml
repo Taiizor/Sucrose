@@ -35,52 +35,62 @@
                     <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                         <ui:HyperlinkButton
                             Cursor="Hand"
+                            CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
                             NavigateUri="https://www.youtube.com/@iTaiizor"
                             Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
                             <ui:Image
                                 Height="32"
+                                CornerRadius="16"
                                 Source="pack://application:,,,/Assets/Social/YouTube.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
                             Cursor="Hand"
+                            CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
                             NavigateUri="https://www.facebook.com/iTaiizor"
                             Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
                             <ui:Image
                                 Height="32"
+                                CornerRadius="16"
                                 Source="pack://application:,,,/Assets/Social/Facebook.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
                             Cursor="Hand"
+                            CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
                             NavigateUri="https://www.instagram.com/Taiizor"
                             Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
                             <ui:Image
                                 Height="32"
+                                CornerRadius="16"
                                 Source="pack://application:,,,/Assets/Social/Instagram.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
                             Cursor="Hand"
+                            CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
                             NavigateUri="https://www.twitter.com/iTaiizor"
                             Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
                             <ui:Image
                                 Height="32"
+                                CornerRadius="16"
                                 Source="pack://application:,,,/Assets/Social/Twitter.png" />
                         </ui:HyperlinkButton>
                         <ui:HyperlinkButton
                             Cursor="Hand"
+                            CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
                             NavigateUri="https://www.linkedin.com/in/Taiizor"
                             Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
                             <ui:Image
                                 Height="32"
+                                CornerRadius="16"
                                 Source="pack://application:,,,/Assets/Social/LinkedIn.png" />
                         </ui:HyperlinkButton>
                     </StackPanel>
@@ -89,13 +99,13 @@
                 <ui:HyperlinkButton
                     Cursor="Hand"
                     Grid.Column="1"
+                    CornerRadius="30"
                     Appearance="Transparent"
                     BorderBrush="Transparent"
                     NavigateUri="https://github.com/Taiizor">
                     <ui:Image
                         Height="96"
-                        CornerRadius="90"
-                        BorderBrush="#33000000"
+                        CornerRadius="48"
                         Source="pack://application:,,,/Assets/Taiizor.jpeg" />
                 </ui:HyperlinkButton>
             </Grid>
@@ -121,13 +131,13 @@
                 <WrapPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0" Cursor="">
                     <ui:HyperlinkButton
                         Cursor="Hand"
+                        CornerRadius="15"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
                         NavigateUri="https://github.com/Taiizor">
                         <ui:Image
                             Height="32"
-                            CornerRadius="90"
-                            BorderBrush="#33000000"
+                            CornerRadius="16"
                             Source="pack://application:,,,/Assets/Avatar/Taiizor.jpeg" />
                     </ui:HyperlinkButton>
                 </WrapPanel>
