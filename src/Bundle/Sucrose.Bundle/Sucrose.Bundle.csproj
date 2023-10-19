@@ -97,9 +97,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Remove="Redist\x64.exe" Condition="'$(PlatformTarget)' != 'x64'" />
-        <EmbeddedResource Remove="Redist\x86.exe" Condition="'$(PlatformTarget)' != 'x86'" />
-        <EmbeddedResource Remove="Redist\arm64.exe" Condition="'$(PlatformTarget)' != 'arm64'" />
+        <EmbeddedResource Remove="Redist\VC_Redist_x64.exe" Condition="'$(PlatformTarget)' != 'x64'" />
+        <EmbeddedResource Remove="Redist\VC_Redist_x86.exe" Condition="'$(PlatformTarget)' != 'x86'" />
+        <EmbeddedResource Remove="Redist\VC_Redist_arm64.exe" Condition="'$(PlatformTarget)' != 'arm64'" />
         
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.log" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.txt" />

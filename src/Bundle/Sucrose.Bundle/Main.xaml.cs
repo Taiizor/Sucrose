@@ -101,11 +101,11 @@ namespace Sucrose.Bundle
             string Command = $"/q /norestart";
 
 #if X86
-            string Executable = Path.Combine(RedistPath, "x86.exe");
+            string Executable = Path.Combine(RedistPath, "VC_Redist_x86.exe");
 #elif ARM64
-            string Executable = Path.Combine(RedistPath, "arm64.exe");
+            string Executable = Path.Combine(RedistPath, "VC_Redist_arm64.exe");
 #else
-            string Executable = Path.Combine(RedistPath, "x64.exe");
+            string Executable = Path.Combine(RedistPath, "VC_Redist_x64.exe");
 #endif
 
             ProcessStartInfo Starter = new()
