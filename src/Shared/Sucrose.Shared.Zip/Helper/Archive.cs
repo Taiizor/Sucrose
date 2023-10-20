@@ -54,7 +54,7 @@ namespace Sucrose.Shared.Zip.Helper
                 // Arşivdeki SucroseInfo.json dosyası boş mu?
                 if (string.IsNullOrEmpty(Salt))
                 {
-                    return SSDECT.Empty;
+                    return SSDECT.EmptyInfo;
                 }
 
                 // Arşivdeki SucroseInfo.json dosyası uygunluk  kontrolü
@@ -63,7 +63,7 @@ namespace Sucrose.Shared.Zip.Helper
                 // Arşivdeki SucroseInfo.json dosyası geçerli mi?
                 if (!Json)
                 {
-                    return SSDECT.Invalid;
+                    return SSDECT.InvalidInfo;
                 }
 
                 // Arşivdeki SucroseInfo.json dosyasını Info sınıfına dönüştürme
@@ -196,91 +196,89 @@ namespace Sucrose.Shared.Zip.Helper
                     }
                 }
 
-                // Arşivde SucroseCompatible.json dosyası var mı?
                 if (SSZHZ.CheckFile(Archive, SMR.SucroseCompatible))
                 {
-                    // Arşivdeki SucroseCompatible.json dosyasını okuma
-                    SSTHC Compatible = SSTHC.FromJson(SSZHZ.ReadFile(Archive, SMR.SucroseCompatible));
+                    Salt = SSZHZ.ReadFile(Archive, SMR.SucroseCompatible);
 
-                    // Compatible içindeki TriggerTime değeri 1'den küçük mü?
+                    if (string.IsNullOrEmpty(Salt))
+                    {
+                        return SSDECT.EmptyCompatible;
+                    }
+
+                    Json = SSTHC.CheckJson(Salt);
+
+                    if (!Json)
+                    {
+                        return SSDECT.InvalidCompatible;
+                    }
+
+                    SSTHC Compatible = SSTHC.FromJson(Salt);
+
                     if (Compatible.TriggerTime <= 0)
                     {
                         return SSDECT.TriggerTime;
                     }
 
-                    // Compatible içindeki LoopMode değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.LoopMode) && !Compatible.LoopMode.Contains("{0}"))
                     {
                         return SSDECT.LoopMode;
                     }
 
-                    // Compatible içindeki VolumeLevel değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.VolumeLevel) && !Compatible.VolumeLevel.Contains("{0}"))
                     {
                         return SSDECT.VolumeLevel;
                     }
 
-                    // Compatible içindeki ShuffleMode değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.ShuffleMode) && !Compatible.ShuffleMode.Contains("{0}"))
                     {
                         return SSDECT.ShuffleMode;
                     }
 
-                    // Compatible içindeki StretchMode değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.StretchMode) && !Compatible.StretchMode.Contains("{0}"))
                     {
                         return SSDECT.StretchMode;
                     }
 
-                    // Compatible içindeki SystemCpu değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemCpu) && !Compatible.SystemCpu.Contains("{0}"))
                     {
                         return SSDECT.SystemCpu;
                     }
 
-                    // Compatible içindeki SystemBios değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemBios) && !Compatible.SystemBios.Contains("{0}"))
                     {
                         return SSDECT.SystemBios;
                     }
 
-                    // Compatible içindeki SystemAudio değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemAudio) && !Compatible.SystemAudio.Contains("{0}"))
                     {
                         return SSDECT.SystemAudio;
                     }
 
-                    // Compatible içindeki SystemDate değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemDate) && !Compatible.SystemDate.Contains("{0}"))
                     {
                         return SSDECT.SystemDate;
                     }
 
-                    // Compatible içindeki SystemMemory değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemMemory) && !Compatible.SystemMemory.Contains("{0}"))
                     {
                         return SSDECT.SystemMemory;
                     }
 
-                    // Compatible içindeki SystemBattery değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemBattery) && !Compatible.SystemBattery.Contains("{0}"))
                     {
                         return SSDECT.SystemBattery;
                     }
 
-                    // Compatible içindeki SystemGraphic değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemGraphic) && !Compatible.SystemGraphic.Contains("{0}"))
                     {
                         return SSDECT.SystemGraphic;
                     }
 
-                    // Compatible içindeki SystemNetwork değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemNetwork) && !Compatible.SystemNetwork.Contains("{0}"))
                     {
                         return SSDECT.SystemNetwork;
                     }
 
-                    // Compatible içindeki SystemMotherboard değeri boş değil ve {0} içermiyor mu?
                     if (!string.IsNullOrEmpty(Compatible.SystemMotherboard) && !Compatible.SystemMotherboard.Contains("{0}"))
                     {
                         return SSDECT.SystemMotherboard;

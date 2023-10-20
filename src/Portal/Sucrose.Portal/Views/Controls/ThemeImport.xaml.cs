@@ -32,12 +32,12 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     ThemeImportType.Children.Add(new TextBlock
                     {
-                        Text = $"{Type}: Bu şu anlama geliyor",
                         TextAlignment = TextAlignment.Left,
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Center,
-                        Foreground = SSRER.GetResource<Brush>("SystemFillColorCriticalBrush")
+                        Foreground = SSRER.GetResource<Brush>("SystemFillColorCriticalBrush"),
+                        Text = $"{Type}: {SSRER.GetValue("Portal", "Enum", "CompatibilityType", $"{Type}")}"
                     });
                 });
             }

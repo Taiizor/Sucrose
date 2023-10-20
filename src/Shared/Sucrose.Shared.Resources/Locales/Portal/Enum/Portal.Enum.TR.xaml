@@ -35,4 +35,45 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Ekran Sınırları</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Varsayılan</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Başarılı</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact2"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu"></system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' dosyası boş</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">'AppVersion'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' geçersiz bir değer içeriyor</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Geçersiz 'SystemBios' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Geçersiz 'SystemDate' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Geçersiz 'SystemAudio' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' değeri boş veya çok uzun</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' dosyası geçersiz</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Geçersiz 'TriggerTime' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Geçersiz 'StretchMode' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Geçersiz 'VolumeLevel' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Geçersiz 'ShuffleMode' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Geçersiz dosya</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Geçersiz 'SystemMemory' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Geçersiz 'SystemBattery' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Geçersiz 'SystemGraphic' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Geçersiz 'SystemNetwork' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Geçersiz dosya uzantısı</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">'SucroseCompatible.json' dosyası boş</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Geçersiz 'PropertyListener' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Geçersiz 'SystemMotherboard' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' dosyası geçersiz</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Öngörülemeyen Sonuçlar</system:String>
 </ResourceDictionary>

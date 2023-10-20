@@ -36,7 +36,7 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     TextWrapping="WrapWithOverflow"
-                    Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                    Foreground="{DynamicResource SystemFillColorCautionBrush}"
                     Text="Neden Açıklamaları" />
 
                 <WrapPanel x:Name="ThemeImportType" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="0 10 0 0" />

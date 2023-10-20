@@ -52,6 +52,20 @@ namespace Sucrose.Shared.Theme.Helper
 
     internal partial class Compatible
     {
+        public static bool CheckJson(string Json)
+        {
+            try
+            {
+                JsonConvert.DeserializeObject<Compatible>(Json, Converter.Settings);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static Compatible FromJson(string Json)
         {
             return JsonConvert.DeserializeObject<Compatible>(Json, Converter.Settings);

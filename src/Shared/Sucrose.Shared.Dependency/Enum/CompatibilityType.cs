@@ -10,17 +10,13 @@
         /// </summary>
         Pass,
         /// <summary>
-        /// SucroseInfo.json dosyası boş!
+        /// Tema bu uygulamanın desteklemediği bir tür için oluşturulmuş!
         /// </summary>
-        Empty,
+        Type,
         /// <summary>
         /// Title boş veya çok uzun!
         /// </summary>
         Title,
-        /// <summary>
-        /// Tema bu uygulamanın desteklemediği bir tür için oluşturulmuş!
-        /// </summary>
-        Type,
         /// <summary>
         /// Author boş değil ve çok uzun!
         /// </summary>
@@ -29,10 +25,6 @@
         /// Source dosyası bulunamadı!
         /// </summary>
         Source,
-        /// <summary>
-        /// SucroseInfo.json dosyası geçersiz!
-        /// </summary>
-        Invalid,
         /// <summary>
         /// Contact boş değil ve çok uzun!
         /// </summary>
@@ -81,81 +73,31 @@
         /// Geçersiz sistem işlemci değeri!
         /// </summary>
         SystemCpu,
+        EmptyInfo,
         /// <summary>
         /// Tema bu uygulamanın daha yüksek bir sürümü için oluşturulmuş!
         /// </summary>
         AppVersion,
-        /// <summary>
-        /// Geçersiz url adresi!
-        /// </summary>
         InvalidUrl,
-        /// <summary>
-        /// Geçersiz sistem bios değeri!
-        /// </summary>
         SystemBios,
-        /// <summary>
-        /// Geçersiz sistem zamanı değeri!
-        /// </summary>
         SystemDate,
-        /// <summary>
-        /// Geçersiz sistem sesi değeri!
-        /// </summary>
         SystemAudio,
-        /// <summary>
-        /// Description boş veya çok uzun!
-        /// </summary>
         Description,
-        /// <summary>
-        /// Geçersiz sistem belleği değeri!
-        /// </summary>
-        SystemMemory,
-        /// <summary>
-        /// Geçersiz sistem pil değeri!
-        /// </summary>
-        SystemBattery,
-        /// <summary>
-        /// Geçersiz sistem grafik değeri!
-        /// </summary>
-        SystemGraphic,
-        /// <summary>
-        /// Geçersiz sistem ağ değeri!
-        /// </summary>
-        SystemNetwork,
-        /// <summary>
-        /// Geçersiz tetikleme zamanı!
-        /// </summary>
+        InvalidInfo,
         TriggerTime,
-        /// <summary>
-        /// Geçersiz uzatma modu değeri!
-        /// </summary>
         StretchMode,
-        /// <summary>
-        /// Geçersiz ses seviyesi değeri!
-        /// </summary>
         VolumeLevel,
-        /// <summary>
-        /// Geçersiz karıştırma modu değeri!
-        /// </summary>
         ShuffleMode,
-        /// <summary>
-        /// Geçersiz dosya!
-        /// </summary>
         InvalidFile,
-        /// <summary>
-        /// Geçersiz dosya uzantısı!
-        /// </summary>
+        SystemMemory,
+        SystemBattery,
+        SystemGraphic,
+        SystemNetwork,
+        EmptyCompatible,
         InvalidExtension,
-        /// <summary>
-        /// Geçersiz özellik dinleyici değeri!
-        /// </summary>
         PropertyListener,
-        /// <summary>
-        /// Geçersiz sistem anakart değeri!
-        /// </summary>
         SystemMotherboard,
-        /// <summary>
-        /// Öngörülemeyen sonuçlar.
-        /// </summary>
+        InvalidCompatible,
         UnforeseenConsequences
     }
 }

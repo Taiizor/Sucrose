@@ -54,6 +54,7 @@ namespace Sucrose.Shared.Theme.Helper
         {
             return JsonConvert.DeserializeObject<Info>(File.ReadAllText(Json), Converter.Settings);
         }
+
         public static bool CheckJson(string Json)
         {
             try
@@ -62,7 +63,7 @@ namespace Sucrose.Shared.Theme.Helper
 
                 return true;
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }
