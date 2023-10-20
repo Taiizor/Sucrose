@@ -214,7 +214,7 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
+        private async void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
             Expander.Title.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expander");
             Expander.Description.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expander", "Description");
@@ -329,6 +329,10 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderContent.Children.Add(ExpanderDuplicateContent);
 
             Expander.FooterCard = ExpanderContent;
+
+            await Task.Delay(10);
+
+            Panel.MinHeight = 0;
         }
 
         public void Dispose()

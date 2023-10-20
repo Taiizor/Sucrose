@@ -203,7 +203,7 @@ namespace Sucrose.Update
 
                 if (Releases.Any())
                 {
-                    SSIIR Release = Release = Releases.FirstOrDefault();
+                    SSIIR Release = Releases.FirstOrDefault();
 
                     if (SUMM.ChannelType == SSCECT.Release)
                     {

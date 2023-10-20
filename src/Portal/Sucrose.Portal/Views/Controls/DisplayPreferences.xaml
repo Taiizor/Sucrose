@@ -17,27 +17,13 @@
         <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:DisplayPreferences}" />
     </ui:ContentDialog.Resources>
 
-    <StackPanel x:Name="Panel" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+    <StackPanel x:Name="Panel" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinHeight="9999" MinWidth="400">
         <Border Background="{DynamicResource ControlFillColorDefaultBrush}" CornerRadius="5" Margin="0 10 0 10" MinHeight="150">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <WrapPanel x:Name="Contents" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
             </ScrollViewer>
         </Border>
 
-        <vcontrols:ExpanderCard x:Name="Expander" LeftIconSymbol="DualScreenSpan24" IsExpand="True" Expandable="True">
-            <vcontrols:ExpanderCard.FooterCard>
-                <StackPanel>
-                    <RadioButton />
-                    <RadioButton />
-                    <RadioButton />
-
-                    <ui:NavigationViewItemSeparator Margin="0 10 0 10" />
-
-                    <ui:TextBlock Margin="0 0 0 10" />
-
-                    <RadioButton />
-                </StackPanel>
-            </vcontrols:ExpanderCard.FooterCard>
-        </vcontrols:ExpanderCard>
+        <vcontrols:ExpanderCard x:Name="Expander" LeftIconSymbol="DualScreenSpan24" IsExpand="True" Expandable="True" />
     </StackPanel>
 </ui:ContentDialog>

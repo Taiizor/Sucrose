@@ -42,6 +42,10 @@
         /// </summary>
         Preview,
         /// <summary>
+        /// Seçilen ZIP dosyası şifreli!
+        /// </summary>
+        Encrypt,
+        /// <summary>
         /// Seçilen dosya gerçekten ZIP dosyası değil!
         /// </summary>
         ZipType,

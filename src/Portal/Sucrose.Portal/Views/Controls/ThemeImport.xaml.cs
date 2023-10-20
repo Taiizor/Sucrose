@@ -1,6 +1,8 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 
 namespace Sucrose.Portal.Views.Controls
@@ -18,17 +20,31 @@ namespace Sucrose.Portal.Views.Controls
             InitializeComponent();
         }
 
-        private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
+        private async void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
             ThemeImportInfo.Text = Info;
 
             if (Types.Any())
             {
-                //Legends (hata kodlarının anlamını burada kısaca ya da basitçe açıkla)
+                TypeCard.Visibility = Visibility.Visible;
 
-                //Test: Test açıklaması
-                //Test2: Test2 açıklaması
+                Types.ForEach(Type =>
+                {
+                    ThemeImportType.Children.Add(new TextBlock
+                    {
+                        Text = $"{Type}: Bu şu anlama geliyor",
+                        TextAlignment = TextAlignment.Left,
+                        TextWrapping = TextWrapping.WrapWithOverflow,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Foreground = SSRER.GetResource<Brush>("SystemFillColorCriticalBrush")
+                    });
+                });
             }
+
+            await Task.Delay(10);
+
+            Panel.MinHeight = 0;
         }
 
         public void Dispose()

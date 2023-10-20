@@ -185,7 +185,7 @@ namespace Sucrose.Portal.Views.Pages
                                 Name = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
                             } while (File.Exists(Path.Combine(SMMM.LibraryLocation, Name)));
 
-                            Result = SSZEZ.Extract(Record, Path.Combine(SMMM.LibraryLocation, Name));
+                            Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMMM.LibraryLocation, Name)));
 
                             if (Result == SSDECT.Pass)
                             {
@@ -194,12 +194,16 @@ namespace Sucrose.Portal.Views.Pages
                             }
                             else
                             {
-                                Types.Add(Result);
-                                Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni: {Result}");
+                                Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni bilinmiyor.");
                             }
                         }
                         else
                         {
+                            if (!Types.Contains(Result))
+                            {
+                                Types.Add(Result);
+                            }
+
                             Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni: {Result}");
                         }
                     }

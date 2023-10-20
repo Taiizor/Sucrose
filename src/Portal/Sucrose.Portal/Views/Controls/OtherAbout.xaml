@@ -38,8 +38,7 @@
                             CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            NavigateUri="https://www.youtube.com/@iTaiizor"
-                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            NavigateUri="https://www.youtube.com/@iTaiizor">
                             <ui:Image
                                 Height="32"
                                 CornerRadius="16"
@@ -50,8 +49,7 @@
                             CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            NavigateUri="https://www.facebook.com/iTaiizor"
-                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            NavigateUri="https://www.facebook.com/iTaiizor">
                             <ui:Image
                                 Height="32"
                                 CornerRadius="16"
@@ -62,8 +60,7 @@
                             CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            NavigateUri="https://www.instagram.com/Taiizor"
-                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            NavigateUri="https://www.instagram.com/Taiizor">
                             <ui:Image
                                 Height="32"
                                 CornerRadius="16"
@@ -74,8 +71,7 @@
                             CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            NavigateUri="https://www.twitter.com/iTaiizor"
-                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            NavigateUri="https://www.twitter.com/iTaiizor">
                             <ui:Image
                                 Height="32"
                                 CornerRadius="16"
@@ -86,8 +82,7 @@
                             CornerRadius="15"
                             Appearance="Transparent"
                             BorderBrush="Transparent"
-                            NavigateUri="https://www.linkedin.com/in/Taiizor"
-                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}">
+                            NavigateUri="https://www.linkedin.com/in/Taiizor">
                             <ui:Image
                                 Height="32"
                                 CornerRadius="16"
@@ -128,7 +123,7 @@
                     TextWrapping="WrapWithOverflow"
                     Text="{DynamicResource Portal.OtherAbout.Contributors}" />
 
-                <WrapPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0" Cursor="">
+                <WrapPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0">
                     <ui:HyperlinkButton
                         Cursor="Hand"
                         CornerRadius="15"

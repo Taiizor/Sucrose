@@ -36,6 +36,12 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.ZipType;
                 }
 
+                //// Seçilen ZIP dosyası şifreli mi?
+                //if (SSZHZ.EncryptedArchive(Archive))
+                //{
+                //    return SSDECT.Encrypt;
+                //}
+
                 // Arşivde SucroseInfo.json dosyası var mı?
                 if (!SSZHZ.CheckFile(Archive, SMR.SucroseInfo))
                 {

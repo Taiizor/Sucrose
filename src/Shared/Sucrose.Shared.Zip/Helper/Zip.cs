@@ -76,5 +76,24 @@ namespace Sucrose.Shared.Zip.Helper
                 return false;
             }
         }
+
+        public static bool EncryptedArchive(string Archive)
+        {
+            try
+            {
+                using FileStream Stream = new(Archive, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+                byte[] ArchiveHeader = new byte[4];
+                Stream.Read(ArchiveHeader, 0, 4);
+
+                byte[] ZipHeader = new byte[] { 0x50, 0x4B, 0x03, 0x07 };
+
+                return ArchiveHeader.SequenceEqual(ZipHeader);
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
