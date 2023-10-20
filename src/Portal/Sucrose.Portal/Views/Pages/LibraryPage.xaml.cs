@@ -1,6 +1,8 @@
 ﻿using System.IO;
+using System.Text;
 using System.Windows;
 using Wpf.Ui.Controls;
+using SHG = Skylark.Helper.Generator;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -9,6 +11,9 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
+using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -125,6 +130,93 @@ namespace Sucrose.Portal.Views.Pages
 
                 FrameLibrary.Visibility = Visibility.Visible;
                 ProgressLibrary.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void GridLibrary_DragOver(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop) || e.AllowedEffects.HasFlag(DragDropEffects.Copy) == false)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.Copy;
+                DropBorder.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void GridLibrary_DragLeave(object sender, DragEventArgs e)
+        {
+            DropBorder.Visibility = Visibility.Collapsed;
+        }
+
+        private async void GridLibrary_Drop(object sender, DragEventArgs e)
+        {
+            DropBorder.Visibility = Visibility.Collapsed;
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                bool State = false;
+                List<string> Messages = new();
+                string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (Files.Any())
+                {
+                    foreach (string Record in Files)
+                    {
+                        SSDECT Result = SSZHA.Check(Record);
+
+                        if (Result == SSDECT.Pass)
+                        {
+                            if (!Directory.Exists(SMMM.LibraryLocation))
+                            {
+                                Directory.CreateDirectory(SMMM.LibraryLocation);
+                            }
+
+                            string Name;
+
+                            do
+                            {
+                                Name = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            } while (File.Exists(Path.Combine(SMMM.LibraryLocation, Name)));
+
+                            Result = SSZEZ.Extract(Record, Path.Combine(SMMM.LibraryLocation, Name));
+
+                            if (Result == SSDECT.Pass)
+                            {
+                                State = true;
+                                Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye başarıyla eklendi.");
+                            }
+                            else
+                            {
+                                Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni: {Result}");
+                            }
+                        }
+                        else
+                        {
+                            Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni: {Result}");
+                        }
+                    }
+                }
+
+                if (Messages.Any())
+                {
+                    StringBuilder SB = new();
+
+                    Messages.ForEach(Message => SB.AppendLine(Message));
+
+                    System.Windows.MessageBox.Show(SB.ToString());
+                }
+
+                if (State)
+                {
+                    Dispose();
+
+                    InitializeThemes();
+
+                    await Start(true);
+                }
             }
         }
 

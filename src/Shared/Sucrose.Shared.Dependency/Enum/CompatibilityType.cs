@@ -10,6 +10,10 @@
         /// </summary>
         Pass,
         /// <summary>
+        /// SucroseInfo.json dosyası boş!
+        /// </summary>
+        Empty,
+        /// <summary>
         /// Title boş veya çok uzun!
         /// </summary>
         Title,
@@ -25,6 +29,10 @@
         /// Source dosyası bulunamadı!
         /// </summary>
         Source,
+        /// <summary>
+        /// SucroseInfo.json dosyası geçersiz!
+        /// </summary>
+        Invalid,
         /// <summary>
         /// Contact boş değil ve çok uzun!
         /// </summary>

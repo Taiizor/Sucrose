@@ -10,8 +10,9 @@
     Title="{DynamicResource Portal.LibraryPage.Title}"
     mc:Ignorable="d">
 
-    <Grid x:Name="GridLibrary" Loaded="GridLibrary_Loaded">
+    <Grid x:Name="GridLibrary" AllowDrop="True" Loaded="GridLibrary_Loaded" Drop="GridLibrary_Drop" DragOver="GridLibrary_DragOver" DragLeave="GridLibrary_DragLeave">
         <Frame x:Name="FrameLibrary" Visibility="Collapsed" />
         <ui:ProgressRing x:Name="ProgressLibrary" IsIndeterminate="True" Width="100" Height="100" />
+        <Border Name="DropBorder" BorderBrush="DodgerBlue" Margin="1 0 1 0" BorderThickness="2" Visibility="Collapsed" />
     </Grid>
 </Page>

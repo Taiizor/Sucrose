@@ -43,7 +43,25 @@ namespace Sucrose.Shared.Zip.Helper
                 }
 
                 // Arşivdeki SucroseInfo.json dosyasını okuma
-                SSTHI Info = SSTHI.FromJson(SSZHZ.ReadFile(Archive, SMR.SucroseInfo));
+                string Salt = SSZHZ.ReadFile(Archive, SMR.SucroseInfo);
+
+                // Arşivdeki SucroseInfo.json dosyası boş mu?
+                if (string.IsNullOrEmpty(Salt))
+                {
+                    return SSDECT.Empty;
+                }
+
+                // Arşivdeki SucroseInfo.json dosyası uygunluk  kontrolü
+                bool Json = SSTHI.CheckJson(Salt);
+
+                // Arşivdeki SucroseInfo.json dosyası geçerli mi?
+                if (!Json)
+                {
+                    return SSDECT.Invalid;
+                }
+
+                // Arşivdeki SucroseInfo.json dosyasını Info sınıfına dönüştürme
+                SSTHI Info = SSTHI.FromJson(Salt);
 
                 // Info içindeki Title değeri boş mu veya 50 karakterden uzun mu?
                 if (string.IsNullOrEmpty(Info.Title) || Info.Title.Length > 50)

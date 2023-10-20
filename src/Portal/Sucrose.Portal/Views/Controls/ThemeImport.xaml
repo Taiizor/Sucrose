@@ -1,0 +1,22 @@
+﻿<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.ThemeImport"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    CloseButtonText="{DynamicResource Portal.ThemeImport.Close}"
+    Title="{DynamicResource Portal.ThemeImport.Title}"
+    Loaded="ContentDialog_Loaded"
+    DialogMaxWidth="750"
+    mc:Ignorable="d">
+
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeImport}" />
+    </ui:ContentDialog.Resources>
+
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+        <TextBlock x:Name="ThemeImportInfo" Text="{DynamicResource Portal.ThemeImport.Info}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    </StackPanel>
+</ui:ContentDialog>
