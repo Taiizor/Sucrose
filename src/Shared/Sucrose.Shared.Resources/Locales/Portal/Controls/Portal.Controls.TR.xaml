@@ -11,6 +11,7 @@
         <ResourceDictionary Source="LibraryCard/Portal.LibraryCard.TR.xaml" />
         <ResourceDictionary Source="ThemeDelete/Portal.ThemeDelete.TR.xaml" />
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.TR.xaml" />
+        <ResourceDictionary Source="ThemeImport/Portal.ThemeImport.TR.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.TR.xaml" />
         <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.TR.xaml" />
     </ResourceDictionary.MergedDictionaries>

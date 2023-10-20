@@ -14,6 +14,9 @@ using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
+using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
+using Sucrose.Shared.Space.Helper;
+using Sucrose.Shared.Theme.Helper;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -158,6 +161,7 @@ namespace Sucrose.Portal.Views.Pages
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 bool State = false;
+                List<SSDECT> Types = new();
                 List<string> Messages = new();
                 string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
@@ -190,6 +194,7 @@ namespace Sucrose.Portal.Views.Pages
                             }
                             else
                             {
+                                Types.Add(Result);
                                 Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni: {Result}");
                             }
                         }
@@ -206,7 +211,15 @@ namespace Sucrose.Portal.Views.Pages
 
                     Messages.ForEach(Message => SB.AppendLine(Message));
 
-                    System.Windows.MessageBox.Show(SB.ToString());
+                    SPVCTI ThemeImport = new()
+                    {
+                        Types = Types,
+                        Info = SB.ToString()
+                    };
+
+                    await ThemeImport.ShowAsync();
+
+                    ThemeImport.Dispose();
                 }
 
                 if (State)

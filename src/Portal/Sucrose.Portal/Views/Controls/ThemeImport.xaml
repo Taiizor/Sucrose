@@ -16,7 +16,7 @@
         <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeImport}" />
     </ui:ContentDialog.Resources>
 
-    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinHeight="250" MinWidth="400">
         <TextBlock x:Name="ThemeImportInfo" Text="{DynamicResource Portal.ThemeImport.Info}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
     </StackPanel>
 </ui:ContentDialog>
