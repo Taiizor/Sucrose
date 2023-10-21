@@ -13,6 +13,8 @@
 
     <system:String x:Key="Portal.OtherAbout.Update.Notes">Versionshinweise</system:String>
 
+    <system:String x:Key="Portal.OtherAbout.Partners">Unsere Partner</system:String>
+
     <system:String x:Key="Portal.OtherAbout.Contributors">Mitwirkende</system:String>
 
     <system:String x:Key="Portal.OtherAbout.TermsOfService">Nutzungsbedingungen</system:String>

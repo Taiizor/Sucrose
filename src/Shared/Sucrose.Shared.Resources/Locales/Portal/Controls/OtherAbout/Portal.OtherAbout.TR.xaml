@@ -13,6 +13,8 @@
 
     <system:String x:Key="Portal.OtherAbout.Update.Notes">Güncelleme Notları</system:String>
 
+    <system:String x:Key="Portal.OtherAbout.Partners">Partnerlerimiz</system:String>
+
     <system:String x:Key="Portal.OtherAbout.Contributors">Katkıda Bulunanlar</system:String>
 
     <system:String x:Key="Portal.OtherAbout.TermsOfService">Hizmet Şartları</system:String>

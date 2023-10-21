@@ -121,6 +121,37 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     TextWrapping="WrapWithOverflow"
+                    Text="{DynamicResource Portal.OtherAbout.Partners}" />
+
+                <WrapPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0">
+                    <ui:HyperlinkButton
+                        Cursor="Hand"
+                        IsEnabled="False"
+                        CornerRadius="15"
+                        Appearance="Transparent"
+                        BorderBrush="Transparent">
+                        <ui:Image
+                            Height="32"
+                            CornerRadius="16"
+                            Source="pack://application:,,,/Assets/Partner/Heart.png" />
+                    </ui:HyperlinkButton>
+                </WrapPanel>
+            </Grid>
+        </ui:Card>
+
+        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}" Margin="0 3 0 0">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ui:TextBlock
+                    Grid.Row="0"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    TextWrapping="WrapWithOverflow"
                     Text="{DynamicResource Portal.OtherAbout.Contributors}" />
 
                 <WrapPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 0">

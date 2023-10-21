@@ -13,6 +13,8 @@
 
     <system:String x:Key="Portal.OtherAbout.Update.Notes">Release Notes</system:String>
 
+    <system:String x:Key="Portal.OtherAbout.Partners">Our Partners</system:String>
+
     <system:String x:Key="Portal.OtherAbout.Contributors">Contributors</system:String>
 
     <system:String x:Key="Portal.OtherAbout.TermsOfService">Terms of Service</system:String>
