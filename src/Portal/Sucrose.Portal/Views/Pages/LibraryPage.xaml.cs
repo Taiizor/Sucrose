@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Text;
 using System.Windows;
 using Wpf.Ui.Controls;
 using SHG = Skylark.Helper.Generator;
@@ -8,15 +7,13 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
-using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
-using Sucrose.Shared.Space.Helper;
-using Sucrose.Shared.Theme.Helper;
 
 namespace Sucrose.Portal.Views.Pages
 {
@@ -163,6 +160,7 @@ namespace Sucrose.Portal.Views.Pages
                 bool State = false;
                 List<SSDECT> Types = new();
                 List<string> Messages = new();
+
                 string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
                 if (Files.Any())
@@ -209,16 +207,12 @@ namespace Sucrose.Portal.Views.Pages
                     }
                 }
 
-                if (Messages.Any())
+                if (Messages.Any() || Types.Any())
                 {
-                    StringBuilder SB = new();
-
-                    Messages.ForEach(Message => SB.AppendLine(Message));
-
                     SPVCTI ThemeImport = new()
                     {
                         Types = Types,
-                        Info = SB.ToString()
+                        Messages = Messages
                     };
 
                     await ThemeImport.ShowAsync();

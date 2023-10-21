@@ -2,8 +2,8 @@
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -13,7 +13,7 @@ namespace Sucrose.Portal.Views.Controls
     public partial class ThemeImport : ContentDialog, IDisposable
     {
         internal List<SSDECT> Types = new();
-        internal string Info = string.Empty;
+        internal List<string> Messages = new();
 
         public ThemeImport() : base(SPMI.ContentDialogService.GetContentPresenter())
         {
@@ -22,7 +22,23 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            ThemeImportInfo.Text = Info;
+            if (Messages.Any())
+            {
+                MessageCard.Visibility = Visibility.Visible;
+
+                Messages.ForEach(Message =>
+                {
+                    ThemeImportType.Children.Add(new TextBlock
+                    {
+                        TextAlignment = TextAlignment.Left,
+                        TextWrapping = TextWrapping.WrapWithOverflow,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Foreground = SSRER.GetResource<Brush>("SystemFillColorCriticalBrush"),
+                        Text = Message
+                    });
+                });
+            }
 
             if (Types.Any())
             {
@@ -35,7 +51,7 @@ namespace Sucrose.Portal.Views.Controls
                         TextAlignment = TextAlignment.Left,
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Left,
                         Foreground = SSRER.GetResource<Brush>("SystemFillColorCriticalBrush"),
                         Text = $"{Type}: {SSRER.GetValue("Portal", "Enum", "CompatibilityType", $"{Type}")}"
                     });

@@ -18,118 +18,97 @@ namespace Sucrose.Shared.Zip.Helper
         {
             try
             {
-                // Seçilen dosya var mı?
                 if (!File.Exists(Archive))
                 {
                     return SSDECT.NotFound;
                 }
 
-                // Seçilen dosya .zip uzantılı değil mi?
                 if (Path.GetExtension(Archive) != ".zip")
                 {
                     return SSDECT.Extension;
                 }
 
-                // Seçilen dosya gerçekten ZIP dosyası mı?
                 if (!SSZHZ.CheckArchive(Archive))
                 {
                     return SSDECT.ZipType;
                 }
 
-                //// Seçilen ZIP dosyası şifreli mi?
                 //if (SSZHZ.EncryptedArchive(Archive))
                 //{
                 //    return SSDECT.Encrypt;
                 //}
 
-                // Arşivde SucroseInfo.json dosyası var mı?
                 if (!SSZHZ.CheckFile(Archive, SMR.SucroseInfo))
                 {
                     return SSDECT.InfoFile;
                 }
 
-                // Arşivdeki SucroseInfo.json dosyasını okuma
                 string Salt = SSZHZ.ReadFile(Archive, SMR.SucroseInfo);
 
-                // Arşivdeki SucroseInfo.json dosyası boş mu?
                 if (string.IsNullOrEmpty(Salt))
                 {
                     return SSDECT.EmptyInfo;
                 }
 
-                // Arşivdeki SucroseInfo.json dosyası uygunluk  kontrolü
                 bool Json = SSTHI.CheckJson(Salt);
 
-                // Arşivdeki SucroseInfo.json dosyası geçerli mi?
                 if (!Json)
                 {
                     return SSDECT.InvalidInfo;
                 }
 
-                // Arşivdeki SucroseInfo.json dosyasını Info sınıfına dönüştürme
                 SSTHI Info = SSTHI.FromJson(Salt);
 
-                // Info içindeki Title değeri boş mu veya 50 karakterden uzun mu?
                 if (string.IsNullOrEmpty(Info.Title) || Info.Title.Length > 50)
                 {
                     return SSDECT.Title;
                 }
 
-                // Info içindeki Description değeri boş mu veya 500 karakterden uzun mu?
                 if (string.IsNullOrEmpty(Info.Description) || Info.Description.Length > 500)
                 {
                     return SSDECT.Description;
                 }
 
-                // Info içindeki Author değeri boş değil ve 50 karakterden uzun mu?
                 if (!string.IsNullOrEmpty(Info.Author) && Info.Author.Length > 50)
                 {
                     return SSDECT.Author;
                 }
 
-                // Info içindeki Contact değeri boş değil ve 250 karakterden uzun mu?
                 if (!string.IsNullOrEmpty(Info.Contact) && Info.Contact.Length > 250)
                 {
                     return SSDECT.Contact;
                 }
 
-                // Info içindeki Contact değeri boş değil, Url ve Mail değil mi?
                 if (!string.IsNullOrEmpty(Info.Contact) && !SSTHV.IsUrl(Info.Contact) && !SSTHV.IsMail(Info.Contact))
                 {
-                    return SSDECT.Contact2;
+                    return SSDECT.InvalidContact;
                 }
 
-                // Info içindeki Arguments değeri boş değil ve 250 karakterden uzun mu?
                 if (!string.IsNullOrEmpty(Info.Arguments) && Info.Arguments.Length > 250)
                 {
                     return SSDECT.Arguments;
                 }
 
-                // Info içindeki Thumbnail dosyası var mı?
                 if (!SSZHZ.CheckFile(Archive, Info.Thumbnail))
                 {
                     return SSDECT.Thumbnail;
                 }
 
-                // Info içindeki Preview dosyası var mı?
                 if (!SSZHZ.CheckFile(Archive, Info.Preview))
                 {
                     return SSDECT.Preview;
                 }
 
-                // Info içindeki AppVersion sürümü bu uygulamanın düşük mü?
                 if (Info.AppVersion.CompareTo(SHV.Entry()) > 0)
                 {
                     return SSDECT.AppVersion;
                 }
 
-                // Info içindeki Type değeri bu uygulamanın Type enum değerinden büyük mü?
                 if ((int)Info.Type >= Enum.GetValues(typeof(SSDEWT)).Length)
                 {
                     return SSDECT.Type;
                 }
 
-                // Info içindeki Type değerine göre dosya veya url kontrolü
                 if (Info.Type == SSDEWT.Web)
                 {
                     if (!SSZHZ.CheckFile(Archive, Info.Source))
@@ -183,16 +162,32 @@ namespace Sucrose.Shared.Zip.Helper
                     }
                 }
 
-                // Arşivde SucroseProperties.json dosyası var mı?
                 if (SSZHZ.CheckFile(Archive, SMR.SucroseProperties))
                 {
-                    // Arşivdeki SucroseProperties.json dosyasını okuma
-                    SSTHP Properties = SSTHP.FromJson(SSZHZ.ReadFile(Archive, SMR.SucroseProperties));
+                    Salt = SSZHZ.ReadFile(Archive, SMR.SucroseProperties);
 
-                    // Properties içindeki PropertyListener değeri boş değil ve {0} veya {1} içermiyor mu?
+                    if (string.IsNullOrEmpty(Salt))
+                    {
+                        return SSDECT.EmptyProperties;
+                    }
+
+                    Json = SSTHP.CheckJson(Salt);
+
+                    if (!Json)
+                    {
+                        return SSDECT.InvalidProperties;
+                    }
+
+                    SSTHP Properties = SSTHP.FromJson(Salt);
+
                     if (!string.IsNullOrEmpty(Properties.PropertyListener) && (!Properties.PropertyListener.Contains("{0}") || !Properties.PropertyListener.Contains("{1}")))
                     {
                         return SSDECT.PropertyListener;
+                    }
+
+                    if (Properties.PropertyList == null || !Properties.PropertyList.Any())
+                    {
+                        return SSDECT.PropertyList;
                     }
                 }
 

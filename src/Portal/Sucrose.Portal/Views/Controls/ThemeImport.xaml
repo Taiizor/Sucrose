@@ -17,9 +17,23 @@
     </ui:ContentDialog.Resources>
 
     <StackPanel x:Name="Panel" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinHeight="9999" MinWidth="500">
-        <ui:Card Background="{DynamicResource CardStrokeColorDefaultBrush}">
-            <Grid>
-                <TextBlock x:Name="ThemeImportInfo" Text="{DynamicResource Portal.ThemeImport.Info}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <ui:Card x:Name="MessageCard" Background="{DynamicResource CardStrokeColorDefaultBrush}" Visibility="Collapsed">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ui:TextBlock
+                    Grid.Row="0"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    TextWrapping="WrapWithOverflow"
+                    Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                    Text="Tema Bilgileri" />
+
+                <WrapPanel x:Name="ThemeImportMessage" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="0 10 0 0" />
             </Grid>
         </ui:Card>
 

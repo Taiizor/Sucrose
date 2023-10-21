@@ -16,6 +16,20 @@ namespace Sucrose.Shared.Theme.Helper
 
     internal partial class Properties
     {
+        public static bool CheckJson(string Json)
+        {
+            try
+            {
+                JsonConvert.DeserializeObject<Properties>(Json, Converter.Settings);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static Properties FromJson(string Json)
         {
             return JsonConvert.DeserializeObject<Properties>(Json, Converter.Settings);
