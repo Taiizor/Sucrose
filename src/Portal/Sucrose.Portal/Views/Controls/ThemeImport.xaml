@@ -30,8 +30,8 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     TextWrapping="WrapWithOverflow"
-                    Foreground="{DynamicResource SystemFillColorCautionBrush}"
-                    Text="Tema Bilgileri" />
+                    Text="{DynamicResource Portal.ThemeImport.Info}"
+                    Foreground="{DynamicResource SystemFillColorCautionBrush}" />
 
                 <WrapPanel x:Name="ThemeImportMessage" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="0 10 0 0" />
             </Grid>
@@ -50,8 +50,8 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     TextWrapping="WrapWithOverflow"
-                    Foreground="{DynamicResource SystemFillColorCautionBrush}"
-                    Text="Sebep Nedenleri" />
+                    Text="{DynamicResource Portal.ThemeImport.Type}"
+                    Foreground="{DynamicResource SystemFillColorCautionBrush}" />
 
                 <WrapPanel x:Name="ThemeImportType" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="0 10 0 0" />
             </Grid>
