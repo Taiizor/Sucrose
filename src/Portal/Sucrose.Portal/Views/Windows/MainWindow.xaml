@@ -182,6 +182,7 @@
                         Appearance="Transparent"
                         BorderBrush="Transparent"
                         Icon="{ui:SymbolIcon Add16}"
+                        Command="{Binding ViewModel.CreateWallpaperCommand, Mode=OneWay}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuCreateWallpaperTip}" />
                     <ui:Button
                         Cursor="Hand"

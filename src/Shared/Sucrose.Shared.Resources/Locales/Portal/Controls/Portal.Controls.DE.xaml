@@ -12,6 +12,7 @@
         <ResourceDictionary Source="ThemeDelete/Portal.ThemeDelete.DE.xaml" />
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.DE.xaml" />
         <ResourceDictionary Source="ThemeImport/Portal.ThemeImport.DE.xaml" />
+        <ResourceDictionary Source="ThemeCreate/Portal.ThemeCreate.DE.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.DE.xaml" />
         <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.DE.xaml" />
     </ResourceDictionary.MergedDictionaries>

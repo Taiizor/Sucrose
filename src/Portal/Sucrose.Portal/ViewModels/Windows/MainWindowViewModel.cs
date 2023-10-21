@@ -15,6 +15,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
+using SPVCTC = Sucrose.Portal.Views.Controls.ThemeCreate;
 using SPVCDP = Sucrose.Portal.Views.Controls.DisplayPreferences;
 using SPVCOA = Sucrose.Portal.Views.Controls.OtherAbout;
 using SPVCOH = Sucrose.Portal.Views.Controls.OtherHelp;
@@ -222,6 +223,16 @@ namespace Sucrose.Portal.ViewModels.Windows
             await OtherAbout.ShowAsync();
 
             OtherAbout.Dispose();
+        }
+
+        [RelayCommand]
+        private async Task OnCreateWallpaper()
+        {
+            SPVCTC ThemeCreate = new();
+
+            await ThemeCreate.ShowAsync();
+
+            ThemeCreate.Dispose();
         }
 
         [RelayCommand]
