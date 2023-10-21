@@ -28,14 +28,14 @@ namespace Sucrose.Portal.Views.Controls
 
                 Messages.ForEach(Message =>
                 {
-                    ThemeImportType.Children.Add(new TextBlock
+                    ThemeImportMessage.Children.Add(new TextBlock
                     {
+                        Text = Message,
                         TextAlignment = TextAlignment.Left,
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Foreground = SSRER.GetResource<Brush>("SystemFillColorCriticalBrush"),
-                        Text = Message
+                        Foreground = Types.Any(Type => Message.Contains($"'{Type}'.")) ? SSRER.GetResource<Brush>("SystemFillColorCriticalBrush") : SSRER.GetResource<Brush>("SystemFillColorSuccessBrush")
                     });
                 });
             }

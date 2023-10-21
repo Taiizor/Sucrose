@@ -10,4 +10,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
+
+    <system:String x:Key="Portal.LibraryPage.Import.Successful">The theme '{0}' has been successfully added to the library.</system:String>
+    <system:String x:Key="Portal.LibraryPage.Import.Unsuccessful">The theme '{0}' couldn't be added to the library. Reason: '{1}'.</system:String>
 </ResourceDictionary>

@@ -10,4 +10,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
+
+    <system:String x:Key="Portal.LibraryPage.Import.Successful">'{0}' adlı tema kütüphaneye başarıyla eklendi.</system:String>
+    <system:String x:Key="Portal.LibraryPage.Import.Unsuccessful">'{0}' adlı tema kütüphaneye eklenemedi. Sebep: '{1}'.</system:String>
 </ResourceDictionary>

@@ -12,6 +12,7 @@ using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
@@ -188,11 +189,11 @@ namespace Sucrose.Portal.Views.Pages
                             if (Result == SSDECT.Pass)
                             {
                                 State = true;
-                                Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye başarıyla eklendi.");
+                                Messages.Add(string.Format(SSRER.GetValue("Portal", "LibraryPage", "Import", "Successful"), Path.GetFileNameWithoutExtension(Record)));
                             }
                             else
                             {
-                                Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni bilinmiyor.");
+                                Messages.Add(string.Format(SSRER.GetValue("Portal", "LibraryPage", "Import", "Unsuccessful"), Path.GetFileNameWithoutExtension(Record), Result));
                             }
                         }
                         else
@@ -202,7 +203,7 @@ namespace Sucrose.Portal.Views.Pages
                                 Types.Add(Result);
                             }
 
-                            Messages.Add($"{Path.GetFileNameWithoutExtension(Record)} adlı tema kütüphaneye eklenemedi. Nedeni: {Result}");
+                            Messages.Add(string.Format(SSRER.GetValue("Portal", "LibraryPage", "Import", "Unsuccessful"), Path.GetFileNameWithoutExtension(Record), Result));
                         }
                     }
                 }

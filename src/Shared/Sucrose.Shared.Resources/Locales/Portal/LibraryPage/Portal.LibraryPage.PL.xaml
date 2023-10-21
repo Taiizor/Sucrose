@@ -10,4 +10,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
+
+    <system:String x:Key="Portal.LibraryPage.Import.Successful">Motyw '{0}' został pomyślnie dodany do biblioteki.</system:String>
+    <system:String x:Key="Portal.LibraryPage.Import.Unsuccessful">Motyw '{0}' nie mógł zostać dodany do biblioteki. Powód: '{1}'.</system:String>
 </ResourceDictionary>
