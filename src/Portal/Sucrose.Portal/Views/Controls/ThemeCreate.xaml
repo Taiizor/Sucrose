@@ -10,6 +10,7 @@
     PrimaryButtonText="{DynamicResource Portal.ThemeCreate.Create}"
     CloseButtonText="{DynamicResource Portal.ThemeCreate.Close}"
     Title="{DynamicResource Portal.ThemeCreate.Title}"
+    PreviewKeyDown="ContentDialog_PreviewKeyDown"
     IsPrimaryButtonEnabled="False"
     Loaded="ContentDialog_Loaded"
     DialogMaxWidth="750"

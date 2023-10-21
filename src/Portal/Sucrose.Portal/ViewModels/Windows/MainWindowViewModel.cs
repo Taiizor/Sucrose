@@ -220,7 +220,12 @@ namespace Sucrose.Portal.ViewModels.Windows
         {
             SPVCOA OtherAbout = new();
 
-            await OtherAbout.ShowAsync();
+            ContentDialogResult Result = await OtherAbout.ShowAsync();
+
+            if (Result == ContentDialogResult.Primary)
+            {
+                //TODO: eğer kullanıcı library sayfasında ise kütüphane yenilenmeli
+            }
 
             OtherAbout.Dispose();
         }

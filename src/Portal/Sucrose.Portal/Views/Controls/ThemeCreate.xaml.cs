@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using Wpf.Ui.Controls;
 using SPMI = Sucrose.Portal.Manage.Internal;
 
@@ -61,6 +62,12 @@ namespace Sucrose.Portal.Views.Controls
             CreateCard.Visibility = Visibility.Collapsed;
         }
 
+        private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
+        {
+            //tema oluşturma türü seçildiyse aktif edilecek
+            //IsPrimaryButtonEnabled = true;
+        }
+
         private void ApplicationCreate_Click(object sender, RoutedEventArgs e)
         {
             IsPrimaryButtonEnabled = true;
@@ -68,10 +75,24 @@ namespace Sucrose.Portal.Views.Controls
             CreateCard.Visibility = Visibility.Collapsed;
         }
 
-        private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
+        private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            //tema oluşturma türü seçildiyse aktif edilecek
-            //IsPrimaryButtonEnabled = true;
+            if ((e.Key == Key.Enter || e.Key == Key.Escape) && true)
+            {
+                e.Handled = true;
+            }
+        }
+
+        protected override void OnButtonClick(ContentDialogButton Button)
+        {
+            if (Button == ContentDialogButton.Primary)
+            {
+                //ilgili tema ekleme kontrolü burada yapılacak
+                //ThemeTitle.Focus();
+                //return;
+            }
+
+            base.OnButtonClick(Button);
         }
 
         public void Dispose()
