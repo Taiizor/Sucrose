@@ -2,9 +2,10 @@
     x:Class="Sucrose.Portal.Views.Controls.ThemeCreate"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     PrimaryButtonText="{DynamicResource Portal.ThemeCreate.Create}"
@@ -162,6 +163,62 @@
                 Appearance="Secondary"
                 BorderBrush="Transparent"
                 Icon="{ui:SymbolIcon ArrowLeft24}" />
+
+            <Grid x:Name="GifArea" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 10 0 0" AllowDrop="True" Drop="GifArea_Drop" DragOver="GifArea_DragOver" DragLeave="GifArea_DragLeave">
+                <Grid.Background>
+                    <VisualBrush Stretch="UniformToFill">
+                        <VisualBrush.Visual>
+                            <Grid>
+                                <Image x:Name="GifImagine" Stretch="UniformToFill" StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Stretch" xag:AnimationBehavior.SourceUri="{x:Null}" xag:AnimationBehavior.RepeatBehavior="Forever" xag:AnimationBehavior.AnimateInDesignMode="False" xag:AnimationBehavior.CacheFramesInMemory="False" xag:AnimationBehavior.AutoStart="True" />
+                            </Grid>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Grid.Background>
+                
+                <Rectangle x:Name="GifRectangle" Stroke="{DynamicResource TextFillColorDisabledBrush}" StrokeThickness="2" StrokeDashArray="4 4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <StackPanel Margin="48" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <ui:SymbolIcon
+                        FontSize="32"
+                        x:Name="GifIcon"
+                        Symbol="SaveCopy24"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" />
+
+                    <ui:TextBlock
+                        FontSize="20"
+                        x:Name="GifText"
+                        Margin="0 10 0 0"
+                        TextWrapping="NoWrap"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Gif dosyanızı buraya sürükleyin ve bırakın"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+
+                    <ui:Button
+                        Cursor="Hand"
+                        Content="Geri Al"
+                        x:Name="GifDelete"
+                        Margin="48 48 48 48"
+                        Appearance="Danger"
+                        Visibility="Collapsed"
+                        Click="GifDelete_Click"
+                        Icon="{ui:SymbolIcon Delete24}" />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeTitle}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="GifTitle" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTitle.Hint}" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeDescription}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            <ui:TextBox x:Name="GifDescription" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeDescription.Hint}" Margin="0 3 0 0" MaxLength="500" MaxLines="10" TextWrapping="WrapWithOverflow" MinLines="5" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeAuthor}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="GifAuthor" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeAuthor.Hint}" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeContact}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="GifContact" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" Cursor="IBeam" />
         </StackPanel>
 
         <StackPanel x:Name="UrlCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">

@@ -13,6 +13,6 @@
     <Grid x:Name="GridLibrary" AllowDrop="True" Loaded="GridLibrary_Loaded" Drop="GridLibrary_Drop" DragOver="GridLibrary_DragOver" DragLeave="GridLibrary_DragLeave">
         <Frame x:Name="FrameLibrary" Visibility="Collapsed" />
         <ui:ProgressRing x:Name="ProgressLibrary" IsIndeterminate="True" Width="100" Height="100" />
-        <Border Name="DropBorder" BorderBrush="DodgerBlue" Margin="1 0 1 0" BorderThickness="2" Visibility="Collapsed" />
+        <Rectangle Name="DropRectangle" Stroke="DodgerBlue" Margin="1 0 1 0" StrokeThickness="2" StrokeDashArray="4 4" Visibility="Collapsed" />
     </Grid>
 </Page>

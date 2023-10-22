@@ -95,7 +95,7 @@ namespace Sucrose.Shared.Discord
                         LargeImageKey = SSRER.GetValue("Discord", "LargestImage"),
                         LargeImageText = SSRER.GetValue("Discord", $"LargestText{SMR.Randomise.Next(6)}"),
                         SmallImageText = SSRER.GetValue("Discord", $"SmallestText{SMR.Randomise.Next(6)}"),
-                        SmallImageKey = SSRER.GetValue("Discord", $"SmallestImage{SMR.Randomise.Next(36)}")
+                        SmallImageKey = SSRER.GetValue("Discord", $"SmallestImage{SMR.Randomise.Next(37)}")
                     }
                 });
             }

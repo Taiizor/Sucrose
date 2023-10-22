@@ -143,18 +143,18 @@ namespace Sucrose.Portal.Views.Pages
             else
             {
                 e.Effects = DragDropEffects.Copy;
-                DropBorder.Visibility = Visibility.Visible;
+                DropRectangle.Visibility = Visibility.Visible;
             }
         }
 
         private void GridLibrary_DragLeave(object sender, DragEventArgs e)
         {
-            DropBorder.Visibility = Visibility.Collapsed;
+            DropRectangle.Visibility = Visibility.Collapsed;
         }
 
         private async void GridLibrary_Drop(object sender, DragEventArgs e)
         {
-            DropBorder.Visibility = Visibility.Collapsed;
+            DropRectangle.Visibility = Visibility.Collapsed;
 
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
