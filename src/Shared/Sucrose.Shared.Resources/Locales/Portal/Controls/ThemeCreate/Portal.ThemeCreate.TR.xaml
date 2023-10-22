@@ -7,6 +7,24 @@
     <system:String x:Key="Portal.ThemeCreate.Create">Oluştur</system:String>
     <system:String x:Key="Portal.ThemeCreate.Close">Kapat</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Gif türündeki kendi temanızı oluşturun.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Url türündeki kendi temanızı oluşturun.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Web türündeki kendi temanızı oluşturun.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Video türündeki kendi temanızı oluşturun.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">YouTube türündeki kendi temanızı oluşturun.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Application türündeki kendi temanızı oluşturun.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Başlık</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Açıklama</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Yazar</system:String>

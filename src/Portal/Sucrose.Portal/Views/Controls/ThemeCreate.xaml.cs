@@ -181,7 +181,23 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            //
+            GifExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Gif");
+            GifExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Gif", "Description");
+
+            UrlExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Url");
+            UrlExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Url", "Description");
+
+            WebExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Web");
+            WebExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Web", "Description");
+
+            VideoExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Video");
+            VideoExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Video", "Description");
+
+            YouTubeExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "YouTube");
+            YouTubeExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "YouTube", "Description");
+
+            ApplicationExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Application");
+            ApplicationExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Application", "Description");
         }
 
         private void ApplicationCreate_Click(object sender, RoutedEventArgs e)

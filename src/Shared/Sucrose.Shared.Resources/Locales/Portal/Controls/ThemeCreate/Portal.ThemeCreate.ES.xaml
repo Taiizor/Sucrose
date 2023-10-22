@@ -3,9 +3,27 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Portal.ThemeCreate.Title">Tema Oluşturma</system:String>
-    <system:String x:Key="Portal.ThemeCreate.Create">Oluştur</system:String>
-    <system:String x:Key="Portal.ThemeCreate.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Title">Crear Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Crear</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Cerrar</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Tema Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Crea tu propio tema en formato Gif.</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.Url">Tema Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Crea tu propio tema en formato Url.</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.Web">Tema Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Crea tu propio tema en formato Web.</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.Video">Tema de Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Crea tu propio tema en formato de Video.</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.YouTube">Tema de YouTube</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Crea tu propio tema en formato de YouTube.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Tema de Application</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Crea tu propio tema en formato de Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Título</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Descripción</system:String>
@@ -18,4 +36,17 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Por favor, introduzca un nombre de autor válido</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Por favor, introduzca una dirección de contacto válida</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Por favor, introduzca argumentos de aplicación válidos</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Selecciona una imagen de portada</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Selecciona un archivo de vista previa</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Deshacer</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Arrastra y suelta tu archivo gif aquí</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Selecciona Imagen de Portada</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Archivos de Imagen (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Selecciona Archivo de Vista Previa</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Archivos Gif (*.gif)|*.gif</system:String>
 </ResourceDictionary>

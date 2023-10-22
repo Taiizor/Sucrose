@@ -35,7 +35,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
                 HorizontalContentAlignment="Stretch">
-                <vcontrols:ExpanderCard x:Name="GifExpander" TitleText="Gif Tema" DescriptionText="Gif türündeki kendi temanızı oluşturun." LeftIconSymbol="Gif24" IsEnabled="False" Expandable="False">
+                <vcontrols:ExpanderCard x:Name="GifExpander" LeftIconSymbol="Gif24" IsEnabled="False" Expandable="False">
                     <vcontrols:ExpanderCard.HeaderFrame>
                         <ui:SymbolIcon
                             Width="32"
@@ -57,7 +57,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
                 HorizontalContentAlignment="Stretch">
-                <vcontrols:ExpanderCard x:Name="UrlExpander" TitleText="Url Tema" DescriptionText="Url türündeki kendi temanızı oluşturun." LeftIconSymbol="SlideLink24" IsEnabled="False" Expandable="False">
+                <vcontrols:ExpanderCard x:Name="UrlExpander" LeftIconSymbol="SlideLink24" IsEnabled="False" Expandable="False">
                     <vcontrols:ExpanderCard.HeaderFrame>
                         <ui:SymbolIcon
                             Width="32"
@@ -79,7 +79,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
                 HorizontalContentAlignment="Stretch">
-                <vcontrols:ExpanderCard x:Name="WebExpander" TitleText="Web Tema" DescriptionText="Web türündeki kendi temanızı oluşturun." LeftIconSymbol="GlobeDesktop24" IsEnabled="False" Expandable="False">
+                <vcontrols:ExpanderCard x:Name="WebExpander" LeftIconSymbol="GlobeDesktop24" IsEnabled="False" Expandable="False">
                     <vcontrols:ExpanderCard.HeaderFrame>
                         <ui:SymbolIcon
                             Width="32"
@@ -101,7 +101,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
                 HorizontalContentAlignment="Stretch">
-                <vcontrols:ExpanderCard x:Name="VideoExpander" TitleText="Video Tema" DescriptionText="Video türündeki kendi temanızı oluşturun." LeftIconSymbol="VideoClip24" IsEnabled="False" Expandable="False">
+                <vcontrols:ExpanderCard x:Name="VideoExpander" LeftIconSymbol="VideoClip24" IsEnabled="False" Expandable="False">
                     <vcontrols:ExpanderCard.HeaderFrame>
                         <ui:SymbolIcon
                             Width="32"
@@ -123,7 +123,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
                 HorizontalContentAlignment="Stretch">
-                <vcontrols:ExpanderCard x:Name="YouTubeExpander" TitleText="YouTube Tema" DescriptionText="YouTube türündeki kendi temanızı oluşturun." LeftIconSymbol="VideoRecording20" IsEnabled="False" Expandable="False">
+                <vcontrols:ExpanderCard x:Name="YouTubeExpander" LeftIconSymbol="VideoRecording20" IsEnabled="False" Expandable="False">
                     <vcontrols:ExpanderCard.HeaderFrame>
                         <ui:SymbolIcon
                             Width="32"
@@ -145,7 +145,7 @@
                 Click="ApplicationCreate_Click"
                 VerticalContentAlignment="Stretch"
                 HorizontalContentAlignment="Stretch">
-                <vcontrols:ExpanderCard x:Name="ApplicationExpander" TitleText="Application Tema" DescriptionText="Application türündeki kendi temanızı oluşturun." LeftIconSymbol="AppGeneric24" IsEnabled="False" Expandable="False">
+                <vcontrols:ExpanderCard x:Name="ApplicationExpander" LeftIconSymbol="AppGeneric24" IsEnabled="False" Expandable="False">
                     <vcontrols:ExpanderCard.HeaderFrame>
                         <ui:SymbolIcon
                             Width="32"
