@@ -8,8 +8,8 @@
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Actualización de la Tienda</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Con qué frecuencia se actualizarán los temas listados en la tienda.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Start">Inicio Automático</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Si los temas descargados de la tienda deben configurarse automáticamente como fondos de pantalla.</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Inicio Automático</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Si los temas descargados de la tienda deben configurarse automáticamente como fondos de pantalla.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Adult">Contenido no Seguro</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Si se debe mostrar contenido marcado como no seguro para el trabajo (NSFW) en la tienda.</system:String>
@@ -21,6 +21,9 @@
     <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Si se deben eliminar automáticamente temas corruptos o faltantes de la biblioteca.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Nota: Se recomienda precaución, ya que esto puede provocar la pérdida de datos.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Inicio Automático</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Si se debe establecer automáticamente el tema creado como fondo de pantalla.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Vista Previa de Temas</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Si los temas se deben previsualizar al pasar el ratón por encima.</system:String>

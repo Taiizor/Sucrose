@@ -38,6 +38,8 @@ namespace Sucrose.Portal.Views.Pages
 
             InitializeComponent();
 
+            Library();
+
             Search();
         }
 
@@ -53,6 +55,15 @@ namespace Sucrose.Portal.Views.Pages
             };
 
             SPMI.SearchService.SearchTextChanged += SearchService_SearchTextChanged;
+        }
+
+        private void Library()
+        {
+            SPMI.LibraryService.Dispose();
+
+            SPMI.LibraryService = new();
+
+            SPMI.LibraryService.CreatedWallpaper += LibraryService_CreatedWallpaper;
         }
 
         private void InitializeThemes()
@@ -240,6 +251,15 @@ namespace Sucrose.Portal.Views.Pages
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
         {
             Dispose();
+
+            await Start(true);
+        }
+
+        private async void LibraryService_CreatedWallpaper(object sender, EventArgs e)
+        {
+            Dispose();
+
+            InitializeThemes();
 
             await Start(true);
         }

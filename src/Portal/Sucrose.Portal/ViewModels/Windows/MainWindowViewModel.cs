@@ -47,7 +47,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         private string _Architecture = string.Empty;
 
         [ObservableProperty]
-        private BitmapImage _Backgrounder = null;
+        private BitmapImage _Backgrounder2 = null;
 
         [ObservableProperty]
         private string _Framework = string.Empty;
@@ -65,6 +65,9 @@ namespace Sucrose.Portal.ViewModels.Windows
         private IconElement _ThemeIcon = null;
 
         private readonly SPEIL Loader = new();
+
+        [ObservableProperty]
+        private string _Backgrounder = null;
 
         [ObservableProperty]
         private double _Opacity = 1d;
@@ -161,7 +164,19 @@ namespace Sucrose.Portal.ViewModels.Windows
             return SMMM.DonateVisible ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        private BitmapImage GetBackgrounder()
+        private string GetBackgrounder()
+        {
+            if (File.Exists(SMMM.BackgroundImage))
+            {
+                return SMMM.BackgroundImage;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private BitmapImage GetBackgrounder2()
         {
             if (File.Exists(SMMM.BackgroundImage))
             {
@@ -220,12 +235,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         {
             SPVCOA OtherAbout = new();
 
-            ContentDialogResult Result = await OtherAbout.ShowAsync();
-
-            if (Result == ContentDialogResult.Primary)
-            {
-                //TODO: eğer kullanıcı library sayfasında ise kütüphane yenilenmeli
-            }
+            await OtherAbout.ShowAsync();
 
             OtherAbout.Dispose();
         }
@@ -235,7 +245,12 @@ namespace Sucrose.Portal.ViewModels.Windows
         {
             SPVCTC ThemeCreate = new();
 
-            await ThemeCreate.ShowAsync();
+            ContentDialogResult Result = await ThemeCreate.ShowAsync();
+
+            if (Result == ContentDialogResult.Primary)
+            {
+                SPMI.LibraryService.CreateWallpaper();
+            }
 
             ThemeCreate.Dispose();
         }

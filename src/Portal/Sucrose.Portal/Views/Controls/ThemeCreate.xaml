@@ -197,9 +197,9 @@
                         Text="{DynamicResource Portal.ThemeCreate.DragDrop.Gif}" />
 
                     <ui:Button
+                        Margin="48"
                         Cursor="Hand"
                         x:Name="GifDelete"
-                        Margin="48 48 48 48"
                         Appearance="Danger"
                         Visibility="Collapsed"
                         Click="GifDelete_Click"

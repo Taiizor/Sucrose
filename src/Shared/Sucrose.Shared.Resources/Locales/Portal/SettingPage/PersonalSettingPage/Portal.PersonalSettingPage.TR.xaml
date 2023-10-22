@@ -8,8 +8,8 @@
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Mağaza Yenileme</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Start">Otomatik Başlatma</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Mağazadan indirilen temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Otomatik Başlatma</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Mağazadan indirilen temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Adult">Güvenli Olmayan İçerikler</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilip gösterilmeyeceği.</system:String>
@@ -21,6 +21,9 @@
     <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Kütüphanedeki bozuk ya da eksik temaların otomatik silinip silinmeyeceği.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Otomatik Başlatma</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Oluşturulan temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Tema Önizleme</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Görüntülenen temaların üzerine gelince önizlenip önizlenmeyeceği.</system:String>

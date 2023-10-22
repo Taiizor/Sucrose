@@ -115,11 +115,15 @@ namespace Sucrose.Manager.Manage
 
         public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
 
+        public static bool LibraryStart => SMMI.EngineSettingManager.GetSetting(SMC.LibraryStart, false);
+
         public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
 
         public static bool UpdateState => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateState, false);
 
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
+
+        public static bool StoreStart => SMMI.EngineSettingManager.GetSetting(SMC.StoreStart, false);
 
         public static bool DonateVisible => SMMI.DonateManager.GetSetting(SMC.DonateVisible, true);
 
@@ -130,8 +134,6 @@ namespace Sucrose.Manager.Manage
         public static bool Shuffle => SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true);
 
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
-
-        public static bool Start => SMMI.EngineSettingManager.GetSetting(SMC.Start, false);
 
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 

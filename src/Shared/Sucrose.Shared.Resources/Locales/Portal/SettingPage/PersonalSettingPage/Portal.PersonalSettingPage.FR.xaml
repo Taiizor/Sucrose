@@ -8,8 +8,8 @@
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Actualisation du Magasin</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">À quelle fréquence les thèmes répertoriés dans le magasin seront-ils actualisés ?</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Start">Démarrage Automatique</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Si les thèmes téléchargés depuis le magasin doivent être automatiquement définis comme fonds d'écran.</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Démarrage Automatique</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Si les thèmes téléchargés depuis le magasin doivent être automatiquement définis comme fonds d'écran.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Adult">Contenu Non Sécurisé</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Si le contenu marqué comme non sécurisé au travail (NSFW) doit être affiché dans le magasin.</system:String>
@@ -21,6 +21,9 @@
     <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Si les thèmes corrompus ou manquants doivent être automatiquement supprimés de la bibliothèque.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Remarque: Il est conseillé de faire preuve de prudence, car cela peut entraîner une perte de données.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Démarrage Automatique</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Si le thème créé doit être défini automatiquement comme papier peint.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Aperçu du Thème</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Si les thèmes doivent être prévisualisés au survol.</system:String>

@@ -3,11 +3,11 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Locale.DE">Deutsch (v0.4)</system:String>
-    <system:String x:Key="Locale.EN">English (v0.6)</system:String>
-    <system:String x:Key="Locale.ES">Español (v0.4)</system:String>
-    <system:String x:Key="Locale.FR">Français (v0.4)</system:String>
+    <system:String x:Key="Locale.DE">Deutsch (v0.5)</system:String>
+    <system:String x:Key="Locale.EN">English (v0.7)</system:String>
+    <system:String x:Key="Locale.ES">Español (v0.5)</system:String>
+    <system:String x:Key="Locale.FR">Français (v0.5)</system:String>
     <system:String x:Key="Locale.JA">日本語 (v0.0)</system:String>
-    <system:String x:Key="Locale.PL">Polski (v0.4)</system:String>
-    <system:String x:Key="Locale.TR">Türkçe (v0.7)</system:String>
+    <system:String x:Key="Locale.PL">Polski (v0.5)</system:String>
+    <system:String x:Key="Locale.TR">Türkçe (v0.8)</system:String>
 </ResourceDictionary>

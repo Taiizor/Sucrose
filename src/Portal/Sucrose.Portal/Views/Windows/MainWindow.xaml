@@ -7,6 +7,7 @@
     xmlns:pages="clr-namespace:Sucrose.Portal.Views.Pages"
     xmlns:setting="clr-namespace:Sucrose.Portal.Views.Pages.Setting"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{DynamicResource Portal.MainWindow.Title}"
     ContentRendered="MainWindow_ContentRendered"
@@ -26,12 +27,16 @@
     WindowStartupLocation="CenterScreen"
     SizeChanged="MainWindow_SizeChanged"
     mc:Ignorable="d">
-    
+
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="{Binding ViewModel.Backgrounder, Mode=OneWay}" Stretch="{Binding ViewModel.Stretch, Mode=OneWay}" Opacity="{Binding ViewModel.Opacity, Mode=OneWay}" />
+            <VisualBrush Stretch="{Binding ViewModel.Stretch, Mode=OneWay}" Opacity="{Binding ViewModel.Opacity, Mode=OneWay}">
+                <VisualBrush.Visual>
+                    <Image Stretch="{Binding ViewModel.Stretch, Mode=OneWay}" xag:AnimationBehavior.SourceUri="{Binding ViewModel.Backgrounder, Mode=OneWay}" xag:AnimationBehavior.RepeatBehavior="Forever" xag:AnimationBehavior.AnimateInDesignMode="False" xag:AnimationBehavior.CacheFramesInMemory="False" xag:AnimationBehavior.AutoStart="True" />
+                </VisualBrush.Visual>
+            </VisualBrush>
         </Grid.Background>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />

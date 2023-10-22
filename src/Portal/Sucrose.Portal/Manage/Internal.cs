@@ -3,6 +3,7 @@ using System.Windows.Media.Imaging;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
 using SPSBS = Sucrose.Portal.Services.BackdropService;
+using SPSLS = Sucrose.Portal.Services.LibraryService;
 using SPSCES = Sucrose.Portal.Services.CultureService;
 using SPSCYS = Sucrose.Portal.Services.CategoryService;
 using SPSDS = Sucrose.Portal.Services.DonateService;
@@ -15,6 +16,8 @@ namespace Sucrose.Portal.Manage
         public static List<string> Themes = new();
 
         public static SPSDS DonateService = new();
+
+        public static SPSLS LibraryService = new();
 
         public static SPSSS SearchService = new();
 

@@ -8,8 +8,8 @@
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Odświeżanie Sklepu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Jak często odświeżane będą tematy wymienione w sklepie.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Start">Automatyczne Rozpoczęcie</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Czy tematy pobrane ze sklepu mają być automatycznie ustawiane jako tapety.</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Automatyczne Rozpoczęcie</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Czy tematy pobrane ze sklepu mają być automatycznie ustawiane jako tapety.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Adult">Zawartość Dla Dorosłych</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Czy wyświetlać zawartość oznaczoną jako nieodpowiednią do pracy (NSFW) w sklepie.</system:String>
@@ -21,6 +21,9 @@
     <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Czy automatycznie usuwać uszkodzone lub brakujące tematy z biblioteki.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Uwaga: Zaleca się ostrożność, ponieważ może to prowadzić do utraty danych.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Automatyczne Rozpoczęcie</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Czy utworzony motyw ma być automatycznie ustawiony jako tapeta, czy nie.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Podgląd Motywu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Czy motywy powinny być wyświetlane przy najechaniu myszką.</system:String>

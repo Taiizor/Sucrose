@@ -8,8 +8,8 @@
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Store-Aktualisierung</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Wie oft werden die im Store aufgelisteten Themen aktualisiert?</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Start">Automatischer Start</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Ob Themes, die aus dem Store heruntergeladen wurden, automatisch als Hintergrundbilder festgelegt werden sollen.</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Automatischer Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Ob Themes, die aus dem Store heruntergeladen wurden, automatisch als Hintergrundbilder festgelegt werden sollen.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Adult">Unsichere Inhalte</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Ob als nicht sicher für die Arbeit (NSFW) gekennzeichnete Inhalte im Store angezeigt werden sollen.</system:String>
@@ -21,6 +21,9 @@
     <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Ob beschädigte oder fehlende Themes automatisch aus der Bibliothek gelöscht werden sollen.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Hinweis: Vorsicht ist geboten, da dies zu Datenverlust führen kann.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Automatischer Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Ob das erstellte Thema automatisch als Hintergrundbild festgelegt wird oder nicht.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Themen-Vorschau</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Ob Themen beim Überfahren angezeigt werden sollen.</system:String>

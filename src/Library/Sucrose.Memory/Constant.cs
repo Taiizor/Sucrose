@@ -26,8 +26,6 @@
 
         public const string Video = "Video";
 
-        public const string Start = "Start";
-
         public const string Themes = "Themes";
 
         public const string Volume = "Volume";
@@ -47,6 +45,8 @@
         public const string UserAgent = "UserAgent";
 
         public const string ThemeType = "ThemeType";
+
+        public const string StoreStart = "StoreStart";
 
         public const string PlayerType = "PlayerType";
 
@@ -79,6 +79,8 @@
         public const string UploadValue = "UploadValue";
 
         public const string UpdateState = "UpdateState";
+
+        public const string LibraryStart = "LibraryStart";
 
         public const string StorePreview = "StorePreview";
 

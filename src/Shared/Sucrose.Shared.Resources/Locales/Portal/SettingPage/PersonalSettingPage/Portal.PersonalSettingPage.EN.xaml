@@ -8,8 +8,8 @@
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Store Refresh</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">How often themes listed in the store will be refreshed.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Start">Auto Start</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Start.Description">Whether themes downloaded from the store should be set as wallpapers automatically.</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Auto Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Whether themes downloaded from the store should be set as wallpapers automatically.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Adult">Unsafe Content</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Whether to display content marked as not safe for work (NSFW) in the store.</system:String>
@@ -21,6 +21,9 @@
     <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Whether to automatically delete corrupt or missing themes from the library.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Note: Caution is advised, as this may result in data loss.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Auto Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Whether the created theme should be set as wallpaper automatically.</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Theme Preview</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Whether themes should be previewed on hover.</system:String>

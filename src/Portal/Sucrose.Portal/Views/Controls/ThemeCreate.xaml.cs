@@ -159,7 +159,7 @@ namespace Sucrose.Portal.Views.Controls
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = "Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif",
+                Filter = "Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp",
                 FilterIndex = 1,
 
                 Title = "Kapak Resmi Seç",

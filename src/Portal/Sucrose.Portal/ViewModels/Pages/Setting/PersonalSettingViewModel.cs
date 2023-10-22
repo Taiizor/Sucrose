@@ -67,27 +67,27 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Duration);
 
-            SPVCEC Start = new()
+            SPVCEC StoreStart = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
                 Expandable = false
             };
 
-            Start.LeftIcon.Symbol = SymbolRegular.PictureInPictureEnter24;
-            Start.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Start");
-            Start.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Start", "Description");
+            StoreStart.LeftIcon.Symbol = SymbolRegular.PictureInPictureEnter24;
+            StoreStart.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "StoreStart");
+            StoreStart.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "StoreStart", "Description");
 
-            ToggleSwitch StartState = new()
+            ToggleSwitch StoreStartState = new()
             {
-                IsChecked = SMMM.Start
+                IsChecked = SMMM.StoreStart
             };
 
-            StartState.Checked += (s, e) => StartStateChecked(true);
-            StartState.Unchecked += (s, e) => StartStateChecked(false);
+            StoreStartState.Checked += (s, e) => StoreStartStateChecked(true);
+            StoreStartState.Unchecked += (s, e) => StoreStartStateChecked(false);
 
-            Start.HeaderFrame = StartState;
+            StoreStart.HeaderFrame = StoreStartState;
 
-            Contents.Add(Start);
+            Contents.Add(StoreStart);
 
             SPVCEC Adult = new()
             {
@@ -177,6 +177,28 @@ namespace Sucrose.Portal.ViewModels.Pages
             Delete.FooterCard = DeleteHint;
 
             Contents.Add(Delete);
+
+            SPVCEC LibraryStart = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            LibraryStart.LeftIcon.Symbol = SymbolRegular.PictureInPictureEnter24;
+            LibraryStart.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "LibraryStart");
+            LibraryStart.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "LibraryStart", "Description");
+
+            ToggleSwitch LibraryStartState = new()
+            {
+                IsChecked = SMMM.LibraryStart
+            };
+
+            LibraryStartState.Checked += (s, e) => LibraryStartStateChecked(true);
+            LibraryStartState.Unchecked += (s, e) => LibraryStartStateChecked(false);
+
+            LibraryStart.HeaderFrame = LibraryStartState;
+
+            Contents.Add(LibraryStart);
 
             TextBlock AppearanceBehaviorArea = new()
             {
@@ -531,11 +553,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             SMMI.PortalSettingManager.SetSetting(SMC.Adult, State);
         }
 
-        private void StartStateChecked(bool State)
-        {
-            SMMI.EngineSettingManager.SetSetting(SMC.Start, State);
-        }
-
         private void DeleteStateChecked(bool State)
         {
             SMMI.LibrarySettingManager.SetSetting(SMC.LibraryDelete, State);
@@ -566,6 +583,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void StoreStartStateChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.StoreStart, State);
+        }
+
         private void StoreDurationChanged(double? Value)
         {
             int NewValue = Convert.ToInt32(Value);
@@ -579,6 +601,11 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void StorePreviewHideChecked(bool State)
         {
             SMMI.PortalSettingManager.SetSetting(SMC.StorePreviewHide, State);
+        }
+
+        private void LibraryStartStateChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.LibraryStart, State);
         }
 
         private void AdaptiveMarginChanged(double? Value)

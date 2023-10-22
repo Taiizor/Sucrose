@@ -163,7 +163,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
-                    if (SMMM.Start)
+                    if (SMMM.StoreStart)
                     {
                         SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
 
