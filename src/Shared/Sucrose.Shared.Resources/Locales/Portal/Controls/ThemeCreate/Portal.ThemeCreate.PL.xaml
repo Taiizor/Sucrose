@@ -6,4 +6,16 @@
     <system:String x:Key="Portal.ThemeCreate.Title">Tema Oluşturma</system:String>
     <system:String x:Key="Portal.ThemeCreate.Create">Oluştur</system:String>
     <system:String x:Key="Portal.ThemeCreate.Close">Kapat</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tytuł</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Opis</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Autor</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Kontakt</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenty</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Proszę podać poprawny tytuł</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Proszę podać poprawny opis</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Proszę podać poprawne imię autora</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Proszę podać poprawny adres kontaktowy</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Proszę podać poprawne argumenty aplikacji</system:String>
 </ResourceDictionary>

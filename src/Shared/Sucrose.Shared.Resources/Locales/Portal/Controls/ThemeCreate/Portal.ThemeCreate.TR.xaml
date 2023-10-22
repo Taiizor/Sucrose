@@ -6,4 +6,23 @@
     <system:String x:Key="Portal.ThemeCreate.Title">Tema Oluşturma</system:String>
     <system:String x:Key="Portal.ThemeCreate.Create">Oluştur</system:String>
     <system:String x:Key="Portal.ThemeCreate.Close">Kapat</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Başlık</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Yazar</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">İletişim</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argümanlar</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Lütfen geçerli bir başlık yazın</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Lütfen geçerli bir açıklama yazın</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Lütfen geçerli bir yazar adı yazın</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Lütfen geçerli bir iletişim adresi yazın</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Lütfen geçerli bir uygulama argümanları yazın</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Bir kapak resmi seçin</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Bir önizleme dosyası seçin</system:String>
+    
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Geri Al</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Gif dosyanızı buraya sürükleyin ve bırakın</system:String>
 </ResourceDictionary>
