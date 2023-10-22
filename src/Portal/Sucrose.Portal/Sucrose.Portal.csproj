@@ -119,6 +119,10 @@
         <Resource Include="Assets\**\*.*" />
     </ItemGroup>
 
+    <ItemGroup>
+        <EmbeddedResource Include="Assets\Theme\**" />
+    </ItemGroup>
+
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>

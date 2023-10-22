@@ -1,11 +1,23 @@
 ﻿using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using Wpf.Ui.Controls;
 using XamlAnimatedGif;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
+using SEAT = Skylark.Enum.AssemblyType;
+using SHA = Skylark.Helper.Assemblies;
+using SHG = Skylark.Helper.Generator;
+using SMMM = Sucrose.Manager.Manage.Manager;
+using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -45,13 +57,13 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Extension = Path.GetExtension(Record).ToLowerInvariant();
 
-                        if (Extension == ".gif" || Extension == ".GIF")
+                        if (Extension is ".gif" or ".GIF")
                         {
                             AnimationBehavior.SetSourceUri(GifImagine, new(Record));
                             GifDelete.Visibility = Visibility.Visible;
                             GifIcon.Visibility = Visibility.Collapsed;
                             GifText.Visibility = Visibility.Collapsed;
-                            GifRectangle.Stroke = Brushes.Transparent;
+                            GifRectangle.Stroke = Brushes.SeaGreen;
                             break;
                         }
                     }
@@ -80,7 +92,7 @@ namespace Sucrose.Portal.Views.Controls
             }
             else
             {
-                GifRectangle.Stroke = Brushes.Transparent;
+                GifRectangle.Stroke = Brushes.SeaGreen;
             }
         }
 
@@ -114,11 +126,51 @@ namespace Sucrose.Portal.Views.Controls
             GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
         }
 
+        private void GifPreview_Click(object sender, RoutedEventArgs e)
+        {
+            string Startup = File.Exists($"{GifPreview.Content}") ? Path.GetDirectoryName($"{GifPreview.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = "Gif Dosyaları (*.gif)|*.gif",
+                FilterIndex = 1,
+
+                Title = "Önizleme Dosyası Seç",
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                GifPreview.Content = FileDialog.FileName;
+            }
+        }
+
         private void VideoCreate_Click(object sender, RoutedEventArgs e)
         {
             IsPrimaryButtonEnabled = true;
             VideoCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
+        }
+
+        private void GifThumbnail_Click(object sender, RoutedEventArgs e)
+        {
+            string Startup = File.Exists($"{GifThumbnail.Content}") ? Path.GetDirectoryName($"{GifThumbnail.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = "Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif",
+                FilterIndex = 1,
+
+                Title = "Kapak Resmi Seç",
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                GifThumbnail.Content = FileDialog.FileName;
+            }
         }
 
         private void YouTubeCreate_Click(object sender, RoutedEventArgs e)
@@ -142,19 +194,140 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.Key == Key.Enter || e.Key == Key.Escape) && true)
+            if (e.Key is Key.Enter or Key.Escape)
             {
                 e.Handled = true;
             }
         }
 
-        protected override void OnButtonClick(ContentDialogButton Button)
+        private static async Task ExtractResources(string Source, string ExtractPath)
+        {
+            Assembly Entry = SHA.Assemble(SEAT.Entry);
+            string[] Resources = Entry.GetManifestResourceNames();
+
+            foreach (string Resource in Resources)
+            {
+                if (Resource.EndsWith(Source))
+                {
+                    string ExtractFilePath = Path.Combine(ExtractPath, Source);
+
+                    if (!Directory.Exists(Path.GetDirectoryName(ExtractFilePath)))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(ExtractFilePath));
+                    }
+
+                    using Stream ResourceStream = Entry.GetManifestResourceStream(Resource);
+                    using FileStream OutputFileStream = new(ExtractFilePath, FileMode.OpenOrCreate);
+
+                    await ResourceStream.CopyToAsync(OutputFileStream);
+                }
+            }
+        }
+
+        protected override async void OnButtonClick(ContentDialogButton Button)
         {
             if (Button == ContentDialogButton.Primary)
             {
-                //ilgili tema ekleme kontrolü burada yapılacak
-                //ThemeTitle.Focus();
-                //return;
+                if (!Directory.Exists(SMMM.LibraryLocation))
+                {
+                    Directory.CreateDirectory(SMMM.LibraryLocation);
+                }
+
+                if (GifCard.Visibility == Visibility.Visible)
+                {
+                    Uri Gif = AnimationBehavior.GetSourceUri(GifImagine);
+
+                    if (Gif == null || string.IsNullOrEmpty(Gif.LocalPath))
+                    {
+                        GifRectangle.Stroke = Brushes.Crimson;
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(GifTitle.Text))
+                    {
+                        GifTitle.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(GifDescription.Text))
+                    {
+                        GifDescription.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(GifAuthor.Text))
+                    {
+                        GifAuthor.Focus();
+                        return;
+                    }
+                    else if (!SSTHV.IsUrl(GifContact.Text) && !SSTHV.IsMail(GifContact.Text))
+                    {
+                        GifContact.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        string Name;
+                        string Theme;
+                        string Folder;
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
+
+                        do
+                        {
+                            Folder = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            Theme = Path.Combine(SMMM.LibraryLocation, Folder);
+                        } while (File.Exists(Theme));
+
+                        Directory.CreateDirectory(Theme);
+
+                        if (File.Exists(Gif.LocalPath))
+                        {
+                            Name = "s_" + Path.GetFileName(Gif.LocalPath);
+                            await Task.Run(() => File.Copy(Gif.LocalPath, Path.Combine(Theme, Name), true));
+                        }
+                        else
+                        {
+                            GifRectangle.Stroke = Brushes.Crimson;
+                            return;
+                        }
+
+                        if (File.Exists($"{GifThumbnail.Content}"))
+                        {
+                            string Source = $"{GifThumbnail.Content}";
+                            Thumbnail = "t_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Thumbnail), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                        }
+
+                        if (File.Exists($"{GifPreview.Content}"))
+                        {
+                            string Source = $"{GifPreview.Content}";
+                            Preview = "p_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Preview), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Preview, Theme));
+                        }
+
+                        SSTHI Info = new()
+                        {
+                            Source = Name,
+                            Type = SSDEWT.Gif,
+                            Preview = Preview,
+                            Thumbnail = Thumbnail,
+                            Title = GifTitle.Text,
+                            Author = GifAuthor.Text,
+                            AppVersion = SSCHV.Get(),
+                            Version = new(1, 0, 0, 0),
+                            Contact = GifContact.Text,
+                            Description = GifDescription.Text
+                        };
+
+                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    }
+                }
             }
 
             base.OnButtonClick(Button);

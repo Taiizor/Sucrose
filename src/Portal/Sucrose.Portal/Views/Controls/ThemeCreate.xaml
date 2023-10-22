@@ -156,7 +156,7 @@
             </ui:Button>
         </StackPanel>
 
-        <StackPanel x:Name="GifCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
+        <StackPanel x:Name="GifCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed" Cursor="">
             <ui:Button
                 Cursor="Hand"
                 Click="Back_Click"
@@ -208,6 +208,12 @@
                 </StackPanel>
             </Grid>
 
+            <TextBlock Text="Kapak" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:Button x:Name="GifThumbnail" Cursor="Hand" Content="Bir kapak resmi seçin" Margin="0 3 0 0" HorizontalAlignment="Stretch" Click="GifThumbnail_Click" />
+
+            <TextBlock Text="Önizleme" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:Button x:Name="GifPreview" Cursor="Hand" Content="Bir önizleme dosyası seçin" Margin="0 3 0 0" HorizontalAlignment="Stretch" Click="GifPreview_Click" />
+
             <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeTitle}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <ui:TextBox x:Name="GifTitle" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTitle.Hint}" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
 
@@ -218,7 +224,7 @@
             <ui:TextBox x:Name="GifAuthor" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeAuthor.Hint}" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
 
             <TextBlock Text="{DynamicResource Portal.ThemeEdit.ThemeContact}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ui:TextBox x:Name="GifContact" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" Cursor="IBeam" />
+            <ui:TextBox x:Name="GifContact" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
         </StackPanel>
 
         <StackPanel x:Name="UrlCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
