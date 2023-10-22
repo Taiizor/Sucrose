@@ -2,6 +2,8 @@
 {
     internal class LibraryService : IDisposable
     {
+        public string Theme = string.Empty;
+
         public event EventHandler CreatedWallpaper;
 
         public void CreateWallpaper()

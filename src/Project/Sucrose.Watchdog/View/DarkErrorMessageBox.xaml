@@ -9,10 +9,10 @@
     WindowStartupLocation="CenterScreen"
     ResizeMode="CanResizeWithGrip"
     mc:Ignorable="d"
-    MinHeight="250"
-    MinWidth="500"
-    Height="250"
-    Width="500">
+    MinHeight="300"
+    MinWidth="600"
+    Height="300"
+    Width="600">
 
     <Window.Resources>
         <Style TargetType="Button">

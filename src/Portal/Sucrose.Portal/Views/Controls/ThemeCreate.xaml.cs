@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Media3D;
 using Wpf.Ui.Controls;
 using XamlAnimatedGif;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
@@ -132,10 +131,10 @@ namespace Sucrose.Portal.Views.Controls
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = "Gif Dosyaları (*.gif)|*.gif",
+                Filter = SSRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Filter"),
                 FilterIndex = 1,
 
-                Title = "Önizleme Dosyası Seç",
+                Title = SSRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Title"),
 
                 InitialDirectory = Startup
             };
@@ -159,10 +158,10 @@ namespace Sucrose.Portal.Views.Controls
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = "Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp",
+                Filter = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Filter"),
                 FilterIndex = 1,
 
-                Title = "Kapak Resmi Seç",
+                Title = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Title"),
 
                 InitialDirectory = Startup
             };
@@ -266,14 +265,13 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Name;
                         string Theme;
-                        string Folder;
                         string Preview = "Preview.gif";
                         string Thumbnail = "Thumbnail.jpg";
 
                         do
                         {
-                            Folder = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            Theme = Path.Combine(SMMM.LibraryLocation, Folder);
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
                         } while (File.Exists(Theme));
 
                         Directory.CreateDirectory(Theme);

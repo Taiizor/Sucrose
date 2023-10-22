@@ -3,10 +3,10 @@ using System.Windows.Media.Imaging;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
 using SPSBS = Sucrose.Portal.Services.BackdropService;
-using SPSLS = Sucrose.Portal.Services.LibraryService;
 using SPSCES = Sucrose.Portal.Services.CultureService;
 using SPSCYS = Sucrose.Portal.Services.CategoryService;
 using SPSDS = Sucrose.Portal.Services.DonateService;
+using SPSLS = Sucrose.Portal.Services.LibraryService;
 using SPSSS = Sucrose.Portal.Services.SearchService;
 
 namespace Sucrose.Portal.Manage
@@ -17,9 +17,9 @@ namespace Sucrose.Portal.Manage
 
         public static SPSDS DonateService = new();
 
-        public static SPSLS LibraryService = new();
-
         public static SPSSS SearchService = new();
+
+        public static SPSLS LibraryService = new();
 
         public static SPSBS BackdropService = new();
 

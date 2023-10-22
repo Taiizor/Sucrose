@@ -24,7 +24,12 @@ using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
+using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
 
@@ -249,6 +254,21 @@ namespace Sucrose.Portal.ViewModels.Windows
 
             if (Result == ContentDialogResult.Primary)
             {
+                if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+                {
+                    if (SMMM.LibraryStart)
+                    {
+                        SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, SPMI.LibraryService.Theme);
+
+                        if (SSSHL.Run())
+                        {
+                            SSLHK.Stop();
+                        }
+
+                        SSLHR.Start();
+                    }
+                }
+
                 SPMI.LibraryService.CreateWallpaper();
             }
 

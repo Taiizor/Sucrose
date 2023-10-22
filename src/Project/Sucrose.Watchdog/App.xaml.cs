@@ -11,6 +11,7 @@ using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWMM = Sucrose.Watchdog.Manage.Manager;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
+using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 
 namespace Sucrose.Watchdog
 {
@@ -105,7 +106,8 @@ namespace Sucrose.Watchdog
         {
             if (Args.Any())
             {
-                string[] Arguments = Args.First().Split(SMR.ValueSeparatorChar);
+                string Decode = SSECCE.BaseToText(Args.First());
+                string[] Arguments = Decode.Split(SMR.ValueSeparatorChar);
 
                 if (Arguments.Any() && (Arguments.Count() == 2 || Arguments.Count() == 4))
                 {

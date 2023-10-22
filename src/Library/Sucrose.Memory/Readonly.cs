@@ -28,7 +28,7 @@
 
         public static readonly string Content = "Content";
 
-        public static readonly char StartCommandChar = '-';
+        public static readonly char StartCommandChar = '✔';
 
         public static readonly string CacheFolder = "Cache";
 
@@ -38,7 +38,7 @@
 
         public static readonly string Repository = "Sucrose";
 
-        public static readonly char ValueSeparatorChar = '|';
+        public static readonly char ValueSeparatorChar = '✖';
 
         public static readonly string Temporary = "Temporary";
 

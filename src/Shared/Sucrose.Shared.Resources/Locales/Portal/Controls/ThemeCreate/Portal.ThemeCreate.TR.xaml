@@ -19,10 +19,16 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Lütfen geçerli bir iletişim adresi yazın</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Lütfen geçerli bir uygulama argümanları yazın</system:String>
 
-    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Bir kapak resmi seçin</system:String>
-    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Bir önizleme dosyası seçin</system:String>
-    
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Bir kapak resmi seçin</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Bir önizleme dosyası seçin</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Geri Al</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Gif dosyanızı buraya sürükleyin ve bırakın</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Kapak Resmi Seç</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Önizleme Dosyası Seç</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif Dosyaları (*.gif)|*.gif</system:String>
 </ResourceDictionary>

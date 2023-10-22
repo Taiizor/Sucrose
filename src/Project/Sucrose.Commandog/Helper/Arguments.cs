@@ -121,13 +121,9 @@ namespace Sucrose.Commandog.Helper
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                     break;
                                 case SSDECT.Watchdog:
-                                    if (Values.Count() == 3)
+                                    if (Values.Count() == 2)
                                     {
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), $"{SCHP.ArgumentValue<string>(Values[1])}{SMR.ValueSeparatorChar}{SCHP.ArgumentValue<string>(Values[2])}");
-                                    }
-                                    else if (Values.Count() == 5)
-                                    {
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), $"{SCHP.ArgumentValue<string>(Values[1])}{SMR.ValueSeparatorChar}{SCHP.ArgumentValue<string>(Values[2])}{SMR.ValueSeparatorChar}{SCHP.ArgumentValue<string>(Values[3])}{SMR.ValueSeparatorChar}{SCHP.ArgumentValue<string>(Values[4])}");
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                     }
                                     break;
                                 case SSDECT.Scheduler:
