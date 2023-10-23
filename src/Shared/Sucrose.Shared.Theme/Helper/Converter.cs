@@ -13,6 +13,7 @@ namespace Sucrose.Shared.Theme.Helper
             Formatting = Formatting.Indented,
             Converters =
             {
+                new VersionConverter(),
                 new IsoDateTimeConverter
                 {
                     DateTimeStyles = DateTimeStyles.AssumeUniversal
