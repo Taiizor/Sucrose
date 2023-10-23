@@ -56,7 +56,7 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Extension = Path.GetExtension(Record).ToLowerInvariant();
 
-                        if (Extension is ".gif" or ".GIF")
+                        if (Extension is ".gif")
                         {
                             AnimationBehavior.SetSourceUri(GifImagine, new(Record));
                             GifDelete.Visibility = Visibility.Visible;

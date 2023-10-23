@@ -25,20 +25,21 @@
     <system:String x:Key="Portal.ThemeCreate.Application">Application-Thema</system:String>
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Erstellen Sie Ihr eigenes Thema im Application-Format.</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Titelseite</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Vorschau</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Titel</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Beschreibung</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Autor</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">Kontakt</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumente</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Ein Cover-Bild auswählen</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Eine Vorschau-Datei auswählen</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Bitte geben Sie einen gültigen Titel ein</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Bitte geben Sie eine gültige Beschreibung ein</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Bitte geben Sie einen gültigen Autorennamen ein</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Bitte geben Sie eine gültige Kontaktadresse ein</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Bitte geben Sie gültige Anwendungsargumente ein</system:String>
-
-    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Ein Cover-Bild auswählen</system:String>
-    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Eine Vorschau-Datei auswählen</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Rückgängig</system:String>
     

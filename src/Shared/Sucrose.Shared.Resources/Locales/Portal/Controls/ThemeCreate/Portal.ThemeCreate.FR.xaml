@@ -25,20 +25,21 @@
     <system:String x:Key="Portal.ThemeCreate.Application">Thème Application</system:String>
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Créez votre propre thème au format Application.</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Couverture</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Aperçu</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Titre</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Description</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Auteur</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">Contact</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Arguments</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Sélectionner une image de couverture</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Sélectionner un fichier de prévisualisation</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Veuillez saisir un titre valide</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Veuillez saisir une description valide</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Veuillez saisir un nom d'auteur valide</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Veuillez saisir une adresse de contact valide</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Veuillez saisir des arguments d'application valides</system:String>
-
-    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Sélectionner une image de couverture</system:String>
-    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Sélectionner un fichier de prévisualisation</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Annuler</system:String>
     

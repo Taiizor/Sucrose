@@ -25,20 +25,21 @@
     <system:String x:Key="Portal.ThemeCreate.Application">Motyw Application</system:String>
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Utwórz własny motyw w formacie Application.</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Miniatura</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Podgląd</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tytuł</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Opis</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Autor</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">Kontakt</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenty</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Wybierz obraz okładki</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Wybierz plik podglądu</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Proszę podać poprawny tytuł</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Proszę podać poprawny opis</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Proszę podać poprawne imię autora</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Proszę podać poprawny adres kontaktowy</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Proszę podać poprawne argumenty aplikacji</system:String>
-
-    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Wybierz obraz okładki</system:String>
-    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Wybierz plik podglądu</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Cofnij</system:String>
     
