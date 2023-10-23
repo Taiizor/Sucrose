@@ -426,6 +426,86 @@ namespace Sucrose.Portal.Views.Controls
                         SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
+                else if (YouTubeCard.Visibility == Visibility.Visible)
+                {
+                    if (!SSTHV.IsYouTubeAll(YouTubeUrl.Text))
+                    {
+                        YouTubeUrl.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(YouTubeTitle.Text))
+                    {
+                        YouTubeTitle.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(YouTubeDescription.Text))
+                    {
+                        YouTubeDescription.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(YouTubeAuthor.Text))
+                    {
+                        YouTubeAuthor.Focus();
+                        return;
+                    }
+                    else if (!SSTHV.IsUrl(YouTubeContact.Text) && !SSTHV.IsMail(YouTubeContact.Text))
+                    {
+                        YouTubeContact.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        string Theme;
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
+
+                        do
+                        {
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                        } while (File.Exists(Theme));
+
+                        Directory.CreateDirectory(Theme);
+
+                        if (File.Exists($"{YouTubeThumbnail.Content}"))
+                        {
+                            string Source = $"{YouTubeThumbnail.Content}";
+                            Thumbnail = "t_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Thumbnail), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                        }
+
+                        if (File.Exists($"{YouTubePreview.Content}"))
+                        {
+                            string Source = $"{YouTubePreview.Content}";
+                            Preview = "p_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Preview), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Preview, Theme));
+                        }
+
+                        SSTHI Info = new()
+                        {
+                            Preview = Preview,
+                            Thumbnail = Thumbnail,
+                            Type = SSDEWT.YouTube,
+                            AppVersion = SSCHV.Get(),
+                            Source = YouTubeUrl.Text,
+                            Version = new(1, 0, 0, 0),
+                            Title = YouTubeTitle.Text,
+                            Author = YouTubeAuthor.Text,
+                            Contact = YouTubeContact.Text,
+                            Description = YouTubeDescription.Text
+                        };
+
+                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    }
+                }
             }
 
             base.OnButtonClick(Button);

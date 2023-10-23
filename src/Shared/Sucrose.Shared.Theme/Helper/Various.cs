@@ -33,6 +33,11 @@ namespace Sucrose.Shared.Theme.Helper
             return Regex.IsMatch(Mail, Pattern);
         }
 
+        public static bool IsYouTubeAll(string Address)
+        {
+            return IsYouTubeVideo(Address) || IsYouTubePlaylist(Address);
+        }
+
         public static bool IsYouTubeVideo(string Address)
         {
             return IsYouTubeUrl(Address) || IsYouTubeMusicUrl(Address);

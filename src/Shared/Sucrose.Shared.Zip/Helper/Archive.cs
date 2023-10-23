@@ -109,13 +109,13 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.Type;
                 }
 
-                if (Info.Type == SSDEWT.Web)
+                if (Info.Type == SSDEWT.Gif)
                 {
-                    if (!SSZHZ.CheckFile(Archive, Info.Source))
+                    if (!SSTHV.IsUrl(Info.Source) && !SSZHZ.CheckFile(Archive, Info.Source))
                     {
                         return SSDECT.Source;
                     }
-                    else if (!SSTHF.WebExtension(Info.Source))
+                    else if (!SSTHF.GifExtension(Info.Source))
                     {
                         return SSDECT.InvalidExtension;
                     }
@@ -124,13 +124,13 @@ namespace Sucrose.Shared.Zip.Helper
                 {
                     return SSDECT.InvalidUrl;
                 }
-                else if (Info.Type == SSDEWT.Gif)
+                else if (Info.Type == SSDEWT.Web)
                 {
-                    if (!SSTHV.IsUrl(Info.Source) && !SSZHZ.CheckFile(Archive, Info.Source))
+                    if (!SSZHZ.CheckFile(Archive, Info.Source))
                     {
                         return SSDECT.Source;
                     }
-                    else if (!SSTHF.GifExtension(Info.Source))
+                    else if (!SSTHF.WebExtension(Info.Source))
                     {
                         return SSDECT.InvalidExtension;
                     }
@@ -146,7 +146,7 @@ namespace Sucrose.Shared.Zip.Helper
                         return SSDECT.InvalidExtension;
                     }
                 }
-                else if (Info.Type == SSDEWT.YouTube && !SSTHV.IsYouTube(Info.Source) && !SSTHV.IsYouTubeMusic(Info.Source))
+                else if (Info.Type == SSDEWT.YouTube && !SSTHV.IsYouTubeAll(Info.Source))
                 {
                     return SSDECT.InvalidUrl;
                 }

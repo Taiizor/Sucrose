@@ -156,7 +156,7 @@
             </ui:Button>
         </StackPanel>
 
-        <StackPanel x:Name="GifCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed" Cursor="">
+        <StackPanel x:Name="GifCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
             <ui:Button
                 Cursor="Hand"
                 Click="Back_Click"
@@ -236,7 +236,7 @@
                 Icon="{ui:SymbolIcon ArrowLeft24}" />
 
             <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeUrl}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ui:TextBox x:Name="UrlUrl" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeUrl.Hint}" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+            <ui:TextBox x:Name="UrlUrl" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeUrl.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
 
             <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeThumbnail}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <ui:Button x:Name="UrlThumbnail" Cursor="Hand" Content="{DynamicResource Portal.ThemeCreate.ThemeThumbnail.Hint}" Margin="0 3 0 0" HorizontalAlignment="Stretch" Click="ThemeThumbnail_Click" />
@@ -282,9 +282,30 @@
                 Appearance="Secondary"
                 BorderBrush="Transparent"
                 Icon="{ui:SymbolIcon ArrowLeft24}" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeUrl}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="YouTubeUrl" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeUrl.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeThumbnail}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:Button x:Name="YouTubeThumbnail" Cursor="Hand" Content="{DynamicResource Portal.ThemeCreate.ThemeThumbnail.Hint}" Margin="0 3 0 0" HorizontalAlignment="Stretch" Click="ThemeThumbnail_Click" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemePreview}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:Button x:Name="YouTubePreview" Cursor="Hand" Content="{DynamicResource Portal.ThemeCreate.ThemePreview.Hint}" Margin="0 3 0 0" HorizontalAlignment="Stretch" Click="ThemePreview_Click" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeTitle}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="YouTubeTitle" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTitle.Hint}" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeDescription}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            <ui:TextBox x:Name="YouTubeDescription" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeDescription.Hint}" Margin="0 3 0 0" MaxLength="500" MaxLines="10" TextWrapping="WrapWithOverflow" MinLines="5" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeAuthor}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="YouTubeAuthor" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeAuthor.Hint}" Margin="0 3 0 0" MaxLength="50" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeContact}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="YouTubeContact" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
         </StackPanel>
 
-        <StackPanel x:Name="ApplicationCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed" Cursor="">
+        <StackPanel x:Name="ApplicationCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
             <ui:Button
                 Cursor="Hand"
                 Click="Back_Click"
