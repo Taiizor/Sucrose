@@ -46,7 +46,8 @@
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Rückgängig</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Ziehen und Ablegen Sie Ihre Gif-Datei hier</system:String>
-    
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Ziehen und Ablegen Sie Ihre Videodatei hier</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Deckbild Auswählen</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Bilddateien (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
     

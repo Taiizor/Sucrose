@@ -46,6 +46,7 @@
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Deshacer</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Arrastra y suelta tu archivo gif aquí</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Arrastre y suelte su archivo de video aquí</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Selecciona Imagen de Portada</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Archivos de Imagen (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>

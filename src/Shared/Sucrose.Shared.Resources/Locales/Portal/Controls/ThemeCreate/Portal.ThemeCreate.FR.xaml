@@ -45,7 +45,8 @@
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Annuler</system:String>
     
-    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Glissez-déposez votre fichier gif ici</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Faites glisser et déposez votre fichier gif ici</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Faites glisser et déposez votre fichier vidéo ici</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Sélectionner une Image de Couverture</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Fichiers Image (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>

@@ -40,6 +40,11 @@ namespace Sucrose.Portal.Views.Controls
             VideoCard.Visibility = Visibility.Collapsed;
             YouTubeCard.Visibility = Visibility.Collapsed;
             ApplicationCard.Visibility = Visibility.Collapsed;
+
+            GifDelete_Click(null, null);
+            VideoDelete_Click(null, null);
+
+            Dispose();
         }
 
         private void GifArea_Drop(object sender, DragEventArgs e)
@@ -63,6 +68,34 @@ namespace Sucrose.Portal.Views.Controls
                             GifIcon.Visibility = Visibility.Collapsed;
                             GifText.Visibility = Visibility.Collapsed;
                             GifRectangle.Stroke = Brushes.SeaGreen;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void VideoArea_Drop(object sender, DragEventArgs e)
+        {
+            VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (Files.Any())
+                {
+                    foreach (string Record in Files)
+                    {
+                        string Extension = Path.GetExtension(Record).ToLowerInvariant();
+
+                        if (Extension is ".mp4" or ".avi" or ".mov" or ".mkv" or ".ogv" or ".flv" or ".wmv" or ".hevc" or ".webm" or ".mpeg" or ".mpeg1" or ".mpeg2" or ".mpeg4")
+                        {
+                            VideoDelete.Visibility = Visibility.Visible;
+                            VideoIcon.Visibility = Visibility.Collapsed;
+                            VideoText.Visibility = Visibility.Collapsed;
+                            VideoRectangle.Stroke = Brushes.SeaGreen;
+                            VideoImagine.Source = new(Record);
                             break;
                         }
                     }
@@ -125,11 +158,45 @@ namespace Sucrose.Portal.Views.Controls
             GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
         }
 
+        private void VideoArea_DragOver(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop) || e.AllowedEffects.HasFlag(DragDropEffects.Copy) == false)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.Copy;
+                VideoRectangle.Stroke = Brushes.DodgerBlue;
+            }
+        }
+
+        private void VideoDelete_Click(object sender, RoutedEventArgs e)
+        {
+            VideoImagine.Source = null;
+            VideoIcon.Visibility = Visibility.Visible;
+            VideoText.Visibility = Visibility.Visible;
+            VideoDelete.Visibility = Visibility.Collapsed;
+            VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+        }
+
         private void VideoCreate_Click(object sender, RoutedEventArgs e)
         {
             IsPrimaryButtonEnabled = true;
             VideoCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
+        }
+
+        private void VideoArea_DragLeave(object sender, DragEventArgs e)
+        {
+            if (string.IsNullOrEmpty($"{VideoImagine.Source}"))
+            {
+                VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+            }
+            else
+            {
+                VideoRectangle.Stroke = Brushes.SeaGreen;
+            }
         }
 
         private void ThemePreview_Click(object sender, RoutedEventArgs e)
@@ -421,6 +488,100 @@ namespace Sucrose.Portal.Views.Controls
                             Version = new(1, 0, 0, 0),
                             Contact = UrlContact.Text,
                             Description = UrlDescription.Text
+                        };
+
+                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    }
+                }
+                else if (VideoCard.Visibility == Visibility.Visible)
+                {
+                    Uri Video = VideoImagine.Source;
+
+                    if (Video == null || string.IsNullOrEmpty(Video.LocalPath))
+                    {
+                        VideoRectangle.Stroke = Brushes.Crimson;
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(VideoTitle.Text))
+                    {
+                        VideoTitle.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(VideoDescription.Text))
+                    {
+                        VideoDescription.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(VideoAuthor.Text))
+                    {
+                        VideoAuthor.Focus();
+                        return;
+                    }
+                    else if (!SSTHV.IsUrl(VideoContact.Text) && !SSTHV.IsMail(VideoContact.Text))
+                    {
+                        VideoContact.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        string Name;
+                        string Theme;
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
+
+                        do
+                        {
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                        } while (File.Exists(Theme));
+
+                        Directory.CreateDirectory(Theme);
+
+                        if (File.Exists(Video.LocalPath))
+                        {
+                            Name = "s_" + Path.GetFileName(Video.LocalPath);
+                            await Task.Run(() => File.Copy(Video.LocalPath, Path.Combine(Theme, Name), true));
+                        }
+                        else
+                        {
+                            VideoRectangle.Stroke = Brushes.Crimson;
+                            return;
+                        }
+
+                        if (File.Exists($"{VideoThumbnail.Content}"))
+                        {
+                            string Source = $"{VideoThumbnail.Content}";
+                            Thumbnail = "t_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Thumbnail), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                        }
+
+                        if (File.Exists($"{VideoPreview.Content}"))
+                        {
+                            string Source = $"{VideoPreview.Content}";
+                            Preview = "p_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Preview), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Preview, Theme));
+                        }
+
+                        SSTHI Info = new()
+                        {
+                            Source = Name,
+                            Preview = Preview,
+                            Type = SSDEWT.Video,
+                            Thumbnail = Thumbnail,
+                            Title = VideoTitle.Text,
+                            AppVersion = SSCHV.Get(),
+                            Version = new(1, 0, 0, 0),
+                            Author = VideoAuthor.Text,
+                            Contact = VideoContact.Text,
+                            Description = VideoDescription.Text
                         };
 
                         SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);

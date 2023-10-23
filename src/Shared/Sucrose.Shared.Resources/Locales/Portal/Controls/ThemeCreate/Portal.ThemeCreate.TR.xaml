@@ -46,6 +46,7 @@
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Geri Al</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Gif dosyanızı buraya sürükleyin ve bırakın</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Video dosyanızı buraya sürükleyin ve bırakın</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Kapak Resmi Seç</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>

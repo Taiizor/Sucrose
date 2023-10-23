@@ -46,6 +46,7 @@
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Undo</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Drag and drop your gif file here</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Drag and drop your video file here</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Select Cover Image</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Image Files (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>

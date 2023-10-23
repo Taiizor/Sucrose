@@ -44,8 +44,9 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Proszę podać poprawne argumenty aplikacji</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Cofnij</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Przeciągnij i upuść swój plik gif tutaj</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Przeciągnij i upuść swój plik wideo tutaj</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Wybierz Obraz Okładki</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Pliki Obrazów (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
