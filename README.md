@@ -140,7 +140,7 @@
 
 <div align="center">
   <div>
-    <h4>Features</h4>
+    <h4>More Features</h4>
     <p>● Light and Dark theme feature.</p>
     <p>● Create your own wallpapers simply or in detail.</p>
     <p>● Supports multiple screens and all screen resolutions.</p>
