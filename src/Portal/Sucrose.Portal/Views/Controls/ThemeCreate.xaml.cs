@@ -125,9 +125,18 @@ namespace Sucrose.Portal.Views.Controls
             GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
         }
 
-        private void GifPreview_Click(object sender, RoutedEventArgs e)
+        private void VideoCreate_Click(object sender, RoutedEventArgs e)
         {
-            string Startup = File.Exists($"{GifPreview.Content}") ? Path.GetDirectoryName($"{GifPreview.Content}") : SMR.DesktopPath;
+            IsPrimaryButtonEnabled = true;
+            VideoCard.Visibility = Visibility.Visible;
+            CreateCard.Visibility = Visibility.Collapsed;
+        }
+
+        private void ThemePreview_Click(object sender, RoutedEventArgs e)
+        {
+            Button Button = sender as Button;
+
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
 
             OpenFileDialog FileDialog = new()
             {
@@ -141,34 +150,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if (FileDialog.ShowDialog() == true)
             {
-                GifPreview.Content = FileDialog.FileName;
-            }
-        }
-
-        private void VideoCreate_Click(object sender, RoutedEventArgs e)
-        {
-            IsPrimaryButtonEnabled = true;
-            VideoCard.Visibility = Visibility.Visible;
-            CreateCard.Visibility = Visibility.Collapsed;
-        }
-
-        private void GifThumbnail_Click(object sender, RoutedEventArgs e)
-        {
-            string Startup = File.Exists($"{GifThumbnail.Content}") ? Path.GetDirectoryName($"{GifThumbnail.Content}") : SMR.DesktopPath;
-
-            OpenFileDialog FileDialog = new()
-            {
-                Filter = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Filter"),
-                FilterIndex = 1,
-
-                Title = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Title"),
-
-                InitialDirectory = Startup
-            };
-
-            if (FileDialog.ShowDialog() == true)
-            {
-                GifThumbnail.Content = FileDialog.FileName;
+                Button.Content = FileDialog.FileName;
             }
         }
 
@@ -198,6 +180,28 @@ namespace Sucrose.Portal.Views.Controls
 
             ApplicationExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Application");
             ApplicationExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Application", "Description");
+        }
+
+        private void ThemeThumbnail_Click(object sender, RoutedEventArgs e)
+        {
+            Button Button = sender as Button;
+
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Filter"),
+                FilterIndex = 1,
+
+                Title = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                Button.Content = FileDialog.FileName;
+            }
         }
 
         private void ApplicationCreate_Click(object sender, RoutedEventArgs e)
@@ -337,6 +341,86 @@ namespace Sucrose.Portal.Views.Controls
                             Version = new(1, 0, 0, 0),
                             Contact = GifContact.Text,
                             Description = GifDescription.Text
+                        };
+
+                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    }
+                }
+                else if (UrlCard.Visibility == Visibility.Visible)
+                {
+                    if (!SSTHV.IsUrl(UrlUrl.Text))
+                    {
+                        UrlUrl.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(UrlTitle.Text))
+                    {
+                        UrlTitle.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(UrlDescription.Text))
+                    {
+                        UrlDescription.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(UrlAuthor.Text))
+                    {
+                        UrlAuthor.Focus();
+                        return;
+                    }
+                    else if (!SSTHV.IsUrl(UrlContact.Text) && !SSTHV.IsMail(UrlContact.Text))
+                    {
+                        UrlContact.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        string Theme;
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
+
+                        do
+                        {
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                        } while (File.Exists(Theme));
+
+                        Directory.CreateDirectory(Theme);
+
+                        if (File.Exists($"{UrlThumbnail.Content}"))
+                        {
+                            string Source = $"{UrlThumbnail.Content}";
+                            Thumbnail = "t_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Thumbnail), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                        }
+
+                        if (File.Exists($"{UrlPreview.Content}"))
+                        {
+                            string Source = $"{UrlPreview.Content}";
+                            Preview = "p_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Preview), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Preview, Theme));
+                        }
+
+                        SSTHI Info = new()
+                        {
+                            Type = SSDEWT.Url,
+                            Preview = Preview,
+                            Source = UrlUrl.Text,
+                            Thumbnail = Thumbnail,
+                            Title = UrlTitle.Text,
+                            Author = UrlAuthor.Text,
+                            AppVersion = SSCHV.Get(),
+                            Version = new(1, 0, 0, 0),
+                            Contact = UrlContact.Text,
+                            Description = UrlDescription.Text
                         };
 
                         SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);

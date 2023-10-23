@@ -25,6 +25,7 @@
     <system:String x:Key="Portal.ThemeCreate.Application">Motyw Application</system:String>
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Utwórz własny motyw w formacie Application.</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Miniatura</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Podgląd</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tytuł</system:String>
@@ -33,6 +34,7 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">Kontakt</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenty</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Proszę podać prawidłowy adres url</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Wybierz obraz okładki</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Wybierz plik podglądu</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Proszę podać poprawny tytuł</system:String>

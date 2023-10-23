@@ -25,6 +25,7 @@
     <system:String x:Key="Portal.ThemeCreate.Application">Application Tema</system:String>
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Application türündeki kendi temanızı oluşturun.</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Kapak</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Önizleme</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Başlık</system:String>
@@ -33,6 +34,7 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">İletişim</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argümanlar</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Lütfen geçerli bir url adresi yazın</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Bir kapak resmi seçin</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Bir önizleme dosyası seçin</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Lütfen geçerli bir başlık yazın</system:String>

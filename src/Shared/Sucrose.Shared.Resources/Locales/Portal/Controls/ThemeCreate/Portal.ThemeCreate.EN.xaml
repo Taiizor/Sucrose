@@ -25,6 +25,7 @@
     <system:String x:Key="Portal.ThemeCreate.Application">Application Theme</system:String>
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Create your own theme in Application format.</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Thumbnail</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Preview</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Title</system:String>
@@ -33,6 +34,7 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">Contact</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Arguments</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Please enter a valid url address</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Select a cover image</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Select a preview file</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Please enter a valid title</system:String>
