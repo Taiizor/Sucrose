@@ -140,11 +140,16 @@
 
 <div align="center">
   <div>
-    <h4>Interactive Features</h4>
-    <p>● <strong>Audio Visualization:</strong> Display real-time audio visualization on your wallpapers.</p>
-    <p>● <strong>Hardware Monitoring:</strong> Show CPU, GPU, RAM usage and more on your wallpapers.</p>
-    <p>● <strong>Interactivity:</strong> Allow users to interact with themes using mouse and keyboard actions.</p>
-    <p>● <strong>JavaScript Integration:</strong> Send computer data to JavaScript functions in themes for customization.</p>
+    <h4>Features</h4>
+    <p>● Light and Dark theme feature.</p>
+    <p>● Create your own wallpapers simply or in detail.</p>
+    <p>● Supports multiple screens and all screen resolutions.</p>
+    <p>● Customize various wallpaper engines and plugins freely.</p>
+    <p>● Completely open-source and free, no feature requires payment.</p>
+    <p>● Create media-responsive wallpapers using the Sucrose Audio API.</p>
+    <p>● Determine the fate of the wallpaper based on system performance.</p>
+    <p>● Create wallpapers that display system status using the Sucrose System API.</p>
+    <p>● You can use any website you want as a wallpaper with CefSharp and WebView.</p>
   </div>
 
   <div>
