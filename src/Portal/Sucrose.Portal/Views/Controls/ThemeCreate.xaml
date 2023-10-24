@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
@@ -169,7 +168,7 @@
                     <VisualBrush Stretch="UniformToFill">
                         <VisualBrush.Visual>
                             <Grid>
-                                <Image x:Name="GifImagine" Stretch="UniformToFill" StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Stretch" xag:AnimationBehavior.SourceUri="{x:Null}" xag:AnimationBehavior.RepeatBehavior="Forever" xag:AnimationBehavior.AnimateInDesignMode="False" xag:AnimationBehavior.CacheFramesInMemory="False" xag:AnimationBehavior.AutoStart="True" />
+                                <Image x:Name="GifImagine" Stretch="UniformToFill" StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Stretch" Source="{x:Null}" />
                             </Grid>
                         </VisualBrush.Visual>
                     </VisualBrush>
@@ -274,12 +273,12 @@
                 BorderBrush="Transparent"
                 Icon="{ui:SymbolIcon ArrowLeft24}" />
 
-            <Grid x:Name="VideoArea" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 12 0 0" AllowDrop="True" Drop="VideoArea_Drop" DragOver="VideoArea_DragOver" DragLeave="GifArea_DragLeave">
+            <Grid x:Name="VideoArea" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 12 0 0" AllowDrop="True" Drop="VideoArea_Drop" DragOver="VideoArea_DragOver" DragLeave="VideoArea_DragLeave">
                 <Grid.Background>
                     <VisualBrush Stretch="UniformToFill">
                         <VisualBrush.Visual>
                             <Grid>
-                                <MediaElement x:Name="VideoImagine" Volume="0" Stretch="UniformToFill" StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Stretch" LoadedBehavior="Play" UnloadedBehavior="Manual" />
+                                <Image x:Name="VideoImagine" Stretch="UniformToFill" StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Stretch" Source="{x:Null}" />
                             </Grid>
                         </VisualBrush.Visual>
                     </VisualBrush>

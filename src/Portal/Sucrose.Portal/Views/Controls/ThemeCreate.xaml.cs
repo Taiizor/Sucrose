@@ -4,13 +4,13 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using XamlAnimatedGif;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SHG = Skylark.Helper.Generator;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SPETL = Sucrose.Portal.Extension.ThumbnailLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
@@ -25,6 +25,8 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class ThemeCreate : ContentDialog, IDisposable
     {
+        private readonly SPETL Loader = new();
+
         public ThemeCreate() : base(SPMI.ContentDialogService.GetContentPresenter())
         {
             InitializeComponent();
@@ -47,62 +49,6 @@ namespace Sucrose.Portal.Views.Controls
             Dispose();
         }
 
-        private void GifArea_Drop(object sender, DragEventArgs e)
-        {
-            GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
-
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                if (Files.Any())
-                {
-                    foreach (string Record in Files)
-                    {
-                        string Extension = Path.GetExtension(Record).ToLowerInvariant();
-
-                        if (Extension is ".gif")
-                        {
-                            AnimationBehavior.SetSourceUri(GifImagine, new(Record));
-                            GifDelete.Visibility = Visibility.Visible;
-                            GifIcon.Visibility = Visibility.Collapsed;
-                            GifText.Visibility = Visibility.Collapsed;
-                            GifRectangle.Stroke = Brushes.SeaGreen;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        private void VideoArea_Drop(object sender, DragEventArgs e)
-        {
-            VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
-
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                if (Files.Any())
-                {
-                    foreach (string Record in Files)
-                    {
-                        string Extension = Path.GetExtension(Record).ToLowerInvariant();
-
-                        if (Extension is ".mp4" or ".avi" or ".mov" or ".mkv" or ".ogv" or ".flv" or ".wmv" or ".hevc" or ".webm" or ".mpeg" or ".mpeg1" or ".mpeg2" or ".mpeg4")
-                        {
-                            VideoDelete.Visibility = Visibility.Visible;
-                            VideoIcon.Visibility = Visibility.Collapsed;
-                            VideoText.Visibility = Visibility.Collapsed;
-                            VideoRectangle.Stroke = Brushes.SeaGreen;
-                            VideoImagine.Source = new(Record);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
         private void GifArea_DragOver(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop) || e.AllowedEffects.HasFlag(DragDropEffects.Copy) == false)
@@ -118,7 +64,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void GifArea_DragLeave(object sender, DragEventArgs e)
         {
-            if (string.IsNullOrEmpty($"{AnimationBehavior.GetSourceUri(GifImagine)}"))
+            if (string.IsNullOrEmpty($"{Loader.SourceUri}"))
             {
                 GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
             }
@@ -151,10 +97,13 @@ namespace Sucrose.Portal.Views.Controls
 
         private void GifDelete_Click(object sender, RoutedEventArgs e)
         {
+            Loader.Dispose();
+            Loader.SourceUri = null;
+            Loader.SourcePath = null;
+            GifImagine.Source = null;
             GifIcon.Visibility = Visibility.Visible;
             GifText.Visibility = Visibility.Visible;
             GifDelete.Visibility = Visibility.Collapsed;
-            AnimationBehavior.SetSourceUri(GifImagine, null);
             GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
         }
 
@@ -171,8 +120,39 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private async void GifArea_Drop(object sender, DragEventArgs e)
+        {
+            GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (Files.Any())
+                {
+                    foreach (string Record in Files)
+                    {
+                        string Extension = Path.GetExtension(Record).ToLowerInvariant();
+
+                        if (Extension is ".gif")
+                        {
+                            GifImagine.Source = await Loader.LoadAsync(Record);
+                            GifDelete.Visibility = Visibility.Visible;
+                            GifIcon.Visibility = Visibility.Collapsed;
+                            GifText.Visibility = Visibility.Collapsed;
+                            GifRectangle.Stroke = Brushes.SeaGreen;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         private void VideoDelete_Click(object sender, RoutedEventArgs e)
         {
+            Loader.Dispose();
+            Loader.SourceUri = null;
+            Loader.SourcePath = null;
             VideoImagine.Source = null;
             VideoIcon.Visibility = Visibility.Visible;
             VideoText.Visibility = Visibility.Visible;
@@ -189,7 +169,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void VideoArea_DragLeave(object sender, DragEventArgs e)
         {
-            if (string.IsNullOrEmpty($"{VideoImagine.Source}"))
+            if (string.IsNullOrEmpty($"{Loader.SourceUri}"))
             {
                 VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
             }
@@ -218,6 +198,34 @@ namespace Sucrose.Portal.Views.Controls
             if (FileDialog.ShowDialog() == true)
             {
                 Button.Content = FileDialog.FileName;
+            }
+        }
+
+        private async void VideoArea_Drop(object sender, DragEventArgs e)
+        {
+            VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] Files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (Files.Any())
+                {
+                    foreach (string Record in Files)
+                    {
+                        string Extension = Path.GetExtension(Record).ToLowerInvariant();
+
+                        if (Extension is ".mp4" or ".avi" or ".mov" or ".mkv" or ".ogv" or ".flv" or ".wmv" or ".hevc" or ".webm" or ".mpeg" or ".mpeg1" or ".mpeg2" or ".mpeg4")
+                        {
+                            VideoImagine.Source = await Loader.LoadAsync(Record);
+                            VideoDelete.Visibility = Visibility.Visible;
+                            VideoIcon.Visibility = Visibility.Collapsed;
+                            VideoText.Visibility = Visibility.Collapsed;
+                            VideoRectangle.Stroke = Brushes.SeaGreen;
+                            break;
+                        }
+                    }
+                }
             }
         }
 
@@ -321,7 +329,7 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (GifCard.Visibility == Visibility.Visible)
                 {
-                    Uri Gif = AnimationBehavior.GetSourceUri(GifImagine);
+                    Uri Gif = Loader.SourceUri;
 
                     if (Gif == null || string.IsNullOrEmpty(Gif.LocalPath))
                     {
@@ -495,7 +503,7 @@ namespace Sucrose.Portal.Views.Controls
                 }
                 else if (VideoCard.Visibility == Visibility.Visible)
                 {
-                    Uri Video = VideoImagine.Source;
+                    Uri Video = Loader.SourceUri;
 
                     if (Video == null || string.IsNullOrEmpty(Video.LocalPath))
                     {
