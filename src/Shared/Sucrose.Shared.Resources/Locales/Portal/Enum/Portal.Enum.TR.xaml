@@ -37,11 +37,12 @@
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Varsayılan</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Başarılı Sonuç</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' çok fazla değere sahip</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema, uygulamanın desteklemediği bir tür için oluşturulmuş</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' değeri boş veya çok uzun</system:String>
-    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' değeri çok uzun</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' değeri boş veya çok uzun</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' dosyası bulunamadı</system:String>
-    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' değeri çok uzun</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' değeri boş veya çok uzun</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview' dosyası bulunamadı</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">İlgili dosya şifreli</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">İlgili dosya gerçekten bir '.zip' dosyası değil</system:String>
@@ -64,6 +65,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Geçersiz 'StretchMode' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Geçersiz 'VolumeLevel' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Geçersiz 'ShuffleMode' değeri</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags' değerleri çok kısa veya çok uzun</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Geçersiz dosya</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">'PropertyList' değeri boş</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Geçersiz 'SystemMemory' değeri</system:String>

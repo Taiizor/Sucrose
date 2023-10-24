@@ -24,13 +24,13 @@ namespace Sucrose.Shared.Theme.Helper
         [JsonProperty("Description", Required = Required.Always)]
         public string Description { get; set; }
 
-        [JsonProperty("Author", Required = Required.AllowNull)]
+        [JsonProperty("Author", Required = Required.Always)]
         public string Author { get; set; }
 
         [JsonProperty("License", Required = Required.AllowNull)]
         public string License { get; set; }
 
-        [JsonProperty("Contact", Required = Required.AllowNull)]
+        [JsonProperty("Contact", Required = Required.Always)]
         public string Contact { get; set; }
 
         [JsonProperty("Type", Required = Required.Always)]
@@ -38,6 +38,9 @@ namespace Sucrose.Shared.Theme.Helper
 
         [JsonProperty("Source", Required = Required.Always)]
         public string Source { get; set; }
+
+        [JsonProperty("Tags", Required = Required.Default)]
+        public string[] Tags { get; set; } = Array.Empty<string>();
 
         [JsonProperty("Arguments", Required = Required.AllowNull)]
         public string Arguments { get; set; }

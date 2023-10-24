@@ -37,11 +37,12 @@
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Domyślny</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Sukces</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' ma zbyt wiele wartości</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Motyw został stworzony dla nieobsługiwanego typu</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Wartość 'Title' jest pusta lub zbyt długa</system:String>
-    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Wartość 'Author' jest zbyt długa</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Wartość 'Author' jest pusta lub zbyt długa</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Brak pliku 'Source'</system:String>
-    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Wartość 'Contact' jest zbyt długa</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Wartość 'Contact' jest pusta lub zbyt długa</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Brak pliku 'Preview'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Powiązany plik jest zaszyfrowany</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Powiązany plik to nie prawdziwy plik '.zip'</system:String>
@@ -64,6 +65,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Nieprawidłowa wartość 'StretchMode'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Nieprawidłowa wartość 'VolumeLevel'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Nieprawidłowa wartość 'ShuffleMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Wartości 'Tags' są zbyt krótkie lub zbyt długie</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Nieprawidłowy plik</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Wartość 'PropertyList' jest pusta</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Nieprawidłowa wartość 'SystemMemory'</system:String>

@@ -37,11 +37,12 @@
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standard</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Erfolgreich</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' hat zu viele Werte</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Das Theme ist für einen nicht unterstützten Typ erstellt</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Der 'Title' Wert ist leer oder zu lang</system:String>
-    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Der 'Author' Wert ist zu lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Der 'Author' Wert ist leer oder zu lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Die 'Source' Datei wurde nicht gefunden</system:String>
-    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Der 'Contact' Wert ist zu lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Der 'Contact' Wert ist leer oder zu lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Die 'Preview' Datei wurde nicht gefunden</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Die zugehörige Datei ist verschlüsselt</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Die zugehörige Datei ist keine echte '.zip' Datei</system:String>
@@ -64,6 +65,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Ungültiger 'StretchMode' Wert</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Ungültiger 'VolumeLevel' Wert</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Ungültiger 'ShuffleMode' Wert</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags' Werte sind zu kurz oder zu lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Ungültige Datei</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Der 'PropertyList' Wert ist leer</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Ungültiger 'SystemMemory' Wert</system:String>

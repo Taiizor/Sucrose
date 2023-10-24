@@ -63,10 +63,12 @@ namespace Sucrose.Portal.Views.Pages.Library
                 else
                 {
                     SSTHI Info = SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo));
+
+                    string Tags = string.Join($"{SMR.SearchSplit}", Info.Tags.Where(Tag => !string.IsNullOrEmpty(Tag))).ToLowerInvariant();
                     string Description = Info.Description.ToLowerInvariant();
                     string Title = Info.Title.ToLowerInvariant();
 
-                    if (Title.Contains(Search) || Description.Contains(Search))
+                    if (Tags.Contains(Search) || Title.Contains(Search) || Description.Contains(Search))
                     {
                         if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                         {

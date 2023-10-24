@@ -28,6 +28,8 @@
 
         public static readonly string Content = "Content";
 
+        public static readonly char SearchSplitChar = 'ꕥ';
+
         public static readonly char StartCommandChar = '✔';
 
         public static readonly string CacheFolder = "Cache";
@@ -65,6 +67,8 @@
         public static readonly string Watchdog = "Sucrose.Watchdog.exe";
 
         public static readonly string VideoContent = "VideoContent.html";
+
+        public static readonly string SearchSplit = $"{SearchSplitChar}";
 
         public static readonly string Commandog = "Sucrose.Commandog.exe";
 

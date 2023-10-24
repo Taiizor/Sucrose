@@ -69,19 +69,29 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.Description;
                 }
 
-                if (!string.IsNullOrEmpty(Info.Author) && Info.Author.Length > 50)
+                if (string.IsNullOrEmpty(Info.Author) || Info.Author.Length > 50)
                 {
                     return SSDECT.Author;
                 }
 
-                if (!string.IsNullOrEmpty(Info.Contact) && Info.Contact.Length > 250)
+                if (string.IsNullOrEmpty(Info.Contact) || Info.Contact.Length > 250)
                 {
                     return SSDECT.Contact;
                 }
 
-                if (!string.IsNullOrEmpty(Info.Contact) && !SSTHV.IsUrl(Info.Contact) && !SSTHV.IsMail(Info.Contact))
+                if (!SSTHV.IsUrl(Info.Contact) && !SSTHV.IsMail(Info.Contact))
                 {
                     return SSDECT.InvalidContact;
+                }
+
+                if (Info.Tags.Any() && (Info.Tags.Count() < 1 || Info.Tags.Count() > 5))
+                {
+                    return SSDECT.Tags;
+                }
+
+                if (Info.Tags.Any() && Info.Tags.Any(Tag => Tag.Length is < 1 or > 20))
+                {
+                    return SSDECT.InvalidTags;
                 }
 
                 if (!string.IsNullOrEmpty(Info.Arguments) && Info.Arguments.Length > 250)

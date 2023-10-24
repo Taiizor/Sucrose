@@ -6,6 +6,7 @@
     public enum CompatibilityType
     {
         Pass,
+        Tags,
         Type,
         Title,
         Author,
@@ -33,6 +34,7 @@
         StretchMode,
         VolumeLevel,
         ShuffleMode,
+        InvalidTags,
         InvalidFile,
         PropertyList,
         SystemMemory,
