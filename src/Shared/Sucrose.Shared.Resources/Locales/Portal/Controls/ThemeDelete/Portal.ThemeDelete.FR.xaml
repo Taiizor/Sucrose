@@ -17,6 +17,10 @@
     <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeVersion">Version</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">Mots-Clés</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">Aucun</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeCreate">Création</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">Inconnue</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">Modification</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">Inconnue</system:String>
 </ResourceDictionary>

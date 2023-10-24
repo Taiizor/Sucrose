@@ -34,6 +34,9 @@
         <TextBlock x:Name="ThemeVersion" Text="{DynamicResource Portal.ThemeReview.ThemeVersion}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <TextBlock x:Name="ThemeVersionText" Text="{DynamicResource Portal.ThemeReview.ThemeVersionText}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <TextBlock x:Name="ThemeTags" Text="{DynamicResource Portal.ThemeReview.ThemeTags}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <TextBlock x:Name="ThemeTagsText" Text="{DynamicResource Portal.ThemeReview.ThemeTagsText}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
         <TextBlock x:Name="ThemeCreate" Text="{DynamicResource Portal.ThemeReview.ThemeCreate}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         <TextBlock x:Name="ThemeCreateDate" Text="{DynamicResource Portal.ThemeReview.ThemeCreateDate}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 

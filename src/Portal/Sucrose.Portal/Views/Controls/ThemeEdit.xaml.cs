@@ -6,6 +6,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSSHT = Sucrose.Shared.Space.Helper.Tags;
 using SSSHV = Sucrose.Shared.Space.Helper.Versionly;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -33,6 +34,7 @@ namespace Sucrose.Portal.Views.Controls
             ThemeContact.Text = Info.Contact;
             ThemeArguments.Text = Info.Arguments;
             ThemeDescription.Text = Info.Description;
+            ThemeTags.Text = SSSHT.Join(Info.Tags, ", ", string.Empty);
 
             if (Info.Type != SSDEWT.Application)
             {
@@ -81,11 +83,43 @@ namespace Sucrose.Portal.Views.Controls
                 }
                 else
                 {
-                    Info.Title = ThemeTitle.Text;
-                    Info.Author = ThemeAuthor.Text;
-                    Info.Contact = ThemeContact.Text;
-                    Info.Description = ThemeDescription.Text;
-                    Info.Version = SSSHV.Increment(Info.Version);
+                    if (string.IsNullOrEmpty(ThemeTags.Text))
+                    {
+                        Info.Tags = null;
+                    }
+                    else
+                    {
+                        if (ThemeTags.Text.Contains(','))
+                        {
+                            Info.Tags = ThemeTags.Text.Split(',').Select(Tag => Tag.TrimStart().TrimEnd()).ToArray();
+
+                            if (Info.Tags.Count() is < 1 or > 5)
+                            {
+                                ThemeTags.Focus();
+                                return;
+                            }
+                            else if (Info.Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
+                            {
+                                ThemeTags.Focus();
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            if (ThemeTags.Text.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(ThemeTags.Text))
+                            {
+                                ThemeTags.Focus();
+                                return;
+                            }
+                            else
+                            {
+                                Info.Tags = new[]
+                                {
+                                    ThemeTags.Text.TrimStart().TrimEnd()
+                                };
+                            }
+                        }
+                    }
 
                     if (string.IsNullOrEmpty(ThemeArguments.Text))
                     {
@@ -93,8 +127,23 @@ namespace Sucrose.Portal.Views.Controls
                     }
                     else
                     {
-                        Info.Arguments = ThemeArguments.Text;
+                        if (ThemeArguments.Text.Length is > 250 || string.IsNullOrWhiteSpace(ThemeArguments.Text))
+                        {
+                            ThemeTags.Focus();
+                            return;
+                        }
+                        else
+                        {
+                            Info.Arguments = ThemeArguments.Text;
+                        }
                     }
+
+
+                    Info.Title = ThemeTitle.Text;
+                    Info.Author = ThemeAuthor.Text;
+                    Info.Contact = ThemeContact.Text;
+                    Info.Description = ThemeDescription.Text;
+                    Info.Version = SSSHV.Increment(Info.Version);
 
                     SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
                 }

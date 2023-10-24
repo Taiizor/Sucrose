@@ -7,11 +7,14 @@ using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Culture;
 using SHN = Skylark.Helper.Numeric;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
+using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHS = Sucrose.Shared.Space.Helper.Size;
+using SSSHT = Sucrose.Shared.Space.Helper.Tags;
 using SSSSS = Skylark.Struct.Storage.StorageStruct;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
@@ -51,9 +54,15 @@ namespace Sucrose.Portal.Views.Controls
 
             ThemeVersionText.Text = $"{Info.Version} ({Info.AppVersion})";
 
+            ThemeTagsText.Text = SSSHT.Join(Info.Tags, ", ", SSRER.GetValue("Portal", "ThemeDelete", "ThemeTagsText"));
+
             DateTime CreationTime = Directory.GetCreationTime(Theme);
 
             ThemeCreateDate.Text = CreationTime.ToString(SHC.CurrentUI);
+
+            DateTime ModificationTime = Directory.GetLastWriteTime(Path.Combine(Theme, SMR.SucroseInfo));
+
+            ThemeModifyDate.Text = ModificationTime.ToString(SHC.CurrentUI);
 
             string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 

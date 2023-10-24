@@ -16,6 +16,8 @@
     <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeVersion">Versión</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">Etiquetas</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">Ninguna</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeCreate">Creación</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Desconocido</system:String>
     <system:String x:Key="Portal.ThemeReview.ThemeModify">Modificación</system:String>

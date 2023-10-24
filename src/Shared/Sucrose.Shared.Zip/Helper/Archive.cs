@@ -89,7 +89,7 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.Tags;
                 }
 
-                if (Info.Tags != null && Info.Tags.Any() && Info.Tags.Any(Tag => Tag.Length is < 1 or > 20))
+                if (Info.Tags != null && Info.Tags.Any() && Info.Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
                 {
                     return SSDECT.InvalidTags;
                 }

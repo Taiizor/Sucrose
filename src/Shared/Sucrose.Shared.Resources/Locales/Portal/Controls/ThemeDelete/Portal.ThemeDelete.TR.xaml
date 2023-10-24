@@ -17,6 +17,10 @@
     <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeVersion">Sürüm</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">Etiketler</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">Yok</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeCreate">Oluşturulma</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">Bilinmiyor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">Değiştirilme</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">Bilinmiyor</system:String>
 </ResourceDictionary>

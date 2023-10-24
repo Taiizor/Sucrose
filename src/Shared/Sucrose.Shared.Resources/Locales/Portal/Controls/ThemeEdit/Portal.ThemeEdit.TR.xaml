@@ -11,11 +11,13 @@
     <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Açıklama</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Yazar</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeContact">İletişim</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Etiketler</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argümanlar</system:String>
 
     <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Lütfen geçerli bir başlık yazın</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Lütfen geçerli bir açıklama yazın</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Lütfen geçerli bir yazar adı yazın</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Lütfen geçerli bir iletişim adresi yazın</system:String>
-    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Lütfen geçerli bir uygulama argümanları yazın</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Lütfen geçerli tema etiketleri yazın</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Lütfen geçerli uygulama argümanları yazın</system:String>
 </ResourceDictionary>

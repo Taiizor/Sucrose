@@ -11,11 +11,13 @@
     <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Descripción</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Autor</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeContact">Contacto</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Etiquetas</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argumentos</system:String>
 
     <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Por favor, introduzca un título válido</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Por favor, introduzca una descripción válida</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Por favor, introduzca un nombre de autor válido</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Por favor, introduzca una dirección de contacto válida</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Por favor, introduzca etiquetas de temas válidas</system:String>
     <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Por favor, introduzca argumentos de aplicación válidos</system:String>
 </ResourceDictionary>
