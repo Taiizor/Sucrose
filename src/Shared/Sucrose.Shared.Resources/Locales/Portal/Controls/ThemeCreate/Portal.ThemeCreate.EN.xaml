@@ -32,6 +32,7 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Description</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Author</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">Contact</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Tags</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Arguments</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Please enter a valid url address</system:String>
@@ -41,6 +42,7 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Please enter a valid description</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Please enter a valid author name</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Please enter a valid contact address</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Please enter valid theme tags</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Please enter valid application arguments</system:String>
     
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Undo</system:String>

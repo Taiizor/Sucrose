@@ -32,6 +32,7 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Açıklama</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Yazar</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact">İletişim</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Etiketler</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argümanlar</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Lütfen geçerli bir url adresi yazın</system:String>
@@ -41,7 +42,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Lütfen geçerli bir açıklama yazın</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Lütfen geçerli bir yazar adı yazın</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Lütfen geçerli bir iletişim adresi yazın</system:String>
-    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Lütfen geçerli bir uygulama argümanları yazın</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Lütfen geçerli tema etiketleri yazın</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Lütfen geçerli uygulama argümanları yazın</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Geri Al</system:String>
 

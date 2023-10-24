@@ -360,8 +360,47 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Name;
                         string Theme;
+                        string[] Tags;
                         string Preview = "Preview.gif";
                         string Thumbnail = "Thumbnail.jpg";
+
+                        if (string.IsNullOrEmpty(GifTags.Text))
+                        {
+                            Tags = null;
+                        }
+                        else
+                        {
+                            if (GifTags.Text.Contains(','))
+                            {
+                                Tags = GifTags.Text.Split(',').Select(Tag => Tag.TrimStart().TrimEnd()).ToArray();
+
+                                if (Tags.Count() is < 1 or > 5)
+                                {
+                                    GifTags.Focus();
+                                    return;
+                                }
+                                else if (Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
+                                {
+                                    GifTags.Focus();
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (GifTags.Text.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(GifTags.Text))
+                                {
+                                    GifTags.Focus();
+                                    return;
+                                }
+                                else
+                                {
+                                    Tags = new[]
+                                    {
+                                        GifTags.Text.TrimStart().TrimEnd()
+                                    };
+                                }
+                            }
+                        }
 
                         do
                         {
@@ -406,6 +445,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         SSTHI Info = new()
                         {
+                            Tags = Tags,
                             Source = Name,
                             Type = SSDEWT.Gif,
                             Preview = Preview,
@@ -451,8 +491,47 @@ namespace Sucrose.Portal.Views.Controls
                     else
                     {
                         string Theme;
+                        string[] Tags;
                         string Preview = "Preview.gif";
                         string Thumbnail = "Thumbnail.jpg";
+
+                        if (string.IsNullOrEmpty(UrlTags.Text))
+                        {
+                            Tags = null;
+                        }
+                        else
+                        {
+                            if (UrlTags.Text.Contains(','))
+                            {
+                                Tags = UrlTags.Text.Split(',').Select(Tag => Tag.TrimStart().TrimEnd()).ToArray();
+
+                                if (Tags.Count() is < 1 or > 5)
+                                {
+                                    UrlTags.Focus();
+                                    return;
+                                }
+                                else if (Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
+                                {
+                                    UrlTags.Focus();
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (UrlTags.Text.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(UrlTags.Text))
+                                {
+                                    UrlTags.Focus();
+                                    return;
+                                }
+                                else
+                                {
+                                    Tags = new[]
+                                    {
+                                        UrlTags.Text.TrimStart().TrimEnd()
+                                    };
+                                }
+                            }
+                        }
 
                         do
                         {
@@ -486,6 +565,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         SSTHI Info = new()
                         {
+                            Tags = Tags,
                             Type = SSDEWT.Url,
                             Preview = Preview,
                             Source = UrlUrl.Text,
@@ -532,10 +612,48 @@ namespace Sucrose.Portal.Views.Controls
                     }
                     else
                     {
-                        string Name;
                         string Theme;
+                        string[] Tags;
                         string Preview = "Preview.gif";
                         string Thumbnail = "Thumbnail.jpg";
+
+                        if (string.IsNullOrEmpty(VideoTags.Text))
+                        {
+                            Tags = null;
+                        }
+                        else
+                        {
+                            if (VideoTags.Text.Contains(','))
+                            {
+                                Tags = VideoTags.Text.Split(',').Select(Tag => Tag.TrimStart().TrimEnd()).ToArray();
+
+                                if (Tags.Count() is < 1 or > 5)
+                                {
+                                    VideoTags.Focus();
+                                    return;
+                                }
+                                else if (Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
+                                {
+                                    VideoTags.Focus();
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (VideoTags.Text.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(VideoTags.Text))
+                                {
+                                    VideoTags.Focus();
+                                    return;
+                                }
+                                else
+                                {
+                                    Tags = new[]
+                                    {
+                                        VideoTags.Text.TrimStart().TrimEnd()
+                                    };
+                                }
+                            }
+                        }
 
                         do
                         {
@@ -580,6 +698,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         SSTHI Info = new()
                         {
+                            Tags = Tags,
                             Source = Name,
                             Preview = Preview,
                             Type = SSDEWT.Video,
@@ -625,8 +744,47 @@ namespace Sucrose.Portal.Views.Controls
                     else
                     {
                         string Theme;
+                        string[] Tags;
                         string Preview = "Preview.gif";
                         string Thumbnail = "Thumbnail.jpg";
+
+                        if (string.IsNullOrEmpty(YouTubeTags.Text))
+                        {
+                            Tags = null;
+                        }
+                        else
+                        {
+                            if (YouTubeTags.Text.Contains(','))
+                            {
+                                Tags = YouTubeTags.Text.Split(',').Select(Tag => Tag.TrimStart().TrimEnd()).ToArray();
+
+                                if (Tags.Count() is < 1 or > 5)
+                                {
+                                    YouTubeTags.Focus();
+                                    return;
+                                }
+                                else if (Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
+                                {
+                                    YouTubeTags.Focus();
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (YouTubeTags.Text.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(YouTubeTags.Text))
+                                {
+                                    YouTubeTags.Focus();
+                                    return;
+                                }
+                                else
+                                {
+                                    Tags = new[]
+                                    {
+                                        YouTubeTags.Text.TrimStart().TrimEnd()
+                                    };
+                                }
+                            }
+                        }
 
                         do
                         {
@@ -660,6 +818,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         SSTHI Info = new()
                         {
+                            Tags = Tags,
                             Preview = Preview,
                             Thumbnail = Thumbnail,
                             Type = SSDEWT.YouTube,

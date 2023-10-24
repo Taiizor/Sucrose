@@ -224,6 +224,9 @@
 
             <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeContact}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <ui:TextBox x:Name="GifContact" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeTags}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="GifTags" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" Margin="0 3 0 0" MaxLength="104" AcceptsReturn="False" AcceptsTab="False" />
         </StackPanel>
 
         <StackPanel x:Name="UrlCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
@@ -254,6 +257,9 @@
 
             <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeContact}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <ui:TextBox x:Name="UrlContact" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeTags}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="UrlTags" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" Margin="0 3 0 0" MaxLength="104" AcceptsReturn="False" AcceptsTab="False" />
         </StackPanel>
 
         <StackPanel x:Name="WebCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
@@ -334,6 +340,9 @@
 
             <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeContact}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <ui:TextBox x:Name="VideoContact" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeTags}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="VideoTags" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" Margin="0 3 0 0" MaxLength="104" AcceptsReturn="False" AcceptsTab="False" />
         </StackPanel>
 
         <StackPanel x:Name="YouTubeCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
@@ -364,6 +373,9 @@
 
             <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeContact}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <ui:TextBox x:Name="YouTubeContact" PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeContact.Hint}" Margin="0 3 0 0" MaxLength="250" AcceptsReturn="False" AcceptsTab="False" />
+
+            <TextBlock Text="{DynamicResource Portal.ThemeCreate.ThemeTags}" Margin="0 12 0 0" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ui:TextBox x:Name="YouTubeTags" PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" Margin="0 3 0 0" MaxLength="104" AcceptsReturn="False" AcceptsTab="False" />
         </StackPanel>
 
         <StackPanel x:Name="ApplicationCard" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Visibility="Collapsed">
