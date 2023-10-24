@@ -5,6 +5,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCLC = Sucrose.Portal.Views.Controls.LibraryCard;
+using SSSHT = Sucrose.Shared.Space.Helper.Tags;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Pages.Library
@@ -64,9 +65,9 @@ namespace Sucrose.Portal.Views.Pages.Library
                 {
                     SSTHI Info = SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo));
 
-                    string Tags = string.Join($"{SMR.SearchSplit}", Info.Tags.Where(Tag => !string.IsNullOrEmpty(Tag))).ToLowerInvariant();
                     string Description = Info.Description.ToLowerInvariant();
                     string Title = Info.Title.ToLowerInvariant();
+                    string Tags = SSSHT.Join(Info.Tags);
 
                     if (Tags.Contains(Search) || Title.Contains(Search) || Description.Contains(Search))
                     {

@@ -84,12 +84,12 @@ namespace Sucrose.Shared.Zip.Helper
                     return SSDECT.InvalidContact;
                 }
 
-                if (Info.Tags.Any() && (Info.Tags.Count() < 1 || Info.Tags.Count() > 5))
+                if (Info.Tags != null && Info.Tags.Any() && (Info.Tags.Count() < 1 || Info.Tags.Count() > 5))
                 {
                     return SSDECT.Tags;
                 }
 
-                if (Info.Tags.Any() && Info.Tags.Any(Tag => Tag.Length is < 1 or > 20))
+                if (Info.Tags != null && Info.Tags.Any() && Info.Tags.Any(Tag => Tag.Length is < 1 or > 20))
                 {
                     return SSDECT.InvalidTags;
                 }

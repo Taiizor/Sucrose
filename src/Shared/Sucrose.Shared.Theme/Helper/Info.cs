@@ -40,7 +40,7 @@ namespace Sucrose.Shared.Theme.Helper
         public string Source { get; set; }
 
         [JsonProperty("Tags", Required = Required.Default)]
-        public string[] Tags { get; set; } = Array.Empty<string>();
+        public string[] Tags { get; set; }
 
         [JsonProperty("Arguments", Required = Required.AllowNull)]
         public string Arguments { get; set; }

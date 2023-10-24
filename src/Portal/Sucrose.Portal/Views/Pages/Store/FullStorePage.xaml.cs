@@ -9,6 +9,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
 using SSRER = Sucrose.Shared.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
+using SSSHT = Sucrose.Shared.Space.Helper.Tags;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
@@ -205,9 +206,9 @@ namespace Sucrose.Portal.Views.Pages.Store
                 {
                     SSTHI Info = SSTHI.ReadJson(InfoPath);
 
+                    string Tags = SSSHT.Join(Info.Tags);
                     Title = Info.Title.ToLowerInvariant();
                     string Description = Info.Description.ToLowerInvariant();
-                    string Tags = string.Join($"{SMR.SearchSplit}", Info.Tags.Where(Tag => !string.IsNullOrEmpty(Tag))).ToLowerInvariant();
 
                     if (Tags.Contains(Search) || Title.Contains(Search) || Description.Contains(Search))
                     {
