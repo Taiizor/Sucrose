@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Title">Pakete ng Sucrose</system:String>
+    <system:String x:Key="Subtitle">Pakete ng Sucrose</system:String>
+    <system:String x:Key="Done">Maglulunsad ito kapag tapos na.</system:String>
+    <system:String x:Key="Install">I-install ang Sucrose Wallpaper Engine.</system:String>
+</ResourceDictionary>

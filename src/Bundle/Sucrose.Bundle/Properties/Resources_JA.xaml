@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Title">Sucrose パッケージ</system:String>
+    <system:String x:Key="Subtitle">Sucrose パッケージ</system:String>
+    <system:String x:Key="Done">インストールが完了すると開始されます。</system:String>
+    <system:String x:Key="Install">Sucrose Wallpaper Engine のインストール中です。</system:String>
+</ResourceDictionary>

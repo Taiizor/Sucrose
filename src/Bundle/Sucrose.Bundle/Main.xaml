@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:Sucrose.Bundle"
     mc:Ignorable="d"
     MouseDown="Window_MouseDown"
     ContentRendered="Window_ContentRendered"
@@ -14,7 +13,7 @@
     Background="#FF29373B" Icon="\Sucrose.Bundle;component\Assets\ICO.ico">
 
     <Grid>
-        <Image Source="\Sucrose.Bundle;component\Assets\Background6.jpg" Stretch="UniformToFill" Opacity="0.5" />
+        <Image Source="\Sucrose.Bundle;component\Assets\Background7.jpg" Stretch="UniformToFill" Opacity="0.5" />
 
         <TextBlock Text="{DynamicResource Subtitle}" FontSize="30" FontWeight="Light" Foreground="White"
                    FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,260,0,0"/>

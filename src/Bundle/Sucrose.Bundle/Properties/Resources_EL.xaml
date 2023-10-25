@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Title">Δέσμη Sucrose</system:String>
+    <system:String x:Key="Subtitle">Δέσμη Sucrose</system:String>
+    <system:String x:Key="Done">Θα ξεκινήσει όταν ολοκληρωθεί.</system:String>
+    <system:String x:Key="Install">Γίνεται εγκατάσταση του Sucrose Wallpaper Engine.</system:String>
+</ResourceDictionary>
