@@ -34,7 +34,7 @@ namespace Sucrose.Portal.Views.Controls
             ThemeContact.Text = Info.Contact;
             ThemeArguments.Text = Info.Arguments;
             ThemeDescription.Text = Info.Description;
-            ThemeTags.Text = SSSHT.Join(Info.Tags, ", ", string.Empty);
+            ThemeTags.Text = SSSHT.Join(Info.Tags, ",", string.Empty);
 
             if (Info.Type != SSDEWT.Application)
             {
