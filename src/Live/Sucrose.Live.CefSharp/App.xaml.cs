@@ -18,7 +18,7 @@ using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -247,7 +247,7 @@ namespace Sucrose.Live.CefSharp
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

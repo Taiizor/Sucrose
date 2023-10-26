@@ -27,8 +27,8 @@ using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
@@ -167,7 +167,7 @@ namespace Sucrose.Update
 
                 string Source = SUMI.Source;
                 string Path = SMMI.UpdateLogManager.LogFile();
-                string Text = SSRER.GetValue("Update", "HelpText");
+                string Text = SRER.GetValue("Update", "HelpText");
 
                 SSSHW.Start(Message, Path, Source, Text);
 
@@ -363,7 +363,7 @@ namespace Sucrose.Update
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

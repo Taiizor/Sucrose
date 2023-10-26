@@ -41,8 +41,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Theme", "Sha
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Discord", "Shared\Sucrose.Shared.Discord\Sucrose.Shared.Discord.shproj", "{55D4E156-3828-40A7-BB35-0377F917455B}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Resources", "Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.shproj", "{91BA7265-E2AB-4C03-B772-DC1EBC87DC27}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Dependency", "Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.shproj", "{7CE7D113-5A37-436B-85FB-9961C9595976}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Watchdog", "Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.shproj", "{F2E262D6-F321-4AE4-A80E-DAD0162D0EB7}"
@@ -98,6 +96,8 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Signal", "Shared\Sucrose.Shared.Signal\Sucrose.Shared.Signal.shproj", "{F46507E3-5E5D-429F-97BB-1559DD4C2B38}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Watchdog", "Project\Sucrose.Watchdog\Sucrose.Watchdog.csproj", "{FF343D52-713B-44FF-A9BC-3435478F15FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Resources", "Library\Sucrose.Resources\Sucrose.Resources.csproj", "{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -383,6 +383,22 @@ Global
 		{FF343D52-713B-44FF-A9BC-3435478F15FE}.Release|x64.Build.0 = Release|x64
 		{FF343D52-713B-44FF-A9BC-3435478F15FE}.Release|x86.ActiveCfg = Release|x86
 		{FF343D52-713B-44FF-A9BC-3435478F15FE}.Release|x86.Build.0 = Release|x86
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|x64.Build.0 = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Debug|x86.Build.0 = Debug|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|ARM64.Build.0 = Release|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|x64.ActiveCfg = Release|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|x64.Build.0 = Release|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|x86.ActiveCfg = Release|Any CPU
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -398,7 +414,6 @@ Global
 		{BDC71D9E-A243-44E0-BDF7-0CEC5B184B9B} = {A98F348B-49A9-43CB-924A-9F0A40CA88B2}
 		{3F10435E-C82E-4480-895A-FCFF79025276} = {232CD10B-4CA0-403C-B469-82A002F7C130}
 		{55D4E156-3828-40A7-BB35-0377F917455B} = {232CD10B-4CA0-403C-B469-82A002F7C130}
-		{91BA7265-E2AB-4C03-B772-DC1EBC87DC27} = {232CD10B-4CA0-403C-B469-82A002F7C130}
 		{7CE7D113-5A37-436B-85FB-9961C9595976} = {232CD10B-4CA0-403C-B469-82A002F7C130}
 		{F2E262D6-F321-4AE4-A80E-DAD0162D0EB7} = {232CD10B-4CA0-403C-B469-82A002F7C130}
 		{C20E255E-FB63-42C8-8CF9-1432F7E580FE} = {232CD10B-4CA0-403C-B469-82A002F7C130}
@@ -426,6 +441,7 @@ Global
 		{57E55D0B-F281-47DE-8F6B-CB0D1A118705} = {1DD66D11-65BD-40CB-BF05-4E7951DDFED3}
 		{F46507E3-5E5D-429F-97BB-1559DD4C2B38} = {232CD10B-4CA0-403C-B469-82A002F7C130}
 		{FF343D52-713B-44FF-A9BC-3435478F15FE} = {E9FDFBCD-9AC8-4C03-8E94-17B50D0AD090}
+		{E1EBF7C0-74B6-46F9-8C86-4815AD7459D0} = {1DD66D11-65BD-40CB-BF05-4E7951DDFED3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DA4A105-4BC7-4943-9328-F7274E75FCB3}
@@ -446,7 +462,6 @@ Global
 		Shared\Engine\Sucrose.Shared.Engine\Sucrose.Shared.Engine.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Signal\Sucrose.Shared.Signal.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5
@@ -464,7 +479,6 @@ Global
 		Shared\Engine\Sucrose.Shared.Engine\Sucrose.Shared.Engine.projitems*{77a043b9-fed0-4cd8-8697-8963a277393d}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{77a043b9-fed0-4cd8-8697-8963a277393d}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{77a043b9-fed0-4cd8-8697-8963a277393d}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{77a043b9-fed0-4cd8-8697-8963a277393d}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{77a043b9-fed0-4cd8-8697-8963a277393d}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{77a043b9-fed0-4cd8-8697-8963a277393d}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{77a043b9-fed0-4cd8-8697-8963a277393d}*SharedItemsImports = 5
@@ -473,11 +487,9 @@ Global
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{7ce7d113-5a37-436b-85fb-9961c9595976}*SharedItemsImports = 13
 		Shared\Sucrose.Shared.SevenZip\Sucrose.Shared.SevenZip.projitems*{84da2385-e56f-47e5-af07-06331dc04933}*SharedItemsImports = 13
 		Shared\Sucrose.Shared.Launcher\Sucrose.Shared.Launcher.projitems*{8a0ab1f0-443d-4815-aa0a-d5b700d54827}*SharedItemsImports = 13
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{91ba7265-e2ab-4c03-b772-dc1ebc87dc27}*SharedItemsImports = 13
 		Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems*{a3992108-8907-4197-ac25-dab73f106c8f}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{a3992108-8907-4197-ac25-dab73f106c8f}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{a3992108-8907-4197-ac25-dab73f106c8f}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{a3992108-8907-4197-ac25-dab73f106c8f}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.SevenZip\Sucrose.Shared.SevenZip.projitems*{a3992108-8907-4197-ac25-dab73f106c8f}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{a3992108-8907-4197-ac25-dab73f106c8f}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{a3992108-8907-4197-ac25-dab73f106c8f}*SharedItemsImports = 5
@@ -486,7 +498,6 @@ Global
 		Shared\Engine\Sucrose.Shared.Engine\Sucrose.Shared.Engine.projitems*{a45dd78f-8c1d-4825-91df-dc0bc0b75288}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{a45dd78f-8c1d-4825-91df-dc0bc0b75288}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{a45dd78f-8c1d-4825-91df-dc0bc0b75288}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{a45dd78f-8c1d-4825-91df-dc0bc0b75288}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{a45dd78f-8c1d-4825-91df-dc0bc0b75288}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{a45dd78f-8c1d-4825-91df-dc0bc0b75288}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{a45dd78f-8c1d-4825-91df-dc0bc0b75288}*SharedItemsImports = 5
@@ -495,14 +506,12 @@ Global
 		Shared\Engine\Sucrose.Shared.Engine\Sucrose.Shared.Engine.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Zip\Sucrose.Shared.Zip.projitems*{abb84dfb-aaa4-45a0-ba11-452fac3175b5}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Signal\Sucrose.Shared.Signal.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{b7e4127d-30fe-4284-9b15-e74b7d09390b}*SharedItemsImports = 5
@@ -511,7 +520,6 @@ Global
 		Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Store\Sucrose.Shared.Store.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{bdc71d9e-a243-44e0-bdf7-0cec5b184b9b}*SharedItemsImports = 5
@@ -523,7 +531,6 @@ Global
 		Shared\Engine\Sucrose.Shared.Engine\Sucrose.Shared.Engine.projitems*{daae8f55-abd7-4093-8a3c-8cd0359d2a31}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{daae8f55-abd7-4093-8a3c-8cd0359d2a31}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{daae8f55-abd7-4093-8a3c-8cd0359d2a31}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{daae8f55-abd7-4093-8a3c-8cd0359d2a31}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{daae8f55-abd7-4093-8a3c-8cd0359d2a31}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{daae8f55-abd7-4093-8a3c-8cd0359d2a31}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{daae8f55-abd7-4093-8a3c-8cd0359d2a31}*SharedItemsImports = 5
@@ -532,7 +539,6 @@ Global
 		Shared\Engine\Sucrose.Shared.Engine\Sucrose.Shared.Engine.projitems*{dc4c148f-da09-473d-9dcf-058171d210ff}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{dc4c148f-da09-473d-9dcf-058171d210ff}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{dc4c148f-da09-473d-9dcf-058171d210ff}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{dc4c148f-da09-473d-9dcf-058171d210ff}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Signal\Sucrose.Shared.Signal.projitems*{dc4c148f-da09-473d-9dcf-058171d210ff}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{dc4c148f-da09-473d-9dcf-058171d210ff}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{dc4c148f-da09-473d-9dcf-058171d210ff}*SharedItemsImports = 5
@@ -545,7 +551,6 @@ Global
 		Shared\Sucrose.Shared.Discord\Sucrose.Shared.Discord.projitems*{f6308570-6fd5-4419-a396-4949c2f642f6}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Launcher\Sucrose.Shared.Launcher.projitems*{f6308570-6fd5-4419-a396-4949c2f642f6}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{f6308570-6fd5-4419-a396-4949c2f642f6}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{f6308570-6fd5-4419-a396-4949c2f642f6}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Signal\Sucrose.Shared.Signal.projitems*{f6308570-6fd5-4419-a396-4949c2f642f6}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{f6308570-6fd5-4419-a396-4949c2f642f6}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{f6308570-6fd5-4419-a396-4949c2f642f6}*SharedItemsImports = 5
@@ -554,7 +559,6 @@ Global
 		Shared\Engine\Sucrose.Shared.Engine.WebView\Sucrose.Shared.Engine.WebView.projitems*{fe860c2d-99bb-407a-9e3c-8f26812864d8}*SharedItemsImports = 13
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Resources\Sucrose.Shared.Resources.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5

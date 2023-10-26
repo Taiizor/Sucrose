@@ -7,7 +7,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -31,8 +31,8 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             TextBlock StoreArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Store"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Store"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -46,8 +46,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Duration.LeftIcon.Symbol = SymbolRegular.ClockAlarm24;
-            Duration.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Duration");
-            Duration.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Duration", "Description");
+            Duration.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Duration");
+            Duration.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Duration", "Description");
 
             NumberBox StoreDuration = new()
             {
@@ -74,8 +74,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             StoreStart.LeftIcon.Symbol = SymbolRegular.PictureInPictureEnter24;
-            StoreStart.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "StoreStart");
-            StoreStart.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "StoreStart", "Description");
+            StoreStart.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "StoreStart");
+            StoreStart.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "StoreStart", "Description");
 
             ToggleSwitch StoreStartState = new()
             {
@@ -96,8 +96,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Adult.LeftIcon.Symbol = SymbolRegular.ShieldGlobe24;
-            Adult.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adult");
-            Adult.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adult", "Description");
+            Adult.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Adult");
+            Adult.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Adult", "Description");
 
             ToggleSwitch AdultState = new()
             {
@@ -113,8 +113,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock LibraryArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Library"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Library"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -128,8 +128,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Confirm.LeftIcon.Symbol = SymbolRegular.DeleteDismiss24;
-            Confirm.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Confirm");
-            Confirm.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Confirm", "Description");
+            Confirm.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Confirm");
+            Confirm.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Confirm", "Description");
 
             ToggleSwitch ConfirmState = new()
             {
@@ -150,8 +150,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Delete.LeftIcon.Symbol = SymbolRegular.ImageProhibited24;
-            Delete.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Delete");
-            Delete.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Delete", "Description");
+            Delete.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Delete");
+            Delete.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Delete", "Description");
 
             ToggleSwitch DeleteState = new()
             {
@@ -165,8 +165,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DeleteHint = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Delete", "DeleteHint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Delete", "DeleteHint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -185,8 +185,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             LibraryStart.LeftIcon.Symbol = SymbolRegular.PictureInPictureEnter24;
-            LibraryStart.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "LibraryStart");
-            LibraryStart.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "LibraryStart", "Description");
+            LibraryStart.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "LibraryStart");
+            LibraryStart.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "LibraryStart", "Description");
 
             ToggleSwitch LibraryStartState = new()
             {
@@ -202,8 +202,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AppearanceBehaviorArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "AppearanceBehavior"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "AppearanceBehavior"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -216,8 +216,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Preview.LeftIcon.Symbol = SymbolRegular.ResizeVideo24;
-            Preview.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview");
-            Preview.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "Description");
+            Preview.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Preview");
+            Preview.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Preview", "Description");
 
             StackPanel PreviewContent = new();
 
@@ -228,8 +228,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock StorePreviewText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "StorePreview"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Preview", "StorePreview"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -245,8 +245,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock StorePreviewHideText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "StorePreviewHide"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Preview", "StorePreviewHide"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(20, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -268,8 +268,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock LibraryPreviewText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "LibraryPreview"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Preview", "LibraryPreview"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -285,8 +285,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock LibraryPreviewHideText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Preview", "LibraryPreviewHide"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Preview", "LibraryPreviewHide"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(20, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -323,8 +323,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Theme.LeftIcon.Symbol = SymbolRegular.DrawText24;
-            Theme.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme");
-            Theme.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme", "Description");
+            Theme.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme");
+            Theme.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme", "Description");
 
             StackPanel ThemeContent = new();
 
@@ -335,8 +335,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock TitleLengthText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme", "TitleLength"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme", "TitleLength"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -364,8 +364,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DescriptionLengthText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Theme", "DescriptionLength"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme", "DescriptionLength"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -404,8 +404,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Adaptive.LeftIcon.Symbol = SymbolRegular.BroadActivityFeed24;
-            Adaptive.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive");
-            Adaptive.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "Description");
+            Adaptive.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Adaptive");
+            Adaptive.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "Description");
 
             StackPanel AdaptiveContent = new();
 
@@ -416,8 +416,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdaptiveMarginText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "AdaptiveMargin"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "AdaptiveMargin"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -445,8 +445,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdaptiveLayoutText = new()
             {
-                Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "AdaptiveLayout"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Adaptive", "AdaptiveLayout"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -486,8 +486,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Store.LeftIcon.Symbol = SymbolRegular.DualScreenPagination24;
-            Store.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Store");
-            Store.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Store", "Description");
+            Store.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Store");
+            Store.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Store", "Description");
 
             NumberBox StorePagination = new()
             {
@@ -514,8 +514,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Library.LeftIcon.Symbol = SymbolRegular.DualScreenPagination24;
-            Library.Title.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Library");
-            Library.Description.Text = SSRER.GetValue("Portal", "PersonalSettingPage", "Library", "Description");
+            Library.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Library");
+            Library.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Library", "Description");
 
             NumberBox LibraryPagination = new()
             {

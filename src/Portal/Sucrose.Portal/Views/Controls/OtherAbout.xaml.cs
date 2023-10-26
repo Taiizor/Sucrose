@@ -6,7 +6,7 @@ using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -24,14 +24,14 @@ namespace Sucrose.Portal.Views.Controls
         {
             string Version = SSCHV.GetText();
 
-            Update.TitleText = string.Format(SSRER.GetValue("Portal", "OtherAbout", "Update"), Version);
-            Update.DescriptionText = string.Format(SSRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMM.UpdateTime.ToString(SHC.CurrentUI));
+            Update.TitleText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update"), Version);
+            Update.DescriptionText = string.Format(SRER.GetValue("Portal", "OtherAbout", "Update", "Description"), SMMM.UpdateTime.ToString(SHC.CurrentUI));
 
             HyperlinkButton Navigate = new()
             {
                 NavigateUri = string.Format("https://github.com/Taiizor/Sucrose/releases/tag/v{0}", Version),
-                Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
-                Content = SSRER.GetValue("Portal", "OtherAbout", "Update", "Notes"),
+                Foreground = SRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "OtherAbout", "Update", "Notes"),
                 Icon = new SymbolIcon(SymbolRegular.Notepad24),
                 Appearance = ControlAppearance.Transparent,
                 BorderBrush = Brushes.Transparent,

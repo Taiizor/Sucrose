@@ -17,7 +17,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -74,12 +74,12 @@ namespace Sucrose.Portal.Views.Controls
                     }
                     else
                     {
-                        DownloadSymbol.Foreground = SSRER.GetResource<Brush>("PaletteRedBrush");
+                        DownloadSymbol.Foreground = SRER.GetResource<Brush>("PaletteRedBrush");
                         DownloadSymbol.Symbol = SymbolRegular.CloudDismiss24;
 
                         await Task.Delay(3000);
 
-                        DownloadSymbol.Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush");
+                        DownloadSymbol.Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush");
                         DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
                     }
                 }
@@ -210,12 +210,12 @@ namespace Sucrose.Portal.Views.Controls
                             DownloadRing.Visibility = Visibility.Collapsed;
                             DownloadSymbol.Visibility = Visibility.Visible;
 
-                            DownloadSymbol.Foreground = SSRER.GetResource<Brush>("SystemFillColorSuccessBrush");
+                            DownloadSymbol.Foreground = SRER.GetResource<Brush>("SystemFillColorSuccessBrush");
                             DownloadSymbol.Symbol = SymbolRegular.CloudCheckmark24;
 
                             await Task.Delay(3000);
 
-                            DownloadSymbol.Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush");
+                            DownloadSymbol.Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush");
                             DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
                         }
                     }

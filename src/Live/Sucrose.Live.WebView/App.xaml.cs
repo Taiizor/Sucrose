@@ -18,7 +18,7 @@ using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
 using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
 using SSEWVVYT = Sucrose.Shared.Engine.WebView.View.YouTube;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -234,7 +234,7 @@ namespace Sucrose.Live.WebView
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

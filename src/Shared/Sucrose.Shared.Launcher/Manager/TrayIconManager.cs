@@ -17,8 +17,8 @@ using SSLMM = Sucrose.Shared.Launcher.Manage.Manager;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
 using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHA = Sucrose.Shared.Space.Helper.Assets;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -38,8 +38,8 @@ namespace Sucrose.Shared.Launcher.Manager
 
         public void Start()
         {
-            TrayIcon.Text = SSRER.GetValue("Launcher", "TrayText");
-            TrayIcon.Icon = new Icon(SSSHA.Get(SSRER.GetValue("Launcher", "TrayIcon")));
+            TrayIcon.Text = SRER.GetValue("Launcher", "TrayText");
+            TrayIcon.Icon = new Icon(SSSHA.Get(SRER.GetValue("Launcher", "TrayIcon")));
 
             TrayIcon.MouseClick += MouseClick;
             TrayIcon.ContextMenuStrip = ContextMenu;
@@ -56,7 +56,7 @@ namespace Sucrose.Shared.Launcher.Manager
         {
             Dispose();
 
-            SSRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMM.Culture);
 
             SSLHR.Corner(ContextMenu);
 
@@ -69,7 +69,7 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Renderer = new SSLRLR();
             }
 
-            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
+            ContextMenu.Items.Add(SRER.GetValue("Launcher", "OpenText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "OpenIcon"))), CommandInterface);
 
             SSLSSS Separator1 = new(SSLMM.ThemeType);
 
@@ -77,10 +77,10 @@ namespace Sucrose.Shared.Launcher.Manager
             {
                 ContextMenu.Items.Add(Separator1.Strip);
 
-                ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
-                //ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallStartText"), null, null); //WallStopText
+                ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
+                //ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallStartText"), null, null); //WallStopText
 
-                //ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallChangeText"), null, null);
+                //ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallChangeText"), null, null);
 
                 string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
 
@@ -94,7 +94,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
                         if (Info.Type == SSDEWT.Web)
                         {
-                            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallCustomizeText"), null, null);
+                            ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallCustomizeText"), null, null);
                         }
                     }
                 }
@@ -111,7 +111,7 @@ namespace Sucrose.Shared.Launcher.Manager
                     {
                         ContextMenu.Items.Add(Separator1.Strip);
 
-                        ContextMenu.Items.Add(SSRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                        ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
                     }
                 }
             }
@@ -119,10 +119,10 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLSSS Separator2 = new(SSLMM.ThemeType);
             ContextMenu.Items.Add(Separator2.Strip);
 
-            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
-            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
+            ContextMenu.Items.Add(SRER.GetValue("Launcher", "SettingText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "SettingIcon"))), CommandSetting);
+            ContextMenu.Items.Add(SRER.GetValue("Launcher", "ReportText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ReportIcon"))), CommandReport);
 
-            ToolStripMenuItem Update = new(SSRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
+            ToolStripMenuItem Update = new(SRER.GetValue("Launcher", "UpdateText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "UpdateIcon"))), CommandUpdate);
 
             if (SSSHP.Work(SSSMI.Update))
             {
@@ -132,16 +132,16 @@ namespace Sucrose.Shared.Launcher.Manager
                 {
                     if (SMMM.UpdatePercentage.Contains("100"))
                     {
-                        Update.Text = SSRER.GetValue("Launcher", "UpdateText", "Done");
+                        Update.Text = SRER.GetValue("Launcher", "UpdateText", "Done");
                     }
                     else
                     {
-                        Update.Text = string.Format(SSRER.GetValue("Launcher", "UpdateText", "Progress"), SMMM.UpdatePercentage);
+                        Update.Text = string.Format(SRER.GetValue("Launcher", "UpdateText", "Progress"), SMMM.UpdatePercentage);
                     }
                 }
                 else
                 {
-                    Update.Text = SSRER.GetValue("Launcher", "UpdateText", "Check");
+                    Update.Text = SRER.GetValue("Launcher", "UpdateText", "Check");
                 }
             }
 
@@ -150,7 +150,7 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLSSS Separator3 = new(SSLMM.ThemeType);
             ContextMenu.Items.Add(Separator3.Strip);
 
-            ContextMenu.Items.Add(SSRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SSRER.GetValue("Launcher", "ExitIcon"))), CommandClose);
+            ContextMenu.Items.Add(SRER.GetValue("Launcher", "ExitText"), Image.FromFile(SSSHA.Get(SRER.GetValue("Launcher", "ExitIcon"))), CommandClose);
         }
 
         public bool Release()

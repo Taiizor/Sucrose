@@ -6,7 +6,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
 namespace Sucrose.Shared.Discord
@@ -63,24 +63,24 @@ namespace Sucrose.Shared.Discord
             {
                 SSDMI.Client.SetPresence(new RichPresence()
                 {
-                    Details = SSRER.GetValue("Discord", "Details"),
+                    Details = SRER.GetValue("Discord", "Details"),
                     //Timestamps = Timestamps.FromTimeSpan(60),
                     Timestamps = new Timestamps()
                     {
                         End = SSDMI.End,
                         Start = SSDMI.Start
                     },
-                    State = SSRER.GetValue("Discord", $"StatementText{SMR.Randomise.Next(12)}"),
+                    State = SRER.GetValue("Discord", $"StatementText{SMR.Randomise.Next(12)}"),
                     Buttons = new Button[]
                     {
                         new Button()
                         {
-                            Label = SSRER.GetValue("Discord", "BrowseButton"),
+                            Label = SRER.GetValue("Discord", "BrowseButton"),
                             Url = SMR.BrowseWebsite
                         },
                         new Button()
                         {
-                            Label = SSRER.GetValue("Discord", "DownloadButton"),
+                            Label = SRER.GetValue("Discord", "DownloadButton"),
                             Url = SMR.DownloadStore //SMR.DownloadWebsite
                         }
                     },
@@ -92,10 +92,10 @@ namespace Sucrose.Shared.Discord
                     //},
                     Assets = new Assets()
                     {
-                        LargeImageKey = SSRER.GetValue("Discord", "LargestImage"),
-                        LargeImageText = SSRER.GetValue("Discord", $"LargestText{SMR.Randomise.Next(6)}"),
-                        SmallImageText = SSRER.GetValue("Discord", $"SmallestText{SMR.Randomise.Next(6)}"),
-                        SmallImageKey = SSRER.GetValue("Discord", $"SmallestImage{SMR.Randomise.Next(37)}")
+                        LargeImageKey = SRER.GetValue("Discord", "LargestImage"),
+                        LargeImageText = SRER.GetValue("Discord", $"LargestText{SMR.Randomise.Next(6)}"),
+                        SmallImageText = SRER.GetValue("Discord", $"SmallestText{SMR.Randomise.Next(6)}"),
+                        SmallImageKey = SRER.GetValue("Discord", $"SmallestImage{SMR.Randomise.Next(37)}")
                     }
                 });
             }

@@ -7,7 +7,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSHT = Sucrose.Shared.Space.Helper.Tags;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
@@ -35,7 +35,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
             ObservableCollection<NavigationViewItem> Categories = new();
 
-            NavigationViewItem AllMenu = new(SSRER.GetValue("Portal", "Category", "All"), SPMI.AllIcon, null)
+            NavigationViewItem AllMenu = new(SRER.GetValue("Portal", "Category", "All"), SPMI.AllIcon, null)
             {
                 Tag = string.Empty,
                 IsActive = SPMI.CategoryService.CategoryTag == string.Empty
@@ -56,7 +56,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                         Symbol = Icon;
                     }
 
-                    NavigationViewItem Menu = new(SSRER.GetValue("Portal", "Category", Category.Key.Replace(" ", "")), Symbol, null)
+                    NavigationViewItem Menu = new(SRER.GetValue("Portal", "Category", Category.Key.Replace(" ", "")), Symbol, null)
                     {
                         Tag = Category.Key,
                         IsActive = SPMI.CategoryService.CategoryTag == Category.Key

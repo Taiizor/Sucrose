@@ -1,7 +1,7 @@
 ﻿using System.Media;
 using System.Windows;
 using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 
@@ -64,14 +64,14 @@ namespace Sucrose.Update.View
 
             SourceInitialized += DarkInfoBox_SourceInitialized;
 
-            Text_Message.Text = SSRER.GetValue("Update", "InfoBox", "TextMessage", $"{Type}");
+            Text_Message.Text = SRER.GetValue("Update", "InfoBox", "TextMessage", $"{Type}");
         }
 
         private async void Countdown()
         {
             for (int Count = 5; Count >= 0; Count--)
             {
-                Close_Button.Content = $"{SSRER.GetValue("Update", "InfoBox", "CloseText")} {Count}";
+                Close_Button.Content = $"{SRER.GetValue("Update", "InfoBox", "CloseText")} {Count}";
 
                 await Task.Delay(1000);
             }

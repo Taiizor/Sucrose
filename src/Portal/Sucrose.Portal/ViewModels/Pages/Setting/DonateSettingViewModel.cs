@@ -8,7 +8,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -32,8 +32,8 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             TextBlock DonateArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Donate"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Donate"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -47,15 +47,15 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             DonateMenu.LeftIcon.Symbol = SymbolRegular.BuildingRetailMoney24;
-            DonateMenu.Title.Text = SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu");
-            DonateMenu.Description.Text = SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "Description");
+            DonateMenu.Title.Text = SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu");
+            DonateMenu.Description.Text = SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "Description");
 
             ComboBox DonateVisible = new();
 
             DonateVisible.SelectionChanged += (s, e) => DonateVisibleSelected(DonateVisible.SelectedIndex);
 
-            DonateVisible.Items.Add(SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Show"));
-            DonateVisible.Items.Add(SSRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Hide"));
+            DonateVisible.Items.Add(SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Show"));
+            DonateVisible.Items.Add(SRER.GetValue("Portal", "DonateSettingPage", "DonateMenu", "DonateVisible", "Hide"));
 
             DonateVisible.SelectedIndex = SMMM.DonateVisible ? 0 : 1;
 
@@ -65,8 +65,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SupportArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Support"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Support"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -80,8 +80,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Advertising.LeftIcon.Symbol = SymbolRegular.ReceiptMoney24;
-            Advertising.Title.Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising");
-            Advertising.Description.Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising", "Description");
+            Advertising.Title.Text = SRER.GetValue("Portal", "DonateSettingPage", "Advertising");
+            Advertising.Description.Text = SRER.GetValue("Portal", "DonateSettingPage", "Advertising", "Description");
 
             ToggleSwitch AdvertisingState = new()
             {
@@ -102,8 +102,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdvertisingDelayText = new()
             {
-                Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising", "AdvertisingDelay"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "DonateSettingPage", "Advertising", "AdvertisingDelay"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -125,8 +125,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock AdvertisingHint = new()
             {
-                Text = SSRER.GetValue("Portal", "DonateSettingPage", "Advertising", "AdvertisingHint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = SRER.GetValue("Portal", "DonateSettingPage", "Advertising", "AdvertisingHint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,

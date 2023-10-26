@@ -27,8 +27,8 @@ using SSIL = Sucrose.Signal.Interface.Launcher;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSMI = Sucrose.Signal.Manage.Internal;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -61,8 +61,8 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             TextBlock AppearanceBehaviorArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "AppearanceBehavior"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "AppearanceBehavior"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -76,8 +76,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             ApplicationLanguage.LeftIcon.Symbol = SymbolRegular.LocalLanguage24;
-            ApplicationLanguage.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage");
-            ApplicationLanguage.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage", "Description");
+            ApplicationLanguage.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage");
+            ApplicationLanguage.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationLanguage", "Description");
 
             ComboBox Localization = new()
             {
@@ -88,12 +88,12 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Localization.SelectionChanged += (s, e) => LocalizationSelected(Localization.SelectedIndex);
 
-            foreach (string Code in SSRHR.ListLanguage())
+            foreach (string Code in SRHR.ListLanguage())
             {
-                Localization.Items.Add(SSRER.GetValue("Locale", Code));
+                Localization.Items.Add(SRER.GetValue("Locale", Code));
             }
 
-            Localization.SelectedValue = SSRER.GetValue("Locale", SMMM.Culture.ToUpperInvariant());
+            Localization.SelectedValue = SRER.GetValue("Locale", SMMM.Culture.ToUpperInvariant());
 
             ApplicationLanguage.HeaderFrame = Localization;
 
@@ -106,17 +106,17 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             ApplicationStartup.LeftIcon.Symbol = SymbolRegular.Play24;
-            ApplicationStartup.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup");
-            ApplicationStartup.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Description");
+            ApplicationStartup.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup");
+            ApplicationStartup.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Description");
 
             ComboBox Startup = new();
 
             Startup.SelectionChanged += (s, e) => StartupSelected(Startup.SelectedIndex);
 
-            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "None"));
-            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Normal"));
-            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Priority"));
-            Startup.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Scheduler"));
+            Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "None"));
+            Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Normal"));
+            Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Priority"));
+            Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Scheduler"));
 
             Startup.SelectedIndex = SMMM.Startup;
 
@@ -131,15 +131,15 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             NotifyIcon.LeftIcon.Symbol = SymbolRegular.TrayItemAdd24;
-            NotifyIcon.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon");
-            NotifyIcon.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Description");
+            NotifyIcon.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon");
+            NotifyIcon.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Description");
 
             ComboBox Notify = new();
 
             Notify.SelectionChanged += (s, e) => NotifySelected(Notify.SelectedIndex);
 
-            Notify.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Show"));
-            Notify.Items.Add(SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Hide"));
+            Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Show"));
+            Notify.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "Notify", "Hide"));
 
             Notify.SelectedIndex = SMMM.Visible ? 0 : 1;
 
@@ -147,7 +147,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             CheckBox NotifyExit = new()
             {
-                Content = SSRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "NotifyExit"),
+                Content = SRER.GetValue("Portal", "GeneralSettingPage", "NotifyIcon", "NotifyExit"),
                 IsChecked = SMMM.Exit
             };
 
@@ -164,8 +164,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             WindowBackdrop.LeftIcon.Symbol = SymbolRegular.ColorBackground24;
-            WindowBackdrop.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop");
-            WindowBackdrop.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "Description");
+            WindowBackdrop.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop");
+            WindowBackdrop.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "Description");
 
             ComboBox Backdrop = new();
 
@@ -175,7 +175,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 Backdrop.Items.Add(new ComboBoxItem()
                 {
-                    Content = SSRER.GetValue("Portal", "Enum", "WindowBackdropType", $"{Type}"),
+                    Content = SRER.GetValue("Portal", "Enum", "WindowBackdropType", $"{Type}"),
                     IsEnabled = WindowBackdropSupport(Type)
                 });
             }
@@ -193,7 +193,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button BackgroundImage = new()
             {
-                Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMM.BackgroundImage,
+                Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMM.BackgroundImage,
                 Cursor = Cursors.Hand,
                 MaxWidth = 700,
                 MinWidth = 350
@@ -215,7 +215,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Content = BackgroundRemove,
                 Padding = new Thickness(0),
                 Margin = new Thickness(10, 0, 0, 0),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush")
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush")
             };
 
             BackgroundImageRemove.Click += (s, e) => BackgroundImageRemoveClick(BackgroundImage);
@@ -228,8 +228,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock BackdropStretchText = new()
             {
-                Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropStretch"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropStretch"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -243,7 +243,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 BackdropStretch.Items.Add(new ComboBoxItem()
                 {
-                    Content = SSRER.GetValue("Portal", "Enum", "Stretch", $"{Type}")
+                    Content = SRER.GetValue("Portal", "Enum", "Stretch", $"{Type}")
                 });
             }
 
@@ -251,8 +251,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock BackdropOpacityText = new()
             {
-                Text = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropOpacity"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackdropOpacity"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(20, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -289,8 +289,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SoundArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Sound"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Sound"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -304,8 +304,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             EngineVolume.LeftIcon.Symbol = VolumeSymbol(SMMM.Volume);
-            EngineVolume.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume");
-            EngineVolume.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "Description");
+            EngineVolume.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume");
+            EngineVolume.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "Description");
 
             Slider Volume = new()
             {
@@ -326,7 +326,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             CheckBox VolumeDesktop = new()
             {
-                Content = SSRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeDesktop"),
+                Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeDesktop"),
                 IsChecked = SMMM.VolumeDesktop
             };
 
@@ -339,8 +339,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock LibraryArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Library"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Library"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -353,8 +353,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             PrivateLibrary.LeftIcon.Symbol = SymbolRegular.Folder24;
-            PrivateLibrary.Title.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary");
-            PrivateLibrary.Description.Text = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "Description");
+            PrivateLibrary.Title.Text = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary");
+            PrivateLibrary.Description.Text = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "Description");
 
             StackPanel LibraryContent = new();
 
@@ -387,14 +387,14 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Content = LibraryOpen,
                 Padding = new Thickness(0),
                 Margin = new Thickness(10, 0, 0, 0),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush")
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush")
             };
 
             LibraryLocationOpen.Click += (s, e) => LibraryLocationOpenClick(LibraryLocation);
 
             CheckBox LibraryMove = new()
             {
-                Content = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryMove"),
+                Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryMove"),
                 Margin = new Thickness(0, 10, 0, 0),
                 IsChecked = SMMM.LibraryMove
             };
@@ -515,11 +515,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void LocalizationSelected(int Index)
         {
-            string NewCulture = SSRHR.ListLanguage()[Index];
+            string NewCulture = SRHR.ListLanguage()[Index];
 
             if (NewCulture != SMMM.Culture)
             {
-                SSRHR.SetLanguage(NewCulture);
+                SRHR.SetLanguage(NewCulture);
                 SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, NewCulture);
 
                 SPMI.CultureService.CultureCode = NewCulture;
@@ -588,10 +588,10 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Filter"),
+                Filter = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Filter"),
                 FilterIndex = 1,
 
-                Title = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Title"),
+                Title = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Title"),
 
                 InitialDirectory = Startup
             };
@@ -627,7 +627,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 {
                     if (!SMMM.LibraryMove || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
                     {
-                        LibraryLocation.Content = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Move");
+                        LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Move");
 
                         if (SMMM.LibraryMove)
                         {
@@ -668,7 +668,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                     }
                     else
                     {
-                        LibraryLocation.Content = SSRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Empty");
+                        LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Empty");
 
                         await Task.Delay(2000);
 
@@ -697,7 +697,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void BackgroundImageRemoveClick(Button BackgroundImage)
         {
-            BackgroundImage.Content = SSRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select");
+            BackgroundImage.Content = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select");
 
             SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, string.Empty);
 

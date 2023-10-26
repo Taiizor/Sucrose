@@ -16,7 +16,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SMV = Sucrose.Memory.Valuable;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -62,8 +62,8 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             TextBlock LogArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Log"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Log"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -77,8 +77,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             LogTemporary.LeftIcon.Symbol = SymbolRegular.PersonNote24;
-            LogTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary");
-            LogTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Description");
+            LogTemporary.Title.Text = SRER.GetValue("Portal", "SystemSettingPage", "LogTemporary");
+            LogTemporary.Description.Text = SRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Description");
 
             StackPanel LogTemporaryContent = new()
             {
@@ -87,8 +87,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button LogTemporaryCreate = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Create"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Create"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -99,8 +99,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button LogTemporaryDelete = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Delete"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Delete"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(10, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -116,8 +116,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             LogTemporaryHint = new()
             {
-                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Hint"), "0 b"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Hint"), "0 b"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -131,8 +131,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock CacheArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Cache"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Cache"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -146,13 +146,13 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             CacheTemporary.LeftIcon.Symbol = SymbolRegular.FolderBriefcase20;
-            CacheTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary");
-            CacheTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Description");
+            CacheTemporary.Title.Text = SRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary");
+            CacheTemporary.Description.Text = SRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Description");
 
             Button CacheTemporaryStart = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Start"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Start"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -165,8 +165,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             CacheTemporaryHint = new()
             {
-                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Hint"), "0 b"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Hint"), "0 b"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -185,13 +185,13 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             StoreTemporary.LeftIcon.Symbol = SymbolRegular.FolderGlobe20;
-            StoreTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary");
-            StoreTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Description");
+            StoreTemporary.Title.Text = SRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary");
+            StoreTemporary.Description.Text = SRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Description");
 
             Button StoreTemporaryStart = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Start"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Start"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -204,8 +204,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             StoreTemporaryHint = new()
             {
-                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), "0 b"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), "0 b"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -219,8 +219,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock LibraryArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Library"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Library"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -234,13 +234,13 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             LibraryTemporary.LeftIcon.Symbol = SymbolRegular.FolderLink24;
-            LibraryTemporary.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary");
-            LibraryTemporary.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Description");
+            LibraryTemporary.Title.Text = SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary");
+            LibraryTemporary.Description.Text = SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Description");
 
             Button LibraryTemporaryStart = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Start"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Start"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -253,8 +253,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             LibraryTemporaryHint = new()
             {
-                Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), "0 b"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), "0 b"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -268,8 +268,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock BackupArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Backup"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Backup"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -283,8 +283,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             SettingBackup.LeftIcon.Symbol = SymbolRegular.PeopleSettings24;
-            SettingBackup.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup");
-            SettingBackup.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Description");
+            SettingBackup.Title.Text = SRER.GetValue("Portal", "SystemSettingPage", "SettingBackup");
+            SettingBackup.Description.Text = SRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Description");
 
             StackPanel SettingBackupContent = new()
             {
@@ -293,8 +293,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button SettingBackupExport = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Export"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Export"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -305,8 +305,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Button SettingBackupImport = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Import"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Import"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(10, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -322,8 +322,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SettingBackupHint = new()
             {
-                Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Hint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = SRER.GetValue("Portal", "SystemSettingPage", "SettingBackup", "Hint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -337,8 +337,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock ResetArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Reset"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Reset"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -352,13 +352,13 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             SettingReset.LeftIcon.Symbol = SymbolRegular.LauncherSettings24;
-            SettingReset.Title.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset");
-            SettingReset.Description.Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Description");
+            SettingReset.Title.Text = SRER.GetValue("Portal", "SystemSettingPage", "SettingReset");
+            SettingReset.Description.Text = SRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Description");
 
             Button SettingResetStart = new()
             {
-                Content = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Start"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Start"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Secondary,
                 Margin = new Thickness(0, 0, 0, 0),
                 Padding = new Thickness(8),
@@ -371,8 +371,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SettingResetHint = new()
             {
-                Text = SSRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Hint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = SRER.GetValue("Portal", "SystemSettingPage", "SettingReset", "Hint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -408,10 +408,10 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 FileName = SMV.LogCompress,
 
-                Filter = SSRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogFilter"),
+                Filter = SRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogFilter"),
                 FilterIndex = 1,
 
-                Title = SSRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogTitle"),
+                Title = SRER.GetValue("Portal", "SystemSettingPage", "Log", "SaveDialogTitle"),
 
                 InitialDirectory = SMR.DesktopPath
             };
@@ -529,19 +529,19 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 string LogTemporarySize = await SSSHT.Size(LogTemporaryPath);
 
-                LogTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Hint"), LogTemporarySize);
+                LogTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "LogTemporary", "Hint"), LogTemporarySize);
 
                 string CacheTemporarySize = await SSSHT.Size(CacheTemporaryPath);
 
-                CacheTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Hint"), CacheTemporarySize);
+                CacheTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "CacheTemporary", "Hint"), CacheTemporarySize);
 
                 string StoreTemporarySize = await SSSHT.Size(StoreTemporaryPath);
 
-                StoreTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), StoreTemporarySize);
+                StoreTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "StoreTemporary", "Hint"), StoreTemporarySize);
 
                 string LibraryTemporarySize = await SSSHT.Size(SMMM.LibraryLocation);
 
-                LibraryTemporaryHint.Text = string.Format(SSRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), LibraryTemporarySize);
+                LibraryTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), LibraryTemporarySize);
             }
             catch { }
         }

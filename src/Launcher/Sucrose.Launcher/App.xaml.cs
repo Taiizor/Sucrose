@@ -10,7 +10,7 @@ using SSDH = Sucrose.Shared.Discord.Hook;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
@@ -149,7 +149,7 @@ namespace Sucrose.Launcher
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

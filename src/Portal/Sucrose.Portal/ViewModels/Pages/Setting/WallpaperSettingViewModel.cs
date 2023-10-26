@@ -18,7 +18,7 @@ using SSDEVET = Sucrose.Shared.Dependency.Enum.VideoEngineType;
 using SSDEWET = Sucrose.Shared.Dependency.Enum.WebEngineType;
 using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
 using SSLMM = Sucrose.Shared.Live.Manage.Manager;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -42,8 +42,8 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             TextBlock AppearanceBehaviorArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "AppearanceBehavior"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "AppearanceBehavior"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -57,8 +57,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             ScreenLayout.LeftIcon.Symbol = SymbolRegular.DesktopFlow24;
-            ScreenLayout.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ScreenLayout");
-            ScreenLayout.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ScreenLayout", "Description");
+            ScreenLayout.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "ScreenLayout");
+            ScreenLayout.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "ScreenLayout", "Description");
 
             ComboBox ScreenType = new();
 
@@ -68,7 +68,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 ScreenType.Items.Add(new ComboBoxItem()
                 {
-                    Content = SSRER.GetValue("Portal", "Enum", "ScreenType", $"{Type}")
+                    Content = SRER.GetValue("Portal", "Enum", "ScreenType", $"{Type}")
                 });
             }
 
@@ -85,8 +85,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             StretchMode.LeftIcon.Symbol = SymbolRegular.ArrowMinimize24;
-            StretchMode.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "StretchMode");
-            StretchMode.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "StretchMode", "Description");
+            StretchMode.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "StretchMode");
+            StretchMode.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "StretchMode", "Description");
 
             ComboBox StretchType = new();
 
@@ -96,7 +96,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 StretchType.Items.Add(new ComboBoxItem()
                 {
-                    Content = SSRER.GetValue("Portal", "Enum", "StretchType", $"{Type}")
+                    Content = SRER.GetValue("Portal", "Enum", "StretchType", $"{Type}")
                 });
             }
 
@@ -113,8 +113,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             LoopMode.LeftIcon.Symbol = SymbolRegular.ArrowRepeatAll24;
-            LoopMode.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "LoopMode");
-            LoopMode.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "LoopMode", "Description");
+            LoopMode.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "LoopMode");
+            LoopMode.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "LoopMode", "Description");
 
             ToggleSwitch LoopState = new()
             {
@@ -135,8 +135,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             ShuffleMode.LeftIcon.Symbol = SymbolRegular.ArrowShuffle24;
-            ShuffleMode.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ShuffleMode");
-            ShuffleMode.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ShuffleMode", "Description");
+            ShuffleMode.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "ShuffleMode");
+            ShuffleMode.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "ShuffleMode", "Description");
 
             ToggleSwitch ShuffleState = new()
             {
@@ -152,8 +152,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock ExtensionsArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Extensions"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Extensions"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -167,8 +167,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             GifPlayer.LeftIcon.Symbol = SymbolRegular.Gif24;
-            GifPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "GifPlayer");
-            GifPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "GifPlayer", "Description");
+            GifPlayer.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "GifPlayer");
+            GifPlayer.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "GifPlayer", "Description");
 
             ComboBox GifEngine = new();
 
@@ -194,8 +194,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             VideoPlayer.LeftIcon.Symbol = SymbolRegular.VideoClip24;
-            VideoPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "VideoPlayer");
-            VideoPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "VideoPlayer", "Description");
+            VideoPlayer.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "VideoPlayer");
+            VideoPlayer.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "VideoPlayer", "Description");
 
             ComboBox VideoEngine = new();
 
@@ -216,8 +216,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock EnginesArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Engines"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Engines"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -231,8 +231,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             UrlPlayer.LeftIcon.Symbol = SymbolRegular.SlideLink24;
-            UrlPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "UrlPlayer");
-            UrlPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "UrlPlayer", "Description");
+            UrlPlayer.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "UrlPlayer");
+            UrlPlayer.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "UrlPlayer", "Description");
 
             ComboBox UrlEngine = new();
 
@@ -258,8 +258,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             WebPlayer.LeftIcon.Symbol = SymbolRegular.GlobeDesktop24;
-            WebPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "WebPlayer");
-            WebPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "WebPlayer", "Description");
+            WebPlayer.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "WebPlayer");
+            WebPlayer.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "WebPlayer", "Description");
 
             ComboBox WebEngine = new();
 
@@ -285,8 +285,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             YouTubePlayer.LeftIcon.Symbol = SymbolRegular.VideoRecording20;
-            YouTubePlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "YouTubePlayer");
-            YouTubePlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "YouTubePlayer", "Description");
+            YouTubePlayer.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "YouTubePlayer");
+            YouTubePlayer.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "YouTubePlayer", "Description");
 
             ComboBox YouTubeEngine = new();
 
@@ -312,8 +312,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             ApplicationPlayer.LeftIcon.Symbol = SymbolRegular.AppGeneric24;
-            ApplicationPlayer.Title.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ApplicationPlayer");
-            ApplicationPlayer.Description.Text = SSRER.GetValue("Portal", "WallpaperSettingPage", "ApplicationPlayer", "Description");
+            ApplicationPlayer.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "ApplicationPlayer");
+            ApplicationPlayer.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "ApplicationPlayer", "Description");
 
             ComboBox ApplicationEngine = new();
 

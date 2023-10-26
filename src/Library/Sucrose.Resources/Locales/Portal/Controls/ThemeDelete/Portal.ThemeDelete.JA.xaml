@@ -10,7 +10,7 @@
     <system:String x:Key="Portal.ThemeDelete.ThemeTitle">タイトル</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeDescription">説明</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeType">種類</system:String>
-    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">GIF</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">Gif</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">著者</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
     <system:String x:Key="Portal.ThemeDelete.ThemeSize">サイズ</system:String>

@@ -1,8 +1,8 @@
 ﻿using Application = System.Windows.Application;
 
-namespace Sucrose.Shared.Resources.Extension
+namespace Sucrose.Resources.Extension
 {
-    internal static class Resources
+    public static class Resources
     {
         public static string GetValue(string Key)
         {

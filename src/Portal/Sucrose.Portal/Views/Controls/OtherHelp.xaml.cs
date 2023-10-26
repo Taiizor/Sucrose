@@ -3,7 +3,7 @@ using Wpf.Ui.Controls;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 
@@ -46,20 +46,20 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            WebPage.TitleText = SSRER.GetValue("Portal", "OtherHelp", "WebPage");
-            WebPage.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "WebPage", "Description");
+            WebPage.TitleText = SRER.GetValue("Portal", "OtherHelp", "WebPage");
+            WebPage.DescriptionText = SRER.GetValue("Portal", "OtherHelp", "WebPage", "Description");
 
-            Documentation.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Documentation");
-            Documentation.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Documentation", "Description");
+            Documentation.TitleText = SRER.GetValue("Portal", "OtherHelp", "Documentation");
+            Documentation.DescriptionText = SRER.GetValue("Portal", "OtherHelp", "Documentation", "Description");
 
-            Repository.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Repository");
-            Repository.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Repository", "Description");
+            Repository.TitleText = SRER.GetValue("Portal", "OtherHelp", "Repository");
+            Repository.DescriptionText = SRER.GetValue("Portal", "OtherHelp", "Repository", "Description");
 
-            Discussions.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Discussions");
-            Discussions.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Discussions", "Description");
+            Discussions.TitleText = SRER.GetValue("Portal", "OtherHelp", "Discussions");
+            Discussions.DescriptionText = SRER.GetValue("Portal", "OtherHelp", "Discussions", "Description");
 
-            Report.TitleText = SSRER.GetValue("Portal", "OtherHelp", "Report");
-            Report.DescriptionText = SSRER.GetValue("Portal", "OtherHelp", "Report", "Description");
+            Report.TitleText = SRER.GetValue("Portal", "OtherHelp", "Report");
+            Report.DescriptionText = SRER.GetValue("Portal", "OtherHelp", "Report", "Description");
         }
 
         public void Dispose()

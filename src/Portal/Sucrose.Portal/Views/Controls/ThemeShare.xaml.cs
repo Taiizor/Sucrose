@@ -6,7 +6,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -39,10 +39,10 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     FileName = SSSHC.FileName(Info.Title),
 
-                    Filter = SSRER.GetValue("Portal", "ThemeShare", "SaveDialogFilter"),
+                    Filter = SRER.GetValue("Portal", "ThemeShare", "SaveDialogFilter"),
                     FilterIndex = 1,
 
-                    Title = SSRER.GetValue("Portal", "ThemeShare", "SaveDialogTitle"),
+                    Title = SRER.GetValue("Portal", "ThemeShare", "SaveDialogTitle"),
 
                     InitialDirectory = SMR.DesktopPath
                 };

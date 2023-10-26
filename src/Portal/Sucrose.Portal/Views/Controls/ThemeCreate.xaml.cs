@@ -14,7 +14,7 @@ using SPETL = Sucrose.Portal.Extension.ThumbnailLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
@@ -66,7 +66,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (string.IsNullOrEmpty($"{Loader.SourceUri}"))
             {
-                GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+                GifRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
             }
             else
             {
@@ -104,7 +104,7 @@ namespace Sucrose.Portal.Views.Controls
             GifIcon.Visibility = Visibility.Visible;
             GifText.Visibility = Visibility.Visible;
             GifDelete.Visibility = Visibility.Collapsed;
-            GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+            GifRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
         }
 
         private void VideoArea_DragOver(object sender, DragEventArgs e)
@@ -122,7 +122,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void GifArea_Drop(object sender, DragEventArgs e)
         {
-            GifRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+            GifRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
 
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -157,7 +157,7 @@ namespace Sucrose.Portal.Views.Controls
             VideoIcon.Visibility = Visibility.Visible;
             VideoText.Visibility = Visibility.Visible;
             VideoDelete.Visibility = Visibility.Collapsed;
-            VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+            VideoRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
         }
 
         private void VideoCreate_Click(object sender, RoutedEventArgs e)
@@ -171,7 +171,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (string.IsNullOrEmpty($"{Loader.SourceUri}"))
             {
-                VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+                VideoRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
             }
             else
             {
@@ -187,10 +187,10 @@ namespace Sucrose.Portal.Views.Controls
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = SSRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Filter"),
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Filter"),
                 FilterIndex = 1,
 
-                Title = SSRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Title"),
+                Title = SRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Title"),
 
                 InitialDirectory = Startup
             };
@@ -203,7 +203,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void VideoArea_Drop(object sender, DragEventArgs e)
         {
-            VideoRectangle.Stroke = SSRER.GetResource<Brush>("TextFillColorDisabledBrush");
+            VideoRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
 
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -238,23 +238,23 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            GifExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Gif");
-            GifExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Gif", "Description");
+            GifExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Gif");
+            GifExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Gif", "Description");
 
-            UrlExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Url");
-            UrlExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Url", "Description");
+            UrlExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Url");
+            UrlExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Url", "Description");
 
-            WebExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Web");
-            WebExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Web", "Description");
+            WebExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Web");
+            WebExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Web", "Description");
 
-            VideoExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Video");
-            VideoExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Video", "Description");
+            VideoExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Video");
+            VideoExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Video", "Description");
 
-            YouTubeExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "YouTube");
-            YouTubeExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "YouTube", "Description");
+            YouTubeExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "YouTube");
+            YouTubeExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "YouTube", "Description");
 
-            ApplicationExpander.TitleText = SSRER.GetValue("Portal", "ThemeCreate", "Application");
-            ApplicationExpander.DescriptionText = SSRER.GetValue("Portal", "ThemeCreate", "Application", "Description");
+            ApplicationExpander.TitleText = SRER.GetValue("Portal", "ThemeCreate", "Application");
+            ApplicationExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Application", "Description");
         }
 
         private void ThemeThumbnail_Click(object sender, RoutedEventArgs e)
@@ -265,10 +265,10 @@ namespace Sucrose.Portal.Views.Controls
 
             OpenFileDialog FileDialog = new()
             {
-                Filter = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Filter"),
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Filter"),
                 FilterIndex = 1,
 
-                Title = SSRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Title"),
+                Title = SRER.GetValue("Portal", "ThemeCreate", "ThemeThumbnail", "Title"),
 
                 InitialDirectory = Startup
             };

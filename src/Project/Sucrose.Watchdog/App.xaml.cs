@@ -6,7 +6,7 @@ using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWMM = Sucrose.Watchdog.Manage.Manager;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
@@ -152,7 +152,7 @@ namespace Sucrose.Watchdog
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(SMMM.Culture);
+            SRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
 

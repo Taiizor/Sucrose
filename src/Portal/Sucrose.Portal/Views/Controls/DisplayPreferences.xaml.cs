@@ -16,7 +16,7 @@ using SPVCDS = Sucrose.Portal.Views.Controls.Display.Screen;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -93,7 +93,7 @@ namespace Sucrose.Portal.Views.Controls
 
             SPVCDE Expand = new();
 
-            Expand.Title.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expand", "Monitor");
+            Expand.Title.Text = SRER.GetValue("Portal", "DisplayPreferences", "Expand", "Monitor");
 
             Contents.Children.Add(Expand);
 
@@ -138,7 +138,7 @@ namespace Sucrose.Portal.Views.Controls
                     }
                     else
                     {
-                        Screen.Border.BorderBrush = SSRER.GetResource<Brush>("ControlAltFillColorTertiaryBrush");
+                        Screen.Border.BorderBrush = SRER.GetResource<Brush>("ControlAltFillColorTertiaryBrush");
                     }
                 }
             }
@@ -216,14 +216,14 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void ContentDialog_Loaded(object sender, RoutedEventArgs e)
         {
-            Expander.Title.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expander");
-            Expander.Description.Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expander", "Description");
+            Expander.Title.Text = SRER.GetValue("Portal", "DisplayPreferences", "Expander");
+            Expander.Description.Text = SRER.GetValue("Portal", "DisplayPreferences", "Expander", "Description");
 
             StackPanel ExpanderContent = new();
 
             RadioButton Screen = new()
             {
-                Content = SSRER.GetValue("Portal", "DisplayPreferences", "Screen"),
+                Content = SRER.GetValue("Portal", "DisplayPreferences", "Screen"),
                 GroupName = "DisplayType"
             };
 
@@ -231,7 +231,7 @@ namespace Sucrose.Portal.Views.Controls
 
             RadioButton Expand = new()
             {
-                Content = SSRER.GetValue("Portal", "DisplayPreferences", "Expand"),
+                Content = SRER.GetValue("Portal", "DisplayPreferences", "Expand"),
                 GroupName = "DisplayType"
             };
 
@@ -239,7 +239,7 @@ namespace Sucrose.Portal.Views.Controls
 
             RadioButton Duplicate = new()
             {
-                Content = SSRER.GetValue("Portal", "DisplayPreferences", "Duplicate"),
+                Content = SRER.GetValue("Portal", "DisplayPreferences", "Duplicate"),
                 GroupName = "DisplayType"
             };
 
@@ -251,7 +251,7 @@ namespace Sucrose.Portal.Views.Controls
 
             NavigationViewItemSeparator Separator = new()
             {
-                Background = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Background = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 Margin = new Thickness(0, 10, 0, 10)
             };
 
@@ -259,8 +259,8 @@ namespace Sucrose.Portal.Views.Controls
 
             TextBlock ExpandHint = new()
             {
-                Text = SSRER.GetValue("Portal", "DisplayPreferences", "Expand", "Hint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = SRER.GetValue("Portal", "DisplayPreferences", "Expand", "Hint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -274,7 +274,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 RadioButton Radio = new()
                 {
-                    Content = SSRER.GetValue("Portal", "Enum", "ExpandScreenType", $"{Type}"),
+                    Content = SRER.GetValue("Portal", "Enum", "ExpandScreenType", $"{Type}"),
                     IsChecked = SPMM.ExpandScreenType == Type,
                     GroupName = "ExpandScreenType"
                 };
@@ -286,8 +286,8 @@ namespace Sucrose.Portal.Views.Controls
 
             TextBlock DuplicateHint = new()
             {
-                Text = SSRER.GetValue("Portal", "DisplayPreferences", "Duplicate", "Hint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = SRER.GetValue("Portal", "DisplayPreferences", "Duplicate", "Hint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -301,7 +301,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 RadioButton Radio = new()
                 {
-                    Content = SSRER.GetValue("Portal", "Enum", "DuplicateScreenType", $"{Type}"),
+                    Content = SRER.GetValue("Portal", "Enum", "DuplicateScreenType", $"{Type}"),
                     IsChecked = SPMM.DuplicateScreenType == Type,
                     GroupName = "DuplicateScreenType"
                 };

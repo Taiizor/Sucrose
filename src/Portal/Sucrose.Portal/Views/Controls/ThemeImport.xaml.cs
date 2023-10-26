@@ -3,7 +3,7 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -35,7 +35,7 @@ namespace Sucrose.Portal.Views.Controls
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Foreground = Types.Any(Type => Message.Contains($"'{Type}'.")) ? SSRER.GetResource<Brush>("SystemFillColorCriticalBrush") : SSRER.GetResource<Brush>("SystemFillColorSuccessBrush")
+                        Foreground = Types.Any(Type => Message.Contains($"'{Type}'.")) ? SRER.GetResource<Brush>("SystemFillColorCriticalBrush") : SRER.GetResource<Brush>("SystemFillColorSuccessBrush")
                     });
                 });
             }
@@ -52,8 +52,8 @@ namespace Sucrose.Portal.Views.Controls
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Foreground = SSRER.GetResource<Brush>("SystemFillColorCriticalBrush"),
-                        Text = $"{Type}: {SSRER.GetValue("Portal", "Enum", "CompatibilityType", $"{Type}")}"
+                        Foreground = SRER.GetResource<Brush>("SystemFillColorCriticalBrush"),
+                        Text = $"{Type}: {SRER.GetValue("Portal", "Enum", "CompatibilityType", $"{Type}")}"
                     });
                 });
             }

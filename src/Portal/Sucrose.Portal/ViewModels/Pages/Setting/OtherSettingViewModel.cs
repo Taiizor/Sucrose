@@ -13,7 +13,7 @@ using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
@@ -39,8 +39,8 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             TextBlock HookArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Hook"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Hook"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -54,8 +54,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             DiscordHook.LeftIcon.Symbol = SymbolRegular.SquareHintApps24;
-            DiscordHook.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook");
-            DiscordHook.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "Description");
+            DiscordHook.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "DiscordHook");
+            DiscordHook.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "Description");
 
             ToggleSwitch DiscordState = new()
             {
@@ -76,8 +76,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DiscordRefreshText = new()
             {
-                Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "DiscordRefresh"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "DiscordRefresh"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -99,8 +99,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DiscordDelayText = new()
             {
-                Text = SSRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "DiscordDelay"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "DiscordHook", "DiscordDelay"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -135,8 +135,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock PriorityArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Priority"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Priority"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -150,8 +150,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Agent.LeftIcon.Symbol = SymbolRegular.VideoPersonSparkle24;
-            Agent.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Agent");
-            Agent.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Agent", "Description");
+            Agent.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Agent");
+            Agent.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Agent", "Description");
 
             TextBox UserAgent = new()
             {
@@ -177,15 +177,15 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Key.LeftIcon.Symbol = SymbolRegular.ShieldKeyhole24;
-            Key.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Key");
-            Key.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "Description");
+            Key.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Key");
+            Key.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Key", "Description");
 
             StackPanel KeyContent = new();
 
             HyperlinkButton HintKey = new()
             {
-                Content = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "HintKey"),
-                Foreground = SSRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
+                Content = SRER.GetValue("Portal", "OtherSettingPage", "Key", "HintKey"),
+                Foreground = SRER.GetResource<Brush>("AccentTextFillColorPrimaryBrush"),
                 Appearance = ControlAppearance.Transparent,
                 BorderBrush = Brushes.Transparent,
                 NavigateUri = SMR.KeyYouTube,
@@ -194,7 +194,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBox PersonalKey = new()
             {
-                PlaceholderText = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey"),
+                PlaceholderText = SRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey"),
                 Icon = new SymbolIcon(SymbolRegular.PersonKey20),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 IconPlacement = ElementPlacement.Left,
@@ -214,8 +214,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock UpdateArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Update"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Update"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -229,8 +229,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Channel.LeftIcon.Symbol = SymbolRegular.ChannelShare24;
-            Channel.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Channel");
-            Channel.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Channel", "Description");
+            Channel.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Channel");
+            Channel.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Channel", "Description");
 
             ComboBox ChannelType = new();
 
@@ -238,7 +238,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSCECT Type in Enum.GetValues(typeof(SSCECT)))
             {
-                ChannelType.Items.Add(SSRER.GetValue("Portal", "Enum", "ChannelType", $"{Type}"));
+                ChannelType.Items.Add(SRER.GetValue("Portal", "Enum", "ChannelType", $"{Type}"));
             }
 
             ChannelType.SelectedIndex = (int)SPMM.ChannelType;
@@ -254,8 +254,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Update.LeftIcon.Symbol = SymbolRegular.ArrowSwap24;
-            Update.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Update");
-            Update.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Update", "Description");
+            Update.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Update");
+            Update.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Update", "Description");
 
             ComboBox UpdateType = new();
 
@@ -263,7 +263,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSCEUT Type in Enum.GetValues(typeof(SSCEUT)))
             {
-                UpdateType.Items.Add(SSRER.GetValue("Portal", "Enum", "UpdateType", $"{Type}"));
+                UpdateType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateType", $"{Type}"));
             }
 
             UpdateType.SelectedIndex = (int)SPMM.UpdateType;
@@ -277,8 +277,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock UpdateLimitText = new()
             {
-                Text = SSRER.GetValue("Portal", "OtherSettingPage", "Update", "Limit"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Update", "Limit"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -340,8 +340,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock DeveloperArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Developer"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Developer"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -355,8 +355,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Developer.LeftIcon.Symbol = SymbolRegular.WindowDevTools24;
-            Developer.Title.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Developer");
-            Developer.Description.Text = SSRER.GetValue("Portal", "OtherSettingPage", "Developer", "Description");
+            Developer.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Developer");
+            Developer.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Developer", "Description");
 
             ToggleSwitch DeveloperState = new()
             {
@@ -468,7 +468,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             else
             {
                 SMMI.PrivateSettingManager.SetSetting(SMC.Key, SMR.Key);
-                TextBox.PlaceholderText = SSRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey", "Valid");
+                TextBox.PlaceholderText = SRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey", "Valid");
             }
         }
 

@@ -26,7 +26,7 @@ using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -147,7 +147,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private string GetQuoting()
         {
-            return SSRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(86)}");
+            return SRER.GetValue("Portal", $"Quoting{SMR.Randomise.Next(86)}");
         }
 
         private Stretch GetStretch()

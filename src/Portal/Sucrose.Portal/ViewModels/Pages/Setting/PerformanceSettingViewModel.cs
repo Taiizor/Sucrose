@@ -13,7 +13,7 @@ using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
-using SSRER = Sucrose.Shared.Resources.Extension.Resources;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -40,8 +40,8 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             TextBlock AppearanceBehaviorArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "AppearanceBehavior"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "AppearanceBehavior"),
                 Margin = new Thickness(0, 0, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -56,8 +56,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Counter.LeftIcon.Symbol = SymbolRegular.ShiftsActivity24;
-            Counter.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Counter");
-            Counter.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Counter", "Description");
+            Counter.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Counter");
+            Counter.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Counter", "Description");
 
             ToggleSwitch CounterState = new()
             {
@@ -71,8 +71,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock CounterHint = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Counter", "CounterHint"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Counter", "CounterHint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
                 TextAlignment = TextAlignment.Left,
@@ -86,8 +86,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SystemResourcesArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "SystemResources"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "SystemResources"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -100,8 +100,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Cpu.LeftIcon.Symbol = SymbolRegular.DeveloperBoardLightning20;
-            Cpu.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu");
-            Cpu.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu", "Description");
+            Cpu.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Cpu");
+            Cpu.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Cpu", "Description");
 
             ComboBox CpuPerformance = new();
 
@@ -109,7 +109,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                CpuPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                CpuPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             CpuPerformance.SelectedIndex = (int)SPMM.CpuPerformance;
@@ -123,8 +123,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock CpuUsageText = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Cpu", "CpuUsage"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Cpu", "CpuUsage"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -158,8 +158,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Memory.LeftIcon.Symbol = SymbolRegular.Memory16;
-            Memory.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Memory");
-            Memory.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Memory", "Description");
+            Memory.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Memory");
+            Memory.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Memory", "Description");
 
             ComboBox MemoryPerformance = new();
 
@@ -167,7 +167,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                MemoryPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                MemoryPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             MemoryPerformance.SelectedIndex = (int)SPMM.MemoryPerformance;
@@ -181,8 +181,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock MemoryUsageText = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Memory", "MemoryUsage"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Memory", "MemoryUsage"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -216,8 +216,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Network.LeftIcon.Symbol = SymbolRegular.NetworkCheck24;
-            Network.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network");
-            Network.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "Description");
+            Network.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Network");
+            Network.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Network", "Description");
 
             ComboBox NetworkPerformance = new();
 
@@ -225,7 +225,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                NetworkPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                NetworkPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             NetworkPerformance.SelectedIndex = (int)SPMM.NetworkPerformance;
@@ -241,8 +241,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkAdapterText = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkAdapter"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkAdapter"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -277,7 +277,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 NetworkAdapter.Items.Add(new ComboBoxItem()
                 {
-                    Content = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkAdapter", "Empty"),
+                    Content = SRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkAdapter", "Empty"),
                     IsSelected = true
                 });
             }
@@ -290,8 +290,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkUploadText = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkUpload"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkUpload"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -336,8 +336,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkDownloadText = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkDownload"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkDownload"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -382,8 +382,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock NetworkPingText = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkPing"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Network", "NetworkPing"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -446,8 +446,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock LaptopArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "Laptop"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Laptop"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -460,8 +460,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Battery.LeftIcon.Symbol = BatterySymbol(SMMM.BatteryUsage);
-            Battery.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Battery");
-            Battery.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Battery", "Description");
+            Battery.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Battery");
+            Battery.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Battery", "Description");
 
             ComboBox BatteryPerformance = new();
 
@@ -469,7 +469,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                BatteryPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                BatteryPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             BatteryPerformance.SelectedIndex = (int)SPMM.BatteryPerformance;
@@ -483,8 +483,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock BatteryUsageText = new()
             {
-                Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Battery", "BatteryUsage"),
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Battery", "BatteryUsage"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 10, 0),
                 FontWeight = FontWeights.SemiBold
@@ -519,8 +519,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Saver.LeftIcon.Symbol = SymbolRegular.BatterySaver24;
-            Saver.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Saver");
-            Saver.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Saver", "Description");
+            Saver.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Saver");
+            Saver.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Saver", "Description");
 
             ComboBox SaverPerformance = new();
 
@@ -528,7 +528,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                SaverPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                SaverPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             SaverPerformance.SelectedIndex = (int)SPMM.SaverPerformance;
@@ -539,8 +539,8 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             TextBlock SystemArea = new()
             {
-                Foreground = SSRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                Text = SSRER.GetValue("Portal", "Area", "System"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "System"),
                 Margin = new Thickness(0, 10, 0, 0),
                 FontWeight = FontWeights.Bold
             };
@@ -554,8 +554,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Virtual.LeftIcon.Symbol = SymbolRegular.DesktopCheckmark24;
-            Virtual.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Virtual");
-            Virtual.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Virtual", "Description");
+            Virtual.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Virtual");
+            Virtual.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Virtual", "Description");
 
             ComboBox VirtualPerformance = new();
 
@@ -563,7 +563,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                VirtualPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                VirtualPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             VirtualPerformance.SelectedIndex = (int)SPMM.VirtualPerformance;
@@ -579,8 +579,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Remote.LeftIcon.Symbol = SymbolRegular.Remote20;
-            Remote.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Remote");
-            Remote.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Remote", "Description");
+            Remote.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Remote");
+            Remote.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Remote", "Description");
 
             ComboBox RemotePerformance = new();
 
@@ -588,7 +588,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                RemotePerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                RemotePerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             RemotePerformance.SelectedIndex = (int)SPMM.RemotePerformance;
@@ -604,8 +604,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Fullscreen.LeftIcon.Symbol = SymbolRegular.FullScreenMaximize24;
-            Fullscreen.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Fullscreen");
-            Fullscreen.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Fullscreen", "Description");
+            Fullscreen.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Fullscreen");
+            Fullscreen.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Fullscreen", "Description");
 
             ComboBox FullscreenPerformance = new();
 
@@ -613,7 +613,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                FullscreenPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                FullscreenPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             FullscreenPerformance.SelectedIndex = (int)SPMM.FullscreenPerformance;
@@ -629,8 +629,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Focus.LeftIcon.Symbol = SymbolRegular.DesktopCursor24;
-            Focus.Title.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Focus");
-            Focus.Description.Text = SSRER.GetValue("Portal", "PerformanceSettingPage", "Focus", "Description");
+            Focus.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Focus");
+            Focus.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Focus", "Description");
 
             ComboBox FocusPerformance = new();
 
@@ -638,7 +638,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
             {
-                FocusPerformance.Items.Add(SSRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+                FocusPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
             FocusPerformance.SelectedIndex = (int)SPMM.FocusPerformance;

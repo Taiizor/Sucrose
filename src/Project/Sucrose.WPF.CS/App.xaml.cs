@@ -9,7 +9,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
 using SSMI = Sucrose.Signal.Manage.Internal;
-using SSRHR = Sucrose.Shared.Resources.Helper.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSSWSS = Sucrose.Shared.Signal.Services.WebsiterSignalService;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -151,7 +151,7 @@ namespace Sucrose.WPF.CS
         {
             base.OnStartup(e);
 
-            SSRHR.SetLanguage(Culture);
+            SRHR.SetLanguage(Culture);
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 

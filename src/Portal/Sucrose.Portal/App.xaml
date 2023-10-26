@@ -11,7 +11,7 @@
                 <ui:ControlsDictionary />
                 <xf:XamlFlairResources />
                 <ui:ThemesDictionary Theme="Dark" />
-                <ResourceDictionary Source="Locales/Locale.EN.xaml" />
+                <ResourceDictionary Source="/Sucrose.Resources;component/Locales/Locale.EN.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <cor:Double x:Key="NormalScaleFactor">1.05</cor:Double>

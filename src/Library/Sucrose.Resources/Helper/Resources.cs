@@ -6,9 +6,9 @@ using SHA = Skylark.Helper.Assemblies;
 using SHC = Skylark.Helper.Culture;
 using SMR = Sucrose.Memory.Readonly;
 
-namespace Sucrose.Shared.Resources.Helper
+namespace Sucrose.Resources.Helper
 {
-    internal static class Resources
+    public static class Resources
     {
         public static void SetLanguage(string Lang)
         {
@@ -21,7 +21,7 @@ namespace Sucrose.Shared.Resources.Helper
 
             ResourceDictionary Resource = new()
             {
-                Source = new Uri($"Locales/Locale.{Lang}.xaml", UriKind.Relative)
+                Source = new Uri($"/Sucrose.Resources;component/Locales/Locale.{Lang}.xaml", UriKind.Relative)
             };
 
             RemoveResource();
@@ -35,7 +35,7 @@ namespace Sucrose.Shared.Resources.Helper
         {
             try
             {
-                return Application.LoadComponent(new Uri($"Locales/Locale.{Lang}.xaml", UriKind.Relative)) is ResourceDictionary;
+                return Application.LoadComponent(new Uri($"/Sucrose.Resources;component/Locales/Locale.{Lang}.xaml", UriKind.Relative)) is ResourceDictionary;
             }
             catch
             {
