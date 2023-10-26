@@ -7,6 +7,7 @@ using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
 using SWNM = Skylark.Wing.Native.Methods;
+using SWUS = Skylark.Wing.Utility.Screene;
 
 namespace Sucrose.Shared.Engine.Event
 {
@@ -22,21 +23,6 @@ namespace Sucrose.Shared.Engine.Event
             //this hides the window from taskbar and also fixes crash when Win10-Win11 taskview is launched. 
             Window.ShowInTaskbar = true;
             Window.ShowInTaskbar = false;
-        }
-
-        public static void ApplicationLoaded(Process Process)
-        {
-            IntPtr Handle = SWHPI.MainWindowHandle(Process);
-
-            //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
-            SWHWO.RemoveWindowFromTaskbar(Handle);
-
-            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
-
-            int currentStyle = SWNM.GetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE);
-            SWNM.SetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE, currentStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
-
-            SWHWO.BorderlessWinStyle(Handle);
         }
 
         public static void ContentRendered(Window Window)
@@ -55,6 +41,21 @@ namespace Sucrose.Shared.Engine.Event
             }
         }
 
+        public static void ApplicationLoaded(Process Process)
+        {
+            IntPtr Handle = SWHPI.MainWindowHandle(Process);
+
+            //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
+            SWHWO.RemoveWindowFromTaskbar(Handle);
+
+            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+
+            int currentStyle = SWNM.GetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE);
+            SWNM.SetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE, currentStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
+
+            SWHWO.BorderlessWinStyle(Handle);
+        }
+
         public static void ApplicationRendered(Process Process)
         {
             switch (SSEHD.GetDisplayType())
@@ -71,6 +72,36 @@ namespace Sucrose.Shared.Engine.Event
             }
 
             SWNM.ShowWindow(SWHPI.MainWindowHandle(Process), (int)SWNM.SHOWWINDOW.SW_SHOW);
+        }
+
+        public static async void DisplaySettingsChanged(Window Window)
+        {
+            Window.Hide();
+
+            await Task.Delay(1000);
+
+            SWUS.Initialize();
+
+            await Task.Delay(500);
+
+            ContentRendered(Window);
+
+            Window.Show();
+        }
+
+        public static async void DisplaySettingsChanged(Process Process, IntPtr Handle)
+        {
+            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+
+            await Task.Delay(1000);
+
+            SWUS.Initialize();
+
+            await Task.Delay(500);
+
+            ApplicationRendered(Process);
+
+            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
         }
     }
 }

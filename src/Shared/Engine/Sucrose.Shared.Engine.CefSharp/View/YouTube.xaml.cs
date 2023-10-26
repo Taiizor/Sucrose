@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 using SSECSEYT = Sucrose.Shared.Engine.CefSharp.Event.YouTube;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHYT = Sucrose.Shared.Engine.CefSharp.Helper.YouTube;
@@ -18,6 +19,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         public YouTube(string YouTube)
         {
             InitializeComponent();
+
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
 
             ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 

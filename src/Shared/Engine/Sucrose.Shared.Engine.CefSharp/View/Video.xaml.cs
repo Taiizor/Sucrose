@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 using SSECSEV = Sucrose.Shared.Engine.CefSharp.Event.Video;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHV = Sucrose.Shared.Engine.CefSharp.Helper.Video;
@@ -19,6 +20,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         public Video(string Video)
         {
             InitializeComponent();
+
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
 
             ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 

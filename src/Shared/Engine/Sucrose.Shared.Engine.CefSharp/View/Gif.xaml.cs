@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 using SSECSEG = Sucrose.Shared.Engine.CefSharp.Event.Gif;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHG = Sucrose.Shared.Engine.CefSharp.Helper.Gif;
@@ -18,6 +19,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         public Gif(string Gif)
         {
             InitializeComponent();
+
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
 
             ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 

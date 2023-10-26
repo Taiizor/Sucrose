@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.Win32;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using SMC = Sucrose.Memory.Constant;
@@ -53,6 +54,7 @@ namespace Sucrose.Shared.Engine.Aurora.View
 
             SSEEH.ApplicationLoaded(SSEAMI.ApplicationProcess);
             SSEEH.ApplicationRendered(SSEAMI.ApplicationProcess);
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(SSEAMI.ApplicationProcess, SSEAMI.ApplicationHandle);
 
             SSEAHA.SetVolume(SSEHD.GetVolume());
         }

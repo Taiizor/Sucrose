@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 using System.Windows.Media;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
@@ -18,6 +19,8 @@ namespace Sucrose.Shared.Engine.MpvPlayer.View
         public Video(string Video)
         {
             InitializeComponent();
+
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
 
             SSEMPMI.Source = SSEHS.GetSource(Video).ToString();
 

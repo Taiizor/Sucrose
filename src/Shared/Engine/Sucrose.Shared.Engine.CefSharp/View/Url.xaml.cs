@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
 using SSECSEU = Sucrose.Shared.Engine.CefSharp.Event.Url;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHU = Sucrose.Shared.Engine.CefSharp.Helper.Url;
@@ -18,6 +19,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
         public Url(string Url)
         {
             InitializeComponent();
+
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
 
             ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 
