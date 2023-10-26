@@ -11,8 +11,8 @@ using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 

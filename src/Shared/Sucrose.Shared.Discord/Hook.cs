@@ -5,8 +5,8 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDMI = Sucrose.Shared.Discord.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 
 namespace Sucrose.Shared.Discord

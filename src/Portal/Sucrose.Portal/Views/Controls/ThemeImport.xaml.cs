@@ -2,8 +2,8 @@
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 
 namespace Sucrose.Portal.Views.Controls
 {

@@ -5,8 +5,8 @@ using Wpf.Ui.Controls;
 using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
 
 namespace Sucrose.Portal.Views.Controls
 {

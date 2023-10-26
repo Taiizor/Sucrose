@@ -9,6 +9,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
 using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSDEGET = Sucrose.Shared.Dependency.Enum.GifEngineType;
@@ -18,7 +19,6 @@ using SSDEVET = Sucrose.Shared.Dependency.Enum.VideoEngineType;
 using SSDEWET = Sucrose.Shared.Dependency.Enum.WebEngineType;
 using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
 using SSLMM = Sucrose.Shared.Live.Manage.Manager;
-using SRER = Sucrose.Resources.Extension.Resources;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages

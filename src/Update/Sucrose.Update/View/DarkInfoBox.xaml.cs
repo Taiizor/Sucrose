@@ -1,7 +1,7 @@
 ﻿using System.Media;
 using System.Windows;
-using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
 using SSSHD = Sucrose.Shared.Space.Helper.Dark;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 

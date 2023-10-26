@@ -12,9 +12,9 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPETL = Sucrose.Portal.Extension.ThumbnailLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
-using SRER = Sucrose.Resources.Extension.Resources;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 

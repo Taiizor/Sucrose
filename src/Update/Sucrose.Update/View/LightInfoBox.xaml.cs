@@ -1,7 +1,7 @@
 ﻿using System.Media;
 using System.Windows;
-using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
 
 namespace Sucrose.Update.View
 {

@@ -7,11 +7,11 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWMM = Sucrose.Watchdog.Manage.Manager;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
-using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 
 namespace Sucrose.Watchdog
 {
