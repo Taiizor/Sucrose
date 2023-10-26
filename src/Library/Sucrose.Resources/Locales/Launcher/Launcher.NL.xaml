@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Achtergrond Aanpassen</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Logbestand Maken</system:String>
+    <system:String x:Key="Launcher.ExitText">Afsluiten</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Een Probleem Melden</system:String>
+    <system:String x:Key="Launcher.OpenText">Sucrose Openen</system:String>
+    <system:String x:Key="Launcher.ReportText">Probleem Rapporteren</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Diagnose</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-bestanden (*.zip)|*.zip|Alle Bestanden (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Logbestand Opslaan</system:String>
+    <system:String x:Key="Launcher.SettingText">Instellingen</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Achtergrond Wijzigen</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Achtergrond Sluiten</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Achtergrond Openen</system:String>
+    <system:String x:Key="Launcher.WallStartText">Achtergrond Starten</system:String>
+    <system:String x:Key="Launcher.WallStopText">Achtergrond Stoppen</system:String>
+    <system:String x:Key="Launcher.UpdateText">Updates Controleren</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Updates in Afwachting</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Updates Worden Gecontroleerd</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Updatevoortgang {0}</system:String>
+</ResourceDictionary>

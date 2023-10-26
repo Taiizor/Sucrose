@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">Uw bibliotheek is geweven door spinnenwebben</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">In plaats van wallpapers is er een prachtig kunstwerk ontstaan door spinnenwebben</system:String>
+</ResourceDictionary>

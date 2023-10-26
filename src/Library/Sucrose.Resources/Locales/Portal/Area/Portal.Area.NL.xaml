@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Geluid</system:String>
+    <system:String x:Key="Portal.Area.Log">Logboek</system:String>
+    <system:String x:Key="Portal.Area.Hook">Haak</system:String>
+    <system:String x:Key="Portal.Area.Store">Winkel</system:String>
+    <system:String x:Key="Portal.Area.Donate">Doneren</system:String>
+    <system:String x:Key="Portal.Area.System">Systeem</system:String>
+    <system:String x:Key="Portal.Area.Cache">Cache</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Laptop</system:String>
+    <system:String x:Key="Portal.Area.Support">Ondersteuning</system:String>
+    <system:String x:Key="Portal.Area.Reset">Resetten</system:String>
+    <system:String x:Key="Portal.Area.Backup">Back-up</system:String>
+    <system:String x:Key="Portal.Area.Priority">Prioriteit</system:String>
+    <system:String x:Key="Portal.Area.Engines">Motoren</system:String>
+    <system:String x:Key="Portal.Area.Update">Update</system:String>
+    <system:String x:Key="Portal.Area.Library">Bibliotheek</system:String>
+    <system:String x:Key="Portal.Area.Developer">Ontwikkelaar</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Uitbreidingen</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Systeembronnen</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Uiterlijk en Gedrag</system:String>
+</ResourceDictionary>

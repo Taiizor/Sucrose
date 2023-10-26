@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Titel</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Beschrijving</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Meer</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Om dit thema te gebruiken, update Sucrose</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">Beoordelen</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Gebruiken</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Voorbeeld</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Aanpassen</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Vinden</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Delen</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Verwijderen</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Bewerken</system:String>
+</ResourceDictionary>

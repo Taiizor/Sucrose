@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Vullen</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Geen</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform Vullen</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Vullen</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Geen</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform Vullen</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Sluiten</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pauzeren</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Hervatten</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mica</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Geen</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Automatisch</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">In Tabbladen</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acryl</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Standaard</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Ontwikkelaar</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standaard</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Gecomprimeerd</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Uitvoerbaar</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Werkruimte</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Schermgrenzen</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standaard</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Succesvol</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' bevat te veel waarden</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Thema is gemaakt voor een niet-ondersteund type</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' is leeg of te lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' is leeg of te lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Bestand 'Source' niet gevonden</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' is leeg of te lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Bestand 'Preview' niet gevonden</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Het relevante bestand is versleuteld</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Het relevante bestand is geen echt '.zip' bestand</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Bestand 'SucroseInfo.json' niet gevonden</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Het relevante bestand is niet gevonden</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Ongeldige 'LoopMode' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">'Arguments' is te lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Het relevante bestand heeft geen '.zip' extensie</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Bestand 'Thumbnail' niet gevonden</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Ongeldige 'SystemCpu' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Bestand 'SucroseInfo.json' is leeg</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Thema is gemaakt voor een hogere versie van de toepassing</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' bevat een ongeldige waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Ongeldige 'SystemBios' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Ongeldige 'SystemDate' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Ongeldige 'SystemAudio' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' is leeg of te lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Bestand 'SucroseInfo.json' is ongeldig</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Ongeldige 'TriggerTime' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Ongeldige 'StretchMode' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Ongeldige 'VolumeLevel' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Ongeldige 'ShuffleMode' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags' waarden zijn te kort of te lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Ongeldig bestand</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">'PropertyList' is leeg</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Ongeldige 'SystemMemory' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Ongeldige 'SystemBattery' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Ongeldige 'SystemGraphic' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Ongeldige 'SystemNetwork' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">'Contact' is geen 'URL' of 'E-mailadres'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Ongeldige bestandsextensie</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Bestand 'SucroseCompatible.json' is leeg</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Bestand 'SucroseProperties.json' is leeg</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Ongeldige 'PropertyListener' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Ongeldige 'SystemMotherboard' waarde</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Bestand 'SucroseCompatible.json' is ongeldig</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Bestand 'SucroseProperties.json' is ongeldig</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Onvoorziene Gevolgen</system:String>
+</ResourceDictionary>

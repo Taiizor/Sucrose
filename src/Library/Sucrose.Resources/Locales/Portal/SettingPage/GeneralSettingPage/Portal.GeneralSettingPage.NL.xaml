@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Toepassingstaal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Kies de taal waarin u de toepassing wilt bekijken.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Opstarten bij opstarten</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose moet op de achtergrond draaien om wallpapers te kunnen afspelen.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Geen</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normaal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioriteit</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Planner</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Systeemvakpictogram</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Zichtbaarheid van het systeemvak. Sucrose blijft op de achtergrond actief.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Zichtbaar</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Onzichtbaar</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Sluiten van het systeemvak betekent afsluiten van alle Sucrose-toepassingen</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Vensterachtergrond</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Gebruikt om de achtergrond van de toepassingsvensters aan te passen.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Achtergrondafbeelding Selecteren</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Selecteer een achtergrondafbeelding</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Achtergrond Passend maken:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Achtergrond Ondoorzichtigheid (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Geluidsvolume</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Geluidsvolume dat geldt voor alle wallpapers.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Speel geluid alleen af wanneer gefocust op het bureaublad</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Bibliotheeklocatie</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Locatie waar toegevoegde thema's in uw bibliotheek worden opgeslagen.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Selecteer alstublieft een lege map</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Even geduld, locatie wordt gewijzigd</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Verplaats uw huidige bibliotheek naar een nieuwe locatie</system:String>
+</ResourceDictionary>

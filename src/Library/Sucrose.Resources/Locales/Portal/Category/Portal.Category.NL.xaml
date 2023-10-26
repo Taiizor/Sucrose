@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">Alle</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">Abstract</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Omgeving</system:String>
+    <system:String x:Key="Portal.Category.Animals">Dieren</system:String>
+    <system:String x:Key="Portal.Category.Animation">Animatie</system:String>
+    <system:String x:Key="Portal.Category.Anime">Anime</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Architectuur en Gebouwen</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Kunst en Abstract</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Kunstwerken</system:String>
+    <system:String x:Key="Portal.Category.Bard">Bard</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Zwart en Wit</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Cartoon en Strips</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Steden en Plaatsen</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Wolken en Luchten</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Kleurrijke Gradiënten</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Stripboeken</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Digitale Kunst</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Dynamisch</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Betoverde Bossen</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Fantasie</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Film en TV</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Eten en Drinken</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Melkweg</system:String>
+    <system:String x:Key="Portal.Category.Game">Spel</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Geometrische Patronen</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Feestdagen en Seizoenen</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Horror en Halloween</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">Inspirerende Citaten</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Kinderen en Cartoons</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Landschap</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Lijnkunst</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Middeleeuws</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Minimalistisch</system:String>
+    <system:String x:Key="Portal.Category.Music">Muziek</system:String>
+    <system:String x:Key="Portal.Category.Nature">Natuur</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Nachtlandschappen</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Patronen en Texturen</system:String>
+    <system:String x:Key="Portal.Category.Retro">Retro</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Lucht</system:String>
+    <system:String x:Key="Portal.Category.Space">Ruimte</system:String>
+    <system:String x:Key="Portal.Category.Sports">Sport</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Superhelden</system:String>
+    <system:String x:Key="Portal.Category.System">Systeem</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Taverne</system:String>
+    <system:String x:Key="Portal.Category.Technology">Technologie</system:String>
+    <system:String x:Key="Portal.Category.Temple">Tempel</system:String>
+    <system:String x:Key="Portal.Category.Time">Tijd</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Onderwater en Zee</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Voertuigen</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Vintage</system:String>
+    <system:String x:Key="Portal.Category.War">Oorlog</system:String>
+</ResourceDictionary>

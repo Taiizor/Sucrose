@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Windows;
-using Application = System.Windows.Application;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SHC = Skylark.Helper.Culture;
@@ -52,6 +51,7 @@ namespace Sucrose.Resources.Helper
                 "ES",
                 "FR",
                 "JA",
+                "NL",
                 "PL",
                 "RU",
                 "TR"
@@ -65,7 +65,6 @@ namespace Sucrose.Resources.Helper
                 .Where(Resource => Resource.Contains("Locales/Locale.") && Resource.EndsWith(".xaml"))
                 .Select(Resource =>
                 {
-                    MessageBox.Show(Resource);
                     int StartIndex = Resource.LastIndexOf("Locale.") + "Locale.".Length;
                     int EndIndex = Resource.LastIndexOf(".xaml");
 

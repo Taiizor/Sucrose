@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Logbestanden</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Beheer alle logbestanden die de toepassing heeft aangemaakt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Aanmaken</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Opschonen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Opmerking: Totale ruimte ingenomen door logbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Cache Opruimen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Ruim alle cachebestanden op die de toepassing heeft aangemaakt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Begin met Opruimen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Opmerking: Totale ruimte ingenomen door cachebestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Winkel Opruimen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Ruim alle winkelbestanden op die de toepassing heeft aangemaakt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Begin met Opruimen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Opmerking: Totale ruimte ingenomen door winkelbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Bibliotheek Opruimen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Ruim alle themabestanden op die in uw bibliotheek staan of die de toepassing heeft aangemaakt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Begin met Opruimen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Opmerking: Totale ruimte ingenomen door themabestanden in uw bibliotheek is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Instellingsbestanden</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Beheer alle instellingsbestanden die de toepassing heeft aangemaakt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Back-up maken</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Herstellen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Opmerking: Alle toepassingen worden afgesloten wanneer de geselecteerde bewerking begint.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Instellingen Herstellen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Herstel alle instellingenbestanden die de toepassing heeft aangemaakt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Begin met Herstellen</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Opmerking: Alle toepassingen worden afgesloten wanneer het herstellen begint.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Logbestand Opslaan</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*</system:String>
+</ResourceDictionary>

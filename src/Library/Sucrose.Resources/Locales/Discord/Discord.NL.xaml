@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Bladeren</system:String>
+    <system:String x:Key="Discord.Details">Achtergrond Engine</system:String>
+    <system:String x:Key="Discord.DownloadButton">Downloaden</system:String>
+
+    <system:String x:Key="Discord.LargestText0">De Kracht van Bananenroomijs</system:String>
+    <system:String x:Key="Discord.LargestText1">De Glimlachende Hoedmonster</system:String>
+    <system:String x:Key="Discord.LargestText2">De Vogels Die de Wolken Kleuren</system:String>
+    <system:String x:Key="Discord.LargestText3">Het Geheime Avontuur van Rennende Pinguïns</system:String>
+    <system:String x:Key="Discord.LargestText4">Konijnen Die Verdwalen in een Veld van Madeliefjes</system:String>
+    <system:String x:Key="Discord.LargestText5">Zingende Windbloemen</system:String>
+    <system:String x:Key="Discord.SmallestText0">Mysterieuze Voetafdrukken</system:String>
+    <system:String x:Key="Discord.SmallestText1">Vliegende Ballonvissen</system:String>
+    <system:String x:Key="Discord.SmallestText2">Lachende Bloemen</system:String>
+    <system:String x:Key="Discord.SmallestText3">Suikerspinwolken</system:String>
+    <system:String x:Key="Discord.SmallestText4">Bevroren Pizzadraak</system:String>
+    <system:String x:Key="Discord.SmallestText5">Glanzende Paddenstoel Piraten</system:String>
+    <system:String x:Key="Discord.StatementText0">Een Universum Vol Chaos</system:String>
+    <system:String x:Key="Discord.StatementText1">Midden in Oneindige Avonturen</system:String>
+    <system:String x:Key="Discord.StatementText2">Een Vreemde en Magische Wereld</system:String>
+    <system:String x:Key="Discord.StatementText3">De Grenzen van de Verbeelding Verleggend</system:String>
+    <system:String x:Key="Discord.StatementText4">Een Buitengewone Realiteit</system:String>
+    <system:String x:Key="Discord.StatementText5">In de Diepten van de Verbeelding</system:String>
+    <system:String x:Key="Discord.StatementText6">Een Betoverende Ontdekkingsreis</system:String>
+    <system:String x:Key="Discord.StatementText7">Aan de Poorten van Onbekende Rijken</system:String>
+    <system:String x:Key="Discord.StatementText8">Een Complex Droomland</system:String>
+    <system:String x:Key="Discord.StatementText9">Een Avontuur dat Grenzen Verlegt</system:String>
+    <system:String x:Key="Discord.StatementText10">Een Dynamische en Verbazingwekkende Ervaring</system:String>
+    <system:String x:Key="Discord.StatementText11">In een Fantastisch Sprookje</system:String>
+</ResourceDictionary>

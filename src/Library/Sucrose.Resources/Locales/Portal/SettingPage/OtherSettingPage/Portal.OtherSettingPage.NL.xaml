@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose maakt communicatie met Discord mogelijk.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Verbinding Vernieuwen:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Vernieuwingsinterval (seconden):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Internetvertegenwoordiger</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Uw vertegenwoordigers-ID in situaties waar internetverbinding vereist is.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Persoonlijke Toegangssleutel</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Noodzakelijk voor een naadloos gebruik van de winkel en app-updates.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Als u niet weet hoe u een persoonlijke toegangssleutel kunt verkrijgen, klik dan hier.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Voer alstublieft een persoonlijke toegangssleutel in</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Voer een geldige persoonlijke toegangssleutel in</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Updatekanaal</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Het kanaal waar de updatebewerking plaatsvindt.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Update Methode</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">De methode waarmee de updatebewerking wordt uitgevoerd.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Downloadbandbreedtelimiet:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Ontwikkelaarshulpmiddelen</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Weergeven of verbergen van ontwikkelaarshulpmiddelen voor WebView en CefSharp-engine.</system:String>
+</ResourceDictionary>

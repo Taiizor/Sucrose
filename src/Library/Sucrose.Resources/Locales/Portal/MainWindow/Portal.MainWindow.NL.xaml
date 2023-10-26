@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Help</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Over</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Help bekijken</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Over bekijken</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Bibliotheek</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Winkel</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Themabibliotheek</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Themawinkel</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Algemeen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Persoonlijk</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Prestaties</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Achtergrond</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Systeem</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Doneren</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Overige</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Terug</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Algemene instellingen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Persoonlijke instellingen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Prestatie-instellingen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Achtergrondinstellingen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Systeeminstellingen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Donatie-instellingen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Overige instellingen</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Instellingen</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Zoek een achtergrond</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Heeft u moeite met vinden wat u nodig heeft?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Lichte modus</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Donkere modus</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Achtergrond maken</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Schermvoorkeuren</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Donatieopties</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Andere opties</system:String>
+</ResourceDictionary>

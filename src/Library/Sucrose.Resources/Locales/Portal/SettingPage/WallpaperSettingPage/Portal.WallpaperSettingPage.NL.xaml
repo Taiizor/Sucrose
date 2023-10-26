@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Schermindeling</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Wijzigt de schikking van uw achtergronden op het scherm.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Rekmodus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Verandert de schaalmethode voor ondersteunde achtergronden.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Herhalingsmodus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Verandert de herhalingsinstelling voor ondersteunde achtergronden.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Schudmodus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Verandert de schudinstelling voor ondersteunde achtergronden.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif Speler</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Selecteer de plug-in die Gif-thema's in uw bibliotheek zal afspelen.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video Speler</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Selecteer de plug-in die Video-thema's in uw bibliotheek zal afspelen.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Selecteer de motor die Url-thema's in uw bibliotheek zal uitvoeren.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Selecteer de motor die Web-thema's in uw bibliotheek zal uitvoeren.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Selecteer de motor die YouTube-thema's in uw bibliotheek zal uitvoeren.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Toepassingsmotor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Selecteer de motor die Toepassings-thema's in uw bibliotheek zal uitvoeren.</system:String>
+</ResourceDictionary>

@@ -8,6 +8,7 @@
     <system:String x:Key="Locale.ES">Español (v0.5)</system:String>
     <system:String x:Key="Locale.FR">Français (v0.5)</system:String>
     <system:String x:Key="Locale.JA">日本語 (v0.3)</system:String>
+    <system:String x:Key="Locale.NL">Nederlands (v0.3)</system:String>
     <system:String x:Key="Locale.PL">Polski (v0.5)</system:String>
     <system:String x:Key="Locale.RU">Русский (v0.3)</system:String>
     <system:String x:Key="Locale.TR">Türkçe (v0.8)</system:String>

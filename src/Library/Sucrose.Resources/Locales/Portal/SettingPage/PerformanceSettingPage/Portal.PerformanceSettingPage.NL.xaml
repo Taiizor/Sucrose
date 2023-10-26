@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Prestatie Tellers</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Of alle prestatietellers op de achtergrond werken.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Opmerking: Sommige web-gebaseerde thema's werken mogelijk niet correct en geen van de onderstaande prestatie-instellingen zal van toepassing zijn.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-gebruik</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Het effect van uw CPU-gebruiksinstellingen op de achtergrondafbeelding.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-gebruik (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Geheugengebruik</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Het effect van uw geheugengebruiksinstellingen op de achtergrondafbeelding.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Geheugengebruik (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Netwerkgebruik</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Het effect van uw netwerkgebruiksinstellingen op de achtergrondafbeelding.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Netwerkadapter:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">De lijst van netwerkadapters is nog niet aangemaakt</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Uploadgrootte:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Downloadgrootte:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping-waarde (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Batterijstatus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Het effect van uw batterijgebruiksinstellingen op de achtergrondafbeelding wanneer u werkt op batterijstroom.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Batterijstatus (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Energiespaarstand</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Het effect van uw instellingen voor energiespaarstand op de achtergrondafbeelding wanneer uw laptop in de spaarstand staat.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualisatie</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Het effect van virtualisatietoepassingen op de achtergrondafbeelding.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Extern bureaublad</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Het effect van externe bureaubladtoepassingen op de achtergrondafbeelding.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Volledig schermmodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Het effect van het uitvoeren van elke toepassing in volledig scherm op de achtergrondafbeelding.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Focusmodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Het effect van het hebben van een andere actieve toepassing in de focusmodus op de achtergrondafbeelding.</system:String>
+</ResourceDictionary>

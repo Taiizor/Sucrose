@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">Thema Bewerken</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">Sluiten</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">Opslaan</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">Titel</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Beschrijving</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Auteur</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">Contact</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Tags</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argumenten</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Voer een geldige titel in</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Voer een geldige beschrijving in</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Voer een geldige auteursnaam in</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Voer een geldig contactadres in</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Voer geldige thema-tags in</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Voer geldige applicatie-argumenten in</system:String>
+</ResourceDictionary>

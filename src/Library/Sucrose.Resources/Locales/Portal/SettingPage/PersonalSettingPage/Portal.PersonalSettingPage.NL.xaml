@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Winkel Vernieuwen</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Hoe vaak de thema's in de winkellijst vernieuwd moeten worden.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Automatisch Starten</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Of een gedownload thema automatisch als achtergrond moet worden ingesteld.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Onveilige Inhoud</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Of inhoud die als niet veilig voor werk (NSFW) is gemarkeerd in de winkel getoond moet worden.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Verwijderingsbevestiging</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Of er een bevestiging moet worden gevraagd bij het verwijderen van thema's uit de bibliotheek.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Beschadigde Themata</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Of beschadigde of ontbrekende thema's in de bibliotheek automatisch verwijderd moeten worden.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Let op: Wees voorzichtig, want dit kan gegevensverlies veroorzaken.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Automatisch Starten</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Of een gemaakt thema automatisch als achtergrond moet worden ingesteld.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Themavoorbeeld</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Of thema's moeten worden gepreviewd wanneer u eroverheen gaat met de muisaanwijzer.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Winkelvoorbeeld</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Details Verbergen</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotheekvoorbeeld</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Details Verbergen</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Themaaanpassing</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Pas de naam of beschrijving van weergegeven thema's aan.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Titellengte (karakters):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Beschrijvingslengte (karakters):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Aanpasbaar Lay-out</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Pas de lay-out of afstand van weergegeven thema's aan.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Margeafstand (pixels):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Lay-outvolgorde (aantal):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Winkel Paginering</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Bepaal hoeveel thema's er op elke pagina in de winkel worden weergegeven.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Bibliotheek Paginering</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Bepaal hoeveel thema's er op elke pagina in uw bibliotheek worden weergegeven.</system:String>
+</ResourceDictionary>

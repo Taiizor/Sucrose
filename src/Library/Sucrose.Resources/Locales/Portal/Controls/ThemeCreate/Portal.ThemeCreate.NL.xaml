@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">Thema Maken</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Aanmaken</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Sluiten</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif Thema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Maak je eigen thema van het type Gif.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url Thema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Maak je eigen thema van het type Url.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web Thema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Maak je eigen thema van het type Web.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video Thema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Maak je eigen thema van het type Video.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube Thema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Maak je eigen thema van het type YouTube.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application Thema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Maak je eigen thema van het type Application.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Afbeelding</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Voorbeeld</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Titel</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Beschrijving</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Auteur</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Contact</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Tags</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenten</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Voer een geldige Url in</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Selecteer een omslagafbeelding</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Selecteer een voorbeeldbestand</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Voer een geldige titel in</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Voer een geldige beschrijving in</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Voer een geldige auteursnaam in</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Voer een geldig contactadres in</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Voer geldige thema-tags in</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Voer geldige applicatie-argumenten in</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Ongedaan maken</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Sleep en zet hier je gif-bestand</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Sleep en zet hier je videobestand</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Selecteer een Omslagafbeelding</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Selecteer een Voorbeeldbestand</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif-bestanden (*.gif)|*.gif</system:String>
+</ResourceDictionary>

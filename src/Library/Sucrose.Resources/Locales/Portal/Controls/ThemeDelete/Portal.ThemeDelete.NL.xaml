@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeDelete.Title">Thema Verwijderen</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">Verwijderen</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Close">Sluiten</system:String>
+
+    <system:String x:Key="Portal.ThemeDelete.ThemeTitle">Titel</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeDescription">Beschrijving</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeType">Type</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">Auteur</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSize">Grootte</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersion">Versie</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">Tags</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">Geen</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreate">Gemaakt</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">Onbekend</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">Bewerkt</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">Onbekend</system:String>
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">Probleem Oplossen</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose Bijwerken</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Update Installeren</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Bijwerken</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Bericht</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Sluiten</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">We bevinden ons in momenten waarin de updatebestanden zich als een verloren juweel verbergen. Je kunt nog steeds genieten van de huidige versie van de ervaring.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Terwijl we het updatebestand aan het downloaden waren, merkten we dat er een scheur in de weg is ontstaan en dat deze reis voorlopig tot een einde is gekomen. Ga verder met je reis met de huidige versie, want wanneer deze scheuren zijn gerepareerd, wacht er een krachtigere update op je.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">De app is al bijgewerkt en is altijd bij je in de meest actuele en innovatieve vorm. We zijn hier om je op elk moment de beste en meest actuele ervaring te bieden.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">We staan aan de drempel van een droom waarin we geen toegang hebben tot de updatebestanden. Maar je kunt nog steeds je droom beleven met de huidige versie.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Het geselecteerde updatekanaal is als een stille bos. Op dit moment zijn er geen nieuwe updategegevens beschikbaar. Ga verder met je reis met de huidige versie, want wanneer deze stilte wordt verbroken, zullen we je meer bieden.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Toen we probeerden het updatebestand uit te pakken, stonden we tegenover een obstakel dat uit de diepten van de zee kwam. Ga voor nu verder met je reis met de huidige versie, want wanneer de zeeën kalmer zijn, keren we terug om nieuwe schatten te vinden.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">De zwakte van je verbinding is als wolken die de zon bedekken. Wanneer de wolken verdwijnen, wacht er een helderdere ervaring op je.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">De app-update vordert stilletjes als nieuwe schatten die de golven naar de kust brengen. Deze waardevolle vernieuwingen worden in de achtergrond voor je verzameld.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">We beleven een moment waarop de update-ster nog niet is opgekomen. Op dit moment zijn er geen update-informatie, maar je kunt blijven genieten van de huidige versie.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Terwijl we het updatebestand aan het downloaden waren, ontdekten we dat de sterren aan de hemel in de verkeerde volgorde staan. Ga voor nu verder met je reis met de huidige versie, want wanneer de sterren op de juiste manier uitlijnen, zullen we je een betere update bieden.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">De download van het updatebestand is geannuleerd omdat onze wegen plotseling uiteengingen. Ga verder met je reis met de huidige versie en wees klaar voor toekomstige updates, want een nieuwe start is altijd mogelijk.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">De voorwaarden in de updatebestanden lijken nog steeds ontbrekend om de sleutel te ontgrendelen. Ga voor nu verder met je reis met de huidige versie en wees klaar voor toekomstige updates.</system:String>
+</ResourceDictionary>
