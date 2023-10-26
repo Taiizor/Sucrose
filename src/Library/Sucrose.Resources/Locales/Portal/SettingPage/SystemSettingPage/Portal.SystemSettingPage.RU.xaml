@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Файлы журнала</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Управление всеми файлами журнала, созданными приложением.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Создать</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Очистить</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Примечание: Общий размер файлов журнала составляет {0}. При начале очистки все приложения будут закрыты.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Очистка кэша</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Удаление всех файлов кэша, созданных приложением.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Начать очистку</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Примечание: Общий размер файлов кэша составляет {0}. При начале очистки все приложения будут закрыты.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Очистка магазина</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Удаление всех файлов магазина, созданных приложением.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Начать очистку</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Примечание: Общий размер файлов магазина составляет {0}. При начале очистки все приложения будут закрыты.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Очистка библиотеки</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Удаление всех файлов тем, находящихся в вашей библиотеке или созданных вами.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Начать очистку</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Примечание: Общий размер файлов тем в вашей библиотеке составляет {0}. При начале очистки все приложения будут закрыты.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Файлы настроек</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Управление всеми файлами настроек, созданными приложением.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Создать резервную копию</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Восстановить</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Примечание: При начале выбранной операции все приложения будут закрыты.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Сброс настроек</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Сброс всех файлов настроек, созданных приложением.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Начать сброс</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Примечание: При начале сброса все приложения будут закрыты.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Сохранить файл журнала</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*</system:String>
+</ResourceDictionary>

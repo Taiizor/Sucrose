@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Обновление магазина</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Продолжительность обновления тем, отображаемых в магазине.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Автоматический запуск</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Автоматически ли установленные темы из магазина будут использоваться как обои.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Нецензурный контент</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Показывать или скрывать содержание, отмеченное как ненадежное (NSFW) в магазине.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Запрос подтверждения удаления</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Запрашивать подтверждение при удалении тем из вашей библиотеки.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Удаление битых тем</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Удалять автоматически битые или отсутствующие темы из вашей библиотеки.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Примечание: Пожалуйста, будьте осторожны. В противном случае, это может привести к потере данных.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Автоматический запуск</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Автоматически ли созданные темы будут использоваться как обои в вашей библиотеке.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Предварительный просмотр тем</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Отображать предварительный просмотр тем, когда курсор наводится на них.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Предварительный просмотр в магазине</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Скрывать детали</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Предварительный просмотр в библиотеке</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Скрывать детали</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Настройка тем</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Настройте название или описание отображаемых тем.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Длина заголовка (символов):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Длина описания (символов):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Адаптивный макет</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Настройте макет или расстояние отображаемых тем.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Отступ (пиксели):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Количество столбцов:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Пагинация в магазине</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Настройте количество тем на каждой странице магазина.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Пагинация в библиотеке</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Настройте количество тем на каждой странице вашей библиотеки.</system:String>
+</ResourceDictionary>

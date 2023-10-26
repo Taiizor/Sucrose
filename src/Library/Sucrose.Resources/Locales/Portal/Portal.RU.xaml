@@ -9,6 +9,6 @@
         <ResourceDictionary Source="StorePage/Portal.StorePage.RU.xaml" />
         <ResourceDictionary Source="MainWindow/Portal.MainWindow.RU.xaml" />
         <ResourceDictionary Source="LibraryPage/Portal.LibraryPage.RU.xaml" />
-        <ResourceDictionary Source="SettingPage/Portal.SettingPage.TR.xaml" />
+        <ResourceDictionary Source="SettingPage/Portal.SettingPage.RU.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

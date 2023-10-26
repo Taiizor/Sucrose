@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeDelete.Title">Удаление темы</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">Удалить</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Close">Закрыть</system:String>
+
+    <system:String x:Key="Portal.ThemeDelete.ThemeTitle">Заголовок</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeDescription">Описание</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeType">Тип</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">Автор</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSize">Размер</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersion">Версия</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">Теги</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">Отсутствуют</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreate">Создано</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">Неизвестно</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">Изменено</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">Неизвестно</system:String>
+</ResourceDictionary>

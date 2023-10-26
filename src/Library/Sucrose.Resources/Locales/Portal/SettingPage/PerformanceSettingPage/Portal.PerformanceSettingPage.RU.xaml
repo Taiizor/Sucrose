@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Счетчики производительности</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Определяет, будут ли счетчики производительности работать в фоновом режиме.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примечание: Некоторые темы типа "Веб" могут не работать корректно, и ни один из нижеприведенных параметров производительности не будет работать.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Использование ЦП</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Определяет влияние ваших настроек использования процессора на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Использование ЦП (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Использование памяти</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Определяет влияние ваших настроек использования памяти на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Использование памяти (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Использование сети</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Определяет влияние ваших настроек использования сети на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Сетевой адаптер:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Список сетевых адаптеров пока не создан</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Размер загрузки:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Размер загрузки:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Задержка (мс):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Заряд батареи</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Определяет влияние состояния заряда батареи ноутбука на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Уровень заряда батареи (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Экономия батареи</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Определяет влияние режима экономии батареи на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Виртуализация</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Определяет влияние запущенных виртуальных машин на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Удаленный рабочий стол</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Определяет влияние работы с удаленными рабочими столами на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Полноэкранный режим</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Определяет влияние запуска приложений в полноэкранном режиме на обои.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Режим активности</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Определяет влияние активности других приложений в фоне на обои.</system:String>
+</ResourceDictionary>

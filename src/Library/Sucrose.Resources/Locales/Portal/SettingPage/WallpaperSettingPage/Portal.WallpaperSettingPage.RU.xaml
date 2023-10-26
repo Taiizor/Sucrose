@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Раскладка экрана</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Измените расположение ваших обоев на экране.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Режим растяжения</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Измените метод изменения масштаба для поддерживаемых обоев.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Режим повтора</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Измените режим повтора для поддерживаемых обоев.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Режим перемешивания</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Измените режим перемешивания для поддерживаемых обоев.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Плеер для Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Выберите плеер для воспроизведения обоев в формате Gif из вашей библиотеки.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Плеер для Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Выберите плеер для воспроизведения обоев в формате Video из вашей библиотеки.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Мотор для Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Выберите мотор для запуска обоев в формате Url из вашей библиотеки.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Мотор для Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Выберите мотор для запуска обоев в формате Web из вашей библиотеки.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Мотор для YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Выберите мотор для запуска обоев из YouTube из вашей библиотеки.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Мотор для Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Выберите мотор для запуска обоев в формате Application из вашей библиотеки.</system:String>
+</ResourceDictionary>

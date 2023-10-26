@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose обеспечивает связь с Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Обновление связи:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Интервал обновления (секунды):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Интернет-представитель</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Ваш идентификатор представителя для случаев, требующих интернет-соединение.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Персональный ключ доступа</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Необходим для бесперебойного использования магазина и обновления приложения.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Если вы не знаете, как получить персональный ключ доступа, нажмите здесь.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Пожалуйста, введите персональный ключ доступа</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Пожалуйста, введите действительный персональный ключ доступа</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Канал обновлений</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Канал, через который будет выполняться процесс обновления.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Метод обновления</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Способ, которым будет выполняться процесс обновления.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Лимит полосы пропускания загрузки:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Инструменты разработчика</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Показывать ли инструменты разработчика для WebView и CefSharp движка.</system:String>
+</ResourceDictionary>

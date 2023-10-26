@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">Меню пожертвований</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">Видимость меню пожертвований в интерфейсе.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">Показать</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">Скрыть</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">Рекламная поддержка</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">Поддержите разработку приложения, просматривая рекламу.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">Время рекламы (минуты):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">Совет: Реклама будет отображаться с минимальным беспокойством для вас.</system:String>
+</ResourceDictionary>

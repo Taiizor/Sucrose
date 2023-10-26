@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Язык приложения</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Выберите язык, на котором вы хотите видеть приложение.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Запуск приложения</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Для воспроизведения обоев приложение Sucrose должно работать на заднем плане при запуске.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Никакие</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Обычные</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Приоритетные</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Планировщик</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Значок уведомления</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Видимость значка в системном лотке. Приложение Sucrose будет работать скрыто.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Показать</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Скрыть</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Закрыть все приложения Sucrose при закрытии значка в системном лотке</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Фон окна</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Используется для настройки фона окна приложения.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Выбрать фоновое изображение</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Выберите фоновое изображение</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Изображения (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Размер фона:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Прозрачность фона (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Громкость звука</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Громкость, применяемая ко всем обоям.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Проигрывать звук только при активном рабочем столе</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Местоположение библиотеки</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Местоположение, где будут сохраняться добавленные вами обои.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Пожалуйста, выберите пустую папку</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Подождите, пока местоположение изменится</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Переместить текущую библиотеку в новое местоположение</system:String>
+</ResourceDictionary>
