@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">Создание темы</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Создать</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Закрыть</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Тема Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Создайте свою собственную тему Gif.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Тема Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Создайте свою собственную тему с Url.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Тема Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Создайте свою собственную тему Web.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Тема Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Создайте свою собственную тему Video.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">Тема YouTube</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Создайте свою собственную тему YouTube.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Тема Application</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Создайте свою собственную тему Application.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Обложка</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Предварительный просмотр</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Название</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Описание</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Автор</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Контакт</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Теги</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Аргументы</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Пожалуйста, введите действительный Url-адрес</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Выберите обложку</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Выберите файл предварительного просмотра</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Пожалуйста, введите действительное название</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Пожалуйста, введите действительное описание</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Пожалуйста, введите действительное имя автора</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Пожалуйста, введите действительный контакт</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Пожалуйста, введите действительные теги темы</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Пожалуйста, введите действительные аргументы приложения</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Удалить</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Перетащите и отпустите ваш файл Gif сюда</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Перетащите и отпустите ваш видеофайл сюда</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Выберите обложку</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Графические файлы (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Выберите файл предварительного просмотра</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Файлы Gif (*.gif)|*.gif</system:String>
+</ResourceDictionary>

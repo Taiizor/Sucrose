@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Настроить Обои</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Создать Журнал</system:String>
+    <system:String x:Key="Launcher.ExitText">Выход</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Сообщить о Проблеме</system:String>
+    <system:String x:Key="Launcher.OpenText">Открыть Sucrose</system:String>
+    <system:String x:Key="Launcher.ReportText">Сообщение об Ошибке</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Диагностика</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP Файлы (*.zip)|*.zip|Все Файлы (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Сохранить Журнал</system:String>
+    <system:String x:Key="Launcher.SettingText">Настройки</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Изменить Обои</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Закрыть Обои</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Открыть Обои</system:String>
+    <system:String x:Key="Launcher.WallStartText">Запустить Обои</system:String>
+    <system:String x:Key="Launcher.WallStopText">Остановить Обои</system:String>
+    <system:String x:Key="Launcher.UpdateText">Проверить Обновления</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Ожидание Обновлений</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Проверка Обновлений</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Прогресс Обновления {0}</system:String>
+</ResourceDictionary>

@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Помощь</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">О программе</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Просмотр справки</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Информация о программе</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Библиотека</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Магазин</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Библиотека тем</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Магазин тем</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Общие</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Личные</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Производительность</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Обои</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Система</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Пожертвование</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Прочее</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Назад</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Общие настройки</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Личные настройки</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Настройки производительности</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Настройки обоев</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Настройки системы</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Настройки пожертвования</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Другие настройки</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Настройки</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Искать Обои</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Ищете то, что вам нужно?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Светлая тема</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Тёмная тема</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Создать обои</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Параметры отображения</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Параметры пожертвования</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Другие параметры</system:String>
+</ResourceDictionary>

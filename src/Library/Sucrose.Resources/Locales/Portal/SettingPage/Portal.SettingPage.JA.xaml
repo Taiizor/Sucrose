@@ -1,6 +1,4 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <ResourceDictionary.MergedDictionaries>
@@ -12,6 +10,4 @@
         <ResourceDictionary Source="WallpaperSettingPage/Portal.WallpaperSettingPage.JA.xaml" />
         <ResourceDictionary Source="PerformanceSettingPage/Portal.PerformanceSettingPage.JA.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
-    <system:String x:Key="Portal.SettingPage.Test">Test</system:String>
 </ResourceDictionary>

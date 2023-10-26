@@ -53,17 +53,19 @@ namespace Sucrose.Resources.Helper
                 "FR",
                 "JA",
                 "PL",
+                "RU",
                 "TR"
             };
         }
 
         public static List<string> ListLanguages()
         {
-            return SHA.Assemble(SEAT.Executing)
+            return SHA.Assemble(SEAT.Entry)
                 .GetManifestResourceNames()
                 .Where(Resource => Resource.Contains("Locales/Locale.") && Resource.EndsWith(".xaml"))
                 .Select(Resource =>
                 {
+                    MessageBox.Show(Resource);
                     int StartIndex = Resource.LastIndexOf("Locale.") + "Locale.".Length;
                     int EndIndex = Resource.LastIndexOf(".xaml");
 

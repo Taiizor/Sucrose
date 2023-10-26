@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Watchdog.HelpButton">Помощь</system:String>
+    <system:String x:Key="Watchdog.CloseButton">Закрыть</system:String>
+    <system:String x:Key="Watchdog.ErrorMessage">Произошла непредвиденная ошибка:</system:String>
+    <system:String x:Key="Watchdog.ErrorTitle">Ошибка</system:String>
+    <system:String x:Key="Watchdog.HideButton">Скрыть</system:String>
+    <system:String x:Key="Watchdog.ShowButton">Показать</system:String>
+    <system:String x:Key="Watchdog.StackTrace">Трассировка стека:</system:String>
+    <system:String x:Key="Watchdog.WindowTitle">Sucrose Watchdog</system:String>
+</ResourceDictionary>

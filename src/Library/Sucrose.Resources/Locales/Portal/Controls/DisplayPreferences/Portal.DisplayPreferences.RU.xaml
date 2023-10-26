@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Параметры отображения</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Закрыть</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Режим размещения</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Способ применения обоев к активным экранам.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Только выбранный экран</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Растянуть между экранами</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">На всех мониторах</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Выберите режим растяжения между экранами</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Дублировать одинаковые обои</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Выберите режим дублирования одинаковых обоев</system:String>
+</ResourceDictionary>

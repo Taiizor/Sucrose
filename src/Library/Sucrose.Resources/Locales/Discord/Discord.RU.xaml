@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Просмотр</system:String>
+    <system:String x:Key="Discord.Details">Движок Обоев</system:String>
+    <system:String x:Key="Discord.DownloadButton">Скачать</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Сила бананового мороженого</system:String>
+    <system:String x:Key="Discord.LargestText1">Улыбающийся шляпный монстр</system:String>
+    <system:String x:Key="Discord.LargestText2">Птицы, раскрашивающие облака</system:String>
+    <system:String x:Key="Discord.LargestText3">Скрытые приключения бегущих пингвинов</system:String>
+    <system:String x:Key="Discord.LargestText4">Зайцы, заблудшие в поле маргариток</system:String>
+    <system:String x:Key="Discord.LargestText5">Поющие ветряные ромашки</system:String>
+    <system:String x:Key="Discord.SmallestText0">Загадочные следы ног</system:String>
+    <system:String x:Key="Discord.SmallestText1">Летающие воздушные шары-рыбы</system:String>
+    <system:String x:Key="Discord.SmallestText2">Смеющиеся цветы</system:String>
+    <system:String x:Key="Discord.SmallestText3">Сладкие облака из сахарной ваты</system:String>
+    <system:String x:Key="Discord.SmallestText4">Замороженные пиццы-драконы</system:String>
+    <system:String x:Key="Discord.SmallestText5">Светящиеся грибные пираты</system:String>
+    <system:String x:Key="Discord.StatementText0">Вселенная полная хаоса</system:String>
+    <system:String x:Key="Discord.StatementText1">Среди бескрайних приключений</system:String>
+    <system:String x:Key="Discord.StatementText2">Странная и волшебная вселенная</system:String>
+    <system:String x:Key="Discord.StatementText3">Вызывающая пределы воображения</system:String>
+    <system:String x:Key="Discord.StatementText4">Необычная реальность</system:String>
+    <system:String x:Key="Discord.StatementText5">В глубинах воображения</system:String>
+    <system:String x:Key="Discord.StatementText6">Волшебное исследование</system:String>
+    <system:String x:Key="Discord.StatementText7">У врат неизведанных миров</system:String>
+    <system:String x:Key="Discord.StatementText8">Сложный мир снов</system:String>
+    <system:String x:Key="Discord.StatementText9">Приключение, выходящее за грани</system:String>
+    <system:String x:Key="Discord.StatementText10">Динамичный и удивительный опыт</system:String>
+    <system:String x:Key="Discord.StatementText11">Внутри фантастической сказки</system:String>
+</ResourceDictionary>

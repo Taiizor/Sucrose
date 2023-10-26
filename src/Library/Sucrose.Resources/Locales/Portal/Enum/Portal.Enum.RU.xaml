@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Заполнить</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Нет</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Пропорционально</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Заполнить с сохранением пропорций</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Заполнить</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Нет</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Пропорционально</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Заполнить с сохранением пропорций</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Закрыть</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Пауза</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Возобновить</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Мика</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Нет</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Авто</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Вкладки</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Акрил</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">По умолчанию</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Для разработчиков</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">По умолчанию</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Сжатый</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Исполняемый</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Рабочая область</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Границы экрана</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">По умолчанию</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Успешно</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Слишком много значений в 'Tags'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Тема создана для типа, который не поддерживается этим приложением</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">Значение 'Title' отсутствует или слишком длинное</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Значение 'Author' отсутствует или слишком длинное</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Файл 'Source' не найден</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Значение 'Contact' отсутствует или слишком длинное</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Файл 'Preview' не найден</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Соответствующий файл зашифрован</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Соответствующий файл не является действительным файлом '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Файл 'SucroseInfo.json' не найден</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Соответствующий файл не найден</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Недопустимое значение 'LoopMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">Значение 'Arguments' слишком длинное</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Соответствующий файл не имеет расширение '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Файл 'Thumbnail' не найден</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Недопустимое значение 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Файл 'SucroseInfo.json' пуст</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Тема создана для более высокой версии приложения</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Значение 'Source' недействительно</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Недопустимое значение 'SystemBios'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Недопустимое значение 'SystemDate'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Недопустимое значение 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">Значение 'Description' отсутствует или слишком длинное</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Файл 'SucroseInfo.json' недействителен</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Недопустимое значение 'TriggerTime'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Недопустимое значение 'StretchMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Недопустимое значение 'VolumeLevel'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Недопустимое значение 'ShuffleMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Значения 'Tags' слишком короткие или слишком длинные</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Недействительный файл</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Значение 'PropertyList' отсутствует</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Недопустимое значение 'SystemMemory'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Недопустимое значение 'SystemBattery'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Недопустимое значение 'SystemGraphic'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Недопустимое значение 'SystemNetwork'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Значение 'Контакта' не является 'URL' или 'Адресом электронной почты'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Недействительное расширение файла</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Файл 'SucroseCompatible.json' пуст</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Файл 'SucroseProperties.json' пуст</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Недопустимое значение 'PropertyListener'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Недопустимое значение 'SystemMotherboard'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Файл 'SucroseCompatible.json' недействителен</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Файл 'SucroseProperties.json' недействителен</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Непредвиденные последствия</system:String>
+</ResourceDictionary>
