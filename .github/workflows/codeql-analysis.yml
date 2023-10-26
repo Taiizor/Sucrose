@@ -41,7 +41,8 @@ jobs:
         solution: [
             src/Library/Sucrose.Signal/Sucrose.Signal.csproj,
             src/Library/Sucrose.Memory/Sucrose.Memory.csproj,
-            src/Library/Sucrose.Manager/Sucrose.Manager.csproj
+            src/Library/Sucrose.Manager/Sucrose.Manager.csproj,
+            src/Library/Sucrose.Resources/Sucrose.Resources.csproj
         ]
 
     steps:
