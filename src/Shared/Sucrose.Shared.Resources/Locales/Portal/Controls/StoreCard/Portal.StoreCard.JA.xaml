@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.StoreCard.TitleText">タイトル</system:String>
+    <system:String x:Key="Portal.StoreCard.DescriptionText">説明</system:String>
+
+    <system:String x:Key="Portal.StoreCard.VersionTip">このテーマを使用するには、Sucroseを更新してください</system:String>
+
+    <system:String x:Key="Portal.StoreCard.MenuInstall">インストール</system:String>
+    <system:String x:Key="Portal.StoreCard.MenuReport">レポート</system:String>
+</ResourceDictionary>

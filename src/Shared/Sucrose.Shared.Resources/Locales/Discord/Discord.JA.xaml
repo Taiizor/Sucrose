@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">閲覧</system:String>
+    <system:String x:Key="Discord.Details">壁紙エンジン</system:String>
+    <system:String x:Key="Discord.DownloadButton">ダウンロード</system:String>
+
+    <system:String x:Key="Discord.LargestText0">バナナアイスクリームの力</system:String>
+    <system:String x:Key="Discord.LargestText1">微笑む帽子のモンスター</system:String>
+    <system:String x:Key="Discord.LargestText2">空を彩る雀たち</system:String>
+    <system:String x:Key="Discord.LargestText3">走るペンギンの秘密の冒険</system:String>
+    <system:String x:Key="Discord.LargestText4">デイジーの畑で迷子のウサギ</system:String>
+    <system:String x:Key="Discord.LargestText5">歌う風薫る花</system:String>
+    <system:String x:Key="Discord.SmallestText0">謎の足跡</system:String>
+    <system:String x:Key="Discord.SmallestText1">飛ぶ風船の魚</system:String>
+    <system:String x:Key="Discord.SmallestText2">笑う花々</system:String>
+    <system:String x:Key="Discord.SmallestText3">綿菓子の雲</system:String>
+    <system:String x:Key="Discord.SmallestText4">凍ったピザドラゴン</system:String>
+    <system:String x:Key="Discord.SmallestText5">輝くキノコの海賊</system:String>
+    <system:String x:Key="Discord.StatementText0">カオスに満ちた宇宙</system:String>
+    <system:String x:Key="Discord.StatementText1">無限の冒険の中で</system:String>
+    <system:String x:Key="Discord.StatementText2">奇妙で魔法のような世界</system:String>
+    <system:String x:Key="Discord.StatementText3">想像力の限界を挑む</system:String>
+    <system:String x:Key="Discord.StatementText4">非凡な現実</system:String>
+    <system:String x:Key="Discord.StatementText5">想像力の深奥に</system:String>
+    <system:String x:Key="Discord.StatementText6">魔法の発見の冒険</system:String>
+    <system:String x:Key="Discord.StatementText7">未知の領域の扉</system:String>
+    <system:String x:Key="Discord.StatementText8">複雑な夢の世界</system:String>
+    <system:String x:Key="Discord.StatementText9">限界に挑む冒険</system:String>
+    <system:String x:Key="Discord.StatementText10">ダイナミックで驚くべき体験</system:String>
+    <system:String x:Key="Discord.StatementText11">ファンタジックな童話の中で</system:String>
+</ResourceDictionary>

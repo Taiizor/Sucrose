@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">タイトル</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">説明</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">詳細</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">このテーマを使用するには、Sucroseを更新してください</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">レビュー</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">使用</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">プレビュー</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">カスタマイズ</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">検索</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">共有</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">削除</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">編集</system:String>
+</ResourceDictionary>

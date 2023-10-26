@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">ログ ファイル</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">アプリケーションが作成したすべてのログ ファイルを管理します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">作成</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">クリア</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">注意: ログ ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">キャッシュのクリア</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">アプリケーションが作成したすべてのキャッシュ ファイルを削除します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">クリアを開始</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">注意: キャッシュ ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">ストアのクリア</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">アプリケーションが作成したすべてのストア ファイルを削除します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">クリアを開始</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">注意: ストア ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">ライブラリのクリア</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">ライブラリにある、またはアプリケーションが作成したすべてのテーマ ファイルを削除します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">クリアを開始</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">注意: ライブラリ内のテーマ全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">設定ファイル</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">アプリケーションが作成したすべての設定ファイルを管理します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">バックアップ</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">リストア</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">注意: 選択した操作を開始すると、すべてのアプリケーションが終了します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">設定のリセット</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">アプリケーションが作成したすべての設定ファイルをリセットします。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">リセットを開始</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">注意: リセット操作を開始すると、すべてのアプリケーションが終了します。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">ログ ファイルの保存</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
+</ResourceDictionary>

@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">テーマの作成</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">作成</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">閉じる</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif テーマ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Gif形式のテーマを作成します。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url テーマ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Url形式のテーマを作成します。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web テーマ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Web形式のテーマを作成します。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video テーマ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Video形式のテーマを作成します。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube テーマ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">YouTube形式のテーマを作成します。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application テーマ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Application形式のテーマを作成します。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">サムネイル</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">プレビュー</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">タイトル</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">説明</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">著者</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">お問い合わせ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">タグ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">引数</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">有効なUrlを入力してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">サムネイル画像を選択してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">プレビューファイルを選択してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">有効なタイトルを入力してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">有効な説明を入力してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">有効な著者名を入力してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">有効な連絡先情報を入力してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">有効なテーマタグを入力してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">有効なアプリケーション引数を入力してください</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">元に戻す</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Gifファイルをここにドラッグアンドドロップ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">ビデオファイルをここにドラッグアンドドロップ</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">サムネイル画像を選択</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">画像ファイル (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">プレビューファイルを選択</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif ファイル (*.gif)|*.gif</system:String>
+</ResourceDictionary>

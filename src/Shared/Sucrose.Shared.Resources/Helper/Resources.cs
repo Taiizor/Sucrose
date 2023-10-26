@@ -51,6 +51,7 @@ namespace Sucrose.Shared.Resources.Helper
                 "EN",
                 "ES",
                 "FR",
+                "JA",
                 "PL",
                 "TR"
             };

@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.BrokenStorePage.Title">BrokenStorePage</system:String>
+
+    <system:String x:Key="Portal.BrokenStorePage.TitleText">インターネットの光が消えた瞬間</system:String>
+    <system:String x:Key="Portal.BrokenStorePage.DescriptionText">星のない夜空のように、ここにもインターネットの輝きはありません</system:String>
+</ResourceDictionary>

@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">すべて</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">抽象</system:String>
+    <system:String x:Key="Portal.Category.Ambience">環境</system:String>
+    <system:String x:Key="Portal.Category.Animals">動物</system:String>
+    <system:String x:Key="Portal.Category.Animation">アニメーション</system:String>
+    <system:String x:Key="Portal.Category.Anime">アニメ</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">建築と建物</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">アートと抽象</system:String>
+    <system:String x:Key="Portal.Category.Artworks">アートワーク</system:String>
+    <system:String x:Key="Portal.Category.Bard">吟遊詩人</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">白黒</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">アニメとコミック</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">都市と場所</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">雲と空</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">カラフルなグラデーション</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">コミックブック</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">デジタルアート</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">ダイナミック</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">魔法の森</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">ファンタジー</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">映画とテレビ</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">食べ物と飲み物</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">銀河</system:String>
+    <system:String x:Key="Portal.Category.Game">ゲーム</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">幾何学的なパターン</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">休暇と季節</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">ホラーとハロウィン</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">インスピレーション引用</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">子供とカートゥーン</system:String>
+    <system:String x:Key="Portal.Category.Landscape">風景</system:String>
+    <system:String x:Key="Portal.Category.LineArt">線画</system:String>
+    <system:String x:Key="Portal.Category.Medieval">中世</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">ミニマリスト</system:String>
+    <system:String x:Key="Portal.Category.Music">音楽</system:String>
+    <system:String x:Key="Portal.Category.Nature">自然</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">夜景</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">パターンとテクスチャ</system:String>
+    <system:String x:Key="Portal.Category.Retro">レトロ</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">空</system:String>
+    <system:String x:Key="Portal.Category.Space">宇宙</system:String>
+    <system:String x:Key="Portal.Category.Sports">スポーツ</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">スーパーヒーロー</system:String>
+    <system:String x:Key="Portal.Category.System">システム</system:String>
+    <system:String x:Key="Portal.Category.Tavern">酒場</system:String>
+    <system:String x:Key="Portal.Category.Technology">技術</system:String>
+    <system:String x:Key="Portal.Category.Temple">寺院</system:String>
+    <system:String x:Key="Portal.Category.Time">時間</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">水中と海洋</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">乗り物</system:String>
+    <system:String x:Key="Portal.Category.Vintage">ヴィンテージ</system:String>
+    <system:String x:Key="Portal.Category.War">戦争</system:String>
+</ResourceDictionary>

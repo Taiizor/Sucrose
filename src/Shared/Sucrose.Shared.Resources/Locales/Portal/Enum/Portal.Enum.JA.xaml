@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">フィル</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">なし</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">均等</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">均等にフィル</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">フィル</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">なし</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">均等</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">均等にフィル</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">閉じる</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">一時停止</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">再開</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">マイカ</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">なし</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">自動</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">タブ</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">アクリル</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">デフォルト</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">開発者</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">デフォルト</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">圧縮</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">実行可能</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">作業領域</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">ディスプレイ境界</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">デフォルト</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">成功</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags'は多すぎる値を持っています</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">テーマはアプリケーションでサポートされていないタイプのために作成されました</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title'の値は空または非常に長いです</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author'の値は空または非常に長いです</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source'ファイルが見つかりませんでした</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact'の値は空または非常に長いです</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview'ファイルが見つかりませんでした</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">関連ファイルは暗号化されています</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">関連ファイルは実際には '.zip' ファイルではありません</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">'SucroseInfo.json'ファイルが見つかりませんでした</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">関連ファイルが見つかりませんでした</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">'LoopMode'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">'Arguments'の値が非常に長いです</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">関連ファイルは '.zip' 拡張子ではありません</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail'ファイルが見つかりませんでした</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">'SystemCpu'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json'ファイルは空です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">テーマはより高いアプリケーションバージョンのために作成されました</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source'が無効な値を含んでいます</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">'SystemBios'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">'SystemDate'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">'SystemAudio'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description'の値は空または非常に長いです</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json'ファイルが無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">'TriggerTime'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">'StretchMode'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">'VolumeLevel'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">'ShuffleMode'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags'値は非常に短いか非常に長いです</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">無効なファイル</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">'PropertyList'の値は空です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">'SystemMemory'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">'SystemBattery'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">'SystemGraphic'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">'SystemNetwork'値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">'Contact'の値は 'Url' または 'メールアドレス' ではありません</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">無効なファイル拡張子</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">'SucroseCompatible.json'ファイルは空です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">'SucroseProperties.json'ファイルは空です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">'PropertyListener'の値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">'SystemMotherboard'の値が無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json'ファイルが無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json'ファイルが無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">予測不可能な結果</system:String>
+</ResourceDictionary>

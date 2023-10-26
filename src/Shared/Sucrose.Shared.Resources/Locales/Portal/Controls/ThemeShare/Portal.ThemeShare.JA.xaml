@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeShare.Title">テーマの共有</system:String>
+    <system:String x:Key="Portal.ThemeShare.Close">閉じる</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeTitle">タイトル</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeDescription">説明</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeExport">エクスポート</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">ストアで公開</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">リンクをコピー</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">テーマファイルを保存</system:String>
+</ResourceDictionary>

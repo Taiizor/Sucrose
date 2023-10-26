@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SearchLibraryPage.Title">SearchLibraryPage</system:String>
+
+    <system:String x:Key="Portal.SearchLibraryPage.TitleText">あなたのライブラリはクモの巣で魔法にかけられています</system:String>
+    <system:String x:Key="Portal.SearchLibraryPage.DescriptionText">壁紙の選択の精巧さのため、壁紙のスペースがなくなりました</system:String>
+</ResourceDictionary>

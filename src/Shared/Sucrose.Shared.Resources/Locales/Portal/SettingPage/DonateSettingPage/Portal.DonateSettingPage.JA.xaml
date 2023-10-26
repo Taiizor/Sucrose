@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">寄付メニュー</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">インターフェース内の寄付メニューの表示設定。</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">表示</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">非表示</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">広告サポート</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">アプリの開発に寄与するために広告を視聴してください。</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">広告間隔（分）：</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">ヒント：広告はできるだけあなたに最小限の不便をかけないように表示されます。</system:String>
+</ResourceDictionary>

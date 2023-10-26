@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">画面の配置</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">壁紙の画面上での配置を変更します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">拡大モード</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">サポートされる壁紙の拡大モードを変更します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">ループモード</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">サポートされる壁紙のループモードを変更します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">シャッフルモード</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">サポートされる壁紙のシャッフルモードを変更します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif プレイヤー</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">ライブラリ内の Gif 形式のテーマを再生するプラグインを選択します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video プレイヤー</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">ライブラリ内の Video 形式のテーマを再生するプラグインを選択します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url プレーヤー</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">ライブラリ内の Url 形式のテーマを実行するエンジンを選択します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web エンジン</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">ライブラリ内の Web 形式のテーマを実行するエンジンを選択します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube エンジン</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">ライブラリ内の YouTube 形式のテーマを実行するエンジンを選択します。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application エンジン</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">ライブラリ内の Application 形式のテーマを実行するエンジンを選択します。</system:String>
+</ResourceDictionary>

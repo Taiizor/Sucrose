@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">サウンド</system:String>
+    <system:String x:Key="Portal.Area.Log">ログ</system:String>
+    <system:String x:Key="Portal.Area.Hook">フック</system:String>
+    <system:String x:Key="Portal.Area.Store">ストア</system:String>
+    <system:String x:Key="Portal.Area.Donate">寄付</system:String>
+    <system:String x:Key="Portal.Area.System">システム</system:String>
+    <system:String x:Key="Portal.Area.Cache">キャッシュ</system:String>
+    <system:String x:Key="Portal.Area.Laptop">ラップトップ</system:String>
+    <system:String x:Key="Portal.Area.Support">サポート</system:String>
+    <system:String x:Key="Portal.Area.Reset">リセット</system:String>
+    <system:String x:Key="Portal.Area.Backup">バックアップ</system:String>
+    <system:String x:Key="Portal.Area.Priority">優先度</system:String>
+    <system:String x:Key="Portal.Area.Engines">エンジン</system:String>
+    <system:String x:Key="Portal.Area.Update">更新</system:String>
+    <system:String x:Key="Portal.Area.Library">ライブラリ</system:String>
+    <system:String x:Key="Portal.Area.Developer">開発者</system:String>
+    <system:String x:Key="Portal.Area.Extensions">拡張</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">システムリソース</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">外観と動作</system:String>
+</ResourceDictionary>

@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">ストア更新</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">表示されるテーマが更新されるまでの期間。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">自動起動</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">ストアからダウンロードしたテーマが自動的に壁紙に設定されるかどうか。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">成人向けコンテンツ</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">ストアでNSFW（安全でないコンテンツ）としてマークされたコンテンツを表示するかどうか。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">削除の確認</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">ライブラリ内のテーマを削除する際に確認を求めるかどうか。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">壊れたテーマ</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">ライブラリ内の壊れたまたは欠落しているテーマを自動的に削除するかどうか。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">注意: 慎重に操作する必要があります。それ以外の場合、データ損失を引き起こす可能性があります。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">自動起動</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">作成されたテーマが自動的に壁紙に設定されるかどうか。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">テーマプレビュー</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">テーマをポイントするとプレビューが表示されるかどうか。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">ストア プレビュー</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">詳細を非表示にする</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">ライブラリ プレビュー</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">詳細を非表示にする</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">テーマのカスタマイズ</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">表示されるテーマの名前や説明をカスタマイズします。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">タイトルの長さ（文字）:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">説明の長さ（文字）:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">適応型レイアウト</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">表示されるテーマのレイアウトや間隔をカスタマイズします。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">余白のサイズ（ピクセル）:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">レイアウトの順序（個）:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">ストア ページング</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">各ストアのページに表示されるテーマの数を設定します。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">ライブラリ ページング</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">各ライブラリのページに表示されるテーマの数を設定します。</system:String>
+</ResourceDictionary>

@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="OtherSettingPage/Portal.OtherSettingPage.JA.xaml" />
+        <ResourceDictionary Source="DonateSettingPage/Portal.DonateSettingPage.JA.xaml" />
+        <ResourceDictionary Source="SystemSettingPage/Portal.SystemSettingPage.JA.xaml" />
+        <ResourceDictionary Source="GeneralSettingPage/Portal.GeneralSettingPage.JA.xaml" />
+        <ResourceDictionary Source="PersonalSettingPage/Portal.PersonalSettingPage.JA.xaml" />
+        <ResourceDictionary Source="WallpaperSettingPage/Portal.WallpaperSettingPage.JA.xaml" />
+        <ResourceDictionary Source="PerformanceSettingPage/Portal.PerformanceSettingPage.JA.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:String x:Key="Portal.SettingPage.Test">Test</system:String>
+</ResourceDictionary>

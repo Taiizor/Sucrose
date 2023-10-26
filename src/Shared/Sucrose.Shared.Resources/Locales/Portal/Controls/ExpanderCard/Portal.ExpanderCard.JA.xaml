@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ExpanderCard.TitleText">タイトル</system:String>
+    <system:String x:Key="Portal.ExpanderCard.DescriptionText">説明</system:String>
+
+    <system:String x:Key="Portal.ExpanderCard.ExpandUpTip">縮小</system:String>
+    <system:String x:Key="Portal.ExpanderCard.ExpandDownTip">拡大</system:String>
+</ResourceDictionary>

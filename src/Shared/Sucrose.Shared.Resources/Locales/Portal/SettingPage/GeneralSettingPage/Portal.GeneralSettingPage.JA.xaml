@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">アプリケーション言語</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">表示言語を選択してください。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">起動</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">壁紙を再生するには、Sucroseがバックグラウンドで実行されている必要があります。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">なし</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">通常</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">優先</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">スケジューラ</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">通知アイコン</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">システムトレイの表示設定。Sucroseは非表示のままで動作します。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">表示</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">非表示</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">システムトレイを閉じたとき、すべてのSucroseアプリを終了する</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">ウィンドウ背景</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">アプリウィンドウの背景をカスタマイズします。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">背景画像を選択</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">背景画像を選択</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">画像ファイル (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">背景の拡大縮小:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">背景の透明度 (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">音量</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">すべての壁紙に適用される音量設定。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">デスクトップにフォーカスがあるときのみ音を再生</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">ライブラリの場所</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">追加したテーマが保存される場所。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">空のフォルダを選択してください</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">場所を移動する際、お待ちください</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">現在のライブラリを新しい場所に移動する</system:String>
+</ResourceDictionary>

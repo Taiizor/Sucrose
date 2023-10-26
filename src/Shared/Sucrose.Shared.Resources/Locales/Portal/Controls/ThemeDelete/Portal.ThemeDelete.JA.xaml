@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeDelete.Title">テーマの削除</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">削除</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Close">閉じる</system:String>
+
+    <system:String x:Key="Portal.ThemeDelete.ThemeTitle">タイトル</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeDescription">説明</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeType">種類</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">GIF</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">著者</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSize">サイズ</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersion">バージョン</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">タグ</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">なし</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreate">作成日</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">不明</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">変更日</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">不明</system:String>
+</ResourceDictionary>

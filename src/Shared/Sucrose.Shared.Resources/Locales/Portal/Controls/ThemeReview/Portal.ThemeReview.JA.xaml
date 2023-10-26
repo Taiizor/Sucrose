@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">テーマのレビュー</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">閉じる</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">タイトル</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">説明</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">種類</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">著者</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">サイズ</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">バージョン</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">タグ</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">なし</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">作成日</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">不明</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">変更日</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">不明</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">テーマのお問い合わせ先</system:String>
+</ResourceDictionary>

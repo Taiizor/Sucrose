@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">パフォーマンス カウンター</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">すべてのパフォーマンス カウンターがバックグラウンドで実行されるかどうか。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">注意: 一部のWebベースのテーマは正しく動作しない場合があり、以下のパフォーマンス設定は機能しない場合があります。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU 使用率</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">CPU 使用率の設定による壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU 使用率 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">メモリ 使用率</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">メモリ 使用率の設定による壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">メモリ 使用率 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">ネットワーク使用</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">ネットワーク使用の設定による壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">ネットワーク アダプタ:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">ネットワーク アダプタのリストはまだ作成されていません</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">アップロード サイズ:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">ダウンロード サイズ:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping 値 (ミリ秒):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">バッテリー</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">ノートパソコンのバッテリー使用中に壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">バッテリー残量 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">バッテリー節約モード</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">ノートパソコンのバッテリー節約モード中に壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">仮想化</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">仮想化アプリケーションが実行中の場合の壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">リモート デスクトップ</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">リモート デスクトップ アプリケーションが実行中の場合の壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">フルスクリーン モード</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">フルスクリーン モードで他のアプリケーションが実行中の場合の壁紙の動作。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">フォーカス モード</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">他のアプリケーションがフォーカスされている場合の壁紙の動作。</system:String>
+</ResourceDictionary>

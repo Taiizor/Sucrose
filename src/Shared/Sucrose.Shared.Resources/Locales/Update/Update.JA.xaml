@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">問題を解決する</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose 更新</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">アップデートをインストール</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose 更新</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">メッセージ</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">閉じる</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">アップデートファイルが宝石のように隠されている瞬間です。現在のバージョンを使用して、楽しい経験をお楽しみいただけます。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">アップデートファイルをダウンロード中に、道に亀裂が入り、この旅行が一時的に終了したことに気付きました。現在のバージョンで旅行を続けて、これらの亀裂が修復されたときにはより強力なアップデートがお待ちしています。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">アプリケーションは、最新のページのようにすでに最新かつ革新的な状態であなたと一緒にいます。いつでも最高で最新のエクスペリエンスを提供するためにここにいます。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">アップデートファイルにアクセスできない夢の扉の前に立っています。ただし、現在のバージョンを使用して夢を楽しむことができます。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">選択したアップデートチャネルは、静かな森のようです。現時点では新しいアップデート情報はここにはありません。静寂が破られると、さらなるものが提供されるでしょう。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">アップデートファイルを抽出しようとする際、深海からの障害に遭遇しました。現在のバージョンで旅行を続けて、海がより穏やかになったときに新しい宝物を見つけるために戻ってきます。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">あなたの接続の弱さは、雲が太陽を隠すようです。雲が晴れたときには、より明るい体験が待っています。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">アプリケーションのアップデートは、海の波が新しい宝物を岸に運ぶかのように、こっそりと進行中です。これらの貴重な新機能は、バックグラウンドであなたのために収集されています。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">アプリのアップデートの星がまだ昇っていない瞬間です。現時点ではアップデート情報はありませんが、すでに存在するバージョンを続けてご利用いただけます。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">アップデートファイルをダウンロード中、空の星が誤った順序で並んでいることがわかりました。現在のバージョンで旅行を続けて、星が正しい位置になったときには、より良いアップデートが提供されるでしょう。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">アップデートファイルのダウンロードがキャンセルされました。道が突然分かれたためです。現在のバージョンで旅行を続け、将来のアップデートに備えてください。新たな始まりはいつでも可能です。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">アップデートファイルの条件は、鍵を開けるには足りないようです。現在のバージョンで旅行を続け、将来のアップデートに備えてください。</system:String>
+</ResourceDictionary>

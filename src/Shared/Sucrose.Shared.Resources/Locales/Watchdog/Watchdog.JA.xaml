@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Watchdog.HelpButton">ヘルプ</system:String>
+    <system:String x:Key="Watchdog.CloseButton">閉じる</system:String>
+    <system:String x:Key="Watchdog.ErrorMessage">予期しないエラーが発生しました:</system:String>
+    <system:String x:Key="Watchdog.ErrorTitle">エラー</system:String>
+    <system:String x:Key="Watchdog.HideButton">非表示</system:String>
+    <system:String x:Key="Watchdog.ShowButton">表示</system:String>
+    <system:String x:Key="Watchdog.StackTrace">スタックトレース:</system:String>
+    <system:String x:Key="Watchdog.WindowTitle">Sucrose Watchdog</system:String>
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">ディスプレイ設定</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">閉じる</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">拡張モード</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">壁紙をアクティブなディスプレイにどのように適用するか。</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">選択したディスプレイのみ</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">ディスプレイ間で拡張</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">すべてのモニター</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">拡張モードを選択します</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">同じ壁紙を複製</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">同じ壁紙を複製モードを選択します</system:String>
+</ResourceDictionary>

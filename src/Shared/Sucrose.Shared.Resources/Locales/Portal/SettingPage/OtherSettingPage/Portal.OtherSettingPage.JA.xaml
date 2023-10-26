@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">SucroseはDiscordとの通信を担当します。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">接続の更新:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">更新間隔 (秒):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">代理人</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">インターネット接続が必要な場合の代理人識別子。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">個人アクセスキー</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">ストアおよびアプリのアップデートをスムーズに使用するために必要です。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">個人アクセスキーを取得方法がわからない場合は、ここをクリックしてください。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">有効な個人アクセスキーを入力してください</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">有効な個人アクセスキーを入力してください</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">更新チャンネル</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">更新プロセスがどのチャンネルを使用して実行されるか。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">更新方法</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">更新プロセスがどの方法で実行されるか。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">ダウンロード帯域幅制限:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">開発者ツール</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebViewとCefSharpエンジンの開発者ツールの表示または非表示。</system:String>
+</ResourceDictionary>
