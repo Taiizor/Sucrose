@@ -2,7 +2,7 @@
 {
     internal static class Tags
     {
-        public static string Join(string[] Tags, string Separator, string Back)
+        public static string Join(string[] Tags, string Separator, bool Lower, string Back)
         {
             if (Tags == null || !Tags.Any())
             {
@@ -10,7 +10,14 @@
             }
             else
             {
-                return string.Join(Separator, Tags.Where(Tag => !string.IsNullOrEmpty(Tag))).ToLowerInvariant();
+                if (Lower)
+                {
+                    return string.Join(Separator, Tags.Where(Tag => !string.IsNullOrEmpty(Tag))).ToLowerInvariant();
+                }
+                else
+                {
+                    return string.Join(Separator, Tags.Where(Tag => !string.IsNullOrEmpty(Tag)));
+                }
             }
         }
     }

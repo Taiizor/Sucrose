@@ -54,7 +54,7 @@ namespace Sucrose.Portal.Views.Controls
 
             ThemeVersionText.Text = $"{Info.Version} ({Info.AppVersion})";
 
-            ThemeTagsText.Text = SSSHT.Join(Info.Tags, ", ", SSRER.GetValue("Portal", "ThemeDelete", "ThemeTagsText"));
+            ThemeTagsText.Text = SSSHT.Join(Info.Tags, ", ", false, SSRER.GetValue("Portal", "ThemeDelete", "ThemeTagsText"));
 
             DateTime CreationTime = Directory.GetCreationTime(Theme);
 

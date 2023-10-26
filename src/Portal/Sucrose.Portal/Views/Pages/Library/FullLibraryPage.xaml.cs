@@ -65,7 +65,7 @@ namespace Sucrose.Portal.Views.Pages.Library
                 {
                     SSTHI Info = SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo));
 
-                    string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, string.Empty);
+                    string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, true, string.Empty);
                     string Description = Info.Description.ToLowerInvariant();
                     string Title = Info.Title.ToLowerInvariant();
 

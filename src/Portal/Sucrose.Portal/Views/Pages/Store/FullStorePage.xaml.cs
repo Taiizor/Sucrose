@@ -208,7 +208,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
                     Title = Info.Title.ToLowerInvariant();
                     string Description = Info.Description.ToLowerInvariant();
-                    string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, string.Empty);
+                    string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, true, string.Empty);
 
                     if (Tags.Contains(Search) || Title.Contains(Search) || Description.Contains(Search))
                     {
