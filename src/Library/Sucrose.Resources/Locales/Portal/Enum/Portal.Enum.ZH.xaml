@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">填充</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">无</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">均匀</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">均匀填充</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">填充</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">无</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">均匀</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">均匀填充</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">关闭</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">暂停</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">继续</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">云母</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">无</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">自动</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">标签页</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">亚克力</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">默认</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">开发版</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">默认</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">压缩</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">可执行</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">工作区</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">显示边界</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">默认</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">通过</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' 包含太多值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">主题针对应用不支持的类型创建</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' 值为空或太长</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' 值为空或太长</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' 文件未找到</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' 值为空或太长</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview' 文件未找到</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">相关文件已加密</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">相关文件实际上不是'.zip'文件</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">'SucroseInfo.json' 文件未找到</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">相关文件未找到</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">无效的'LoopMode'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">'Arguments' 值太长</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">相关文件不是'.zip'扩展名</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' 文件未找到</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">无效的'SystemCpu'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' 文件为空</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">主题是为应用的较高版本创建的</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' 包含无效值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">无效的'SystemBios'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">无效的'SystemDate'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">无效的'SystemAudio'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' 值为空或太长</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' 文件无效</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">无效的'TriggerTime'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">无效的'StretchMode'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">无效的'VolumeLevel'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">无效的'ShuffleMode'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags' 值太短或太长</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">无效的文件</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">'PropertyList' 值为空</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">无效的'SystemMemory'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">无效的'SystemBattery'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">无效的'SystemGraphic'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">无效的'SystemNetwork'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">'Contact' 值不是'Url'或'电子邮件地址'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">无效的文件扩展名</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">'SucroseCompatible.json' 文件为空</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">'SucroseProperties.json' 文件为空</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">无效的'PropertyListener'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">无效的'SystemMotherboard'值</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' 文件无效</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' 文件无效</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">未预见的后果</system:String>
+</ResourceDictionary>

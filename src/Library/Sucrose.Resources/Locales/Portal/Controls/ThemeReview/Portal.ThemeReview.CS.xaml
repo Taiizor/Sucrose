@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">Hodnocení šablony</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">Zavřít</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">Název</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">Popis</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">Typ</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">Autor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">Velikost</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">Verze</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">Štítky</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">Žádné</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">Vytvořeno</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Neznámo</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">Upraveno</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">Neznámo</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">Kontaktní údaj pro šablonu</system:String>
+</ResourceDictionary>

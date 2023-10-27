@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SearchLibraryPage.Title">SearchLibraryPage</system:String>
+
+    <system:String x:Key="Portal.SearchLibraryPage.TitleText">你的图库被蜘蛛网所吞噬</system:String>
+    <system:String x:Key="Portal.SearchLibraryPage.DescriptionText">由于您的壁纸选择太多，没有空间容纳更多壁纸了</system:String>
+</ResourceDictionary>

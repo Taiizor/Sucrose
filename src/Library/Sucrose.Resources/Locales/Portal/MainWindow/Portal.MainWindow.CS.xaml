@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Pomoc</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">O programu</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Zobrazit nápovědu</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Zobrazit informace o programu</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Knihovna</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Obchod</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Témata v knihovně</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Obchod s tématy</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Obecné</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Osobní</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Výkon</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Tapeta</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Systém</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Přispět</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Ostatní</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Zpět</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Nastavení obecných parametrů</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Nastavení osobních preferencí</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Nastavení výkonu</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Nastavení tapety</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Nastavení systému</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Nastavení příspěvků</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Ostatní nastavení</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Nastavení</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Hledat tapetu</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Máte potíže najít to, co hledáte?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Světlý režim</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tmavý režim</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Vytvořit tapetu</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Nastavení zobrazení</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Možnosti příspěvků</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Další možnosti</system:String>
+</ResourceDictionary>

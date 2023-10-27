@@ -1,0 +1,16 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="FullLibraryPage/Portal.FullLibraryPage.ZH.xaml" />
+        <ResourceDictionary Source="EmptyLibraryPage/Portal.EmptyLibraryPage.ZH.xaml" />
+        <ResourceDictionary Source="SearchLibraryPage/Portal.SearchLibraryPage.ZH.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
+
+    <system:String x:Key="Portal.LibraryPage.Import.Successful">成功将主题'{0}'添加到主题库。</system:String>
+    <system:String x:Key="Portal.LibraryPage.Import.Unsuccessful">无法将主题'{0}'添加到主题库。原因：'{1}'。</system:String>
+</ResourceDictionary>

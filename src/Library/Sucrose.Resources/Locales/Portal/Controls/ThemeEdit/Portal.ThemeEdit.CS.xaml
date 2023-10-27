@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">Úprava šablony</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">Zavřít</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">Uložit</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">Název</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Popis</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Autor</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">Kontakt</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Štítky</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argumenty</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Prosím, zadejte platný název</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Prosím, zadejte platný popis</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Prosím, zadejte platné jméno autora</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Prosím, zadejte platný kontaktní údaj</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Prosím, zadejte platné štítky pro šablonu</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Prosím, zadejte platné argumenty aplikace</system:String>
+</ResourceDictionary>

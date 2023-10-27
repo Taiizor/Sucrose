@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Zvuk</system:String>
+    <system:String x:Key="Portal.Area.Log">Záznam</system:String>
+    <system:String x:Key="Portal.Area.Hook">Hák</system:String>
+    <system:String x:Key="Portal.Area.Store">Obchod</system:String>
+    <system:String x:Key="Portal.Area.Donate">Darovat</system:String>
+    <system:String x:Key="Portal.Area.System">Systém</system:String>
+    <system:String x:Key="Portal.Area.Cache">Mezipaměť</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Notebook</system:String>
+    <system:String x:Key="Portal.Area.Support">Podpora</system:String>
+    <system:String x:Key="Portal.Area.Reset">Resetovat</system:String>
+    <system:String x:Key="Portal.Area.Backup">Zálohování</system:String>
+    <system:String x:Key="Portal.Area.Priority">Priorita</system:String>
+    <system:String x:Key="Portal.Area.Engines">Motory</system:String>
+    <system:String x:Key="Portal.Area.Update">Aktualizace</system:String>
+    <system:String x:Key="Portal.Area.Library">Knižnice</system:String>
+    <system:String x:Key="Portal.Area.Developer">Vývojář</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Rozšíření</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Systémové prostředky</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Vzhled a Chování</system:String>
+</ResourceDictionary>

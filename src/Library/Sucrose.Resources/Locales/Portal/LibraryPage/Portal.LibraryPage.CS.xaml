@@ -1,0 +1,16 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="FullLibraryPage/Portal.FullLibraryPage.CS.xaml" />
+        <ResourceDictionary Source="EmptyLibraryPage/Portal.EmptyLibraryPage.CS.xaml" />
+        <ResourceDictionary Source="SearchLibraryPage/Portal.SearchLibraryPage.CS.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
+
+    <system:String x:Key="Portal.LibraryPage.Import.Successful">Téma '{0}' bylo úspěšně přidáno do knihovny.</system:String>
+    <system:String x:Key="Portal.LibraryPage.Import.Unsuccessful">Téma '{0}' se nepodařilo přidat do knihovny. Důvod: '{1}'.</system:String>
+</ResourceDictionary>

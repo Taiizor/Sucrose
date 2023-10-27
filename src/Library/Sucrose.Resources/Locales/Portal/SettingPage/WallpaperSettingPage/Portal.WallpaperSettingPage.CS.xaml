@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Rozmístění na obrazovce</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Změní umístění vašich tapet na obrazovce.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Režim protažení</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Změní režim měřítka na podporovaných tapetách.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Režim smyčky</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Změní režim smyčky na podporovaných tapetách.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Režim zamíchání</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Změní režim zamíchání na podporovaných tapetách.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Přehrávač Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Vyberte doplněk, který bude přehrávat témata ve formátu Gif uložená ve vaší knihovně.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Přehrávač Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Vyberte doplněk, který bude přehrávat témata ve formátu Video uložená ve vaší knihovně.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Url.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Web.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu YouTube.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application Engine</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Application.</system:String>
+</ResourceDictionary>

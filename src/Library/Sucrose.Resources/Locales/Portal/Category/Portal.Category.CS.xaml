@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">Všechny</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">Abstraktní</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Atmosféra</system:String>
+    <system:String x:Key="Portal.Category.Animals">Zvířata</system:String>
+    <system:String x:Key="Portal.Category.Animation">Animace</system:String>
+    <system:String x:Key="Portal.Category.Anime">Anime</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Architektura a Budovy</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Umění a Abstrakce</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Umělecká Díla</system:String>
+    <system:String x:Key="Portal.Category.Bard">Bard</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Černobílá</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Kreslený Film a Komiksy</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Města a Místa</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Oblaka a Nebe</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Barevné Gradienty</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Komiksy</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Digitální Umění</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Dynamické</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Zakouzlené Lesy</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Fantazie</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Film a Televize</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Jídlo a Nápoje</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Galaxie</system:String>
+    <system:String x:Key="Portal.Category.Game">Hra</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Geometrické Vzory</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Svátky a Roční Období</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Horor a Halloween</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">Inspirující Citáty</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Děti a Kreslený Film</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Krajina</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Linková Grafika</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Středověk</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Minimalistické</system:String>
+    <system:String x:Key="Portal.Category.Music">Hudba</system:String>
+    <system:String x:Key="Portal.Category.Nature">Příroda</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Noční Krajiny</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Vzory a Textury</system:String>
+    <system:String x:Key="Portal.Category.Retro">Retro</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Obloha</system:String>
+    <system:String x:Key="Portal.Category.Space">Vesmír</system:String>
+    <system:String x:Key="Portal.Category.Sports">Sport</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Superhrdinové</system:String>
+    <system:String x:Key="Portal.Category.System">Systém</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Hostinec</system:String>
+    <system:String x:Key="Portal.Category.Technology">Technologie</system:String>
+    <system:String x:Key="Portal.Category.Temple">Chrámy</system:String>
+    <system:String x:Key="Portal.Category.Time">Čas</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Pod Vodou a Mořské</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Vozidla</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Retro</system:String>
+    <system:String x:Key="Portal.Category.War">Válka</system:String>
+</ResourceDictionary>

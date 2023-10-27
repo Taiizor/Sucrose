@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">你的图库被蜘蛛网覆盖了</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">壁纸已经被美丽的蜘蛛网替代了</system:String>
+</ResourceDictionary>

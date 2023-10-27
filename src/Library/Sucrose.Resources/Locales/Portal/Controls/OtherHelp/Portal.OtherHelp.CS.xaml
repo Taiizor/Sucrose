@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherHelp.Title">Nápověda</system:String>
+    <system:String x:Key="Portal.OtherHelp.Close">Zavřít</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.WebPage">Webová stránka</system:String>
+    <system:String x:Key="Portal.OtherHelp.WebPage.Description">Oficiální webová stránka Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Documentation">Dokumentace</system:String>
+    <system:String x:Key="Portal.OtherHelp.Documentation.Description">Oficiální dokumentace Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Repository">Zdrojový kód</system:String>
+    <system:String x:Key="Portal.OtherHelp.Repository.Description">Oficiální stránka se zdrojovým kódem Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Discussions">Diskuze</system:String>
+    <system:String x:Key="Portal.OtherHelp.Discussions.Description">Oficiální stránka pro diskuze ohledně Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Report">Nahlásit chybu</system:String>
+    <system:String x:Key="Portal.OtherHelp.Report.Description">Oficiální stránka pro hlášení chyb v Sucrose Wallpaper Engine</system:String>
+</ResourceDictionary>

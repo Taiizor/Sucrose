@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">帮助</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">关于</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">查看帮助</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">关于信息</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">库</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">商店</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">主题库</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">主题商店</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">常规</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">个人</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">性能</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">壁纸</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">系统</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">捐赠</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">其他</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">返回</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">常规设置</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">个人设置</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">性能设置</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">壁纸设置</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">系统设置</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">捐赠设置</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">其他设置</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">设置</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">搜索壁纸</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">有困难找到你需要的吗？</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">明亮主题</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">深色主题</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">创建壁纸</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">显示首选项</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">捐赠选项</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">其他选项</system:String>
+</ResourceDictionary>

@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.BrokenStorePage.Title">BrokenStorePage</system:String>
+
+    <system:String x:Key="Portal.BrokenStorePage.TitleText">互联网之光熄灭的一刻</system:String>
+    <system:String x:Key="Portal.BrokenStorePage.DescriptionText">就像没有星星的夜空一样，这里没有互联网的闪烁</system:String>
+</ResourceDictionary>

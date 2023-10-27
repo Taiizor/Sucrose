@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Název</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Popis</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Více</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Aktualizujte Sucrose, aby bylo možné tuto šablonu použít</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">Hodnocení</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Použít</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Náhled</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Přizpůsobit</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Najít</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Sdílet</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Smazat</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Upravit</system:String>
+</ResourceDictionary>

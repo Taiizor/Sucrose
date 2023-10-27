@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Obchodní Aktualizace</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Určuje, jak často budou seznamy témat v obchodě aktualizovány.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Automatický Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Určuje, zda se stažené téma z obchodu automaticky nastaví jako tapeta.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Nestandardní Obsah</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Určuje, zda se má zobrazovat obsah označený jako NSFW v obchodě.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Potvrzení Smazání</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Určuje, zda se má zobrazit potvrzení při mazání témat z knihovny.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Chybná Témata</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Určuje, zda se mají chybná nebo neúplná témata automaticky mazat z knihovny.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Poznámka: Buďte opatrní, mazání může vést k ztrátě dat.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Automatický Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Určuje, zda se vytvořené téma automaticky nastaví jako tapeta.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Náhled Tématu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Určuje, zda se mají témata zobrazovat jako náhled po najetí myší.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Náhled Obchodu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Skrýt Detaily</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Náhled Knižnice</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skrýt Detaily</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Vlastní Názvy Tématu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Upřesněte názvy nebo popisky zobrazených témat.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Délka Názvu (Znaky):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Délka Popisku (Znaky):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Přizpůsobivé Rozložení</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Upravte rozložení nebo vzdálenost mezi zobrazenými tématy.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Mezera (Pixely):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Pořadí Rozložení (Počet):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Stránkování Obchodu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Nastavuje, kolik témat bude na každé stránce obchodu.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Stránkování Knihovny</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Nastavuje, kolik témat bude na každé stránce vaší knihovny.</system:String>
+</ResourceDictionary>

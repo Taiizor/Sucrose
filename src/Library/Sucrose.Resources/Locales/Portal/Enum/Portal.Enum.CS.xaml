@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Vyplnit</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Žádný</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Rovnoměrný</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Rovnoměrně vyplnit</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Vyplnit</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Žádný</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Rovnoměrný</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Rovnoměrně vyplnit</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Zavřít</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pozastavit</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Pokračovat</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mika</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Žádný</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Automatický</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Kartáčovaný</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akrilový</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Výchozí</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Předběžná verze</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Výchozí</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Kompresovaný</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Spustitelný</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Pracovní plocha</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Ohraničení obrazovky</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Výchozí</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Úspěšný výsledek</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Tagy obsahují příliš mnoho hodnot</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Téma vytvořeno pro typ, který aplikace nepodporuje</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">Hodnota 'Title' je prázdná nebo příliš dlouhá</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Hodnota 'Author' je prázdná nebo příliš dlouhá</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Soubor 'Source' nebyl nalezen</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Hodnota 'Contact' je prázdná nebo příliš dlouhá</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Soubor 'Preview' nebyl nalezen</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Příslušný soubor je zašifrovaný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Příslušný soubor není skutečně soubor ZIP</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Soubor 'SucroseInfo.json' nebyl nalezen</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Příslušný soubor nebyl nalezen</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Neplatný režim 'LoopMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">Hodnota 'Arguments' je příliš dlouhá</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Příslušný soubor není soubor s příponou '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Soubor 'Thumbnail' nebyl nalezen</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Neplatná hodnota 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Soubor 'SucroseInfo.json' je prázdný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Téma vytvořeno pro vyšší verzi aplikace</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Hodnota 'Url' obsahuje neplatnou hodnotu</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Neplatná hodnota 'SystemBios'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Neplatná hodnota 'SystemDate'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Neplatná hodnota 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">Hodnota 'Description' je prázdná nebo příliš dlouhá</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Soubor 'SucroseInfo.json' je neplatný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Neplatná hodnota 'TriggerTime'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Neplatná hodnota 'StretchMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Neplatná hodnota 'VolumeLevel'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Neplatná hodnota 'ShuffleMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Hodnoty 'Tags' jsou příliš krátké nebo příliš dlouhé</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Neplatný soubor</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Hodnota 'PropertyList' je prázdná</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Neplatná hodnota 'SystemMemory'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Neplatná hodnota 'SystemBattery'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Neplatná hodnota 'SystemGraphic'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Neplatná hodnota 'SystemNetwork'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Hodnota 'Contact' není platný URL nebo e-mailová adresa</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Neplatný typ souboru</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Soubor 'SucroseCompatible.json' je prázdný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Soubor 'SucroseProperties.json' je prázdný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Neplatná hodnota 'PropertyListener'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Neplatná hodnota 'SystemMotherboard'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Soubor 'SucroseCompatible.json' je neplatný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Soubor 'SucroseProperties.json' je neplatný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Nepředvídatelné následky</system:String>
+</ResourceDictionary>

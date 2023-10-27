@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Výkonové Čítačky</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Určuje, zda budou všechny výkonové čítačky pracovat na pozadí.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Poznámka: Některá témata typu Web nemusí fungovat správně a žádné z následujících nastavení výkonu nebude fungovat.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Využití CPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití CPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Využití CPU (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Využití Paměti</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití paměti.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Využití Paměti (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Využití Sítě</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití sítě.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Síťový Adaptér:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Seznam síťových adaptérů nebyl dosud vytvořen</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Velikost Nahrávání:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Velikost Stahování:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Baterie</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Určuje, jaký bude výsledek duhovky při použití na baterii v notebooku.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Stav Baterie (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Úsporný Režim</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Určuje, jaký bude výsledek duhovky v energeticky úsporném režimu notebooku.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualizace</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Určuje, jaký bude výsledek duhovky při použití virtualizačních aplikací.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Vzdálená Plocha</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Určuje, jaký bude výsledek duhovky při použití aplikací pro vzdálenou plochu.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Režim Celé Obrazovky</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Určuje, jaký bude výsledek duhovky v režimu celé obrazovky, když běží jakákoli jiná aplikace.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Režim Fókusu</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Určuje, jaký bude výsledek duhovky, když je aktivní jiná aplikace.</system:String>
+</ResourceDictionary>

@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Soubory záznamu</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Spravujte všechny soubory záznamu vytvořené aplikací.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Vytvořit</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Vymazat</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Poznámka: Celková velikost souborů záznamu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Vyprázdnit cache</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Vyčistěte všechny dočasné soubory cache vytvořené aplikací.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Začít čištění</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Poznámka: Celková velikost dočasných souborů cache je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Vyprázdnit obchod</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Vyčistěte všechny soubory obchodu vytvořené aplikací.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Začít čištění</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Poznámka: Celková velikost souborů obchodu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Vyprázdnit knihovnu</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Vyčistěte všechny soubory témat v knihovně nebo ty, které jste vytvořili.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Začít čištění</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Poznámka: Celková velikost témat v knihovně je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Zálohování nastavení</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Spravujte všechny soubory nastavení vytvořené aplikací.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Exportovat</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Importovat</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Poznámka: Při zahájení vybrané akce budou uzavřeny všechny aplikace.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Obnovení nastavení</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Obnovte všechny soubory nastavení vytvořené aplikací na výchozí hodnoty.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Začít obnovu</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Poznámka: Při zahájení obnovy budou uzavřeny všechny aplikace.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Uložit soubor záznamu</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*</system:String>
+</ResourceDictionary>

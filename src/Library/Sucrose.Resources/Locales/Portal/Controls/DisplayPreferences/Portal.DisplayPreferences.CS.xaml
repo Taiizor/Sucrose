@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Nastavení zobrazení</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Zavřít</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Režim roztažení</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Způsob, jakým jsou tapety aplikovány na aktivní obrazovky.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Pouze vybraný monitor</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Roztáhnout mezi monitory</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Všechny monitory</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Vyberte režim roztažení mezi monitory</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Duplikovat stejný tapetový obraz na všech monitorech</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Vyberte režim duplikace stejného tapetu na všech monitorech</system:String>
+</ResourceDictionary>

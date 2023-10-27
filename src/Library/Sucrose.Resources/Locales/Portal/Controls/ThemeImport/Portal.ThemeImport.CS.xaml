@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeImport.Title">Import šablony</system:String>
+    <system:String x:Key="Portal.ThemeImport.Close">Zavřít</system:String>
+
+    <system:String x:Key="Portal.ThemeImport.Info">Informace o šabloně</system:String>
+    <system:String x:Key="Portal.ThemeImport.Type">Typy důvodu</system:String>
+</ResourceDictionary>

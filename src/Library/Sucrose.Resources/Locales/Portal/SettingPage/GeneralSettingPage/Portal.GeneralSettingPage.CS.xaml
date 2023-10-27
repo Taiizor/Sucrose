@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Jazyk Aplikace</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Vyberte jazyk, ve kterém chcete zobrazit aplikaci.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Spouštění Aplikace</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose musí běžet na pozadí, aby mohl hrát tapety na ploše.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Žádné</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normální</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priorita</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Plánovač</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Ikona V Oznámení</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Viditelnost ikony v systémovém oznamovacím prostoru. Sucrose bude nadále běžet v pozadí.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Zobrazit</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Skrýt</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Při uzavření ikony v oznámení zavřít všechny instance Sucrose</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Pozadí Okna</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Používá se k přizpůsobení pozadí okna aplikace.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Vybrat Obrázek Pozadí</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Vyberte obrázek pozadí</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Roztáhnout Pozadí:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Průhlednost Pozadí (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Hlasitost Zvuku</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Hlasitost zvuku pro všechny tapety na ploše.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Přehrávat zvuk pouze při zaměření na plochu</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Místo Knihovny</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Umístění, kde budou uloženy témata přidané do vaší knihovny.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Vyberte prázdný adresář, prosím</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Počkejte prosím, dokud se adresář přesune</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Přesunout vaši stávající knihovnu na nové místo</system:String>
+</ResourceDictionary>

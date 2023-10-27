@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose umožňuje komunikaci s Discordem.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Obnovit spojení:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Doba obnovení (v sekundách):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Internetová Zástupkyně</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Váš identifikátor zástupce v situacích, kdy je vyžadováno připojení k internetu.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Osobní Přístupový Klíč</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Nutné pro bezproblémové použití obchodu a aktualizací aplikace.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Pokud nevíte, jak získat osobní přístupový klíč, klikněte sem.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Prosím zadejte osobní přístupový klíč</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Prosím zadejte platný osobní přístupový klíč</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Kanál Aktualizace</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Kanál, kterým se provádí aktualizace.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Metoda Aktualizace</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Způsob, jakým se provádí aktualizace.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limit Šířky Pásma Stahování:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Vývojářské Nástroje</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Zda se mají zobrazovat vývojářské nástroje pro WebView a CefSharp engine.</system:String>
+</ResourceDictionary>

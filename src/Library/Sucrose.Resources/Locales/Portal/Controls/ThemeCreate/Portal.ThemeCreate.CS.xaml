@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">Vytvoření šablony</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Vytvořit</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Zavřít</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif Šablona</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Vytvořte svou vlastní šablonu typu Gif.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url Šablona</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Vytvořte svou vlastní šablonu typu Url.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web Šablona</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Vytvořte svou vlastní šablonu typu Web.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video Šablona</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Vytvořte svou vlastní šablonu typu Video.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube Šablona</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Vytvořte svou vlastní šablonu typu YouTube.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application Šablona</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Vytvořte svou vlastní šablonu typu Application.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Náhled</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Náhled</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Název</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Popis</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Autor</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Kontakt</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Štítky</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenty</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Zadejte platnou Url adresu</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Vyberte náhledový obrázek</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Vyberte soubor s náhledem</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Zadejte platný název</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Zadejte platný popis</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Zadejte platné jméno autora</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Zadejte platný kontakt</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Zadejte platné štítky pro šablonu</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Zadejte platné argumenty aplikace</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Odstranit</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Přetáhněte sem svůj Gif soubor</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Přetáhněte sem svůj video soubor</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Vybrat náhled</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Vybrat náhledový soubor</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif soubory (*.gif)|*.gif</system:String>
+</ResourceDictionary>

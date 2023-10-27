@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeDelete.Title">Smazání tématu</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">Smazat</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Close">Zavřít</system:String>
+
+    <system:String x:Key="Portal.ThemeDelete.ThemeTitle">Název</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeDescription">Popis</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeType">Typ</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">Autor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSize">Velikost</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersion">Verze</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">Štítky</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">Žádné</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreate">Vytvořeno</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">Neznámo</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">Upraveno</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">Neznámo</system:String>
+</ResourceDictionary>

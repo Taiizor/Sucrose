@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.StoreCard.TitleText">Název</system:String>
+    <system:String x:Key="Portal.StoreCard.DescriptionText">Popis</system:String>
+
+    <system:String x:Key="Portal.StoreCard.VersionTip">Pro použití této šablony aktualizujte Sucrose</system:String>
+
+    <system:String x:Key="Portal.StoreCard.MenuInstall">Instalovat</system:String>
+    <system:String x:Key="Portal.StoreCard.MenuReport">Nahlásit</system:String>
+</ResourceDictionary>

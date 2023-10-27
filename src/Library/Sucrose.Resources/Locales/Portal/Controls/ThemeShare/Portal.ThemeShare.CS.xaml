@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeShare.Title">Sdílení šablony</system:String>
+    <system:String x:Key="Portal.ThemeShare.Close">Zavřít</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeTitle">Název</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeDescription">Popis</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeExport">Exportovat</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">Publikovat v obchodě</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">Kopírovat odkaz</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Uložit soubor se šablonou</system:String>
+</ResourceDictionary>
