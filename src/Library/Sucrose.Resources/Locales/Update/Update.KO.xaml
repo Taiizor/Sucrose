@@ -5,10 +5,10 @@
 >
     <system:String x:Key="Update.HelpText">문제 해결</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">설피로즈 업데이트</system:String>
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose 업데이트</system:String>
     <system:String x:Key="Update.UpdateBox.InstallText">업데이트 설치</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">설피로즈 업데이트</system:String>
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose 업데이트</system:String>
     <system:String x:Key="Update.InfoBox.TextMessage">메시지</system:String>
     <system:String x:Key="Update.InfoBox.CloseText">닫기</system:String>
 
