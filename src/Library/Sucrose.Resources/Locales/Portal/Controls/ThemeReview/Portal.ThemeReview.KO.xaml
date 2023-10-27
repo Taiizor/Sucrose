@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">테마 검토</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">닫기</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">제목</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">설명</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">유형</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">저자</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">크기</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">버전</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">태그</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">없음</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">만든 날짜</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">알 수 없음</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">수정한 날짜</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">알 수 없음</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">테마 연락 주소</system:String>
+</ResourceDictionary>

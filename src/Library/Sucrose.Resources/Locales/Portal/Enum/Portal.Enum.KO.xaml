@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">채우기</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">없음</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">균일하게</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">균일하게 채우기</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">채우기</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">없음</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">균일하게</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">균일하게 채우기</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">닫기</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">일시 정지</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">재개</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">미카</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">없음</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">자동</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">탭식</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">아크릴</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">기본</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">개발자</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">기본</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">압축</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">실행 가능</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">작업 영역</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">화면 경계</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">기본</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">성공</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' 값이 너무 많음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">테마가 지원하지 않는 유형용으로 만들어짐</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' 값이 비어 있거나 너무 김</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' 값이 비어 있거나 너무 김</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' 파일을 찾을 수 없음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' 값이 비어 있거나 너무 김</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview' 파일을 찾을 수 없음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">관련 파일이 암호화됨</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">관련 파일이 실제로 '.zip' 파일이 아님</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">'SucroseInfo.json' 파일을 찾을 수 없음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">관련 파일을 찾을 수 없음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">잘못된 'LoopMode' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">'Arguments' 값이 너무 김</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">관련 파일이 '.zip' 확장자가 아님</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' 파일을 찾을 수 없음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">잘못된 'SystemCpu' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' 파일이 비어 있음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">테마가 더 높은 앱 버전용으로 만들어짐</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' 값이 잘못됨</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">잘못된 'SystemBios' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">잘못된 'SystemDate' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">잘못된 'SystemAudio' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' 값이 비어 있거나 너무 김</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' 파일이 잘못됨</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">잘못된 'TriggerTime' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">잘못된 'StretchMode' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">잘못된 'VolumeLevel' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">잘못된 'ShuffleMode' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags' 값이 너무 짧거나 너무 김</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">잘못된 파일</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">'PropertyList' 값이 비어 있음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">잘못된 'SystemMemory' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">잘못된 'SystemBattery' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">잘못된 'SystemGraphic' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">잘못된 'SystemNetwork' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">'Contact' 값이 'URL' 또는 '이메일 주소'가 아님</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">잘못된 파일 확장자</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">'SucroseCompatible.json' 파일이 비어 있음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">'SucroseProperties.json' 파일이 비어 있음</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">잘못된 'PropertyListener' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">잘못된 'SystemMotherboard' 값</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' 파일이 잘못됨</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' 파일이 잘못됨</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">예상하지 못한 결과</system:String>
+</ResourceDictionary>

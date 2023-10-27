@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SearchStorePage.Title">SearchStorePage</system:String>
+
+    <system:String x:Key="Portal.SearchStorePage.TitleText">찾는 것의 답은 하늘에 있을지도 모릅니다</system:String>
+    <system:String x:Key="Portal.SearchStorePage.DescriptionText">결과가 기대와 다르다면 하늘은 새로운 경험을 제공할 수 있습니다</system:String>
+</ResourceDictionary>

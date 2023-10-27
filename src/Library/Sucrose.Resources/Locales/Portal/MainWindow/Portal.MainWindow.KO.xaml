@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">도움말</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">정보</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">도움말 보기</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">정보 보기</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">라이브러리</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">상점</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">테마 라이브러리</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">테마 상점</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">일반</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">개인</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">성능</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">배경화면</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">시스템</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">기부</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">기타</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">뒤로 가기</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">일반 설정</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">개인 설정</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">성능 설정</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">배경화면 설정</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">시스템 설정</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">기부 설정</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">기타 설정</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">설정</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">배경화면 검색</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">원하는 항목을 찾기 어려우십니까?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">밝은 테마</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">어두운 테마</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">배경화면 생성</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">화면 설정</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">기부 옵션</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">기타 옵션</system:String>
+</ResourceDictionary>

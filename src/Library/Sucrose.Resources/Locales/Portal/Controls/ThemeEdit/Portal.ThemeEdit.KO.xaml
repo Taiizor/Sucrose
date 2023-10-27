@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">테마 편집</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">닫기</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">저장</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">제목</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">설명</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">작성자</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">연락처</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">태그</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">인수</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">유효한 제목을 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">유효한 설명을 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">유효한 작성자 이름을 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">유효한 연락처 주소를 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">유효한 테마 태그를 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">유효한 응용 프로그램 인수를 입력하세요</system:String>
+</ResourceDictionary>

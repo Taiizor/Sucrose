@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">로그 파일</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">앱에서 생성한 모든 로그 파일 관리.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">생성</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">지우기</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">참고: 로그 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">캐시 지우기</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">앱에서 생성한 모든 캐시 파일 지우기.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">지우기 시작</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">참고: 캐시 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">스토어 지우기</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">앱에서 생성한 모든 스토어 파일 지우기.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">지우기 시작</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">참고: 스토어 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">라이브러리 지우기</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">라이브러리에서 찾거나 생성한 모든 테마 파일 지우기.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">지우기 시작</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">참고: 라이브러리의 테마 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">설정 파일</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">앱에서 생성한 모든 설정 파일 관리.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">백업</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">복원</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">참고: 선택한 작업을 시작하면 모든 앱이 닫힙니다.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">설정 초기화</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">앱에서 생성한 모든 설정 파일 초기화.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">초기화 시작</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">참고: 초기화 작업을 시작하면 모든 앱이 닫힙니다.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">로그 파일 저장</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*</system:String>
+</ResourceDictionary>

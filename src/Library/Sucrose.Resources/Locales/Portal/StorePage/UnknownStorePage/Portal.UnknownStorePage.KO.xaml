@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.UnknownStorePage.Title">UnknownStorePage</system:String>
+
+    <system:String x:Key="Portal.UnknownStorePage.TitleText">스토어에서 발생한 미지의 사태를 발견하세요</system:String>
+    <system:String x:Key="Portal.UnknownStorePage.DescriptionText">알려지지 않은 것을 추적하고 스토어에서 발생한 미지의 사태를 밝히는 여정에 나서세요</system:String>
+</ResourceDictionary>

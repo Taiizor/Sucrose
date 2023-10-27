@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.BrokenStorePage.Title">BrokenStorePage</system:String>
+
+    <system:String x:Key="Portal.BrokenStorePage.TitleText">인터넷 불빛이 꺼진 한 순간</system:String>
+    <system:String x:Key="Portal.BrokenStorePage.DescriptionText">별이 없는 하늘처럼 여기에도 인터넷의 빛이 없습니다</system:String>
+</ResourceDictionary>

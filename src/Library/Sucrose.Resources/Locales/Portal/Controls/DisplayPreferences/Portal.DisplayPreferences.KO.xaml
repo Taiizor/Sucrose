@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">디스플레이 환경 설정</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">닫기</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">배치 모드</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">배경화면이 활성화된 화면에 적용되는 방법.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">선택한 화면만</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">화면 확장</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">모든 모니터</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">화면 확장 모드를 선택하세요</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">동일한 배경 화면 복제</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">동일한 배경 화면 복제 모드를 선택하세요</system:String>
+</ResourceDictionary>

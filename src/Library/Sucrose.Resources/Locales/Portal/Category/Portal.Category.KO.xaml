@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">전체</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">추상</system:String>
+    <system:String x:Key="Portal.Category.Ambience">환경</system:String>
+    <system:String x:Key="Portal.Category.Animals">동물</system:String>
+    <system:String x:Key="Portal.Category.Animation">애니메이션</system:String>
+    <system:String x:Key="Portal.Category.Anime">애니메이션</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">건축 및 건물</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">미술 및 추상</system:String>
+    <system:String x:Key="Portal.Category.Artworks">미술 작품</system:String>
+    <system:String x:Key="Portal.Category.Bard">바드</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">흑백</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">만화 및 만화책</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">도시 및 장소</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">구름 및 하늘</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">다채로운 그라데이션</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">만화책</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">디지털 아트</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">동적</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">마법의 숲</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">판타지</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">영화 및 TV</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">음식 및 음료</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">은하</system:String>
+    <system:String x:Key="Portal.Category.Game">게임</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">기하학적 패턴</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">휴일 및 계절</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">공포 및 할로윈</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">영감을 주는 인용구</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">어린이 및 만화</system:String>
+    <system:String x:Key="Portal.Category.Landscape">풍경</system:String>
+    <system:String x:Key="Portal.Category.LineArt">선 그림</system:String>
+    <system:String x:Key="Portal.Category.Medieval">중세</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">미니멀리스트</system:String>
+    <system:String x:Key="Portal.Category.Music">음악</system:String>
+    <system:String x:Key="Portal.Category.Nature">자연</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">야경</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">패턴 및 질감</system:String>
+    <system:String x:Key="Portal.Category.Retro">레트로</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">하늘</system:String>
+    <system:String x:Key="Portal.Category.Space">우주</system:String>
+    <system:String x:Key="Portal.Category.Sports">스포츠</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">슈퍼히어로</system:String>
+    <system:String x:Key="Portal.Category.System">시스템</system:String>
+    <system:String x:Key="Portal.Category.Tavern">주점</system:String>
+    <system:String x:Key="Portal.Category.Technology">기술</system:String>
+    <system:String x:Key="Portal.Category.Temple">신전</system:String>
+    <system:String x:Key="Portal.Category.Time">시간</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">수중 및 해양</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">차량</system:String>
+    <system:String x:Key="Portal.Category.Vintage">빈티지</system:String>
+    <system:String x:Key="Portal.Category.War">전쟁</system:String>
+</ResourceDictionary>

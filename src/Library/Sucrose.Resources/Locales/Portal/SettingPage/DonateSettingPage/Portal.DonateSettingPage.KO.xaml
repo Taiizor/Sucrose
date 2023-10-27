@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">기부 메뉴</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">인터페이스에 표시되는 기부 메뉴의 가시성.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">표시</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">숨기기</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">광고 지원</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">앱 개발을 지원하기 위해 광고를 시청하세요.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">광고 지연 시간 (분):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">팁: 광고는 최소한의 불편함을 유발하지 않도록 표시됩니다.</system:String>
+</ResourceDictionary>

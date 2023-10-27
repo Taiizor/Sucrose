@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose는 Discord와의 통신을 담당합니다.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">연결 갱신:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">갱신 주기 (초):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">인터넷 대리인</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">인터넷 연결이 필요한 상황에서의 대리인 신원입니다.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">개인 액세스 토큰</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">상점 및 앱 업데이트를 원할하게 이용하기 위해 필요합니다.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">개인 액세스 토큰을 어떻게 얻을 수 있는지 모르겠다면 여기를 클릭하세요.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">유효한 개인 액세스 토큰을 입력하십시오</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">유효한 개인 액세스 토큰을 입력하십시오</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">업데이트 채널</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">업데이트 작업이 어느 채널을 통해 수행될지 선택합니다.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">업데이트 방법</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">업데이트 작업이 어떤 방법으로 수행될지 선택합니다.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">다운로드 대역폭 제한:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">개발자 도구</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView 및 CefSharp 엔진을 위한 개발자 도구를 표시할지 여부를 선택합니다.</system:String>
+</ResourceDictionary>

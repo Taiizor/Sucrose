@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">스토어 갱신</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">스토어에 표시되는 테마가 갱신되는 데 걸리는 시간입니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">자동 시작</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">스토어에서 다운로드한 테마를 자동으로 배경화면으로 설정할지 여부입니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">성인 콘텐츠</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">스토어에서 안전하지 않다고 표시된 (NSFW) 콘텐츠를 표시할지 여부입니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">삭제 확인</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">라이브러리에서 테마를 삭제할 때 확인을 요청할지 여부입니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">손상된 테마</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">라이브러리에서 손상된 또는 누락된 테마를 자동으로 삭제할지 여부입니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">참고: 조심스럽게 다룰 필요가 있습니다. 그렇지 않으면 데이터 손실이 발생할 수 있습니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">자동 시작</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">생성된 테마를 자동으로 배경화면으로 설정할지 여부입니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">테마 미리 보기</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">테마 위로 마우스를 가져갈 때 미리 보여질지 여부입니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">스토어 미리 보기</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">세부 정보 숨김</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">라이브러리 미리 보기</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">세부 정보 숨김</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">테마 사용자 정의</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">표시된 테마의 이름 또는 설명을 사용자 정의합니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">제목 길이 (문자):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">설명 길이 (문자):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">적응형 레이아웃</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">표시된 테마의 레이아웃이나 간격을 사용자 정의합니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">여백 간격 (픽셀):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">레이아웃 순서 (개수):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">스토어 페이지</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">각 스토어 페이지에 표시될 테마 수를 설정합니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">라이브러리 페이지</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">라이브러리의 각 페이지에 표시될 테마 수를 설정합니다.</system:String>
+</ResourceDictionary>

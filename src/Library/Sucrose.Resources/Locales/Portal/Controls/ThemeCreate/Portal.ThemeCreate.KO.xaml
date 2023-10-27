@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">테마 생성</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">생성</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">닫기</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif 테마</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Gif 형식의 테마를 만드세요.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url 테마</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Url 형식의 테마를 만드세요.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web 테마</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Web 형식의 테마를 만드세요.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video 테마</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Video 형식의 테마를 만드세요.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube 테마</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">YouTube 형식의 테마를 만드세요.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application 테마</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Application 형식의 테마를 만드세요.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">썸네일</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">미리보기</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">제목</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">설명</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">저자</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">연락처</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">태그</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">인수</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">유효한 Url 주소를 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">썸네일 이미지를 선택하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">미리보기 파일을 선택하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">유효한 제목을 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">유효한 설명을 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">유효한 저자 이름을 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">유효한 연락처 주소를 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">유효한 테마 태그를 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">유효한 애플리케이션 인수를 입력하세요</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">되돌리기</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Gif 파일을 이곳으로 끌어다 놓고 놓으세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">비디오 파일을 이곳으로 끌어다 놓고 놓으세요</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">썸네일 선택</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">이미지 파일 (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">미리보기 파일 선택</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif 파일 (*.gif)|*.gif</system:String>
+</ResourceDictionary>

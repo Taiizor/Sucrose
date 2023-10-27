@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherHelp.Title">도움말</system:String>
+    <system:String x:Key="Portal.OtherHelp.Close">닫기</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.WebPage">웹 페이지</system:String>
+    <system:String x:Key="Portal.OtherHelp.WebPage.Description">Sucrose Wallpaper Engine 공식 웹 페이지</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Documentation">문서</system:String>
+    <system:String x:Key="Portal.OtherHelp.Documentation.Description">Sucrose Wallpaper Engine 공식 문서 페이지</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Repository">소스 코드</system:String>
+    <system:String x:Key="Portal.OtherHelp.Repository.Description">Sucrose Wallpaper Engine 공식 소스 코드 페이지</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Discussions">토론</system:String>
+    <system:String x:Key="Portal.OtherHelp.Discussions.Description">Sucrose Wallpaper Engine 공식 토론 페이지</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Report">버그 신고</system:String>
+    <system:String x:Key="Portal.OtherHelp.Report.Description">Sucrose Wallpaper Engine 공식 버그 신고 페이지</system:String>
+</ResourceDictionary>

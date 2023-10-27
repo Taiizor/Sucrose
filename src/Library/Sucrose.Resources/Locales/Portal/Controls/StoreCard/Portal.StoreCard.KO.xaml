@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.StoreCard.TitleText">제목</system:String>
+    <system:String x:Key="Portal.StoreCard.DescriptionText">설명</system:String>
+
+    <system:String x:Key="Portal.StoreCard.VersionTip">이 테마를 사용하려면 Sucrose를 업데이트하세요</system:String>
+
+    <system:String x:Key="Portal.StoreCard.MenuInstall">설치</system:String>
+    <system:String x:Key="Portal.StoreCard.MenuReport">신고</system:String>
+</ResourceDictionary>

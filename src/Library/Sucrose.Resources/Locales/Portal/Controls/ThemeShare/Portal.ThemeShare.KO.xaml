@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeShare.Title">테마 공유</system:String>
+    <system:String x:Key="Portal.ThemeShare.Close">닫기</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeTitle">제목</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeDescription">설명</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeExport">내보내기</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">스토어에 게시</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">링크 복사</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">테마 파일 저장</system:String>
+</ResourceDictionary>

@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">성능 카운터</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">모든 성능 카운터가 백그라운드에서 작동할지 여부.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">참고: 일부 웹 기반 테마는 제대로 작동하지 않을 수 있으며 다음 성능 설정 중 어느 하나도 작동하지 않을 것입니다.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU 사용률</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">CPU 사용률 설정에 따라 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU 사용률 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">메모리 사용량</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">메모리 사용 설정에 따라 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">메모리 사용률 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">네트워크 사용량</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">네트워크 사용 설정에 따라 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">네트워크 어댑터:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">네트워크 어댑터 목록이 아직 생성되지 않았습니다.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">업로드 크기:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">다운로드 크기:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping 값 (밀리초):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">배터리 전원</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">노트북 배터리 전원을 사용하는 동안 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">배터리 상태 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">배터리 절약 모드</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">노트북 배터리 절약 모드에서 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">가상화</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">가상화 응용 프로그램이 실행되는 동안 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">원격 데스크톱</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">원격 데스크톱 응용 프로그램이 실행되는 동안 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">전체 화면 모드</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">전체 화면에서 다른 어떤 애플리케이션이 실행 중일 때 배경화면이 어떻게 작동할지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">포커스 모드</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">다른 어플리케이션이 활성화되어 있는 동안 배경화면 행동에 대한 설정입니다.</system:String>
+</ResourceDictionary>

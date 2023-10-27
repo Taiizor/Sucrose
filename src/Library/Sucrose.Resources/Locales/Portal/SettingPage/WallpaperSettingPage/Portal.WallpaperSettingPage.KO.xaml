@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">화면 레이아웃</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">바탕 화면 배치를 변경합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">크기 맞추기 모드</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">지원되는 바탕 화면에서 크기 맞추기를 변경합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">반복 모드</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">지원되는 바탕 화면에서 반복 모드를 변경합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">섞기 모드</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">지원되는 바탕 화면에서 섞기 모드를 변경합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif 플레이어</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">라이브러리에서 사용할 Gif 테마 플레이어를 선택합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video 플레이어</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">라이브러리에서 사용할 Video 테마 플레이어를 선택합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url 엔진</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">라이브러리에서 사용할 Url 테마 엔진을 선택합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web 엔진</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">라이브러리에서 사용할 Web 테마 엔진을 선택합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube 엔진</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">라이브러리에서 사용할 YouTube 테마 엔진을 선택합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application 엔진</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">라이브러리에서 사용할 Application 테마 엔진을 선택합니다.</system:String>
+</ResourceDictionary>

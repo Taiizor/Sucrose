@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeDelete.Title">테마 삭제</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">삭제</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Close">닫기</system:String>
+
+    <system:String x:Key="Portal.ThemeDelete.ThemeTitle">제목</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeDescription">설명</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeType">유형</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">저자</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSize">크기</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersion">버전</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">태그</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">없음</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreate">만든 날짜</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">알 수 없음</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">수정한 날짜</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">알 수 없음</system:String>
+</ResourceDictionary>
