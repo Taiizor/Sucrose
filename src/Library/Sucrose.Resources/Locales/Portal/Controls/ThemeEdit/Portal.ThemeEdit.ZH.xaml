@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">主题编辑</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">关闭</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">保存</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">标题</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">描述</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">作者</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">联系方式</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">标签</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">参数</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">请输入有效的标题</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">请输入有效的描述</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">请输入有效的作者姓名</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">请输入有效的联系方式</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">请输入有效的主题标签</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">请输入有效的应用程序参数</system:String>
+</ResourceDictionary>

@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">应用程序语言</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">选择您想要查看应用程序的语言。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">应用程序启动</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">为了播放壁纸，Sucrose需要在启动时在后台运行。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">无</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">普通</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">优先</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">计划任务</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">通知图标</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">系统托盘的可见性。Sucrose将继续以隐藏的方式运行。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">显示</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">隐藏</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">关闭系统托盘时关闭所有 Sucrose 应用程序</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">窗口背景</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">用于自定义应用程序窗口背景。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">选择背景图像</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">选择一个背景图像</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">图像文件 (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">背景缩放：</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">背景不透明度 (%)：</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">音量</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">适用于所有壁纸的音量设置。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">仅在桌面聚焦时播放声音</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">个人库位置</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">存储您添加到库中的主题的位置。</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">请选择一个空文件夹</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">请稍等，正在移动位置</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">将您的现有库移动到新位置</system:String>
+</ResourceDictionary>

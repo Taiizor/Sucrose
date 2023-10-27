@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">性能计数器</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">所有性能计数器是否在后台运行。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">注意：某些Web类型的主题可能无法正常工作，下面的性能设置将不起作用。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU使用率</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">根据您的CPU使用设置，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU使用率 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">内存使用</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">根据您的内存使用设置，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">内存使用率 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">网络使用</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">根据您的网络使用设置，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">网络适配器:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">尚未创建网络适配器列表</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">上传速度:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">下载速度:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping时间 (毫秒):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">电池电量</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">当笔记本电脑在电池电量状态下运行时，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">电池电量 (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">电池节能模式</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">当笔记本电脑在电池节能模式下运行时，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">虚拟化</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">当虚拟化应用程序运行时，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">远程桌面</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">当远程桌面应用程序运行时，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">全屏模式</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">当任何应用程序在全屏模式下运行时，将影响壁纸。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">焦点模式</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">当您的焦点在其他任何应用程序上时，将影响壁纸。</system:String>
+</ResourceDictionary>

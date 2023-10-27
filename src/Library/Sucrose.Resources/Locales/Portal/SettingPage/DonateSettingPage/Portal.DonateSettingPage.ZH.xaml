@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">捐赠菜单</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">界面上捐赠菜单的可见性。</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">显示</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">隐藏</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">广告支持</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">通过观看广告来支持应用程序的开发。</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">广告间隔（分钟）：</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">提示：广告将以尽量减少打扰您的方式显示。</system:String>
+</ResourceDictionary>

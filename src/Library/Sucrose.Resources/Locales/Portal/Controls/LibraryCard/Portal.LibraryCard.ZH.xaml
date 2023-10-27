@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">标题</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">描述</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">更多</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">升级 Sucrose 以使用此主题</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">查看</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">使用</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">预览</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">自定义</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">查找</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">分享</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">删除</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">编辑</system:String>
+</ResourceDictionary>

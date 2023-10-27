@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherHelp.Title">帮助</system:String>
+    <system:String x:Key="Portal.OtherHelp.Close">关闭</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.WebPage">网站</system:String>
+    <system:String x:Key="Portal.OtherHelp.WebPage.Description">Sucrose Wallpaper Engine 官方网站</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Documentation">文档</system:String>
+    <system:String x:Key="Portal.OtherHelp.Documentation.Description">Sucrose Wallpaper Engine 官方文档页面</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Repository">源代码</system:String>
+    <system:String x:Key="Portal.OtherHelp.Repository.Description">Sucrose Wallpaper Engine 官方源代码页面</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Discussions">讨论</system:String>
+    <system:String x:Key="Portal.OtherHelp.Discussions.Description">Sucrose Wallpaper Engine 官方讨论页面</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Report">报告问题</system:String>
+    <system:String x:Key="Portal.OtherHelp.Report.Description">Sucrose Wallpaper Engine 官方问题报告页面</system:String>
+</ResourceDictionary>

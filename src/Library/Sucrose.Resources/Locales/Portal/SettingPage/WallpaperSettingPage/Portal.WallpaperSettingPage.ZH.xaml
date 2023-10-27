@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">屏幕布局</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">更改壁纸在屏幕上的布局。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">拉伸模式</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">更改支持的壁纸的缩放方式。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">循环模式</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">更改支持的壁纸的循环方式。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">随机播放模式</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">更改支持的壁纸的随机播放方式。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif播放器</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">选择要播放库中的Gif主题的插件。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video播放器</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">选择要播放库中的Video主题的插件。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url播放器</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">选择要运行库中的Url主题的引擎。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web播放器</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">选择要运行库中的Web主题的引擎。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube播放器</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">选择要运行库中的YouTube主题的引擎。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application播放器</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">选择要运行库中的Application主题的引擎。</system:String>
+</ResourceDictionary>

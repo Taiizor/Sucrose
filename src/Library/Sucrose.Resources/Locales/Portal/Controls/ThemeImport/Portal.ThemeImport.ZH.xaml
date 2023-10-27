@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeImport.Title">主题导入</system:String>
+    <system:String x:Key="Portal.ThemeImport.Close">关闭</system:String>
+
+    <system:String x:Key="Portal.ThemeImport.Info">主题信息</system:String>
+    <system:String x:Key="Portal.ThemeImport.Type">原因说明</system:String>
+</ResourceDictionary>

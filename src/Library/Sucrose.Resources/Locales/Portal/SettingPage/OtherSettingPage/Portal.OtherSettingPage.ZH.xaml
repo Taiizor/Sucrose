@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord钩子</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose与Discord之间的通信。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">刷新连接:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">刷新间隔 (秒):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">网络代理</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">您在需要互联网连接的情况下使用的代理标识。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">个人访问令牌</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">用于无缝使用商店和应用程序更新所需的密钥。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">如果您不知道如何获取个人访问令牌，请单击此处。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">请输入个人访问令牌</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">请输入有效的个人访问令牌</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">更新渠道</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">更新操作将使用哪个渠道进行。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">更新方法</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">更新操作将使用哪种方法进行。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">下载带宽限制:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">开发工具</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView和CefSharp引擎的开发工具是否可见。</system:String>
+</ResourceDictionary>

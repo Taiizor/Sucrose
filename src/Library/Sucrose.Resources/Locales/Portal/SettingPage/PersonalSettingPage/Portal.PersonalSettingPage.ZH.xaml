@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">商店刷新</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">商店列表中的主题刷新频率。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">自动启动</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">下载的主题是否自动设置为壁纸。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">不安全内容</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">是否显示在商店中标记为不安全 (NSFW) 的内容。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">删除确认</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">在删除库中的主题时是否要求确认。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">删除损坏主题</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">是否自动删除库中的损坏或缺失的主题。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">注意：请谨慎操作，否则可能会导致数据丢失。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">自动启动</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">创建的主题是否自动设置为壁纸。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">主题预览</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">鼠标悬停在主题上时是否显示预览。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">商店预览</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">隐藏详细信息</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">库预览</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">隐藏详细信息</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">主题自定义</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">自定义显示的主题名称或描述。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">标题长度 (字符):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">描述长度 (字符):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">自适应布局</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">自定义主题的布局或间距。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">间距距离 (像素):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">布局顺序 (数量):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">商店分页</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">为商店中的每个页面设置主题数量。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">库分页</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">为库中的每个页面设置主题数量。</system:String>
+</ResourceDictionary>

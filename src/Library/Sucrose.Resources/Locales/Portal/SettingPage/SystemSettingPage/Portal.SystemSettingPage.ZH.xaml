@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">日志文件</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">管理应用程序创建的所有日志文件。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">创建</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">清除</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">注意：所有日志文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">清除缓存</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">清除应用程序创建的所有缓存文件。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">开始清理</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">注意：所有缓存文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">清除商店</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">清除应用程序创建的所有商店文件。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">开始清理</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">注意：所有商店文件的总大小为 {0}。开始清除时，所有应用程序都将关闭。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">清除库</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">清除库中的所有主题文件，包括您创建或添加的主题。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">开始清理</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">注意：所有库中的主题总大小为 {0}。开始清除时，所有应用程序都将关闭。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">设置文件</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">管理应用程序创建的所有设置文件。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">备份</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">还原</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">注意：选择的操作开始时，所有应用程序都将关闭。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">重置设置</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">重置应用程序创建的所有设置文件。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">开始重置</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">注意：开始重置时，所有应用程序都将关闭。</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">保存日志文件</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*</system:String>
+</ResourceDictionary>

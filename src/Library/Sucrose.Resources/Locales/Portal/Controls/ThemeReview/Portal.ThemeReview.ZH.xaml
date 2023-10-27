@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">主题审查</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">关闭</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">标题</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">描述</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">类型</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">作者</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">大小</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">版本</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">标签</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">无</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">创建日期</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">未知</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">修改日期</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">未知</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">主题联系地址</system:String>
+</ResourceDictionary>

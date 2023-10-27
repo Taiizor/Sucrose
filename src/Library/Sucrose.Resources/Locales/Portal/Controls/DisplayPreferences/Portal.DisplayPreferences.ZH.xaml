@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">显示首选项</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">关闭</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">布局模式</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">如何应用壁纸到活动屏幕。</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">仅选定的屏幕</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">扩展跨屏</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">所有显示器</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">选择扩展跨屏模式</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">复制相同的壁纸</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">选择复制相同的壁纸模式</system:String>
+</ResourceDictionary>

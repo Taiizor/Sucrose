@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="OtherSettingPage/Portal.OtherSettingPage.ZH.xaml" />
+        <ResourceDictionary Source="DonateSettingPage/Portal.DonateSettingPage.ZH.xaml" />
+        <ResourceDictionary Source="SystemSettingPage/Portal.SystemSettingPage.ZH.xaml" />
+        <ResourceDictionary Source="GeneralSettingPage/Portal.GeneralSettingPage.ZH.xaml" />
+        <ResourceDictionary Source="PersonalSettingPage/Portal.PersonalSettingPage.ZH.xaml" />
+        <ResourceDictionary Source="WallpaperSettingPage/Portal.WallpaperSettingPage.ZH.xaml" />
+        <ResourceDictionary Source="PerformanceSettingPage/Portal.PerformanceSettingPage.ZH.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">主题创建</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">创建</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">关闭</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif 主题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">创建您自己的 Gif 主题。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url 主题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">创建您自己的 Url 主题。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web 主题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">创建您自己的 Web 主题。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">视频主题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">创建您自己的 Video 主题。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube 主题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">创建您自己的 YouTube 主题。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application主题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">创建您自己的 Application 主题。</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">封面</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">预览</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">标题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">描述</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">作者</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">联系方式</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">标签</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">参数</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">请输入有效的 url 地址</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">请选择一张封面图片</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">请选择一个预览文件</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">请输入有效的标题</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">请输入有效的描述</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">请输入有效的作者姓名</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">请输入有效的联系方式</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">请输入有效的主题标签</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">请输入有效的应用程序参数</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">撤销</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">将您的 Gif 文件拖放到这里</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">将您的视频文件拖放到这里</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">选择封面图片</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">图像文件 (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">选择预览文件</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif 文件 (*.gif)|*.gif</system:String>
+</ResourceDictionary>
