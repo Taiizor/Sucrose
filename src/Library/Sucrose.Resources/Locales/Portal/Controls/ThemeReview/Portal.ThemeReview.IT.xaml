@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">Recensione Tema</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">Chiudi</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">Titolo</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">Descrizione</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">Tipo</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">Autore</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">Dimensione</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">Versione</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">Tag</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">Nessuno</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">Creazione</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Sconosciuto</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">Modifica</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">Sconosciuto</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">Indirizzo di Contatto del Tema</system:String>
+</ResourceDictionary>

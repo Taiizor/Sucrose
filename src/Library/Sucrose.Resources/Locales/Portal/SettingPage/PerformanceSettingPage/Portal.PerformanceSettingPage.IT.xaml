@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Contatori di Prestazioni</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Se i contatori di prestazioni devono funzionare in background o meno.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Alcuni temi di tipo web potrebbero non funzionare correttamente e nessuna delle seguenti impostazioni di prestazioni avrà effetto.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Utilizzo della CPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Cosa dovrebbe accadere al wallpaper in base alle tue impostazioni di utilizzo della CPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Utilizzo della CPU (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Utilizzo della Memoria</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Cosa dovrebbe accadere al wallpaper in base alle tue impostazioni di utilizzo della memoria.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Utilizzo della Memoria (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Utilizzo della Rete</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Cosa dovrebbe accadere al wallpaper in base alle tue impostazioni di utilizzo della rete.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Adattatore di Rete:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">La lista degli adattatori di rete non è stata ancora creata</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Dimensione di Upload:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Dimensione di Download:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Valore del Ping (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Stato della Batteria</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Cosa dovrebbe accadere al wallpaper quando si utilizza un laptop con alimentazione a batteria.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Stato della Batteria (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Risparmio Batteria</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Cosa dovrebbe accadere al wallpaper quando si attiva la modalità risparmio batteria su un laptop.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualizzazione</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Cosa dovrebbe accadere al wallpaper quando si utilizzano applicazioni di virtualizzazione.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Desktop Remoto</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Cosa dovrebbe accadere al wallpaper quando si utilizzano applicazioni di desktop remoto.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Modalità Schermo Intero</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Cosa dovrebbe accadere al wallpaper quando qualsiasi applicazione è in modalità schermo intero.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Modalità Focus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Cosa dovrebbe accadere al wallpaper quando c'è un'altra applicazione in primo piano.</system:String>
+</ResourceDictionary>

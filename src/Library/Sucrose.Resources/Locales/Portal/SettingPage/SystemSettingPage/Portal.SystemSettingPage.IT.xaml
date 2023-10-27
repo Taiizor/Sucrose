@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">File di registro temporanei</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Gestisci tutti i file di registro temporanei creati dall'applicazione.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Crea</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Pulisci</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Nota: Lo spazio totale occupato dai file di registro è di {0}. Tutte le applicazioni verranno chiuse quando verrà effettuata la pulizia.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Pulisci Cache</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Elimina tutti i file di cache temporanei creati dall'applicazione.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Inizia la pulizia</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Nota: Lo spazio totale occupato dalla cache è di {0}. Tutte le applicazioni verranno chiuse quando verrà effettuata la pulizia.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Pulisci Store</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Elimina tutti i file di store temporanei creati dall'applicazione.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Inizia la pulizia</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Nota: Lo spazio totale occupato dai file di store è di {0}. Tutte le applicazioni verranno chiuse quando verrà effettuata la pulizia.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Pulisci Libreria</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Elimina tutti i file di tema presenti nella tua libreria o creati da te.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Inizia la pulizia</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Nota: Lo spazio totale occupato dai temi nella tua libreria è di {0}. Tutte le applicazioni verranno chiuse quando verrà effettuata la pulizia.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">File di backup delle impostazioni</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Gestisci tutti i file di backup delle impostazioni creati dall'applicazione.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Esegui il backup</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Ripristina</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Nota: Tutte le applicazioni verranno chiuse quando verrà eseguito l'operazione selezionata.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Ripristina le impostazioni</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Ripristina tutte le impostazioni create dall'applicazione.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Inizia il ripristino</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Nota: Tutte le applicazioni verranno chiuse quando verrà eseguito il ripristino.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Salva il file di registro</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">File ZIP (*.zip)|*.zip|Tutti i file (*.*)|*.*</system:String>
+</ResourceDictionary>

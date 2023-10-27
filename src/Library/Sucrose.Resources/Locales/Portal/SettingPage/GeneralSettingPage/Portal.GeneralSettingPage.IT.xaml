@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Lingua dell'Applicazione</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Seleziona la lingua in cui desideri visualizzare l'applicazione.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Avvio dell'Applicazione</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose deve essere in esecuzione in background per riprodurre lo sfondo del desktop.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Nessuno</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normale</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priorità</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Schedulatore</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Icona di Notifica</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Visibilità nell'area delle notifiche. Sucrose continuerà a funzionare in background in modo discreto.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Visibile</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Invisibile</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">All'uscita dall'area delle notifiche, chiudi tutte le app di Sucrose</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Sfondo della Finestra</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Utilizzato per personalizzare lo sfondo della finestra dell'applicazione.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Seleziona Sfondo</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Seleziona un'immagine di sfondo</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">File Immagine (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Estensione Sfondo:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Opacità Sfondo (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Volume dell'Audio</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Volume audio globale per tutti gli sfondi del desktop.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Riproduci l'audio solo quando il desktop è in primo piano</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Percorso della Libreria Privata</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Posizione in cui verranno salvati i temi aggiunti alla tua libreria.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Seleziona una cartella vuota</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Attendi mentre il percorso viene modificato</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Sposta la tua libreria esistente in una nuova posizione</system:String>
+</ResourceDictionary>

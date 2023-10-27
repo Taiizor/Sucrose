@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Guida</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Informazioni</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Visualizza Guida</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Visualizza Informazioni</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Libreria</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Negozio</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Libreria dei Temi</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Negozio dei Temi</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Generale</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Personale</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Prestazioni</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Sfondo</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Sistema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Dona</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Altro</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Torna Indietro</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Impostazioni Generali</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Impostazioni Personali</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Impostazioni delle Prestazioni</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Impostazioni dello Sfondo</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Impostazioni del Sistema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Impostazioni delle Donazioni</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Altre Impostazioni</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Impostazioni</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Cerca uno Sfondo</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Hai difficoltà a trovare quello che ti serve?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Tema Chiara</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tema Scura</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Crea Sfondo</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferenze dello Schermo</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Opzioni delle Donazioni</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Altre Opzioni</system:String>
+</ResourceDictionary>

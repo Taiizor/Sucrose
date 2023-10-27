@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Titolo</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Descrizione</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Ulteriori informazioni</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Aggiorna Sucrose per utilizzare questo tema</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">Recensione</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Usa</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Anteprima</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Personalizza</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Trova</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Condividi</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Elimina</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Modifica</system:String>
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">Modifica Tema</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">Chiudi</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">Salva</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">Titolo</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Descrizione</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Autore</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">Contatto</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Tag</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argomenti</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Inserisci un titolo valido</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Inserisci una descrizione valida</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Inserisci un nome di autore valido</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Inserisci un indirizzo di contatto valido</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Inserisci dei tag validi per il tema</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Inserisci argomenti validi per l'applicazione</system:String>
+</ResourceDictionary>

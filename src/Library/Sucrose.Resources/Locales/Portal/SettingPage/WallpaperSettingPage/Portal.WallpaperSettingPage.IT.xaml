@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Layout dello schermo</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Modifica il layout dei tuoi sfondi sullo schermo.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Metodo di ridimensionamento</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Modifica il modo in cui vengono ridimensionati gli sfondi supportati.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Modalità di riproduzione in loop</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Modifica la modalità di riproduzione in loop degli sfondi supportati.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Modalità di riproduzione casuale</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Modifica la modalità di riproduzione casuale degli sfondi supportati.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Plugin per Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Seleziona il plugin per la riproduzione dei temi di tipo Gif nella tua libreria.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Plugin per Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Seleziona il plugin per la riproduzione dei temi di tipo Video nella tua libreria.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Motore Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Seleziona il motore per l'esecuzione dei temi di tipo Url nella tua libreria.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Motore Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Seleziona il motore per l'esecuzione dei temi di tipo Web nella tua libreria.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Motore YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Seleziona il motore per l'esecuzione dei temi di tipo YouTube nella tua libreria.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Motore Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Seleziona il motore per l'esecuzione dei temi di tipo Application nella tua libreria.</system:String>
+</ResourceDictionary>

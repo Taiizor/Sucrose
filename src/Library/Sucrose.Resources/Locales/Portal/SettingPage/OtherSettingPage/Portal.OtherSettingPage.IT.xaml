@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose facilita la comunicazione con Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Aggiornamento Connessione:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Intervallo di Aggiornamento (secondi):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Rappresentante di Rete</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">La tua identità di rappresentante di rete per situazioni che richiedono una connessione a Internet.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Token di Accesso Personale</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Necessario per l'utilizzo senza problemi del negozio e degli aggiornamenti dell'applicazione.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Fai clic qui se non sai come ottenere il token di accesso personale.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Inserisci un token di accesso personale</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Inserisci un token di accesso personale valido</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Canale di Aggiornamento</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Indica il canale tramite il quale verranno effettuati gli aggiornamenti.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Metodo di Aggiornamento</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Indica il metodo di aggiornamento da utilizzare.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limite di Larghezza di Banda per il Download:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Strumenti di Sviluppo</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Mostra o nasconde gli strumenti di sviluppo per il motore WebView e CefSharp.</system:String>
+</ResourceDictionary>
