@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Налаштувати шпалери</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Створити журнал</system:String>
+    <system:String x:Key="Launcher.ExitText">Вихід</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Повідомити про проблему</system:String>
+    <system:String x:Key="Launcher.OpenText">Відкрити Sucrose</system:String>
+    <system:String x:Key="Launcher.ReportText">Повідомлення про помилку</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Діагностика Sucrose</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP-файли (*.zip)|*.zip|Усі файли (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Зберегти журнал</system:String>
+    <system:String x:Key="Launcher.SettingText">Налаштування</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Змінити шпалери</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Закрити шпалери</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Відкрити шпалери</system:String>
+    <system:String x:Key="Launcher.WallStartText">Запустити шпалери</system:String>
+    <system:String x:Key="Launcher.WallStopText">Зупинити шпалери</system:String>
+    <system:String x:Key="Launcher.UpdateText">Перевірити оновлення</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Оновлення готове</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Перевірка оновлень</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Процес оновлення {0}</system:String>
+</ResourceDictionary>

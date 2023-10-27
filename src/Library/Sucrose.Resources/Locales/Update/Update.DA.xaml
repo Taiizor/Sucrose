@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">Løs problemet</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose Opdatering</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Installer opdateringen</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Opdatering</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Besked</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Luk</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Vi befinder os i øjeblikket i øjeblikket, hvor opdateringsfiler er skjult som en tabt juvel. Du kan stadig nyde oplevelsen med den nuværende version.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Vi opdagede en revne i vejen, mens vi prøvede at downloade opdateringsfilen, og denne rejse er for øjeblikket afbrudt. Du kan fortsætte din rejse med den nuværende version, da disse revner vil blive repareret, og en stærkere opdatering venter på dig.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">Programmet er allerede med dig i sin nyeste og mest innovative form, som de nyeste sider i en bog. Vi er her for at give dig den bedst mulige og mest opdaterede oplevelse til enhver tid.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Vi står på tærsklen til opdateringsfiler, der ikke kan nås som en drøm. Men du kan stadig fortsætte med at leve din drøm med den nuværende version.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Den valgte opdateringskanal er stille som en skov. Der er i øjeblikket ingen nye opdateringsoplysninger tilgængelige her. Fortsæt din rejse med den nuværende version, for når stilheden brydes, vil vi give dig mere.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Da vi forsøgte at udpakke opdateringsfilen, stødte vi på en forhindring fra dybhavet. Indtil havet er roligt igen, vil du kunne finde nye skatte, når du vender tilbage med den nuværende version.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Din forbindelses svaghed er som skyer, der dækker solen. Når skyerne er fordrevet, venter en lysere oplevelse på dig.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Opdateringen af programmet skrider snigende frem som nye skatte bragt til kysten af havets bølger. Disse værdifulde forbedringer indsamles i baggrunden for dig.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Vi oplever øjeblikket et tidspunkt, hvor opdateringsstjernen endnu ikke er steget. Der er i øjeblikket ingen opdateringsoplysninger tilgængelige, men du kan stadig fortsætte med at bruge den nuværende version.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Da vi forsøgte at downloade opdateringsfilen, opdagede vi, at stjernerne på himlen var i en forkert rækkefølge. Indtil stjernerne er på linje, kan du fortsætte med din nuværende version, for når de er korrekt justeret, vil vi give dig en bedre opdatering.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Download af opdateringsfilen blev afbrudt, da vores veje pludselig skiltes. Fortsæt din rejse med den nuværende version og vær klar til fremtidige opdateringer, fordi en ny begyndelse altid er mulig.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Betingelserne for opdateringsfilerne ser ud til at mangle nøglen til at låse op. Indtil videre kan du fortsætte din rejse med den nuværende version og være klar til fremtidige opdateringer.</system:String>
+</ResourceDictionary>

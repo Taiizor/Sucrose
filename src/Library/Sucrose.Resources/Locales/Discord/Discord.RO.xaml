@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Răsfoiește</system:String>
+    <system:String x:Key="Discord.Details">Motor de Fundal</system:String>
+    <system:String x:Key="Discord.DownloadButton">Descarcă</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Puterea Înghețatei de Banană</system:String>
+    <system:String x:Key="Discord.LargestText1">Monstrul Zâmbitor cu Pălărie</system:String>
+    <system:String x:Key="Discord.LargestText2">Privighetoarele Care Înnoadă Norii</system:String>
+    <system:String x:Key="Discord.LargestText3">Aventurile Secrete Ale Pinguinilor Cursă</system:String>
+    <system:String x:Key="Discord.LargestText4">Iepurașii Pierduți în Câmpul de Margarete</system:String>
+    <system:String x:Key="Discord.LargestText5">Florile Vântului Care Cântă</system:String>
+    <system:String x:Key="Discord.SmallestText0">Urmă Misterioasă</system:String>
+    <system:String x:Key="Discord.SmallestText1">Peștii Balon Zburători</system:String>
+    <system:String x:Key="Discord.SmallestText2">Florile Care Râd în Hohote</system:String>
+    <system:String x:Key="Discord.SmallestText3">Norii de Zahăr de Pufoșenie</system:String>
+    <system:String x:Key="Discord.SmallestText4">Dragonii Pizza Înghețată</system:String>
+    <system:String x:Key="Discord.SmallestText5">Pirații Ciuperci Strălucitori</system:String>
+    <system:String x:Key="Discord.StatementText0">Un Univers Plin de Haos</system:String>
+    <system:String x:Key="Discord.StatementText1">În Inima Aventurilor Infinite</system:String>
+    <system:String x:Key="Discord.StatementText2">O Lume Ciudată și Magică</system:String>
+    <system:String x:Key="Discord.StatementText3">Care Își Încalcă Limitele Imaginației</system:String>
+    <system:String x:Key="Discord.StatementText4">O Realitate Neobișnuită</system:String>
+    <system:String x:Key="Discord.StatementText5">În Adâncul Imaginației</system:String>
+    <system:String x:Key="Discord.StatementText6">O Călătorie de Descoperire Magică</system:String>
+    <system:String x:Key="Discord.StatementText7">La Ușa Lumilor Necunoscute</system:String>
+    <system:String x:Key="Discord.StatementText8">O Lume a Viselor Complexă</system:String>
+    <system:String x:Key="Discord.StatementText9">O Aventură Care Își Încalcă Limitele</system:String>
+    <system:String x:Key="Discord.StatementText10">O Experiență Dinamică și Surprinzătoare</system:String>
+    <system:String x:Key="Discord.StatementText11">Într-o Poveste Fantastică</system:String>
+</ResourceDictionary>

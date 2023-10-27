@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">समस्या को हल करें</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose अद्यतन</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">अद्यतन स्थापित करें</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose अद्यतन</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">संदेश</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">बंद करें</system:String>
+    
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">हम उस समय में हैं जब अद्यतन फ़ाइलें एक गुम गहना की तरह छिपी हुई हैं। आप अभी मौजूदा संस्करण का उपयोग करके भी अनुभव से मजा ले सकते हैं।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">हमने पाया कि अद्यतन फाइल को डाउनलोड करते समय, रास्ते में एक क्रैक हो गया है, और यह यात्रा अब समाप्त हो गई है। मौजूदा संस्करण के साथ अपनी यात्रा को जारी रखें, क्योंकि जैसे-तैसे ही, प्रतिक्रिया प्राप्त होने पर, महान प्रतिक्रिया प्राप्त होती है।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">अनुप्रयोग एक पुस्तक के नवीनतम पृष्ठ की तरह पहले से ही सबसे अद्यतित और नवीनतम रूप में आपके साथ है। हर समय सबसे अच्छी और सबसे अद्यतित अनुभव प्रदान करने के लिए यहां है।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">हम एक सपने के कगार पर हैं जिस तक अपडेट फ़ाइलों तक पहुंच नहीं है। हालाँकि, आप वर्तमान संस्करण के साथ अपना सपना जीना जारी रख सकते हैं।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">चयनित अपडेट चैनल एक मौन जंगल की तरह है। नए अपडेट की जानकारी अभी यहां नहीं है। वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि इस मौन को तोड़ने पर हम आपको और अधिक प्रदान करेंगे।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">अपडेट फ़ाइल को निकालने का प्रयास करते समय, हमने समुद्र की गहराई से उत्पन्न एक बाधा का सामना किया। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि समुद्र अधिक शांत होने पर हम नए खजाने खोजने के लिए वापस आएंगे।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">आपके कनेक्शन की कमजोरी, बादलों के सूर्य को ढकने जैसी है। बादल छंटने पर अधिक उज्ज्वल अनुभव आपका इंतजार कर रहा होगा।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">अनुप्रयोग अपडेट, समुद्र की लहरों के तट पर लाए गए नए खजाने की तरह, चुपके से आगे बढ़ रहा है। इन मूल्यवान नवाचारों को आपके लिए पृष्ठभूमि में एकत्र किया जा रहा है।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">अनुप्रयोग में हम एक ऐसी पल का अनुभव कर रहे हैं जब अपडेट स्टार अभी तक पैदा नहीं हुआ है। वर्तमान में कोई भी अपडेट जानकारी नहीं है, लेकिन आप पहले से ही मौजूद संस्करण का उपयोग करना जारी रख सकते हैं।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">अपडेट फ़ाइल को डाउनलोड करते समय, हमने खोज की कि आकाश में तारे गलत क्रम में हैं। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि तारे सही hizaya आते ही हम आपको एक बेहतर अपडेट प्रदान करेंगे।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">अपडेट फ़ाइल को डाउनलोड करना रद्द कर दिया गया है, क्योंकि हमारे रास्ते अचानक अलग हो गए हैं। वर्तमान संस्करण के साथ अपने सफर को जारी रखें और भविष्य के अपडेट्स के लिए तैयार रहें, क्योंकि एक नई शुरुआत हमेशा संभव है।</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">अपडेट फ़ाइलों में शर्तें, चाबी को अनलॉक करने के लिए अपूर्ण लगती हैं। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें और भविष्य के अपडेट्स के लिए तैयार रहें।</system:String>
+</ResourceDictionary>

@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Procházet</system:String>
+    <system:String x:Key="Discord.Details">Tapetový Motor</system:String>
+    <system:String x:Key="Discord.DownloadButton">Stáhnout</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Síla Banánového Zmrzliny</system:String>
+    <system:String x:Key="Discord.LargestText1">Usmívající se Kloboučník Monstra</system:String>
+    <system:String x:Key="Discord.LargestText2">Ptáci Barvící Oblaka</system:String>
+    <system:String x:Key="Discord.LargestText3">Skrytá Dobrodružství Běžících Tučňáků</system:String>
+    <system:String x:Key="Discord.LargestText4">Zajíci Ztracení na Poli Pampelišek</system:String>
+    <system:String x:Key="Discord.LargestText5">Zpívající Větrné Růže</system:String>
+    <system:String x:Key="Discord.SmallestText0">Záhadné Stopy</system:String>
+    <system:String x:Key="Discord.SmallestText1">Létající Balónekry</system:String>
+    <system:String x:Key="Discord.SmallestText2">Smějící se Květiny</system:String>
+    <system:String x:Key="Discord.SmallestText3">Cukrovaté Vatové Oblaky</system:String>
+    <system:String x:Key="Discord.SmallestText4">Zmrzlí Pizza Draci</system:String>
+    <system:String x:Key="Discord.SmallestText5">Lesknoucí se Houboví Piráti</system:String>
+    <system:String x:Key="Discord.StatementText0">Chaosem Naplněný Vesmír</system:String>
+    <system:String x:Key="Discord.StatementText1">Uprostřed Nekonečných Dobrodružství</system:String>
+    <system:String x:Key="Discord.StatementText2">Zvláštní a Kouzelný Svět</system:String>
+    <system:String x:Key="Discord.StatementText3">Tlačící Hranice Fantazie</system:String>
+    <system:String x:Key="Discord.StatementText4">Neobvyklá Realita</system:String>
+    <system:String x:Key="Discord.StatementText5">V Hlubinách Fantazie</system:String>
+    <system:String x:Key="Discord.StatementText6">Kouzelný Průzkumný Výlet</system:String>
+    <system:String x:Key="Discord.StatementText7">U Brány Neznámých Světů</system:String>
+    <system:String x:Key="Discord.StatementText8">Komplexní Svět Snů</system:String>
+    <system:String x:Key="Discord.StatementText9">Dobrodružství, Které Tlačí na Hranice</system:String>
+    <system:String x:Key="Discord.StatementText10">Dynamický a Překvapivý Zážitek</system:String>
+    <system:String x:Key="Discord.StatementText11">Ve Fantastické Pohádce</system:String>
+</ResourceDictionary>

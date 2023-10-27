@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Tilpas Baggrund</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Opret Logfil</system:String>
+    <system:String x:Key="Launcher.ExitText">Afslut</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Åbn en Fejlrapport</system:String>
+    <system:String x:Key="Launcher.OpenText">Åbn Sucrose</system:String>
+    <system:String x:Key="Launcher.ReportText">Fejlrapport</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Diagnostik</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Gem Logfil</system:String>
+    <system:String x:Key="Launcher.SettingText">Indstillinger</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Skift Baggrund</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Luk Baggrund</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Åbn Baggrund</system:String>
+    <system:String x:Key="Launcher.WallStartText">Start Baggrund</system:String>
+    <system:String x:Key="Launcher.WallStopText">Stop Baggrund</system:String>
+    <system:String x:Key="Launcher.UpdateText">Kontroller Opdateringer</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Opdateringer Afventer</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Kontrollerer Opdateringer</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Opdatering Fremgang {0}</system:String>
+</ResourceDictionary>

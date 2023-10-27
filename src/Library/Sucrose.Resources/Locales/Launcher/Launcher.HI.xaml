@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">वॉलपेपर कस्टमाइज़ करें</system:String>
+    <system:String x:Key="Launcher.CreateLogText">डेली लॉग बनाएँ</system:String>
+    <system:String x:Key="Launcher.ExitText">निकास</system:String>
+    <system:String x:Key="Launcher.OpenReportText">समस्या रिपोर्ट करें</system:String>
+    <system:String x:Key="Launcher.OpenText">Sucrose खोलें</system:String>
+    <system:String x:Key="Launcher.ReportText">समस्या रिपोर्ट करें</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose डायग्नोस्टिक्स</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">डेली लॉग फ़ाइल सहेजें</system:String>
+    <system:String x:Key="Launcher.SettingText">सेटिंग्स</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">वॉलपेपर बदलें</system:String>
+    <system:String x:Key="Launcher.WallCloseText">वॉलपेपर बंद करें</system:String>
+    <system:String x:Key="Launcher.WallOpenText">वॉलपेपर खोलें</system:String>
+    <system:String x:Key="Launcher.WallStartText">वॉलपेपर शुरू करें</system:String>
+    <system:String x:Key="Launcher.WallStopText">वॉलपेपर रोकें</system:String>
+    <system:String x:Key="Launcher.UpdateText">अद्यतनों की जांच करें</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">अद्यतन बाकी हैं</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">अद्यतनों की जांच हो रही है</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">अद्यतन प्रगति {0}</system:String>
+</ResourceDictionary>

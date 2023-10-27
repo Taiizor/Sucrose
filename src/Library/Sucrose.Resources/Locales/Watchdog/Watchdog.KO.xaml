@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Watchdog.HelpButton">도움말</system:String>
+    <system:String x:Key="Watchdog.CloseButton">닫기</system:String>
+    <system:String x:Key="Watchdog.ErrorMessage">예기치 않은 오류가 발생했습니다:</system:String>
+    <system:String x:Key="Watchdog.ErrorTitle">오류</system:String>
+    <system:String x:Key="Watchdog.HideButton">숨기기</system:String>
+    <system:String x:Key="Watchdog.ShowButton">보이기</system:String>
+    <system:String x:Key="Watchdog.StackTrace">스택 추적:</system:String>
+    <system:String x:Key="Watchdog.WindowTitle">Sucrose Watchdog</system:String>
+</ResourceDictionary>

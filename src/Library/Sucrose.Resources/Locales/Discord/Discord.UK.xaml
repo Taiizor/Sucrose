@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Переглянути</system:String>
+    <system:String x:Key="Discord.Details">Двигун Обоїв</system:String>
+    <system:String x:Key="Discord.DownloadButton">Завантажити</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Сила Бананового Морозива</system:String>
+    <system:String x:Key="Discord.LargestText1">Посміхаючийся Монстр у Капелюсі</system:String>
+    <system:String x:Key="Discord.LargestText2">Спарви, які Розфарбовують Хмари</system:String>
+    <system:String x:Key="Discord.LargestText3">Секретні Пригоди Бігучих Пінгвінів</system:String>
+    <system:String x:Key="Discord.LargestText4">Загублені Зайці на Полі Маргариток</system:String>
+    <system:String x:Key="Discord.LargestText5">Вітерця, що Співають Пісні</system:String>
+    <system:String x:Key="Discord.SmallestText0">Таємничі Сліди Ніг</system:String>
+    <system:String x:Key="Discord.SmallestText1">Летючі Кульки Риби</system:String>
+    <system:String x:Key="Discord.SmallestText2">Сміючіся Квіти</system:String>
+    <system:String x:Key="Discord.SmallestText3">Цукрова Ватра в Хмарках</system:String>
+    <system:String x:Key="Discord.SmallestText4">Заморожені Піца-Дракони</system:String>
+    <system:String x:Key="Discord.SmallestText5">Сяючі Грибні Пірати</system:String>
+    <system:String x:Key="Discord.StatementText0">Всесвіт, наповнений Хаосом</system:String>
+    <system:String x:Key="Discord.StatementText1">Серед Нескінченних Пригод</system:String>
+    <system:String x:Key="Discord.StatementText2">Дивний і Магічний Світ</system:String>
+    <system:String x:Key="Discord.StatementText3">Що Випробуває Межі Уяви</system:String>
+    <system:String x:Key="Discord.StatementText4">Надзвичайна Реальність</system:String>
+    <system:String x:Key="Discord.StatementText5">У Глибоках Уяви</system:String>
+    <system:String x:Key="Discord.StatementText6">Магічний Відкриття</system:String>
+    <system:String x:Key="Discord.StatementText7">Порог Невідомих Світів</system:String>
+    <system:String x:Key="Discord.StatementText8">Складний Світ Мрій</system:String>
+    <system:String x:Key="Discord.StatementText9">Пригода, що Випробовує Межі</system:String>
+    <system:String x:Key="Discord.StatementText10">Динамічний і Дивовижний Досвід</system:String>
+    <system:String x:Key="Discord.StatementText11">У Фантастичній Казці</system:String>
+</ResourceDictionary>

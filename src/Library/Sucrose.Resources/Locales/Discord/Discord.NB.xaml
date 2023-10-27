@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Bla Gjennom</system:String>
+    <system:String x:Key="Discord.Details">Bakgrunnsmotor</system:String>
+    <system:String x:Key="Discord.DownloadButton">Last Ned</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Bananglassmaktkraft</system:String>
+    <system:String x:Key="Discord.LargestText1">Smilende Hattemonster</system:String>
+    <system:String x:Key="Discord.LargestText2">Fargerike Spurve som Farger Skyene</system:String>
+    <system:String x:Key="Discord.LargestText3">Løpende Pingviners Hemmelige Eventyr</system:String>
+    <system:String x:Key="Discord.LargestText4">Kaniner som Har Forsvunnet i Prestekragefeltet</system:String>
+    <system:String x:Key="Discord.LargestText5">Sangende Vindblomster</system:String>
+    <system:String x:Key="Discord.SmallestText0">Mystiske Fotspor</system:String>
+    <system:String x:Key="Discord.SmallestText1">Flyvende Ballongfisk</system:String>
+    <system:String x:Key="Discord.SmallestText2">Blomster som Ler Høyt</system:String>
+    <system:String x:Key="Discord.SmallestText3">Søtsmakende Sukkervatnskyer</system:String>
+    <system:String x:Key="Discord.SmallestText4">Frosne Pizzadrager</system:String>
+    <system:String x:Key="Discord.SmallestText5">Lyse Soppkorsarer</system:String>
+    <system:String x:Key="Discord.StatementText0">Et Univers Fylt av Kaos</system:String>
+    <system:String x:Key="Discord.StatementText1">Midt i Uendelige Eventyr</system:String>
+    <system:String x:Key="Discord.StatementText2">En Merkelig og Magisk Verden</system:String>
+    <system:String x:Key="Discord.StatementText3">Som Utfordrer Fantasiens Grenser</system:String>
+    <system:String x:Key="Discord.StatementText4">En Uvanlig Virkelighet</system:String>
+    <system:String x:Key="Discord.StatementText5">I Fantasiens Dyp</system:String>
+    <system:String x:Key="Discord.StatementText6">En Magisk Oppdagelsesreise</system:String>
+    <system:String x:Key="Discord.StatementText7">Ved Porten til Ukjente Riker</system:String>
+    <system:String x:Key="Discord.StatementText8">En Kompleks Drømmeverden</system:String>
+    <system:String x:Key="Discord.StatementText9">En Eventyr som Utfordrer Grensene</system:String>
+    <system:String x:Key="Discord.StatementText10">En Dynamisk og Overraskende Opplevelse</system:String>
+    <system:String x:Key="Discord.StatementText11">I en Fantastisk Eventyrfortelling</system:String>
+</ResourceDictionary>

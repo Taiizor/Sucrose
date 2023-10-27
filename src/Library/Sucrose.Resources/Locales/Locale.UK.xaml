@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Locale.xaml" />
+
+        <ResourceDictionary Source="Portal/Portal.xaml" />
+        <ResourceDictionary Source="Discord/Discord.xaml" />
+        <ResourceDictionary Source="Launcher/Launcher.xaml" />
+
+        <ResourceDictionary Source="Update/Update.UK.xaml" />
+        <ResourceDictionary Source="Portal/Portal.UK.xaml" />
+        <ResourceDictionary Source="Discord/Discord.UK.xaml" />
+        <ResourceDictionary Source="Watchdog/Watchdog.UK.xaml" />
+        <ResourceDictionary Source="Launcher/Launcher.UK.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

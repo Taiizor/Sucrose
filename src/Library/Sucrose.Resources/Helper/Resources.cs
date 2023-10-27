@@ -46,16 +46,26 @@ namespace Sucrose.Resources.Helper
         {
             return new()
             {
+                "CS",
+                "DA",
                 "DE",
                 "EL",
                 "EN",
                 "ES",
                 "FR",
+                "HI",
+                "IT",
                 "JA",
+                "KO",
+                "NB",
                 "NL",
                 "PL",
+                "RO",
                 "RU",
-                "TR"
+                "SV",
+                "TR",
+                "UK",
+                "ZH"
             };
         }
 

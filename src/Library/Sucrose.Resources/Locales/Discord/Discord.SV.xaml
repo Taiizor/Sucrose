@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Bläddra</system:String>
+    <system:String x:Key="Discord.Details">Tapetmotor</system:String>
+    <system:String x:Key="Discord.DownloadButton">Ladda Ner</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Banan Glass Kraft</system:String>
+    <system:String x:Key="Discord.LargestText1">Skrattande Hattmonster</system:String>
+    <system:String x:Key="Discord.LargestText2">Färgglada Sparvar på Himmelens Skyar</system:String>
+    <system:String x:Key="Discord.LargestText3">De Hemliga Äventyren av Springande Pingviner</system:String>
+    <system:String x:Key="Discord.LargestText4">Kaniner som Försvinner i Maskrosängen</system:String>
+    <system:String x:Key="Discord.LargestText5">Vindrosor som Sjunger</system:String>
+    <system:String x:Key="Discord.SmallestText0">Mysteriösa Fotspår</system:String>
+    <system:String x:Key="Discord.SmallestText1">Flygande Ballongfiskar</system:String>
+    <system:String x:Key="Discord.SmallestText2">Skrattande Blomster</system:String>
+    <system:String x:Key="Discord.SmallestText3">Sockervaddsmoln</system:String>
+    <system:String x:Key="Discord.SmallestText4">Frostiga Pizzadrakar</system:String>
+    <system:String x:Key="Discord.SmallestText5">Lysande Svampkorsaren</system:String>
+    <system:String x:Key="Discord.StatementText0">Ett Universum Fyllt av Kaos</system:String>
+    <system:String x:Key="Discord.StatementText1">I Mitten av Oändliga Äventyr</system:String>
+    <system:String x:Key="Discord.StatementText2">En Konstig och Magisk Värld</system:String>
+    <system:String x:Key="Discord.StatementText3">Som Utmanar Gränserna för Fantasin</system:String>
+    <system:String x:Key="Discord.StatementText4">En Ovanlig Verklighet</system:String>
+    <system:String x:Key="Discord.StatementText5">I Djupen av Fantasin</system:String>
+    <system:String x:Key="Discord.StatementText6">En Magisk Upptäcktsresa</system:String>
+    <system:String x:Key="Discord.StatementText7">Vid Okända Världars Dörrar</system:String>
+    <system:String x:Key="Discord.StatementText8">En Komplex Drömvärld</system:String>
+    <system:String x:Key="Discord.StatementText9">Ett Äventyr som Utmanar Gränserna</system:String>
+    <system:String x:Key="Discord.StatementText10">En Dynamisk och Förvånande Upplevelse</system:String>
+    <system:String x:Key="Discord.StatementText11">I en Fantastisk Saga</system:String>
+</ResourceDictionary>

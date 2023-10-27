@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">바탕화면 사용자 정의</system:String>
+    <system:String x:Key="Launcher.CreateLogText">로그 파일 생성</system:String>
+    <system:String x:Key="Launcher.ExitText">종료</system:String>
+    <system:String x:Key="Launcher.OpenReportText">문제 신고</system:String>
+    <system:String x:Key="Launcher.OpenText">Sucrose 열기</system:String>
+    <system:String x:Key="Launcher.ReportText">오류 신고</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose 진단</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">로그 파일 저장</system:String>
+    <system:String x:Key="Launcher.SettingText">설정</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">바탕화면 변경</system:String>
+    <system:String x:Key="Launcher.WallCloseText">바탕화면 닫기</system:String>
+    <system:String x:Key="Launcher.WallOpenText">바탕화면 열기</system:String>
+    <system:String x:Key="Launcher.WallStartText">바탕화면 시작</system:String>
+    <system:String x:Key="Launcher.WallStopText">바탕화면 정지</system:String>
+    <system:String x:Key="Launcher.UpdateText">업데이트 확인</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">업데이트 대기 중</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">업데이트 확인 중</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">업데이트 진행 중 {0}</system:String>
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">문제 해결</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">설피로즈 업데이트</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">업데이트 설치</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">설피로즈 업데이트</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">메시지</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">닫기</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">업데이트 파일이 숨겨진 보석처럼 없어져 버렸던 순간입니다. 현재 버전을 사용하면 여전히 즐길 수 있습니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">업데이트 파일을 다운로드하는 동안 길에 갈라짐이 생겼다는 것을 발견했고, 이 여정은 일단 여기서 끝이라고 알게 되었습니다. 현재 버전으로 여정을 계속하세요, 이 길이 고쳐질 때 더 강력한 업데이트가 여러분을 기다리고 있을 것입니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">앱은 이미 최신 및 혁신적인 형태로 여러분과 함께합니다. 언제든지 최고의 최신 경험을 제공하기 위해 여기에 있습니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">업데이트 파일에 액세스할 수 없는 꿈의 문턱에 서 있습니다. 그러나 현재 버전을 사용하여 꿈을 계속 즐길 수 있습니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">선택한 업데이트 채널은 정적인 숲과 같습니다. 현재 새로운 업데이트 정보가 여기에 없습니다. 현재 버전으로 여정을 계속하세요, 이 고요함이 깨지면 여러분에게 더 많은 것을 제공할 것입니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">업데이트 파일을 추출하려고 할 때, 심연에서 비롯된 장애물과 마주쳤습니다. 현재 버전으로 여정을 계속하세요, 바다가 더 잔잔해지면 새로운 보물을 찾아 돌아올 것입니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">귀하의 연결이 약해져, 구름이 태양을 가리는 것과 유사합니다. 구름이 걷히면 더 밝은 경험이 여러분을 기다리고 있을 것입니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">앱 업데이트는 바다 파도가 새로운 보물을 해변으로 가져오는 것과 같이 은밀하게 진행 중입니다. 이 값진 혁신은 백그라운드에서 여러분을 위해 모아지고 있습니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">아직 앱 업데이트 별이 떠오르지 않은 순간을 즐기고 있습니다. 현재 어떠한 업데이트 정보도 없지만, 이미 사용 가능한 버전을 계속 사용할 수 있습니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">업데이트 파일을 다운로드하는 동안, 하늘의 별들이 잘못된 배열을 가지고 있음을 발견했습니다. 현재 버전으로 여정을 계속하세요, 별들이 올바른 위치에 있을 때 더 나은 업데이트를 제공할 것입니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">업데이트 파일 다운로드가 중지되었으며 이는 우리의 길이 갑자기 분기한 결과입니다. 현재 버전으로 여정을 계속하고 미래의 업데이트에 대비하세요, 새로운 시작은 언제나 가능합니다.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">업데이트 파일의 조건이 열쇠를 열기에 부적합한 것처럼 보입니다. 현재 버전으로 여정을 계속하고 미래의 업데이트를 기대하세요.</system:String>
+</ResourceDictionary>

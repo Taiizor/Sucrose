@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">Lös problemet</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose Uppdatering</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Installera uppdateringen</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Uppdatering</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Meddelande</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Stäng</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Vi är i ögonblick då uppdateringsfiler är gömda som en förlorad skatt. Du kan fortfarande njuta av din upplevelse med den nuvarande versionen.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">När vi försökte hämta uppdateringsfilen uppstod en spricka på vägen, och resan är för närvarande över. Fortsätt din resa med den nuvarande versionen, för när dessa sprickor är lagade kommer en kraftfullare uppdatering att vänta på dig.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">Programmet är redan med dig i sin mest aktuella och innovativa form, som de senaste sidorna i en bok. Vi är här för att ge dig den bästa och mest aktuella upplevelsen när som helst.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Vi är vid tröskeln till drömmar som vi för närvarande inte kan nå uppdateringsfiler för. Men du kan fortsätta att leva din dröm med den nuvarande versionen.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Den valda uppdateringskanalen är tyst som en skog. Det finns för närvarande ingen ny uppdateringsinformation här. Fortsätt din resa med den nuvarande versionen, för när tystnaden bryts kommer vi att ge dig mer.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">När vi försökte extrahera uppdateringsfilen mötte vi ett hinder från djupen av havet. Fortsätt din resa med den nuvarande versionen, för när haven lugnar sig kommer vi tillbaka för att hitta nya skatter.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Din anslutning är svag, som om molnen skymmer solen. När molnen skingras väntar en ljusare upplevelse på dig.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Uppdateringen av programmet fortskrider smygande som nya skatter som vågorna för med sig till stranden. Dessa värdefulla förbättringar samlas för dig i bakgrunden.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Vi upplever en stund då stjärnan på uppdateringens himmel ännu inte har fötts. Just nu finns det ingen uppdateringsinformation, men du kan fortsätta att använda den nuvarande versionen.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">När vi försökte hämta uppdateringsfilen upptäckte vi att stjärnorna på himlen var felplacerade. Fortsätt din resa med den nuvarande versionen, för när stjärnorna hamnar rätt kommer vi att erbjuda dig en bättre uppdatering.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Hämtningen av uppdateringsfilen avbröts eftersom våra vägar plötsligt skiljdes åt. Fortsätt din resa med den nuvarande versionen och var beredd på framtida uppdateringar, för en ny början är alltid möjlig.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Det verkar som om villkoren för uppdateringsfilerna saknas för att öppna nyckeln. Fortsätt din resa med den nuvarande versionen och var redo för framtida uppdateringar.</system:String>
+</ResourceDictionary>

@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Sfoglia</system:String>
+    <system:String x:Key="Discord.Details">Motore di Sfondi</system:String>
+    <system:String x:Key="Discord.DownloadButton">Scarica</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Potenza del Gelato alla Banana</system:String>
+    <system:String x:Key="Discord.LargestText1">Mostro del Cappello Sorridente</system:String>
+    <system:String x:Key="Discord.LargestText2">Uccelli che Colorano le Nuvole</system:String>
+    <system:String x:Key="Discord.LargestText3">Avventure Segrete dei Pinguini in Corsa</system:String>
+    <system:String x:Key="Discord.LargestText4">Conigli Persi nel Campo delle Margherite</system:String>
+    <system:String x:Key="Discord.LargestText5">Rose del Vento che Cantano</system:String>
+    <system:String x:Key="Discord.SmallestText0">Misteriose Orme</system:String>
+    <system:String x:Key="Discord.SmallestText1">Pesci Palloncino Volanti</system:String>
+    <system:String x:Key="Discord.SmallestText2">Fiori che Ridono a Crepapelle</system:String>
+    <system:String x:Key="Discord.SmallestText3">Nuvole di Zucchero Filato</system:String>
+    <system:String x:Key="Discord.SmallestText4">Draghi della Pizza Ghiacciata</system:String>
+    <system:String x:Key="Discord.SmallestText5">Pirati dei Funghi Luminosi</system:String>
+    <system:String x:Key="Discord.StatementText0">Un Universo Pieno di Caos</system:String>
+    <system:String x:Key="Discord.StatementText1">Nel Mezzo di Avventure Infinite</system:String>
+    <system:String x:Key="Discord.StatementText2">Un Mondo Strano e Magico</system:String>
+    <system:String x:Key="Discord.StatementText3">Che Sfida i Limiti della Fantasia</system:String>
+    <system:String x:Key="Discord.StatementText4">Una Realtà Straordinaria</system:String>
+    <system:String x:Key="Discord.StatementText5">Nelle Profondità della Fantasia</system:String>
+    <system:String x:Key="Discord.StatementText6">Un Viaggio di Scoperta Magico</system:String>
+    <system:String x:Key="Discord.StatementText7">Alla Porta di Mondi Sconosciuti</system:String>
+    <system:String x:Key="Discord.StatementText8">Un Complesso Mondo dei Sogni</system:String>
+    <system:String x:Key="Discord.StatementText9">Un'Avventura che Sfida i Confini</system:String>
+    <system:String x:Key="Discord.StatementText10">Un'Esperienza Dinamica e Sorprendente</system:String>
+    <system:String x:Key="Discord.StatementText11">In una Fiaba Fantastica</system:String>
+</ResourceDictionary>

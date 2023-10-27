@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">浏览</system:String>
+    <system:String x:Key="Discord.Details">壁纸引擎</system:String>
+    <system:String x:Key="Discord.DownloadButton">下载</system:String>
+
+    <system:String x:Key="Discord.LargestText0">香蕉冰淇淋之力</system:String>
+    <system:String x:Key="Discord.LargestText1">笑容帽怪兽</system:String>
+    <system:String x:Key="Discord.LargestText2">染彩云雀</system:String>
+    <system:String x:Key="Discord.LargestText3">奔跑的企鹅的秘密冒险</system:String>
+    <system:String x:Key="Discord.LargestText4">雏菊田间迷路的兔子</system:String>
+    <system:String x:Key="Discord.LargestText5">歌唱风铃鸟</system:String>
+    <system:String x:Key="Discord.SmallestText0">神秘足迹</system:String>
+    <system:String x:Key="Discord.SmallestText1">飞行气球鱼</system:String>
+    <system:String x:Key="Discord.SmallestText2">笑声花</system:String>
+    <system:String x:Key="Discord.SmallestText3">糖棉云</system:String>
+    <system:String x:Key="Discord.SmallestText4">冰冻比萨龙</system:String>
+    <system:String x:Key="Discord.SmallestText5">明亮蘑菇海盗</system:String>
+    <system:String x:Key="Discord.StatementText0">充满混乱的宇宙</system:String>
+    <system:String x:Key="Discord.StatementText1">无尽冒险之中</system:String>
+    <system:String x:Key="Discord.StatementText2">奇妙而神奇的世界</system:String>
+    <system:String x:Key="Discord.StatementText3">挑战想象的界限</system:String>
+    <system:String x:Key="Discord.StatementText4">非同寻常的现实</system:String>
+    <system:String x:Key="Discord.StatementText5">深入想象的深处</system:String>
+    <system:String x:Key="Discord.StatementText6">神奇的探索之旅</system:String>
+    <system:String x:Key="Discord.StatementText7">未知世界之门</system:String>
+    <system:String x:Key="Discord.StatementText8">复杂的梦境世界</system:String>
+    <system:String x:Key="Discord.StatementText9">挑战边界的冒险</system:String>
+    <system:String x:Key="Discord.StatementText10">充满活力和惊喜的体验</system:String>
+    <system:String x:Key="Discord.StatementText11">童话故事中</system:String>
+</ResourceDictionary>

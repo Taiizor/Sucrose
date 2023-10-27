@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">찾아보기</system:String>
+    <system:String x:Key="Discord.Details">벽지 엔진</system:String>
+    <system:String x:Key="Discord.DownloadButton">다운로드</system:String>
+
+    <system:String x:Key="Discord.LargestText0">바나나 아이스크림 강력</system:String>
+    <system:String x:Key="Discord.LargestText1">미소 지은 모자 괴물</system:String>
+    <system:String x:Key="Discord.LargestText2">구름 물들이는 참새들</system:String>
+    <system:String x:Key="Discord.LargestText3">달리는 펭귄의 비밀 모험</system:String>
+    <system:String x:Key="Discord.LargestText4">민들레 밭에서 길 잃은 토끼들</system:String>
+    <system:String x:Key="Discord.LargestText5">노래하는 바람 꽃</system:String>
+    <system:String x:Key="Discord.SmallestText0">신비로운 발자국</system:String>
+    <system:String x:Key="Discord.SmallestText1">날아다니는 풍선 물고기</system:String>
+    <system:String x:Key="Discord.SmallestText2">웃음 터뜨리는 꽃들</system:String>
+    <system:String x:Key="Discord.SmallestText3">달콤한 솜사탕 구름들</system:String>
+    <system:String x:Key="Discord.SmallestText4">얼어붙은 피자 용</system:String>
+    <system:String x:Key="Discord.SmallestText5">빛나는 버섯 해적들</system:String>
+    <system:String x:Key="Discord.StatementText0">혼돈 가득한 우주</system:String>
+    <system:String x:Key="Discord.StatementText1">끝없는 모험 중</system:String>
+    <system:String x:Key="Discord.StatementText2">이상하고 마법의 세계</system:String>
+    <system:String x:Key="Discord.StatementText3">상상의 한계 도전</system:String>
+    <system:String x:Key="Discord.StatementText4">보통이 아닌 현실</system:String>
+    <system:String x:Key="Discord.StatementText5">상상의 깊은 곳에서</system:String>
+    <system:String x:Key="Discord.StatementText6">마법의 탐험 여행</system:String>
+    <system:String x:Key="Discord.StatementText7">알려지지 않은 세계의 문 앞에서</system:String>
+    <system:String x:Key="Discord.StatementText8">복잡한 꿈의 세계</system:String>
+    <system:String x:Key="Discord.StatementText9">한계를 도전하는 모험</system:String>
+    <system:String x:Key="Discord.StatementText10">동적이고 놀라운 경험</system:String>
+    <system:String x:Key="Discord.StatementText11">환상적인 동화 안에서</system:String>
+</ResourceDictionary>

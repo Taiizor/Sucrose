@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">Вирішити проблему</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Оновлення Sucrose</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Встановити оновлення</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Оновлення Sucrose</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Повідомлення</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Закрити</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Ми переживаємо моменти, коли оновлення файлів зараз заховані, як втрачений скарб. Ви можете продовжувати насолоджуватися досвідом, використовуючи поточну версію.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Під час завантаження файлу оновлення ми помітили тріщину на шляху, і ця подорож наразі завершилася. Продовжуйте подорожувати зараз з поточною версією, оскільки, коли ці тріщини виправляться, вас очікує більш потужне оновлення.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">Додаток вже з вами в його останній і найновіший версії, схожий на останню сторінку у книзі. Ми тут, щоб завжди надавати вам найкращий і найновіший досвід.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Ми на межі, де неможливо отримати доступ до файлів оновлення. Але ви можете продовжувати насолоджуватися своєю мрією зараз з поточною версією.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Обраний канал оновлення схожий на ліс мовчазності. Зараз тут немає нової інформації про оновлення. Продовжуйте свою подорож з поточною версією, оскільки коли ця мовчазність порушиться, вас чекатимуть нові можливості.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Під час спроби витягти файл оновлення, ми зіткнулися з перешкодою, яка походить з глибини моря. Зараз просто продовжуйте подорож з поточною версією, оскільки коли моря стануть спокійніше, ми повернемося, щоб знайти нові скарби.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Слабкий сигнал вашого з'єднання, схоже на те, як хмари перекривають сонце. Якщо хмари розсиплються, вас чекає світліший досвід.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Оновлення додатку рухаються ледь помітно, схоже на нові скарби, які приносять хвилі на берег. Ці цінні покращення збираються для вас в фоновому режимі.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Ми живемо у момент, коли зірка оновлення ще не сходить. Зараз немає жодних відомостей про оновлення, але ви можете продовжувати використовувати поточну версію.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Під час завантаження файлу оновлення ми виявили, що зорі на небі розташовані в неправильному порядку. Зараз продовжуйте подорож з поточною версією, оскільки коли зорі розташуються в правильному порядку, вас чекатиме краще оновлення.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Завантаження файлу оновлення скасовано через раптове розходження шляхів. Продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень, оскільки новий початок завжди можливий.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Здається, що умови в файлах оновлення виглядають, як відсутність ключа для розблокування. Зараз продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень.</system:String>
+</ResourceDictionary>

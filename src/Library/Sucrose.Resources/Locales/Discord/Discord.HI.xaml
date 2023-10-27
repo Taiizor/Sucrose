@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">ब्राउज़ करें</system:String>
+    <system:String x:Key="Discord.Details">वॉलपेपर इंजन</system:String>
+    <system:String x:Key="Discord.DownloadButton">डाउनलोड करें</system:String>
+
+    <system:String x:Key="Discord.LargestText0">केला आइसक्रीम पॉवर</system:String>
+    <system:String x:Key="Discord.LargestText1">मुस्कानी टोपी राक्षस</system:String>
+    <system:String x:Key="Discord.LargestText2">रंगीन मेंढ़़ों वाला चिड़िया</system:String>
+    <system:String x:Key="Discord.LargestText3">दौड़ते पेंगुइन के गुप्त साहस</system:String>
+    <system:String x:Key="Discord.LargestText4">दैसी में खो जाने वाले खरगोश</system:String>
+    <system:String x:Key="Discord.LargestText5">गाते हुए हवा के गलियारे</system:String>
+    <system:String x:Key="Discord.SmallestText0">रहस्यमय पैर के निशान</system:String>
+    <system:String x:Key="Discord.SmallestText1">उड़ते बैलून मछलियाँ</system:String>
+    <system:String x:Key="Discord.SmallestText2">हँसते हुए फूल</system:String>
+    <system:String x:Key="Discord.SmallestText3">मिठाई कपास के बादल</system:String>
+    <system:String x:Key="Discord.SmallestText4">फ्रोजन पिज्जा ड्रैगन्स</system:String>
+    <system:String x:Key="Discord.SmallestText5">चमकदार कुकुरमुत्यादियाँ</system:String>
+    <system:String x:Key="Discord.StatementText0">भरपूर असमंजस के साथ एक ब्रह्मांड</system:String>
+    <system:String x:Key="Discord.StatementText1">अनंत साहसों के बीच</system:String>
+    <system:String x:Key="Discord.StatementText2">अजीब और जादुई दुनिया</system:String>
+    <system:String x:Key="Discord.StatementText3">कल्पना की सीमाओं को चुनौती देने वाला</system:String>
+    <system:String x:Key="Discord.StatementText4">असामान्य वास्तविकता</system:String>
+    <system:String x:Key="Discord.StatementText5">कल्पना के गहराईयों में</system:String>
+    <system:String x:Key="Discord.StatementText6">जादुई खोज यात्रा</system:String>
+    <system:String x:Key="Discord.StatementText7">अज्ञात दुनियों के द्वार पर</system:String>
+    <system:String x:Key="Discord.StatementText8">जटिल सपनों का संसार</system:String>
+    <system:String x:Key="Discord.StatementText9">सीमाओं को चुनौती देने वाला साहस</system:String>
+    <system:String x:Key="Discord.StatementText10">गतिशील और आश्चर्यजनक अनुभव</system:String>
+    <system:String x:Key="Discord.StatementText11">एक किस्से की तरह किस्सा</system:String>
+</ResourceDictionary>

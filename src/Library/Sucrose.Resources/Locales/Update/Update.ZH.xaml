@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">解决问题</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose 更新</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">安装更新</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose 更新</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">消息</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">关闭</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">我们目前正在处理更新文件，就像一个丢失的宝石一样隐藏在某处。您可以继续使用当前版本，享受不间断的体验。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">在下载更新文件时，我们意识到出现了一些问题，这次旅程在这里告一段落。继续使用当前版本，因为在这些问题修复后，将为您带来更强大的更新。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">应用程序已经是最新和最创新的版本，就像一本书的最新一页一样，随时为您提供最佳和最新的体验。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">我们正站在无法访问更新文件的梦境之边缘。然而，您仍然可以继续享受您的梦想之旅，使用当前版本。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">所选的更新通道就像一个宁静的森林。目前没有新的更新信息。继续使用当前版本，因为当它变得不再宁静时，我们将为您提供更多。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">当我们试图提取更新文件时，我们遇到了深海源的障碍。暂时继续使用当前版本，因为当海洋更加平静时，我们将回来寻找新的宝藏。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">您的连接就像云层遮挡太阳一样薄弱。云层散开后，更明亮的体验将等待着您。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">应用程序更新就像海浪将新宝藏带上岸那样悄悄前进。这些宝贵的新功能在后台为您积累。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">我们正在经历应用程序更新之星尚未升起的时刻。目前没有任何更新信息，但您仍然可以继续使用已经存在的版本。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">在下载更新文件时，我们发现星星排列错误。暂时继续使用当前版本，因为当星星正确排列时，我们将为您提供更好的更新。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">更新文件的下载已取消，因为我们的道路突然分道扬镳。继续使用当前版本，准备好迎接未来的更新，因为新的开始随时可能发生。</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">更新文件中的条件似乎不足以解锁钥匙。暂时继续使用当前版本，为未来的更新做好准备。</system:String>
+</ResourceDictionary>

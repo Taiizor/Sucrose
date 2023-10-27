@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">Risolvere il Problema</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Aggiornamento di Sucrose</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Installa l'Aggiornamento</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Aggiornamento di Sucrose</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Messaggio</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Chiudi</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Stiamo vivendo un momento in cui i file di aggiornamento sono nascosti come un gioiello perduto. Puoi comunque goderti l'esperienza con la versione attuale.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Abbiamo scoperto un crepaccio nel percorso mentre cercavamo di scaricare il file di aggiornamento, e il viaggio è terminato per il momento. Continua il tuo viaggio con la versione attuale, poiché ti aspetta un aggiornamento più potente una volta che questi crepacci saranno stati riparati.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">L'applicazione è già con te nella sua forma più recente e innovativa, come l'ultima pagina di un libro. È qui per offrirti l'esperienza migliore e più aggiornata in qualsiasi momento.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Siamo sull'orlo di un sogno inaccessibile di file di aggiornamento. Ma puoi ancora continuare il tuo sogno con la versione attuale.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Il canale di aggiornamento selezionato è silenzioso come una foresta. Non ci sono attualmente informazioni sugli aggiornamenti disponibili. Continua il tuo viaggio con la versione attuale, poiché quando questo silenzio verrà rotto, ci saranno molte più sorprese in serbo per te.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Abbiamo incontrato un ostacolo derivante dalle profondità del mare mentre cercavamo di estrarre il file di aggiornamento. Per ora, continua il tuo viaggio con la versione attuale, poiché torneremo a scoprire nuovi tesori una volta che il mare sarà più calmo.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">La tua connessione è debole, come se le nuvole coprissero il sole. Quando le nuvole si diraderanno, ti aspetta un'esperienza più luminosa.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">L'aggiornamento dell'app procede silenziosamente come nuovi tesori portati dalle onde del mare. Queste preziose novità si stanno accumulando per te in background.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Stiamo vivendo un momento in cui la stella degli aggiornamenti non è ancora sorta. Al momento non ci sono informazioni sugli aggiornamenti, ma puoi continuare a utilizzare la versione attuale che è già disponibile.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Abbiamo scoperto che le stelle nel cielo erano fuori sequenza mentre cercavamo di scaricare il file di aggiornamento. Per ora, continua il tuo viaggio con la versione attuale, poiché quando le stelle saranno allineate correttamente, ti offriremo un aggiornamento migliore.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Il download del file di aggiornamento è stato annullato poiché i nostri percorsi si sono separati improvvisamente. Continua il tuo viaggio con la versione attuale e preparati per futuri aggiornamenti, poiché un nuovo inizio è sempre possibile.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Sembra che ci siano condizioni mancanti per sbloccare la chiave nei file di aggiornamento. Per ora, continua il tuo viaggio con la versione attuale e preparati per futuri aggiornamenti.</system:String>
+</ResourceDictionary>
