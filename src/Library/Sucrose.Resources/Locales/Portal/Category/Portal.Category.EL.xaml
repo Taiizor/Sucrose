@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">Όλα</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">Αφηρημένα</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Περιβάλλον</system:String>
+    <system:String x:Key="Portal.Category.Animals">Ζώα</system:String>
+    <system:String x:Key="Portal.Category.Animation">Κινούμενα Σχέδια</system:String>
+    <system:String x:Key="Portal.Category.Anime">Κινούμενα Σχέδια Anime</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Αρχιτεκτονική και Κτίρια</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Τέχνη και Αφηρημένο</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Έργα Τέχνης</system:String>
+    <system:String x:Key="Portal.Category.Bard">Βαρδάρης</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Ασπρόμαυρα</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Κινούμενα Σχέδια και Κόμικς</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Πόλεις και Τοποθεσίες</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Σύννεφα και Ουρανός</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Πολύχρωμα Διακυμάνσεις</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Κόμικς</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Ψηφιακή Τέχνη</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Δυναμικά</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Μαγικά Δάση</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Φαντασία</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Ταινία και Τηλεόραση</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Φαγητό και Ποτά</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Γαλαξίας</system:String>
+    <system:String x:Key="Portal.Category.Game">Παιχνίδι</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Γεωμετρικά Σχέδια</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Διακοπές και Εποχές</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Τρόμος και Halloween</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">Εμπνευστικές Φράσεις</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Παιδιά και Κινούμενα Σχέδια</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Τοπία</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Γραμμική Τέχνη</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Μεσαιωνικά</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Μινιμαλιστικό</system:String>
+    <system:String x:Key="Portal.Category.Music">Μουσική</system:String>
+    <system:String x:Key="Portal.Category.Nature">Φύση</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Νυχτερινά Τοπία</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Μοτίβα και Υφές</system:String>
+    <system:String x:Key="Portal.Category.Retro">Ρετρό</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Ουρανός</system:String>
+    <system:String x:Key="Portal.Category.Space">Διάστημα</system:String>
+    <system:String x:Key="Portal.Category.Sports">Αθλητισμός</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Υπερήρωες</system:String>
+    <system:String x:Key="Portal.Category.System">Σύστημα</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Ταβέρνα</system:String>
+    <system:String x:Key="Portal.Category.Technology">Τεχνολογία</system:String>
+    <system:String x:Key="Portal.Category.Temple">Ναός</system:String>
+    <system:String x:Key="Portal.Category.Time">Χρόνος</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Υποβρύχιο και Θαλάσσιο</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Οχήματα</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Εποχή</system:String>
+    <system:String x:Key="Portal.Category.War">Πόλεμος</system:String>
+</ResourceDictionary>

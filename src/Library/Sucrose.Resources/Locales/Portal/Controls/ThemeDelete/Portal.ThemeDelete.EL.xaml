@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeDelete.Title">Διαγραφή Θέματος</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">Διαγραφή</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.ThemeDelete.ThemeTitle">Τίτλος</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeDescription">Περιγραφή</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeType">Τύπος</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">Συγγραφέας</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSize">Μέγεθος</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersion">Έκδοση</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">Ετικέτες</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">Καμία</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreate">Δημιουργία</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">Άγνωστο</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">Τροποποίηση</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">Άγνωστο</system:String>
+</ResourceDictionary>

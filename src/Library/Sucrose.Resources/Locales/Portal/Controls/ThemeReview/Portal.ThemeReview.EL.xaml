@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">Κριτική Θέματος</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">Τίτλος</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">Περιγραφή</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">Τύπος</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">Συγγραφέας</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">Μέγεθος</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">Έκδοση</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">Ετικέτες</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">Καμία</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">Δημιουργήθηκε</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Άγνωστο</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">Τροποποιήθηκε</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">Άγνωστο</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">Διεύθυνση Επικοινωνίας του Θέματος</system:String>
+</ResourceDictionary>

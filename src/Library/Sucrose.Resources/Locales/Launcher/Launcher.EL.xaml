@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Προσαρμογή Ταπετσαρίας</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Δημιουργία Αρχείου Καταγραφής</system:String>
+    <system:String x:Key="Launcher.ExitText">Έξοδος</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Αναφορά Προβλήματος</system:String>
+    <system:String x:Key="Launcher.OpenText">Άνοιγμα του Sucrose</system:String>
+    <system:String x:Key="Launcher.ReportText">Αναφορά Σφάλματος</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Διάγνωση Sucrose</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIP Αρχεία (*.zip)|*.zip|Όλα τα Αρχεία (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Αποθήκευση Αρχείου Καταγραφής</system:String>
+    <system:String x:Key="Launcher.SettingText">Ρυθμίσεις</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Αλλαγή Ταπετσαρίας</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Κλείσιμο Ταπετσαρίας</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Άνοιγμα Ταπετσαρίας</system:String>
+    <system:String x:Key="Launcher.WallStartText">Έναρξη Ταπετσαρίας</system:String>
+    <system:String x:Key="Launcher.WallStopText">Διακοπή Ταπετσαρίας</system:String>
+    <system:String x:Key="Launcher.UpdateText">Έλεγχος Ενημερώσεων</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Αναμονή για Ενημερώσεις</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Έλεγχος Ενημερώσεων</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Πρόοδος Ενημερώσεων {0}</system:String>
+</ResourceDictionary>

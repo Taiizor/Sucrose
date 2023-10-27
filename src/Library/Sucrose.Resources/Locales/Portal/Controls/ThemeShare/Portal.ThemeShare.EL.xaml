@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeShare.Title">Κοινοποίηση Θέματος</system:String>
+    <system:String x:Key="Portal.ThemeShare.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeTitle">Τίτλος</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeDescription">Περιγραφή</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeExport">Εξαγωγή</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">Δημοσίευση στο Κατάστημα</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">Αντιγραφή συνδέσμου</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Αποθήκευση αρχείου θέματος</system:String>
+</ResourceDictionary>

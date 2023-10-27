@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Προτιμήσεις Οθόνης</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Κατάσταση Τοποθέτησης</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Πώς οι ταπετσαρίες εφαρμόζονται στις ενεργές οθόνες.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Μόνο στην επιλεγμένη οθόνη</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Επέκταση ανάμεσα στις οθόνες</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Όλες οι οθόνες</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Επιλέξτε τη λειτουργία επέκτασης ανάμεσα στις οθόνες</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Αντιγραφή της ίδιας ταπετσαρίας</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Επιλέξτε τη λειτουργία αντιγραφής της ίδιας ταπετσαρίας</system:String>
+</ResourceDictionary>

@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">Μενού Δωρεάς</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">Ορατότητα του μενού δωρεάς στη διεπαφή.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">Εμφάνιση</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">Απόκρυψη</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">Διαφημίσεις Υποστήριξης</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">Συνεισφέρετε στην ανάπτυξη της εφαρμογής παρακολουθώντας διαφημίσεις.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">Διάρκεια Διαφημίσεων (λεπτά):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">Συμβουλή: Οι διαφημίσεις θα εμφανίζονται με τον ελάχιστο ενοχλητικό τρόπο.</system:String>
+</ResourceDictionary>

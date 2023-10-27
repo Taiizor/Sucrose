@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherAbout.Title">Σχετικά</system:String>
+    <system:String x:Key="Portal.OtherAbout.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.About">Γειά σας, το όνομά μου είναι Bayram Emekli, γνωστός και ως Taiizor. Είμαι ο δημιουργός της εφαρμογής Sucrose Wallpaper Engine, η οποία είναι δωρεάν και ανοικτού κώδικα. Σας ευχαριστώ που χρησιμοποιείτε την εφαρμογή που ανέπτυξα.</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Update">Έκδοση: v{0}</system:String>
+    <system:String x:Key="Portal.OtherAbout.Update.Description">Τελευταίος έλεγχος: {0}</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Update.Notes">Σημειώσεις ενημέρωσης</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Partners">Συνεργάτες μας</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Contributors">Συνεισφέροντες</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.TermsOfService">Όροι Υπηρεσίας</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.PrivacyPolicy">Πολιτική Απορρήτου</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.CodeOfConduct">Κώδικας Συμπεριφοράς των Συντελεστών</system:String>
+</ResourceDictionary>

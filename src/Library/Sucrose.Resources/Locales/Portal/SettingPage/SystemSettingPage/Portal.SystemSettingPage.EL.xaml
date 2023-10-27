@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Αρχεία Καταγραφής</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Διαχείριση όλων των αρχείων καταγραφής που δημιουργεί η εφαρμογή.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Δημιουργία</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Εκκαθάριση</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Σημείωση: Το συνολικό μέγεθος των αρχείων καταγραφής είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Εκκαθάριση Προσωρινής Μνήμης</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Καθαρίστε όλα τα αρχεία προσωρινής μνήμης που δημιουργεί η εφαρμογή.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Έναρξη Εκκαθάρισης</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Σημείωση: Το συνολικό μέγεθος των αρχείων προσωρινής μνήμης είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Εκκαθάριση Καταστήματος</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Καθαρίστε όλα τα αρχεία καταστήματος που δημιουργεί η εφαρμογή.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Έναρξη Εκκαθάρισης</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Σημείωση: Το συνολικό μέγεθος των αρχείων καταστήματος είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Εκκαθάριση Βιβλιοθήκης</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Καθαρίστε όλα τα αρχεία θεμάτων που υπάρχουν στη βιβλιοθήκη σας ή που δημιουργεί η εφαρμογή.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Έναρξη Εκκαθάρισης</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Σημείωση: Το συνολικό μέγεθος των αρχείων θεμάτων στη βιβλιοθήκη σας είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Αρχεία Ρυθμίσεων</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Διαχείριση όλων των αρχείων ρυθμίσεων που δημιουργεί η εφαρμογή.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Εξαγωγή</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Εισαγωγή</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επιλεγμένη εργασία.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Επαναφορά Ρυθμίσεων</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Επαναφέρετε όλες τις ρυθμίσεις που δημιουργεί η εφαρμογή στην προεπιλεγμένη κατάσταση.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Έναρξη Επαναφοράς</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επαναφορά των ρυθμίσεων.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Αποθήκευση Αρχείου Καταγραφής</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Αρχεία ZIP (*.zip)|*.zip|Όλοι οι Τύποι Αρχείων (*.*)|*.*</system:String>
+</ResourceDictionary>

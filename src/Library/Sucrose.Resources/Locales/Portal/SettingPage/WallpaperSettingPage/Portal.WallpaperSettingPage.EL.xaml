@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Διάταξη Οθόνης</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Αλλάζει τη διάταξη των ταπετσαριών στην οθόνη σας.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Λειτουργία Επέκτασης</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Αλλάζει τον τρόπο με τον οποίο επεκτείνονται τα υποστηριζόμενα ταπετσαρίες.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Λειτουργία Επανάληψης</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Αλλάζει τη λειτουργία επανάληψης για τις υποστηριζόμενες ταπετσαρίες.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Λειτουργία Ανακάτεμα</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Αλλάζει τη λειτουργία ανακάτεμα για τις υποστηριζόμενες ταπετσαρίες.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Πρόσθετο Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Gif που υπάρχουν στη βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Πρόσθετο Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Video που υπάρχουν στη βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Μηχανή Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Url που υπάρχουν στη βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Μηχανή Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Web που υπάρχουν στη βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Μηχανή YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου YouTube που υπάρχουν στη βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Μηχανή Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Application που υπάρχουν στη βιβλιοθήκη σας.</system:String>
+</ResourceDictionary>

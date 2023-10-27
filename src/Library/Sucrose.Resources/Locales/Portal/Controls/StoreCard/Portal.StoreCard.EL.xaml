@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.StoreCard.TitleText">Τίτλος</system:String>
+    <system:String x:Key="Portal.StoreCard.DescriptionText">Περιγραφή</system:String>
+
+    <system:String x:Key="Portal.StoreCard.VersionTip">Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose</system:String>
+
+    <system:String x:Key="Portal.StoreCard.MenuInstall">Εγκατάσταση</system:String>
+    <system:String x:Key="Portal.StoreCard.MenuReport">Αναφορά</system:String>
+</ResourceDictionary>

@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">Δημιουργία Θέματος</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Δημιουργία</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Θέμα Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Δημιουργήστε το δικό σας θέμα τύπου Gif.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Θέμα Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Δημιουργήστε το δικό σας θέμα τύπου Url.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Θέμα Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Δημιουργήστε το δικό σας θέμα τύπου Web.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Θέμα Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Δημιουργήστε το δικό σας θέμα τύπου Video.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">Θέμα YouTube</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Δημιουργήστε το δικό σας θέμα τύπου YouTube.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Θέμα Application</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Δημιουργήστε το δικό σας θέμα τύπου Application.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Εξώφυλλο</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Προεπισκόπηση</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Τίτλος</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Περιγραφή</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Συγγραφέας</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Επικοινωνία</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Ετικέτες</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Ορίσματα</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Επιλέξτε μια εικόνα εξωφύλλου</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Επιλέξτε ένα αρχείο προεπισκόπησης</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Παρακαλούμε εισάγετε μια έγκυρη περιγραφή</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Παρακαλούμε εισάγετε έναν έγκυρο όνομα συγγραφέα</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση επικοινωνίας</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Παρακαλούμε εισάγετε έγκυρες ετικέτες θέματος</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Παρακαλούμε εισάγετε έγκυρες παραμέτρους εφαρμογής</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Αναίρεση</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Σύρετε και αποθέστε το αρχείο GIF εδώ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Σύρετε και αποθέστε το αρχείο video εδώ</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Επιλογή Εξωφύλλου</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Αρχεία Εικόνας (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Επιλογή Αρχείου Προεπισκόπησης</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Αρχεία GIF (*.gif)|*.gif</system:String>
+</ResourceDictionary>

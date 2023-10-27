@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Ήχος</system:String>
+    <system:String x:Key="Portal.Area.Log">Αρχείο καταγραφής</system:String>
+    <system:String x:Key="Portal.Area.Hook">Αγκίστρι</system:String>
+    <system:String x:Key="Portal.Area.Store">Κατάστημα</system:String>
+    <system:String x:Key="Portal.Area.Donate">Δωρεά</system:String>
+    <system:String x:Key="Portal.Area.System">Σύστημα</system:String>
+    <system:String x:Key="Portal.Area.Cache">Προσωρινή μνήμη</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Φορητός Υπολογιστής</system:String>
+    <system:String x:Key="Portal.Area.Support">Υποστήριξη</system:String>
+    <system:String x:Key="Portal.Area.Reset">Επαναφορά</system:String>
+    <system:String x:Key="Portal.Area.Backup">Αντίγραφο Ασφαλείας</system:String>
+    <system:String x:Key="Portal.Area.Priority">Προτεραιότητα</system:String>
+    <system:String x:Key="Portal.Area.Engines">Μηχανές</system:String>
+    <system:String x:Key="Portal.Area.Update">Ενημέρωση</system:String>
+    <system:String x:Key="Portal.Area.Library">Βιβλιοθήκη</system:String>
+    <system:String x:Key="Portal.Area.Developer">Προγραμματιστής</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Επεκτάσεις</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Συστημικοί Πόροι</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Εμφάνιση &amp; Συμπεριφορά</system:String>
+</ResourceDictionary>

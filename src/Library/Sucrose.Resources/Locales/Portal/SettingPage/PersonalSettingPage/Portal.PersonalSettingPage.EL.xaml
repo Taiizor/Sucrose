@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Ανανέωση Καταστήματος</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Πόσο συχνά θα γίνεται η ανανέωση των θεμάτων που εμφανίζονται στο κατάστημα.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Αυτόματη Εκκίνηση</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Θα ορίζεται αυτόματα το θέμα που λαμβάνετε από το κατάστημα ως ταπετσαρία.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Άκατάλληλο Περιεχόμενο</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Θα εμφανίζονται ή όχι περιεχόμενα που έχουν χαρακτηριστεί ως μη ασφαλή (NSFW) στο κατάστημα.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Επιβεβαίωση Διαγραφής</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Θα ζητείται επιβεβαίωση πριν διαγράψετε θέματα από την βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Διαγραφή Κακόβουλων Θεμάτων</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Θα γίνεται αυτόματη διαγραφή των κακόβουλων ή ελλιπών θεμάτων από τη βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Σημείωση: Χρησιμοποιείτε με προσοχή, καθώς μπορεί να οδηγήσει σε απώλεια δεδομένων.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Αυτόματη Εκκίνηση</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Το θέμα που δημιουργήσατε θα ορίζεται αυτόματα ως ταπετσαρία.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Προεπισκόπηση Θεμάτων</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Θα εμφανίζεται προεπισκόπηση όταν το ποντίκι βρίσκεται πάνω από ένα θέμα.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Προεπισκόπηση Καταστήματος</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Απόκρυψη Λεπτομερειών</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Προεπισκόπηση Βιβλιοθήκης</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Απόκρυψη Λεπτομερειών</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Προσαρμογή Θεμάτων</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Προσαρμόστε τα ονόματα ή τις περιγραφές των θεμάτων που εμφανίζονται.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Μήκος Τίτλου (Χαρακτήρες):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Μήκος Περιγραφής (Χαρακτήρες):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Προσαρμοστική Διάταξη</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Προσαρμόστε τη διάταξη ή τις αποστάσεις των θεμάτων που εμφανίζονται.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Απόσταση Γραμμών (Εικόνα):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Διάταξη Σειράς (Τεμάχια):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Σελιδοποίηση Καταστήματος</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Καθορίστε πόσα θέματα θα υπάρχουν σε κάθε σελίδα του καταστήματος.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Σελιδοποίηση Βιβλιοθήκης</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Καθορίστε πόσα θέματα θα υπάρχουν σε κάθε σελίδα της βιβλιοθήκης σας.</system:String>
+</ResourceDictionary>

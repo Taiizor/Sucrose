@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">Η βιβλιοθήκη σας έχει καλυφθεί από αραχνοσημάδια</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">Αντί για ταπετσαρίες, ένα υπέροχο έργο τέχνης από αραχνοσημάδια διακοσμεί τη βιβλιοθήκη σας</system:String>
+</ResourceDictionary>

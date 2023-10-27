@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Τίτλος</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Περιγραφή</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Περισσότερα</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">Κριτική</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Χρησιμοποίησε</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Προεπισκόπηση</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Προσαρμογή</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Εύρεση</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Κοινοποίηση</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Διαγραφή</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Επεξεργασία</system:String>
+</ResourceDictionary>

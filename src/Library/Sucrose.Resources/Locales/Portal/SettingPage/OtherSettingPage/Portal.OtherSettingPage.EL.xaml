@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Το Sucrose διαχειρίζεται την επικοινωνία με το Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Ανανέωση σύνδεσης:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Διάστημα Ανανέωσης (δευτερόλεπτα):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Πράκτορας Διαδικτύου</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Το αναγνωριστικό πράκτορα σας για καταστάσεις που απαιτούν σύνδεση στο διαδίκτυο.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Προσωπικό Κλειδί Πρόσβασης</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Απαιτείται για ασφαλή λήψη ενημερώσεων από το κατάστημα και την εφαρμογή.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Αν δεν γνωρίζετε πώς να λάβετε ένα προσωπικό κλειδί πρόσβασης, κάντε κλικ εδώ.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Παρακαλώ εισάγετε ένα προσωπικό κλειδί πρόσβασης</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Παρακαλώ εισάγετε ένα έγκυρο προσωπικό κλειδί πρόσβασης</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Κανάλι Ενημερώσεων</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Ποιο κανάλι θα χρησιμοποιηθεί για τις ενημερώσεις.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Μέθοδος Ενημέρωσης</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Πώς θα γίνει η διαδικασία ενημέρωσης.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Όριο Εύρους Ζώνης για Λήψη:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Εργαλεία Προγραμματιστή</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Εμφάνιση ή απόκρυψη των εργαλείων προγραμματιστή για την μηχανή WebView και CefSharp.</system:String>
+</ResourceDictionary>

@@ -47,6 +47,7 @@ namespace Sucrose.Resources.Helper
             return new()
             {
                 "DE",
+                "EL",
                 "EN",
                 "ES",
                 "FR",

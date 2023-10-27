@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Update.HelpText">Λύστε το Πρόβλημα</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Ενημέρωση Sucrose</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Εγκατάσταση Ενημέρωσης</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Ενημέρωση Sucrose</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Μήνυμα</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Κλείσιμο</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Βρισκόμαστε σε στιγμές όπου οι ενημερώσεις είναι κρυμμένες σαν ένα χαμένο κόσμημα. Μπορείτε να απολαύσετε την εμπειρία ακόμα και χρησιμοποιώντας την τρέχουσα έκδοση.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Καταλάβαμε ότι υπήρξε ένα σφάλμα στον δρόμο κατά τη λήψη του αρχείου ενημέρωσης και ότι αυτό το ταξίδι τελείωσε προς το παρόν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς μια ισχυρότερη ενημέρωση σας περιμένει όταν αυτά τα προβλήματα επιλυθούν.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">Η εφαρμογή είναι ήδη μαζί σας σε μια ενημερωμένη και καινοτόμο μορφή, όπως η τελευταία σελίδα ενός βιβλίου. Είμαστε εδώ για να σας προσφέρουμε πάντα την καλύτερη και πιο ενημερωμένη εμπειρία.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Βρισκόμαστε στην προσοχή ενός ονείρου προς το παρόν ανεπιτυχές να φτάσουμε στο αρχείο ενημέρωσης. Παρ' όλα αυτά, μπορείτε να συνεχίσετε να απολαμβάνετε το όνειρό σας χρησιμοποιώντας την τρέχουσα έκδοση.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Ο επιλεγμένος κανάλι ενημέρωσης είναι σαν ένα δάσος σιωπής. Προς το παρόν δεν υπάρχουν πληροφορίες για νέες ενημερώσεις. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα σας προσφέρουμε περισσότερα όταν αυτή η σιωπή διακοπεί.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Κατά την προσπάθεια ανάκτησης του αρχείου ενημέρωσης, αντιμετωπίσαμε ένα εμπόδιο από τα βάθη της θάλασσας. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα επιστρέψουμε για να ανακαλύψουμε νέους θησαυρούς όταν η θάλασσα ηρεμήσει.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Η ασθενής σύνδεσή σας είναι σαν τα σύννεφα να καλύπτουν τον ήλιο. Όταν τα σύννεφα διαλυθούν, σας περιμένει μια πιο φωτεινή εμπειρία.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Η ενημέρωση της εφαρμογής προχωρά σιωπηλά, σαν να προσεγγίζουμε νέους θησαυρούς που τα κύματα φέρνουν στην ακτή. Αυτές οι πολύτιμες αναβαθμίσεις συλλέγονται για εσάς στο παρασκήνιο.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Βρισκόμαστε σε ένα σημείο όπου ο αστέρας της ενημέρωσης δεν έχει ακόμα ανατείλει. Προς το παρόν, δεν υπάρχει καμία πληροφορία για ενημερώσεις, αλλά μπορείτε να συνεχίσετε να χρησιμοποιείτε την υπάρχουσα έκδοση.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Κατά την λήψη του αρχείου ενημέρωσης, ανακαλύψαμε ότι οι αστέρες στον ουρανό ήταν σε λάθος σειρά. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς όταν οι αστέρες έλθουν σε σωστή τάξη, θα σας προσφέρουμε μια βελτιωμένη ενημέρωση.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Η λήψη του αρχείου ενημέρωσης ακυρώθηκε, καθώς οι δρόμοι μας απομακρύνθηκαν ξαφνικά. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις, διότι μια νέα αρχή είναι πάντα εφικτή.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Φαίνεται ότι οι συνθήκες για την απελευθέρωση των αρχείων ενημέρωσης είναι ακόμα ανεκπλήρωτες, ως να λείπει ένα κλειδί για να ξεκλειδώσουν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις.</system:String>
+</ResourceDictionary>

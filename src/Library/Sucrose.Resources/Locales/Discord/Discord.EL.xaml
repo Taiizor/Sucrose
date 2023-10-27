@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Discord.BrowseButton">Περιήγηση</system:String>
+    <system:String x:Key="Discord.Details">Κινητήρας ταπετσαρίας</system:String>
+    <system:String x:Key="Discord.DownloadButton">Λήψη</system:String>
+
+    <system:String x:Key="Discord.LargestText0">Η Δύναμη του Παγωτού με Μπανάνα</system:String>
+    <system:String x:Key="Discord.LargestText1">Το Καρναβάλι του Χαμογελαστού Καπέλου</system:String>
+    <system:String x:Key="Discord.LargestText2">Οι Πουλιές που Χρωματίζουν τα Σύννεφα</system:String>
+    <system:String x:Key="Discord.LargestText3">Οι Κρυφές Περιπέτειες των Τρεχόντων Πιγουίνων</system:String>
+    <system:String x:Key="Discord.LargestText4">Οι Κουνημένοι Κουνέλια στον Κήπο των Αγριολούλουδων</system:String>
+    <system:String x:Key="Discord.LargestText5">Οι Ανεμόμυλοι που Τραγουδούν</system:String>
+    <system:String x:Key="Discord.SmallestText0">Τα Μυστηριώδη Αποτυπώματα Ποδιών</system:String>
+    <system:String x:Key="Discord.SmallestText1">Οι Ψηλομαλλά Ψάρια με Αερόσακο</system:String>
+    <system:String x:Key="Discord.SmallestText2">Τα Λουλούδια που Γελούν</system:String>
+    <system:String x:Key="Discord.SmallestText3">Τα Ζαχαρωτά Σύννεφα από Βαμβάκι</system:String>
+    <system:String x:Key="Discord.SmallestText4">Οι Παγωμένοι Δράκοι της Πίτσας</system:String>
+    <system:String x:Key="Discord.SmallestText5">Οι Λαμπεροί Πειρατές Μανιταρόκοσμου</system:String>
+    <system:String x:Key="Discord.StatementText0">Ένα Σύμπαν Γεμάτο Χάος</system:String>
+    <system:String x:Key="Discord.StatementText1">Στην Καρδιά των Ατελείωτων Περιπετειών</system:String>
+    <system:String x:Key="Discord.StatementText2">Ένας Περίεργος και Μαγικός Κόσμος</system:String>
+    <system:String x:Key="Discord.StatementText3">Που Δοκιμάζει τα Όρια της Φαντασίας</system:String>
+    <system:String x:Key="Discord.StatementText4">Ένας Ασυνήθιστος Πραγματικότητα</system:String>
+    <system:String x:Key="Discord.StatementText5">Στα Βάθη της Φαντασίας</system:String>
+    <system:String x:Key="Discord.StatementText6">Ένας Μαγικός Ταξίδι Ανακάλυψης</system:String>
+    <system:String x:Key="Discord.StatementText7">Στην Πύλη των Άγνωστων Κόσμων</system:String>
+    <system:String x:Key="Discord.StatementText8">Ένας Πολύπλοκος Κόσμος Ονείρων</system:String>
+    <system:String x:Key="Discord.StatementText9">Μια Περιπέτεια που Προκαλεί τα Όρια</system:String>
+    <system:String x:Key="Discord.StatementText10">Μια Δυναμική και Εκπληκτική Εμπειρία</system:String>
+    <system:String x:Key="Discord.StatementText11">Μέσα σε ένα Φανταστικό Παραμύθι</system:String>
+</ResourceDictionary>

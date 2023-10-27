@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Μετρητές Απόδοσης</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Εάν οι μετρητές απόδοσης θα λειτουργούν στο παρασκήνιο.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Σημείωση: Ορισμένα θέματα τύπου Web ενδέχεται να μην λειτουργούν σωστά και καμία από τις παρακάτω ρυθμίσεις απόδοσης δεν θα ισχύσει.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Χρήση Επεξεργαστή</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Πώς θα επηρεάσει η ρύθμιση της χρήσης του επεξεργαστή το ταπετσαρία.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Χρήση Επεξεργαστή (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Χρήση Μνήμης</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Πώς θα επηρεάσει η ρύθμιση της χρήσης μνήμης το ταπετσαρία.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Χρήση Μνήμης (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Χρήση Δικτύου</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Πώς θα επηρεάσει η ρύθμιση της χρήσης δικτύου το ταπετσαρία.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Δικτυακός Προσαρμογέας:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Η λίστα των δικτυακών προσαρμογέων δεν έχει δημιουργηθεί ακόμα</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Μέγεθος Αποστολής:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Μέγεθος Λήψης:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping Χρόνος (MS):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Κατάσταση Μπαταρίας</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Πώς θα επηρεάσει η ρύθμιση της κατάστασης της μπαταρίας το ταπετσαρία όταν είναι ενεργοποιημένη.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Κατάσταση Μπαταρίας (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Λειτουργία Εξοικονόμησης Μπαταρίας</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Πώς θα επηρεάσει η ρύθμιση της λειτουργίας εξοικονόμησης μπαταρίας το ταπετσαρία όταν είναι ενεργοποιημένη.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Εικονικές Μηχανές</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Πώς θα επηρεάσει η ρύθμιση των εικονικών μηχανών το ταπετσαρία όταν είναι ενεργοποιημένη.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Απομακρυσμένη Γραφική Διεπαφή</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Πώς θα επηρεάσει η ρύθμιση της απομακρυσμένης γραφικής διεπαφής το ταπετσαρία όταν είναι ενεργοποιημένη.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Λειτουργία Πλήρης Οθόνης</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Πώς θα επηρεάσει η ρύθμιση της λειτουργίας πλήρης οθόνης το ταπετσαρία όταν είναι ενεργοποιημένη.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Λειτουργία Εστίασης</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Πώς θα επηρεάσει η ρύθμιση της λειτουργίας εστίασης το ταπετσαρία όταν υπάρχει εστίαση σε κάποια άλλη εφαρμογή.</system:String>
+</ResourceDictionary>

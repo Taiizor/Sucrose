@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Γλώσσα Εφαρμογής</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Επιλέξτε τη γλώσσα στην οποία θέλετε να προβάλετε την εφαρμογή.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Εκκίνηση με την έναρξη του συστήματος</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Για να αναπαράγετε τα ταπετσαρίες σας, η εφαρμογή Sucrose πρέπει να εκκινεί στο παρασκήνιο.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Καθόλου</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Κανονική</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Υψηλή Προτεραιότητα</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Χρονοδιάγραμμα</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Εικονίδιο ενημερώσεων</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Ορατότητα του εικονιδίου ενημερώσεων στη γραμμή εργασιών του συστήματος. Το Sucrose θα συνεχίσει να λειτουργεί στο παρασκήνιο.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Ορατό</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Αόρατο</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Όταν κλείνετε το εικονίδιο ενημερώσεων, να κλείνονται και όλες οι εφαρμογές του Sucrose</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Φόντο παραθύρου</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Χρησιμοποιείται για την προσαρμογή του φόντου του παραθύρου της εφαρμογής.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Επιλέξτε εικόνα φόντου</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Επιλέξτε μια εικόνα φόντου</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Αρχεία εικόνας (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Επέκταση του φόντου:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Διαφάνεια του φόντου (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Ένταση Ήχου</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Η ένταση ήχου που ισχύει για όλα τα ταπετσαρίες.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Αναπαραγωγή ήχου μόνο όταν εστιάζετε στην επιφάνεια εργασίας</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Τοποθεσία βιβλιοθήκης</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Η τοποθεσία όπου θα αποθηκεύονται τα θέματα που προσθέτετε στη βιβλιοθήκη σας.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Παρακαλώ επιλέξτε έναν κενό φάκελο</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Παρακαλώ περιμένετε λίγο κατά τη μετακίνηση της τοποθεσίας</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Μετακίνηση της υφιστάμενης βιβλιοθήκης σας σε νέα τοποθεσία</system:String>
+</ResourceDictionary>

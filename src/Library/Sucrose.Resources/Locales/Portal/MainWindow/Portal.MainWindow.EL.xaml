@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Βοήθεια</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Σχετικά</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Προβολή Βοήθειας</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Προβολή Πληροφοριών Σχετικά</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Βιβλιοθήκη</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Κατάστημα</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Βιβλιοθήκη Θεμάτων</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Κατάστημα Θεμάτων</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Γενικές</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Προσωπικές</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Απόδοση</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Ταπετσαρία</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Σύστημα</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Δωρεά</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Άλλες</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Πίσω</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Γενικές Ρυθμίσεις</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Προσωπικές Ρυθμίσεις</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Ρυθμίσεις Απόδοσης</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Ρυθμίσεις Ταπετσαρίας</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Ρυθμίσεις Συστήματος</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Ρυθμίσεις Δωρεάς</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Άλλες Ρυθμίσεις</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Ρυθμίσεις</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Αναζήτηση Ταπετσαρίας</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Αντιμετωπίζετε δυσκολία στην εύρεση αυτού που χρειάζεστε;</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Φωτεινό Θέμα</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Σκοτεινό Θέμα</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Δημιουργία Ταπετσαρίας</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Προτιμήσεις Οθόνης</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Επιλογές Δωρεάς</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Άλλες Επιλογές</system:String>
+</ResourceDictionary>

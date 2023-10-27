@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Γέμισμα</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Καμία</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Ομοιόμορφη</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Ομοιόμορφο Γέμισμα</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Γέμισμα</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Καμία</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Ομοιόμορφη</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Ομοιόμορφο Γέμισμα</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Κλείσιμο</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Παύση</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Συνέχιση</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Μίκα</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Καμία</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Αυτόματο</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Καρτελέτα</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Ακρυλικό</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Προεπιλεγμένο</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Προ-Κυκλοφορία</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Προεπιλογή</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Συμπιεσμένο</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Εκτελέσιμο</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Χώρος Εργασίας</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Όρια Οθόνης</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Προεπιλογή</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Επιτυχημένο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' περιλαμβάνει πολλές τιμές</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Το θέμα δημιουργήθηκε για έναν τύπο που η εφαρμογή δεν υποστηρίζει</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">Η τιμή 'Title' είναι άδεια ή πολύ μεγάλη</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Η τιμή 'Author' είναι άδεια ή πολύ μεγάλη</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Το αρχείο 'Source' δεν βρέθηκε</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Η τιμή 'Contact' είναι άδεια ή πολύ μεγάλη</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Το αρχείο 'Preview' δεν βρέθηκε</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Το συγκεκριμένο αρχείο είναι κρυπτογραφημένο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Το συγκεκριμένο αρχείο δεν είναι πραγματικό αρχείο '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Το αρχείο 'SucroseInfo.json' δεν βρέθηκε</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Το συγκεκριμένο αρχείο δεν βρέθηκε</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Μη έγκυρη τιμή 'LoopMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">Η τιμή 'Arguments' είναι πολύ μεγάλη</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Το συγκεκριμένο αρχείο δεν έχει κατάληξη '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Το αρχείο 'Thumbnail' δεν βρέθηκε</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Μη έγκυρη τιμή 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Το αρχείο 'SucroseInfo.json' είναι άδειο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Το θέμα δημιουργήθηκε για μια υψηλότερη έκδοση της εφαρμογής</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Η τιμή 'Source' περιλαμβάνει μη έγκυρη τιμή</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Μη έγκυρη τιμή 'SystemBios'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Μη έγκυρη τιμή 'SystemDate'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Μη έγκυρη τιμή 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">Η τιμή 'Description' είναι άδεια ή πολύ μεγάλη</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Το αρχείο 'SucroseInfo.json' δεν είναι έγκυρο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Μη έγκυρη τιμή 'TriggerTime'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Μη έγκυρη τιμή 'StretchMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Μη έγκυρη τιμή 'VolumeLevel'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Μη έγκυρη τιμή 'ShuffleMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Οι τιμές 'Tags' είναι πολύ μικρές ή πολύ μεγάλες</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Μη έγκυρο αρχείο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Η τιμή 'PropertyList' είναι άδεια</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Μη έγκυρη τιμή 'SystemMemory'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Μη έγκυρη τιμή 'SystemBattery'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Μη έγκυρη τιμή 'SystemGraphic'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Μη έγκυρη τιμή 'SystemNetwork'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Η τιμή 'Contact' δεν είναι 'URL' ή 'Διεύθυνση Email'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Μη έγκυρη επέκταση αρχείου</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Το αρχείο 'SucroseCompatible.json' είναι άδειο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Το αρχείο 'SucroseProperties.json' είναι άδειο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Μη έγκυρη τιμή 'PropertyListener'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Μη έγκυρη τιμή 'SystemMotherboard'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Το αρχείο 'SucroseCompatible.json' δεν είναι έγκυρο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Το αρχείο 'SucroseProperties.json' δεν είναι έγκυρο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Απρόβλεπτες συνέπειες</system:String>
+</ResourceDictionary>
