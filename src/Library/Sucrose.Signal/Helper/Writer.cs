@@ -6,11 +6,9 @@ namespace Sucrose.Signal.Helper
     {
         public static async void Write(string filePath, string fileContent)
         {
-            FileMode fileMode = File.Exists(filePath) ? FileMode.Truncate : FileMode.CreateNew;
-
             try
             {
-                using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
+                using FileStream fileStream = new(filePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
                 using StreamWriter writer = new(fileStream);
 
                 writer.Write(fileContent);
@@ -21,7 +19,7 @@ namespace Sucrose.Signal.Helper
                 {
                     await Task.Delay(SMR.Randomise.Next(5, 50));
 
-                    using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
+                    using FileStream fileStream = new(filePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
                     using StreamWriter writer = new(fileStream);
 
                     writer.Write(fileContent);
@@ -32,7 +30,7 @@ namespace Sucrose.Signal.Helper
                     {
                         await Task.Delay(SMR.Randomise.Next(5, 50));
 
-                        using FileStream fileStream = new(filePath, fileMode, FileAccess.Write, FileShare.None);
+                        using FileStream fileStream = new(filePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
                         using StreamWriter writer = new(fileStream);
 
                         writer.Write(fileContent);

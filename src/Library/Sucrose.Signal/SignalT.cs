@@ -10,13 +10,13 @@ namespace Sucrose.Signal
     public class SignalT(string Name)
     {
         private readonly JsonSerializerSettings SerializerSettings = new() { TypeNameHandling = TypeNameHandling.None, Formatting = Formatting.Indented };
-        private readonly string Source = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Signal);
+        private readonly string Source = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.SignalT);
         private FileSystemWatcher FileWatcher;
 
         public FileSystemEventHandler CreatedEventHandler;
-        public FileSystemEventHandler ChangedEventHandler;
-        public FileSystemEventHandler DeletedEventHandler;
-        public RenamedEventHandler RenamedEventHandler;
+        //public FileSystemEventHandler ChangedEventHandler;
+        //public FileSystemEventHandler DeletedEventHandler;
+        //public RenamedEventHandler RenamedEventHandler;
 
         public void StopChannel()
         {
@@ -63,29 +63,29 @@ namespace Sucrose.Signal
                 }
             };
 
-            FileWatcher.Changed += (s, e) =>
-            {
-                if (FileCheck(e.FullPath))
-                {
-                    ChangedEventHandler?.Invoke(s, e);
-                }
-            };
+            //FileWatcher.Changed += (s, e) =>
+            //{
+            //    if (FileCheck(e.FullPath))
+            //    {
+            //        ChangedEventHandler?.Invoke(s, e);
+            //    }
+            //};
 
-            FileWatcher.Deleted += (s, e) =>
-            {
-                if (FileCheck(e.FullPath))
-                {
-                    DeletedEventHandler?.Invoke(s, e);
-                }
-            };
+            //FileWatcher.Deleted += (s, e) =>
+            //{
+            //    if (FileCheck(e.FullPath))
+            //    {
+            //        DeletedEventHandler?.Invoke(s, e);
+            //    }
+            //};
 
-            FileWatcher.Renamed += (s, e) =>
-            {
-                if (FileCheck(e.FullPath))
-                {
-                    RenamedEventHandler?.Invoke(s, e);
-                }
-            };
+            //FileWatcher.Renamed += (s, e) =>
+            //{
+            //    if (FileCheck(e.FullPath))
+            //    {
+            //        RenamedEventHandler?.Invoke(s, e);
+            //    }
+            //};
 
             FileWatcher.EnableRaisingEvents = true;
         }
@@ -112,10 +112,12 @@ namespace Sucrose.Signal
             await SSHD.Delete(Source);
         }
 
-        public T FileRead<T>(string Source, T Default, bool Delete = true)
+        public async Task<T> FileRead<T>(string Source, T Default, bool Delete = true)
         {
             try
             {
+                await Task.Delay(SMR.Randomise.Next(5, 50));
+
                 string Data = SSHR.Read(Source).Result;
 
                 if (Delete)

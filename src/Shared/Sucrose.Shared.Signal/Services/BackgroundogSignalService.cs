@@ -10,9 +10,9 @@ namespace Sucrose.Shared.Signal.Services
 {
     public static class BackgroundogSignalService
     {
-        public static void Handler(object sender, FileSystemEventArgs e)
+        public static async void Handler(object sender, FileSystemEventArgs e)
         {
-            SSIB Data = SSMI.BackgroundogManager.FileRead<SSIB>(e.FullPath, new());
+            SSIB Data = await SSMI.BackgroundogManager.FileRead<SSIB>(e.FullPath, new());
 
             if (Data.Cpu != null)
             {

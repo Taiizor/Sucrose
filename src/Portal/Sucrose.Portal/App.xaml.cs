@@ -35,6 +35,7 @@ using SPVPSWSP = Sucrose.Portal.Views.Pages.Setting.WallpaperSettingPage;
 using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
@@ -207,6 +208,7 @@ namespace Sucrose.Portal
 
         protected void Configure()
         {
+            SSSHS.Apply();
             _host.Start();
 
             //Main Interface = new();

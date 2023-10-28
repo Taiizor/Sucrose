@@ -5,7 +5,6 @@ using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIC = Skylark.Standard.Interface.IContents;
-using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
@@ -200,8 +199,6 @@ namespace Sucrose.Shared.Store.Helper
             if (SSSMI.State)
             {
                 SSSMI.State = false;
-
-                SSSHS.Apply();
 
                 SSSMI.Client.DefaultRequestHeaders.Clear();
 

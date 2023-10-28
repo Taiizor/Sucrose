@@ -12,8 +12,6 @@
 
         public static readonly string LogFolder = "Log";
 
-        public static readonly string Signal = "Signal";
-
         public static readonly string GifFolder = "Gif";
 
         public static readonly string Bundle = "Bundle";
@@ -21,6 +19,8 @@
         public static readonly string Key = string.Empty;
 
         public static readonly string Branch = "develop";
+
+        public static readonly string SignalT = "SignalT";
 
         public static readonly string StoreSource = "src";
 

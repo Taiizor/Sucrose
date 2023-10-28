@@ -9,9 +9,9 @@ namespace Sucrose.Shared.Signal.Services
 {
     public static class LauncherSignalService
     {
-        public static void Handler(object sender, FileSystemEventArgs e)
+        public static async void Handler(object sender, FileSystemEventArgs e)
         {
-            SSIL Data = SSMI.LauncherManager.FileRead<SSIL>(e.FullPath, new());
+            SSIL Data = await SSMI.LauncherManager.FileRead<SSIL>(e.FullPath, new());
 
             if (Data.Hide)
             {

@@ -9,9 +9,9 @@ namespace Sucrose.Shared.Signal.Services
 {
     public static class WebsiterSignalService
     {
-        public static void Handler(object sender, FileSystemEventArgs e)
+        public static async void Handler(object sender, FileSystemEventArgs e)
         {
-            SSIW Data = SSMI.WebsiterManager.FileRead<SSIW>(e.FullPath, new());
+            SSIW Data = await SSMI.WebsiterManager.FileRead<SSIW>(e.FullPath, new());
 
             Variables.State = true;
             Variables.Uri = Data.Url;
