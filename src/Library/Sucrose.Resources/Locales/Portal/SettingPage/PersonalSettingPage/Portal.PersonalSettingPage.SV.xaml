@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Butik Uppdatering</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Hur länge de listade temana i butiken ska uppdateras.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Automatisk Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Om teman som laddas ner från butiken automatiskt ska ställas in som bakgrundsbild.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Ocensurerat Innehåll</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Om innehåll som inte är säkert för arbete (NSFW) i butiken ska visas eller döljas.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Bekräftelse vid Radering</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Om bekräftelse ska begäras när du tar bort teman från din bibliotek.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Radera Dåliga Teman</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Om dåliga eller bristfälliga teman i ditt bibliotek ska raderas automatiskt.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">OBS: Var försiktig med detta. Det kan leda till datamissförluster om du inte är försiktig.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Automatisk Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Om teman som du skapar automatiskt ska ställas in som bakgrundsbild.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Temaförhandsgranskning</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Om teman ska förhandsgranskas när du hovrar över dem.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Butiksförhandsvisning</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Dölj detaljer</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Biblioteksförhandsvisning</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Dölj detaljer</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Teman Anpassning</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Anpassa namnet eller beskrivningen för de visade temana.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Rubrik Längd (tecken):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Beskrivning Längd (tecken):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Anpassningsbar Layout</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Anpassa layouten eller avståndet för de visade temana.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Avstånd (pixlar):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Layout Ordning (antal):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Butikssidor</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Bestäm antalet teman per sida i butiken.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Bibliotekssidor</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Bestäm antalet teman per sida i ditt bibliotek.</system:String>
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Visningspreferenser</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Stäng</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Placeringsläge</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Hur bakgrundsbilder tillämpas på aktiva skärmar.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Endast vald skärm</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Förläng över skärmar</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Alla bildskärmar</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Välj läget för att förlänga över skärmar</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Duplicera samma bakgrundsbild</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Välj läget för att duplicera samma bakgrundsbild</system:String>
+</ResourceDictionary>

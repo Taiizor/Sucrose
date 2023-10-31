@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Rubrik</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Beskrivning</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Mer</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Uppdatera Sucrose för att använda detta tema</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">Granska</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Använd</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Förhandsgranska</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Anpassa</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Hitta</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Dela</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Ta bort</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Redigera</system:String>
+</ResourceDictionary>

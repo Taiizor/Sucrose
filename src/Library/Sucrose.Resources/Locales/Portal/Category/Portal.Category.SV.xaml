@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">Alla</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">Abstrakt</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Miljö</system:String>
+    <system:String x:Key="Portal.Category.Animals">Djur</system:String>
+    <system:String x:Key="Portal.Category.Animation">Animering</system:String>
+    <system:String x:Key="Portal.Category.Anime">Anime</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Arkitektur och Byggnader</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Konst och Abstrakt</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Konstverk</system:String>
+    <system:String x:Key="Portal.Category.Bard">Bard</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Svart och Vitt</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Tecknat och Serier</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Städer och Platser</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Moln och Himmel</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Färgglada Gradienter</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Serieböcker</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Digital Konst</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Dynamisk</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Förtrollade Skogar</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Fantasy</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Film och TV</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Mat och Drycker</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Galax</system:String>
+    <system:String x:Key="Portal.Category.Game">Spel</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Geometriska Mönster</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Semester och Säsonger</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Skräck och Halloween</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">Inspirerande Citat</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Barn och Tecknat</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Landskap</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Linjekonst</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Medeltid</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Minimalistisk</system:String>
+    <system:String x:Key="Portal.Category.Music">Musik</system:String>
+    <system:String x:Key="Portal.Category.Nature">Natur</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Nattlandskap</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Mönster och Texturer</system:String>
+    <system:String x:Key="Portal.Category.Retro">Retro</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Himmel</system:String>
+    <system:String x:Key="Portal.Category.Space">Rymd</system:String>
+    <system:String x:Key="Portal.Category.Sports">Sport</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Superhjältar</system:String>
+    <system:String x:Key="Portal.Category.System">System</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Taverna</system:String>
+    <system:String x:Key="Portal.Category.Technology">Teknologi</system:String>
+    <system:String x:Key="Portal.Category.Temple">Tempel</system:String>
+    <system:String x:Key="Portal.Category.Time">Tid</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Undervattens- och Marin</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Fordon</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Vintage</system:String>
+    <system:String x:Key="Portal.Category.War">Krig</system:String>
+</ResourceDictionary>

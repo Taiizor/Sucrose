@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">Redigera Tema</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">Stäng</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">Spara</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">Rubrik</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Beskrivning</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Författare</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">Kontakt</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Taggar</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argument</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Ange en giltig rubrik</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Ange en giltig beskrivning</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Ange ett giltigt författarnamn</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Ange en giltig kontaktadress</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Ange giltiga temataggar</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Ange giltiga programargument</system:String>
+</ResourceDictionary>

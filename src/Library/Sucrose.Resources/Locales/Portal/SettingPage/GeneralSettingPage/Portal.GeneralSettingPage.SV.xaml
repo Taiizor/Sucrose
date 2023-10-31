@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Applikationsspråk</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Välj det språk du vill se programmet på.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Starta vid uppstart</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">För att kunna spela en tapet måste Sucrose köra i bakgrunden vid uppstart.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Ingen</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioriterad</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Planerad</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Meddelandefältssymbol</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Synlighet för systemfältet. Sucrose kommer att fortsätta köra i bakgrunden.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Visa</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Dölj</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Stäng alla Sucrose-program när meddelandefältet stängs</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Fönsterbakgrund</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Används för att anpassa bakgrunden i programfönstret.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Välj bakgrundsbild</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Välj en bakgrundsbild</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Bilddokument (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Bakgrundsanpassning:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Bakgrundsnedsänkning (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Ljudvolym</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Ljudnivån som gäller för alla tapeter.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Spela ljudet endast när skrivbordet är i fokus</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Biblioteksplats</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Plats där teman som läggs till i ditt bibliotek lagras.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Vänligen välj en tom mapp</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Vänta en stund när platsen flyttas</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Flytta ditt nuvarande bibliotek till den nya platsen</system:String>
+</ResourceDictionary>

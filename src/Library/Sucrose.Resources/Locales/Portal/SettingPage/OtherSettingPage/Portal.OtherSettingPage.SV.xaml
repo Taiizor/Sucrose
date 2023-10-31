@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose möjliggör kommunikation med Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Uppdateringsfrekvens:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Uppdateringsintervall (sekunder):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Internetagent</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Din representantidentitet i situationer som kräver internetanslutning.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Personlig åtkomsttoken</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Nödvändig för att använda butiken och uppdatera programmet smidigt.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Klicka här om du inte vet hur du får din personliga åtkomsttoken.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Ange din personliga åtkomsttoken</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Ange en giltig personlig åtkomsttoken</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Uppdateringskanal</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Vilken kanal uppdateringsprocessen kommer att använda.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Uppdateringsmetod</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Vilken metod som kommer att användas för uppdateringsprocessen.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Nedladdningsbandbreddsbegränsning:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Utvecklarverktyg</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Visa eller dölj utvecklarverktygen för WebView och CefSharp-motorn.</system:String>
+</ResourceDictionary>

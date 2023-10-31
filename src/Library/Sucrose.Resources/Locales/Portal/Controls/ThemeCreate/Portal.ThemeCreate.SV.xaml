@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">Skapa Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Skapa</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Stäng</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif-tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Skapa ditt eget tema av typen Gif.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url-tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Skapa ditt eget tema av typen Url.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web-tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Skapa ditt eget tema av typen Web.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video-tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Skapa ditt eget tema av typen Video.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube-tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Skapa ditt eget tema av typen YouTube.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application-tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Skapa ditt eget tema av typen Application.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Minitiatyrbild</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Förhandsgranskning</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Rubrik</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Beskrivning</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Författare</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Kontakt</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Taggar</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argument</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Ange en giltig Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Välj en miniatyrbild</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Välj en förhandsgranskningsfil</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Ange en giltig rubrik</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Ange en giltig beskrivning</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Ange en giltig författarnamn</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Ange en giltig kontaktinformation</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Ange giltiga temataggar</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Ange giltiga applikationsargument</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Ångra</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Dra och släpp din gif-fil här</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Dra och släpp din video-fil här</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Välj miniatyrbild</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Bildfiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Välj förhandsgranskningsfil</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif-filer (*.gif)|*.gif</system:String>
+</ResourceDictionary>

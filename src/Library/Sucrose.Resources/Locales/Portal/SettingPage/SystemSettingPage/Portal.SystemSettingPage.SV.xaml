@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Loggfiler</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Hantera alla loggfiler som programmet skapar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Skapa</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Rensa</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Obs: Den totala storleken av loggfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Rensa Cache</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Rensa alla cache-filer som programmet skapar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Börja Rengöring</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Obs: Den totala storleken av cache-filer är {0}. Alla program kommer att stängas när rengöringen påbörjas.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Rensa Butik</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Rensa alla butiksfiler som programmet skapar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Börja Rengöring</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Obs: Den totala storleken av butiksfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Rensa Bibliotek</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Rensa alla tema-filer i ditt bibliotek, oavsett om de är nedladdade eller skapade.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Börja Rengöring</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Obs: Den totala storleken av teman i ditt bibliotek är {0}. Alla program kommer att stängas när rengöringen påbörjas.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Inställningsfiler</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Hantera alla inställningsfiler som programmet skapar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Säkerhetskopiera</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Återställ</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Obs: Alla program kommer att stängas när du påbörjar den valda åtgärden.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Återställ Inställningar</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Återställ alla inställningsfiler som programmet skapar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Börja Återställning</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Obs: Alla program kommer att stängas när återställningen påbörjas.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Spara Loggfil</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*</system:String>
+</ResourceDictionary>

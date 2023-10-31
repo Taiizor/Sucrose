@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SearchLibraryPage.Title">SearchLibraryPage</system:String>
+
+    <system:String x:Key="Portal.SearchLibraryPage.TitleText">Ditt bibliotek har förlovats med spindelnät</system:String>
+    <system:String x:Key="Portal.SearchLibraryPage.DescriptionText">På grund av din finess vid val av tapet har det inte blivit plats för fler tapeter</system:String>
+</ResourceDictionary>

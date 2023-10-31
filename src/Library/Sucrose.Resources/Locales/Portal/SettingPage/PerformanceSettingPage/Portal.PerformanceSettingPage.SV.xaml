@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Prestandamätare</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Om alla prestandamätare ska köra i bakgrunden.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Obs: Vissa webbaserade teman kan fungera dåligt, och ingen av följande prestandainställningar kommer att användas.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-användning</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Din CPU-användningsinställning kommer att påverka vad som händer med bakgrundsbilden.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-användning (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Minnesanvändning</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Dina minnesanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Minnesanvändning (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Nätverksanvändning</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Dina nätverksanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Nätverksadapter:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Nätverksadapterlista har ännu inte skapats</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Uppladdningsstorlek:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Nedladdningsstorlek:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping-värde (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Batteriström</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Dina inställningar för batteriström kommer att påverka vad som händer med bakgrundsbilden när du använder en bärbar dator.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Batteristatus (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Strömsparläge</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Dina inställningar för strömsparläge kommer att påverka vad som händer med bakgrundsbilden när du använder en bärbar dator i strömsparläge.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualisering</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Vad som händer med bakgrundsbilden när du använder virtualiseringsprogram.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Fjärrskrivbord</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Vad som händer med bakgrundsbilden när du använder fjärrskrivbordsprogram.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Helskärmsläge</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Vad som händer med bakgrundsbilden när du använder vilken som helst applikation i helskärmsläge.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Fokusläge</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Vad som händer med bakgrundsbilden när du har någon annan applikation i fokus.</system:String>
+</ResourceDictionary>

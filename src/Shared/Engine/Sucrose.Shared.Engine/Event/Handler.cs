@@ -78,7 +78,7 @@ namespace Sucrose.Shared.Engine.Event
         {
             Window.Hide();
 
-            await Task.Delay(1000);
+            await Task.Delay(2000);
 
             SWUS.Initialize();
 
@@ -93,7 +93,7 @@ namespace Sucrose.Shared.Engine.Event
         {
             SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
 
-            await Task.Delay(1000);
+            await Task.Delay(2000);
 
             SWUS.Initialize();
 

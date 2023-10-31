@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Skärm Layout</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Ändrar hur dina tapeter är placerade på skärmen.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Storlägesmetod</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Ändrar skalningsmetoden för stödda tapeter.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Loopläge</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Ändrar upprepningssättet för stödda tapeter.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Blandningsläge</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Ändrar blandningsläge för stödda tapeter.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif-spelare</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Välj en plugin som kommer att spela Gif-teman i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Videospelare</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Välj en plugin som kommer att spela Video-teman i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Välj en motor som kommer att spela Url-teman i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Webbmotor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Välj en motor som kommer att spela Web-teman i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Välj en motor som kommer att spela YouTube-teman i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Välj en motor som kommer att spela Application-teman i din samling.</system:String>
+</ResourceDictionary>

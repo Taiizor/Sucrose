@@ -19,7 +19,7 @@
     <system:String x:Key="Locale.PL">Polski (v0.5)</system:String>
     <system:String x:Key="Locale.RO">Română (v0.3)</system:String>
     <system:String x:Key="Locale.RU">Русский (v0.3)</system:String>
-    <system:String x:Key="Locale.SV">Svenska (v0.1)</system:String>
+    <system:String x:Key="Locale.SV">Svenska (v0.3)</system:String>
     <system:String x:Key="Locale.TR">Türkçe (v0.8)</system:String>
     <system:String x:Key="Locale.UK">Українська (v0.1)</system:String>
     <system:String x:Key="Locale.ZH">中文 (v0.3)</system:String>
