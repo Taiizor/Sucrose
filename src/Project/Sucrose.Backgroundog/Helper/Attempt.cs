@@ -16,6 +16,8 @@ namespace Sucrose.Backgroundog.Helper
             {
                 if (SSSHL.Run())
                 {
+                    await Task.Delay(TimeSpan.FromSeconds(3));
+
                     return;
                 }
 

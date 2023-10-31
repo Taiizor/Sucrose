@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">Revizuire Temă</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">Închide</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">Titlu</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">Descriere</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">Tip</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">Autor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">Dimensiune</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">Versiune</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">Etichete</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">Nicio etichetă</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">Creată</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">Necunoscută</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">Modificată</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">Necunoscută</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">Adresa de contact pentru temă</system:String>
+</ResourceDictionary>

@@ -75,5 +75,17 @@ namespace Sucrose.Shared.Space.Helper
         {
             return NetworkInterface.GetAllNetworkInterfaces();
         }
+
+        public static IPAddress[] GetHostAddresses(string Host)
+        {
+            try
+            {
+                return Dns.GetHostAddresses(Host);
+            }
+            catch
+            {
+                return Array.Empty<IPAddress>();
+            }
+        }
     }
 }

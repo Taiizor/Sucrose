@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Ajutor</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Despre</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Vizualizare Ajutor</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Vizualizare Despre</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Bibliotecă</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Magazin</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Bibliotecă de Tema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Magazin de Tema</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">General</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Personal</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Performanță</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Tapet</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Sistem</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Donare</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Altele</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Înapoi</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Setări Generale</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Setări Personale</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Setări de Performanță</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Setări de Tapet</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Setări de Sistem</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Setări de Donare</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Setări Diverse</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Setări</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Caută un Tapet</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Aveți dificultăți în găsirea ceea ce căutați?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Tema Luminoasă</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tema Întunecată</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Crează Tapet</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferințe de Afișare</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Opțiuni de Donare</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Alte Opțiuni</system:String>
+</ResourceDictionary>

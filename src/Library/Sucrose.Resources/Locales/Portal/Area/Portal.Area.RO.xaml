@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Sunet</system:String>
+    <system:String x:Key="Portal.Area.Log">Jurnal</system:String>
+    <system:String x:Key="Portal.Area.Hook">Clește</system:String>
+    <system:String x:Key="Portal.Area.Store">Magazin</system:String>
+    <system:String x:Key="Portal.Area.Donate">Donare</system:String>
+    <system:String x:Key="Portal.Area.System">Sistem</system:String>
+    <system:String x:Key="Portal.Area.Cache">Cache</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Laptop</system:String>
+    <system:String x:Key="Portal.Area.Support">Asistență</system:String>
+    <system:String x:Key="Portal.Area.Reset">Resetare</system:String>
+    <system:String x:Key="Portal.Area.Backup">Backup</system:String>
+    <system:String x:Key="Portal.Area.Priority">Prioritate</system:String>
+    <system:String x:Key="Portal.Area.Engines">Motoare</system:String>
+    <system:String x:Key="Portal.Area.Update">Actualizare</system:String>
+    <system:String x:Key="Portal.Area.Library">Bibliotecă</system:String>
+    <system:String x:Key="Portal.Area.Developer">Dezvoltator</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Extensii</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Resurse de Sistem</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Aspect și Comportament</system:String>
+</ResourceDictionary>

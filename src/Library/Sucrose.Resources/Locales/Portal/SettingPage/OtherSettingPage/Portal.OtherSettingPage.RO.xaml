@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose facilitează comunicarea cu Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Reîmprospătare Conexiune:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Interval de Reîmprospătare (secunde):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Reprezentant Internet</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Identitatea dvs. de reprezentant în situații care necesită conexiune la internet.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Cheie de Acces Personală</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Necesară pentru utilizarea fără probleme a magazinului și a actualizărilor aplicației.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Faceți clic aici dacă nu știți cum să obțineți o cheie de acces personală.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Vă rugăm să introduceți o cheie de acces personală</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Vă rugăm să introduceți o cheie de acces personală validă</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Actualizare</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Unde ar trebui să aibă loc procesul de actualizare.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Metoda de Actualizare</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Cum ar trebui să se desfășoare procesul de actualizare.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limită Lățime de Bandă pentru Descărcare:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Instrumente de Dezvoltare</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Dacă ar trebui să se afișeze sau nu instrumente de dezvoltare pentru motorul WebView și CefSharp.</system:String>
+</ResourceDictionary>

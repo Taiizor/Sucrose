@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">Creare Temă</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Creează</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Închide</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Temă Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Creează-ți propria temă de tip Gif.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Temă Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Creează-ți propria temă de tip Url.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Temă Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Creează-ți propria temă de tip Web.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Temă Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Creează-ți propria temă de tip Video.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">Temă YouTube</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Creează-ți propria temă de tip YouTube.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Temă Aplicație</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Creează-ți propria temă de tip Application.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Miniatură</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Previzualizare</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Titlu</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Descriere</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Autor</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Contact</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Etichete</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumente</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Vă rugăm să introduceți un Url valid</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Alegeți o imagine miniaturală</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Alegeți un fișier de previzualizare</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Vă rugăm să introduceți un titlu valid</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Vă rugăm să introduceți o descriere validă</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Vă rugăm să introduceți un nume de autor valid</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Vă rugăm să introduceți o adresă de contact validă</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Vă rugăm să introduceți etichete de temă valide</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Vă rugăm să introduceți argumente de aplicație valide</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Anulează</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Trageți și lăsați fișierul Gif aici</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Trageți și lăsați fișierul video aici</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Alegeți o imagine miniaturală</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Fișiere de imagine (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Alegeți un fișier de previzualizare</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Fișiere Gif (*.gif)|*.gif</system:String>
+</ResourceDictionary>

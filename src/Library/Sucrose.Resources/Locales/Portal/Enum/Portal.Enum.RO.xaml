@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Umple</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Niciunul</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform pentru a umple</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Umple</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Niciunul</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform pentru a umple</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Închide</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pauză</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Reia</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mica</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Niciunul</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Automat</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Tab-uri</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrilic</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Implicit</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Dezvoltator</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Implicit</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Comprimat</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Executabil</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Zona de lucru</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Limita afișării</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Implicit</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Rezultat de succes</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Prea multe valori pentru 'Tags'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema creată pentru un tip nepotrivit, neprovizionat de aplicație</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">Valoarea 'Title' este goală sau prea lungă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Valoarea 'Author' este goală sau prea lungă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Fișierul 'Source' nu a fost găsit</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Valoarea 'Contact' este goală sau prea lungă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Fișierul 'Preview' nu a fost găsit</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Fișierul specificat este criptat</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Fișierul specificat nu este cu adevărat un fișier '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Fișierul 'SucroseInfo.json' nu a fost găsit</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Fișierul specificat nu a fost găsit</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Valoare 'LoopMode' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">Valoarea 'Arguments' este prea lungă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Fișierul specificat nu are extensia '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Fișierul 'Thumbnail' nu a fost găsit</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Valoare 'SystemCpu' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Fișierul 'SucroseInfo.json' este gol</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Tema a fost creată pentru o versiune mai înaltă a aplicației</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Valoarea 'Source' conține un URL nevalid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Valoare 'SystemBios' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Valoare 'SystemDate' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Valoare 'SystemAudio' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">Valoarea 'Description' este goală sau prea lungă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Fișierul 'SucroseInfo.json' este nevalid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Valoare 'TriggerTime' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Valoare 'StretchMode' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Valoare 'VolumeLevel' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Valoare 'ShuffleMode' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Valori 'Tags' prea scurte sau prea lungi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Fișier nevalid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Valoarea 'PropertyList' este goală</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Valoare 'SystemMemory' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Valoare 'SystemBattery' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Valoare 'SystemGraphic' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Valoare 'SystemNetwork' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Valoarea 'Contact' nu este nici un URL sau adresă de email</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Extensie de fișier nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Fișierul 'SucroseCompatible.json' este gol</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Fișierul 'SucroseProperties.json' este gol</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Valoare 'PropertyListener' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Valoare 'SystemMotherboard' nevalidă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Fișierul 'SucroseCompatible.json' este nevalid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Fișierul 'SucroseProperties.json' este nevalid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Consecințe neprevăzute</system:String>
+</ResourceDictionary>

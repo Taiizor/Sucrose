@@ -68,6 +68,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool BatteryManagement = true;
 
+        public static string PingHost = string.Empty;
+
         public static bool NetworkManagement2 = true;
 
         public static bool ComputerManagement = true;
@@ -79,6 +81,8 @@ namespace Sucrose.Backgroundog.Manage
         public static bool VirtualityManagement = true;
 
         public static bool MotherboardManagement = true;
+
+        public static string PingAddress = string.Empty;
 
         public static readonly object LockObject = new();
 

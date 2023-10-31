@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Fișierele Jurnal</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Gestionarea tuturor fișierelor jurnal create de aplicație.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Creare</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Ștergere</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Notă: Spațiul total ocupat de fișierele jurnal este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Ștergere Cache</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Ștergerea tuturor fișierelor cache create de aplicație.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Începe Curățarea</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Notă: Spațiul total ocupat de fișierele cache este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Ștergere Magazin</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Ștergerea tuturor fișierelor magazin create de aplicație.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Începe Curățarea</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Notă: Spațiul total ocupat de fișierele magazin este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Ștergere Bibliotecă</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Ștergerea tuturor fișierelor temă din bibliotecă, fie că sunt în bibliotecă sau create de utilizator.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Începe Curățarea</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Notă: Spațiul total ocupat de fișierele temă din bibliotecă este de {0}. Toate aplicațiile vor fi închise doar atunci când începe curățarea.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Fișiere Setări</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Gestionarea tuturor fișierelor de setări create de aplicație.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Exportare</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Importare</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Resetare Setări</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Resetarea tuturor fișierelor de setări create de aplicație.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Începe Resetarea</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Notă: Toate aplicațiile vor fi închise doar atunci când începe operațiunea aleasă.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Salvează Fișierul Jurnal</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*</system:String>
+</ResourceDictionary>

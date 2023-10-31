@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Contoare de Performanță</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Dacă toate contoarele de performanță vor funcționa în fundal.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Notă: Unele teme de tip web pot să nu funcționeze corect și niciuna dintre următoarele setări de performanță nu va funcționa.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Utilizare Procesor</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a procesorului.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Utilizare Procesor (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Utilizare Memorii</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a memoriei.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Utilizare Memorii (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Utilizare Rețea</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Ce se întâmplă cu fundalul temei dvs. în funcție de setările legate de utilizarea rețelei.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Adaptor de Rețea:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Lista de adaptoare de rețea nu a fost încă creată</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Dimensiune Încărcare:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Dimensiune Descărcare:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Valoare Ping (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Baterie</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Ce se întâmplă cu fundalul temei dvs. atunci când funcționează pe baterie.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Starea Bateriei (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Mod Economisire Baterie</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Ce se întâmplă cu fundalul temei dvs. atunci când modul de economisire a bateriei este activat.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualizare</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații de virtualizare.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Desktop la Distanță</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații pentru desktop la distanță.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Mod Ecran Complet</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Ce se întâmplă cu fundalul temei dvs. atunci când se utilizează aplicații în modul ecran complet.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Mod Focus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Ce se întâmplă cu fundalul temei dvs. atunci când există alte aplicații în prim-plan.</system:String>
+</ResourceDictionary>

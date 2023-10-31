@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Management;
+using System.Net;
 using System.Text;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBED = Sucrose.Backgroundog.Extension.Data;
@@ -207,11 +208,50 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     if (SMMM.PingType == Host.Name)
                                     {
-                                        SBMI.NetworkData.PingData = await SSEPPE.SendAsync(Host.Address, 1000);
+                                        if (string.IsNullOrEmpty(SBMI.PingAddress) || SMMM.PingType != SBMI.PingHost)
+                                        {
+                                            foreach (IPAddress Address in SSSHN.GetHostAddresses(Host.Address))
+                                            {
+                                                try
+                                                {
+                                                    SBMI.PingAddress = $"{Address}";
 
-                                        SBMI.NetworkData.Host = Host.Address;
-                                        SBMI.NetworkData.Ping = SBMI.NetworkData.PingData.RoundTrip;
-                                        SBMI.NetworkData.PingAddress = $"{SBMI.NetworkData.PingData.Address} ({Host.Address})";
+                                                    SBMI.NetworkData.PingData = await SSEPPE.SendAsync(SBMI.PingAddress, 1000);
+
+                                                    SBMI.PingHost = SMMM.PingType;
+                                                    SBMI.NetworkData.Host = Host.Address;
+                                                    SBMI.NetworkData.Ping = SBMI.NetworkData.PingData.RoundTrip;
+                                                    SBMI.NetworkData.PingAddress = $"{SBMI.NetworkData.PingData.Address} ({Host.Address})";
+
+                                                    break;
+                                                }
+                                                catch (Exception Exception)
+                                                {
+                                                    SBMI.NetworkData.Ping = 0;
+                                                    SBMI.PingAddress = string.Empty;
+                                                    SBMI.NetworkData.PingData = new();
+                                                    SSWW.Watch_CatchException(Exception);
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            try
+                                            {
+                                                SBMI.NetworkData.PingData = await SSEPPE.SendAsync(SBMI.PingAddress, 1000);
+
+                                                SBMI.NetworkData.Host = Host.Address;
+                                                SBMI.NetworkData.Ping = SBMI.NetworkData.PingData.RoundTrip;
+                                                SBMI.NetworkData.PingAddress = $"{SBMI.NetworkData.PingData.Address} ({Host.Address})";
+                                            }
+                                            catch (Exception Exception)
+                                            {
+                                                SBMI.NetworkData.Ping = 0;
+                                                SBMI.PingAddress = string.Empty;
+                                                SBMI.NetworkData.PingData = new();
+                                                SSWW.Watch_CatchException(Exception);
+                                            }
+                                        }
 
                                         break;
                                     }

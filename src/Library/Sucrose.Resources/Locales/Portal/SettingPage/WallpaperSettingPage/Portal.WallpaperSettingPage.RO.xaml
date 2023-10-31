@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Aranjament Ecran</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Schimbă aranjamentul imaginilor tale de fundal pe ecran.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Mod Redimensionare</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Schimbă modul de redimensionare pentru imagini de fundal acceptate.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Mod Repetare</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Schimbă modul de repetare pentru imagini de fundal acceptate.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Mod Amestecare</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Schimbă modul de amestecare pentru imagini de fundal acceptate.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Modul Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Alege modul care va reda temele de tip Gif din biblioteca ta.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Modul Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Alege modul care va reda temele de tip Video din biblioteca ta.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Motor Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Alege motorul care va reda temele de tip Url din biblioteca ta.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Motor Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Alege motorul care va reda temele de tip Web din biblioteca ta.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Motor YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Alege motorul care va reda temele de tip YouTube din biblioteca ta.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Motor Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Alege motorul care va reda temele de tip Application din biblioteca ta.</system:String>
+</ResourceDictionary>

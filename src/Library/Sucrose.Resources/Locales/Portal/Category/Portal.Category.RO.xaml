@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">Toate</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">Abstract</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Ambianță</system:String>
+    <system:String x:Key="Portal.Category.Animals">Animale</system:String>
+    <system:String x:Key="Portal.Category.Animation">Animație</system:String>
+    <system:String x:Key="Portal.Category.Anime">Anime</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Arhitectură și Clădiri</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Artă și Abstract</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Lucrări de Artă</system:String>
+    <system:String x:Key="Portal.Category.Bard">Bard</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Alb și Negru</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Desene animate și Benzi Desenate</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Orașe și Locuri</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Norii și Cerul</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Gradienți Colorați</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Benzi desenate</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Artă Digitală</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Dinamic</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Păduri Fermecate</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Fantezie</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Film și TV</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Mâncare și Băuturi</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Galaxie</system:String>
+    <system:String x:Key="Portal.Category.Game">Joc</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Modele Geometrice</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Sărbători și Anotimpuri</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Groază și Halloween</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">Citate Inspirante</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Copii și Desene Animate</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Peisaj</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Artă Linie</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Medieval</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Minimalist</system:String>
+    <system:String x:Key="Portal.Category.Music">Muzică</system:String>
+    <system:String x:Key="Portal.Category.Nature">Natură</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Peisaje de Noapte</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Modele și Texturi</system:String>
+    <system:String x:Key="Portal.Category.Retro">Retro</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Cer</system:String>
+    <system:String x:Key="Portal.Category.Space">Spațiu</system:String>
+    <system:String x:Key="Portal.Category.Sports">Sport</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Supereroi</system:String>
+    <system:String x:Key="Portal.Category.System">Sistem</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Tavernă</system:String>
+    <system:String x:Key="Portal.Category.Technology">Tehnologie</system:String>
+    <system:String x:Key="Portal.Category.Temple">Templu</system:String>
+    <system:String x:Key="Portal.Category.Time">Timp</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Subacvatic și Marin</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Vehicule</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Vintage</system:String>
+    <system:String x:Key="Portal.Category.War">Război</system:String>
+</ResourceDictionary>

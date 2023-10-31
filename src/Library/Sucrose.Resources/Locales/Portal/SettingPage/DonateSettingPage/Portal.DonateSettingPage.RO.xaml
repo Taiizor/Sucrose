@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">Meniu Donații</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">Vizibilitatea meniului de donații din interfață.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">Vizibil</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">Invizibil</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">Susținere Publicitară</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">Contribuiți la dezvoltarea aplicației vizionând reclame.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">Durata Reclamelor (minute):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">Sugestie: Reclamele vor fi afișate pentru a vă deranja cât mai puțin.</system:String>
+</ResourceDictionary>

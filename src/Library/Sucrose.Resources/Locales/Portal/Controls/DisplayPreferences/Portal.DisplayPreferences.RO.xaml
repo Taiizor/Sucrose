@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Preferințe Ecran</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Închide</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Mod de Afișare</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Cum vor fi aplicate imaginile tale de fundal pe ecranele active.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Doar pe ecranul selectat</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Extinde între ecrane</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Pe toate monitoarele</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Selectați modul de extindere între ecrane</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Duplică același fundal</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Selectați modul de duplicare a aceluiași fundal</system:String>
+</ResourceDictionary>
