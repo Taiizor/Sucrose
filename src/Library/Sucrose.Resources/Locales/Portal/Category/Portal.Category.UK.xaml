@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">Всі</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">Абстракція</system:String>
+    <system:String x:Key="Portal.Category.Ambience">Спокій</system:String>
+    <system:String x:Key="Portal.Category.Animals">Тварини</system:String>
+    <system:String x:Key="Portal.Category.Animation">Анімація</system:String>
+    <system:String x:Key="Portal.Category.Anime">Аніме</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">Архітектура та Будівлі</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">Мистецтво та Абстракція</system:String>
+    <system:String x:Key="Portal.Category.Artworks">Художні Твори</system:String>
+    <system:String x:Key="Portal.Category.Bard">Барди</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">Чорно-біле</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">Мультфільми та Комікси</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">Міста та Місця</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">Хмари та Небо</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">Барвисті Градієнти</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">Комікси</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">Цифрове Мистецтво</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">Динамічне</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">Зачаровані Ліси</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Фентезі</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">Фільми та Телебачення</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">Їжа та Напої</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">Галактика</system:String>
+    <system:String x:Key="Portal.Category.Game">Гра</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">Геометричні Візерунки</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">Свята та Пори року</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">Жахи та Хелловін</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">Вдохновлюючі Цитати</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">Діти та Мультфільми</system:String>
+    <system:String x:Key="Portal.Category.Landscape">Пейзаж</system:String>
+    <system:String x:Key="Portal.Category.LineArt">Лінійне Мистецтво</system:String>
+    <system:String x:Key="Portal.Category.Medieval">Середньовіччя</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">Мінімалізм</system:String>
+    <system:String x:Key="Portal.Category.Music">Музика</system:String>
+    <system:String x:Key="Portal.Category.Nature">Природа</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">Нічні Пейзажі</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">Візерунки та Текстури</system:String>
+    <system:String x:Key="Portal.Category.Retro">Ретро</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Sky">Небо</system:String>
+    <system:String x:Key="Portal.Category.Space">Космос</system:String>
+    <system:String x:Key="Portal.Category.Sports">Спорт</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">Супергерої</system:String>
+    <system:String x:Key="Portal.Category.System">Система</system:String>
+    <system:String x:Key="Portal.Category.Tavern">Таверна</system:String>
+    <system:String x:Key="Portal.Category.Technology">Технологія</system:String>
+    <system:String x:Key="Portal.Category.Temple">Храм</system:String>
+    <system:String x:Key="Portal.Category.Time">Час</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">Підводний і Морський</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">Транспорт</system:String>
+    <system:String x:Key="Portal.Category.Vintage">Вінтаж</system:String>
+    <system:String x:Key="Portal.Category.War">Війна</system:String>
+</ResourceDictionary>

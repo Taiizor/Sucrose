@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.StoreCard.TitleText">Заголовок</system:String>
+    <system:String x:Key="Portal.StoreCard.DescriptionText">Опис</system:String>
+
+    <system:String x:Key="Portal.StoreCard.VersionTip">Для встановлення цієї теми, оновіть Sucrose</system:String>
+
+    <system:String x:Key="Portal.StoreCard.MenuInstall">Встановити</system:String>
+    <system:String x:Key="Portal.StoreCard.MenuReport">Повідомити</system:String>
+</ResourceDictionary>

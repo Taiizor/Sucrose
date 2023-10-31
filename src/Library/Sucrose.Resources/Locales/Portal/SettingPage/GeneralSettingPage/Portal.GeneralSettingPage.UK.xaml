@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Мова програми</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Виберіть мову для відображення програми.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Запуск програми при старті</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Для відтворення шпалеру програмі Sucrose необхідно запускатися при старті системи в фоновому режимі.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Вимкнути</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Звичайний</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">З високим пріоритетом</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">За розкладом</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Піктограма в області сповіщень</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Видимість піктограми в системному треї. Програма Sucrose буде працювати в фоновому режимі.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Показати</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Сховати</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Закриваючи піктограму в області сповіщень, закривати всі програми Sucrose</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Фон вікна</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Використовується для налаштування фону вікна програми.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Обрати фонове зображення</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Вибрати фонове зображення</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Зображення (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Розтягнути фон:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Прозорість фону (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Рівень звуку</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Рівень звуку, який застосовується до всіх шпалер.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Звук відтворюється лише при фокусуванні на робочому столі</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Місце розташування бібліотеки</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Місце, де зберігатимуться теми, які ви додали до бібліотеки.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Будь ласка, оберіть порожню папку</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Зачекайте трохи, поки папку переміщується</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Перемістити вашу поточну бібліотеку в нове місце</system:String>
+</ResourceDictionary>

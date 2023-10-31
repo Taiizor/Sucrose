@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Розміщення на екрані</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Змінює розміщення вашого шпалеру на екрані.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Метод розтягнення</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Змінює метод розтягнення для підтримуваних шпалерів.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Режим повторення</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Змінює режим повторення для підтримуваних шпалерів.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Режим перемішування</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Змінює режим перемішування для підтримуваних шпалерів.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Модуль Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Виберіть модуль для відтворення шпалерів у форматі Gif, які знаходяться в вашій бібліотеці.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Модуль Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Виберіть модуль для відтворення шпалерів у форматі Video, які знаходяться в вашій бібліотеці.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Двигун Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Виберіть двигун для відтворення Url-шпалерів, які знаходяться в вашій бібліотеці.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Двигун Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Виберіть двигун для відтворення Web-шпалерів, які знаходяться в вашій бібліотеці.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Двигун YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Виберіть двигун для відтворення YouTube-шпалерів, які знаходяться в вашій бібліотеці.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Двигун Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Виберіть двигун для відтворення Application-шпалерів, які знаходяться в вашій бібліотеці.</system:String>
+</ResourceDictionary>

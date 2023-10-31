@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Звук</system:String>
+    <system:String x:Key="Portal.Area.Log">Журнал</system:String>
+    <system:String x:Key="Portal.Area.Hook">Гачок</system:String>
+    <system:String x:Key="Portal.Area.Store">Магазин</system:String>
+    <system:String x:Key="Portal.Area.Donate">Пожертвування</system:String>
+    <system:String x:Key="Portal.Area.System">Система</system:String>
+    <system:String x:Key="Portal.Area.Cache">Кеш</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Ноутбук</system:String>
+    <system:String x:Key="Portal.Area.Support">Підтримка</system:String>
+    <system:String x:Key="Portal.Area.Reset">Скидання</system:String>
+    <system:String x:Key="Portal.Area.Backup">Резервне копіювання</system:String>
+    <system:String x:Key="Portal.Area.Priority">Пріоритет</system:String>
+    <system:String x:Key="Portal.Area.Engines">Двигуни</system:String>
+    <system:String x:Key="Portal.Area.Update">Оновлення</system:String>
+    <system:String x:Key="Portal.Area.Library">Бібліотека</system:String>
+    <system:String x:Key="Portal.Area.Developer">Розробник</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Розширення</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Системні ресурси</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Вигляд та Поведінка</system:String>
+</ResourceDictionary>

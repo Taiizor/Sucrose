@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">Меню Пожертв</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">Видимість меню пожертв в інтерфейсі.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">Показати</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">Приховати</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">Підтримка рекламою</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">Допоможіть у розвитку додатка, переглядаючи рекламу.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">Тривалість реклами (хвилини):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">Підказка: Реклами будуть показані вам з мінімальними незручностями.</system:String>
+</ResourceDictionary>

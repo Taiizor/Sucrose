@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Налаштування екрану</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Закрити</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Режим розміщення</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Як ви бажаєте застосовувати шпалери на активні екрани.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Тільки обраний екран</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Розширити між екранами</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">На всі монітори</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Виберіть режим розширення між екранами.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Повторити однаковий шпалер</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Виберіть режим повторення однакового шпалеру.</system:String>
+</ResourceDictionary>

@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">Ваша бібліотека обплетена павутинням</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">Замість шпалер ви побачите шедевр, який створено павутинням</system:String>
+</ResourceDictionary>

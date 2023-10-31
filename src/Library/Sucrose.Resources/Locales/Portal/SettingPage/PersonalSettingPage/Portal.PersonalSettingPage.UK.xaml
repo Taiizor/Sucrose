@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Оновлення магазину</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Тривалість оновлення списку тем у магазині.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Автозапуск</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Автоматично встановлювати завантажену тему з магазину як шпалери.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Вміст для дорослих</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Відображати вміст, який відзначений як не безпечний для роботи (NSFW), чи ні.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Підтвердження видалення</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Чи вимагати підтвердження при видаленні тем з бібліотеки.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Пошкоджені теми</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Автоматично видаляти пошкоджені або відсутні теми з бібліотеки.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Примітка: Будьте обережні. Некоректна робота може призвести до втрати даних.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Автозапуск</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Автоматично встановлювати створену тему як шпалери.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Попередній перегляд тем</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Показувати попередній перегляд тем при наведенні курсору.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Попередній перегляд магазину</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Приховати деталі</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Попередній перегляд бібліотеки</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Приховати деталі</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Налаштування тем</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Налаштуйте ім'я або опис відображених тем.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Довжина заголовка (символи):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Довжина опису (символи):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Адаптивний макет</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Налаштуйте розмір або розташування відображених тем.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Відстань відступу (пікселі):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Порядок макету (шт.):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Сторінки магазину</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Визначте, скільки тем буде на кожній сторінці магазину.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Сторінки бібліотеки</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Визначте, скільки тем буде на кожній сторінці вашої бібліотеки.</system:String>
+</ResourceDictionary>

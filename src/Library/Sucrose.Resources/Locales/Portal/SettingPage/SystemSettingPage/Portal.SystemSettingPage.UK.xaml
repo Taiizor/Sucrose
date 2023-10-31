@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Файли журналу</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Управління всіма файлами журналу, створеними програмою.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Створити</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Очистити</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Примітка: Загальний обсяг файлів журналу становить {0}. При початку очищення всі програми будуть закриті.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Очищення кешу</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Очищення всіх файлів кешу, створених програмою.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Почати очищення</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Примітка: Загальний обсяг файлів кешу становить {0}. При початку очищення всі програми будуть закриті.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Очищення магазину</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Очищення всіх файлів магазину, створених програмою.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Почати очищення</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Примітка: Загальний обсяг файлів магазину становить {0}. При початку очищення всі програми будуть закриті.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Очищення бібліотеки</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Очищення всіх файлів тем у вашій бібліотеці, включаючи завантажені та створені теми.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Почати очищення</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Примітка: Загальний обсяг файлів тем в вашій бібліотеці становить {0}. При початку очищення всі програми будуть закриті.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Резервні копії налаштувань</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Управління всіма файлами налаштувань, створеними програмою.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Зробити резервну копію</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Відновити</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Примітка: При початку обраної дії всі програми будуть закриті.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Скидання налаштувань</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Скидання всіх налаштувань програми до значень за замовчуванням.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Почати скидання</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Примітка: При початку дії зкидання всі програми будуть закриті.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Зберегти файл журналу</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*</system:String>
+</ResourceDictionary>

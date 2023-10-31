@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Показники продуктивності</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Чи працюватимуть всі показники продуктивності у фоновому режимі.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примітка: Деякі теми веб-сайтів можуть працювати не належним чином, і жоден із наступних параметрів продуктивності не буде працювати.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Використання процесора</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Як використання процесора впливає на робочий стіл.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Використання процесора (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Використання пам'яті</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Як використання пам'яті впливає на робочий стіл.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Використання пам'яті (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Використання мережі</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Як використання мережі впливає на робочий стіл.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Мережевий адаптер:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Список мережевих адаптерів ще не створено</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Розмір відвантаження:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Розмір завантаження:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Значення Ping (мс):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Заряд батареї</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Як використання батареї впливає на робочий стіл.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Стан заряду батареї (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Економія енергії батареї</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Як економія енергії батареї впливає на робочий стіл під час роботи з ноутбука.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Віртуалізація</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Як віртуалізація впливає на робочий стіл під час роботи з віртуальними програмами.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Віддалений робочий стіл</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Як робочий стіл віддаленої системи впливає на робочий стіл.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Повноекранний режим</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Як робочий стіл повноекранної програми впливає на робочий стіл.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Режим фокусування</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Як робочий стіл відображається під час наявності активної програми.</system:String>
+</ResourceDictionary>

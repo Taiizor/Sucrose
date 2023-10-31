@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Заповнити</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Ні</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Пропорційно</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Пропорційно заповнити</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Заповнити</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Ні</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Пропорційно</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Пропорційно заповнити</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Закрити</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Пауза</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Продовжити</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Міка</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Ні</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Автоматично</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Закладки</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Акрил</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">За замовчуванням</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Розробник</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">За замовчуванням</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Стиснутий</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Виконуваний</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Робоча область</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Межі дисплея</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">За замовчуванням</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Успішний результат</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Занадто багато значень у 'Tags'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Тема призначена для типу, який програма не підтримує</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">Значення 'Title' порожнє або занадто довге</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Значення 'Author' порожнє або занадто довге</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Файл 'Source' не знайдено</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Значення 'Contact' порожнє або занадто довге</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Файл 'Preview' не знайдено</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Відповідний файл зашифрований</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Відповідний файл насправді не '.zip' файл</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Файл 'SucroseInfo.json' не знайдено</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Відповідний файл не знайдено</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Недійсне значення 'LoopMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">Значення 'Arguments' занадто довге</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Відповідний файл не має розширення '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Файл 'Thumbnail' не знайдено</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Недійсне значення 'SystemCpu'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Файл 'SucroseInfo.json' порожній</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Тема призначена для вищої версії програми</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Значення 'Source' недійсне</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Недійсне значення 'SystemBios'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Недійсне значення 'SystemDate'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Недійсне значення 'SystemAudio'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">Значення 'Description' порожнє або занадто довге</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Файл 'SucroseInfo.json' недійсний</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Недійсне значення 'TriggerTime'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Недійсне значення 'StretchMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Недійсне значення 'VolumeLevel'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Недійсне значення 'ShuffleMode'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Значення 'Tags' занадто короткі або занадто довгі</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Недійсний файл</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Значення 'PropertyList' порожнє</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Недійсне значення 'SystemMemory'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Недійсне значення 'SystemBattery'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Недійсне значення 'SystemGraphic'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Недійсне значення 'SystemNetwork'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Значення 'Contact' не є 'Url' або 'Email'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Недійсний розширення файлу</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Файл 'SucroseCompatible.json' порожній</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Файл 'SucroseProperties.json' порожній</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Недійсне значення 'PropertyListener'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Недійсне значення 'SystemMotherboard'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Файл 'SucroseCompatible.json' недійсний</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Файл 'SucroseProperties.json' недійсний</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Непередбачені Наслідки</system:String>
+</ResourceDictionary>

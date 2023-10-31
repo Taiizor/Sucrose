@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose забезпечує зв'язок з Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Оновлення зв'язку:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Частота оновлення (секунди):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Представник інтернету</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Ваш ідентифікатор представника для випадків, коли потрібне підключення до інтернету.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Особистий ключ доступу</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Необхідно для безпроблемного користування магазином та оновленням програми.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Як отримати особистий ключ доступу, дізнайтеся тут, якщо ви цього не знаєте.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Будь ласка, введіть особистий ключ доступу</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Будь ласка, введіть дійсний особистий ключ доступу</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Канал оновлення</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Визначте канал, через який здійснювати оновлення.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Спосіб оновлення</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Визначте спосіб оновлення програми.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Обмеження ширина смуги для завантаження:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Інструменти розробника</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Визначте, чи показувати інструменти розробника для WebView та мотора CefSharp.</system:String>
+</ResourceDictionary>

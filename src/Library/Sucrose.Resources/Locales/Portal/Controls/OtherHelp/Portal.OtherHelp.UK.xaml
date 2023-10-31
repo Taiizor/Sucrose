@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherHelp.Title">Довідка</system:String>
+    <system:String x:Key="Portal.OtherHelp.Close">Закрити</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.WebPage">Веб-сайт</system:String>
+    <system:String x:Key="Portal.OtherHelp.WebPage.Description">Офіційний веб-сайт Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Documentation">Документація</system:String>
+    <system:String x:Key="Portal.OtherHelp.Documentation.Description">Офіційна сторінка документації Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Repository">Вихідний код</system:String>
+    <system:String x:Key="Portal.OtherHelp.Repository.Description">Офіційна сторінка вихідного коду Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Discussions">Обговорення</system:String>
+    <system:String x:Key="Portal.OtherHelp.Discussions.Description">Офіційна сторінка обговорення Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Report">Повідомити про помилку</system:String>
+    <system:String x:Key="Portal.OtherHelp.Report.Description">Офіційна сторінка звітування про помилки в Sucrose Wallpaper Engine</system:String>
+</ResourceDictionary>

@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">Заголовок</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">Опис</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">Більше</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Щоб використовувати цю тему, оновіть Sucrose</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">Оглянути</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">Використовувати</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">Попередній перегляд</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">Налаштувати</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">Знайти</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">Поділитися</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">Видалити</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">Редагувати</system:String>
+</ResourceDictionary>
