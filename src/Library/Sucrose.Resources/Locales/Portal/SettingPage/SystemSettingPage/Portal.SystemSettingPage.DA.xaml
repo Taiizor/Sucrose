@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Logfiler</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Administrer alle de logfiler, som applikationen har oprettet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Opret</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Ryd</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Bemærk: Den samlede plads, som logfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Cache Rydning</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Ryd alle de cache-filer, som applikationen har oprettet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Start Rydning</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Bemærk: Den samlede plads, som cache-filerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Butik Rydning</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Ryd alle de butiksfiler, som applikationen har oprettet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Start Rydning</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Bemærk: Den samlede plads, som butiksfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Bibliotek Rydning</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Ryd alle de tema-filer, som findes i dit bibliotek, eller som du har oprettet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Start Rydning</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Bemærk: Den samlede plads, som temaerne i dit bibliotek optager, er {0}. Alle applikationer lukkes, når rydningen begynder.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Indstillingsfiler</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Administrer alle de indstillingsfiler, som applikationen har oprettet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Eksporter</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Importér</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Bemærk: Alle applikationer lukkes, når handlingen er valgt.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Nulstil Indstillinger</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Nulstil alle de indstillingsfiler, som applikationen har oprettet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Start Nulstilling</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Bemærk: Alle applikationer lukkes, når nulstillingen begynder.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Gem Logfil</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*</system:String>
+</ResourceDictionary>

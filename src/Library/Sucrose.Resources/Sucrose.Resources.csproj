@@ -20,10 +20,4 @@
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Page Update="Locales\Portal\Area\Portal.Area.RO.xaml">
-        <SubType>Designer</SubType>
-      </Page>
-    </ItemGroup>
-
 </Project>

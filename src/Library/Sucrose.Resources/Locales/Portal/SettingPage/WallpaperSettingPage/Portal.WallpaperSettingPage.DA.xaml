@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Skærm Layout</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Ændrer dit tapet's skærm layout.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Strækning Metode</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Ændrer skaleringen af understøttede tapeter.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Loop Tilstand</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Ændrer loop tilstanden af understøttede tapeter.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Blanding Tilstand</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Ændrer blanding tilstanden af understøttede tapeter.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif Afspiller</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Vælg plugin til at afspille Gif-temaer i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video Afspiller</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Vælg plugin til at afspille Video-temaer i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Vælg motor til at afspille Url-temaer i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Vælg motor til at afspille Web-temaer i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Vælg motor til at afspille YouTube-temaer i din samling.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application Motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Vælg motor til at afspille Application-temaer i din samling.</system:String>
+</ResourceDictionary>

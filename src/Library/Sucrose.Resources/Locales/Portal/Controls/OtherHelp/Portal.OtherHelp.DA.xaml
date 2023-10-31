@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherHelp.Title">Hjælp</system:String>
+    <system:String x:Key="Portal.OtherHelp.Close">Luk</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.WebPage">Hjemmeside</system:String>
+    <system:String x:Key="Portal.OtherHelp.WebPage.Description">Sucrose Wallpaper Engine's officielle hjemmeside</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Documentation">Dokumentation</system:String>
+    <system:String x:Key="Portal.OtherHelp.Documentation.Description">Sucrose Wallpaper Engine's officielle dokumentationsside</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Repository">Kildekode</system:String>
+    <system:String x:Key="Portal.OtherHelp.Repository.Description">Sucrose Wallpaper Engine's officielle kildekode side</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Discussions">Diskussioner</system:String>
+    <system:String x:Key="Portal.OtherHelp.Discussions.Description">Sucrose Wallpaper Engine's officielle diskussionsside</system:String>
+
+    <system:String x:Key="Portal.OtherHelp.Report">Fejlrapport</system:String>
+    <system:String x:Key="Portal.OtherHelp.Report.Description">Sucrose Wallpaper Engine's officielle fejlrapporteringsside</system:String>
+</ResourceDictionary>

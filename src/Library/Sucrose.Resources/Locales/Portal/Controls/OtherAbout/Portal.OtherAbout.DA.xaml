@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherAbout.Title">Om</system:String>
+    <system:String x:Key="Portal.OtherAbout.Close">Luk</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.About">Hej, mit navn er Bayram Emekli, også kendt som Taiizor. Jeg er udvikleren af Sucrose Wallpaper Engine, en gratis og open source applikation. Tak for at bruge den app, jeg har udviklet.</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Update">Version: v{0}</system:String>
+    <system:String x:Key="Portal.OtherAbout.Update.Description">Seneste kontrol: {0}</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Update.Notes">Opdateringsnoter</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Partners">Vores Partnere</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.Contributors">Bidragsydere</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.TermsOfService">Servicevilkår</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.PrivacyPolicy">Fortrolighedspolitik</system:String>
+
+    <system:String x:Key="Portal.OtherAbout.CodeOfConduct">Samfundsregler for brugeradfærd</system:String>
+</ResourceDictionary>

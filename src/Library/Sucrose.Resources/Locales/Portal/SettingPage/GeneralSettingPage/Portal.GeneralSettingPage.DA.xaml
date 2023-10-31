@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Applikationssprog</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Vælg det sprog, du vil se applikationen på.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Opstart af applikation</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">For at kunne afspille tapeter skal Sucrose køre i baggrunden ved opstart.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Ingen</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioritet</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Planlagt</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Meddelelsesområdesymbol</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Synligheden af ikonet i systembakken. Sucrose vil fortsætte med at køre skjult.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Synlig</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Skjult</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Luk alle Sucrose-programmer, når meddelelsesområdet lukkes</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Vinduebaggrund</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Bruges til at tilpasse baggrunden i applikationsvinduet.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Vælg baggrundsbillede</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Vælg et baggrundsbillede</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Billedfiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Baggrundsstørrelse:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Baggrundsgennemsigtighed (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Lydjustering</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Lydjustering gældende for alle tapeter.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Afspil kun lyd, når skrivebordet er i fokus</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Biblioteksplacering</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Stedet, hvor de tilføjede temaer i dit bibliotek vil blive gemt.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Vælg venligst en tom mappe</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Vent venligst, mens placeringen ændres</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Flyt din nuværende bibliotek til den nye placering</system:String>
+</ResourceDictionary>

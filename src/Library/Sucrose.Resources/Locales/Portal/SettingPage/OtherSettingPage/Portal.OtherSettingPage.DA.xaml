@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose muliggør kommunikation med Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Opdater forbindelse:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Opdateringsinterval (sekunder):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Internetagent</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Dit agent-id i situationer, der kræver internetforbindelse.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Personlig adgangstoken</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Nødvendig for at bruge butikken og applikationsopdateringen problemfrit.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Klik her, hvis du ikke ved, hvordan du får din personlige adgangstoken.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Indtast venligst din personlige adgangstoken</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Indtast venligst en gyldig personlig adgangstoken</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Opdateringskanal</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Hvilken kanal opdateringsprocessen skal bruge.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Opdateringsmetode</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Metoden til at udføre opdateringen eller ej.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Downloadbåndbreddegrænse:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Udviklerværktøjer</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Visning af udviklerværktøjer til WebView og CefSharp-motoren.</system:String>
+</ResourceDictionary>

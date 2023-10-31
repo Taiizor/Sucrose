@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">Dit bibliotek er blevet indhyllet i spindelvæv</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">I stedet for tapet er der blevet skabt et fantastisk kunstværk med edderkoppevæv</system:String>
+</ResourceDictionary>

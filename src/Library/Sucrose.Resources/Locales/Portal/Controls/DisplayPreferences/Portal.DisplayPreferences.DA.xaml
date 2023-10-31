@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">Skærm Præferencer</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Luk</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Placeringstilstand</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Hvordan baggrunde skal anvendes på aktive skærme.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Kun valgt skærm</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Udvid mellem skærme</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Alle Skærme</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Vælg udvidelsestilstand mellem skærme</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Duplikér samme baggrund</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Vælg tilstand for at duplikere samme baggrund</system:String>
+</ResourceDictionary>

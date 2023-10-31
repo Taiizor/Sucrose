@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="OtherHelp/Portal.OtherHelp.DA.xaml" />
+        <ResourceDictionary Source="ThemeEdit/Portal.ThemeEdit.DA.xaml" />
+        <ResourceDictionary Source="StoreCard/Portal.StoreCard.DA.xaml" />
+        <ResourceDictionary Source="OtherAbout/Portal.OtherAbout.DA.xaml" />
+        <ResourceDictionary Source="Pagination/Portal.Pagination.DA.xaml" />
+        <ResourceDictionary Source="ThemeShare/Portal.ThemeShare.DA.xaml" />
+        <ResourceDictionary Source="LibraryCard/Portal.LibraryCard.DA.xaml" />
+        <ResourceDictionary Source="ThemeDelete/Portal.ThemeDelete.DA.xaml" />
+        <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.DA.xaml" />
+        <ResourceDictionary Source="ThemeImport/Portal.ThemeImport.DA.xaml" />
+        <ResourceDictionary Source="ThemeCreate/Portal.ThemeCreate.DA.xaml" />
+        <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.DA.xaml" />
+        <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.DA.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

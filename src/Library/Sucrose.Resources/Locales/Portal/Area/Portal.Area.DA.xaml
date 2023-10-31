@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">Lyd</system:String>
+    <system:String x:Key="Portal.Area.Log">Log</system:String>
+    <system:String x:Key="Portal.Area.Hook">Hook</system:String>
+    <system:String x:Key="Portal.Area.Store">Butik</system:String>
+    <system:String x:Key="Portal.Area.Donate">Donér</system:String>
+    <system:String x:Key="Portal.Area.System">System</system:String>
+    <system:String x:Key="Portal.Area.Cache">Cache</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Bærbar computer</system:String>
+    <system:String x:Key="Portal.Area.Support">Support</system:String>
+    <system:String x:Key="Portal.Area.Reset">Nulstil</system:String>
+    <system:String x:Key="Portal.Area.Backup">Backup</system:String>
+    <system:String x:Key="Portal.Area.Priority">Prioritet</system:String>
+    <system:String x:Key="Portal.Area.Engines">Motorer</system:String>
+    <system:String x:Key="Portal.Area.Update">Opdatering</system:String>
+    <system:String x:Key="Portal.Area.Library">Bibliotek</system:String>
+    <system:String x:Key="Portal.Area.Developer">Udvikler</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Udvidelser</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Systemressourcer</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Udseende og adfærd</system:String>
+</ResourceDictionary>

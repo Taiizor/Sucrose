@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Ydelsesmålere</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Om alle ydelsesmålere skal køre i baggrunden.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Bemærk: Nogle webbaserede temaer fungerer muligvis ikke korrekt, og ingen af de følgende ydelsesindstillinger vil fungere.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-brug</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Hvad der skal ske med tapetet baseret på dine CPU-brugsindstillinger.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-brug (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Hukommelsesbrug</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Hvad der skal ske med tapetet baseret på dine hukommelsesbrugsindstillinger.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Hukommelsesbrug (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Netværksbrug</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Hvad der skal ske med tapetet baseret på dine netværksbrugsindstillinger.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Netværksadapter:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Listen over netværksadaptere er ikke blevet oprettet endnu.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Upload-størrelse:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Download-størrelse:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping-værdi (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Batteristrøm</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Hvad der skal ske med tapetet, når du bruger en bærbar computer på batteri.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Batteriniveau (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Batterisparetilstand</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Hvad der skal ske med tapetet, når du bruger en bærbar computer i batterisparetilstand.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualisering</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Hvad der skal ske med tapetet, når virtualiseringsapplikationer kører.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Fjernskrivebord</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Hvad der skal ske med tapetet, når fjernskrivebordsapplikationer kører.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Fuldskærmsmodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Hvad der skal ske med tapetet, når enhver anden applikation kører i fuldskærmstilstand.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Fokustilstand</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Hvad der skal ske med tapetet, når der er en anden applikation i fokus.</system:String>
+</ResourceDictionary>
