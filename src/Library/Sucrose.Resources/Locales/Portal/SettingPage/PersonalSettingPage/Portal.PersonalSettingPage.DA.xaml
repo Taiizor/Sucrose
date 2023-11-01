@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Temaforhåndsvisning</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Hvorvidt temaer skal forhåndsvises ved at sveje musen over dem.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Butikforhåndsvisning</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Skjul detaljer</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Butikforhåndsvisning:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Skjul detaljer:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Biblioteksforhåndsvisning</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skjul detaljer</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Biblioteksforhåndsvisning:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skjul detaljer:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Tema Tilpasning</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Tilpas navnet eller beskrivelsen af de viste temaer.</system:String>

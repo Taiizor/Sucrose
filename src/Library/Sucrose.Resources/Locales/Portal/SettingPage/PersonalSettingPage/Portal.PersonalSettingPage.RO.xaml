@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Previzualizare Temă</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Dacă temele vor fi sau nu previzualizate când treceti peste ele.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Previzualizare Magazin</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Ascunde Detaliile</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Previzualizare Magazin:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Ascunde Detaliile:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Previzualizare Bibliotecă</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ascunde Detaliile</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Previzualizare Bibliotecă:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ascunde Detaliile:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Personalizare Temă</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personalizați numele sau descrierea temelor afișate.</system:String>

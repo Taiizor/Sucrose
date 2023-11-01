@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Náhled Tématu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Určuje, zda se mají témata zobrazovat jako náhled po najetí myší.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Náhled Obchodu</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Skrýt Detaily</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Náhled Obchodu:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Skrýt Detaily:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Náhled Knižnice</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skrýt Detaily</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Náhled Knižnice:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skrýt Detaily:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Vlastní Názvy Tématu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Upřesněte názvy nebo popisky zobrazených témat.</system:String>

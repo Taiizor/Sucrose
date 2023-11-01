@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Aperçu du Thème</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Si les thèmes doivent être prévisualisés au survol.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Aperçu du Magasin</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Masquer les Détails</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Aperçu du Magasin:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Masquer les Détails:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Aperçu de la Bibliothèque</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Masquer les Détails</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Aperçu de la Bibliothèque:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Masquer les Détails:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Personnalisation du Thème</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personnalisez le nom ou la description des thèmes affichés.</system:String>

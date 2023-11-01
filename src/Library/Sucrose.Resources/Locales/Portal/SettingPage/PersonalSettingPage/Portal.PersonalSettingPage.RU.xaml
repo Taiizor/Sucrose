@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Предварительный просмотр тем</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Отображать предварительный просмотр тем, когда курсор наводится на них.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Предварительный просмотр в магазине</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Скрывать детали</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Предварительный просмотр в магазине:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Скрывать детали:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Предварительный просмотр в библиотеке</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Скрывать детали</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Предварительный просмотр в библиотеке:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Скрывать детали:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Настройка тем</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Настройте название или описание отображаемых тем.</system:String>

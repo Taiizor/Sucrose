@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Vista Previa de Temas</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Si los temas se deben previsualizar al pasar el ratón por encima.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Vista Previa de la Tienda</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Ocultar Detalles</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Vista Previa de la Tienda:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Ocultar Detalles:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Vista Previa de la Biblioteca</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ocultar Detalles</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Vista Previa de la Biblioteca:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ocultar Detalles:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Personalización de Temas</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personaliza el nombre o la descripción de los temas mostrados.</system:String>

@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Tema Önizleme</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Görüntülenen temaların üzerine gelince önizlenip önizlenmeyeceği.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Mağaza Önizlemesi</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Detayların Gizlenmesi</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Mağaza Önizlemesi:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Detayların Gizlenmesi:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Kütüphane Önizlemesi</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Detayların Gizlenmesi</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Kütüphane Önizlemesi:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Detayların Gizlenmesi:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Tema Özelleştirme</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Görüntülenen temaların ismini veya açıklamasını özelleştirin.</system:String>

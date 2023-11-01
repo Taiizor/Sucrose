@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">主题预览</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">鼠标悬停在主题上时是否显示预览。</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">商店预览</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">隐藏详细信息</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">商店预览:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">隐藏详细信息:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">库预览</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">隐藏详细信息</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">库预览:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">隐藏详细信息:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">主题自定义</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">自定义显示的主题名称或描述。</system:String>

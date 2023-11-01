@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Themen-Vorschau</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Ob Themen beim Überfahren angezeigt werden sollen.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Shop-Vorschau</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Details Ausblenden</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Shop-Vorschau:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Details Ausblenden:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotheks-Vorschau</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Details Ausblenden</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotheks-Vorschau:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Details Ausblenden:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Theme-Anpassung</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Passen Sie den Namen oder die Beschreibung der angezeigten Themes an.</system:String>

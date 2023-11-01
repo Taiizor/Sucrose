@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Попередній перегляд тем</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Показувати попередній перегляд тем при наведенні курсору.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Попередній перегляд магазину</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Приховати деталі</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Попередній перегляд магазину:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Приховати деталі:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Попередній перегляд бібліотеки</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Приховати деталі</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Попередній перегляд бібліотеки:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Приховати деталі:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Налаштування тем</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Налаштуйте ім'я або опис відображених тем.</system:String>

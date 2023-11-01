@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Theme Preview</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Whether themes should be previewed on hover.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Store Preview</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Hide Details</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Store Preview:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Hide Details:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Library Preview</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Hide Details</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Library Preview:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Hide Details:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Theme Customization</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Customize the name or description of displayed themes.</system:String>

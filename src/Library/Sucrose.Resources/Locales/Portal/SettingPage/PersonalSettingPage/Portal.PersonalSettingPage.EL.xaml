@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Προεπισκόπηση Θεμάτων</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Θα εμφανίζεται προεπισκόπηση όταν το ποντίκι βρίσκεται πάνω από ένα θέμα.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Προεπισκόπηση Καταστήματος</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Απόκρυψη Λεπτομερειών</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Προεπισκόπηση Καταστήματος:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Απόκρυψη Λεπτομερειών:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Προεπισκόπηση Βιβλιοθήκης</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Απόκρυψη Λεπτομερειών</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Προεπισκόπηση Βιβλιοθήκης:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Απόκρυψη Λεπτομερειών:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Προσαρμογή Θεμάτων</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Προσαρμόστε τα ονόματα ή τις περιγραφές των θεμάτων που εμφανίζονται.</system:String>

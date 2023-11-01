@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Themavoorbeeld</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Of thema's moeten worden gepreviewd wanneer u eroverheen gaat met de muisaanwijzer.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Winkelvoorbeeld</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Details Verbergen</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Winkelvoorbeeld:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Details Verbergen:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotheekvoorbeeld</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Details Verbergen</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotheekvoorbeeld:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Details Verbergen:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Themaaanpassing</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Pas de naam of beschrijving van weergegeven thema's aan.</system:String>

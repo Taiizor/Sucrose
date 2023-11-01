@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Temaförhandsgranskning</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Om teman ska förhandsgranskas när du hovrar över dem.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Butiksförhandsvisning</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Dölj detaljer</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Butiksförhandsvisning:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Dölj detaljer:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Biblioteksförhandsvisning</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Dölj detaljer</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Biblioteksförhandsvisning:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Dölj detaljer:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Teman Anpassning</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Anpassa namnet eller beskrivningen för de visade temana.</system:String>

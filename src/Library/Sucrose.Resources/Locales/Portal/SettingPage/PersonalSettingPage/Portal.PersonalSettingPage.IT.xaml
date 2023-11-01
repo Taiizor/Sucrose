@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Anteprima dei Temi</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Se l'anteprima verrà mostrata quando si passa sopra ai temi visualizzati.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Anteprima del Negozio</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Nascondi Dettagli</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Anteprima del Negozio:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Nascondi Dettagli:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Anteprima della Libreria</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Nascondi Dettagli</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Anteprima della Libreria:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Nascondi Dettagli:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">Personalizza i Temi</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personalizza il nome o la descrizione dei temi visualizzati.</system:String>

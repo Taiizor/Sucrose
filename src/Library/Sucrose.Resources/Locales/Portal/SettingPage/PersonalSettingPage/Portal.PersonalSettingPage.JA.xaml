@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">テーマプレビュー</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">テーマをポイントするとプレビューが表示されるかどうか。</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">ストア プレビュー</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">詳細を非表示にする</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">ストア プレビュー:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">詳細を非表示にする:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">ライブラリ プレビュー</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">詳細を非表示にする</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">ライブラリ プレビュー:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">詳細を非表示にする:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">テーマのカスタマイズ</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">表示されるテーマの名前や説明をカスタマイズします。</system:String>

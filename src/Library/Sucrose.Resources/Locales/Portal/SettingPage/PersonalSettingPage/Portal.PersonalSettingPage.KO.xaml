@@ -28,11 +28,11 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">테마 미리 보기</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">테마 위로 마우스를 가져갈 때 미리 보여질지 여부입니다.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">스토어 미리 보기</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">세부 정보 숨김</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">스토어 미리 보기:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">세부 정보 숨김:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">라이브러리 미리 보기</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">세부 정보 숨김</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">라이브러리 미리 보기:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">세부 정보 숨김:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Theme">테마 사용자 정의</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">표시된 테마의 이름 또는 설명을 사용자 정의합니다.</system:String>
