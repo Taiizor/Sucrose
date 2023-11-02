@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Skjermoppsett</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Endrer plasseringen av bakgrunnsbilder på skjermen din.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Strekningmodus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Endrer skaleringen av støttede bakgrunnsbilder.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Løkke-modus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Endrer løkke-modus for støttede bakgrunnsbilder.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Blandingsmodus</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Endrer blandingsmodus for støttede bakgrunnsbilder.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif-spiller</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Velg en plugin som vil spille av temaer av typen Gif i biblioteket ditt.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video-spiller</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Velg en plugin som vil spille av temaer av typen Video i biblioteket ditt.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url-motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Velg en motor som vil kjøre temaer av typen Url i biblioteket ditt.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web-motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Velg en motor som vil kjøre temaer av typen Web i biblioteket ditt.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube-motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Velg en motor som vil kjøre temaer av typen YouTube i biblioteket ditt.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application-motor</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Velg en motor som vil kjøre temaer av typen Application i biblioteket ditt.</system:String>
+</ResourceDictionary>

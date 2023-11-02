@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.UnknownStorePage.Title">UnknownStorePage</system:String>
+
+    <system:String x:Key="Portal.UnknownStorePage.TitleText">Utforsk det uforklarlige som skjer i butikken</system:String>
+    <system:String x:Key="Portal.UnknownStorePage.DescriptionText">Gå på jakt etter det ukjente og begi deg ut på reisen for å avdekke det mystiske som skjer i butikken</system:String>
+</ResourceDictionary>

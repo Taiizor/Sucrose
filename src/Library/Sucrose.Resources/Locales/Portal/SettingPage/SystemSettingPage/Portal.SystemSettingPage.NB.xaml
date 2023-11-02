@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Log-filer</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Administrer alle logger opprettet av programmet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Opprett</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Slett</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Merk: Samlet størrelse av loggfiler er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Cache Rydding</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Rydd alle cache-filer opprettet av programmet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Start rengjøring</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Merk: Samlet størrelse av cache-filer er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Butikkrydding</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Rydd alle butikkfiler opprettet av programmet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Start rengjøring</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Merk: Samlet størrelse av butikkfiler er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Bibliotekrydding</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Rydd alle temafiler i biblioteket ditt, enten de er opprettet eller importert.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Start rengjøring</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Merk: Samlet størrelse av temaer i biblioteket ditt er {0}. Alle programmer vil bli avsluttet når rengjøringsprosessen starter.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Innstillingsfiler</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Administrer alle innstillingsfiler opprettet av programmet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Eksporter</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Importer</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Merk: Alle programmer vil bli avsluttet når valgt handling starter.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Tilbakestill Innstillinger</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Tilbakestill alle programinnstillinger opprettet av programmet.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Start tilbakestilling</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Merk: Alle programmer vil bli avsluttet når tilbakestillingen starter.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Lagre Loggfil</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*</system:String>
+</ResourceDictionary>

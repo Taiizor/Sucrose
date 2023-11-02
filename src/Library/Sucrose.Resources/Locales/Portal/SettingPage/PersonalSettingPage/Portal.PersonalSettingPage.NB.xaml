@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Butikk Oppdatering</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Hvor lenge temaene som vises i butikken skal oppdateres.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Automatisk Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Om temaene som lastes ned fra butikken skal stilles inn som bakgrunnsbilde automatisk.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Ikke-sikre Innhold</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Om innhold som er merket som ikke-sikkert (NSFW) i butikken skal vises eller ikke.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Bekreft Sletting</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Om det skal be om bekreftelse når du sletter temaer fra biblioteket.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Ødelagte Temaer</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Om ødelagte eller manglende temaer i biblioteket skal slettes automatisk.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Merk: Dette bør gjøres med forsiktighet, da det kan føre til tap av data.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Automatisk Start</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Om det opprettede temaet skal stilles inn som bakgrunnsbilde automatisk.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Tema Forhåndsvisning</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Om temaer som holdes over, skal forhåndsvises.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Butikk Forhåndsvisning:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Skjul Detaljer:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotek Forhåndsvisning:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skjul Detaljer:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Tema Tilpasning</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Tilpass navnet eller beskrivelsen på temaene som vises.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Tittel Lengde (Tegn):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Beskrivelse Lengde (Tegn):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Tilpassbar Oppsett</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Tilpass oppsettet eller avstanden mellom temaene som vises.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Mellomrom (Piksler):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Oppsett Rekkefølge (Antall):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Butikk Sideinndeling</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Angi hvor mange temaer som skal være til stede for hver side i butikken.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Bibliotek Sideinndeling</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Angi hvor mange temaer som skal være til stede for hver side i biblioteket ditt.</system:String>
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">Rediger Tema</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">Lukk</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">Lagre</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">Tittel</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Beskrivelse</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Forfatter</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">Kontakt</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Merker</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argumenter</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Vennligst oppgi en gyldig tittel</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Vennligst oppgi en gyldig beskrivelse</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Vennligst oppgi en gyldig forfatter</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Vennligst oppgi en gyldig kontaktadresse</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Vennligst oppgi gyldige tema-merker</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Vennligst oppgi gyldige applikasjonsargumenter</system:String>
+</ResourceDictionary>

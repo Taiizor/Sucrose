@@ -1,0 +1,54 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Ytelsesmålere</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Om alle ytelsesmålerne skal kjøre i bakgrunnen.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Merk: Noen webbaserte temaer kan kanskje ikke fungere skikkelig, og ingen av følgende ytelsesinnstillinger vil være aktive.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-bruk</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Hvordan tapetet skal reagere på dine CPU-bruksinnstillinger.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-bruk (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Minnebruk</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Hvordan tapetet skal reagere på dine minnebrukinnstillinger.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Minnebruk (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Nettverksbruk</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Hvordan tapetet skal reagere på dine nettverksbrukinnstillinger.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Nettverksadapter:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Listen over nettverksadaptere er ennå ikke opprettet</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Opplastningsstørrelse:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Nedlastingsstørrelse:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Ping-verdi (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Batteristrøm</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Hvordan tapetet skal reagere når du bruker batteristrøm på en bærbar datamaskin.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Batteristatus (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Strømsparemodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Hvordan tapetet skal reagere når du bruker strømsparemodus på en bærbar datamaskin.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualisering</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Hvordan tapetet skal reagere når virtualiseringsprogrammer kjører.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Fjernskrivebord</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Hvordan tapetet skal reagere når fjernskrivebordprogrammer kjører.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Fullskjermmode</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Hvordan tapetet skal reagere når en hvilken som helst annen applikasjon kjører i fullskjerm.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Fokuseringsmodus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Hvordan tapetet skal reagere når en annen applikasjon er i fokus.</system:String>
+</ResourceDictionary>

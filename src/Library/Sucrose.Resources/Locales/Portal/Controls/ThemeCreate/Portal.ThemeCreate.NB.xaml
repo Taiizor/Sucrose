@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">Opprett Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Opprett</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Lukk</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Opprett ditt eget tema i Gif-format.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Opprett ditt eget tema i Url-format.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Opprett ditt eget tema i Web-format.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Opprett ditt eget tema i Video-format.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Opprett ditt eget tema i YouTube-format.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Opprett ditt eget tema i Application-format.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Forsidebilde</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Forhåndsvisning</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tittel</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Beskrivelse</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Forfatter</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Kontakt</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Merker</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenter</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Vennligst oppgi en gyldig URL</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Velg et forsidebilde</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Velg en forhåndsvisningsfil</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Vennligst oppgi en gyldig tittel</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Vennligst oppgi en gyldig beskrivelse</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Vennligst oppgi en gyldig forfatter</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Vennligst oppgi en gyldig kontaktadresse</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Vennligst oppgi gyldige tema-merker</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Vennligst oppgi gyldige applikasjonsargumenter</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Angre</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Dra og slipp Gif-filen din her</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Dra og slipp videofilen din her</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Velg Forsidebilde</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Bildefiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Velg Forhåndsvisningsfil</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif-filer (*.gif)|*.gif</system:String>
+</ResourceDictionary>

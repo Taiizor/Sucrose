@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SearchLibraryPage.Title">SearchLibraryPage</system:String>
+
+    <system:String x:Key="Portal.SearchLibraryPage.TitleText">Biblioteket ditt er forhekset av edderkoppnett</system:String>
+    <system:String x:Key="Portal.SearchLibraryPage.DescriptionText">På grunn av din nøye utvalgte bakgrunnsbilder er det ikke plass igjen til flere</system:String>
+</ResourceDictionary>

@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Fyll</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Ingen</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform for å fylle</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Fyll</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Ingen</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform for å fylle</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Lukk</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pause</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Fortsett</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mika</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Ingen</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Auto</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Faner</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akryl</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Standard</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Utvikler</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standard</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Komprimert</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Kjørbar</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Arbeidsområde</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Skjermgrenser</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standard</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Vellykket resultat</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' har for mange verdier</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema er opprettet for en type som ikke støttes av applikasjonen</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' verdien er tom eller for lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' verdien er tom eller for lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' filen ble ikke funnet</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' verdien er tom eller for lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview' filen ble ikke funnet</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Den tilknyttede filen er kryptert</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Den tilknyttede filen er faktisk ikke en '.zip' fil</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">'SucroseInfo.json' filen ble ikke funnet</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Den tilknyttede filen ble ikke funnet</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Ugyldig 'LoopMode' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">'Arguments' verdien er for lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Den tilknyttede filen har ikke '.zip' filendelse</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' filen ble ikke funnet</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Ugyldig 'SystemCpu' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' filen er tom</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Temaet er opprettet for en høyere versjon av applikasjonen</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' inneholder en ugyldig verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Ugyldig 'SystemBios' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Ugyldig 'SystemDate' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Ugyldig 'SystemAudio' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' verdien er tom eller for lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' filen er ugyldig</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Ugyldig 'TriggerTime' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Ugyldig 'StretchMode' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Ugyldig 'VolumeLevel' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Ugyldig 'ShuffleMode' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags' verdiene er enten for korte eller for lange</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Ugyldig fil</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">'PropertyList' verdien er tom</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Ugyldig 'SystemMemory' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Ugyldig 'SystemBattery' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Ugyldig 'SystemGraphic' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Ugyldig 'SystemNetwork' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">'Contact' verdien er verken en 'URL' eller en 'E-postadresse'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Ugyldig filtype</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">'SucroseCompatible.json' filen er tom</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">'SucroseProperties.json' filen er tom</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Ugyldig 'PropertyListener' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Ugyldig 'SystemMotherboard' verdi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' filen er ugyldig</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' filen er ugyldig</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Uforutsette Konsekvenser</system:String>
+</ResourceDictionary>

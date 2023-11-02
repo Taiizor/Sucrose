@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose muliggjør kommunikasjon med Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Oppdatering av tilkobling:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Oppdateringsfrekvens (sekunder):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Nettverksagent</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Din agentidentitet for situasjoner som krever nettverkstilgang.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Personlig tilgangstoken</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Nødvendig for å bruke butikken og applikasjonsoppdateringer problemfritt.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Hvis du ikke vet hvordan du skal skaffe en personlig tilgangstoken, kan du klikke her.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Vennligst angi en personlig tilgangstoken</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Vennligst angi en gyldig personlig tilgangstoken</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Oppdateringskanal</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Kanalen som oppdateringsprosessen skal bruke eller ikke.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Oppdateringsmetode</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Metoden som skal brukes for oppdateringsprosessen.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Nedlastingsbåndbreddegrense:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Utviklerverktøy</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Visning av utviklerverktøy for WebView og CefSharp-motoren.</system:String>
+</ResourceDictionary>

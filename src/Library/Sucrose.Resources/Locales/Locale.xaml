@@ -14,7 +14,7 @@
     <system:String x:Key="Locale.IT">Italiano (v0.3)</system:String>
     <system:String x:Key="Locale.JA">日本語 (v0.3)</system:String>
     <system:String x:Key="Locale.KO">한국어 (v0.3)</system:String>
-    <system:String x:Key="Locale.NB">Norsk (v0.1)</system:String>
+    <system:String x:Key="Locale.NB">Norsk (v0.3)</system:String>
     <system:String x:Key="Locale.NL">Nederlands (v0.3)</system:String>
     <system:String x:Key="Locale.PL">Polski (v0.5)</system:String>
     <system:String x:Key="Locale.RO">Română (v0.3)</system:String>

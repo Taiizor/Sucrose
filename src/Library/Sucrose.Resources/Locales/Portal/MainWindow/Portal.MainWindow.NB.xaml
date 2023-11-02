@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Hjelp</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Om</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Vis hjelp</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Vis informasjon</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Bibliotek</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Butikk</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Tema bibliotek</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Tema butikk</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Generelt</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Personlig</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Ytelse</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Bakgrunn</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">System</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Doner</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Annet</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Gå tilbake</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Generelle innstillinger</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Personlige innstillinger</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Ytelsesinnstillinger</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Bakgrunnsinnstillinger</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Systeminnstillinger</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Donasjonsinnstillinger</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Andre innstillinger</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Innstillinger</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Søk etter en bakgrunn</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Har du problemer med å finne det du trenger?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Lyst tema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Mørkt tema</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Opprett bakgrunn</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Skjermpreferanser</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Donasjonsalternativer</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Andre alternativer</system:String>
+</ResourceDictionary>
