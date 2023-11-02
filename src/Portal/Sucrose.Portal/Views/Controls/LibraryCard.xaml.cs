@@ -30,9 +30,9 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class LibraryCard : UserControl, IDisposable
     {
+        private readonly string Theme = string.Empty;
         private readonly SPEIL Loader = new();
-        private readonly string Theme = null;
-        private SSTHI Info = null;
+        private SSTHI Info = new();
 
         internal LibraryCard(string Theme, SSTHI Info)
         {

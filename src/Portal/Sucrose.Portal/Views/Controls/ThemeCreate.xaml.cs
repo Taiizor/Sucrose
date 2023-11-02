@@ -366,7 +366,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         if (string.IsNullOrEmpty(GifTags.Text))
                         {
-                            Tags = null;
+                            Tags = Array.Empty<string>();
                         }
                         else
                         {
@@ -497,7 +497,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         if (string.IsNullOrEmpty(UrlTags.Text))
                         {
-                            Tags = null;
+                            Tags = Array.Empty<string>();
                         }
                         else
                         {
@@ -612,6 +612,7 @@ namespace Sucrose.Portal.Views.Controls
                     }
                     else
                     {
+                        string Name;
                         string Theme;
                         string[] Tags;
                         string Preview = "Preview.gif";
@@ -619,7 +620,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         if (string.IsNullOrEmpty(VideoTags.Text))
                         {
-                            Tags = null;
+                            Tags = Array.Empty<string>();
                         }
                         else
                         {
@@ -750,7 +751,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         if (string.IsNullOrEmpty(YouTubeTags.Text))
                         {
-                            Tags = null;
+                            Tags = Array.Empty<string>();
                         }
                         else
                         {

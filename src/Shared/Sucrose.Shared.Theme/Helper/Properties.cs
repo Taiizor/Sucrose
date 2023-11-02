@@ -8,10 +8,10 @@ namespace Sucrose.Shared.Theme.Helper
         public bool State { get; set; }
 
         [JsonProperty("PropertyListener", Required = Required.Always)]
-        public string PropertyListener { get; set; }
+        public string PropertyListener { get; set; } = string.Empty;
 
         [JsonProperty("PropertyList", Required = Required.Always)]
-        public Dictionary<string, object> PropertyList { get; set; }
+        public Dictionary<string, object> PropertyList { get; set; } = new();
     }
 
     internal partial class Properties

@@ -7,43 +7,43 @@ namespace Sucrose.Shared.Theme.Helper
     internal partial class Info
     {
         [JsonProperty("AppVersion", Required = Required.Always)]
-        public Version AppVersion { get; set; }
+        public Version AppVersion { get; set; } = new(0, 0, 0, 0);
 
         [JsonProperty("Version", Required = Required.Always)]
-        public Version Version { get; set; }
+        public Version Version { get; set; } = new(1, 0, 0, 0);
 
         [JsonProperty("Title", Required = Required.Always)]
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         [JsonProperty("Thumbnail", Required = Required.Always)]
-        public string Thumbnail { get; set; }
+        public string Thumbnail { get; set; } = string.Empty;
 
         [JsonProperty("Preview", Required = Required.Always)]
-        public string Preview { get; set; }
+        public string Preview { get; set; } = string.Empty;
 
         [JsonProperty("Description", Required = Required.Always)]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [JsonProperty("Author", Required = Required.Always)]
-        public string Author { get; set; }
+        public string Author { get; set; } = string.Empty;
 
         [JsonProperty("License", Required = Required.AllowNull)]
-        public string License { get; set; }
+        public string License { get; set; } = string.Empty;
 
         [JsonProperty("Contact", Required = Required.Always)]
-        public string Contact { get; set; }
+        public string Contact { get; set; } = string.Empty;
 
         [JsonProperty("Type", Required = Required.Always)]
-        public SSDEWT Type { get; set; }
+        public SSDEWT Type { get; set; } = SSDEWT.Gif;
 
         [JsonProperty("Source", Required = Required.Always)]
-        public string Source { get; set; }
+        public string Source { get; set; } = string.Empty;
 
         [JsonProperty("Tags", Required = Required.Default)]
-        public string[] Tags { get; set; }
+        public string[] Tags { get; set; } = Array.Empty<string>();
 
         [JsonProperty("Arguments", Required = Required.AllowNull)]
-        public string Arguments { get; set; }
+        public string Arguments { get; set; } = string.Empty;
     }
 
     internal partial class Info

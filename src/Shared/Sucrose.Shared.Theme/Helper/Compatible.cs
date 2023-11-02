@@ -8,46 +8,46 @@ namespace Sucrose.Shared.Theme.Helper
         public bool State { get; set; }
 
         [JsonProperty("TriggerTime", Required = Required.Always)]
-        public int TriggerTime { get; set; }
+        public int TriggerTime { get; set; } = 1000;
 
         [JsonProperty("LoopMode", Required = Required.Default)]
-        public string LoopMode { get; set; }
+        public string LoopMode { get; set; } = string.Empty;
 
         [JsonProperty("SystemCpu", Required = Required.Default)]
-        public string SystemCpu { get; set; }
+        public string SystemCpu { get; set; } = string.Empty;
 
         [JsonProperty("SystemBios", Required = Required.Default)]
-        public string SystemBios { get; set; }
+        public string SystemBios { get; set; } = string.Empty;
 
         [JsonProperty("SystemDate", Required = Required.Default)]
-        public string SystemDate { get; set; }
+        public string SystemDate { get; set; } = string.Empty;
 
         [JsonProperty("SystemAudio", Required = Required.Default)]
-        public string SystemAudio { get; set; }
+        public string SystemAudio { get; set; } = string.Empty;
 
         [JsonProperty("VolumeLevel", Required = Required.Default)]
-        public string VolumeLevel { get; set; }
+        public string VolumeLevel { get; set; } = string.Empty;
 
         [JsonProperty("ShuffleMode", Required = Required.Default)]
-        public string ShuffleMode { get; set; }
+        public string ShuffleMode { get; set; } = string.Empty;
 
         [JsonProperty("StretchMode", Required = Required.Default)]
-        public string StretchMode { get; set; }
+        public string StretchMode { get; set; } = string.Empty;
 
         [JsonProperty("SystemMemory", Required = Required.Default)]
-        public string SystemMemory { get; set; }
+        public string SystemMemory { get; set; } = string.Empty;
 
         [JsonProperty("SystemBattery", Required = Required.Default)]
-        public string SystemBattery { get; set; }
+        public string SystemBattery { get; set; } = string.Empty;
 
         [JsonProperty("SystemGraphic", Required = Required.Default)]
-        public string SystemGraphic { get; set; }
+        public string SystemGraphic { get; set; } = string.Empty;
 
         [JsonProperty("SystemNetwork", Required = Required.Default)]
-        public string SystemNetwork { get; set; }
+        public string SystemNetwork { get; set; } = string.Empty;
 
         [JsonProperty("SystemMotherboard", Required = Required.Default)]
-        public string SystemMotherboard { get; set; }
+        public string SystemMotherboard { get; set; } = string.Empty;
     }
 
     internal partial class Compatible

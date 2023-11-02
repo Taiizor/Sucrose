@@ -37,8 +37,8 @@ namespace Sucrose.Portal.Views.Controls
     public partial class StoreCard : UserControl, IDisposable
     {
         private readonly KeyValuePair<string, SSSIW> Wallpaper = new();
+        private readonly string Theme = string.Empty;
         private readonly SPEIL Loader = new();
-        private readonly string Theme = null;
         private string Keys = string.Empty;
         private readonly string Agent;
         private readonly string Key;
