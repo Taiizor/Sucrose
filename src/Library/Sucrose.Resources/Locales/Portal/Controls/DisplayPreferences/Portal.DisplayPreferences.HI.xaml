@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DisplayPreferences.Title">डिस्प्ले प्राथमिकताएँ</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">बंद करें</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">स्थानन मोड</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">वॉलपेपर को सक्रिय स्क्रीन्स पर कैसे लागू करें।</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">केवल चयनित स्क्रीन</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">स्क्रीन्स को फैलाएं</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">सभी मॉनिटर</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">स्क्रीन्स को फैलाने का मोड चुनें</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">समान वॉलपेपर की प्रतिलिपि बनाएं</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">समान वॉलपेपर की प्रतिलिपि बनाने का मोड चुनें</system:String>
+</ResourceDictionary>

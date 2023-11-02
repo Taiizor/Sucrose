@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeImport.Title">थीम आयात</system:String>
+    <system:String x:Key="Portal.ThemeImport.Close">बंद करें</system:String>
+
+    <system:String x:Key="Portal.ThemeImport.Info">थीम जानकारी</system:String>
+    <system:String x:Key="Portal.ThemeImport.Type">कारण विवरण</system:String>
+</ResourceDictionary>

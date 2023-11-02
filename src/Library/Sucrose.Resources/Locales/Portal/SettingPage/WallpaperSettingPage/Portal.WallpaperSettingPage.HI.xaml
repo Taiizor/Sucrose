@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">स्क्रीन लेआउट</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">अपने वॉलपेपर की स्क्रीन लेआउट को बदलता है।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">स्ट्रेच मोड</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">समर्थित वॉलपेपरों की स्केलिंग मोड को बदलता है।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">लूप मोड</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">समर्थित वॉलपेपरों की लूप मोड को बदलता है।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">शफल मोड</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">समर्थित वॉलपेपरों की शफल मोड को बदलता है।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif प्लेयर</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">आपकी लाइब्रेरी में मौजूद Gif प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Video प्लेयर</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">आपकी लाइब्रेरी में मौजूद Video प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Url प्लेयर</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">आपकी लाइब्रेरी में मौजूद Url प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Web मोटर</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">आपकी लाइब्रेरी में मौजूद Web प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">YouTube मोटर</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">आपकी लाइब्रेरी में मौजूद YouTube प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Application मोटर</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">आपकी लाइब्रेरी में मौजूद Application प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।</system:String>
+</ResourceDictionary>

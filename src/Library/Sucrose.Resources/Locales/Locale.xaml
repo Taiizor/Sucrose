@@ -10,7 +10,7 @@
     <system:String x:Key="Locale.EN">English (v0.7)</system:String>
     <system:String x:Key="Locale.ES">Español (v0.5)</system:String>
     <system:String x:Key="Locale.FR">Français (v0.5)</system:String>
-    <system:String x:Key="Locale.HI">हिन्दी (v0.1)</system:String>
+    <system:String x:Key="Locale.HI">हिन्दी (v0.3)</system:String>
     <system:String x:Key="Locale.IT">Italiano (v0.3)</system:String>
     <system:String x:Key="Locale.JA">日本語 (v0.3)</system:String>
     <system:String x:Key="Locale.KO">한국어 (v0.3)</system:String>

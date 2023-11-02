@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeCreate.Title">थीम बनाएं</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">बनाएं</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">बंद करें</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Gif थीम</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Gif प्रकार की अपनी खुद की थीम बनाएं।</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Url थीम</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Url प्रकार की अपनी खुद की थीम बनाएं।</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Web थीम</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Web प्रकार की अपनी खुद की थीम बनाएं।</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Video थीम</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Video प्रकार की अपनी खुद की थीम बनाएं।</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">YouTube थीम</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">YouTube प्रकार की अपनी खुद की थीम बनाएं।</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Application थीम</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Application प्रकार की अपनी खुद की थीम बनाएं।</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">थंबनेल</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">पूर्वावलोकन</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">शीर्षक</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">विवरण</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">लेखक</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">संपर्क करें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">टैग्स</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">आर्ग्यूमेंट्स</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">कृपया एक मान्य Url पता लिखें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">कृपया एक थंबनेल चित्र का चयन करें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">कृपया एक पूर्वावलोकन फ़ाइल का चयन करें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">कृपया एक मान्य शीर्षक लिखें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">कृपया एक मान्य विवरण लिखें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">कृपया एक मान्य लेखक नाम लिखें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">कृपया एक मान्य संपर्क पता लिखें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">कृपया मान्य थीम टैग्स लिखें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">कृपया मान्य ऐप्लिकेशन आर्ग्यूमेंट्स लिखें</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">पूर्व वस्तुओं को हटाएँ</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">अपनी Gif फ़ाइल यहां खींचें और छोड़ें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">अपनी वीडियो फ़ाइल यहां खींचें और छोड़ें</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">थंबनेल चित्र चुनें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">छवि फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">पूर्वावलोकन फ़ाइल चुनें</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif फ़ाइलें (*.gif)|*.gif</system:String>
+</ResourceDictionary>

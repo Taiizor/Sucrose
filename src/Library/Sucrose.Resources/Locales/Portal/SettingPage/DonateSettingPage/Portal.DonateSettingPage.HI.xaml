@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">दान मेनू</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">उपयोगकर्ता इंटरफ़ेस में दान मेनू की दिखाई देने की स्थिति।</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">दिखाई देता है</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">छुपा हुआ</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">विज्ञापन सहायता</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">ऐप के विकास में सहायक बनने के लिए विज्ञापन देखकर सहायता करें।</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">विज्ञापन की देरी (मिनट):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">सुझाव: विज्ञापन आपको कम से कम असुविधा देने के रूप में दिखाए जाएंगे।</system:String>
+</ResourceDictionary>

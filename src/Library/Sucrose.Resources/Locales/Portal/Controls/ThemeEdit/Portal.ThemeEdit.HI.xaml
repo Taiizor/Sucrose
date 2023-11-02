@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeEdit.Title">थीम संपादन</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">बंद करें</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">सहेजें</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">शीर्षक</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">विवरण</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">लेखक</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">संपर्क करें</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">टैग</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">आर्ग्यूमेंट</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">कृपया एक मान्य शीर्षक लिखें</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">कृपया एक मान्य विवरण लिखें</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">कृपया एक मान्य लेखक नाम लिखें</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">कृपया एक मान्य संपर्क पता लिखें</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">कृपया मान्य थीम टैग्स लिखें</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">कृपया मान्य एप्लिकेशन आर्ग्यूमेंट्स लिखें</system:String>
+</ResourceDictionary>

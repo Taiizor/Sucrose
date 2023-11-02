@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.LibraryCard.TitleText">शीर्षक</system:String>
+    <system:String x:Key="Portal.LibraryCard.DescriptionText">विवरण</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MoreTip">अधिक</system:String>
+    <system:String x:Key="Portal.LibraryCard.VersionTip">Sucrose का नवीनीकरण करने के लिए इस थीम का उपयोग करें</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.MenuReview">समीक्षा</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuUse">उपयोग करें</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuPreview">पूर्वावलोकन</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCustomize">अनुकूलित करें</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuFind">खोजें</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuShare">साझा करें</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuDelete">मिटाएं</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuEdit">संपादित करें</system:String>
+</ResourceDictionary>

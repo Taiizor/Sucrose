@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">स्टोर रीन्यूअल</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">स्टोर पर दिखाए जाने वाले थीमों को कितनी समय के लिए नवीनीकरण किया जाएगा।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">स्वचालित प्रारंभ</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">स्टोर से डाउनलोड किए गए थीम को स्वचालित वॉलपेपर के रूप में सेट किया जाएगा या नहीं।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">असुरक्षित सामग्री</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">स्टोर में सुरक्षित नहीं (NSFW) माना गया सामग्री को दिखाने या न दिखाने की सेटिंग।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">हटाने की पुष्टि</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">थीमों को हटाते समय पुष्टि की आवश्यकता है या नहीं।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">दोषित थीम</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">पुस्तकालय में दोषित या अधूरी थीमों को स्वचालित रूप से हटाया जाएगा या नहीं।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">नोट: सावधानी से काम करें। अन्यथा डेटा हानि हो सकती है</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">स्वचालित प्रारंभ</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">बनाए गए थीम को स्वचालित वॉलपेपर के रूप में सेट किया जाएगा या नहीं।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">थीम पूर्वावलोकन</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">दिखाए जाने वाले थीम पर होने पर पूर्वावलोकन किया जाएगा या नहीं।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">स्टोर पूर्वावलोकन:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">विवरण छिपाएं:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">लाइब्रेरी पूर्वावलोकन:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">विवरण छिपाएं:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">थीम व्यक्तिकरण</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">दिखाए जाने वाले थीमों का नाम या विवरण व्यक्तिकरण करें।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">शीर्षक लम्बाई (अक्षर):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">विवरण लम्बाई (अक्षर):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">सामग्री अनुरूप अद्यतन</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">दिखाए जाने वाले थीम का अद्यतन अंदाज या दूरी करें।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">रिक्त स्थान (पिक्सेल):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">लेआउट क्रम (संख्या):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">स्टोर पेजिनेशन</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">हर स्टोर पेज के लिए कितने थीम होंगे, यह निर्धारित करें।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">लाइब्रेरी पेजिनेशन</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">आपकी लाइब्रेरी के हर पेज के लिए कितने थीम होंगे, यह निर्धारित करें।</system:String>
+</ResourceDictionary>

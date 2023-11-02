@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">ऐप्लिकेशन भाषा</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">उस भाषा को चुनें जिसमें आप ऐप्लिकेशन को देखना चाहते हैं।</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">ऐप्लिकेशन स्टार्टअप</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">वॉलपेपर को प्ले करने के लिए, Sucrose को प्रारंभ में बैकग्राउंड में चलाना होगा।</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">कोई नहीं</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">सामान्य</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">प्राथमिकता</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">समय सूचीकरण</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">सूचना चिन्ह</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">सिस्टम ट्रे दर्शानी. Sucrose गुप्त रूप से जारी रहेगा।</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">दिखाएं</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">छुपाएं</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">सिस्टम ट्रे बंद किया जब Sucrose अनुप्रयोग बंद किया जाए</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">विंडो बैकग्राउंड</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">अनुप्रयोग के विंडो बैकग्राउंड को व्यक्तिगत करने के लिए उपयोग किया जाता है।</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">बैकग्राउंड चित्र का चयन करें</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">किसी बैकग्राउंड चित्र का चयन करें</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">चित्र फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">बैकग्राउंड मोड:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">बैकग्राउंड पारदर्शिता (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">आवाज स्तर</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">सभी वॉलपेपर्स के लिए लागू होने वाले आवाज स्तर।</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">आवाज केवल डेस्कटॉप पर फोकस होने पर प्ले करें</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">लाइब्रेरी स्थान</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">आपके द्वारपेच में जोड़े गए थीमों को संग्रहित करने के लिए स्थल का चयन करें।</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">कृपया खाली फ़ोल्डर का चयन करें</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">कृपया कुछ समय इंतजार करें, स्थान बदलते समय</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">वर्तमान लाइब्रेरी को नई स्थान पर ले जाएं</system:String>
+</ResourceDictionary>

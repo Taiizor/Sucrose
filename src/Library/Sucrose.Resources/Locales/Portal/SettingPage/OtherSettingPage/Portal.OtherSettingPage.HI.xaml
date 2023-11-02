@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose, Discord के साथ संचालन संवाद सुनिश्चित करता है।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">कनेक्शन रिफ्रेश:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">रिफ्रेश अवधि (सेकंड):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">इंटरनेट प्रतिष्ठा</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">इंटरनेट कनेक्शन की आवश्यकता होने पर आपकी प्रतिष्ठा.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">व्यक्तिगत पहुंच टोकन</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">स्टोर और ऐप्डेट को सही तरीके से उपयोग करने के लिए आवश्यक।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">अगर आपको व्यक्तिगत पहुँच कुंजी प्राप्त करने का तरीका नहीं पता है तो यहाँ क्लिक करें।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">कृपया एक व्यक्तिगत पहुँच कुंजी दर्ज करें</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">कृपया एक मान्य व्यक्तिगत पहुँच कुंजी दर्ज करें</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">अपडेट चैनल</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">अपडेट प्रक्रिया किस चैनल के माध्यम से की जाएगी या नहीं।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">अपडेट विधि</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">अपडेट प्रक्रिया किस विधि से की जाएगी या नहीं।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">डाउनलोड बैंडविड्थ सीमा:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">डेवलपर टूल</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView और CefSharp मोटर के लिए डेवलपर टूल दिखाए जाएंगे या नहीं।</system:String>
+</ResourceDictionary>

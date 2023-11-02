@@ -3,9 +3,9 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
-    <system:String x:Key="Discord.BrowseButton">ब्राउज़ करें</system:String>
+    <system:String x:Key="Discord.BrowseButton">ब्राउज़ कर</system:String>
     <system:String x:Key="Discord.Details">वॉलपेपर इंजन</system:String>
-    <system:String x:Key="Discord.DownloadButton">डाउनलोड करें</system:String>
+    <system:String x:Key="Discord.DownloadButton">डाउनलोड कर</system:String>
 
     <system:String x:Key="Discord.LargestText0">केला आइसक्रीम पॉवर</system:String>
     <system:String x:Key="Discord.LargestText1">मुस्कानी टोपी राक्षस</system:String>

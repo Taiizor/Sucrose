@@ -1,0 +1,59 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Category.All">सभी</system:String>
+
+    <system:String x:Key="Portal.Category.Abstract">अल्परूप</system:String>
+    <system:String x:Key="Portal.Category.Ambience">आवाज</system:String>
+    <system:String x:Key="Portal.Category.Animals">पशु</system:String>
+    <system:String x:Key="Portal.Category.Animation">एनिमेशन</system:String>
+    <system:String x:Key="Portal.Category.Anime">एनिमे</system:String>
+    <system:String x:Key="Portal.Category.ArchitectureandBuildings">आर्किटेक्चर और इमारतें</system:String>
+    <system:String x:Key="Portal.Category.ArtandAbstract">कला और अल्परूप</system:String>
+    <system:String x:Key="Portal.Category.Artworks">कला कृतियाँ</system:String>
+    <system:String x:Key="Portal.Category.Bard">गायक</system:String>
+    <system:String x:Key="Portal.Category.BlackandWhite">काला और सफेद</system:String>
+    <system:String x:Key="Portal.Category.CartoonandComics">कार्टून और कॉमिक्स</system:String>
+    <system:String x:Key="Portal.Category.CitiesandPlaces">शहर और स्थान</system:String>
+    <system:String x:Key="Portal.Category.CloudsandSkies">बादल और आसमान</system:String>
+    <system:String x:Key="Portal.Category.ColorfulGradients">रंगीन ग्रेडिएंट्स</system:String>
+    <system:String x:Key="Portal.Category.ComicBooks">कॉमिक बुक्स</system:String>
+    <system:String x:Key="Portal.Category.DigitalArt">डिजिटल कला</system:String>
+    <system:String x:Key="Portal.Category.Dynamic">गतिशील</system:String>
+    <system:String x:Key="Portal.Category.EnchantedForests">मोहक जंगल</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">काल्पनिक</system:String>
+    <system:String x:Key="Portal.Category.FilmandTV">फिल्म और टीवी</system:String>
+    <system:String x:Key="Portal.Category.FoodandDrinks">खाना और पीना</system:String>
+    <system:String x:Key="Portal.Category.Galaxy">गैलेक्सी</system:String>
+    <system:String x:Key="Portal.Category.Game">खेल</system:String>
+    <system:String x:Key="Portal.Category.GeometricPatterns">ज्यामिति पैटर्न</system:String>
+    <system:String x:Key="Portal.Category.HolidaysandSeasons">त्योहार और मौसम</system:String>
+    <system:String x:Key="Portal.Category.HorrorandHalloween">डर और हैलोवीन</system:String>
+    <system:String x:Key="Portal.Category.InspirationalQuotes">प्रेरणादायक उद्धरण</system:String>
+    <system:String x:Key="Portal.Category.KidsandCartoon">बच्चे और कार्टून</system:String>
+    <system:String x:Key="Portal.Category.Landscape">दृश्य</system:String>
+    <system:String x:Key="Portal.Category.LineArt">रेखा कला</system:String>
+    <system:String x:Key="Portal.Category.Medieval">मध्यकाल</system:String>
+    <system:String x:Key="Portal.Category.Minimalist">न्यूनात्मक</system:String>
+    <system:String x:Key="Portal.Category.Music">संगीत</system:String>
+    <system:String x:Key="Portal.Category.Nature">प्राकृतिक</system:String>
+    <system:String x:Key="Portal.Category.Nightscapes">रात्रि दृश्य</system:String>
+    <system:String x:Key="Portal.Category.PatternsandTextures">पैटर्न और टेक्सचर्स</system:String>
+    <system:String x:Key="Portal.Category.Retro">रेट्रो</system:String>
+    <system:String x:Key="Portal.Category.RGB">रेड-ग्रीन-ब्लू</system:String>
+    <system:String x:Key="Portal.Category.Sky">आकाश</system:String>
+    <system:String x:Key="Portal.Category.Space">अंतरिक्ष</system:String>
+    <system:String x:Key="Portal.Category.Sports">खेल</system:String>
+    <system:String x:Key="Portal.Category.Superheroes">सुपरहीरोज</system:String>
+    <system:String x:Key="Portal.Category.System">सिस्टम</system:String>
+    <system:String x:Key="Portal.Category.Tavern">दरबार</system:String>
+    <system:String x:Key="Portal.Category.Technology">प्रौद्योगिकी</system:String>
+    <system:String x:Key="Portal.Category.Temple">मंदिर</system:String>
+    <system:String x:Key="Portal.Category.Time">समय</system:String>
+    <system:String x:Key="Portal.Category.UnderwaterandMarine">पानी के नीचे और समुंदरी</system:String>
+    <system:String x:Key="Portal.Category.Vehicles">वाहन</system:String>
+    <system:String x:Key="Portal.Category.Vintage">पुराना</system:String>
+    <system:String x:Key="Portal.Category.War">युद्ध</system:String>
+</ResourceDictionary>

@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">भरना</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">कोई नहीं</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">समानानुपातिक</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">समानानुपातिक भरना</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">भरना</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">कोई नहीं</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">समानानुपातिक</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">समानानुपातिक भरना</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">बंद करें</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">रोकें</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">जारी रखें</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">माइका</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">कोई नहीं</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">स्वचालित</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">टैब किया गया</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">ऐक्रिलिक</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">डिफ़ॉल्ट</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">डेवलपर</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">डिफ़ॉल्ट</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">संकुचित</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">क्रियान्वित</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">काम क्षेत्र</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">प्रदर्शन सीमा</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">डिफ़ॉल्ट</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">सफल परिणाम</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' में बहुत सारे मूल्य हैं</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">थीम, ऐसे एक प्रकार के आवश्यकता नहीं है, जो ऐप्लिकेशन से संगत नहीं है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' मान खाली है या बहुत लंबा है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' मूल्य खाली है या बहुत लंबा है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' फ़ाइल नहीं मिल सकी</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' मूल्य खाली है या बहुत लंबा है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview' फ़ाइल नहीं मिल सकी</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">संबंधित फ़ाइल एन्क्रिप्ट है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">संबंधित फ़ाइल वास्तव में एक '.zip' फ़ाइल नहीं है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">'SucroseInfo.json' फ़ाइल नहीं मिल सकी</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">संबंधित फ़ाइल नहीं मिल सकी</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">'LoopMode' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">'Arguments' मूल्य बहुत लंबा है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">संबंधित फ़ाइल '.zip' विस्तारण नहीं है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">'Thumbnail' फ़ाइल नहीं मिल सकी</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">'SystemCpu' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">'SucroseInfo.json' फ़ाइल खाली है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">थीम, ऐप के एक उच्च संस्करण के लिए बनाई गई है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">'Source' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">'SystemBios' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">'SystemDate' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">'SystemAudio' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">'Description' मूल्य खाली है या बहुत लंबा है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">'SucroseInfo.json' फ़ाइल अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">'TriggerTime' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">'StretchMode' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">'VolumeLevel' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">'ShuffleMode' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">'Tags' मूल्य बहुत छोटा या बहुत लंबा है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">अमान्य फ़ाइल</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">'PropertyList' मूल्य खाली है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">'SystemMemory' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">'SystemBattery' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">'SystemGraphic' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">'SystemNetwork' मूल्य अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">'Contact' मूल्य 'Url' या 'मेल पता' नहीं है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">अमान्य फ़ाइल विस्तारण</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">'SucroseCompatible.json' फ़ाइल खाली है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">'SucroseProperties.json' फ़ाइल खाली है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">अमान्य 'PropertyListener' मूल्य</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">अमान्य 'SystemMotherboard' मूल्य</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' फ़ाइल अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' फ़ाइल अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">अप्रत्याशित परिणाम</system:String>
+</ResourceDictionary>

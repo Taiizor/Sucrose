@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeReview.Title">थीम समीक्षा</system:String>
+    <system:String x:Key="Portal.ThemeReview.Close">बंद करें</system:String>
+
+    <system:String x:Key="Portal.ThemeReview.ThemeTitle">शीर्षक</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeDescription">विवरण</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeType">प्रकार</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthor">लेखक</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeAuthorName">टाइज़र</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSize">आकार</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersion">संस्करण</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTags">टैग</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeTagsText">नहीं</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreate">निर्माण</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeCreateDate">अज्ञात</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModify">संशोधन</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeModifyDate">अज्ञात</system:String>
+    <system:String x:Key="Portal.ThemeReview.ThemeContact">थीम संपर्क पता</system:String>
+</ResourceDictionary>

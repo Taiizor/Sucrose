@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.EmptyLibraryPage.Title">EmptyLibraryPage</system:String>
+
+    <system:String x:Key="Portal.EmptyLibraryPage.TitleText">आपकी पुस्तकालय को मकड़ी जाल से बुना गया है</system:String>
+    <system:String x:Key="Portal.EmptyLibraryPage.DescriptionText">वॉलपेपरों की जगह पर एक शानदार कला का नतीजा है, जिसे मकड़ी जाल से बनाया गया है</system:String>
+</ResourceDictionary>

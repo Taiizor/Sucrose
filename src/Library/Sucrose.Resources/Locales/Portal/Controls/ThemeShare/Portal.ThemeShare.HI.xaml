@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.ThemeShare.Title">थीम साझा करें</system:String>
+    <system:String x:Key="Portal.ThemeShare.Close">बंद करें</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeTitle">शीर्षक</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeDescription">विवरण</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemeExport">निर्यात करें</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">स्टोर में प्रकाशित करें</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">लिंक कॉपी करें</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*</system:String>
+    <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">थीम फ़ाइल सहेजें</system:String>
+</ResourceDictionary>

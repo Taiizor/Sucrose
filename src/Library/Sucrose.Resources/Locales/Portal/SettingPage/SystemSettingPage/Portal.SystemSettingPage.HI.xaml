@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">लॉग फ़ाइलें</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">ऐप के द्वारा बनाई गई सभी लॉग फ़ाइलों का प्रबंधन करें।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">बनाएँ</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">साफ करें</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">नोट: लॉग फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। केवल सफाई शुरू होने पर सभी ऐप्स बंद होंगे।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">कैश साफ करें</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">ऐप द्वारा बनाई गई सभी कैश फ़ाइलों को साफ करें।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">सफाई शुरू करें</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">नोट: कैश फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">स्टोर साफ करें</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">ऐप द्वारा बनाई गई सभी स्टोर फ़ाइलों को साफ करें।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">सफाई शुरू करें</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">नोट: स्टोर फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">लाइब्रेरी साफ करें</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">आपकी लाइब्रेरी में मौजूद या बनाई गई सभी थीम फ़ाइलों को साफ करें।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">सफाई शुरू करें</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">नोट: आपकी लाइब्रेरी में थीमों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">सेटिंग फ़ाइलें</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">ऐप द्वारा बनाई गई सभी सेटिंग फ़ाइलों का प्रबंधन करें।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">बैकअप करें</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">पुनर्स्थापित करें</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">नोट: चयनित क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">सेटिंग रीसेट करें</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">ऐप द्वारा बनाई गई सभी सेटिंग फ़ाइलों को रीसेट करें।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">रीसेट शुरू करें</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">नोट: रीसेट क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">लॉग फ़ाइल सहेजें</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*</system:String>
+</ResourceDictionary>

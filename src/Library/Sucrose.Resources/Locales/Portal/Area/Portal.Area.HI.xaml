@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Area.Sound">ध्वनि</system:String>
+    <system:String x:Key="Portal.Area.Log">लॉग</system:String>
+    <system:String x:Key="Portal.Area.Hook">कुंजी</system:String>
+    <system:String x:Key="Portal.Area.Store">स्टोर</system:String>
+    <system:String x:Key="Portal.Area.Donate">दान</system:String>
+    <system:String x:Key="Portal.Area.System">सिस्टम</system:String>
+    <system:String x:Key="Portal.Area.Cache">कैश</system:String>
+    <system:String x:Key="Portal.Area.Laptop">लैपटॉप</system:String>
+    <system:String x:Key="Portal.Area.Support">समर्थन</system:String>
+    <system:String x:Key="Portal.Area.Reset">रीसेट</system:String>
+    <system:String x:Key="Portal.Area.Backup">बैकअप</system:String>
+    <system:String x:Key="Portal.Area.Priority">प्राथमिकता</system:String>
+    <system:String x:Key="Portal.Area.Engines">इंजन्स</system:String>
+    <system:String x:Key="Portal.Area.Update">अपडेट</system:String>
+    <system:String x:Key="Portal.Area.Library">लाइब्रेरी</system:String>
+    <system:String x:Key="Portal.Area.Developer">डेवलपर</system:String>
+    <system:String x:Key="Portal.Area.Extensions">एक्सटेंशन्स</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">सिस्टम संसाधन</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">दिखावट और व्यवहार</system:String>
+</ResourceDictionary>

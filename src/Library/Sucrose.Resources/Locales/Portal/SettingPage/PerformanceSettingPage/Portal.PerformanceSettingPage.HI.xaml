@@ -1,0 +1,46 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">प्रदर्शन गणनाओं</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">सभी प्रदर्शन गणनाओं का पृष्ठांतरण करना चाहिए या नहीं।</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">नोट: कुछ वेब थीम्स सही तरीके से काम नहीं कर सकती हैं और निम्नलिखित प्रदर्शन सेटिंग्स का कोई भी काम नहीं कर सकता है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">सीपीयू उपयोग</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">सीपीयू उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">सीपीयू उपयोग (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">मेमोरी उपयोग</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">मेमोरी उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">मेमोरी उपयोग (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">नेटवर्क उपयोग</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">नेटवर्क उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">नेटवर्क एडाप्टर:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">नेटवर्क एडाप्टर्स की सूची अभी तक बनाई नहीं गई है</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">अपलोड साइज:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">डाउनलोड साइज:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">पिंग मान (मिलिसेकंड):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">बैटरी पावर</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">लैपटॉप बैटरी पॉवर पर काम करते समय वॉलपेपर पर क्या होने वाला है।</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">बैटरी स्थिति (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">बैटरी बचाने वाला</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">लैपटॉप बैटरी बचाने के मोड पर काम करते समय वॉलपेपर पर क्या होने वाला है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">वर्चुअलाइजेशन</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">वर्चुअलाइजेशन एप्लिकेशन चलते समय वॉलपेपर पर क्या होने वाला है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">दूरस्थ डेस्कटॉप</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">दूरस्थ डेस्कटॉप एप्लिकेशन चलते समय वॉलपेपर पर क्या होने वाला है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">पूर्णस्क्रीन मोड</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">किसी भी ऐप्लिकेशन को पूर्णस्क्रीन मोड में चलते समय वॉलपेपर पर क्या होने वाला है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">फोकस मोड</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">किसी अन्य एप्लिकेशन पर ध्यान केंद्रित करते समय वॉलपेपर पर क्या होने वाला है।</system:String>
+</ResourceDictionary>
