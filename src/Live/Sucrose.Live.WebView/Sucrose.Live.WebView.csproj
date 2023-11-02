@@ -68,8 +68,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Wing" Version="3.1.1.5" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.2" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.1.6" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.2.1" />
         <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2164-prerelease" />
     </ItemGroup>
 
