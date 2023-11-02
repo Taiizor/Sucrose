@@ -4,9 +4,9 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="FullLibraryPage/Portal.FullLibraryPage.TR.xaml" />
-        <ResourceDictionary Source="EmptyLibraryPage/Portal.EmptyLibraryPage.TR.xaml" />
-        <ResourceDictionary Source="SearchLibraryPage/Portal.SearchLibraryPage.TR.xaml" />
+        <ResourceDictionary Source="FullLibraryPage/Portal.FullLibraryPage.NB.xaml" />
+        <ResourceDictionary Source="EmptyLibraryPage/Portal.EmptyLibraryPage.NB.xaml" />
+        <ResourceDictionary Source="SearchLibraryPage/Portal.SearchLibraryPage.NB.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
