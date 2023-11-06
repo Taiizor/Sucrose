@@ -13,7 +13,7 @@
     Background="#FF29373B" Icon="\Sucrose.Bundle;component\Assets\ICO.ico">
 
     <Grid>
-        <Image Source="\Sucrose.Bundle;component\Assets\Background10.jpg" Stretch="UniformToFill" Opacity="0.5" />
+        <Image Source="\Sucrose.Bundle;component\Assets\Background11.jpg" Stretch="UniformToFill" Opacity="0.5" />
 
         <TextBlock Text="{DynamicResource Subtitle}" FontSize="30" FontWeight="Light" Foreground="White"
                    FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,260,0,0"/>
