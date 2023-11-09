@@ -12,51 +12,57 @@ namespace Sucrose.Shared.Signal.Services
     {
         public static async void Handler(object sender, FileSystemEventArgs e)
         {
-            SSIB Data = await SSMI.BackgroundogManager.FileRead<SSIB>(e.FullPath, new());
-
-            if (Data.Cpu != null)
+            if (e != null)
             {
-                SSEMI.CpuData = JsonConvert.SerializeObject(Data.Cpu, Formatting.Indented);
-            }
+                SSIB Data = await SSMI.BackgroundogManager.FileRead<SSIB>(e.FullPath, new());
 
-            if (Data.Bios != null)
-            {
-                SSEMI.BiosData = JsonConvert.SerializeObject(Data.Bios, Formatting.Indented);
-            }
+                if (Data != null)
+                {
+                    if (Data.Cpu != null)
+                    {
+                        SSEMI.CpuData = JsonConvert.SerializeObject(Data.Cpu, Formatting.Indented);
+                    }
 
-            if (Data.Date != null)
-            {
-                SSEMI.DateData = JsonConvert.SerializeObject(Data.Date, Formatting.Indented);
-            }
+                    if (Data.Bios != null)
+                    {
+                        SSEMI.BiosData = JsonConvert.SerializeObject(Data.Bios, Formatting.Indented);
+                    }
 
-            if (Data.Audio != null)
-            {
-                SSEMI.AudioData = JsonConvert.SerializeObject(Data.Audio, Formatting.Indented);
-            }
+                    if (Data.Date != null)
+                    {
+                        SSEMI.DateData = JsonConvert.SerializeObject(Data.Date, Formatting.Indented);
+                    }
 
-            if (Data.Memory != null)
-            {
-                SSEMI.MemoryData = JsonConvert.SerializeObject(Data.Memory, Formatting.Indented);
-            }
+                    if (Data.Audio != null)
+                    {
+                        SSEMI.AudioData = JsonConvert.SerializeObject(Data.Audio, Formatting.Indented);
+                    }
 
-            if (Data.Battery != null)
-            {
-                SSEMI.BatteryData = JsonConvert.SerializeObject(Data.Battery, Formatting.Indented);
-            }
+                    if (Data.Memory != null)
+                    {
+                        SSEMI.MemoryData = JsonConvert.SerializeObject(Data.Memory, Formatting.Indented);
+                    }
 
-            if (Data.Graphic != null)
-            {
-                SSEMI.GraphicData = JsonConvert.SerializeObject(Data.Graphic, Formatting.Indented);
-            }
+                    if (Data.Battery != null)
+                    {
+                        SSEMI.BatteryData = JsonConvert.SerializeObject(Data.Battery, Formatting.Indented);
+                    }
 
-            if (Data.Network != null)
-            {
-                SSEMI.NetworkData = JsonConvert.SerializeObject(Data.Network, Formatting.Indented);
-            }
+                    if (Data.Graphic != null)
+                    {
+                        SSEMI.GraphicData = JsonConvert.SerializeObject(Data.Graphic, Formatting.Indented);
+                    }
 
-            if (Data.Motherboard != null)
-            {
-                SSEMI.MotherboardData = JsonConvert.SerializeObject(Data.Motherboard, Formatting.Indented);
+                    if (Data.Network != null)
+                    {
+                        SSEMI.NetworkData = JsonConvert.SerializeObject(Data.Network, Formatting.Indented);
+                    }
+
+                    if (Data.Motherboard != null)
+                    {
+                        SSEMI.MotherboardData = JsonConvert.SerializeObject(Data.Motherboard, Formatting.Indented);
+                    }
+                }
             }
         }
     }

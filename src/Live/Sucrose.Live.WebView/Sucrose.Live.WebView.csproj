@@ -70,7 +70,7 @@
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.1.1.6" />
         <PackageReference Include="Skylark.Standard" Version="3.1.2.1" />
-        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2164-prerelease" />
+        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2194-prerelease" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
