@@ -71,7 +71,7 @@
         <PackageReference Include="NPSMLib" Version="0.9.14" />
         <PackageReference Include="Skylark.Wing" Version="3.1.1.7" />
         <PackageReference Include="Skylark.Standard" Version="3.1.2.2" />
-        <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.3-pre259" />
+        <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.3-pre260" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
