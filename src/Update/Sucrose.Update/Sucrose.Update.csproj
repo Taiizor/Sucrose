@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -70,7 +70,7 @@
     <ItemGroup>
         <PackageReference Include="Downloader" Version="3.0.6" />
         <PackageReference Include="Skylark.Wing" Version="3.1.1.7" />
-        <PackageReference Include="SharpCompress" Version="0.34.1" />
+        <PackageReference Include="SharpCompress" Version="0.34.2" />
         <PackageReference Include="Skylark.Standard" Version="3.1.2.2" />
     </ItemGroup>
     
