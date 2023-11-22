@@ -10,7 +10,9 @@
     CloseButtonText="{DynamicResource Portal.DisplayPreferences.Close}"
     Title="{DynamicResource Portal.DisplayPreferences.Title}"
     Loaded="ContentDialog_Loaded"
+    d:DesignHeight="7750"
     DialogMaxWidth="775"
+    d:DesignWidth="775"
     mc:Ignorable="d">
 
     <ui:ContentDialog.Resources>
