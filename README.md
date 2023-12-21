@@ -1,6 +1,6 @@
 <div align="center">
   <img alt="Sucrose Logo" height="150" src=".images/Logo.png" />
-  <h2>Sucrose - Wallpaper Engine</h2>
+  <h2>Sucrose Wallpaper Engine</h2>
 </div>
 
 <div align="center">
