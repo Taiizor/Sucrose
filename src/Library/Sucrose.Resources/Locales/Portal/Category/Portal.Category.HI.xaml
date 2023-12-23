@@ -34,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">प्रेरणादायक उद्धरण</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">बच्चे और कार्टून</system:String>
     <system:String x:Key="Portal.Category.Landscape">दृश्य</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">जीवन शैली</system:String>
     <system:String x:Key="Portal.Category.LineArt">रेखा कला</system:String>
     <system:String x:Key="Portal.Category.Medieval">मध्यकाल</system:String>
     <system:String x:Key="Portal.Category.Minimalist">न्यूनात्मक</system:String>

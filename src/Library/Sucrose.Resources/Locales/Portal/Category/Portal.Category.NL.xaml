@@ -34,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">Inspirerende Citaten</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">Kinderen en Cartoons</system:String>
     <system:String x:Key="Portal.Category.Landscape">Landschap</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">Levensstijl</system:String>
     <system:String x:Key="Portal.Category.LineArt">Lijnkunst</system:String>
     <system:String x:Key="Portal.Category.Medieval">Middeleeuws</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalistisch</system:String>

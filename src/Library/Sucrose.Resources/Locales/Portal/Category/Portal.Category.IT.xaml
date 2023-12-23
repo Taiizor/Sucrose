@@ -4,6 +4,7 @@
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 >
     <system:String x:Key="Portal.Category.All">Tutti</system:String>
+    
     <system:String x:Key="Portal.Category.Abstract">Astratto</system:String>
     <system:String x:Key="Portal.Category.Ambience">Ambiente</system:String>
     <system:String x:Key="Portal.Category.Animals">Animali</system:String>
@@ -33,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">Citazioni Ispiratrici</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">Bambini e Cartoni Animati</system:String>
     <system:String x:Key="Portal.Category.Landscape">Paesaggio</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">Stile di Vita</system:String>
     <system:String x:Key="Portal.Category.LineArt">Arte Lineare</system:String>
     <system:String x:Key="Portal.Category.Medieval">Medievale</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalista</system:String>

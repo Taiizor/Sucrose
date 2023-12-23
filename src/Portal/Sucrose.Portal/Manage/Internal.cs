@@ -63,6 +63,7 @@ namespace Sucrose.Portal.Manage
             { "Animals", SymbolRegular.AnimalCat24 },
             { "Digital Art", SymbolRegular.Tablet24 },
             { "Vehicles", SymbolRegular.VehicleCar24 },
+            { "Lifestyle", SymbolRegular.StyleGuide24 },
             { "Comic Books", SymbolRegular.BookOpen24 },
             { "Food and Drinks", SymbolRegular.Food24 },
             { "Dynamic", SymbolRegular.ClockToolbox24 },

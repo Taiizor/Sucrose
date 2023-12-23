@@ -34,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">インスピレーション引用</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">子供とカートゥーン</system:String>
     <system:String x:Key="Portal.Category.Landscape">風景</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">ライフスタイル</system:String>
     <system:String x:Key="Portal.Category.LineArt">線画</system:String>
     <system:String x:Key="Portal.Category.Medieval">中世</system:String>
     <system:String x:Key="Portal.Category.Minimalist">ミニマリスト</system:String>
