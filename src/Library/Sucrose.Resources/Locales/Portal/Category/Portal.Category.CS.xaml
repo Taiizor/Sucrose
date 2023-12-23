@@ -34,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">Inspirující Citáty</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">Děti a Kreslený Film</system:String>
     <system:String x:Key="Portal.Category.Landscape">Krajina</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">Životní Styl</system:String>
     <system:String x:Key="Portal.Category.LineArt">Linková Grafika</system:String>
     <system:String x:Key="Portal.Category.Medieval">Středověk</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalistické</system:String>

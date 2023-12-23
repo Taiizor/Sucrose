@@ -34,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">Citate Inspirante</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">Copii și Desene Animate</system:String>
     <system:String x:Key="Portal.Category.Landscape">Peisaj</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">Stil de Viață</system:String>
     <system:String x:Key="Portal.Category.LineArt">Artă Linie</system:String>
     <system:String x:Key="Portal.Category.Medieval">Medieval</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalist</system:String>

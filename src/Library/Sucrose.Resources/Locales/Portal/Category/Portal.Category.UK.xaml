@@ -34,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">Вдохновлюючі Цитати</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">Діти та Мультфільми</system:String>
     <system:String x:Key="Portal.Category.Landscape">Пейзаж</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">Стиль Життя</system:String>
     <system:String x:Key="Portal.Category.LineArt">Лінійне Мистецтво</system:String>
     <system:String x:Key="Portal.Category.Medieval">Середньовіччя</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Мінімалізм</system:String>

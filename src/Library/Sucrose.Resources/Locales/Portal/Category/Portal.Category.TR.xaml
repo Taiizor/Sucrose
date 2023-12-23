@@ -34,6 +34,7 @@
     <system:String x:Key="Portal.Category.InspirationalQuotes">İlham Verici Alıntılar</system:String>
     <system:String x:Key="Portal.Category.KidsandCartoon">Çocuklar ve Çizgi Film</system:String>
     <system:String x:Key="Portal.Category.Landscape">Manzara</system:String>
+    <system:String x:Key="Portal.Category.Lifestyle">Yaşam Tarzı</system:String>
     <system:String x:Key="Portal.Category.LineArt">Çizgi Sanatı</system:String>
     <system:String x:Key="Portal.Category.Medieval">Ortaçağ</system:String>
     <system:String x:Key="Portal.Category.Minimalist">Minimalist</system:String>
