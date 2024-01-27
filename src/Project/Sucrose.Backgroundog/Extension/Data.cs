@@ -174,6 +174,8 @@ namespace Sucrose.Backgroundog.Extension
                     {
                         { "Text", SBMI.NetworkData.UploadData.Text },
                         { "Value", SBMI.NetworkData.UploadData.Value },
+                        { "Long", $"{SBMI.NetworkData.UploadData.Long}" },
+                        { "More", $"{SBMI.NetworkData.UploadData.More}" },
                         { "Type", $"{SBMI.NetworkData.UploadData.Type}" },
                         { "Short", $"{SBMI.NetworkData.UploadData.Short}" }
                     }
@@ -183,6 +185,8 @@ namespace Sucrose.Backgroundog.Extension
                     {
                         { "Text", SBMI.NetworkData.DownloadData.Text },
                         { "Value", SBMI.NetworkData.DownloadData.Value },
+                        { "Long", $"{SBMI.NetworkData.DownloadData.Long}" },
+                        { "More", $"{SBMI.NetworkData.DownloadData.More}" },
                         { "Type", $"{SBMI.NetworkData.DownloadData.Type}" },
                         { "Short", $"{SBMI.NetworkData.DownloadData.Short}" }
                     }
