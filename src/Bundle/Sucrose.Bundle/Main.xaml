@@ -13,15 +13,15 @@
     Background="#FF29373B" Icon="\Sucrose.Bundle;component\Assets\ICO.ico">
 
     <Grid>
-        <Image Source="\Sucrose.Bundle;component\Assets\Background19.jpg" Stretch="UniformToFill" Opacity="0.5" />
+        <Image Source="\Sucrose.Bundle;component\Assets\Background20.jpg" Stretch="UniformToFill" Opacity="0.5" />
 
         <TextBlock Text="{DynamicResource Subtitle}" FontSize="30" FontWeight="Light" Foreground="White"
-                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,260,0,0"/>
+                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,260,0,0" />
 
         <TextBlock Text="{DynamicResource Install}" FontSize="16" FontWeight="Light" Foreground="White"
-                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,310,0,0"/>
+                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,310,0,0" />
 
         <TextBlock Text="{DynamicResource Done}" FontSize="16" FontWeight="Light" Foreground="White"
-                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,330,0,0"/>
+                   FontFamily="Segoe UI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,330,0,0" />
     </Grid>
 </Window>
