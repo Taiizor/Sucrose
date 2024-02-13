@@ -298,7 +298,7 @@
           <img src='.images/Badges/GitHub/English_get it from GH_228X86.png' alt='Sucrose .NET 8.0 ARM64' width='160' />
         </a>
       </td>
-    </tr
+    </tr>
     <tr align="center">
       <td><a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0">.NET 9.0</a></td>
       <td>
