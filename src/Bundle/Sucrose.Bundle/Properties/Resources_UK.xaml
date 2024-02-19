@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Title">Пакет Sucrose</system:String>
+    <system:String x:Key="Subtitle">Пакет Sucrose</system:String>
+    <system:String x:Key="Done">Він запуститься, як тільки буде завершено.</system:String>
+    <system:String x:Key="Install">Встановлюється Sucrose Wallpaper Engine.</system:String>
+</ResourceDictionary>

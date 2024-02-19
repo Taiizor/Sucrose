@@ -17,6 +17,7 @@
     <system:String x:Key="Locale.NB">Norsk (v0.4)</system:String>
     <system:String x:Key="Locale.NL">Nederlands (v0.4)</system:String>
     <system:String x:Key="Locale.PL">Polski (v0.6)</system:String>
+    <system:String x:Key="Locale.PT">Português (v0.1)</system:String>
     <system:String x:Key="Locale.RO">Română (v0.4)</system:String>
     <system:String x:Key="Locale.RU">Русский (v0.4)</system:String>
     <system:String x:Key="Locale.SV">Svenska (v0.4)</system:String>
