@@ -60,6 +60,7 @@ namespace Sucrose.Resources.Helper
                 "NB",
                 "NL",
                 "PL",
+                "PT",
                 "RO",
                 "RU",
                 "SV",

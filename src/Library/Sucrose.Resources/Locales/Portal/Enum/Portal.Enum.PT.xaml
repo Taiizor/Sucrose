@@ -1,0 +1,84 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Preencher</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Nenhum</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniforme</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Preencher Uniformemente</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Preencher</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Nenhum</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniforme</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Preencher Uniformemente</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Fechar</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pausar</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Continuar</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mica</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Nenhum</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Automático</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Aba</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrílico</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Liberação</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pré-Lançamento</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Padrão</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Comprimido</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Executável</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Área de Trabalho</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Limite de Exibição</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Padrão</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Sucesso</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' com muitos valores</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema criado para um tipo não suportado pela aplicação</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">Valor 'Title' vazio ou muito longo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Valor 'Author' vazio ou muito longo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Arquivo 'Source' não encontrado</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Valor 'Contact' vazio ou muito longo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Arquivo 'Preview' não encontrado</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">O arquivo relacionado está criptografado</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">O arquivo relacionado não é realmente um arquivo '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Arquivo 'SucroseInfo.json' não encontrado</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Arquivo relacionado não encontrado</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Valor 'LoopMode' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">Valor 'Arguments' muito longo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">O arquivo relacionado não tem extensão '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Arquivo 'Thumbnail' não encontrado</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Valor 'SystemCpu' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">O arquivo 'SucroseInfo.json' está vazio</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Tema criado para uma versão mais alta do aplicativo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Valor 'Source' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Valor 'SystemBios' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Valor 'SystemDate' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Valor 'SystemAudio' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">Valor 'Description' vazio ou muito longo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">O arquivo 'SucroseInfo.json' é inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Valor 'TriggerTime' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Valor 'StretchMode' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Valor 'VolumeLevel' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Valor 'ShuffleMode' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Os valores de 'Tags' são muito curtos ou muito longos</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Arquivo inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">O valor 'PropertyList' está vazio</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Valor 'SystemMemory' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Valor 'SystemBattery' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Valor 'SystemGraphic' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Valor 'SystemNetwork' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">O valor 'Contact' não é uma URL ou um endereço de e-mail</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Extensão de arquivo inválida</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">O arquivo 'SucroseCompatible.json' está vazio</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">O arquivo 'SucroseProperties.json' está vazio</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Valor 'PropertyListener' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Valor 'SystemMotherboard' inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">O arquivo 'SucroseCompatible.json' é inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">O arquivo 'SucroseProperties.json' é inválido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Consequências Imprevistas</system:String>
+</ResourceDictionary>

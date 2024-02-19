@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+     xmlns:system="clr-namespace:System;assembly=mscorlib"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>
+    <system:String x:Key="Launcher.WallCustomizeText">Personalizar Papel de Parede</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Criar Log</system:String>
+    <system:String x:Key="Launcher.ExitText">Sair</system:String>
+    <system:String x:Key="Launcher.OpenReportText">Reportar Problema</system:String>
+    <system:String x:Key="Launcher.OpenText">Abrir Sucrose</system:String>
+    <system:String x:Key="Launcher.ReportText">Relatar Erro</system:String>
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnóstico Sucrose</system:String>
+    <system:String x:Key="Launcher.SaveDialogFilter">Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Salvar Log</system:String>
+    <system:String x:Key="Launcher.SettingText">Configurações</system:String>
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+    <system:String x:Key="Launcher.WallChangeText">Alterar Papel de Parede</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Fechar Papel de Parede</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Abrir Papel de Parede</system:String>
+    <system:String x:Key="Launcher.WallStartText">Iniciar Papel de Parede</system:String>
+    <system:String x:Key="Launcher.WallStopText">Parar Papel de Parede</system:String>
+    <system:String x:Key="Launcher.UpdateText">Verificar Atualizações</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Atualizações Concluídas</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Verificando Atualizações</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Progresso da Atualização {0}</system:String>
+</ResourceDictionary>
