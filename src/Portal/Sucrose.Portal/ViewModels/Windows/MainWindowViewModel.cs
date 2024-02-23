@@ -285,6 +285,12 @@ namespace Sucrose.Portal.ViewModels.Windows
             DisplayPreferences.Dispose();
         }
 
+        [RelayCommand]
+        private async Task OnWallpaperCycling()
+        {
+            //
+        }
+
         private void Memory_Tick(object sender, EventArgs e)
         {
             Memory = SSCHM.Get();

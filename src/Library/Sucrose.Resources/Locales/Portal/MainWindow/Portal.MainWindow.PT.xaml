@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Ajuda</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Sobre</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Ver Ajuda</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Ver Sobre</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Biblioteca</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Loja</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Biblioteca de Temas</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Loja de Temas</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Geral</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Pessoal</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Desempenho</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Papel de Parede</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Sistema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Doação</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Outro</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Voltar</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Configurações Gerais</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Configurações Pessoais</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Configurações de Desempenho</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Configurações do Papel de Parede</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Configurações do Sistema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Configurações de Doação</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Outras Configurações</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Configurações</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Procurar Papel de Parede</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Está tendo dificuldade em encontrar o que precisa?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Tema Claro</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tema Escuro</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Criar Papel de Parede</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferências de Exibição</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Ciclagem de Papel de Parede</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Opções de Doação</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Outras Opções</system:String>
+</ResourceDictionary>

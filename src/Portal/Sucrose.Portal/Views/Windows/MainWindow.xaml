@@ -4,35 +4,44 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:Sucrose.Portal.Views.Pages"
     xmlns:setting="clr-namespace:Sucrose.Portal.Views.Pages.Setting"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     Title="{DynamicResource Portal.MainWindow.Title}"
-    ContentRendered="MainWindow_ContentRendered"
-    PreviewKeyDown="MainWindow_PreviewKeyDown"
-    Width="900" MinWidth="900"
-    Height="600" MinHeight="600"
-    ShowInTaskbar="False"
-    d:DataContext="{d:DesignInstance local:MainWindow, IsDesignTimeCreatable=False}"
+    Width="900"
+    Height="600"
+    MinWidth="900"
+    MinHeight="600"
+    d:DataContext="{d:DesignInstance local:MainWindow,
+                                     IsDesignTimeCreatable=False}"
     d:DesignHeight="600"
     d:DesignWidth="900"
-    Topmost="True"
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    ContentRendered="MainWindow_ContentRendered"
     ExtendsContentIntoTitleBar="True"
+    PreviewKeyDown="MainWindow_PreviewKeyDown"
+    ShowInTaskbar="False"
+    SizeChanged="MainWindow_SizeChanged"
+    Topmost="True"
     WindowBackdropType="{Binding ViewModel.WindowBackdropType, Mode=OneWay}"
     WindowCornerPreference="Default"
     WindowStartupLocation="CenterScreen"
-    SizeChanged="MainWindow_SizeChanged"
     mc:Ignorable="d">
 
     <Grid>
         <Grid.Background>
-            <VisualBrush Stretch="{Binding ViewModel.Stretch, Mode=OneWay}" Opacity="{Binding ViewModel.Opacity, Mode=OneWay}">
+            <VisualBrush Opacity="{Binding ViewModel.Opacity, Mode=OneWay}" Stretch="{Binding ViewModel.Stretch, Mode=OneWay}">
                 <VisualBrush.Visual>
-                    <Image Stretch="{Binding ViewModel.Stretch, Mode=OneWay}" xag:AnimationBehavior.SourceUri="{Binding ViewModel.Backgrounder, Mode=OneWay}" xag:AnimationBehavior.RepeatBehavior="Forever" xag:AnimationBehavior.AnimateInDesignMode="False" xag:AnimationBehavior.CacheFramesInMemory="False" xag:AnimationBehavior.AutoStart="True" />
+                    <Image
+                        xag:AnimationBehavior.AnimateInDesignMode="False"
+                        xag:AnimationBehavior.AutoStart="True"
+                        xag:AnimationBehavior.CacheFramesInMemory="False"
+                        xag:AnimationBehavior.RepeatBehavior="Forever"
+                        xag:AnimationBehavior.SourceUri="{Binding ViewModel.Backgrounder, Mode=OneWay}"
+                        Stretch="{Binding ViewModel.Stretch, Mode=OneWay}" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Grid.Background>
@@ -54,180 +63,192 @@
         </ui:TitleBar>
 
         <ui:NavigationView
-                Margin="0"
-                Grid.Row="1"
-                FrameMargin="10"
-                x:Name="RootView"
-                PaneDisplayMode="Top"
-                IsPaneToggleVisible="False"
-                Navigated="RootView_Navigated"
-                IsBackButtonVisible="Collapsed"
-                Navigating="RootView_Navigating">
+            x:Name="RootView"
+            Grid.Row="1"
+            Margin="0"
+            FrameMargin="10"
+            IsBackButtonVisible="Collapsed"
+            IsPaneToggleVisible="False"
+            Navigated="RootView_Navigated"
+            Navigating="RootView_Navigating"
+            PaneDisplayMode="Top">
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="General1"
-                    Margin="10 0 0 0"
+                    Margin="10,0,0,0"
+                    Content="{DynamicResource Portal.MainWindow.MenuLibrary}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon Library16}"
                     TargetPageType="{x:Type pages:LibraryPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuLibrary}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuLibraryTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="General2"
+                    Content="{DynamicResource Portal.MainWindow.MenuStore}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon Gift16}"
                     TargetPageType="{x:Type pages:StorePage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuStore}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuStoreTip}" />
-                
+
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting1"
-                    Margin="10 0 0 0"
+                    Margin="10,0,0,0"
                     Click="NavigationChange_Click"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon ArrowLeft16}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuBackTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting2"
+                    Content="{DynamicResource Portal.MainWindow.MenuGeneral}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon WindowApps16}"
                     TargetPageType="{x:Type setting:GeneralSettingPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuGeneral}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuGeneralTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting3"
+                    Content="{DynamicResource Portal.MainWindow.MenuPersonal}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon PersonLock16}"
                     TargetPageType="{x:Type setting:PersonalSettingPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuPersonal}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuPersonalTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting4"
+                    Content="{DynamicResource Portal.MainWindow.MenuPerformance}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon DesktopPulse16}"
                     TargetPageType="{x:Type setting:PerformanceSettingPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuPerformance}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuPerformanceTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting5"
+                    Content="{DynamicResource Portal.MainWindow.MenuWallpaper}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon Image16}"
                     TargetPageType="{x:Type setting:WallpaperSettingPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuWallpaper}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting6"
+                    Content="{DynamicResource Portal.MainWindow.MenuSystem}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon PuzzleCube16}"
                     TargetPageType="{x:Type setting:SystemSettingPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuSystem}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuSystemTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting7"
+                    Content="{DynamicResource Portal.MainWindow.MenuDonate}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon Balloon16}"
                     TargetPageType="{x:Type setting:DonateSettingPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuDonate}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDonateTip}" />
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     Name="Setting8"
+                    Content="{DynamicResource Portal.MainWindow.MenuOther}"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon ContentSettings16}"
                     TargetPageType="{x:Type setting:OtherSettingPage}"
-                    Content="{DynamicResource Portal.MainWindow.MenuOther}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuOtherTip}" />
             </ui:NavigationView.MenuItems>
-            
+
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem
-                    Cursor="Hand"
                     x:Name="Setting"
-                    Margin="5 0 10 0"
+                    Margin="5,0,10,0"
                     Click="NavigationChange_Click"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon Settings16}"
                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuSettingTip}" />
             </ui:NavigationView.FooterMenuItems>
-            
+
             <ui:NavigationView.PaneFooter>
                 <DockPanel x:Name="FooterDock">
                     <ui:TextBox
+                        x:Name="SearchBox"
                         MinWidth="300"
                         MaxWidth="300"
-                        MaxLength="20"
                         Cursor="IBeam"
-                        x:Name="SearchBox"
                         Icon="{ui:SymbolIcon Search16}"
-                        TextChanged="SearchBox_TextChanged"
+                        MaxLength="20"
                         PlaceholderText="{DynamicResource Portal.MainWindow.SearchBoxHint}"
+                        TextChanged="SearchBox_TextChanged"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.SearchBoxTip}" />
                     <ui:Button
-                        Cursor="Hand"
                         x:Name="Dark"
-                        Margin="0 0 5 0"
+                        Margin="0,0,5,0"
                         Appearance="Transparent"
-                        Click="ThemeChange_click"
                         BorderBrush="Transparent"
-                        Icon="{ui:SymbolIcon WeatherSunny16}"
+                        Click="ThemeChange_click"
                         Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon WeatherSunny16}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuLightTip}" />
                     <ui:Button
-                        Cursor="Hand"
                         x:Name="Light"
-                        Margin="0 0 5 0"
+                        Margin="0,0,5,0"
                         Appearance="Transparent"
-                        Click="ThemeChange_click"
                         BorderBrush="Transparent"
-                        Icon="{ui:SymbolIcon WeatherMoon16}"
+                        Click="ThemeChange_click"
                         Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon WeatherMoon16}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDarkTip}" />
                     <ui:Button
-                        Cursor="Hand"
-                        Margin="0 0 5 0"
                         x:Name="Wallpaper"
+                        Margin="0,0,5,0"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
-                        Icon="{ui:SymbolIcon Add16}"
                         Command="{Binding ViewModel.CreateWallpaperCommand, Mode=OneWay}"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon Add16}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuCreateWallpaperTip}" />
                     <ui:Button
-                        Cursor="Hand"
                         x:Name="Display"
-                        Margin="0 0 5 0"
+                        Margin="0,0,5,0"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
-                        Icon="{ui:SymbolIcon ShareScreenPerson16}"
                         Command="{Binding ViewModel.DisplayPreferencesCommand, Mode=OneWay}"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon ShareScreenPerson16}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDisplayPreferencesTip}" />
                     <ui:Button
-                        Cursor="Hand"
-                        Margin="0 0 5 0"
+                        x:Name="Cycling"
+                        Margin="0,0,5,0"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
-                        Icon="{ui:SymbolIcon DrinkMargarita16}"
-                        Visibility="{Binding ViewModel.Donater, Mode=OneWay}"
-                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDonateOptionsTip}" />
-                    <ui:Button
+                        Command="{Binding ViewModel.WallpaperCyclingCommand, Mode=OneWay}"
                         Cursor="Hand"
-                        Margin="0 0 5 0"
+                        Icon="{ui:SymbolIcon VehicleBicycle16}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperCyclingTip}" />
+                    <ui:Button
+                        Margin="0,0,5,0"
+                        Appearance="Transparent"
+                        BorderBrush="Transparent"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon DrinkMargarita16}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDonateOptionsTip}"
+                        Visibility="{Binding ViewModel.Donater, Mode=OneWay}" />
+                    <ui:Button
                         x:Name="OtherOptions"
+                        Margin="0,0,5,0"
                         Appearance="Transparent"
                         BorderBrush="Transparent"
                         Click="OtherOptions_Click"
+                        Cursor="Hand"
                         Icon="{ui:SymbolIcon MoreVertical16}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuOtherOptionsTip}">
                         <ui:Button.ContextMenu>
-                            <ContextMenu Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Placement="Bottom" Opacity="0.9">
+                            <ContextMenu
+                                Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}"
+                                Opacity="0.9"
+                                Placement="Bottom">
                                 <ui:MenuItem
-                                    Cursor="Hand"
-                                    Icon="{ui:SymbolIcon Question24}"
-                                    Header="{DynamicResource Portal.MainWindow.MenuHelp}"
                                     Command="{Binding ViewModel.OtherHelpCommand, Mode=OneWay}"
+                                    Cursor="Hand"
+                                    Header="{DynamicResource Portal.MainWindow.MenuHelp}"
+                                    Icon="{ui:SymbolIcon Question24}"
                                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuHelpTip}" />
                                 <ui:MenuItem
-                                    Cursor="Hand"
-                                    Icon="{ui:SymbolIcon ChatBubblesQuestion24}"
-                                    Header="{DynamicResource Portal.MainWindow.MenuAbout}"
                                     Command="{Binding ViewModel.OtherAboutCommand, Mode=OneWay}"
+                                    Cursor="Hand"
+                                    Header="{DynamicResource Portal.MainWindow.MenuAbout}"
+                                    Icon="{ui:SymbolIcon ChatBubblesQuestion24}"
                                     ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuAboutTip}" />
                             </ContextMenu>
                         </ui:Button.ContextMenu>
@@ -236,11 +257,11 @@
                     <!--<Separator VerticalAlignment="Stretch" Width="1" Background="{DynamicResource TextFillColorSecondaryBrush}" />-->
                 </DockPanel>
             </ui:NavigationView.PaneFooter>
-            
+
             <ui:NavigationView.Header>
-                <Border Margin="0 0 0 10" />
+                <Border Margin="0,0,0,10" />
             </ui:NavigationView.Header>
-            
+
             <ui:NavigationView.ContentOverlay>
                 <Grid>
                     <ui:SnackbarPresenter x:Name="SnackbarPresenter" />
@@ -251,10 +272,10 @@
         <ContentPresenter x:Name="RootContentDialog" Grid.Row="1" />
 
         <StatusBar
-                x:Name="RootStatusBar"
-                Grid.Row="2"
-                Margin="0"
-                Padding="8,2">
+            x:Name="RootStatusBar"
+            Grid.Row="2"
+            Margin="0"
+            Padding="8,2">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -286,11 +307,22 @@
             <StatusBarItem Grid.Column="4" Margin="4,0,4,0">
                 <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Version, Mode=OneWay}" />
             </StatusBarItem>
-            <StatusBarItem Grid.Column="5" Margin="4,0,4,0" HorizontalContentAlignment="Center">
+            <StatusBarItem
+                Grid.Column="5"
+                Margin="4,0,4,0"
+                HorizontalContentAlignment="Center">
                 <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Memory, Mode=OneWay}" />
             </StatusBarItem>
-            <StatusBarItem Grid.Column="6" Margin="4,0,4,0" HorizontalContentAlignment="Center">
-                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{Binding ViewModel.Quoting, Mode=OneWay}" x:Name="Quoting" Cursor="Hand" MouseLeftButtonUp="Quoting_MouseLeftButtonUp" />
+            <StatusBarItem
+                Grid.Column="6"
+                Margin="4,0,4,0"
+                HorizontalContentAlignment="Center">
+                <TextBlock
+                    x:Name="Quoting"
+                    Cursor="Hand"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                    MouseLeftButtonUp="Quoting_MouseLeftButtonUp"
+                    Text="{Binding ViewModel.Quoting, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="7">
                 <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="{DynamicResource Portal.Copyright}" />

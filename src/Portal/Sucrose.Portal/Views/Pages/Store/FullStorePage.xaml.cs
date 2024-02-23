@@ -33,11 +33,17 @@ namespace Sucrose.Portal.Views.Pages.Store
             this.Root = Root;
             DataContext = this;
 
+            ToolTip SymbolTip = new()
+            {
+                Content = SRER.GetValue("Portal", "Category", "All")
+            };
+
             ObservableCollection<NavigationViewItem> Categories = new();
 
             NavigationViewItem AllMenu = new(SRER.GetValue("Portal", "Category", "All"), SPMI.AllIcon, null)
             {
                 Tag = string.Empty,
+                ToolTip = SymbolTip,
                 IsActive = SPMI.CategoryService.CategoryTag == string.Empty
             };
 
@@ -51,6 +57,11 @@ namespace Sucrose.Portal.Views.Pages.Store
                 {
                     SymbolRegular Symbol = SPMI.DefaultIcon;
 
+                    SymbolTip = new()
+                    {
+                        Content = SRER.GetValue("Portal", "Category", Category.Key.Replace(" ", ""))
+                    };
+
                     if (SPMI.CategoryIcons.TryGetValue(Category.Key, out SymbolRegular Icon))
                     {
                         Symbol = Icon;
@@ -59,6 +70,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                     NavigationViewItem Menu = new(SRER.GetValue("Portal", "Category", Category.Key.Replace(" ", "")), Symbol, null)
                     {
                         Tag = Category.Key,
+                        ToolTip = SymbolTip,
                         IsActive = SPMI.CategoryService.CategoryTag == Category.Key
                     };
 

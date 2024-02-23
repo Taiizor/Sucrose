@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuHelp">Помощь</system:String>
@@ -45,6 +44,7 @@
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Создать обои</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Параметры отображения</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Циклическая смена обоев</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Параметры пожертвования</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Другие параметры</system:String>
 </ResourceDictionary>

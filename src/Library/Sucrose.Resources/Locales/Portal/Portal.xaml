@@ -1,11 +1,10 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.Release">Pre-Release</system:String>
     <system:String x:Key="Portal.Copyright">Sucrose is copyright © 2024 Sucrose Contributors</system:String>
-    
+
     <system:String x:Key="Portal.Quoting0">Love conquers all</system:String>
     <system:String x:Key="Portal.Quoting1">La vida es bella</system:String>
     <system:String x:Key="Portal.Quoting2">Carpe diem</system:String>
