@@ -1,0 +1,36 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Layout da Tela</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Altera o layout dos seus papéis de parede na tela.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Modo de Esticamento</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Altera o método de esticamento em papéis de parede suportados.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Modo de Repetição</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Altera o modo de repetição em papéis de parede suportados.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Modo de Embaralhamento</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Altera o modo de embaralhamento em papéis de parede suportados.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Reprodutor de Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Selecione o plug-in que reproduzirá temas do tipo Gif em sua biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Reprodutor de Vídeo</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Selecione o plug-in que reproduzirá temas do tipo Vídeo em sua biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Motor de Url</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Selecione o motor que executará temas do tipo Url em sua biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Motor da Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Selecione o motor que executará temas do tipo web em sua biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Motor do YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Selecione o motor que executará temas do tipo YouTube em sua biblioteca.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Motor de Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Selecione o motor que executará temas do tipo Application em sua biblioteca.</system:String>
+</ResourceDictionary>

@@ -2,48 +2,145 @@
     x:Class="Sucrose.Portal.Views.Controls.ThemeDelete"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    PrimaryButtonText="{DynamicResource Portal.ThemeDelete.Delete}"
-    CloseButtonText="{DynamicResource Portal.ThemeDelete.Close}"
     Title="{DynamicResource Portal.ThemeDelete.Title}"
-    Loaded="ContentDialog_Loaded"
     d:DesignHeight="7500"
-    DialogMaxWidth="750"
     d:DesignWidth="750"
+    CloseButtonText="{DynamicResource Portal.ThemeDelete.Close}"
+    DialogMaxWidth="750"
+    Loaded="ContentDialog_Loaded"
+    PrimaryButtonText="{DynamicResource Portal.ThemeDelete.Delete}"
     mc:Ignorable="d">
 
     <ui:ContentDialog.Resources>
         <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeDelete}" />
     </ui:ContentDialog.Resources>
 
-    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
-        <ui:Image x:Name="ThemeThumbnail" Stretch="UniformToFill" CornerRadius="10" Width="Auto" Height="300" Margin="0 0 0 12" />
-        
-        <TextBlock x:Name="ThemeTitle" Text="{DynamicResource Portal.ThemeDelete.ThemeTitle}" TextWrapping="WrapWithOverflow" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeDescription" Text="{DynamicResource Portal.ThemeDelete.ThemeDescription}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <StackPanel
+        MinWidth="400"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Center"
+        Orientation="Vertical">
+        <ui:Image
+            x:Name="ThemeThumbnail"
+            Width="Auto"
+            Height="300"
+            Margin="0,0,0,12"
+            CornerRadius="10"
+            Stretch="UniformToFill" />
 
-        <TextBlock x:Name="ThemeType" Text="{DynamicResource Portal.ThemeDelete.ThemeType}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeTypeName" Text="{DynamicResource Portal.ThemeDelete.ThemeTypeName}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock
+            x:Name="ThemeTitle"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeTitle}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeDescription"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeDescription}"
+            TextWrapping="WrapWithOverflow" />
 
-        <TextBlock x:Name="ThemeAuthor" Text="{DynamicResource Portal.ThemeDelete.ThemeAuthor}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeAuthorName" Text="{DynamicResource Portal.ThemeDelete.ThemeAuthorName}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock
+            x:Name="ThemeType"
+            Margin="0,12,0,0"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeType}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeTypeName"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeTypeName}"
+            TextWrapping="WrapWithOverflow" />
 
-        <TextBlock x:Name="ThemeSize" Text="{DynamicResource Portal.ThemeDelete.ThemeSize}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeSizeTotal" Text="{DynamicResource Portal.ThemeDelete.ThemeSizeTotal}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock
+            x:Name="ThemeAuthor"
+            Margin="0,12,0,0"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeAuthor}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeAuthorName"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeAuthorName}"
+            TextWrapping="WrapWithOverflow" />
 
-        <TextBlock x:Name="ThemeVersion" Text="{DynamicResource Portal.ThemeDelete.ThemeVersion}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeVersionText" Text="{DynamicResource Portal.ThemeDelete.ThemeVersionText}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock
+            x:Name="ThemeSize"
+            Margin="0,12,0,0"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeSize}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeSizeTotal"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeSizeTotal}"
+            TextWrapping="WrapWithOverflow" />
 
-        <TextBlock x:Name="ThemeTags" Text="{DynamicResource Portal.ThemeDelete.ThemeTags}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeTagsText" Text="{DynamicResource Portal.ThemeDelete.ThemeTagsText}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock
+            x:Name="ThemeVersion"
+            Margin="0,12,0,0"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeVersion}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeVersionText"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeVersionText}"
+            TextWrapping="WrapWithOverflow" />
 
-        <TextBlock x:Name="ThemeCreate" Text="{DynamicResource Portal.ThemeDelete.ThemeCreate}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeCreateDate" Text="{DynamicResource Portal.ThemeDelete.ThemeCreateDate}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock
+            x:Name="ThemeTags"
+            Margin="0,12,0,0"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeTags}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeTagsText"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeTagsText}"
+            TextWrapping="WrapWithOverflow" />
 
-        <TextBlock x:Name="ThemeModify" Text="{DynamicResource Portal.ThemeDelete.ThemeModify}" TextWrapping="WrapWithOverflow" FontSize="16" Margin="0 12 0 0" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-        <TextBlock x:Name="ThemeModifyDate" Text="{DynamicResource Portal.ThemeDelete.ThemeModifyDate}" TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock
+            x:Name="ThemeCreate"
+            Margin="0,12,0,0"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeCreate}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeCreateDate"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeCreateDate}"
+            TextWrapping="WrapWithOverflow" />
+
+        <TextBlock
+            x:Name="ThemeModify"
+            Margin="0,12,0,0"
+            FontSize="16"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeModify}"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            x:Name="ThemeModifyDate"
+            FontSize="14"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.ThemeDelete.ThemeModifyDate}"
+            TextWrapping="WrapWithOverflow" />
     </StackPanel>
 </ui:ContentDialog>

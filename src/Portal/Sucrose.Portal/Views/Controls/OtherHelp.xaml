@@ -2,75 +2,98 @@
     x:Class="Sucrose.Portal.Views.Controls.OtherHelp"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    CloseButtonText="{DynamicResource Portal.OtherHelp.Close}"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     Title="{DynamicResource Portal.OtherHelp.Title}"
-    Loaded="ContentDialog_Loaded"
     d:DesignHeight="7500"
-    DialogMaxWidth="750"
     d:DesignWidth="750"
+    CloseButtonText="{DynamicResource Portal.OtherHelp.Close}"
+    DialogMaxWidth="750"
+    Loaded="ContentDialog_Loaded"
     mc:Ignorable="d">
 
     <ui:ContentDialog.Resources>
         <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:OtherHelp}" />
     </ui:ContentDialog.Resources>
 
-    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" MinWidth="400">
-        <vcontrols:ExpanderCard x:Name="WebPage" LeftIconSymbol="WebAsset24" Expandable="False">
+    <StackPanel
+        MinWidth="400"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Center"
+        Orientation="Vertical">
+        <vcontrols:ExpanderCard
+            x:Name="WebPage"
+            Expandable="False"
+            LeftIconSymbol="WebAsset24">
             <vcontrols:ExpanderCard.HeaderFrame>
                 <ui:Button
-                    Cursor="Hand"
-                    Click="WebPage_Click"
                     Appearance="Transparent"
                     BorderBrush="Transparent"
+                    Click="WebPage_Click"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon LinkSquare24}" />
             </vcontrols:ExpanderCard.HeaderFrame>
         </vcontrols:ExpanderCard>
 
-        <vcontrols:ExpanderCard x:Name="Documentation" LeftIconSymbol="BookOpenGlobe24" Margin="0 3 0 0" Expandable="False">
+        <vcontrols:ExpanderCard
+            x:Name="Documentation"
+            Margin="0,3,0,0"
+            Expandable="False"
+            LeftIconSymbol="BookOpenGlobe24">
             <vcontrols:ExpanderCard.HeaderFrame>
                 <ui:Button
-                    Cursor="Hand"
                     Appearance="Transparent"
                     BorderBrush="Transparent"
                     Click="Documentation_Click"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon LinkSquare24}" />
             </vcontrols:ExpanderCard.HeaderFrame>
         </vcontrols:ExpanderCard>
 
-        <vcontrols:ExpanderCard x:Name="Repository" LeftIconSymbol="CodeBlock24" Margin="0 3 0 0" Expandable="False">
+        <vcontrols:ExpanderCard
+            x:Name="Repository"
+            Margin="0,3,0,0"
+            Expandable="False"
+            LeftIconSymbol="CodeBlock24">
             <vcontrols:ExpanderCard.HeaderFrame>
                 <ui:Button
-                    Cursor="Hand"
                     Appearance="Transparent"
+                    BorderBrush="Transparent"
                     Click="Repository_Click"
-                    BorderBrush="Transparent"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon LinkSquare24}" />
             </vcontrols:ExpanderCard.HeaderFrame>
         </vcontrols:ExpanderCard>
 
-        <vcontrols:ExpanderCard x:Name="Discussions" LeftIconSymbol="GlobePerson24" Margin="0 3 0 0" Expandable="False">
+        <vcontrols:ExpanderCard
+            x:Name="Discussions"
+            Margin="0,3,0,0"
+            Expandable="False"
+            LeftIconSymbol="GlobePerson24">
             <vcontrols:ExpanderCard.HeaderFrame>
                 <ui:Button
-                    Cursor="Hand"
                     Appearance="Transparent"
+                    BorderBrush="Transparent"
                     Click="Discussions_Click"
-                    BorderBrush="Transparent"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon LinkSquare24}" />
             </vcontrols:ExpanderCard.HeaderFrame>
         </vcontrols:ExpanderCard>
 
-        <vcontrols:ExpanderCard x:Name="Report" LeftIconSymbol="Bug24" Margin="0 3 0 0" Expandable="False">
+        <vcontrols:ExpanderCard
+            x:Name="Report"
+            Margin="0,3,0,0"
+            Expandable="False"
+            LeftIconSymbol="Bug24">
             <vcontrols:ExpanderCard.HeaderFrame>
                 <ui:Button
-                    Cursor="Hand"
-                    Click="Report_Click"
                     Appearance="Transparent"
                     BorderBrush="Transparent"
+                    Click="Report_Click"
+                    Cursor="Hand"
                     Icon="{ui:SymbolIcon LinkSquare24}" />
             </vcontrols:ExpanderCard.HeaderFrame>
         </vcontrols:ExpanderCard>

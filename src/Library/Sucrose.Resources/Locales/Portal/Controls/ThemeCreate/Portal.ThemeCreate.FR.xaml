@@ -1,24 +1,23 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.ThemeCreate.Title">Créer un Thème</system:String>
     <system:String x:Key="Portal.ThemeCreate.Create">Créer</system:String>
     <system:String x:Key="Portal.ThemeCreate.Close">Fermer</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.Gif">Thème Gif</system:String>
     <system:String x:Key="Portal.ThemeCreate.Gif.Description">Créez votre propre thème au format Gif.</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.Url">Thème Url</system:String>
     <system:String x:Key="Portal.ThemeCreate.Url.Description">Créez votre propre thème au format Url.</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.Web">Thème Web</system:String>
     <system:String x:Key="Portal.ThemeCreate.Web.Description">Créez votre propre thème au format Web.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.Video">Thème Video</system:String>
     <system:String x:Key="Portal.ThemeCreate.Video.Description">Créez votre propre thème au format Video.</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.YouTube">Thème YouTube</system:String>
     <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Créez votre propre thème au format YouTube.</system:String>
 
@@ -44,15 +43,15 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Veuillez saisir une adresse de contact valide</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Veuillez saisir des étiquettes de thème valides</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Veuillez saisir des arguments d'application valides</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Annuler</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Faites glisser et déposez votre fichier gif ici</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Faites glisser et déposez votre fichier vidéo ici</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Sélectionner une Image de Couverture</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Fichiers Image (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
-    
+
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Sélectionner un Fichier de Prévisualisation</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Fichiers Gif (*.gif)|*.gif</system:String>
 </ResourceDictionary>

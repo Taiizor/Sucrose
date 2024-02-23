@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Arquivos de Registro</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Gerenciar todos os arquivos de registro criados pelo aplicativo.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Criar</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Limpar</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Nota: O espaço total ocupado pelos arquivos de registro é {0}. Todos os aplicativos serão fechados quando a limpeza começar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Limpeza de Cache</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Limpar todos os arquivos de cache criados pelo aplicativo.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Iniciar Limpeza</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Nota: O espaço total ocupado pelo cache é {0}. Todos os aplicativos serão fechados quando a limpeza começar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Limpeza da Loja</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Limpar todos os arquivos de loja criados pelo aplicativo.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Iniciar Limpeza</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Nota: O espaço total ocupado pelos arquivos de loja é {0}. Todos os aplicativos serão fechados quando a limpeza começar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Limpeza da Biblioteca</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Limpar todos os arquivos de tema encontrados ou criados em sua biblioteca.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Iniciar Limpeza</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Nota: O espaço total ocupado pelos temas em sua biblioteca é {0}. Todos os aplicativos serão fechados quando a limpeza começar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Arquivos de Configuração</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Gerenciar todos os arquivos de configuração criados pelo aplicativo.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Exportar</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Importar</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Nota: Todos os aplicativos serão fechados quando a operação selecionada começar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Redefinir Configurações</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Redefinir todas as configurações criadas pelo aplicativo.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Iniciar Redefinição</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Nota: Todos os aplicativos serão fechados quando a redefinição começar.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Salvar Arquivo de Registro</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*</system:String>
+</ResourceDictionary>

@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Atualização da Loja</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Quanto tempo os temas listados na loja serão atualizados.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Início Automático</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Se os temas baixados da loja serão definidos automaticamente como papel de parede.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Conteúdo Inapropriado</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Se o conteúdo marcado como não seguro (NSFW) na loja será exibido.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Confirmação de Exclusão</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Se será solicitada confirmação ao excluir temas da biblioteca.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Temas Corrompidos</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Se temas corrompidos ou ausentes na biblioteca serão excluídos automaticamente.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Nota: Tenha cuidado, pois isso pode resultar na perda de dados.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Início Automático</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Se os temas criados serão definidos automaticamente como papel de parede.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Pré-visualização de Tema</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Se os temas serão pré-visualizados ao passar o mouse sobre eles.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Pré-visualização da Loja:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Ocultar Detalhes:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Pré-visualização da Biblioteca:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ocultar Detalhes:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Personalização de Tema</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personalize o nome ou a descrição dos temas exibidos.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Comprimento do Título (Caracteres):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Comprimento da Descrição (Caracteres):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Layout Adaptável</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Personalize o layout ou espaçamento dos temas exibidos.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Espaçamento (Pixels):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Ordem do Layout (Quantidade):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Paginação da Loja</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Defina quantos temas haverá em cada página da loja.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Paginação da Biblioteca</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Defina quantos temas haverá em cada página da sua biblioteca.</system:String>
+</ResourceDictionary>

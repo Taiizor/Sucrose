@@ -1,0 +1,53 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Contadores de Desempenho</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Se os contadores de desempenho devem ou não funcionar em segundo plano.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Alguns temas do tipo Web podem não funcionar corretamente e nenhuma das configurações de desempenho abaixo terá efeito.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Uso da CPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">O que acontecerá com o papel de parede com base nas configurações de uso da CPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Uso da CPU (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Uso de Memória</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">O que acontecerá com o papel de parede com base nas configurações de uso de memória.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Uso de Memória (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Uso de Rede</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">O que acontecerá com o papel de parede com base nas configurações de uso de rede.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Adaptador de Rede:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">A lista de adaptadores de rede ainda não foi criada</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Tamanho de Upload:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Tamanho de Download:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Valor de Ping (ms):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Bateria</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">O que acontecerá com o papel de parede quando estiver usando a energia da bateria do laptop.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Estado da Bateria (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Modo Economia de Bateria</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">O que acontecerá com o papel de parede quando o laptop estiver no modo de economia de bateria.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Virtualização</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">O que acontecerá com o papel de parede enquanto aplicativos de virtualização estiverem em execução.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Desktop Remoto</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">O que acontecerá com o papel de parede enquanto aplicativos de desktop remoto estiverem em execução.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Modo de Tela Cheia</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">O que acontecerá com o papel de parede enquanto qualquer aplicativo estiver em execução em tela cheia.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Modo de Foco</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">O que acontecerá com o papel de parede quando houver outro aplicativo em foco.</system:String>
+</ResourceDictionary>

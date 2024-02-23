@@ -2,13 +2,29 @@
     x:Class="Sucrose.Portal.Views.Pages.Store.SearchStorePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{DynamicResource Portal.SearchStorePage.Title}"
     mc:Ignorable="d">
 
-    <StackPanel Margin="10 0 10 0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock Text="{DynamicResource Portal.SearchStorePage.TitleText}" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 0 0 10" TextAlignment="Center" />
-        <TextBlock Text="{DynamicResource Portal.SearchStorePage.DescriptionText}" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
+    <StackPanel
+        Margin="10,0,10,0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Orientation="Vertical">
+        <TextBlock
+            Margin="0,0,0,10"
+            FontSize="36"
+            FontWeight="Bold"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.SearchStorePage.TitleText}"
+            TextAlignment="Center"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            FontSize="24"
+            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+            Text="{DynamicResource Portal.SearchStorePage.DescriptionText}"
+            TextAlignment="Center"
+            TextWrapping="WrapWithOverflow" />
     </StackPanel>
 </Page>

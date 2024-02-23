@@ -2,34 +2,51 @@
     x:Class="Sucrose.Portal.Views.Controls.StoreCard"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    MouseLeftButtonUp="StoreCard_MouseLeftButtonUp"
-    MouseLeave="StoreCard_MouseLeave"
-    MouseEnter="StoreCard_MouseEnter"
-    MinHeight="160" MaxHeight="160"
-    MaxWidth="360" MinWidth="260"
+    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+    xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+    MinWidth="260"
+    MinHeight="160"
+    MaxWidth="360"
+    MaxHeight="160"
+    xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Entered},
+                                       Event=MouseEnter}"
+    xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource Leaved},
+                                         Event=MouseLeave}"
     Loaded="StoreCard_Loaded"
-    mc:Ignorable="d"
-    xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Entered}, Event=MouseEnter}"
-    xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource Leaved}, Event=MouseLeave}">
+    MouseEnter="StoreCard_MouseEnter"
+    MouseLeave="StoreCard_MouseLeave"
+    MouseLeftButtonUp="StoreCard_MouseLeftButtonUp"
+    mc:Ignorable="d">
 
     <UserControl.ContextMenu>
-        <ContextMenu Opened="ContextMenu_Opened" Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}" Opacity="0.9">
-            <ui:MenuItem x:Name="MenuInstall" Cursor="Hand" Header="{DynamicResource Portal.StoreCard.MenuInstall}" Icon="{ui:SymbolIcon ImageAdd24}" Click="MenuInstall_Click" />
-            <ui:MenuItem x:Name="MenuReport" Cursor="Hand" Header="{DynamicResource Portal.StoreCard.MenuReport}" Icon="{ui:SymbolIcon PersonFeedback24}" Click="MenuReport_Click" />
+        <ContextMenu
+            Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}"
+            Opacity="0.9"
+            Opened="ContextMenu_Opened">
+            <ui:MenuItem
+                x:Name="MenuInstall"
+                Click="MenuInstall_Click"
+                Cursor="Hand"
+                Header="{DynamicResource Portal.StoreCard.MenuInstall}"
+                Icon="{ui:SymbolIcon ImageAdd24}" />
+            <ui:MenuItem
+                x:Name="MenuReport"
+                Click="MenuReport_Click"
+                Cursor="Hand"
+                Header="{DynamicResource Portal.StoreCard.MenuReport}"
+                Icon="{ui:SymbolIcon PersonFeedback24}" />
         </ContextMenu>
     </UserControl.ContextMenu>
-    
+
     <Border>
         <Border.Effect>
             <DropShadowEffect
-                Opacity="0.25"
                 BlurRadius="10"
                 Direction="300"
+                Opacity="0.25"
                 ShadowDepth="12"
                 Color="{DynamicResource SolidBackgroundFillColorBaseAlt}" />
         </Border.Effect>
@@ -37,18 +54,26 @@
         <Grid>
             <Grid x:Name="Progress">
                 <Grid.Background>
-                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.5" />
+                    <SolidColorBrush Opacity="0.5" Color="{DynamicResource ApplicationBackgroundColor}" />
                 </Grid.Background>
-                
-                <ui:ProgressRing IsIndeterminate="True" Width="160" Height="160" />
+
+                <ui:ProgressRing
+                    Width="160"
+                    Height="160"
+                    IsIndeterminate="True" />
             </Grid>
 
             <Grid x:Name="Warn" Visibility="Hidden">
                 <Grid.Background>
-                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.5" />
+                    <SolidColorBrush Opacity="0.5" Color="{DynamicResource ApplicationBackgroundColor}" />
                 </Grid.Background>
 
-                <ui:ProgressRing IsIndeterminate="False" Foreground="Crimson" Progress="100" Width="160" Height="160" />
+                <ui:ProgressRing
+                    Width="160"
+                    Height="160"
+                    Foreground="Crimson"
+                    IsIndeterminate="False"
+                    Progress="100" />
             </Grid>
 
             <Grid x:Name="Card" Visibility="Hidden">
@@ -56,16 +81,32 @@
                     <VisualBrush Stretch="UniformToFill">
                         <VisualBrush.Visual>
                             <Grid>
-                                <Image x:Name="Imagine" Stretch="UniformToFill" Source="{x:Null}" />
-                                <Image x:Name="Imaginer" Stretch="UniformToFill" StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Stretch" xag:AnimationBehavior.SourceUri="{x:Null}" xag:AnimationBehavior.RepeatBehavior="Forever" xag:AnimationBehavior.AnimateInDesignMode="False" xag:AnimationBehavior.CacheFramesInMemory="False" xag:AnimationBehavior.AutoStart="True" />
+                                <Image
+                                    x:Name="Imagine"
+                                    Source="{x:Null}"
+                                    Stretch="UniformToFill" />
+                                <Image
+                                    x:Name="Imaginer"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    xag:AnimationBehavior.AnimateInDesignMode="False"
+                                    xag:AnimationBehavior.AutoStart="True"
+                                    xag:AnimationBehavior.CacheFramesInMemory="False"
+                                    xag:AnimationBehavior.RepeatBehavior="Forever"
+                                    xag:AnimationBehavior.SourceUri="{x:Null}"
+                                    Stretch="UniformToFill"
+                                    StretchDirection="Both" />
                             </Grid>
                         </VisualBrush.Visual>
                     </VisualBrush>
                 </Grid.Background>
 
-                <Grid x:Name="Preview" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                <Grid
+                    x:Name="Preview"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom">
                     <Grid.Background>
-                        <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" Opacity="0.75" />
+                        <SolidColorBrush Opacity="0.75" Color="{DynamicResource ApplicationBackgroundColor}" />
                     </Grid.Background>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -76,14 +117,61 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <ui:TextBlock Margin="5 5 5 0" x:Name="ThemeTitle" Grid.Row="0" Text="{DynamicResource Portal.StoreCard.TitleText}" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontWeight="Bold" />
-                    <ui:TextBlock Margin="5 0 5 5" x:Name="ThemeDescription" Grid.Row="1" Text="{DynamicResource Portal.StoreCard.DescriptionText}" TextWrapping="Wrap" FontSize="12" Foreground="{DynamicResource TextPlaceholderColorBrush}" FontWeight="SemiBold" />
+                    <ui:TextBlock
+                        x:Name="ThemeTitle"
+                        Grid.Row="0"
+                        Margin="5,5,5,0"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Text="{DynamicResource Portal.StoreCard.TitleText}"
+                        TextWrapping="Wrap" />
+                    <ui:TextBlock
+                        x:Name="ThemeDescription"
+                        Grid.Row="1"
+                        Margin="5,0,5,5"
+                        FontSize="12"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource TextPlaceholderColorBrush}"
+                        Text="{DynamicResource Portal.StoreCard.DescriptionText}"
+                        TextWrapping="Wrap" />
 
-                    <ui:Button x:Name="Download" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="41.06" Click="Download_Click" Padding="0" BorderBrush="Transparent" Appearance="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <ui:Button
+                        x:Name="Download"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Width="41.06"
+                        Padding="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Appearance="Transparent"
+                        BorderBrush="Transparent"
+                        Click="Download_Click">
                         <Grid>
-                            <ui:SymbolIcon x:Name="IncompatibleVersion" Visibility="Collapsed" Symbol="BoxDismiss24" Foreground="{DynamicResource PaletteRedBrush}" ToolTipService.ToolTip="{DynamicResource Portal.StoreCard.VersionTip}" FontSize="36" Width="36"/>
-                            <ui:SymbolIcon x:Name="DownloadSymbol" Symbol="CloudArrowDown24" Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontSize="36" Width="36" Cursor="Hand" />
-                            <ui:ProgressRing x:Name="DownloadRing" Visibility="Collapsed" Progress="0" Width="36" Height="36" />
+                            <ui:SymbolIcon
+                                x:Name="IncompatibleVersion"
+                                Width="36"
+                                FontSize="36"
+                                Foreground="{DynamicResource PaletteRedBrush}"
+                                Symbol="BoxDismiss24"
+                                ToolTipService.ToolTip="{DynamicResource Portal.StoreCard.VersionTip}"
+                                Visibility="Collapsed" />
+                            <ui:SymbolIcon
+                                x:Name="DownloadSymbol"
+                                Width="36"
+                                Cursor="Hand"
+                                FontSize="36"
+                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                Symbol="CloudArrowDown24" />
+                            <ui:ProgressRing
+                                x:Name="DownloadRing"
+                                Width="36"
+                                Height="36"
+                                Progress="0"
+                                Visibility="Collapsed" />
                             <!--<Image Source="pack://application:,,,/Assets/Icon/DownloadFromCloud.png"/>-->
                         </Grid>
                     </ui:Button>

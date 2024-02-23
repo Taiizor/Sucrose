@@ -5,13 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
-    AllowsTransparency="False"
-    ResizeMode="NoResize"
-    Background="Black"
-    WindowStyle="None"
-    mc:Ignorable="d"
     Title="Video"
-    Left="-9999">
+    AllowsTransparency="False"
+    Background="Black"
+    Left="-9999"
+    ResizeMode="NoResize"
+    WindowStyle="None"
+    mc:Ignorable="d">
     <WindowsFormsHost>
         <wf:Panel x:Name="PlayerHost" />
     </WindowsFormsHost>

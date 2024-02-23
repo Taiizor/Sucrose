@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Ajutor</system:String>
     <system:String x:Key="Watchdog.CloseButton">Închide</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">A apărut o eroare neașteptată:</system:String>

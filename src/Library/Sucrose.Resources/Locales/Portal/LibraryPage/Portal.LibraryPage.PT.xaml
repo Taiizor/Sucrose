@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="FullLibraryPage/Portal.FullLibraryPage.PT.xaml" />
+        <ResourceDictionary Source="EmptyLibraryPage/Portal.EmptyLibraryPage.PT.xaml" />
+        <ResourceDictionary Source="SearchLibraryPage/Portal.SearchLibraryPage.PT.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:String x:Key="Portal.LibraryPage.Title">LibraryPage</system:String>
+
+    <system:String x:Key="Portal.LibraryPage.Import.Successful">O tema '{0}' foi adicionado à biblioteca com sucesso.</system:String>
+    <system:String x:Key="Portal.LibraryPage.Import.Unsuccessful">O tema '{0}' não pôde ser adicionado à biblioteca. Motivo: '{1}'.</system:String>
+</ResourceDictionary>

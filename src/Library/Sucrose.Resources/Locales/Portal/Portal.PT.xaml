@@ -3,10 +3,10 @@
         <ResourceDictionary Source="Area/Portal.Area.PT.xaml" />
         <ResourceDictionary Source="Enum/Portal.Enum.PT.xaml" />
         <ResourceDictionary Source="Category/Portal.Category.PT.xaml" />
-        <ResourceDictionary Source="Controls/Portal.Controls.EN.xaml" />
-        <ResourceDictionary Source="StorePage/Portal.StorePage.EN.xaml" />
+        <ResourceDictionary Source="Controls/Portal.Controls.PT.xaml" />
+        <ResourceDictionary Source="StorePage/Portal.StorePage.PT.xaml" />
         <ResourceDictionary Source="MainWindow/Portal.MainWindow.PT.xaml" />
-        <ResourceDictionary Source="LibraryPage/Portal.LibraryPage.EN.xaml" />
-        <ResourceDictionary Source="SettingPage/Portal.SettingPage.EN.xaml" />
+        <ResourceDictionary Source="LibraryPage/Portal.LibraryPage.PT.xaml" />
+        <ResourceDictionary Source="SettingPage/Portal.SettingPage.PT.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

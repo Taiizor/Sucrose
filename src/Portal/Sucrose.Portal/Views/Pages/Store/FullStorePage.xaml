@@ -2,17 +2,18 @@
     x:Class="Sucrose.Portal.Views.Pages.Store.FullStorePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Store"
-    xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    d:DataContext="{d:DesignInstance local:FullStorePage, IsDesignTimeCreatable=False}"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     Title="FullStorePage"
-    Loaded="FullStorePage_Loaded"
+    d:DataContext="{d:DesignInstance local:FullStorePage,
+                                     IsDesignTimeCreatable=False}"
     d:DesignHeight="600"
     d:DesignWidth="800"
+    Loaded="FullStorePage_Loaded"
     mc:Ignorable="d">
 
     <Grid>
@@ -21,7 +22,10 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Frame Grid.Column="1" x:Name="Empty" Visibility="Collapsed">
+        <Frame
+            x:Name="Empty"
+            Grid.Column="1"
+            Visibility="Collapsed">
             <Frame.Content>
                 <local:SearchStorePage />
             </Frame.Content>
@@ -32,18 +36,24 @@
                 x:Name="CategoryView"
                 Width="235"
                 FrameMargin="0"
-                OpenPaneLength="225"
-                IsPaneToggleVisible="False"
-                PaneDisplayMode="Left"
                 IsBackButtonVisible="Collapsed"
-                MenuItemsSource="{Binding MenuItems, Mode=TwoWay}" />
+                IsPaneToggleVisible="False"
+                MenuItemsSource="{Binding MenuItems, Mode=TwoWay}"
+                OpenPaneLength="225"
+                PaneDisplayMode="Left" />
         </controls:SizeConstrainingContainer>
 
-        <controls:SizeConstrainingContainer Grid.Column="1" Margin="7 0 0 0">
+        <controls:SizeConstrainingContainer Grid.Column="1" Margin="7,0,0,0">
             <ScrollViewer x:Name="PageScroll" VerticalScrollBarVisibility="Auto">
                 <StackPanel>
-                    <controls:StoreStackPanel x:Name="ThemeStore" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <vcontrols:Pagination x:Name="ThemePagination" HorizontalAlignment="Center" Margin="0 10 0 10" />
+                    <controls:StoreStackPanel
+                        x:Name="ThemeStore"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top" />
+                    <vcontrols:Pagination
+                        x:Name="ThemePagination"
+                        Margin="0,10,0,10"
+                        HorizontalAlignment="Center" />
                 </StackPanel>
             </ScrollViewer>
         </controls:SizeConstrainingContainer>

@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
@@ -18,7 +17,7 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.Description">Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.</system:String>
-    
+
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Lütfen bir kişisel erişim belirteci girin</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Lütfen geçerli bir kişisel erişim belirteci girin</system:String>
 

@@ -2,16 +2,37 @@
     x:Class="Sucrose.Portal.Views.Pages.Store.BrokenStorePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="BrokenStorePage"
     mc:Ignorable="d">
 
-    <StackPanel Margin="10 0 10 0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <StackPanel
+        Margin="10,0,10,0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Orientation="Vertical">
         <!--<Image Source="pack://application:,,,/Assets/Icon/Wi-FiOff.png" Width="100" Height="100"/>-->
-        <ui:SymbolIcon Symbol="WifiOff24" Foreground="{DynamicResource PaletteRedBrush}" FontSize="100" Width="100" Height="100" />
-        <TextBlock Text="{DynamicResource Portal.BrokenStorePage.TitleText}" TextWrapping="WrapWithOverflow" FontSize="36" FontWeight="Bold" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0 10 0 10" TextAlignment="Center" />
-        <TextBlock Text="{DynamicResource Portal.BrokenStorePage.DescriptionText}" TextWrapping="WrapWithOverflow" FontSize="24" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextAlignment="Center" />
+        <ui:SymbolIcon
+            Width="100"
+            Height="100"
+            FontSize="100"
+            Foreground="{DynamicResource PaletteRedBrush}"
+            Symbol="WifiOff24" />
+        <TextBlock
+            Margin="0,10,0,10"
+            FontSize="36"
+            FontWeight="Bold"
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            Text="{DynamicResource Portal.BrokenStorePage.TitleText}"
+            TextAlignment="Center"
+            TextWrapping="WrapWithOverflow" />
+        <TextBlock
+            FontSize="24"
+            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+            Text="{DynamicResource Portal.BrokenStorePage.DescriptionText}"
+            TextAlignment="Center"
+            TextWrapping="WrapWithOverflow" />
     </StackPanel>
 </Page>

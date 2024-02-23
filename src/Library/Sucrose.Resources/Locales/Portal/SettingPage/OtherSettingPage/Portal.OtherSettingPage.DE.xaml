@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
@@ -18,7 +17,7 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.Description">Erforderlich für reibungslose Nutzung des Geschäfts und der Anwendungsaktualisierungen.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Klicken Sie hier, wenn Sie nicht wissen, wie Sie einen persönlichen Zugriffstoken erhalten.</system:String>
-    
+
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Bitte geben Sie einen persönlichen Zugriffstoken ein</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Bitte geben Sie einen gültigen persönlichen Zugriffstoken ein</system:String>
 
@@ -27,7 +26,7 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update">Aktualisierungsmethode</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">Die Methode, die für den Aktualisierungsvorgang verwendet wird.</system:String>
-    
+
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Download-Bandbreitenbegrenzung:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Entwicklertools</system:String>

@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.WallCustomizeText">바탕화면 사용자 정의</system:String>
     <system:String x:Key="Launcher.CreateLogText">로그 파일 생성</system:String>
     <system:String x:Key="Launcher.ExitText">종료</system:String>

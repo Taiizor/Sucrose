@@ -1,0 +1,49 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Idioma do Aplicativo</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Selecione o idioma em que deseja visualizar o aplicativo.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Iniciar na Inicialização</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose precisa ser executado em segundo plano para reproduzir os papéis de parede na inicialização.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Nenhum</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioridade</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Agendador</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Ícone de Notificação</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Visibilidade do ícone na bandeja do sistema. Sucrose continuará funcionando em segundo plano de forma discreta.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Visível</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Invisível</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Fechar o ícone na bandeja do sistema também fecha todos os aplicativos Sucrose</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Fundo da Janela</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Usado para personalizar o plano de fundo da janela do aplicativo.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Selecionar Imagem de Fundo</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Selecione uma imagem de fundo</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Arquivos de Imagem (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Esticar Fundo:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Opacidade do Fundo (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Volume do Motor</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Volume aplicável a todos os papéis de parede.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Reproduzir som somente quando o foco está na área de trabalho</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Local da Biblioteca</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Local onde os temas adicionados à sua biblioteca serão armazenados.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Por favor, selecione uma pasta vazia</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Por favor, aguarde enquanto a localização está sendo movida</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Mover sua biblioteca existente para um novo local</system:String>
+</ResourceDictionary>

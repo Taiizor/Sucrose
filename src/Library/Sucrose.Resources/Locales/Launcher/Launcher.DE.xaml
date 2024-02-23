@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.WallCustomizeText">Hintergrund Anpassen</system:String>
     <system:String x:Key="Launcher.CreateLogText">Protokolldatei Erstellen</system:String>
     <system:String x:Key="Launcher.ExitText">Ausfahrt</system:String>
@@ -20,7 +19,7 @@
     <system:String x:Key="Launcher.WallStartText">Hintergrund Starten</system:String>
     <system:String x:Key="Launcher.WallStopText">Hintergrund Stoppen</system:String>
     <system:String x:Key="Launcher.UpdateText">Auf Updates Prüfen</system:String>
-    
+
     <system:String x:Key="Launcher.UpdateText.Done">Ausstehende Aktualisierungen</system:String>
     <system:String x:Key="Launcher.UpdateText.Check">Aktualisierungen Überprüfen</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Aktualisierungsfortschritt {0}</system:String>

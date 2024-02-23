@@ -2,18 +2,29 @@
     x:Class="Sucrose.Portal.Views.Pages.Setting.SystemSettingPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Sucrose.Portal.Views.Pages.Setting"
-    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
-    xmlns:controls="clr-namespace:Sucrose.Portal.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    d:DataContext="{d:DesignInstance local:SystemSettingPage, IsDesignTimeCreatable=False}"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
     Title="{DynamicResource Portal.SystemSettingPage.Title}"
+    d:DataContext="{d:DesignInstance local:SystemSettingPage,
+                                     IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
 
     <Grid x:Name="GridSetting" Loaded="GridSetting_Loaded">
-        <StackPanel x:Name="FrameSetting" Margin="10 0 10 0" Visibility="Collapsed" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
-        <ui:ProgressRing x:Name="ProgressSetting" IsIndeterminate="True" Width="100" Height="100" />
+        <StackPanel
+            x:Name="FrameSetting"
+            Margin="10,0,10,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Orientation="Vertical"
+            Visibility="Collapsed" />
+        <ui:ProgressRing
+            x:Name="ProgressSetting"
+            Width="100"
+            Height="100"
+            IsIndeterminate="True" />
     </Grid>
 </Page>

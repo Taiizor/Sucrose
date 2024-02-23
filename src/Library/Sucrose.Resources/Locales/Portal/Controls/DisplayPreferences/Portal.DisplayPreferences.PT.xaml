@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.DisplayPreferences.Title">Preferências de Exibição</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Close">Fechar</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expander">Modo de Expansão</system:String>
+    <system:String x:Key="Portal.DisplayPreferences.Expander.Description">Como os papéis de parede serão aplicados às telas ativas.</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Screen">Apenas a tela selecionada</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand">Estender entre telas</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Monitor">Todos os Monitores</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Expand.Hint">Selecione o modo de estender entre telas</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate">Duplicar o mesmo papel de parede</system:String>
+
+    <system:String x:Key="Portal.DisplayPreferences.Duplicate.Hint">Selecione o modo de duplicar o mesmo papel de parede</system:String>
+</ResourceDictionary>

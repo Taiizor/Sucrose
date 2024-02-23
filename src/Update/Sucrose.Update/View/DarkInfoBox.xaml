@@ -1,16 +1,20 @@
-﻿<Window x:Class="Sucrose.Update.View.DarkInfoBox"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="{DynamicResource Update.InfoBox.WindowTitle}"
-        WindowStartupLocation="CenterScreen"
-        MinHeight="220" MinWidth="400"
-        MaxHeight="400" MaxWidth="400"
-        Height="220" Width="400"
-        ResizeMode="NoResize"
-        mc:Ignorable="d"
-        Topmost="True">
+﻿<Window
+    x:Class="Sucrose.Update.View.DarkInfoBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{DynamicResource Update.InfoBox.WindowTitle}"
+    Width="400"
+    Height="220"
+    MinWidth="400"
+    MinHeight="220"
+    MaxWidth="400"
+    MaxHeight="400"
+    ResizeMode="NoResize"
+    Topmost="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#FF292929" />
@@ -21,10 +25,12 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="border" Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="5">
+                        <Border
+                            Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
@@ -39,9 +45,13 @@
         </Style>
     </Window.Resources>
 
-    <Border Background="#FF2B2B2B" Padding="10">
+    <Border Padding="10" Background="#FF2B2B2B">
         <Border.Effect>
-            <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
+            <DropShadowEffect
+                Direction="315"
+                Opacity="0.7"
+                ShadowDepth="3"
+                Color="#888888" />
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
@@ -54,37 +64,117 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <Image x:Name="Snowflake_Image" Source="pack://application:,,,/Assets/Icon/Snowflake.png" Visibility="Hidden" />
-                <Image x:Name="Defective_Image" Source="pack://application:,,,/Assets/Icon/Defective.png" Visibility="Hidden" />
-                <Image x:Name="Firework_Image" Source="pack://application:,,,/Assets/Icon/Firework.png" Visibility="Hidden" />
-                <Image x:Name="Confetti_Image" Source="pack://application:,,,/Assets/Icon/Confetti.png" Visibility="Hidden" />
-                <Image x:Name="Success_Image" Source="pack://application:,,,/Assets/Icon/Success.png" Visibility="Hidden" />
-                <Image x:Name="Crowbar_Image" Source="pack://application:,,,/Assets/Icon/Crowbar.png" Visibility="Hidden" />
-                <Image x:Name="Winter_Image" Source="pack://application:,,,/Assets/Icon/Winter.png" Visibility="Hidden" />
-                <Image x:Name="Error_Image" Source="pack://application:,,,/Assets/Icon/Error.png" Visibility="Hidden" />
-                <Image x:Name="Cloud_Image" Source="pack://application:,,,/Assets/Icon/Cloud.png" Visibility="Hidden" />
-                <Image x:Name="Warn_Image" Source="pack://application:,,,/Assets/Icon/Warn.png" Visibility="Hidden" />
-                <Image x:Name="Info_Image" Source="pack://application:,,,/Assets/Icon/Info.png" Visibility="Hidden" />
-                <Image x:Name="Lost_Image" Source="pack://application:,,,/Assets/Icon/Lost.png" Visibility="Hidden" />
-                <Image x:Name="Bang_Image" Source="pack://application:,,,/Assets/Icon/Bang.png" Visibility="Hidden" />
-                <Image x:Name="Sad_Image" Source="pack://application:,,,/Assets/Icon/Sad.png" Visibility="Hidden" />
+            <Grid
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Image
+                    x:Name="Snowflake_Image"
+                    Source="pack://application:,,,/Assets/Icon/Snowflake.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Defective_Image"
+                    Source="pack://application:,,,/Assets/Icon/Defective.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Firework_Image"
+                    Source="pack://application:,,,/Assets/Icon/Firework.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Confetti_Image"
+                    Source="pack://application:,,,/Assets/Icon/Confetti.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Success_Image"
+                    Source="pack://application:,,,/Assets/Icon/Success.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Crowbar_Image"
+                    Source="pack://application:,,,/Assets/Icon/Crowbar.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Winter_Image"
+                    Source="pack://application:,,,/Assets/Icon/Winter.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Error_Image"
+                    Source="pack://application:,,,/Assets/Icon/Error.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Cloud_Image"
+                    Source="pack://application:,,,/Assets/Icon/Cloud.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Warn_Image"
+                    Source="pack://application:,,,/Assets/Icon/Warn.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Info_Image"
+                    Source="pack://application:,,,/Assets/Icon/Info.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Lost_Image"
+                    Source="pack://application:,,,/Assets/Icon/Lost.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Bang_Image"
+                    Source="pack://application:,,,/Assets/Icon/Bang.png"
+                    Visibility="Hidden" />
+                <Image
+                    x:Name="Sad_Image"
+                    Source="pack://application:,,,/Assets/Icon/Sad.png"
+                    Visibility="Hidden" />
             </Grid>
 
-            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch">
-                <TextBlock x:Name="Text_Message" Margin="10 0 0 0" Text="{DynamicResource Update.InfoBox.TextMessage}" TextWrapping="WrapWithOverflow" TextAlignment="Left" Foreground="White" FontSize="14" />
+            <Grid
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center">
+                <TextBlock
+                    x:Name="Text_Message"
+                    Margin="10,0,0,0"
+                    FontSize="14"
+                    Foreground="White"
+                    Text="{DynamicResource Update.InfoBox.TextMessage}"
+                    TextAlignment="Left"
+                    TextWrapping="WrapWithOverflow" />
             </Grid>
 
-            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <Button x:Name="Close_Button" Content="{DynamicResource Update.InfoBox.CloseText}" Cursor="Hand" Height="30" Width="80" VerticalAlignment="Center" Click="CloseButton_Click">
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="Close_Button"
+                    Width="80"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    Click="CloseButton_Click"
+                    Content="{DynamicResource Update.InfoBox.CloseText}"
+                    Cursor="Hand">
                     <Button.Effect>
-                        <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="3" Opacity="0.7" />
+                        <DropShadowEffect
+                            Direction="315"
+                            Opacity="0.7"
+                            ShadowDepth="3"
+                            Color="#888888" />
                     </Button.Effect>
                 </Button>
             </StackPanel>
         </Grid>
     </Border>
     <Window.Effect>
-        <DropShadowEffect Color="#888888" Direction="315" ShadowDepth="10" Opacity="0.5" />
+        <DropShadowEffect
+            Direction="315"
+            Opacity="0.5"
+            ShadowDepth="10"
+            Color="#888888" />
     </Window.Effect>
 </Window>

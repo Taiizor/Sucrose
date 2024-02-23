@@ -1,0 +1,9 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.BrokenStorePage.Title">BrokenStorePage</system:String>
+
+    <system:String x:Key="Portal.BrokenStorePage.TitleText">Um Momento em que as Luzes da Internet se Apagaram</system:String>
+    <system:String x:Key="Portal.BrokenStorePage.DescriptionText">Como um céu sem estrelas, aqui também falta o brilho da internet</system:String>
+</ResourceDictionary>

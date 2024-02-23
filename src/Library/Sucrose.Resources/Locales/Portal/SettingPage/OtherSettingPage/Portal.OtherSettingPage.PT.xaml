@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose permite a comunicação com o Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Atualização de Conexão:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Tempo de Atualização (segundos):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Agente de Internet</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Identidade do agente em situações que requerem conexão com a internet.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Chave de Acesso Pessoal</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Necessária para usar a loja e atualizar o aplicativo sem problemas.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Clique aqui se não souber como obter a chave de acesso pessoal.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Por favor, insira uma chave de acesso pessoal</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Por favor, insira uma chave de acesso pessoal válida</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Canal de Atualização</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Onde as atualizações serão feitas.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Método de Atualização</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Como as atualizações serão feitas.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limite de largura de banda de download:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Ferramentas de Desenvolvedor</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Se as ferramentas de desenvolvedor devem ser exibidas para WebView e CefSharp.</system:String>
+</ResourceDictionary>

@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
-     xmlns:system="clr-namespace:System;assembly=mscorlib"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
->
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.Enum.Stretch.Fill">Füllen</system:String>
     <system:String x:Key="Portal.Enum.Stretch.None">Keine</system:String>
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
@@ -16,7 +15,7 @@
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Schließen</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Anhalten</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Fortsetzen</system:String>
-    
+
     <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mica</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.None">Keiner</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Automatisch</system:String>
