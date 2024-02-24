@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Mørkt tema</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Opprett bakgrunn</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Skjermpreferanser</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Bakgrunnsbilder Sykling</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Skjermpreferanser</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Donasjonsalternativer</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Andre alternativer</system:String>
 </ResourceDictionary>

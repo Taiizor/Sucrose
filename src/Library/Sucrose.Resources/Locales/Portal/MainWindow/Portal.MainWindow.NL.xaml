@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Donkere modus</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Achtergrond maken</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Schermvoorkeuren</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Achtergrondafbeeldingen Fietsen</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Schermvoorkeuren</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Donatieopties</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Andere opties</system:String>
 </ResourceDictionary>

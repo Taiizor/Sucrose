@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Темна тема</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Створити шпалери</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Налаштування екрану</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Цикління шпалер</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Налаштування екрану</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Параметри пожертвувань</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Інші параметри</system:String>
 </ResourceDictionary>

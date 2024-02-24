@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">डार्क थीम</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">वॉलपेपर बनाएं</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">प्रदर्शन पसंद</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">वॉलपेपर साइक्लिंग</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">प्रदर्शन पसंद</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">दान विकल्प</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">अन्य विकल्प</system:String>
 </ResourceDictionary>

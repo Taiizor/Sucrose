@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tema Întunecată</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Crează Tapet</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferințe de Afișare</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Ciclare Tapet</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferințe de Afișare</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Opțiuni de Donare</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Alte Opțiuni</system:String>
 </ResourceDictionary>

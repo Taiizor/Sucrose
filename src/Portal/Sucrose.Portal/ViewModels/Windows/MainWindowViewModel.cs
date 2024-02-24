@@ -276,6 +276,12 @@ namespace Sucrose.Portal.ViewModels.Windows
         }
 
         [RelayCommand]
+        private async Task OnWallpaperCycling()
+        {
+            //
+        }
+
+        [RelayCommand]
         private async Task OnDisplayPreferences()
         {
             SPVCDP DisplayPreferences = new();
@@ -283,12 +289,6 @@ namespace Sucrose.Portal.ViewModels.Windows
             await DisplayPreferences.ShowAsync();
 
             DisplayPreferences.Dispose();
-        }
-
-        [RelayCommand]
-        private async Task OnWallpaperCycling()
-        {
-            //
         }
 
         private void Memory_Tick(object sender, EventArgs e)

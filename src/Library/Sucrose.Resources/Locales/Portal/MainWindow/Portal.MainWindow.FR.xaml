@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Thème sombre</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Créer un Fond d'Écran</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Préférences d'Affichage</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Changement de Fond d'Écran</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Préférences d'Affichage</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Options de Don</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Autres Options</system:String>
 </ResourceDictionary>

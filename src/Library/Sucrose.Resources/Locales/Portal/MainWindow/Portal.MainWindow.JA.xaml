@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">ダーク テーマ</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">壁紙を作成</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">ディスプレイ設定</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">壁紙のサイクリング</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">ディスプレイ設定</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">寄付オプション</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">その他のオプション</system:String>
 </ResourceDictionary>

@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">어두운 테마</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">배경화면 생성</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">화면 설정</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">배경 화면 순환</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">화면 설정</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">기부 옵션</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">기타 옵션</system:String>
 </ResourceDictionary>

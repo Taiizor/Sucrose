@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Dunkle Thema</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Hintergrundbild Erstellen</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Anzeigeeinstellungen</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Hintergrundwechsel</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Anzeigeeinstellungen</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Spendenoptionen</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Andere Optionen</system:String>
 </ResourceDictionary>

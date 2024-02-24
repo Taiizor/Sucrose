@@ -199,15 +199,6 @@
                         Icon="{ui:SymbolIcon Add16}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuCreateWallpaperTip}" />
                     <ui:Button
-                        x:Name="Display"
-                        Margin="0,0,5,0"
-                        Appearance="Transparent"
-                        BorderBrush="Transparent"
-                        Command="{Binding ViewModel.DisplayPreferencesCommand, Mode=OneWay}"
-                        Cursor="Hand"
-                        Icon="{ui:SymbolIcon ShareScreenPerson16}"
-                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDisplayPreferencesTip}" />
-                    <ui:Button
                         x:Name="Cycling"
                         Margin="0,0,5,0"
                         Appearance="Transparent"
@@ -216,6 +207,15 @@
                         Cursor="Hand"
                         Icon="{ui:SymbolIcon VehicleBicycle16}"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperCyclingTip}" />
+                    <ui:Button
+                        x:Name="Display"
+                        Margin="0,0,5,0"
+                        Appearance="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding ViewModel.DisplayPreferencesCommand, Mode=OneWay}"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon ShareScreenPerson16}"
+                        ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDisplayPreferencesTip}" />
                     <ui:Button
                         Margin="0,0,5,0"
                         Appearance="Transparent"

@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tmavý režim</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Vytvořit tapetu</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Nastavení zobrazení</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Cyklování tapet</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Nastavení zobrazení</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Možnosti příspěvků</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Další možnosti</system:String>
 </ResourceDictionary>

@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Dark Theme</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Create Wallpaper</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Display Preferences</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Wallpaper Cycling</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Display Preferences</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Donation Options</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Other Options</system:String>
 </ResourceDictionary>

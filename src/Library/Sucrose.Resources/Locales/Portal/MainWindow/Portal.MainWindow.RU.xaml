@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Тёмная тема</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Создать обои</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Параметры отображения</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Циклическая смена обоев</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Параметры отображения</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Параметры пожертвования</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Другие параметры</system:String>
 </ResourceDictionary>

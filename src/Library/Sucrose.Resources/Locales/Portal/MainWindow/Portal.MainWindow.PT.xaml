@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tema Escuro</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Criar Papel de Parede</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferências de Exibição</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Ciclagem de Papel de Parede</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Preferências de Exibição</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Opções de Doação</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Outras Opções</system:String>
 </ResourceDictionary>

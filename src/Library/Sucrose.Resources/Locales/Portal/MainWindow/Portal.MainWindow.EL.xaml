@@ -43,8 +43,8 @@
     <system:String x:Key="Portal.MainWindow.MenuDarkTip">Σκοτεινό Θέμα</system:String>
 
     <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Δημιουργία Ταπετσαρίας</system:String>
-    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Προτιμήσεις Οθόνης</system:String>
     <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Αλλαγή Ταπετσαρίας</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Προτιμήσεις Οθόνης</system:String>
     <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Επιλογές Δωρεάς</system:String>
     <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Άλλες Επιλογές</system:String>
 </ResourceDictionary>
