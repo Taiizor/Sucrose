@@ -23,7 +23,7 @@ namespace Sucrose.Manager.Manage
 
         public static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 25), 10, 100);
 
-        public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 36), 1, 100);
+        public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 30), 1, 100);
 
         public static int UploadValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800), 0, 99999999);
 
