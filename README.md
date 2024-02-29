@@ -20,7 +20,9 @@
 </h4>
 
 <div align="center">
-  <img alt="Sucrose Wallpaper Engine Preview" src=".screenshots/Preview.png" />
+  <a href="https://www.youtube.com/watch?v=skjSyV7cLEI">
+    <img alt="Sucrose Wallpaper Engine - Preview" src=".screenshots/Preview.png" />
+  </a>
 </div>
 
 <div align="center">
