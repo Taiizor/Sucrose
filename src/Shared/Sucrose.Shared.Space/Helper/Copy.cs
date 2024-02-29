@@ -11,23 +11,26 @@ namespace Sucrose.Shared.Space.Helper
                 Directory.CreateDirectory(Destination);
             }
 
-            foreach (string Record in Directory.GetFiles(Source))
+            if (Directory.Exists(Source))
             {
-                string DestinationFile = Path.Combine(Destination, Path.GetFileName(Record));
+                foreach (string Record in Directory.GetFiles(Source))
+                {
+                    string DestinationFile = Path.Combine(Destination, Path.GetFileName(Record));
 
-                File.Copy(Record, DestinationFile, true);
-            }
+                    File.Copy(Record, DestinationFile, true);
+                }
 
-            foreach (string SubDirectory in Directory.GetDirectories(Source))
-            {
-                string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
+                foreach (string SubDirectory in Directory.GetDirectories(Source))
+                {
+                    string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
 
-                Folder(SubDirectory, DestinationSubDirectory);
-            }
+                    Folder(SubDirectory, DestinationSubDirectory);
+                }
 
-            if (Delete)
-            {
-                Directory.Delete(Source, true);
+                if (Delete)
+                {
+                    Directory.Delete(Source, true);
+                }
             }
         }
     }

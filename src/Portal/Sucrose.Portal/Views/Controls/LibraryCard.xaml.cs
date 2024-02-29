@@ -213,8 +213,8 @@ namespace Sucrose.Portal.Views.Controls
 
         private void Imaginer_MediaOpened(object sender, RoutedEventArgs e)
         {
-            Imagine.Visibility = Visibility.Hidden;
             Imaginer.Visibility = Visibility.Visible;
+            Imagine.Visibility = Visibility.Hidden;
 
             if (SMMM.LibraryPreviewHide)
             {
