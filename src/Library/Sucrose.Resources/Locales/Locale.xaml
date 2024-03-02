@@ -10,9 +10,11 @@
     <system:String x:Key="Locale.ES">Español (v0.6)</system:String>
     <system:String x:Key="Locale.FR">Français (v0.6)</system:String>
     <system:String x:Key="Locale.HI">हिन्दी (v0.4)</system:String>
+    <system:String x:Key="Locale.ID">Bahasa Indonesia (v0.1)</system:String>
     <system:String x:Key="Locale.IT">Italiano (v0.4)</system:String>
     <system:String x:Key="Locale.JA">日本語 (v0.4)</system:String>
     <system:String x:Key="Locale.KO">한국어 (v0.4)</system:String>
+    <system:String x:Key="Locale.MS">Bahasa Melayu (v0.1)</system:String>
     <system:String x:Key="Locale.NB">Norsk (v0.4)</system:String>
     <system:String x:Key="Locale.NL">Nederlands (v0.4)</system:String>
     <system:String x:Key="Locale.PL">Polski (v0.6)</system:String>

@@ -114,7 +114,7 @@
 
         public static readonly string LauncherMutex = "{Sucrose-Wallpaper-Engine-Launcher}";
 
-        public static readonly string UserAgent = "Sucrose/1.2 (Wallpaper Engine) SucroseWebKit";
+        public static readonly string UserAgent = "Sucrose/1.3 (Wallpaper Engine) SucroseWebKit";
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 
