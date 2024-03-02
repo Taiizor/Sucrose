@@ -6,10 +6,10 @@
         <ResourceDictionary Source="Discord/Discord.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.xaml" />
 
-        <ResourceDictionary Source="Update/Update.EN.xaml" />
-        <ResourceDictionary Source="Portal/Portal.EN.xaml" />
-        <ResourceDictionary Source="Discord/Discord.EN.xaml" />
-        <ResourceDictionary Source="Watchdog/Watchdog.EN.xaml" />
-        <ResourceDictionary Source="Launcher/Launcher.EN.xaml" />
+        <ResourceDictionary Source="Update/Update.ID.xaml" />
+        <ResourceDictionary Source="Portal/Portal.ID.xaml" />
+        <ResourceDictionary Source="Discord/Discord.ID.xaml" />
+        <ResourceDictionary Source="Watchdog/Watchdog.ID.xaml" />
+        <ResourceDictionary Source="Launcher/Launcher.ID.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

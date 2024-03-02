@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.MainWindow.Title">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelp">Bantuan</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAbout">Tentang</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuHelpTip">Lihat Bantuan</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuAboutTip">Lihat Tentang</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibrary">Pustaka</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStore">Kedai</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLibraryTip">Pustaka Tema</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuStoreTip">Kedai Tema</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuGeneral">Umum</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonal">Peribadi</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformance">Prestasi</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaper">Kertas Dinding</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystem">Sistem</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonate">Sumbangan</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOther">Lain-lain</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuBackTip">Kembali</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuGeneralTip">Tetapan Umum</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPersonalTip">Tetapan Peribadi</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuPerformanceTip">Tetapan Prestasi</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperTip">Tetapan Kertas Dinding</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuSystemTip">Tetapan Sistem</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateTip">Tetapan Sumbangan</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherTip">Tetapan Lain-lain</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuSettingTip">Tetapan</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxHint">Cari Kertas Dinding</system:String>
+
+    <system:String x:Key="Portal.MainWindow.SearchBoxTip">Sukar mencari apa yang anda perlukan?</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuLightTip">Tema Terang</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDarkTip">Tema Gelap</system:String>
+
+    <system:String x:Key="Portal.MainWindow.MenuCreateWallpaperTip">Buat Kertas Dinding</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuWallpaperCyclingTip">Kitaran Kertas Dinding</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDisplayPreferencesTip">Pilihan Paparan</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuDonateOptionsTip">Pilihan Sumbangan</system:String>
+    <system:String x:Key="Portal.MainWindow.MenuOtherOptionsTip">Pilihan Lain-lain</system:String>
+</ResourceDictionary>

@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="FullStorePage/Portal.FullStorePage.ID.xaml" />
+        <ResourceDictionary Source="BrokenStorePage/Portal.BrokenStorePage.ID.xaml" />
+        <ResourceDictionary Source="SearchStorePage/Portal.SearchStorePage.ID.xaml" />
+        <ResourceDictionary Source="UnknownStorePage/Portal.UnknownStorePage.ID.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:String x:Key="Portal.StorePage.Title">StorePage</system:String>
+</ResourceDictionary>

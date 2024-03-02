@@ -1,0 +1,83 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.Enum.Stretch.Fill">Isi</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.None">Tiada</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.Uniform">Seragam</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Seragam Untuk Isi</system:String>
+
+    <system:String x:Key="Portal.Enum.StretchType.Fill">Isi</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.None">Tiada</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.Uniform">Seragam</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Seragam Untuk Isi</system:String>
+
+    <system:String x:Key="Portal.Enum.PerformanceType.Close">Tutup</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Pause">Berhenti</system:String>
+    <system:String x:Key="Portal.Enum.PerformanceType.Resume">Sambung</system:String>
+
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mika</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.None">Tiada</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Auto</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Bersegi</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akrilik</system:String>
+
+    <system:String x:Key="Portal.Enum.ChannelType.Release">Lalai</system:String>
+    <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pengembang</system:String>
+
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Lalai</system:String>
+
+    <system:String x:Key="Portal.Enum.UpdateType.Compressed">Mampatan</system:String>
+    <system:String x:Key="Portal.Enum.UpdateType.Executable">Eksekutif</system:String>
+
+    <system:String x:Key="Portal.Enum.ScreenType.WorkingArea">Kawasan Kerja</system:String>
+    <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Had Pameran</system:String>
+
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Lalai</system:String>
+
+    <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Berjaya</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' terlalu banyak nilai</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Type">Temanya dibuat untuk jenis yang tidak disokong oleh aplikasi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Title">Nilai 'Title' kosong atau terlalu panjang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Author">Nilai 'Author' kosong atau terlalu panjang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Source">Fail 'Source' tidak dijumpai</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Nilai 'Contact' kosong atau terlalu panjang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Fail 'Preview' tidak dijumpai</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Encrypt">Fail berkaitan disulitkan</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ZipType">Fail yang berkaitan bukan fail '.zip' yang sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InfoFile">Fail 'SucroseInfo.json' tidak dijumpai</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.NotFound">Fail yang berkaitan tidak dijumpai</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.LoopMode">Nilai 'LoopMode' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Arguments">Nilai 'Arguments' terlalu panjang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Extension">Fail yang berkaitan bukan bertarikh '.zip'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Thumbnail">Fail 'Thumbnail' tidak dijumpai</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemCpu">Nilai 'SystemCpu' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyInfo">Fail 'SucroseInfo.json' adalah kosong</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.AppVersion">Temanya dibuat untuk versi aplikasi yang lebih tinggi</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidUrl">Nilai 'Source' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBios">Nilai 'SystemBios' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemDate">Nilai 'SystemDate' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemAudio">Nilai 'SystemAudio' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Description">Nilai 'Description' kosong atau terlalu panjang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidInfo">Fail 'SucroseInfo.json' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.TriggerTime">Nilai 'TriggerTime' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.StretchMode">Nilai 'StretchMode' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.VolumeLevel">Nilai 'VolumeLevel' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.ShuffleMode">Nilai 'ShuffleMode' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidTags">Nilai-nilai 'Tags' terlalu pendek atau terlalu panjang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidFile">Fail tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyList">Nilai 'PropertyList' kosong</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMemory">Nilai 'SystemMemory' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Nilai 'SystemBattery' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Nilai 'SystemGraphic' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Nilai 'SystemNetwork' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Nilai 'Contact' bukan 'Url' atau 'Alamat Emel'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Sambungan fail tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Fail 'SucroseCompatible.json' adalah kosong</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Fail 'SucroseProperties.json' adalah kosong</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyListener">Nilai 'PropertyListener' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Nilai 'SystemMotherboard' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Fail 'SucroseCompatible.json' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Fail 'SucroseProperties.json' tidak sah</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Kesan Tak Dijangka</system:String>
+</ResourceDictionary>

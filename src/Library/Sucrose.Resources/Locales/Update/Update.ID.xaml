@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Update.HelpText">Perbaiki Masalah</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Pembaruan Sucrose</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Instal Pembaruan</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Pembaruan Sucrose</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Pesan</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Tutup</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Kami berada di saat-saat ketika file pembaruan tersimpan seperti permata yang tersembunyi. Anda masih bisa menikmati pengalaman dengan menggunakan versi yang ada saat ini.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Saat mengunduh file pembaruan, kami menemukan retak di jalan dan menyadari bahwa perjalanan ini untuk sementara berakhir. Tetap lanjutkan perjalanan Anda dengan versi saat ini karena pembaruan yang lebih kuat akan menanti Anda saat retakan ini diperbaiki.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">Aplikasi sudah bersama Anda dengan versi paling baru dan inovatifnya seperti halaman terbaru dari sebuah buku. Kami selalu hadir untuk memberikan pengalaman terbaik dan terkini.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Kami berada di ambang sebuah mimpi yang tak bisa diakses file pembaruannya. Namun, Anda masih bisa melanjutkan perjalanan Anda dengan versi saat ini.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Saluran pembaruan yang dipilih seperti hutan yang sunyi. Saat ini tidak ada informasi pembaruan baru di sini. Lanjutkan perjalanan Anda dengan versi saat ini karena kami akan memberikan lebih banyak lagi saat sunyi ini terpecahkan.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Saat mencoba mengekstrak file pembaruan, kami menghadapi hambatan dari kedalaman lautan. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini karena kami akan kembali untuk menemukan harta baru saat lautan menjadi lebih tenang.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Kekurangan koneksi Anda seperti awan yang menutupi matahari. Namun, saat awan berlalu, pengalaman yang lebih terang akan menunggu Anda.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Pembaruan aplikasi sedang bergerak maju seperti harta baru yang dibawa ombak ke tepi pantai dengan diam-diam. Inovasi berharga ini sedang dikumpulkan untuk Anda di belakang layar.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Kami sedang mengalami saat di mana bintang pembaruan aplikasi belum terbit. Saat ini tidak ada informasi pembaruan apa pun, namun Anda masih bisa menggunakan versi yang sudah ada.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Saat mengunduh file pembaruan, kami menemukan bahwa bintang di langit tidak teratur. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini karena kami akan memberikan pembaruan yang lebih baik saat bintang-bintang berada dalam urutan yang benar.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Pengunduhan file pembaruan dibatalkan karena jalan kita tiba-tiba berpisah. Lanjutkan perjalanan Anda dengan versi saat ini dan bersiaplah untuk pembaruan di masa depan karena awal baru selalu mungkin.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Syarat-syarat dalam file pembaruan tampaknya kurang untuk membuka kunci. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini dan siapkan diri untuk pembaruan di masa depan.</system:String>
+</ResourceDictionary>

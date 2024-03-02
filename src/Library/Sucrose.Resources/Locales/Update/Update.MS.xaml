@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Update.HelpText">Selesaikan Masalah</system:String>
+
+    <system:String x:Key="Update.UpdateBox.WindowTitle">Pembaruan Sucrose</system:String>
+    <system:String x:Key="Update.UpdateBox.InstallText">Pemasangan Pembaruan</system:String>
+
+    <system:String x:Key="Update.InfoBox.WindowTitle">Pembaruan Sucrose</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage">Mesej</system:String>
+    <system:String x:Key="Update.InfoBox.CloseText">Tutup</system:String>
+
+    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Seperti permata yang tersembunyi, kita berada pada saat-saat di mana file pembaruan terselubung. Anda masih bisa menikmati pengalaman dengan menggunakan versi yang ada saat ini.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Error">Ketika mengunduh file pembaruan, kami menemukan retakan di jalan, mengakhiri perjalanan ini untuk saat ini. Lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena pembaruan yang lebih kuat akan menanti ketika retakan ini diperbaiki.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Update">Aplikasi sudah bersama Anda dalam bentuk yang paling mutakhir dan inovatif, seperti halaman terbaru dalam sebuah buku. Kami di sini untuk memberikan pengalaman terbaik dan terkini setiap saat.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Status">Kami berada di ambang mimpi di mana file pembaruan tidak dapat diakses. Namun, Anda masih dapat melanjutkan perjalanan Anda dengan versi yang ada saat ini.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Saluran pembaruan yang dipilih hampir seperti hutan yang sunyi. Saat ini, tidak ada informasi pembaruan baru di sini. Lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena kami akan memberikan lebih banyak lagi saat keheningan ini terpecahkan.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Saat kami mencoba mengekstrak file pembaruan, kami menghadapi hambatan dari kedalaman laut. Untuk saat ini, lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena kami akan kembali mencari harta baru saat laut menjadi tenang.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Network">Kelemahan koneksi Anda hampir seperti awan menutupi matahari. Ketika awan berlalu, pengalaman yang lebih terang akan menanti Anda.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Pembaruan aplikasi bergerak maju dengan diam-diam seperti harta yang dibawa ombak ke pantai. Inovasi berharga ini sedang dikumpulkan untuk Anda di belakang layar.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Kami sedang berada di momen ketika bintang pembaruan belum terbit. Saat ini, tidak ada informasi pembaruan, tetapi Anda masih dapat menggunakan versi yang ada saat ini.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Download">Ketika mengunduh file pembaruan, kami menemukan bahwa bintang di langit tidak teratur. Untuk saat ini, lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena kami akan memberikan pembaruan yang lebih baik ketika bintang berada dalam urutan yang tepat.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Pengunduhan file pembaruan dibatalkan karena jalan kita tiba-tiba bercabang. Lanjutkan perjalanan Anda dengan versi yang ada saat ini, dan bersiaplah untuk pembaruan di masa mendatang, karena awal baru selalu mungkin.</system:String>
+    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Kondisi dalam file pembaruan tampaknya kurang untuk membuka kunci. Untuk saat ini, lanjutkan perjalanan Anda dengan versi yang ada saat ini, dan bersiaplah untuk pembaruan di masa mendatang.</system:String>
+</ResourceDictionary>

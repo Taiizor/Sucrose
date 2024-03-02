@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.Area.Sound">Suara</system:String>
+    <system:String x:Key="Portal.Area.Log">Log</system:String>
+    <system:String x:Key="Portal.Area.Hook">Gantungan</system:String>
+    <system:String x:Key="Portal.Area.Store">Toko</system:String>
+    <system:String x:Key="Portal.Area.Donate">Donasi</system:String>
+    <system:String x:Key="Portal.Area.System">Sistem</system:String>
+    <system:String x:Key="Portal.Area.Cache">Cache</system:String>
+    <system:String x:Key="Portal.Area.Laptop">Laptop</system:String>
+    <system:String x:Key="Portal.Area.Support">Dukungan</system:String>
+    <system:String x:Key="Portal.Area.Reset">Reset</system:String>
+    <system:String x:Key="Portal.Area.Backup">Cadangan</system:String>
+    <system:String x:Key="Portal.Area.Priority">Prioritas</system:String>
+    <system:String x:Key="Portal.Area.Engines">Mesin</system:String>
+    <system:String x:Key="Portal.Area.Update">Pembaruan</system:String>
+    <system:String x:Key="Portal.Area.Library">Perpustakaan</system:String>
+    <system:String x:Key="Portal.Area.Developer">Pengembang</system:String>
+    <system:String x:Key="Portal.Area.Extensions">Ekstensi</system:String>
+    <system:String x:Key="Portal.Area.SystemResources">Sumber Daya Sistem</system:String>
+    <system:String x:Key="Portal.Area.AppearanceBehavior">Tampilan &amp; Perilaku</system:String>
+</ResourceDictionary>
