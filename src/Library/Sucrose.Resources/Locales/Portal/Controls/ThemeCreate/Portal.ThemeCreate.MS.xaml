@@ -1,0 +1,57 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.ThemeCreate.Title">Ciptaan Tema</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Create">Cipta</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Close">Tutup</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Gif">Tema Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Gif.Description">Sendiri cipta tema jenis Gif anda.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Url">Tema Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Url.Description">Sendiri cipta tema jenis Url anda.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Web">Tema Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Web.Description">Sendiri cipta tema jenis Web anda.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Video">Tema Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Video.Description">Sendiri cipta tema jenis Video anda.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.YouTube">Tema YouTube</system:String>
+    <system:String x:Key="Portal.ThemeCreate.YouTube.Description">Sendiri cipta tema jenis YouTube anda.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Application">Tema Application</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Application.Description">Sendiri cipta tema jenis Application anda.</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Thumbnail</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview">Pratonton</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tajuk</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription">Penerangan</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor">Pengarang</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact">Hubungi</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags">Teg</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumen</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Sila masukkan url yang sah</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Sila pilih gambar thumbnail</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Sila pilih fail pratonton</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Sila masukkan tajuk yang sah</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeDescription.Hint">Sila masukkan penerangan yang sah</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeAuthor.Hint">Sila masukkan nama pengarang yang sah</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeContact.Hint">Sila masukkan alamat hubungi yang sah</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Sila masukkan teg tema yang sah</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Sila masukkan argumen aplikasi yang sah</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Batal</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Seret dan lepaskan fail Gif anda di sini</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Seret dan lepaskan fail Video anda di sini</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Title">Pilih Gambar Thumbnail</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Filter">Fail Gambar (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Pilih Fail Pratonton</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Fail Gif (*.gif)|*.gif</system:String>
+</ResourceDictionary>

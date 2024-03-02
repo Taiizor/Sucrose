@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.ThemeImport.Title">Import Tema</system:String>
+    <system:String x:Key="Portal.ThemeImport.Close">Tutup</system:String>
+
+    <system:String x:Key="Portal.ThemeImport.Info">Maklumat Tema</system:String>
+    <system:String x:Key="Portal.ThemeImport.Type">Jenis</system:String>
+</ResourceDictionary>

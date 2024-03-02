@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.ThemeEdit.Title">Edit Tema</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Close">Tutup</system:String>
+    <system:String x:Key="Portal.ThemeEdit.Save">Simpan</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle">Judul</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription">Deskripsi</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor">Penulis</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact">Kontak</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags">Tags</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments">Argumen</system:String>
+
+    <system:String x:Key="Portal.ThemeEdit.ThemeTitle.Hint">Silakan tulis judul yang valid</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeDescription.Hint">Silakan tulis deskripsi yang valid</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeAuthor.Hint">Silakan tulis nama penulis yang valid</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeContact.Hint">Silakan tulis alamat kontak yang valid</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeTags.Hint">Silakan tulis tag tema yang valid</system:String>
+    <system:String x:Key="Portal.ThemeEdit.ThemeArguments.Hint">Silakan tulis argumen aplikasi yang valid</system:String>
+</ResourceDictionary>

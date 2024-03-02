@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose membolehkan komunikasi antara Discord.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordRefresh">Muat Semula Sambungan:</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.DiscordHook.DiscordDelay">Tempoh Muat Semula (Saiz):</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Agent">Wakil Internet</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Agent.Description">Identiti wakil anda dalam situasi yang memerlukan sambungan internet.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key">Token Akses Peribadi</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.Description">Diperlukan untuk menggunakan kedai dan pembaharuan aplikasi dengan lancar.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.HintKey">Klik di sini jika anda tidak tahu cara mendapatkan token akses peribadi anda.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Sila masukkan token akses peribadi</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Sila masukkan token akses peribadi yang sah</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Saluran Pembaharuan</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Saluran yang digunakan untuk proses pembaharuan.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update">Kaedah Pembaharuan</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update.Description">Kaedah untuk proses pembaharuan.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Had Lebar Jalur Muat Turun:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer">Alat Pembangun</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Sama ada untuk menunjukkan alat pembangun untuk enjin WebView dan CefSharp.</system:String>
+</ResourceDictionary>

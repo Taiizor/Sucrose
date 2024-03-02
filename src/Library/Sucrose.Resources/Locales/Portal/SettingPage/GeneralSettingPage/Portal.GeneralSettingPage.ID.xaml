@@ -1,0 +1,49 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.GeneralSettingPage.Title">GeneralSettingPage</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage">Bahasa Aplikasi</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationLanguage.Description">Pilih bahasa untuk menampilkan aplikasi.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup">Mulai Aplikasi</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Description">Sucrose harus berjalan di latar belakang untuk dapat memutar wallpaper.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.None">Tidak Ada</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal">Normal</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioritas</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Penjadwal</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Ikona Notifikasi</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Tampilkan ikon di tray sistem. Sucrose akan tetap berjalan secara tersembunyi.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Tampilkan</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Hide">Sembunyikan</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.NotifyExit">Tutup tray sistem juga menutup semua aplikasi Sucrose</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop">Latar Belakang Jendela</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.Description">Digunakan untuk menyesuaikan latar belakang jendela aplikasi.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Pilih Gambar Latar Belakang</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Pilih gambar latar belakang</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">File Gambar (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Perbesar Latar Belakang:</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity">Opasitas Latar Belakang (%):</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume">Volume Suara</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Volume yang berlaku untuk semua wallpaper.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Mainkan suara hanya saat fokus di desktop</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Lokasi Perpustakaan</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Lokasi tempat tema yang ditambahkan ke perpustakaan akan disimpan.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Harap pilih folder kosong</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Tunggu sebentar saat lokasi dipindahkan</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryMove">Pindahkan perpustakaan Anda ke lokasi baru</system:String>
+</ResourceDictionary>

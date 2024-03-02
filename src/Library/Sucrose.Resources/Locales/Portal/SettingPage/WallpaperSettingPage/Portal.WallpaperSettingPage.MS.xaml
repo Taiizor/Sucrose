@@ -1,0 +1,36 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Susunan Skrin</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Susunan skrin untuk ubah susunan wallpaper anda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Mod Sediaan</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Susunan skrin untuk ubah susunan wallpaper anda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Mod Pengulangan</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Mod pengulangan yang akan diubah untuk wallpaper yang disokong.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Mod Kacau</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Mod kacau yang akan diubah untuk wallpaper yang disokong.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Pemain Gif</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Pilih pemain yang akan memainkan tema jenis Gif dalam perpustakaan anda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Pemain Video</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer.Description">Pilih pemain yang akan memainkan tema jenis Video dalam perpustakaan anda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer">Pemain Urll</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.UrlPlayer.Description">Pilih enjin yang akan menjalankan tema jenis Url dalam perpustakaan anda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer">Pemain Web</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.WebPlayer.Description">Pilih enjin yang akan menjalankan tema jenis Web dalam perpustakaan anda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer">Pemain YouTube</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.YouTubePlayer.Description">Pilih enjin yang akan menjalankan tema jenis YouTube dalam perpustakaan anda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer">Pemain Application</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ApplicationPlayer.Description">Pilih enjin yang akan menjalankan tema jenis Application dalam perpustakaan anda.</system:String>
+</ResourceDictionary>

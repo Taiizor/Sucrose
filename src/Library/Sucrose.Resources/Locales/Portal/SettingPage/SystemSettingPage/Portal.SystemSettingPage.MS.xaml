@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.SystemSettingPage.Title">SystemSettingPage</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary">Fail Harian</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Description">Urusan semua fail harian yang dibuat oleh aplikasi.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Create">Cipta</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Delete">Padam</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LogTemporary.Hint">Nota: Ruang yang diduduki oleh semua fail harian ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary">Pembersihan Cache</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Description">Bersihkan semua fail cache yang dibuat oleh aplikasi.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Start">Mulakan Pembersihan</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.CacheTemporary.Hint">Nota: Ruang yang diduduki oleh semua fail cache ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary">Pembersihan Kedai</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Description">Bersihkan semua fail kedai yang dibuat oleh aplikasi.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Start">Mulakan Pembersihan</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.StoreTemporary.Hint">Nota: Ruang yang diduduki oleh semua fail kedai ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary">Pembersihan Perpustakaan</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Description">Bersihkan semua fail tema yang terdapat atau dicipta dalam perpustakaan anda.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Start">Mulakan Pembersihan</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.LibraryTemporary.Hint">Nota: Ruang yang diduduki oleh semua fail tema dalam perpustakaan anda ialah {0}. Semua aplikasi akan ditutup apabila pembersihan bermula.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup">Fail Tetapan</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Description">Urusan semua fail tetapan yang dibuat oleh aplikasi.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Export">Eksport</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Import">Import</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingBackup.Hint">Nota: Semua aplikasi akan ditutup apabila operasi yang dipilih bermula.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset">Set Semula Tetapan</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Description">Set semula semua fail tetapan yang dibuat oleh aplikasi.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Start">Mulakan Set Semula</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.SettingReset.Hint">Nota: Semua aplikasi akan ditutup apabila operasi set semula bermula.</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Simpan Fail Harian</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*</system:String>
+</ResourceDictionary>

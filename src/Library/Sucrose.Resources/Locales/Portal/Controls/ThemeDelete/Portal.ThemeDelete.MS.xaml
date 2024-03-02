@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.ThemeDelete.Title">Padam Tema</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Delete">Padam</system:String>
+    <system:String x:Key="Portal.ThemeDelete.Close">Tutup</system:String>
+
+    <system:String x:Key="Portal.ThemeDelete.ThemeTitle">Tajuk</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeDescription">Penerangan</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeType">Jenis</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTypeName">Gif</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthor">Pengarang</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeAuthorName">Taiizor</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSize">Saiz</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeSizeTotal">0 b</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersion">Versi</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeVersionText">0.0.0.0 (0.0.0.0)</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTags">Teg</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeTagsText">Tiada</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreate">Dicipta</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeCreateDate">Tidak Diketahui</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModify">Diubahsuai</system:String>
+    <system:String x:Key="Portal.ThemeDelete.ThemeModifyDate">Tidak Diketahui</system:String>
+</ResourceDictionary>

@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Duration">Penyegaran Toko</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Berapa lama tema yang terdaftar di toko akan disegarkan.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart">Mulai Otomatis</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.StoreStart.Description">Apakah tema yang diunduh dari toko akan secara otomatis diatur sebagai wallpaper.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adult">Konten Tidak Aman</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adult.Description">Apakah konten yang ditandai sebagai tidak aman (NSFW) di toko akan ditampilkan.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm">Konfirmasi Penghapusan</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Confirm.Description">Apakah perlu konfirmasi saat menghapus tema dari perpustakaan.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete">Tema Rusak</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.Description">Apakah tema yang rusak atau tidak lengkap di perpustakaan akan dihapus secara otomatis.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Delete.DeleteHint">Catatan: Harus berhati-hati. Sebaliknya, dapat menyebabkan kehilangan data.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart">Mulai Otomatis</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.LibraryStart.Description">Apakah tema yang dibuat akan secara otomatis diatur sebagai wallpaper.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview">Pratinjau Tema</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Apakah tema akan ditampilkan sebagai pratinjau saat diarahkan ke atas.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Pratinjau Toko:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Sembunyikan Rincian:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Pratinjau Perpustakaan:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Sembunyikan Rincian:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme">Penyesuaian Tema</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Sesuaikan nama atau deskripsi tema yang ditampilkan.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Panjang Judul (Karakter):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Panjang Deskripsi (Karakter):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Tata Letak Adaptif</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Sesuaikan tata letak atau jarak tema yang ditampilkan.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveMargin">Jarak Margin (Piksel):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Urutan Tata Letak (Jumlah):</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Store">Penomoran Halaman Toko</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Tentukan jumlah tema yang akan ditampilkan untuk setiap halaman di toko.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Library">Penomoran Halaman Perpustakaan</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Library.Description">Tentukan jumlah tema yang akan ditampilkan untuk setiap halaman di perpustakaan Anda.</system:String>
+</ResourceDictionary>

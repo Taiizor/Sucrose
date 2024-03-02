@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.DonateSettingPage.Title">DonateSettingPage</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu">Menu Sumbangan</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.Description">Menu sumbangan pada antara muka yang boleh dilihat.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Show">Tunjukkan</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide">Sembunyikan</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising">Sokongan Beriklan</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.Description">Bantu membangunkan aplikasi dengan menonton iklan.</system:String>
+
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingDelay">Jangka Waktu Iklan (Minit):</system:String>
+    <system:String x:Key="Portal.DonateSettingPage.Advertising.AdvertisingHint">Tip: Iklan akan ditunjukkan pada tahap gangguan minimum.</system:String>
+</ResourceDictionary>

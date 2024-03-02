@@ -1,0 +1,53 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.PerformanceSettingPage.Title">PerformanceSettingPage</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter">Pengiraan Prestasi</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Adakah semua pengiraan prestasi berfungsi di latar belakang.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Sesetengah tema jenis Web mungkin tidak berfungsi dengan baik, dan tiada pengaturan prestasi di bawah akan berfungsi.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Penggunaan CPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Apa yang akan berlaku pada dinding semasa tetapan penggunaan CPU anda.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Penggunaan CPU (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory">Penggunaan Memori</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Apa yang akan berlaku pada dinding semasa tetapan penggunaan memori anda.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">Penggunaan Memori (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network">Penggunaan Rangkaian</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Apa yang akan berlaku pada dinding semasa tetapan penggunaan rangkaian anda.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Pemalar Rangkaian:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Senarai pemalar rangkaian belum dibina</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Saiz Muat Naik:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">Saiz Muat Turun:</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">Nilai Ping (MS):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery">Kegunaan Bateri</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">Apa yang akan berlaku pada dinding semasa menggunakan bateri komputer riba.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">Status Bateri (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver">Penjimatan Bateri</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Saver.Description">Apa yang akan berlaku pada dinding semasa dalam mod penjimatan bateri komputer riba.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual">Penyambungan</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Virtual.Description">Apa yang akan berlaku pada dinding semasa aplikasi penyambungan berjalan.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote">Desktop Jarak Jauh</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Remote.Description">Apa yang akan berlaku pada dinding semasa aplikasi desktop jarak jauh berjalan.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen">Mod Pantas Layar Penuh</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Fullscreen.Description">Apa yang akan berlaku pada dinding semasa aplikasi berjalan dalam mod layar penuh.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus">Mod Fokus</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Focus.Description">Apa yang akan berlaku pada dinding semasa aplikasi lain berada dalam fokus.</system:String>
+</ResourceDictionary>
