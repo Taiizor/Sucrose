@@ -1,0 +1,114 @@
+<wnd:AppWindow
+    x:Class="Sucrose.Portal.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fauic="using:FluentAvalonia.UI.Controls"
+    xmlns:fauicp="using:FluentAvalonia.UI.Controls.Primitives"
+    xmlns:gif="clr-namespace:Avalonia.Gif;assembly=Avalonia.Gif"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Sucrose.Portal.Views"
+    xmlns:vm="using:Sucrose.Portal.ViewModels"
+    xmlns:wnd="clr-namespace:FluentAvalonia.UI.Windowing"
+    Title="Sucrose Wallpaper Engine"
+    Width="900"
+    Height="600"
+    MinWidth="900"
+    MinHeight="600"
+    d:DesignHeight="600"
+    d:DesignWidth="900"
+    x:DataType="vm:MainViewModel"
+    Background="{DynamicResource LayerOnMicaBaseAltFillColorDefaultBrush}"
+    ExtendClientAreaToDecorationsHint="True"
+    Icon="avares://Sucrose.Portal/Assets/ICO.ico"
+    TransparencyLevelHint="AcrylicBlur"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+    <Panel>
+
+        <gif:GifImage
+            Opacity="0.35"
+            SourceUriRaw="avares://Sucrose.Portal/Assets/Lively.gif"
+            Stretch="UniformToFill"
+            StretchDirection="Both" />
+
+        <Grid RowDefinitions="Auto,*">
+            <Grid
+                Name="TitleBarHost"
+                Grid.Row="0"
+                ColumnDefinitions="Auto,Auto,*,120">
+
+                <Image
+                    Grid.Column="0"
+                    Width="17"
+                    Height="17"
+                    Margin="12,4,0,0"
+                    DockPanel.Dock="Left"
+                    IsHitTestVisible="False"
+                    RenderOptions.BitmapInterpolationMode="HighQuality"
+                    Source="avares://Sucrose.Portal/Assets/ICO.ico">
+                    <Image.IsVisible>
+                        <OnPlatform Default="False">
+                            <On Content="True" Options="Windows" />
+                        </OnPlatform>
+                    </Image.IsVisible>
+                </Image>
+
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="12,4,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="12"
+                    IsHitTestVisible="False"
+                    Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                    <TextBlock.IsVisible>
+                        <OnPlatform Default="False">
+                            <On Content="True" Options="Windows" />
+                        </OnPlatform>
+                    </TextBlock.IsVisible>
+                </TextBlock>
+
+                <fauic:FontIcon
+                    Grid.Column="2"
+                    Margin="0,2,270,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="{StaticResource FluentSystemIcons}"
+                    FontSize="16"
+                    Glyph="&#xEA7C;"
+                    IsHitTestVisible="False" />
+                <TextBox
+                    Grid.Column="2"
+                    MinWidth="300"
+                    MaxWidth="300"
+                    Margin="0,1.5,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    AcceptsReturn="True"
+                    Cursor="IBeam"
+                    MaxLength="20"
+                    Text="{Binding Search}"
+                    TextAlignment="Center"
+                    TextWrapping="WrapWithOverflow"
+                    Watermark="Bir Duvar Kağıdı Ara" />
+                <Button
+                    Grid.Column="2"
+                    Margin="260,1,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
+                    Content="&#xF368;"
+                    Cursor="Hand"
+                    FontFamily="{StaticResource FluentSystemIcons}"
+                    IsVisible="{Binding Search, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+            </Grid>
+        </Grid>
+
+        <views:MainView Grid.Row="1" Margin="{OnPlatform '0, 0, 0, 0', Windows='0, 35, 0, 0'}" />
+    </Panel>
+</wnd:AppWindow>

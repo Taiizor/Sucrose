@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <LangVersion>preview</LangVersion>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <TargetFramework>net9.0</TargetFramework>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+        <AvaloniaResource Include="Fonts\*.*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentAvaloniaUI" Version="2.0.5" />
+        <PackageReference Include="Avalonia" Version="11.0.10" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
+        <PackageReference Include="HotAvalonia.Extensions" Version="1.0.1" PrivateAssets="All" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="HotAvalonia" Version="1.0.1" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Markup.Xaml.Loader" Version="11.0.10" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\Avalonia.Fonts.Jokerman\Avalonia.Fonts.Jokerman.csproj" />
+        <ProjectReference Include="..\Avalonia.Gif\Avalonia.Gif.csproj" />
+        <ProjectReference Include="..\Avalonia.Fonts.SegoeUI\Avalonia.Fonts.SegoeUI.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+<Application
+    x:Class="Sucrose.Portal.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:fas="using:FluentAvalonia.Styling"
+    xmlns:local="using:Sucrose.Portal"
+    RequestedThemeVariant="Default">
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://Sucrose.Portal/Resources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <fas:FluentAvaloniaTheme
+            PreferSystemTheme="True"
+            PreferUserAccentColor="True"
+            UseSystemFontOnWindows="False" />
+        <StyleInclude Source="avares://Sucrose.Portal/Icons.axaml" />
+    </Application.Styles>
+</Application>

@@ -1,0 +1,188 @@
+<UserControl
+    x:Class="Sucrose.Portal.Views.MainView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fauic="using:FluentAvalonia.UI.Controls"
+    xmlns:fauicp="using:FluentAvalonia.UI.Controls.Primitives"
+    xmlns:gif="clr-namespace:Avalonia.Gif;assembly=Avalonia.Gif"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Sucrose.Portal.ViewModels"
+    d:DesignHeight="600"
+    d:DesignWidth="900"
+    x:DataType="vm:MainViewModel"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <fauic:NavigationView
+            x:Name="Sex"
+            Grid.Row="0"
+            AlwaysShowHeader="True"
+            CompactModeThresholdWidth="500"
+            CompactPaneLength="50"
+            IsBackEnabled="False"
+            IsPaneOpen="False"
+            IsPaneToggleButtonVisible="False"
+            OpenPaneLength="150"
+            PaneDisplayMode="Left">
+
+            <fauic:NavigationView.PaneHeader>
+                <StackPanel Orientation="Vertical">
+                    <fauic:NavigationViewItem
+                        Cursor="Hand"
+                        IsChildSelected="True"
+                        IsSelected="True"
+                        SelectsOnInvoked="True">
+                        <fauic:NavigationViewItem.Content>
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                <fauic:FontIcon
+                                    FontFamily="{StaticResource FluentSystemIcons}"
+                                    FontSize="16"
+                                    Glyph="&#xE761;" />
+                                <TextBlock
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Text="Kütüphane" />
+                            </StackPanel>
+                        </fauic:NavigationViewItem.Content>
+                    </fauic:NavigationViewItem>
+                    <fauic:NavigationViewItem Cursor="Hand">
+                        <fauic:NavigationViewItem.Content>
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                <fauic:FontIcon
+                                    FontFamily="{StaticResource FluentSystemIcons}"
+                                    FontSize="16"
+                                    Glyph="&#xE69B;" />
+                                <TextBlock
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Text="Mağaza" />
+                            </StackPanel>
+                        </fauic:NavigationViewItem.Content>
+                    </fauic:NavigationViewItem>
+                </StackPanel>
+            </fauic:NavigationView.PaneHeader>
+
+            <!--<fauic:NavigationView.AutoCompleteBox>
+                <AutoCompleteBox />
+            </fauic:NavigationView.AutoCompleteBox>-->
+
+            <fauic:NavigationView.Content>
+                <StackPanel
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Orientation="Vertical">
+                    <fauic:FontIcon
+                        FontFamily="{StaticResource FluentSystemIcons}"
+                        FontSize="28"
+                        Glyph="&#xE69B;" />
+                    <TextBlock
+                        Margin="0,120,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="36"
+                        FontWeight="Bold"
+                        Text="Kütüphaneniz Örümcek Ağlarıyla Büyülenmiş"
+                        TextWrapping="WrapWithOverflow" />
+                    <Button Command="{Binding DarkCommand}" Content="Dark" />
+                    <Button Command="{Binding LightCommand}" Content="Light" />
+                    <Button Command="{Binding DefaultCommand}" Content="Default" />
+                </StackPanel>
+            </fauic:NavigationView.Content>
+
+            <fauic:NavigationView.PaneFooter>
+                <StackPanel Orientation="Vertical">
+                    <fauic:NavigationViewItem Cursor="Hand" IconSource="Download" />
+                    <fauic:NavigationViewItem Cursor="Hand" IconSource="Alert" />
+                </StackPanel>
+            </fauic:NavigationView.PaneFooter>
+
+        </fauic:NavigationView>
+
+        <Grid
+            Grid.Row="1"
+            Height="28"
+            VerticalAlignment="Center"
+            Background="{DynamicResource LayerOnAccentAcrylicFillColorDefaultBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <fauic:FontIcon
+                Grid.Column="0"
+                Margin="10,2,4,0"
+                FontFamily="{StaticResource FluentSystemIcons}"
+                FontSize="12"
+                Glyph="&#xF132;" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="4,0,4,0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Text="Pre-Release" />
+            <TextBlock
+                Grid.Column="2"
+                Margin="4,0,4,0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Text=".NET 9" />
+            <TextBlock
+                Grid.Column="3"
+                Margin="4,0,4,0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Text="x64" />
+            <TextBlock
+                Grid.Column="4"
+                Margin="4,0,4,0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Text="24.3.4.0" />
+            <TextBlock
+                Grid.Column="5"
+                Margin="4,0,4,0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Text="249.2 MB" />
+            <TextBlock
+                Grid.Column="6"
+                Margin="4,0,4,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                FontSize="12"
+                Text="Een goed begin is het halve werk" />
+            <TextBlock
+                Grid.Column="7"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Text="Sucrose is copyright @ 2024 Sucrose Contributors" />
+        </Grid>
+    </Grid>
+</UserControl>

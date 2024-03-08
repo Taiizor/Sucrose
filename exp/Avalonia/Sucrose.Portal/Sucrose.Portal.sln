@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34607.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Portal", "Sucrose.Portal\Sucrose.Portal.csproj", "{349D010A-6178-4152-AB66-DE0F2BDAA435}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Portal.Desktop", "Sucrose.Portal.Desktop\Sucrose.Portal.Desktop.csproj", "{A9B59A46-F951-42F0-B6DB-0109FDE8ABB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{5A5898F1-2B0B-4F18-9A39-612DB9908905}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Gif", "Avalonia.Gif\Avalonia.Gif.csproj", "{F09098C8-48E0-4D63-9456-FF28FCF8D3FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Fonts.SegoeUI", "Avalonia.Fonts.SegoeUI\Avalonia.Fonts.SegoeUI.csproj", "{C62CEFB5-91E0-4919-AB91-617AA05E4098}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.Fonts.Jokerman", "Avalonia.Fonts.Jokerman\Avalonia.Fonts.Jokerman.csproj", "{4CEE1F74-3791-4F1E-A083-F497C43B3709}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{349D010A-6178-4152-AB66-DE0F2BDAA435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349D010A-6178-4152-AB66-DE0F2BDAA435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349D010A-6178-4152-AB66-DE0F2BDAA435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349D010A-6178-4152-AB66-DE0F2BDAA435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9B59A46-F951-42F0-B6DB-0109FDE8ABB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B59A46-F951-42F0-B6DB-0109FDE8ABB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9B59A46-F951-42F0-B6DB-0109FDE8ABB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9B59A46-F951-42F0-B6DB-0109FDE8ABB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09098C8-48E0-4D63-9456-FF28FCF8D3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F09098C8-48E0-4D63-9456-FF28FCF8D3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F09098C8-48E0-4D63-9456-FF28FCF8D3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09098C8-48E0-4D63-9456-FF28FCF8D3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C62CEFB5-91E0-4919-AB91-617AA05E4098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62CEFB5-91E0-4919-AB91-617AA05E4098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62CEFB5-91E0-4919-AB91-617AA05E4098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62CEFB5-91E0-4919-AB91-617AA05E4098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CEE1F74-3791-4F1E-A083-F497C43B3709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CEE1F74-3791-4F1E-A083-F497C43B3709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CEE1F74-3791-4F1E-A083-F497C43B3709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CEE1F74-3791-4F1E-A083-F497C43B3709}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D19CE274-951B-4D8E-8B2D-D0914E1CB660}
+	EndGlobalSection
+EndGlobal

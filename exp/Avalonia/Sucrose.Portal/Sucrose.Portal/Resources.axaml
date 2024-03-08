@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="SegoeFluentIcons">Segoe Fluent Icons</FontFamily>
+    <!--<FontFamily x:Key="ContentControlThemeFontFamily">Segoe UI</FontFamily>-->
+    <!--<FontFamily x:Key="ContentControlThemeFontFamily">Jokerman</FontFamily>-->
+    <FontFamily x:Key="ContentControlThemeFontFamily">avares://Avalonia.Fonts.SegoeUI/Assets/#Segoe UI</FontFamily>
+    <!--<FontFamily x:Key="ContentControlThemeFontFamily">avares://Avalonia.Fonts.Jokerman/Assets/#Jokerman</FontFamily>-->
+
+    <FontFamily x:Key="FluentSystemIcons">/Fonts/#FluentSystemIcons-Regular</FontFamily>
+    <FontFamily x:Key="FluentSystemIconsFilled">/Fonts/#FluentSystemIcons-Filled</FontFamily>
+</ResourceDictionary>
