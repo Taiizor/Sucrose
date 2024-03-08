@@ -1,5 +1,5 @@
-﻿using SRISA = System.Runtime.InteropServices.Architecture;
-using SEOST = Skylark.Enum.OperatingSystemType;
+﻿using SEOST = Skylark.Enum.OperatingSystemType;
+using SRISA = System.Runtime.InteropServices.Architecture;
 using SWHOS = Skylark.Wing.Helper.OperatingSystem;
 
 namespace Sucrose.Shared.Core.Helper

@@ -30,9 +30,9 @@ using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SWHSI = Skylark.Wing.Helper.SystemInfo;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
-using SWHSI = Skylark.Wing.Helper.SystemInfo;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
