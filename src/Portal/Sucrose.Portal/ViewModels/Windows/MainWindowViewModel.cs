@@ -32,6 +32,7 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using WUAAT = Wpf.Ui.Appearance.ApplicationTheme;
 using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
+using SWHSI = Skylark.Wing.Helper.SystemInfo;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
@@ -117,7 +118,11 @@ namespace Sucrose.Portal.ViewModels.Windows
                 ["Version"] = Version,
                 ["Framework"] = Framework,
                 ["Architecture"] = Architecture,
-                ["OperatingSystem"] = SSCHOS.GetText()
+                ["OperatingSystem"] = SSCHOS.GetText(),
+                ["OperatingSystemBuild"] = SSCHV.GetOSText(),
+                ["ProcessArchitecture"] = SSCHOS.GetProcessArchitectureText(),
+                ["ProcessorArchitecture"] = SSCHOS.GetProcessorArchitecture(),
+                ["OperatingSystemArchitecture"] = SWHSI.GetSystemInfoArchitecture()
             };
 
             SMMI.CoreSettingManager.SetSetting(SMC.Information, Information);

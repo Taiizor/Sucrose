@@ -13,6 +13,7 @@ namespace Sucrose.Shared.Core.Helper
         public static string Get()
         {
             Process CurrentProcess = Process.GetCurrentProcess();
+
             long UsedMemory = CurrentProcess.WorkingSet64;
 
             SSSSS Data = SSESSE.AutoConvert(UsedMemory, SEST.Byte, SEMST.Palila);
