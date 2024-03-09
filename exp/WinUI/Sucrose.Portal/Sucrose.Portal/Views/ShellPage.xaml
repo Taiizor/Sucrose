@@ -23,18 +23,31 @@
             Margin="10,0,0,0"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
+            ColumnDefinitions="Auto,Auto,*,120"
             IsHitTestVisible="True">
             <Image
+                Grid.Column="0"
                 Width="16"
                 Height="16"
                 HorizontalAlignment="Left"
                 Source="ms-appx:///Assets/ICO.ico" />
             <TextBlock
                 x:Name="AppTitleBarText"
-                Margin="28,0,0,0"
+                Grid.Column="1"
+                Margin="8,0,0,0"
                 VerticalAlignment="Center"
                 Style="{StaticResource CaptionTextBlockStyle}"
                 TextWrapping="NoWrap" />
+            <AutoSuggestBox
+                Grid.Column="2"
+                MinWidth="300"
+                MaxWidth="300"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                PlaceholderText="Bir Duvar Kağıdı Ara"
+                QueryIcon="Find" />
         </Grid>
 
         <NavigationView

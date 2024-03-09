@@ -6,5 +6,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea" />
+    <StackPanel x:Name="ContentArea">
+        <ComboBox
+            x:Name="presenter"
+            Header="Presenter"
+            SelectionChanged="Presenter_SelectionChanged">
+            <ComboBoxItem>Overlapped</ComboBoxItem>
+            <ComboBoxItem>Compact</ComboBoxItem>
+            <ComboBoxItem>Fullscreen</ComboBoxItem>
+        </ComboBox>
+        <ComboBox
+            x:Name="backdropSelector"
+            Margin="0,5,0,0"
+            Header="Backdrop"
+            SelectionChanged="Backdrop_SelectionChanged">
+            <ComboBoxItem>Mica</ComboBoxItem>
+            <ComboBoxItem>Acrylic</ComboBoxItem>
+            <ComboBoxItem>Transparent</ComboBoxItem>
+            <ComboBoxItem>Animated</ComboBoxItem>
+            <ComboBoxItem>Blur</ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
 </Page>

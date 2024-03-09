@@ -6,11 +6,9 @@
     xmlns:local="using:Sucrose.Portal"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:windowex="using:WinUIEx"
-    MinWidth="500"
-    MinHeight="500"
+    Width="916"
+    Height="609"
+    MinWidth="916"
+    MinHeight="609"
     PersistenceId="MainWindow"
-    mc:Ignorable="d">
-    <Window.SystemBackdrop>
-        <MicaBackdrop />
-    </Window.SystemBackdrop>
-</windowex:WindowEx>
+    mc:Ignorable="d" />

@@ -43,6 +43,7 @@ public partial class ShellViewModel : ObservableRecipient
         }
 
         Microsoft.UI.Xaml.Controls.NavigationViewItem? selectedItem = NavigationViewService.GetSelectedItem(e.SourcePageType);
+
         if (selectedItem != null)
         {
             Selected = selectedItem;
