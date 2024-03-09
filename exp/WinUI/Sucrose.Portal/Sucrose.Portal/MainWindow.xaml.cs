@@ -1,10 +1,10 @@
-﻿using Microsoft.UI.Dispatching;
+﻿using Microsoft.UI;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Sucrose.Portal.Helpers;
 using System.Runtime.InteropServices;
 using Windows.UI.ViewManagement;
 using WinRT;
-using WinRT.Interop;
 
 namespace Sucrose.Portal;
 
@@ -52,7 +52,10 @@ public sealed partial class MainWindow : WindowEx
     private DispatcherQueue dispatcherQueue;
 
     private BackdropType m_currentBackdrop;
+    private BlurredBackdrop blurredBackdrop = new();
     private WindowsSystemDispatcherQueueHelper m_wsdqHelper;
+    private ColorAnimatedBackdrop colorRotatingBackdrop = new();
+    private TransparentTintBackdrop transparentTintBackdrop = new();
     private Microsoft.UI.Composition.SystemBackdrops.MicaController m_micaController;
     private Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController m_acrylicController;
     private Microsoft.UI.Composition.SystemBackdrops.SystemBackdropConfiguration m_configurationSource;
@@ -96,7 +99,10 @@ public sealed partial class MainWindow : WindowEx
     {
         None,
         Mica,
+        Blur,
         MicaAlt,
+        Animated,
+        Transparent,
         DesktopAcrylic,
         DesktopAcrylicBase,
         DesktopAcrylicThin
@@ -128,6 +134,11 @@ public sealed partial class MainWindow : WindowEx
                 type = BackdropType.DesktopAcrylic;
             }
         }
+        if (type == BackdropType.Blur)
+        {
+            m_currentBackdrop = type;
+            SystemBackdrop = blurredBackdrop;
+        }
         if (type == BackdropType.MicaAlt)
         {
             if (TrySetMicaBackdrop1(true))
@@ -139,6 +150,16 @@ public sealed partial class MainWindow : WindowEx
                 // MicaAlt isn't supported. Try Acrylic.
                 type = BackdropType.DesktopAcrylic;
             }
+        }
+        if (type == BackdropType.Animated)
+        {
+            m_currentBackdrop = type;
+            SystemBackdrop = colorRotatingBackdrop;
+        }
+        if (type == BackdropType.Transparent)
+        {
+            m_currentBackdrop = type;
+            SystemBackdrop = transparentTintBackdrop;
         }
         if (type == BackdropType.DesktopAcrylicBase)
         {
@@ -175,11 +196,11 @@ public sealed partial class MainWindow : WindowEx
         }
     }
 
-    bool TrySetMicaBackdrop1(bool useMicaAlt)
+    private bool TrySetMicaBackdrop1(bool useMicaAlt)
     {
         if (Microsoft.UI.Composition.SystemBackdrops.MicaController.IsSupported())
         {
-            Microsoft.UI.Xaml.Media.MicaBackdrop micaBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop();
+            Microsoft.UI.Xaml.Media.MicaBackdrop micaBackdrop = new();
             micaBackdrop.Kind = useMicaAlt ? Microsoft.UI.Composition.SystemBackdrops.MicaKind.BaseAlt : Microsoft.UI.Composition.SystemBackdrops.MicaKind.Base;
             this.SystemBackdrop = micaBackdrop;
             return true;
@@ -188,7 +209,7 @@ public sealed partial class MainWindow : WindowEx
         return false; // Mica is not supported on this system
     }
 
-    bool TrySetAcrylicBackdrop()
+    private bool TrySetAcrylicBackdrop()
     {
         if (Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController.IsSupported())
         {
@@ -199,7 +220,7 @@ public sealed partial class MainWindow : WindowEx
         return false; // Acrylic is not supported on this system
     }
 
-    bool TrySetMicaBackdrop(bool useMicaAlt)
+    private bool TrySetMicaBackdrop(bool useMicaAlt)
     {
         if (Microsoft.UI.Composition.SystemBackdrops.MicaController.IsSupported())
         {
@@ -222,13 +243,14 @@ public sealed partial class MainWindow : WindowEx
             // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
             m_micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
             m_micaController.SetSystemBackdropConfiguration(m_configurationSource);
+
             return true; // Succeeded.
         }
 
         return false; // Mica is not supported on this system.
     }
 
-    bool TrySetAcrylicBackdrop(bool useAcrylicThin)
+    private bool TrySetAcrylicBackdrop(bool useAcrylicThin)
     {
         if (Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController.IsSupported())
         {
@@ -251,7 +273,7 @@ public sealed partial class MainWindow : WindowEx
             // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
             m_acrylicController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
             m_acrylicController.SetSystemBackdropConfiguration(m_configurationSource);
-            
+
             return true; // Succeeded.
         }
 
@@ -291,11 +313,44 @@ public sealed partial class MainWindow : WindowEx
 
     private void SetConfigurationSourceTheme()
     {
-        //switch (((FrameworkElement)this.Content).ActualTheme)
-        //{
-        //    case ElementTheme.Dark: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Dark; break;
-        //    case ElementTheme.Light: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Light; break;
-        //    case ElementTheme.Default: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Default; break;
-        //}
+        switch (((FrameworkElement)this.Content).ActualTheme)
+        {
+            case ElementTheme.Dark: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Dark; break;
+            case ElementTheme.Light: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Light; break;
+            case ElementTheme.Default: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Default; break;
+        }
+    }
+
+    private class ColorAnimatedBackdrop : CompositionBrushBackdrop
+    {
+        protected override Windows.UI.Composition.CompositionBrush CreateBrush(Windows.UI.Composition.Compositor compositor)
+        {
+            Windows.UI.Composition.CompositionColorBrush brush = compositor.CreateColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0));
+            Windows.UI.Composition.ColorKeyFrameAnimation animation = compositor.CreateColorKeyFrameAnimation();
+            Windows.UI.Composition.LinearEasingFunction easing = compositor.CreateLinearEasingFunction();
+
+            animation.InsertKeyFrame(0, Colors.Red, easing);
+            animation.InsertKeyFrame(.333f, Colors.Green, easing);
+            animation.InsertKeyFrame(.667f, Colors.Blue, easing);
+            animation.InsertKeyFrame(1, Colors.Red, easing);
+
+            animation.InterpolationColorSpace = Windows.UI.Composition.CompositionColorSpace.Hsl;
+
+            animation.Duration = TimeSpan.FromSeconds(15);
+
+            animation.IterationBehavior = Windows.UI.Composition.AnimationIterationBehavior.Forever;
+
+            brush.StartAnimation("Color", animation);
+
+            return brush;
+        }
+    }
+
+    private class BlurredBackdrop : CompositionBrushBackdrop
+    {
+        protected override Windows.UI.Composition.CompositionBrush CreateBrush(Windows.UI.Composition.Compositor compositor)
+        {
+            return compositor.CreateHostBackdropBrush();
+        }
     }
 }

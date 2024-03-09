@@ -26,8 +26,7 @@ public partial class App : Application
         get;
     }
 
-    public static T GetService<T>()
-        where T : class
+    public static T GetService<T>() where T : class
     {
         if ((App.Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
         {

@@ -1,23 +1,60 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
+        <Title>Sucrose Wallpaper Engine</Title>
         <TargetFramework>net8.0-windows10.0.18362.0</TargetFramework>
         <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
-        <RootNamespace>Sucrose.Portal</RootNamespace>
+        <AssemblyName>Sucrose.Portal</AssemblyName>
+        <RootNamespace>$(AssemblyName)</RootNamespace>
         <ApplicationIcon>Assets/ICO.ico</ApplicationIcon>
-        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+        <StartupObject>Sucrose.Portal.Program</StartupObject>
         <Platforms>x86;x64;arm64</Platforms>
         <!-- Crash with portable(?) otherwise RIDs, ref: https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/8.0/rid-graph-->
         <UseRidGraph>true</UseRidGraph>
         <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
         <PublishProfile>Properties\PublishProfiles\win-$(Platform).pubxml</PublishProfile>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
+        <Company>Taiizor</Company>
+        <DefineConstants>$(DefineConstants);PORTAL</DefineConstants>
         <UseWinUI>true</UseWinUI>
+        <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <EnableMsixTooling>true</EnableMsixTooling>
         <DefaultLanguage>en-GB</DefaultLanguage>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <Description>$(Title)</Description>
+        <Product>$(Title)</Product>
+        <InformationalVersion>$(Version)</InformationalVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+        <RetainVMGarbageCollection>true</RetainVMGarbageCollection>
+        <ThreadPoolMinThreads>1</ThreadPoolMinThreads>
+        <ThreadPoolMaxThreads>100</ThreadPoolMaxThreads>
+        <!-- Supported as of .NET Core SDK 3.0 Preview 1 -->
+        <TieredCompilation>true</TieredCompilation>
+        <InvariantGlobalization>false</InvariantGlobalization>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'x86'">
+        <DefineConstants>$(DefineConstants);X86</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'x64'">
+        <DefineConstants>$(DefineConstants);X64</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'arm64'">
+        <DefineConstants>$(DefineConstants);ARM64</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(IsMsixRelease)' != 'true'">
@@ -49,14 +86,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Windows.CppWinRT" Version="2.0.240111.5" />
-        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.0.7" />
         <PackageReference Include="WinUIEx" Version="2.3.4" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-preview.3.24159.1" />
         <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240227000" />
         <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-preview.3.24159.4" />
     </ItemGroup>
 
     <ItemGroup>
