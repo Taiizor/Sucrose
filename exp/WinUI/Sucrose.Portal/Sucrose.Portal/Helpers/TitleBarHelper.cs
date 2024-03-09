@@ -1,8 +1,6 @@
-﻿using System.Runtime.InteropServices;
-
-using Microsoft.UI;
+﻿using Microsoft.UI;
 using Microsoft.UI.Xaml;
-
+using System.Runtime.InteropServices;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 
@@ -29,8 +27,8 @@ internal class TitleBarHelper
         {
             if (theme == ElementTheme.Default)
             {
-                var uiSettings = new UISettings();
-                var background = uiSettings.GetColorValue(UIColorType.Background);
+                UISettings uiSettings = new();
+                Color background = uiSettings.GetColorValue(UIColorType.Background);
 
                 theme = background == Colors.White ? ElementTheme.Light : ElementTheme.Dark;
             }
@@ -70,7 +68,7 @@ internal class TitleBarHelper
 
             App.MainWindow.AppWindow.TitleBar.BackgroundColor = Colors.Transparent;
 
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
+            nint hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
             if (hwnd == GetActiveWindow())
             {
                 SendMessage(hwnd, WMACTIVATE, WAINACTIVE, IntPtr.Zero);
@@ -86,7 +84,7 @@ internal class TitleBarHelper
 
     public static void ApplySystemThemeToCaptionButtons()
     {
-        var frame = App.AppTitlebar as FrameworkElement;
+        FrameworkElement? frame = App.AppTitlebar as FrameworkElement;
         if (frame != null)
         {
             UpdateTitleBar(frame.ActualTheme);

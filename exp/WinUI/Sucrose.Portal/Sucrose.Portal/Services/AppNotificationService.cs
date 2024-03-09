@@ -1,9 +1,7 @@
-﻿using System.Collections.Specialized;
-using System.Web;
-
-using Microsoft.Windows.AppNotifications;
-
+﻿using Microsoft.Windows.AppNotifications;
 using Sucrose.Portal.Contracts.Services;
+using System.Collections.Specialized;
+using System.Web;
 
 namespace Sucrose.Portal.Notifications;
 
@@ -51,14 +49,20 @@ public class AppNotificationService : IAppNotificationService
 
     public bool Show(string payload)
     {
-        var appNotification = new AppNotification(payload);
+        AppNotification appNotification = new(payload);
 
         AppNotificationManager.Default.Show(appNotification);
 
         return appNotification.Id != 0;
     }
 
-    public NameValueCollection ParseArguments(string arguments) => HttpUtility.ParseQueryString(arguments);
+    public NameValueCollection ParseArguments(string arguments)
+    {
+        return HttpUtility.ParseQueryString(arguments);
+    }
 
-    public void Unregister() => AppNotificationManager.Default.Unregister();
+    public void Unregister()
+    {
+        AppNotificationManager.Default.Unregister();
+    }
 }

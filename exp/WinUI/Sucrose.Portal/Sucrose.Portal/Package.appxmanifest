@@ -15,15 +15,17 @@
     Publisher="CN=Taiizor"
     Version="1.0.0.0" />
     
-  <mp:PhoneIdentity PhoneProductId="c7025936-6b99-46ae-9eba-d5183763ec59" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="c7025936-6b99-46ae-9eba-d5183763ec59" PhonePublisherId="35d623ac-ca3f-4961-b357-4907d492d2d2"/>
     
   <Properties>
-    <DisplayName>Sucrose.Portal</DisplayName>
+    <DisplayName>Sucrose Wallpaper Engine</DisplayName>
     <PublisherDisplayName>Taiizor</PublisherDisplayName>
     <Logo>Assets\App\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
+    <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
     <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
   </Dependencies>

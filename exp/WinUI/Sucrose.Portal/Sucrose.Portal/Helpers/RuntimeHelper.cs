@@ -12,7 +12,7 @@ public class RuntimeHelper
     {
         get
         {
-            var length = 0;
+            int length = 0;
 
             return GetCurrentPackageFullName(ref length, null) != 15700L;
         }

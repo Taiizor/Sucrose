@@ -43,7 +43,10 @@ public sealed partial class ShellPage : Page
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.GoBack));
     }
 
-    private void MainWindow_Activated(object sender, WindowActivatedEventArgs args) => App.AppTitlebar = AppTitleBarText as UIElement;
+    private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
+    {
+        App.AppTitlebar = AppTitleBarText as UIElement;
+    }
 
     private void NavigationViewControl_DisplayModeChanged(NavigationView sender, NavigationViewDisplayModeChangedEventArgs args)
     {
@@ -58,7 +61,7 @@ public sealed partial class ShellPage : Page
 
     private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key, VirtualKeyModifiers? modifiers = null)
     {
-        var keyboardAccelerator = new KeyboardAccelerator() { Key = key };
+        KeyboardAccelerator keyboardAccelerator = new() { Key = key };
 
         if (modifiers.HasValue)
         {
@@ -72,9 +75,9 @@ public sealed partial class ShellPage : Page
 
     private static void OnKeyboardAcceleratorInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
     {
-        var navigationService = App.GetService<INavigationService>();
+        INavigationService navigationService = App.GetService<INavigationService>();
 
-        var result = navigationService.GoBack();
+        bool result = navigationService.GoBack();
 
         args.Handled = result;
     }

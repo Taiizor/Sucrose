@@ -1,11 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using Microsoft.UI.Xaml.Controls;
+﻿using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
-
 using Sucrose.Portal.Contracts.Services;
 using Sucrose.Portal.Contracts.ViewModels;
 using Sucrose.Portal.Helpers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Sucrose.Portal.Services;
 
@@ -68,7 +66,7 @@ public class NavigationService : INavigationService
     {
         if (CanGoBack)
         {
-            var vmBeforeNavigation = _frame.GetPageViewModel();
+            object? vmBeforeNavigation = _frame.GetPageViewModel();
             _frame.GoBack();
             if (vmBeforeNavigation is INavigationAware navigationAware)
             {
@@ -83,13 +81,13 @@ public class NavigationService : INavigationService
 
     public bool NavigateTo(string pageKey, object? parameter = null, bool clearNavigation = false)
     {
-        var pageType = _pageService.GetPageType(pageKey);
+        Type pageType = _pageService.GetPageType(pageKey);
 
         if (_frame != null && (_frame.Content?.GetType() != pageType || (parameter != null && !parameter.Equals(_lastParameterUsed))))
         {
             _frame.Tag = clearNavigation;
-            var vmBeforeNavigation = _frame.GetPageViewModel();
-            var navigated = _frame.Navigate(pageType, parameter);
+            object? vmBeforeNavigation = _frame.GetPageViewModel();
+            bool navigated = _frame.Navigate(pageType, parameter);
             if (navigated)
             {
                 _lastParameterUsed = parameter;
@@ -109,7 +107,7 @@ public class NavigationService : INavigationService
     {
         if (sender is Frame frame)
         {
-            var clearNavigation = (bool)frame.Tag;
+            bool clearNavigation = (bool)frame.Tag;
             if (clearNavigation)
             {
                 frame.BackStack.Clear();

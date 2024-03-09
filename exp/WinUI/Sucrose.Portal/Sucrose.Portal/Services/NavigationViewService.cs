@@ -1,10 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using Microsoft.UI.Xaml.Controls;
-
+﻿using Microsoft.UI.Xaml.Controls;
 using Sucrose.Portal.Contracts.Services;
 using Sucrose.Portal.Helpers;
 using Sucrose.Portal.ViewModels;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Sucrose.Portal.Services;
 
@@ -53,7 +51,10 @@ public class NavigationViewService : INavigationViewService
         return null;
     }
 
-    private void OnBackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) => _navigationService.GoBack();
+    private void OnBackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+    {
+        _navigationService.GoBack();
+    }
 
     private void OnItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
     {
@@ -63,7 +64,7 @@ public class NavigationViewService : INavigationViewService
         }
         else
         {
-            var selectedItem = args.InvokedItemContainer as NavigationViewItem;
+            NavigationViewItem? selectedItem = args.InvokedItemContainer as NavigationViewItem;
 
             if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
             {
@@ -74,14 +75,14 @@ public class NavigationViewService : INavigationViewService
 
     private NavigationViewItem? GetSelectedItem(IEnumerable<object> menuItems, Type pageType)
     {
-        foreach (var item in menuItems.OfType<NavigationViewItem>())
+        foreach (NavigationViewItem item in menuItems.OfType<NavigationViewItem>())
         {
             if (IsMenuItemForPageType(item, pageType))
             {
                 return item;
             }
 
-            var selectedChild = GetSelectedItem(item.MenuItems, pageType);
+            NavigationViewItem? selectedChild = GetSelectedItem(item.MenuItems, pageType);
             if (selectedChild != null)
             {
                 return selectedChild;
