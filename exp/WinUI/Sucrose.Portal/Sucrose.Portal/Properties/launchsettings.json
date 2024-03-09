@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "Sucrose.Portal (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "Sucrose.Portal (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}

@@ -7,23 +7,23 @@
   <span>
     <b>Sucrose</b> is a versatile wallpaper engine that brings a wide range of interactive themes to life on your desktop. With light and dark theme options, you can choose the appearance that suits your personal preferences. You can create your own wallpapers simply or in detail, and it supports multiple screens and all screen resolutions for a seamless experience across various display configurations.
   </span>
-  </br>
-  </br>
+  <br>
+  <br>
   <span>
     Completely open-source and free, <b>Sucrose</b> doesn't require any payments for any features, granting users full access. You can create media-responsive wallpapers using the <b>Sucrose Audio API</b> and design wallpapers with system status indicators using the <b>Sucrose System API</b>. Additionally, you can use any website as a wallpaper using <b>CefSharp</b> and <b>WebView</b>.
   </span>
-  </br>
-  </br>
+  <br>
+  <br>
   <span>
     <b>Sucrose</b> allows you to create your own custom themes and share them with friends or the <b>Sucrose Community</b>. You can explore and download themes offered by users directly from the <b>Sucrose Store</b>.
   </span>
-  </br>
-  </br>
+  <br>
+  <br>
   <span>
     In terms of performance, it ensures smooth performance by optimizing CPU and GPU usage. It automatically pauses wallpapers when fullscreen applications/games are running to conserve resources, and it has a power-saving mode that pauses wallpapers when running on battery power, such as on laptops.
   </span>
-  </br>
-  </br>
+  <br>
+  <br>
   <span>
     <b>Sucrose</b> is a powerful tool for personalizing and animating your desktop. It enables users to express their creativity and fully customize their desktop experiences.
   </span>

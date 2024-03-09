@@ -1,0 +1,98 @@
+# This workflow will build, sign, and package a WinUI 3 MSIX desktop application
+# built on .NET.
+
+name: WinUI 3 MSIX app
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Release]
+        platform: [x64, x86, arm64]
+
+    runs-on: windows-latest
+
+    permissions: write-all
+
+    env:
+      Solution_Name: Rhythm.sln
+      Project_Name: Rhythm
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # Install the .NET Core workload
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 8.0.x
+
+      # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      # Inject the database connection string into the application
+      - name: Inject Database Connection String
+        shell: pwsh
+        run: |
+          Get-ChildItem ".\${{ env.Project_Name }}" -Include *.cs -recurse | ForEach-Object -Process `
+          { `
+              (Get-Content $_ -Raw | ForEach-Object -Process { $_ -replace "ORACLE_CONNECTION_STRING", "$env:ORACLE_CONNECTION_STRING" }) | `
+              Set-Content $_ -NoNewline `
+          }
+        env:
+          ORACLE_CONNECTION_STRING: ${{ secrets.ORACLE_CONNECTION_STRING }}
+
+      # Restore the application to populate the obj folder with RuntimeIdentifiers
+      - name: Restore the application
+        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+
+      # Decode the base 64 encoded pfx and save the Signing_Certificate
+      - name: Decode the pfx
+        run: |
+          $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.BASE64_ENCODED_PFX }}")
+          $certificatePath = "${{ env.Project_Name }}\GitHubActionsWorkflow.pfx"
+          [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
+
+      # Create the app package by building and packaging the project
+      - name: Create the app package
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=$env:Platform /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx /p:AppxPackageDir="$env:Appx_Package_Dir" /p:GenerateAppxPackageOnBuild=true
+        env:
+          Appx_Bundle: Never
+          Appx_Package_Build_Mode: SideloadOnly
+          Appx_Package_Dir: Packages\
+          Configuration: ${{ matrix.configuration }}
+          Platform: ${{ matrix.platform }}
+
+      # Remove the pfx
+      - name: Remove the pfx
+        run: Remove-Item -path ${{ env.Project_Name }}/GitHubActionsWorkflow.pfx
+
+      # Zip the MSIX package as Packages-<architecture>.zip
+      - name: Zip the MSIX package
+        run: Compress-Archive -Path ${{ env.Project_Name }}/Packages -DestinationPath ${{ env.Project_Name }}/Packages-${{ matrix.platform }}.zip
+
+      # Create a release
+      - name: Create GitHub Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: |
+            This is a release for the WinUI 3 MSIX app. Download the MSIX package from the artifacts.
+          replacesArtifacts: false
+          artifacts: |
+            ${{ env.Project_Name }}/Packages-${{ matrix.platform }}.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true

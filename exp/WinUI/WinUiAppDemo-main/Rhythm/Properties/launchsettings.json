@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "Rhythm (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Rhythm (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
