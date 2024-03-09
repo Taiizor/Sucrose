@@ -3,6 +3,8 @@ using Microsoft.UI.Xaml;
 using Sucrose.Portal.Helpers;
 using System.Runtime.InteropServices;
 using Windows.UI.ViewManagement;
+using WinRT;
+using WinRT.Interop;
 
 namespace Sucrose.Portal;
 
@@ -79,7 +81,7 @@ public sealed partial class MainWindow : WindowEx
         m_wsdqHelper = new WindowsSystemDispatcherQueueHelper();
         m_wsdqHelper.EnsureWindowsSystemDispatcherQueueController();
 
-        SetBackdrop(BackdropType.DesktopAcrylicBase);
+        //SetBackdrop(BackdropType.DesktopAcrylicThin);
     }
 
     // this handles updating the caption button colors correctly when indows system theme is changed
@@ -92,12 +94,12 @@ public sealed partial class MainWindow : WindowEx
 
     public enum BackdropType
     {
+        None,
         Mica,
         MicaAlt,
         DesktopAcrylic,
         DesktopAcrylicBase,
-        DesktopAcrylicThin,
-        DefaultColor,
+        DesktopAcrylicThin
     }
 
     public void SetBackdrop(BackdropType type)
@@ -110,7 +112,7 @@ public sealed partial class MainWindow : WindowEx
         //       call RemoveSystemBackdropTarget() on the old controller and then setup the new
         //       controller, reusing any existing m_configurationSource and Activated/Closed
         //       event handlers.
-        m_currentBackdrop = BackdropType.DefaultColor;
+        m_currentBackdrop = BackdropType.None;
 
         this.SystemBackdrop = null;
 
@@ -205,6 +207,7 @@ public sealed partial class MainWindow : WindowEx
             m_configurationSource = new Microsoft.UI.Composition.SystemBackdrops.SystemBackdropConfiguration();
             this.Activated += Window_Activated;
             this.Closed += Window_Closed;
+
             ((FrameworkElement)this.Content).ActualThemeChanged += Window_ThemeChanged;
 
             // Initial configuration state.
@@ -217,7 +220,7 @@ public sealed partial class MainWindow : WindowEx
 
             // Enable the system backdrop.
             // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
-            m_micaController.AddSystemBackdropTarget(As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
+            m_micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
             m_micaController.SetSystemBackdropConfiguration(m_configurationSource);
             return true; // Succeeded.
         }
@@ -246,7 +249,7 @@ public sealed partial class MainWindow : WindowEx
 
             // Enable the system backdrop.
             // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
-            m_acrylicController.AddSystemBackdropTarget(As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
+            m_acrylicController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
             m_acrylicController.SetSystemBackdropConfiguration(m_configurationSource);
             
             return true; // Succeeded.
@@ -288,29 +291,11 @@ public sealed partial class MainWindow : WindowEx
 
     private void SetConfigurationSourceTheme()
     {
-        switch (((FrameworkElement)this.Content).ActualTheme)
-        {
-            case ElementTheme.Dark: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Dark; break;
-            case ElementTheme.Light: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Light; break;
-            case ElementTheme.Default: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Default; break;
-        }
-    }
-
-    void ChangeBackdropButton_Click(object sender, RoutedEventArgs e)
-    {
-        BackdropType newType;
-
-        switch (m_currentBackdrop)
-        {
-            case BackdropType.Mica: newType = BackdropType.MicaAlt; break;
-            case BackdropType.MicaAlt: newType = BackdropType.DesktopAcrylic; break;
-            case BackdropType.DesktopAcrylic: newType = BackdropType.DefaultColor; break;
-            case BackdropType.DesktopAcrylicBase: newType = BackdropType.DesktopAcrylicThin; break;
-            case BackdropType.DesktopAcrylicThin: newType = BackdropType.DefaultColor; break;
-            default:
-            case BackdropType.DefaultColor: newType = BackdropType.Mica; break;
-        }
-
-        SetBackdrop(newType);
+        //switch (((FrameworkElement)this.Content).ActualTheme)
+        //{
+        //    case ElementTheme.Dark: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Dark; break;
+        //    case ElementTheme.Light: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Light; break;
+        //    case ElementTheme.Default: m_configurationSource.Theme = Microsoft.UI.Composition.SystemBackdrops.SystemBackdropTheme.Default; break;
+        //}
     }
 }

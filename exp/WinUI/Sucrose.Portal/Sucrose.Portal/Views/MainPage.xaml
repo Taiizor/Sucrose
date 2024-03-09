@@ -26,5 +26,17 @@
             <ComboBoxItem>Animated</ComboBoxItem>
             <ComboBoxItem>Blur</ComboBoxItem>
         </ComboBox>
+        <ComboBox
+            x:Name="backdropSelector2"
+            Margin="0,5,0,0"
+            Header="Backdrop2"
+            SelectionChanged="Backdrop2_SelectionChanged">
+            <ComboBoxItem>None</ComboBoxItem>
+            <ComboBoxItem>Mica</ComboBoxItem>
+            <ComboBoxItem>MicaAlt</ComboBoxItem>
+            <ComboBoxItem>DesktopAcrylic</ComboBoxItem>
+            <ComboBoxItem>DesktopAcrylicBase</ComboBoxItem>
+            <ComboBoxItem>DesktopAcrylicThin</ComboBoxItem>
+        </ComboBox>
     </StackPanel>
 </Page>

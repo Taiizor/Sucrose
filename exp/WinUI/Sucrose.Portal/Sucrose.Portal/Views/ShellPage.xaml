@@ -109,7 +109,7 @@
             Grid.Row="2"
             Height="28"
             VerticalAlignment="Center"
-            Background="{ThemeResource AcrylicInAppFillColorDefaultBrush}">
+            Background="{ThemeResource LayerOnAcrylicFillColorDefaultBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />

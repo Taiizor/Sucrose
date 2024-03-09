@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Sucrose.Portal.ViewModels;
+using static Sucrose.Portal.MainWindow;
 
 namespace Sucrose.Portal.Views;
 
@@ -26,7 +27,7 @@ public sealed partial class MainPage : Page
 
         InitializeComponent();
 
-        isInitialized = true;
+        backdropSelector2.SelectedIndex = 0;
 
         backdropSelector.SelectedIndex = MainWindow.SystemBackdrop switch
         {
@@ -44,6 +45,8 @@ public sealed partial class MainPage : Page
             Microsoft.UI.Windowing.AppWindowPresenterKind.FullScreen => 2,
             _ => 0
         };
+
+        isInitialized = true;
     }
 
     public WindowEx MainWindow => App.MainWindow;
@@ -86,6 +89,38 @@ public sealed partial class MainPage : Page
             4 => blurredBackdrop,
             _ => micaBackdrop,
         };
+    }
+
+    private void Backdrop2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!isInitialized)
+        {
+            return;
+        }
+
+        switch ((BackdropType)((ComboBox)sender).SelectedIndex)
+        {
+            case BackdropType.None:
+                (MainWindow as MainWindow).SetBackdrop(BackdropType.None);
+                break;
+            case BackdropType.Mica:
+                (MainWindow as MainWindow).SetBackdrop(BackdropType.Mica);
+                break;
+            case BackdropType.MicaAlt:
+                (MainWindow as MainWindow).SetBackdrop(BackdropType.MicaAlt);
+                break;
+            case BackdropType.DesktopAcrylic:
+                (MainWindow as MainWindow).SetBackdrop(BackdropType.DesktopAcrylic);
+                break;
+            case BackdropType.DesktopAcrylicBase:
+                (MainWindow as MainWindow).SetBackdrop(BackdropType.DesktopAcrylicBase);
+                break;
+            case BackdropType.DesktopAcrylicThin:
+                (MainWindow as MainWindow).SetBackdrop(BackdropType.DesktopAcrylicThin);
+                break;
+            default:
+                break;
+        }
     }
 
     private class ColorAnimatedBackdrop : CompositionBrushBackdrop
