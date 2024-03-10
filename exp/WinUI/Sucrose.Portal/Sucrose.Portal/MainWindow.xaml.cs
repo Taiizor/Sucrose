@@ -327,6 +327,33 @@ public sealed partial class MainWindow : WindowEx
 
     private class ColorAnimatedBackdrop : CompositionBrushBackdrop
     {
+        private Windows.UI.Color[] _colors = { Colors.Transparent, Colors.Red, Colors.Green, Colors.Blue };
+
+        protected override Windows.UI.Composition.CompositionBrush CreateBrush(Windows.UI.Composition.Compositor compositor)
+        {
+            Windows.UI.Composition.CompositionColorBrush brush = compositor.CreateColorBrush(_colors[0]);
+            Windows.UI.Composition.ColorKeyFrameAnimation animation = compositor.CreateColorKeyFrameAnimation();
+            Windows.UI.Composition.LinearEasingFunction easing = compositor.CreateLinearEasingFunction();
+
+            for (int i = 0; i < _colors.Length; i++)
+            {
+                animation.InsertKeyFrame((float)i / (_colors.Length - 1), _colors[i], easing);
+            }
+
+            animation.InterpolationColorSpace = Windows.UI.Composition.CompositionColorSpace.Hsl;
+
+            animation.Duration = TimeSpan.FromMinutes(1);
+
+            animation.IterationBehavior = Windows.UI.Composition.AnimationIterationBehavior.Forever;
+
+            brush.StartAnimation("Color", animation);
+
+            return brush;
+        }
+    }
+
+    private class ColorAnimatedBackdrop2 : CompositionBrushBackdrop
+    {
         protected override Windows.UI.Composition.CompositionBrush CreateBrush(Windows.UI.Composition.Compositor compositor)
         {
             Windows.UI.Composition.CompositionColorBrush brush = compositor.CreateColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0));

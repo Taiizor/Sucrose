@@ -26,13 +26,13 @@
                 Grid.Column="0"
                 Width="16"
                 Height="16"
-                Margin="10,0,4,0"
+                Margin="10,0,0,0"
                 HorizontalAlignment="Left"
                 Source="ms-appx:///Assets/ICO.ico" />
             <TextBlock
                 x:Name="AppTitleBarText"
                 Grid.Column="1"
-                Margin="0,0,0,0"
+                Margin="4,0,0,0"
                 VerticalAlignment="Center"
                 Style="{StaticResource CaptionTextBlockStyle}"
                 TextWrapping="NoWrap" />
@@ -40,7 +40,7 @@
                 x:Name="TitleBarSearchBox"
                 Grid.Column="2"
                 MinWidth="300"
-                MaxWidth="300"
+                MaxWidth="500"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 HorizontalContentAlignment="Center"
@@ -131,6 +131,7 @@
                 FontSize="12"
                 Text="249.2 MB" />
             <TextBlock
+                x:Name="Quotes"
                 Grid.Column="6"
                 Margin="4,0,4,0"
                 HorizontalAlignment="Center"
@@ -138,6 +139,7 @@
                 FontSize="12"
                 PointerEntered="Quotes_PointerEntered"
                 PointerExited="Quotes_PointerExited"
+                Tapped="Quotes_Tapped"
                 Text="Een goed begin is het halve werk" />
             <TextBlock
                 Grid.Column="7"
