@@ -97,7 +97,6 @@ public sealed partial class MainWindow : WindowEx
 
     public enum BackdropType
     {
-        None,
         Mica,
         Blur,
         MicaAlt,
@@ -118,20 +117,20 @@ public sealed partial class MainWindow : WindowEx
         //       call RemoveSystemBackdropTarget() on the old controller and then setup the new
         //       controller, reusing any existing m_configurationSource and Activated/Closed
         //       event handlers.
-        m_currentBackdrop = BackdropType.None;
+        m_currentBackdrop = BackdropType.Mica;
 
-        this.SystemBackdrop = null;
+        SystemBackdrop = null;
 
         if (type == BackdropType.Mica)
         {
-            if (TrySetMicaBackdrop1(false))
+            if (TrySetMicaBackdrop(false))
             {
                 m_currentBackdrop = type;
             }
             else
             {
                 // Mica isn't supported. Try Acrylic.
-                type = BackdropType.DesktopAcrylic;
+                //type = BackdropType.DesktopAcrylic;
             }
         }
         if (type == BackdropType.Blur)
@@ -141,14 +140,14 @@ public sealed partial class MainWindow : WindowEx
         }
         if (type == BackdropType.MicaAlt)
         {
-            if (TrySetMicaBackdrop1(true))
+            if (TrySetMicaBackdrop(true))
             {
                 m_currentBackdrop = type;
             }
             else
             {
                 // MicaAlt isn't supported. Try Acrylic.
-                type = BackdropType.DesktopAcrylic;
+                //type = BackdropType.DesktopAcrylic;
             }
         }
         if (type == BackdropType.Animated)
@@ -201,8 +200,11 @@ public sealed partial class MainWindow : WindowEx
         if (Microsoft.UI.Composition.SystemBackdrops.MicaController.IsSupported())
         {
             Microsoft.UI.Xaml.Media.MicaBackdrop micaBackdrop = new();
+
             micaBackdrop.Kind = useMicaAlt ? Microsoft.UI.Composition.SystemBackdrops.MicaKind.BaseAlt : Microsoft.UI.Composition.SystemBackdrops.MicaKind.Base;
+
             this.SystemBackdrop = micaBackdrop;
+
             return true;
         }
 
@@ -294,11 +296,13 @@ public sealed partial class MainWindow : WindowEx
             m_micaController.Dispose();
             m_micaController = null;
         }
+
         if (m_acrylicController != null)
         {
             m_acrylicController.Dispose();
             m_acrylicController = null;
         }
+
         this.Activated -= Window_Activated;
         m_configurationSource = null;
     }

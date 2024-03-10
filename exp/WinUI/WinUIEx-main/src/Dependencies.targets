@@ -1,0 +1,8 @@
+<Project>
+
+  <PropertyGroup>
+    <WinAppSDKVersion>1.4.230822000</WinAppSDKVersion>
+    <WinAppSDKToolsVersion>10.0.22621.1</WinAppSDKToolsVersion>
+  </PropertyGroup>
+
+</Project>

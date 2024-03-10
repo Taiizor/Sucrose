@@ -1,0 +1,89 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ 
+            "WinUIEx/WinUIEx.csproj",
+          ],
+          "src" : "../src/"
+        },
+      ],
+      "dest": "obj/api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    },
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [ "**/*.yml" ],
+        "src": "obj/api",
+        "dest": "api"
+      },
+      {
+        "files": [
+          "concepts/**/*.md",
+          "concepts/**/*.yml",
+          "rules/**/*.md",
+          "rules/**/*.yml",
+          "api/**/*.md",
+          "*.md",
+          "toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          "favicon.ico"
+        ]
+      },
+           {
+        "files": [
+           "api/omd.html"
+        ],
+        "src" : "../artifacts/docs"
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "api_overwrites/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      },
+      {
+        "files": [
+          "*.md"
+        ],
+        "src" : "../artifacts/docs/api_overwrites"
+      }
+    ],
+    "globalMetadata": {
+      "_appLogoPath": "images/logo.png",
+      "_gitContribute": {
+        "branch": "main",
+        "apiSpecFolder": "docs/api_overwrites"
+      }
+    },
+    "dest": "../artifacts/docs_site",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "memberpage.2.58.0/content",
+      "template_overrides"
+    ],
+    "postProcessors": [],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}

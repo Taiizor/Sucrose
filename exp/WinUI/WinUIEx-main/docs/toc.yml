@@ -1,0 +1,12 @@
+- name: Home
+  href: index.md
+- name: Overview
+  href: concepts/
+  homepage: concepts/index.md
+- name: API Reference
+  href: api/
+  homepage: api/index.md
+- name: Sponsor WinUIEx
+  href: https://github.com/sponsors/dotMorten
+- name: GitHub
+  href: https://github.com/dotMorten/WinUIEx

@@ -66,9 +66,6 @@ public sealed partial class MainPage : Page
 
         switch ((BackdropType)((ComboBox)sender).SelectedIndex)
         {
-            case BackdropType.None:
-                (MainWindow as MainWindow).SetBackdrop(BackdropType.None);
-                break;
             case BackdropType.Mica:
                 (MainWindow as MainWindow).SetBackdrop(BackdropType.Mica);
                 break;

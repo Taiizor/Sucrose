@@ -1,0 +1,60 @@
+<Project>
+
+  <Import Project="Dependencies.targets" Condition="'$(WinAppSDKVersion)'==''" />
+  
+  <PropertyGroup>
+    <DefineConstants Condition="$([MSBuild]::VersionGreaterThanOrEquals('$(WinAppSDKVersion)','1.2-a'))">$(DefineConstants);WINAPPSDK_1_2_OR_NEWER</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Label="PackageInfo" Condition="'$(PackageId)'!=''">
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://dotmorten.github.io/WinUIEx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dotMorten/WinUIEx</RepositoryUrl>
+    <Copyright>Copyright © 2021-$([System.DateTime]::Now.ToString('yyyy')) - Morten Nielsen</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\NuGet\$(Configuration)\</PackageOutputPath>
+    <Authors>Morten Nielsen - https://xaml.dev</Authors>
+    <Company>Morten Nielsen - https://xaml.dev</Company>
+    <PackageIcon>logo.png</PackageIcon>
+    <Version>2.3.4</Version>
+    <PackageValidationBaselineVersion>2.3.3</PackageValidationBaselineVersion>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(PackageId)'!=''">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <None Include="$(MSBuildThisFileDirectory)logo.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Experimental'">
+      <DefineConstants>$(DefineConstants);EXPERIMENTAL</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Label="PackageValidationSettings">
+    <GenerateCompatibilitySuppressionFile>false</GenerateCompatibilitySuppressionFile>
+    <CompatibilitySuppressionFilePath Condition="('$(GenerateCompatibilitySuppressionFile)'=='true') OR Exists('$(MSBuildProjectDirectory)\PackageValidationSuppression.txt')">PackageValidationSuppression.txt</CompatibilitySuppressionFilePath>
+  </PropertyGroup>
+  
+  <Target Name="SignAssemblies" Condition="Exists($(CertificatePath)) AND '$(CertificatePassword)'!=''" BeforeTargets="CopyFilesToOutputDirectory" DependsOnTargets="ComputeIntermediateSatelliteAssemblies"> 
+    <PropertyGroup>
+      <SignToolPath>$(ProgramFiles)\Windows Kits\10\bin\x64\signtool.exe</SignToolPath>
+      <SignToolPath Condition="!Exists($(SignToolPath))">$(ProgramFiles)\Windows Kits\10\bin\10.0.22000.0\x64\signtool.exe</SignToolPath>
+      <SignToolPath Condition="!Exists($(SignToolPath))">$(ProgramFiles)\Windows Kits\10\bin\10.0.19041.0\x64\signtool.exe</SignToolPath>
+      <SignToolPath Condition="!Exists($(SignToolPath))">$(ProgramFiles)\Windows Kits\10\bin\10.0.18362.0\x64\signtool.exe</SignToolPath>
+      <SignToolPath Condition="!Exists($(SignToolPath))">$(ProgramFiles)\Windows Kits\10\bin\10.0.17134.0\x64\signtool.exe</SignToolPath>
+      <SignToolPath Condition="!Exists($(SignToolPath))">$(WindowsSDK80Path)bin\x64\signtool.exe</SignToolPath>
+      <SignToolPath Condition="!Exists($(SignToolPath))">signtool.exe</SignToolPath> <!-- fallback to use PATH environment -->  
+    </PropertyGroup>
+    <ItemGroup>
+      <FilesToSign Include="@(IntermediateAssembly)" />
+      <FilesToSign Include="@(IntermediateRefAssembly)" />
+      <FilesToSign Include="@(IntermediateSatelliteAssembliesWithTargetPath)" />
+      <FilesToSignFiltered Include="@(FilesToSign)" Condition="Exists(%(FilesToSign.Identity))" />
+    </ItemGroup>
+    <Exec Condition="'@(FilesToSignFiltered->Count())' > 0" Command="&quot;$(SignToolPath)&quot; sign /v /fd SHA1 /f &quot;$(CertificatePath)&quot; /p &quot;$(CertificatePassword)&quot; /tr http://timestamp.digicert.com /td SHA1 &quot;%(FilesToSignFiltered.Identity)&quot;"
+          WorkingDirectory="$(ProjectDir)" EchoOff="true" />
+    <Exec Condition="'@(FilesToSignFiltered->Count())' > 0" Command="&quot;$(SignToolPath)&quot; sign /v /as /d &quot;Authorization Summary&quot; /fd SHA256 /f &quot;$(CertificatePath)&quot; /p &quot;$(CertificatePassword)&quot; /tr http://timestamp.digicert.com /td SHA256 &quot;%(FilesToSignFiltered.Identity)&quot;"
+          WorkingDirectory="$(ProjectDir)" EchoOff="true" />
+  </Target>
+
+</Project>

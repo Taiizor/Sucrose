@@ -1,0 +1,64 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+
+    runs-on: windows-2022
+
+    steps:
+        
+    - name: Clone Repo
+      uses: actions/checkout@v1
+      
+    - name: Setup Visual Studio Command Prompt
+      uses: microsoft/setup-msbuild@v1.0.2
+      
+    - name: Download DocFX
+      run: |
+        mkdir .tools/docfx
+        Invoke-WebRequest -Uri "https://github.com/dotnet/docfx/releases/download/v${env:DOCFXVERSION}/docfx.zip" -OutFile ".tools/docfx/docfx.zip"
+        [System.IO.Compression.ZipFile]::ExtractToDirectory(".tools/docfx/docfx.zip", ".tools/docfx" )
+      env:
+        DOCFXVERSION: 2.59.4
+
+    - name: Install .NET OMD Generator
+      run: dotnet tool install --tool-path .tools/omd dotMorten.OmdGenerator --version 1.4.0
+    
+    - name: Generate OMD
+      run: |
+        mkdir artifacts/docs/api
+        .tools/omd/generateomd /source="src/WinUIEx/." /output=artifacts/docs/api/omd.html
+
+    - name: Install NuGet
+      uses: nuget/setup-nuget@v1
+    
+    - name: Build Documentation
+      env:         
+        DOCFX_SOURCE_BRANCH_NAME: main
+      run: |
+        nuget install memberpage -Version 2.59.4 -OutputDirectory docs
+        .tools/docfx/docfx.exe metadata docs/docfx.json
+        .tools/docfx/docfx.exe build docs/docfx.json
+      
+    - name: Publish Documentation
+      env:
+        ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+        BRANCH: gh-pages
+        DOCSFOLDER: artifacts/docs_site
+      shell: cmd
+      run: |
+         cd  %DOCSFOLDER%
+         git init
+         git config --local user.name "%GITHUB_ACTOR%"
+         git config --local user.email "%GITHUB_ACTOR%@users.noreply.github.com"
+         git config --local core.autocrlf false
+         git add .
+         git commit -m "Auto-update doc from commit %GITHUB_SHA%"
+         git push --force https://%ACCESS_TOKEN%@github.com/%GITHUB_REPOSITORY%.git master:%BRANCH%
+         rmdir .git /S /Q
+         

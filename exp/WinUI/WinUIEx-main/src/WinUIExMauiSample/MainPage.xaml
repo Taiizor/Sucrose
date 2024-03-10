@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WinUIExMauiSample.MainPage" Background="Transparent">
+
+    <ScrollView>
+        <VerticalStackLayout 
+            Spacing="25" 
+            Padding="30,0" 
+            VerticalOptions="Center">
+
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+                
+            <Label 
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            
+            <Label 
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button 
+                x:Name="CounterBtn"
+                Text="Toggle Fullscreen"
+                SemanticProperties.Hint="Toggles fullscreen"
+                Clicked="OnFullScreenClicked"
+                HorizontalOptions="Center" />
+
+            <Button 
+                Text="Perform oauth siging"
+                SemanticProperties.Hint="OAuth Test"
+                Clicked="OnOAuthClicked"
+                HorizontalOptions="Center" />
+
+            <HorizontalStackLayout  HorizontalOptions="Center">
+                <Label Text="Backdrop: " VerticalOptions="Center" Margin="0,0,10,0" />
+                <Picker HorizontalOptions="Center" SelectedIndexChanged="Picker_SelectedIndexChanged" >
+                    <Picker.Items>
+                        <x:String>Acrylic</x:String>
+                        <x:String>Mica</x:String>
+                        <x:String>Transparent</x:String>
+                        <x:String>None</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>2</Picker.SelectedIndex>
+                </Picker>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+ 
+</ContentPage>

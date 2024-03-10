@@ -11,4 +11,8 @@
     MinWidth="916"
     MinHeight="609"
     PersistenceId="MainWindow"
-    mc:Ignorable="d" />
+    mc:Ignorable="d">
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+</windowex:WindowEx>

@@ -1,0 +1,42 @@
+name: CI Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-2022
+
+    steps:
+    - name: Clone Repo
+      uses: actions/checkout@v1
+    
+    - name: Setup Visual Studio Command Prompt
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Setup VSTest Path
+      uses: darenm/Setup-VSTest@v1
+
+    - name: Build
+      run: |
+        msbuild /restore /t:Build,Pack src/WinUIEx/WinUIEx.csproj /p:Configuration=Release
+        
+    - name: Test WinUIEx
+      run: |
+        msbuild /restore /t:Build src\WinUIEx.Tests\WinUIEx.Tests.csproj /p:Platform=x64 /p:Configuration=Release
+        vstest.console.exe src\WinUIEx.Tests\bin\x64\Release\net6.0-windows10.0.19041.0\WinUIEx.Tests.build.appxrecipe --logger:"console;verbosity=normal" /InIsolation
+      
+    - name: Test WinUIEx Analyzer
+      run: |
+        msbuild /restore /t:Build src\WinUIEx.Analyzers\WinUIEx.Analyzers.Test\WinUIEx.Analyzers.Test.csproj /p:Configuration=Release
+        vstest.console.exe src\WinUIEx.Analyzers\WinUIEx.Analyzers.Test\bin\Release\net6.0-windows10.0.19041.0\WinUIEx.Analyzers.Test.dll --logger:"console;verbosity=normal" /InIsolation
+      
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: NuGet Packages
+        path: artifacts\NuGet\Release

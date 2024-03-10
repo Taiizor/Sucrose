@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.DotNet.PackageValidation" Version="1.0.0-preview.7.21379.12" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows10.0.18362.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Configurations>Debug;Release;Experimental</Configurations>
+    <Platforms>AnyCPU</Platforms>
+    <Nullable>enable</Nullable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <LangVersion>10</LangVersion>
+    <IsTrimmable>true</IsTrimmable>
+    <TreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</TreatWarningsAsErrors>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <PropertyGroup Label="PackageInfo">
+    <Description>A set of extension methods and classes to fill some gaps in WinUI 3, mostly around windowing.</Description>
+    <PackageTags>WinUI, WinAppSDK, Windows, XAML</PackageTags>
+    <PackageId>WinUIEx</PackageId>
+    <Product>WinUI Extensions</Product>
+    <PackageReleaseNotes>
+      - Can't change TransparentTintBackdrop.TintColor at runtime (#149)
+      - Avoid first-chance exception in Window Persistence
+      - Allow resetting MaxWidth/MaxHeight back to the default value of 0
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.1.506-beta">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="$(WinAppSDKVersion)" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <!-- Analyzer stuff -->
+  <PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WinUIEx.Analyzers\WinUIEx.Analyzers\WinUIEx.Analyzers.csproj" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\WinUIEx.Analyzers.dll" PackagePath="analyzers/dotnet/cs" />
+      <!--<TfmSpecificPackageFile Include="$(OutputPath)\WinUIEx.Analyzers.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />-->
+    </ItemGroup>
+  </Target>
+</Project>
