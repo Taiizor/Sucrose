@@ -78,12 +78,12 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf" Version="121.3.130" />
+        <PackageReference Include="CefSharp.Wpf" Version="122.1.120" />
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
 
     <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf.NETCore" Version="121.3.130" />
+        <PackageReference Include="CefSharp.Wpf.NETCore" Version="122.1.120" />
     </ItemGroup>
 
     <ItemGroup>
