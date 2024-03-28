@@ -56,6 +56,8 @@
 
         public static readonly string Portal = "Sucrose.Portal.exe";
 
+        public static readonly string Wizard = "Sucrose.Wizard.exe";
+
         public static readonly string GifContent = "GifContent.html";
 
         public static readonly string TaskName = "Autorun for Sucrose";
@@ -109,6 +111,8 @@
         public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
 
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
+
+        public static readonly string WizardMutex = "{Sucrose-Wallpaper-Engine-Wizard}";
 
         public static readonly string CefSharpProcessName = "CefSharp.BrowserSubprocess";
 

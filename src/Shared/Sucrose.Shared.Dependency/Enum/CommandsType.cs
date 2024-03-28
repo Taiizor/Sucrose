@@ -14,6 +14,7 @@
         Import,
         Export,
         Report,
+        Wizard,
         Publish,
         Startup,
         StartupM,
