@@ -57,9 +57,9 @@ namespace Sucrose.Bundler
 
         private static string Caches => "Caches";
 
-        private static int MaxDelay => 1500;
+        private static int MaxDelay => 1000;
 
-        private static int MinDelay => 1000;
+        private static int MinDelay => 500;
 
         private static int Delay => 10;
 

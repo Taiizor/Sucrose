@@ -16,7 +16,7 @@
     Icon="\Sucrose.Wizard;component\Assets\ICO.ico"
     MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
-    ShowInTaskbar="False"
+    ShowInTaskbar="True"
     Topmost="True"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
@@ -24,7 +24,7 @@
 
     <Grid>
         <Grid.Background>
-            <VisualBrush Stretch="UniformToFill">
+            <VisualBrush Stretch="Fill">
                 <VisualBrush.Visual>
                     <Grid>
                         <Image
@@ -43,23 +43,62 @@
             </VisualBrush>
         </Grid.Background>
 
+        <ui:TitleBar
+            Width="Auto"
+            Height="Auto"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            ForceShutdown="True"
+            ShowMaximize="False"
+            ShowMinimize="True" />
+
         <ui:Image
+            x:Name="Logo"
             Width="160"
             Height="160"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             CornerRadius="100"
-            Opacity="0.50"
+            Opacity="0.5"
             Source="\Sucrose.Wizard;component\Assets\Logo.png"
             Stretch="UniformToFill" />
 
+        <TextBlock
+            x:Name="Message"
+            Margin="10,0,10,23"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Bottom"
+            FontFamily="Segoe UI"
+            FontSize="16"
+            FontWeight="Light"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Text="PREPARING NECESSARY PREPARATIONS"
+            TextAlignment="Center"
+            TextWrapping="WrapWithOverflow"
+            Visibility="Visible" />
+
         <ProgressBar
+            x:Name="Progress"
             Height="5"
             Margin="50,0,50,30"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Bottom"
+            Foreground="Crimson"
+            IsIndeterminate="False"
             Maximum="100"
             Minimum="0"
-            Value="50" />
+            Visibility="Hidden"
+            Value="0" />
+
+        <ui:Button
+            x:Name="Reload"
+            Margin="10,0,10,20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Content="TRY AGAIN"
+            Cursor="Hand"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+            Icon="{ui:SymbolIcon ArrowClockwise24}"
+            Visibility="Hidden" />
     </Grid>
 </Window>

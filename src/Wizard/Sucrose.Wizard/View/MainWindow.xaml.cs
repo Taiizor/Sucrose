@@ -15,18 +15,21 @@ namespace Sucrose.Wizard.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static string Bundle { get; set; } = string.Empty;
+
+        private static bool HasBundle { get; set; } = false;
+
+        private static bool HasError { get; set; } = true;
+
+        private static bool HasInfo { get; set; } = false;
+
+        private static bool HasFile { get; set; } = false;
+
+        private static int MinDelay => 1000;
+
         public MainWindow()
         {
             InitializeComponent();
-
-            if (SWMM.ThemeType == SEWTT.Dark)
-            {
-                ApplicationThemeManager.Apply(ApplicationTheme.Dark);
-            }
-            else
-            {
-                ApplicationThemeManager.Apply(ApplicationTheme.Light);
-            }
         }
 
         private void WindowCorner()
@@ -47,6 +50,15 @@ namespace Sucrose.Wizard.View
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             WindowCorner();
+
+            Message.Text = "CREATING TEMPORARY LOCATIONS";
+
+            Message.Text = "CHECKING INTERNET CONNECTION";
+            Message.Text = "NO INTERNET CONNECTION";
+
+            Message.Text = "GETTING NECESSARY LISTS";
+            Message.Text = "UNABLE TO GET NECESSARY LISTS";
+            Message.Text = "NECESSARY LISTS ARE EMPTY";
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
