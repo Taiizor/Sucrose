@@ -22,6 +22,20 @@ namespace Sucrose.Shared.Space.Helper
             }
         }
 
+        public static async Task<bool> GetHostEntryAsync()
+        {
+            try
+            {
+                _ = await Dns.GetHostEntryAsync(SMR.HostEntry);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static List<SSDSHS> GetHost()
         {
             return new()
