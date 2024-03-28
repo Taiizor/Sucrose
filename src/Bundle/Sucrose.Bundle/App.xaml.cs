@@ -95,7 +95,7 @@ namespace Sucrose.Bundle
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            Exception Exception = (Exception)e.ExceptionObject;
+            Exception Exception = e.ExceptionObject as Exception;
 
             if (Exception != null)
             {

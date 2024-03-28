@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
-        <StartupObject>Sucrose.Bundle.App</StartupObject>
+        <StartupObject>Sucrose.Bundler.App</StartupObject>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <Company>Taiizor</Company>
@@ -15,7 +15,7 @@
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
-        <AssemblyName>Sucrose.Bundle</AssemblyName>
+        <AssemblyName>Sucrose.Bundler</AssemblyName>
         <RootNamespace>$(RootNamespace)</RootNamespace>
         <UseWindowsForms>false</UseWindowsForms>
         <UseWPF>true</UseWPF>
@@ -28,7 +28,7 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\..\Sucrose\Bundle\$(Platform)</OutputPath>
+        <OutputPath>..\..\Sucrose\Bundler\$(Platform)</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -85,40 +85,26 @@
     </ItemGroup>
     
     <ItemGroup>
-        <EmbeddedResource Include="Redist\**">
-            <LogicalName>Redist\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
-        </EmbeddedResource>
-        <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**">
-            <LogicalName>Packages\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
-        </EmbeddedResource>
         <EmbeddedResource Include="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**">
             <LogicalName>Caches\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Wizard\**">
+            <LogicalName>Packages\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Remove="Redist\VC_Redist_x64.exe" Condition="'$(PlatformTarget)' != 'x64'" />
-        <EmbeddedResource Remove="Redist\VC_Redist_x86.exe" Condition="'$(PlatformTarget)' != 'x86'" />
-        <EmbeddedResource Remove="Redist\VC_Redist_arm64.exe" Condition="'$(PlatformTarget)' != 'arm64'" />
-        
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.log" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.txt" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.pdb" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.xml" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.deps.json" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundle\**" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.WPF.CS\**" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundler\**" />
         
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.log" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.txt" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.pdb" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.xml" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.deps.json" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(PlatformTarget)' == 'arm64'">
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Live.MpvPlayer\**" />
     </ItemGroup>
 
     <PropertyGroup>
