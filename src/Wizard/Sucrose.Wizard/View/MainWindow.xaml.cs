@@ -7,6 +7,7 @@ using System.Windows.Input;
 using SHV = Skylark.Helper.Versionly;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -117,7 +118,7 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = "CHECKING TEMPORARY LOCATIONS";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Temporary");
 
                 if (Directory.Exists(SWMM.CachePath))
                 {
@@ -137,7 +138,7 @@ namespace Sucrose.Wizard.View
             }
             catch
             {
-                Message.Text = "UNABLE TO CHECK TEMPORARY LOCATIONS";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Temporary", "Error");
 
                 return false;
             }
@@ -147,7 +148,7 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = "CHECKING INTERNET CONNECTION";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Connection");
 
                 if (SSSHN.GetHostEntry())
                 {
@@ -157,14 +158,14 @@ namespace Sucrose.Wizard.View
                 }
                 else
                 {
-                    Message.Text = "NO INTERNET CONNECTION";
+                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Connection", "None");
 
                     return false;
                 }
             }
             catch
             {
-                Message.Text = "UNABLE TO CHECK INTERNET CONNECTION";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Connection", "Error");
 
                 return false;
             }
@@ -174,13 +175,13 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = "LIST ARE BEING FILTERED";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Filtering");
 
                 Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
 
                 if (Release == null)
                 {
-                    Message.Text = "LIST COULD NOT BE FILTERED";
+                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Filtering", "Not");
 
                     return false;
                 }
@@ -195,7 +196,7 @@ namespace Sucrose.Wizard.View
             }
             catch
             {
-                Message.Text = "UNABLE TO FILTER LIST";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Filtering", "Error");
 
                 return false;
             }
@@ -205,7 +206,7 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = "GETTING NECESSARY LIST";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Listing");
 
                 Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key);
 
@@ -215,14 +216,14 @@ namespace Sucrose.Wizard.View
                 }
                 else
                 {
-                    Message.Text = "NECESSARY LIST ARE EMPTY";
+                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Listing", "Empty");
 
                     return false;
                 }
             }
             catch
             {
-                Message.Text = "UNABLE TO GET NECESSARY LIST";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Listing", "Error");
 
                 return false;
             }
@@ -232,7 +233,7 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = "SEARCHING FOR REQUIRED FILES";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Searching");
 
                 Version Latest = SHV.Clear(Release.TagName);
 
@@ -273,14 +274,14 @@ namespace Sucrose.Wizard.View
                 }
                 else
                 {
-                    Message.Text = "REQUIRED FILES NOT FOUND";
+                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Searching", "Not");
 
                     return false;
                 }
             }
             catch
             {
-                Message.Text = "UNABLE TO SEARCH FOR REQUIRED FILES";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Searching", "Error");
 
                 return false;
             }
@@ -290,7 +291,7 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = "EXTRACTING THE DOWNLOADED FILE";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting");
 
                 Ring.Visibility = Visibility.Hidden;
                 Message.Visibility = Visibility.Visible;
@@ -308,32 +309,32 @@ namespace Sucrose.Wizard.View
 
                             Bundle = Path.ChangeExtension(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
 
-                            Message.Text = "THE EXTRACTED FILE IS BEING EXECUTED";
+                            Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Executing");
 
                             await Task.Delay(MinDelay);
 
                             await Task.Run(() => SSSHP.Run(Bundle));
 
-                            Message.Text = "THE EXTRACTED FILE HAS BEEN EXECUTED";
+                            Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Executed");
                         }
                         else
                         {
-                            Message.Text = "UNABLE TO EXTRACT THE DOWNLOADED FILE";
+                            Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Failed");
                         }
                     }
                     else
                     {
-                        Message.Text = "THE DOWNLOADED FILE IS NOT A VALID ARCHIVE";
+                        Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Corrupt");
                     }
                 }
                 else
                 {
-                    Message.Text = "THE DOWNLOADED FILE IS NOT AVAILABLE";
+                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Not");
                 }
             }
             catch
             {
-                Message.Text = "THE DOWNLOADED FILE COULD NOT BE EXTRACTED";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Error");
             }
 
             await Task.Delay(MaxDelay);
@@ -348,7 +349,7 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = "DOWNLOADING FOR REQUIRED FILE";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading");
 
                 SWMI.DownloadService = new(SWMI.DownloadConfiguration);
 
@@ -362,7 +363,7 @@ namespace Sucrose.Wizard.View
             }
             catch
             {
-                Message.Text = "UNABLE TO DOWNLOAD FOR REQUIRED FILE";
+                Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Error");
 
                 return false;
             }
@@ -378,7 +379,7 @@ namespace Sucrose.Wizard.View
             Release = null;
             Releases = new();
 
-            Message.Text = "PREPARING NECESSARY PREPARATIONS";
+            Message.Text = SRER.GetValue("Wizard", "MessageText", "Preparing");
 
             Ring.Progress = 0;
             Progress.Value = 0;
@@ -448,14 +449,14 @@ namespace Sucrose.Wizard.View
                         HasBundle = false;
                         HasFile = true;
 
-                        Message.Text = "AN ERROR OCCURRED WHILE DOWNLOADING THE REQUIRED FILE";
+                        Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Complete", "Error");
                     }
                     else
                     {
                         HasBundle = false;
                         HasFile = false;
 
-                        Message.Text = "THE REQUIRED FILE DOWNLOAD WAS CANCELED";
+                        Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Complete", "Cancel");
                     }
 
                     Ring.Visibility = Visibility.Hidden;

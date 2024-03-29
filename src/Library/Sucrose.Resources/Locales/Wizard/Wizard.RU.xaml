@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Wizard.WindowTitle">Sucrose Wizard</system:String>
+
+    <system:String x:Key="Wizard.ReloadText">ПОВТОРИТЬ ПОПЫТКУ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Preparing">ПОДГОТОВКА НЕОБХОДИМЫХ ПРИГОТОВЛЕНИЙ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Temporary">ПРОВЕРКА ВРЕМЕННЫХ МЕСТОПОЛОЖЕНИЙ</system:String>
+    <system:String x:Key="Wizard.MessageText.Temporary.Error">ВРЕМЕННЫЕ МЕСТОПОЛОЖЕНИЯ НЕ МОГУТ БЫТЬ ПРОВЕРЕНЫ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Connection">ПРОВЕРКА ИНТЕРНЕТ-СОЕДИНЕНИЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.None">НЕТ ИНТЕРНЕТ-СОЕДИНЕНИЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.Error">ИНТЕРНЕТ-СОЕДИНЕНИЕ НЕ МОЖЕТ БЫТЬ ПРОВЕРЕНО</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Searching">ПОИСК НЕОБХОДИМЫХ ФАЙЛОВ</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Not">НЕ НАЙДЕНЫ НЕОБХОДИМЫЕ ФАЙЛЫ</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Error">НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ НАЙДЕНЫ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Listing">ПОЛУЧЕНИЕ НЕОБХОДИМЫХ СПИСКОВ</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Empty">НЕОБХОДИМЫЕ СПИСКИ ПУСТЫ</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Error">НЕОБХОДИМЫЕ СПИСКИ НЕ МОГУТ БЫТЬ ПОЛУЧЕНЫ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Filtering">СПИСКИ ФИЛЬТРУЮТСЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Not">СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Error">СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Downloading">ЗАГРУЗКА НЕОБХОДИМЫХ ФАЙЛОВ</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Error">НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ ЗАГРУЖЕНЫ</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Cancel">ЗАГРУЗКА НЕОБХОДИМОГО ФАЙЛА БЫЛА ОТМЕНЕНА</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Error">ПРИ ЗАГРУЗКЕ НЕОБХОДИМОГО ФАЙЛА ПРОИЗОШЛА ОШИБКА</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Extracting">ИЗВЛЕЧЕНИЕ ЗАГРУЖЕННОГО ФАЙЛА</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executing">ИЗВЛЕЧЕННЫЙ ФАЙЛ ВЫПОЛНЯЕТСЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executed">ИЗВЛЕЧЕННЫЙ ФАЙЛ БЫЛ ВЫПОЛНЕН</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Failed">ЗАГРУЖЕННЫЙ ФАЙЛ НЕ УДАЛОСЬ ИЗВЛЕЧЬ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Corrupt">ЗАГРУЖЕННЫЙ ФАЙЛ ПОВРЕЖДЁН</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Not">ЗАГРУЖЕННЫЙ ФАЙЛ НЕПРИГОДЕН ДЛЯ ИСПОЛЬЗОВАНИЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Error">НЕ УДАЛОСЬ ИЗВЛЕЧЬ ЗАГРУЖЕННЫЙ ФАЙЛ</system:String>
+</ResourceDictionary>

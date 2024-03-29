@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Wizard.WindowTitle">Sucrose Wizard</system:String>
+
+    <system:String x:Key="Wizard.ReloadText">ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Preparing">ΠΡΟΕΤΟΙΜΑΖΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΠΡΟΕΤΟΙΜΑΣΙΕΣ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Temporary">ΕΛΕΓΧΟΣ ΠΡΟΣΩΡΙΝΩΝ ΤΟΠΟΘΕΣΙΩΝ</system:String>
+    <system:String x:Key="Wizard.MessageText.Temporary.Error">ΤΑ ΠΡΟΣΩΡΙΝΑ ΤΟΠΟΘΕΤΗΣΕΙΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΟΥΝ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Connection">ΕΛΕΓΧΟΣ ΣΥΝΔΕΣΗΣ ΣΤΟ ΔΙΑΔΙΚΤΥΟ</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.None">ΧΩΡΙΣ ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.Error">Η ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΕΙ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Searching">ΑΝΑΖΗΤΗΣΗ ΓΙΑ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Not">ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΒΡΕΘΗΚΑΝ</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Error">ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΝΑΖΗΤΗΘΟΥΝ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Listing">ΠΑΡΑΛΑΜΒΑΝΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Empty">ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΕΙΝΑΙ ΚΕΝΕΣ</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Error">ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΛΗΦΘΟΥΝ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Filtering">ΟΙ ΛΙΣΤΕΣ ΕΙΝΑΙ ΣΕ ΦΑΣΗ ΦΙΛΤΡΑΡΙΣΜΑΤΟΣ</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Not">ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΜΠΟΡΟΥΝ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Error">ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Downloading">ΚΑΤΕΒΑΖΟΝΤΑΣ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Error">ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΚΑΤΕΒΑΣΤΟΥΝ</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Cancel">Η ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ ΑΚΥΡΩΘΗΚΕ</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Error">ΥΠΗΡΞΕ ΣΦΑΛΜΑ ΚΑΤΑ ΤΗ ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Extracting">ΑΠΟΣΥΜΠΙΕΣΗ ΤΟΥ ΚΑΤΕΒΑΣΜΕΝΟΥ ΑΡΧΕΙΟΥ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executing">ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΚΤΕΛΕΙΤΑΙ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executed">ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Failed">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΑΠΕΤΥΧΕ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Corrupt">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΕΙΝΑΙ ΚΑΤΕΣΤΡΑΜΜΕΝΟ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Not">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟΠΟΙΗΣΙΜΟ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Error">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΠΟΣΥΜΠΙΕΣΤΕΙ</system:String>
+</ResourceDictionary>

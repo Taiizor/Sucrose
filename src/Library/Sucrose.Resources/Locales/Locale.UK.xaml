@@ -8,6 +8,7 @@
 
         <ResourceDictionary Source="Update/Update.UK.xaml" />
         <ResourceDictionary Source="Portal/Portal.UK.xaml" />
+        <ResourceDictionary Source="Wizard/Wizard.UK.xaml" />
         <ResourceDictionary Source="Discord/Discord.UK.xaml" />
         <ResourceDictionary Source="Watchdog/Watchdog.UK.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.UK.xaml" />

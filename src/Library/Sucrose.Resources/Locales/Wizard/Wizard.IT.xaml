@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Wizard.WindowTitle">Sucrose Wizard</system:String>
+
+    <system:String x:Key="Wizard.ReloadText">RIPROVA</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Preparing">PREPARAZIONE DEI PREPARATIVI NECESSARI</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Temporary">CONTROLLO DELLE POSIZIONI TEMPORANEE</system:String>
+    <system:String x:Key="Wizard.MessageText.Temporary.Error">IMPOSSIBILE VERIFICARE LE POSIZIONI TEMPORANEE</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Connection">VERIFICA DELLA CONNESSIONE INTERNET</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.None">NESSUNA CONNESSIONE INTERNET</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.Error">IMPOSSIBILE VERIFICARE LA CONNESSIONE INTERNET</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Searching">RICERCA DEI FILE RICHIESTI</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Not">FILE RICHIESTI NON TROVATI</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Error">IMPOSSIBILE RICERCARE I FILE RICHIESTI</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Listing">RECUPERO DELLE LISTE RICHIESTE</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Empty">LE LISTE RICHIESTE SONO VUOTE</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Error">IMPOSSIBILE RICEVERE LE LISTE RICHIESTE</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Filtering">LE LISTE STANNO ESSERE FILTRATE</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Not">LE LISTE NON POSSONO ESSERE FILTRATE</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Error">IMPOSSIBILE FILTRARE LE LISTE</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Downloading">SCARICAMENTO DEI FILE RICHIESTI</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Error">IMPOSSIBILE SCARICARE I FILE RICHIESTI</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Cancel">IL DOWNLOAD DEL FILE RICHIESTO È STATO ANNULLATO</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Error">SI È VERIFICATO UN ERRORE DURANTE IL DOWNLOAD DEL FILE RICHIESTO</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Extracting">ESTRAZIONE DEL FILE SCARICATO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executing">IL FILE ESTRATTO STA ESSERE ESEGUITO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executed">IL FILE ESTRATTO È STATO ESEGUITO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Failed">IL FILE SCARICATO È FALLITO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Corrupt">IL FILE SCARICATO È CORROTTO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Not">IL FILE SCARICATO NON È UTILIZZABILE</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Error">IMPOSSIBILE ESTRARRE IL FILE SCARICATO</system:String>
+</ResourceDictionary>

@@ -139,7 +139,11 @@ namespace Sucrose.Bundle
 
             foreach (Process Process in TerminateProcesses)
             {
-                Process.Kill();
+                try
+                {
+                    Process.Kill();
+                }
+                catch { }
             }
         }
 

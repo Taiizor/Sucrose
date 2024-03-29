@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Wizard.WindowTitle">Sucrose Wizard</system:String>
+
+    <system:String x:Key="Wizard.ReloadText">TENTAR NOVAMENTE</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Preparing">PREPARANDO PREPARAÇÕES NECESSÁRIAS</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Temporary">VERIFICANDO LOCAIS TEMPORÁRIOS</system:String>
+    <system:String x:Key="Wizard.MessageText.Temporary.Error">NÃO FOI POSSÍVEL VERIFICAR OS LOCAIS TEMPORÁRIOS</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Connection">VERIFICANDO CONEXÃO COM A INTERNET</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.None">SEM CONEXÃO COM A INTERNET</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.Error">NÃO FOI POSSÍVEL VERIFICAR A CONEXÃO COM A INTERNET</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Searching">PROCURANDO POR ARQUIVOS NECESSÁRIOS</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Not">ARQUIVOS NECESSÁRIOS NÃO ENCONTRADOS</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Error">NÃO FOI POSSÍVEL PROCURAR OS ARQUIVOS NECESSÁRIOS</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Listing">OBTENDO AS LISTAS NECESSÁRIAS</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Empty">AS LISTAS NECESSÁRIAS ESTÃO VAZIAS</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Error">NÃO FOI POSSÍVEL RECEBER AS LISTAS NECESSÁRIAS</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Filtering">LISTAS ESTÃO SENDO FILTRADAS</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Not">LISTAS NÃO PODEM SER FILTRADAS</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Error">NÃO FOI POSSÍVEL FILTRAR AS LISTAS</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Downloading">BAIXANDO ARQUIVOS NECESSÁRIOS</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Error">NÃO FOI POSSÍVEL BAIXAR OS ARQUIVOS NECESSÁRIOS</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Cancel">O DOWNLOAD DO ARQUIVO NECESSÁRIO FOI CANCELADO</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Error">OCORREU UM ERRO DURANTE O DOWNLOAD DO ARQUIVO NECESSÁRIO</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Extracting">EXTRAINDO O ARQUIVO BAIXADO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executing">O ARQUIVO EXTRAÍDO ESTÁ SENDO EXECUTADO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executed">O ARQUIVO EXTRAÍDO FOI EXECUTADO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Failed">O ARQUIVO BAIXADO FALHOU</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Corrupt">O ARQUIVO BAIXADO ESTÁ CORROMPIDO</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Not">O ARQUIVO BAIXADO NÃO É USÁVEL</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Error">NÃO FOI POSSÍVEL EXTRAIR O ARQUIVO BAIXADO</system:String>
+</ResourceDictionary>

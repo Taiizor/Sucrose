@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Wizard.WindowTitle">Sucrose Wizard</system:String>
+
+    <system:String x:Key="Wizard.ReloadText">СПРОБУВАТИ ЗНОВУ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Preparing">ПІДГОТОВКА НЕОБХІДНИХ ПІДГОТОВК</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Temporary">ПЕРЕВІРКА ТИМЧАСОВИХ МІСЦЬ</system:String>
+    <system:String x:Key="Wizard.MessageText.Temporary.Error">ТИМЧАСОВІ МІСЦЯ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Connection">ПЕРЕВІРКА ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.None">НЕМАЄ ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.Error">ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Searching">ПОШУК НЕОБХІДНИХ ФАЙЛІВ</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Not">НЕ ЗНАЙДЕНО НЕОБХІДНІ ФАЙЛИ</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Error">НЕ ВДАЛОСЯ ВИКОНАТИ ПОШУК НЕОБХІДНИХ ФАЙЛІВ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Listing">ОТРИМАННЯ НЕОБХІДНИХ СПИСКІВ</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Empty">НЕОБХІДНІ СПИСКИ ПОРОЖНІ</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Error">НЕ ВДАЛОСЯ ОТРИМАТИ НЕОБХІДНІ СПИСКИ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Filtering">СПИСКИ ФІЛЬТРУЮТЬСЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Not">СПИСКИ НЕ МОЖНА ФІЛЬТРУВАТИ</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Error">СПИСКИ НЕ ВДАЛОСЯ ФІЛЬТРУВАТИ</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Downloading">ЗАВАНТАЖЕННЯ НЕОБХІДНИХ ФАЙЛІВ</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Error">НЕ ВДАЛОСЯ ЗАВАНТАЖИТИ НЕОБХІДНІ ФАЙЛИ</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Cancel">ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ СКАСОВАНО</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Error">ПІД ЧАС ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ ВИНИКЛА ПОМИЛКА</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Extracting">РОЗПАКОВКА ЗАВАНТАЖЕНОГО ФАЙЛУ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executing">ВИКОНАННЯ РОЗПАКОВАНОГО ФАЙЛУ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executed">РОЗПАКОВАНИЙ ФАЙЛ ВИКОНАНО</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Failed">ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Corrupt">ЗАВАНТАЖЕНИЙ ФАЙЛ ПОШКОДЖЕНИЙ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Not">ЗАВАНТАЖЕНИЙ ФАЙЛ НЕПРИДАТНИЙ ДЛЯ ВИКОРИСТАННЯ</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Error">ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ РОЗПАКУВАТИ</system:String>
+</ResourceDictionary>

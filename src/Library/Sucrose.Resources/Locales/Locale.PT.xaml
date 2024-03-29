@@ -8,6 +8,7 @@
 
         <ResourceDictionary Source="Update/Update.PT.xaml" />
         <ResourceDictionary Source="Portal/Portal.PT.xaml" />
+        <ResourceDictionary Source="Wizard/Wizard.PT.xaml" />
         <ResourceDictionary Source="Discord/Discord.PT.xaml" />
         <ResourceDictionary Source="Watchdog/Watchdog.PT.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.PT.xaml" />

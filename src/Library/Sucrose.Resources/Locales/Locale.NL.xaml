@@ -8,6 +8,7 @@
 
         <ResourceDictionary Source="Update/Update.NL.xaml" />
         <ResourceDictionary Source="Portal/Portal.NL.xaml" />
+        <ResourceDictionary Source="Wizard/Wizard.NL.xaml" />
         <ResourceDictionary Source="Discord/Discord.NL.xaml" />
         <ResourceDictionary Source="Watchdog/Watchdog.NL.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.NL.xaml" />

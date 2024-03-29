@@ -109,7 +109,11 @@ namespace Sucrose.Bundler
 
             foreach (Process Process in TerminateProcesses)
             {
-                Process.Kill();
+                try
+                {
+                    Process.Kill();
+                }
+                catch { }
             }
         }
 
@@ -230,7 +234,7 @@ namespace Sucrose.Bundler
 
             TerminateProcess(Application);
 
-            await Task.Delay(MinDelay);
+            await Task.Delay(MaxDelay);
 
             TerminateProcess(Application);
 

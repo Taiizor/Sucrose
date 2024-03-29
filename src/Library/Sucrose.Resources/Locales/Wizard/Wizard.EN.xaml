@@ -2,7 +2,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Wizard.HelpText">Solve Problem</system:String>
+    <system:String x:Key="Wizard.WindowTitle">Sucrose Wizard</system:String>
 
-    <system:String x:Key="Wizard.UpdateBox.WindowTitle">Sucrose Update</system:String>
+    <system:String x:Key="Wizard.ReloadText">TRY AGAIN</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Preparing">PREPARING NECESSARY PREPARATIONS</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Temporary">CHECKING TEMPORARY LOCATIONS</system:String>
+    <system:String x:Key="Wizard.MessageText.Temporary.Error">TEMPORARY LOCATIONS COULD NOT BE CHECKED</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Connection">CHECKING INTERNET CONNECTION</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.None">NO INTERNET CONNECTION</system:String>
+    <system:String x:Key="Wizard.MessageText.Connection.Error">INTERNET CONNECTION COULD NOT BE CHECKED</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Searching">SEARCHING FOR REQUIRED FILES</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Not">REQUIRED FILES NOT FOUND</system:String>
+    <system:String x:Key="Wizard.MessageText.Searching.Error">REQUIRED FILES COULD NOT BE SEARCHED</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Listing">GETTING THE REQUIRED LISTS</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Empty">REQUIRED LISTS ARE EMPTY</system:String>
+    <system:String x:Key="Wizard.MessageText.Listing.Error">REQUIRED LISTS COULD NOT BE RECEIVED</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Filtering">LISTS ARE BEING FILTERING</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Not">LISTS CANNOT BE FILTERED</system:String>
+    <system:String x:Key="Wizard.MessageText.Filtering.Error">LISTS COULD NOT BE FILTERED</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Downloading">DOWNLOADING REQUIRED FILES</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Error">REQUIRED FILES COULD NOT BE DOWNLOADED</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Cancel">THE DOWNLOAD OF THE REQUIRED FILE WAS CANCELLED</system:String>
+    <system:String x:Key="Wizard.MessageText.Downloading.Complete.Error">THERE WAS AN ERROR WHILE DOWNLOADING THE REQUIRED FILE</system:String>
+
+    <system:String x:Key="Wizard.MessageText.Extracting">EXTRACTING THE DOWNLOADED FILE</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executing">THE EXTRACTED FILE IS BEING EXECUTED</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Executed">THE EXTRACTED FILE HAS BEEN EXECUTED</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Failed">THE DOWNLOADED FILE FAILED</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Corrupt">THE DOWNLOADED FILE IS CORRUPT</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Not">THE DOWNLOADED FILE IS NOT USABLE</system:String>
+    <system:String x:Key="Wizard.MessageText.Extracting.Error">THE DOWNLOADED FILE COULD NOT BE EXTRACTED</system:String>
 </ResourceDictionary>
