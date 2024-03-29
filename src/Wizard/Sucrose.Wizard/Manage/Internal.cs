@@ -1,7 +1,7 @@
 ﻿using Downloader;
 using System.Net;
-using SMR = Sucrose.Memory.Readonly;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Wizard.Manage
 {

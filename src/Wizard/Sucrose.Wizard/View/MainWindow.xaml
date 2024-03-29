@@ -89,8 +89,8 @@
 
         <ProgressBar
             x:Name="Progress"
-            Height="5"
-            Margin="50,0,50,30"
+            Height="10"
+            Margin="50,0,50,27.5"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Bottom"
             IsIndeterminate="False"
