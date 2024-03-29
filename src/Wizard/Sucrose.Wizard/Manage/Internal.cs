@@ -1,5 +1,6 @@
 ﻿using Downloader;
 using System.Net;
+using SMR = Sucrose.Memory.Readonly;
 using SMMM = Sucrose.Manager.Manage.Manager;
 
 namespace Sucrose.Wizard.Manage
@@ -9,6 +10,8 @@ namespace Sucrose.Wizard.Manage
         public static string Source = string.Empty;
 
         public static DownloadService DownloadService;
+
+        public static bool Chance = SMR.Randomise.Next(2) == 0;
 
         public static readonly DownloadConfiguration DownloadConfiguration = new()
         {

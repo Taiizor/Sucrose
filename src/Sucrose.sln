@@ -101,7 +101,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Resources", "Librar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wizard", "Wizard", "{05FDCE3B-F86D-4C30-A9A1-BF7CD6342B07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Wizard", "Wizard\Sucrose.Wizard\Sucrose.Wizard.csproj", "{830BB296-2473-4039-A5F5-E95E83927713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Wizard", "Wizard\Sucrose.Wizard\Sucrose.Wizard.csproj", "{830BB296-2473-4039-A5F5-E95E83927713}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

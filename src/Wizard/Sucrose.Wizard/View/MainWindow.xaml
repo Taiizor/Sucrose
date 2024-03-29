@@ -52,20 +52,30 @@
             ShowMaximize="False"
             ShowMinimize="True" />
 
+        <ui:ProgressRing
+            x:Name="Ring"
+            Width="210"
+            Height="210"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsIndeterminate="False"
+            Progress="0"
+            Visibility="Hidden" />
+
         <ui:Image
             x:Name="Logo"
             Width="160"
             Height="160"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            CornerRadius="100"
+            CornerRadius="120"
             Opacity="0.5"
             Source="\Sucrose.Wizard;component\Assets\Logo.png"
             Stretch="UniformToFill" />
 
-        <TextBlock
+        <ui:TextBlock
             x:Name="Message"
-            Margin="10,0,10,23"
+            Margin="5,0,5,23"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Bottom"
             FontFamily="Segoe UI"

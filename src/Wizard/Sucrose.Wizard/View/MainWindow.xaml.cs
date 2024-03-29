@@ -1,33 +1,29 @@
-﻿using System.Runtime.InteropServices;
+﻿using Downloader;
+using System.ComponentModel;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
-using SSIIA = Skylark.Standard.Interface.IAssets;
-using SSIIR = Skylark.Standard.Interface.IReleases;
-using SECNT = Skylark.Enum.ClearNumericType;
-using SMMI = Sucrose.Manager.Manage.Internal;
+using System.Windows.Input;
+using SHV = Skylark.Helper.Versionly;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SHV = Skylark.Helper.Versionly;
-using SHN = Skylark.Helper.Numeric;
-using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
-using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSCHU = Sucrose.Shared.Core.Helper.Update;
-using SSCHV = Sucrose.Shared.Core.Helper.Version;
-using System.Windows.Input;
-using SWMI = Sucrose.Wizard.Manage.Internal;
-using SWMM = Sucrose.Wizard.Manage.Manager;
-using SWHWI = Skylark.Wing.Helper.WindowInterop;
-using SWNM = Skylark.Wing.Native.Methods;
-using SSSHN = Sucrose.Shared.Space.Helper.Network;
-using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSHG = Skylark.Standard.Helper.GitHub;
-using System.IO;
-using Downloader;
-using System.ComponentModel;
+using SSIIA = Skylark.Standard.Interface.IAssets;
+using SSIIR = Skylark.Standard.Interface.IReleases;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
+using SWHWI = Skylark.Wing.Helper.WindowInterop;
+using SWMI = Sucrose.Wizard.Manage.Internal;
+using SWMM = Sucrose.Wizard.Manage.Manager;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Wizard.View
 {
@@ -43,10 +39,6 @@ namespace Sucrose.Wizard.View
         private static bool HasBundle { get; set; } = false;
 
         private static SSIIR Release { get; set; } = null;
-
-        private static bool HasError { get; set; } = true;
-
-        private static bool HasInfo { get; set; } = false;
 
         private static bool HasFile { get; set; } = false;
 
@@ -84,7 +76,7 @@ namespace Sucrose.Wizard.View
             {
                 await Task.Delay(MinDelay);
 
-                if (await StepNetwork())
+                if (StepNetwork())
                 {
                     await Task.Delay(MinDelay);
 
@@ -114,6 +106,7 @@ namespace Sucrose.Wizard.View
             {
                 await Task.Delay(MaxDelay);
 
+                Ring.Visibility = Visibility.Hidden;
                 Message.Visibility = Visibility.Hidden;
                 Reload.Visibility = Visibility.Visible;
                 Progress.Visibility = Visibility.Hidden;
@@ -122,10 +115,10 @@ namespace Sucrose.Wizard.View
 
         private bool StepCache()
         {
-            Message.Text = "CREATING TEMPORARY LOCATIONS";
-
             try
             {
+                Message.Text = "CHECKING TEMPORARY LOCATIONS";
+
                 if (Directory.Exists(SWMM.CachePath))
                 {
                     string[] Files = Directory.GetFiles(SWMM.CachePath);
@@ -144,19 +137,19 @@ namespace Sucrose.Wizard.View
             }
             catch
             {
-                Message.Text = "UNABLE TO CREATE TEMPORARY LOCATIONS";
+                Message.Text = "UNABLE TO CHECK TEMPORARY LOCATIONS";
 
                 return false;
             }
         }
 
-        private async Task<bool> StepNetwork()
+        private bool StepNetwork()
         {
-            Message.Text = "CHECKING INTERNET CONNECTION";
-
             try
             {
-                if (await SSSHN.GetHostEntryAsync())
+                Message.Text = "CHECKING INTERNET CONNECTION";
+
+                if (SSSHN.GetHostEntry())
                 {
                     SSSHS.Apply();
 
@@ -179,10 +172,10 @@ namespace Sucrose.Wizard.View
 
         private bool StepRelease()
         {
-            Message.Text = "LIST ARE BEING FILTERED";
-
             try
             {
+                Message.Text = "LIST ARE BEING FILTERED";
+
                 Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
 
                 if (Release == null)
@@ -210,10 +203,10 @@ namespace Sucrose.Wizard.View
 
         private bool StepReleases()
         {
-            Message.Text = "GETTING NECESSARY LIST";
-
             try
             {
+                Message.Text = "GETTING NECESSARY LIST";
+
                 Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key);
 
                 if (Releases.Any())
@@ -237,10 +230,10 @@ namespace Sucrose.Wizard.View
 
         private bool StepSearching()
         {
-            Message.Text = "SEARCHING FOR REQUIRED FILES";
-
             try
             {
+                Message.Text = "SEARCHING FOR REQUIRED FILES";
+
                 Version Latest = SHV.Clear(Release.TagName);
 
                 List<SSIIA> Assets = Release.Assets;
@@ -295,68 +288,68 @@ namespace Sucrose.Wizard.View
 
         private async Task StepExtracting()
         {
-            bool State = true;
-
-            Message.Text = "EXTRACTING THE DOWNLOADED FILE";
-
-            if (HasBundle)
+            try
             {
-                if (SSSZHZ.CheckArchive(Bundle))
+                Message.Text = "EXTRACTING THE DOWNLOADED FILE";
+
+                Ring.Visibility = Visibility.Hidden;
+                Message.Visibility = Visibility.Visible;
+                Progress.Visibility = Visibility.Hidden;
+
+                if (HasBundle)
                 {
-                    SSDECT Result = SSSZEZ.Extract(Bundle, SWMM.CachePath);
-
-                    if (Result == SSDECT.Pass)
+                    if (await Task.Run(() => SSSZHZ.CheckArchive(Bundle)))
                     {
-                        await Task.Delay(MinDelay);
+                        SSDECT Result = await Task.Run(() => SSSZEZ.Extract(Bundle, SWMM.CachePath));
 
-                        Bundle = Path.ChangeExtension(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
+                        if (Result == SSDECT.Pass)
+                        {
+                            await Task.Delay(MinDelay);
 
-                        Message.Text = "THE EXTRACTED FILE IS BEING EXECUTED";
+                            Bundle = Path.ChangeExtension(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
 
-                        await Task.Delay(MinDelay);
+                            Message.Text = "THE EXTRACTED FILE IS BEING EXECUTED";
 
-                        await Task.Run(() => SSSHP.Run(Bundle));
+                            await Task.Delay(MinDelay);
 
-                        Message.Text = "THE EXTRACTED FILE HAS BEEN EXECUTED";
+                            await Task.Run(() => SSSHP.Run(Bundle));
+
+                            Message.Text = "THE EXTRACTED FILE HAS BEEN EXECUTED";
+                        }
+                        else
+                        {
+                            Message.Text = "UNABLE TO EXTRACT THE DOWNLOADED FILE";
+                        }
                     }
                     else
                     {
-                        Message.Text = "UNABLE TO EXTRACT THE DOWNLOADED FILE";
+                        Message.Text = "THE DOWNLOADED FILE IS NOT A VALID ARCHIVE";
                     }
                 }
                 else
                 {
-                    Message.Text = "THE DOWNLOADED FILE IS NOT A VALID ARCHIVE";
+                    Message.Text = "THE DOWNLOADED FILE IS NOT AVAILABLE";
                 }
             }
-            else
+            catch
             {
-                if (HasFile)
-                {
-                    
-                }
-                else
-                {
-                    
-                }
+                Message.Text = "THE DOWNLOADED FILE COULD NOT BE EXTRACTED";
             }
 
-            if (State)
-            {
-                await Task.Delay(MaxDelay * 2);
+            await Task.Delay(MaxDelay);
 
-                Message.Visibility = Visibility.Hidden;
-                Reload.Visibility = Visibility.Visible;
-                Progress.Visibility = Visibility.Hidden;
-            }
+            Ring.Visibility = Visibility.Hidden;
+            Message.Visibility = Visibility.Hidden;
+            Reload.Visibility = Visibility.Visible;
+            Progress.Visibility = Visibility.Hidden;
         }
 
         private async Task<bool> StepDownloading()
         {
-            Message.Text = "DOWNLOADING FOR REQUIRED FILE";
-
             try
             {
+                Message.Text = "DOWNLOADING FOR REQUIRED FILE";
+
                 SWMI.DownloadService = new(SWMI.DownloadConfiguration);
 
                 SWMI.DownloadService.DownloadStarted += OnDownloadStarted;
@@ -378,8 +371,6 @@ namespace Sucrose.Wizard.View
         private async Task Reloader()
         {
             HasFile = false;
-            HasInfo = false;
-            HasError = true;
             HasBundle = false;
 
             Bundle = string.Empty;
@@ -389,8 +380,10 @@ namespace Sucrose.Wizard.View
 
             Message.Text = "PREPARING NECESSARY PREPARATIONS";
 
+            Ring.Progress = 0;
             Progress.Value = 0;
 
+            Ring.Visibility = Visibility.Hidden;
             Reload.Visibility = Visibility.Hidden;
             Message.Visibility = Visibility.Visible;
             Progress.Visibility = Visibility.Hidden;
@@ -400,6 +393,8 @@ namespace Sucrose.Wizard.View
 
         private async void Reload_Click(object sender, RoutedEventArgs e)
         {
+            Dispose();
+
             await Reloader();
         }
 
@@ -428,7 +423,17 @@ namespace Sucrose.Wizard.View
 
                 Reload.Visibility = Visibility.Hidden;
                 Message.Visibility = Visibility.Hidden;
-                Progress.Visibility = Visibility.Visible;
+
+                if (SWMI.Chance)
+                {
+                    Ring.Visibility = Visibility.Visible;
+                    Progress.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    Ring.Visibility = Visibility.Hidden;
+                    Progress.Visibility = Visibility.Visible;
+                }
             });
         }
 
@@ -436,28 +441,35 @@ namespace Sucrose.Wizard.View
         {
             await Application.Current.Dispatcher.InvokeAsync(async () =>
             {
-                if (e.Error != null)
+                if (e.Error != null || e.Cancelled)
                 {
-                    HasBundle = false;
-                    HasFile = true;
+                    if (e.Error != null)
+                    {
+                        HasBundle = false;
+                        HasFile = true;
 
-                    Message.Text = "AN ERROR OCCURRED WHILE DOWNLOADING THE REQUIRED FILE";
+                        Message.Text = "AN ERROR OCCURRED WHILE DOWNLOADING THE REQUIRED FILE";
+                    }
+                    else
+                    {
+                        HasBundle = false;
+                        HasFile = false;
 
+                        Message.Text = "THE REQUIRED FILE DOWNLOAD WAS CANCELED";
+                    }
+
+                    Ring.Visibility = Visibility.Hidden;
                     Message.Visibility = Visibility.Visible;
                     Progress.Visibility = Visibility.Hidden;
-                }
-                else if (e.Cancelled)
-                {
-                    HasBundle = false;
-                    HasFile = false;
 
-                    Message.Text = "THE REQUIRED FILE DOWNLOAD WAS CANCELED";
+                    await Task.Delay(MaxDelay);
 
-                    Message.Visibility = Visibility.Visible;
-                    Progress.Visibility = Visibility.Hidden;
+                    Message.Visibility = Visibility.Hidden;
+                    Reload.Visibility = Visibility.Visible;
                 }
                 else
                 {
+                    Ring.Progress = 100;
                     Progress.Value = 100;
 
                     await Task.Delay(MinDelay);
@@ -471,8 +483,15 @@ namespace Sucrose.Wizard.View
         {
             await Application.Current.Dispatcher.InvokeAsync(() =>
             {
+                Ring.Progress = e.ProgressPercentage;
                 Progress.Value = e.ProgressPercentage;
             });
+        }
+
+        private void Dispose()
+        {
+            GC.Collect();
+            GC.SuppressFinalize(this);
         }
     }
 }
