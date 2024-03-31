@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">레이아웃 순서 (개수):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">라이브러리 정렬</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">라이브러리에 있는 테마를 어떤 형식으로 어떻게 정렬할지 지정합니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">정렬 모드:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">정렬 종류:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">스토어 페이지</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">각 스토어 페이지에 표시될 테마 수를 설정합니다.</system:String>
 

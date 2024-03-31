@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Ομοιόμορφη</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Ομοιόμορφο Γέμισμα</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Καμία</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Όνομα</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Δημιουργία</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Τροποποίηση</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Γέμισμα</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Καμία</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Ομοιόμορφη</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Προεπιλεγμένο</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Προ-Κυκλοφορία</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Αύξουσα [Α-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Φθίνουσα [Z-Α]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Προεπιλογή</system:String>
 

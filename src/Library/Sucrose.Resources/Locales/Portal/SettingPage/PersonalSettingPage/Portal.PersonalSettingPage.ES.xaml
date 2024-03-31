@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Orden de Diseño (Cantidad):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Ordenación de la Biblioteca</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Especifique cómo se ordenarán y en qué formato las temáticas de su biblioteca.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Modo de Ordenación:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Tipo de Ordenación:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Paginación de la Tienda</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Determina cuántos temas habrá en cada página de la tienda.</system:String>
 

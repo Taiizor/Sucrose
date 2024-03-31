@@ -7,12 +7,16 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
 using SPVPLFLP = Sucrose.Portal.Views.Pages.Library.FullLibraryPage;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
+using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
@@ -119,6 +123,48 @@ namespace Sucrose.Portal.Views.Pages
             }
 
             SMMI.ThemesManager.SetSetting(SMC.Themes, SPMI.Themes);
+
+            if (SPMM.LibrarySortMode == SSDESMT.None)
+            {
+                if (SPMM.LibrarySortKind == SSDESKT.Descending)
+                {
+                    SPMI.Themes.Reverse();
+                }
+            }
+            else
+            {
+                Dictionary<string, object> Themes = new();
+
+                foreach (string Theme in SPMI.Themes)
+                {
+                    string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
+
+                    if (SPMM.LibrarySortMode == SSDESMT.Name)
+                    {
+                        Themes.Add(Theme, SSTHI.ReadJson(InfoPath).Title);
+                    }
+                    else if (SPMM.LibrarySortMode == SSDESMT.Creation)
+                    {
+                        Themes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
+                    }
+                    else if (SPMM.LibrarySortMode == SSDESMT.Modification)
+                    {
+                        Themes.Add(Theme, Directory.GetLastWriteTime(InfoPath));
+                    }
+                }
+
+                if (SPMM.LibrarySortKind == SSDESKT.Ascending)
+                {
+                    Themes = Themes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
+                }
+                else
+                {
+                    Themes = Themes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
+                }
+
+                SPMI.Themes.Clear();
+                SPMI.Themes.AddRange(Themes.Select(Theme => Theme.Key));
+            }
         }
 
         private async Task Start(bool Progress = false)

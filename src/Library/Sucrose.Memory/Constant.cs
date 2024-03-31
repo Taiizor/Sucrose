@@ -134,6 +134,10 @@
 
         public const string LibrarySelected = "LibrarySelected";
 
+        public const string LibrarySortKind = "LibrarySortKind";
+
+        public const string LibrarySortMode = "LibrarySortMode";
+
         public const string BackgroundImage = "BackgroundImage";
 
         public const string UpdateLimitType = "UpdateLimitType";

@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Seragam</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Seragam Untuk Isi</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Tidak Ada</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Nama</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Pembuatan</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Modifikasi</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Isi</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Tidak Ada</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Seragam</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standar</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pengembang</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Menaik [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Menurun [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standar</system:String>
 

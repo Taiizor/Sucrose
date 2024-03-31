@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Oppsett Rekkefølge (Antall):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Bibliotek Sortering</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Angi hvordan temaene i biblioteket ditt skal sorteres og i hvilket format.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Sorteringsmodus:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Sorterings Type:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Butikk Sideinndeling</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Angi hvor mange temaer som skal være til stede for hver side i butikken.</system:String>
 

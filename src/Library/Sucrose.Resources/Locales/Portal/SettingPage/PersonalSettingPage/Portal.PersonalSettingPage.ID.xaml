@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Urutan Tata Letak (Jumlah):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Urutkan Perpustakaan</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Tentukan bagaimana tema-tema di perpustakaan Anda akan diurutkan dan dalam format apa.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Mode Pengurutan:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Jenis Pengurutan:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Penomoran Halaman Toko</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Tentukan jumlah tema yang akan ditampilkan untuk setiap halaman di toko.</system:String>
 

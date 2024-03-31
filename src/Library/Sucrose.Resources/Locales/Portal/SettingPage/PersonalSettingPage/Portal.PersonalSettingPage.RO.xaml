@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Aspect Ordine (Bucăți):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Sortare Bibliotecă</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Specificați modul în care temele din biblioteca dvs. vor fi sortate și în ce format.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Mod de Sortare:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Tip de Sortare:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Paginare Magazin</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Setați numărul de teme pentru fiecare pagină din magazin.</system:String>
 

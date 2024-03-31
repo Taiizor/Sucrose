@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Orantılı</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Orantılı Doldur</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Yok</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">İsim</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Oluşturma</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Değiştirme</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Doldur</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Hiçbiri</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Orantılı</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Varsayılan</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Geliştirici</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Artan [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Azalan [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Varsayılan</system:String>
 

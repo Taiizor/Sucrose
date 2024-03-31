@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Layout (Numero):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Ordina la Libreria</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Specifica come saranno ordinati e in che formato i temi nella tua libreria.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Modalità di Ordinamento:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Tipo di Ordinamento:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Paginazione del Negozio</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Definisci quanti temi saranno presenti in ogni pagina del negozio.</system:String>
 

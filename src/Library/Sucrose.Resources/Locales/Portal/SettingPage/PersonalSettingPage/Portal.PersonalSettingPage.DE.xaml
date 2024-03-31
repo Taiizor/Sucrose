@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Layout-Reihenfolge (Anzahl):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Bibliothek Sortierung</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Legen Sie fest, wie die Themen in Ihrer Bibliothek sortiert werden sollen und in welchem Format.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Sortiermodus:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Sortierart:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Store-Paginierung</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Legen Sie fest, wie viele Themes pro Seite im Store angezeigt werden sollen.</system:String>
 

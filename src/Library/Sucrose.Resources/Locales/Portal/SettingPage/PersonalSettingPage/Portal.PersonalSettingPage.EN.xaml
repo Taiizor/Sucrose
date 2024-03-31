@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Layout Order (Count):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Library Sorting</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Specify how and in what order themes in your library will be sorted.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Sort Mode:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Sort Type:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Store Pagination</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Determine how many themes there will be for each page in the store.</system:String>
 

@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">レイアウトの順序（個）:</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">ライブラリの並べ替え</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">ライブラリ内のテーマをどのようにどの形式で並べ替えるかを指定します。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">並べ替えモード:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">並べ替え種類:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">ストア ページング</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">各ストアのページに表示されるテーマの数を設定します。</system:String>
 

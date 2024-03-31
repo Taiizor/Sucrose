@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Διάταξη Σειράς (Τεμάχια):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Ταξινόμηση Βιβλιοθήκης</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Καθορίστε πώς θα ταξινομούνται τα θέματα στη βιβλιοθήκη σας και σε ποιο μορφότυπο.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Τρόπος Ταξινόμησης:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Είδος Ταξινόμησης:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Σελιδοποίηση Καταστήματος</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Καθορίστε πόσα θέματα θα υπάρχουν σε κάθε σελίδα του καταστήματος.</system:String>
 

@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Pořadí Rozložení (Počet):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Řazení Knihovny</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Určete, jak budou témata ve vaší knihovně seřazena a v jakém formátu.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Režim Řazení:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Typ Řazení:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Stránkování Obchodu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Nastavuje, kolik témat bude na každé stránce obchodu.</system:String>
 

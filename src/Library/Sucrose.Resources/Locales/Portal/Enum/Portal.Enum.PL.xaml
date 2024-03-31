@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Jednolite</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Jednolite Wypełnianie</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Brak</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Nazwa</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Tworzenie</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Modyfikacja</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Wypełnij</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Brak</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Jednolite</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Domyślny</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Deweloper</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Rosnąco [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Malejąco [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Domyślny</system:String>
 

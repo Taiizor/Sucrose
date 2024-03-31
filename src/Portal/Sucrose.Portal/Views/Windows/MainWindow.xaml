@@ -206,6 +206,7 @@
                         Command="{Binding ViewModel.WallpaperCyclingCommand, Mode=OneWay}"
                         Cursor="Hand"
                         Icon="{ui:SymbolIcon VehicleBicycle16}"
+                        IsEnabled="False"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperCyclingTip}" />
                     <ui:Button
                         x:Name="Display"
@@ -222,6 +223,7 @@
                         BorderBrush="Transparent"
                         Cursor="Hand"
                         Icon="{ui:SymbolIcon DrinkMargarita16}"
+                        IsEnabled="False"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuDonateOptionsTip}"
                         Visibility="{Binding ViewModel.Donater, Mode=OneWay}" />
                     <ui:Button

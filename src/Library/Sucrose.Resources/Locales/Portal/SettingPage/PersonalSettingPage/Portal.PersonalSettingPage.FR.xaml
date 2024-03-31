@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Ordre de Mise en Page (Nombre):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Trier la Bibliothèque</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Spécifiez comment trier et dans quel format les thèmes de votre bibliothèque.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Mode de Tri:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Type de Tri:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Pagination du Magasin</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Déterminez combien de thèmes il y aura par page dans le magasin.</system:String>
 

@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Пропорційно</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Пропорційно заповнити</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Жоден</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Назва</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Створення</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Зміна</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Заповнити</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Ні</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Пропорційно</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">За замовчуванням</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Розробник</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Зростання [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Спадання [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">За замовчуванням</system:String>
 

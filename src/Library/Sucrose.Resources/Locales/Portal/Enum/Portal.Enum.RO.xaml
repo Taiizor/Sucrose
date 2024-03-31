@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform pentru a umple</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Niciunul</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Nume</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Creare</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Modificare</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Umple</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Niciunul</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Implicit</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Dezvoltator</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Crescător [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Descrescător [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Implicit</system:String>
 

@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">均匀</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">均匀填充</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">无</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">名称</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">创建</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">修改</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">填充</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">无</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">均匀</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">默认</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">开发版</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">升序 [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">降序 [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">默认</system:String>
 

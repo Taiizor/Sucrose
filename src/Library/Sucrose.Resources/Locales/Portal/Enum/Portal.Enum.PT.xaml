@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniforme</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Preencher Uniformemente</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Nenhum</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Nome</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Criação</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Modificação</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Preencher</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Nenhum</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniforme</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Liberação</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pré-Lançamento</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Ascendente [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Descendente [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Padrão</system:String>
 

@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Kolejność Układu (Liczba):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Sortowanie Biblioteki</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Określ, w jaki sposób i w jakim formacie mają być sortowane motywy w Twojej bibliotece.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Tryb Sortowania:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Rodzaj Sortowania:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Paginacja Sklepu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Określ, ile tematów ma być na każdej stronie w sklepie.</system:String>
 

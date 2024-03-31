@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Düzen Sırası (Adet):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Kütüphane Sıralama</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Kütüphanenizdeki temaların hangi biçimde ve nasıl sıralanacağını belirleyin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Sıralama Modu:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Sıralama Türü:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Mağaza Sayfalama</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Mağazadaki her bir sayfa için kaç tane tema olacağını belirleyin.</system:String>
 

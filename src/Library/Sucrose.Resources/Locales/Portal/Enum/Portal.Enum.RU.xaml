@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Пропорционально</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Заполнить с сохранением пропорций</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Нет</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Имя</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Создание</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Изменение</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Заполнить</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Нет</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Пропорционально</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">По умолчанию</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Для разработчиков</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">По возрастанию [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">По убыванию [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">По умолчанию</system:String>
 

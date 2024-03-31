@@ -6,8 +6,11 @@ using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
+using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -479,6 +482,78 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Adaptive);
 
+            SPVCEC Sort = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = true,
+                IsExpand = true
+            };
+
+            Sort.LeftIcon.Symbol = SymbolRegular.ArrowSort24;
+            Sort.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Sort");
+            Sort.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Sort", "Description");
+
+            StackPanel SortContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock SortModeText = new()
+            {
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Sort", "SortMode"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ComboBox SortMode = new();
+
+            SortMode.SelectionChanged += (s, e) => SortModeSelected(SortMode.SelectedIndex);
+
+            foreach (SSDESMT Type in Enum.GetValues(typeof(SSDESMT)))
+            {
+                SortMode.Items.Add(new ComboBoxItem()
+                {
+                    Content = SRER.GetValue("Portal", "Enum", "SortModeType", $"{Type}")
+                });
+            }
+
+            SortMode.SelectedIndex = (int)SPMM.LibrarySortMode;
+
+            TextBlock SortKindText = new()
+            {
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Sort", "SortKind"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(20, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ComboBox SortKind = new();
+
+            SortKind.SelectionChanged += (s, e) => SortKindSelected(SortKind.SelectedIndex);
+
+            foreach (SSDESKT Type in Enum.GetValues(typeof(SSDESKT)))
+            {
+                SortKind.Items.Add(new ComboBoxItem()
+                {
+                    Content = SRER.GetValue("Portal", "Enum", "SortKindType", $"{Type}")
+                });
+            }
+
+            SortKind.SelectedIndex = (int)SPMM.LibrarySortKind;
+
+            SortContent.Children.Add(SortModeText);
+            SortContent.Children.Add(SortMode);
+            SortContent.Children.Add(SortKindText);
+            SortContent.Children.Add(SortKind);
+
+            Sort.FooterCard = SortContent;
+
+            Contents.Add(Sort);
+
             SPVCEC Store = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
@@ -546,6 +621,26 @@ namespace Sucrose.Portal.ViewModels.Pages
         public void OnNavigatedFrom()
         {
             //Dispose();
+        }
+
+        private void SortKindSelected(int Index)
+        {
+            SSDESKT NewKind = (SSDESKT)Index;
+
+            if (NewKind != SPMM.LibrarySortKind)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.LibrarySortKind, NewKind);
+            }
+        }
+
+        private void SortModeSelected(int Index)
+        {
+            SSDESMT NewMode = (SSDESMT)Index;
+
+            if (NewMode != SPMM.LibrarySortMode)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.LibrarySortMode, NewMode);
+            }
         }
 
         private void AdultStateChecked(bool State)

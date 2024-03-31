@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform Vullen</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">Geen</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">Naam</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">Creatie</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">Aanpassing</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Vullen</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Geen</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standaard</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Ontwikkelaar</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">Oplopend [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">Aflopend [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standaard</system:String>
 

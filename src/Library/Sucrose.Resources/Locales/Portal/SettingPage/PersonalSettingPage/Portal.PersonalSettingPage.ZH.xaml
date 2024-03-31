@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">布局顺序 (数量):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">库排序</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">确定您的库中主题的排序方式和格式。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">排序模式：</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">排序类型：</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">商店分页</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">为商店中的每个页面设置主题数量。</system:String>
 

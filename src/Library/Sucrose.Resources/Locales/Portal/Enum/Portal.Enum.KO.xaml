@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">균일하게</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">균일하게 채우기</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">없음</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">이름</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">생성</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">수정</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">채우기</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">없음</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">균일하게</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">기본</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">개발자</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">오름차순 [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">내림차순 [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">기본</system:String>
 

@@ -10,6 +10,8 @@ using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
+using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
+using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
@@ -39,9 +41,13 @@ namespace Sucrose.Portal.Manage
 
         public static SSDEPT SaverPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.SaverPerformance, SSDEPT.Pause);
 
+        public static SSDESKT LibrarySortKind => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortKind, SSDESKT.Descending);
+
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Close);
 
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
+
+        public static SSDESMT LibrarySortMode => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortMode, SSDESMT.None);
 
         public static SSCEUT UpdateType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
 

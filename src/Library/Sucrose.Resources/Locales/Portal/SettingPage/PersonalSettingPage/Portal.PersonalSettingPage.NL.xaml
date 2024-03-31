@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Lay-outvolgorde (aantal):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Bibliotheek Sorteren</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Bepaal hoe thema's in uw bibliotheek worden gesorteerd en in welk formaat.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Sorteermode:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Sorteertype:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Winkel Paginering</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Bepaal hoeveel thema's er op elke pagina in de winkel worden weergegeven.</system:String>
 

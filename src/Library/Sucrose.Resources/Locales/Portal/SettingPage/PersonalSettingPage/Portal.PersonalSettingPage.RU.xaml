@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Количество столбцов:</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Сортировка библиотеки</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Определите, как темы в вашей библиотеке будут сортироваться и в каком формате.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Режим сортировки:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Тип сортировки:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Пагинация в магазине</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Настройте количество тем на каждой странице магазина.</system:String>
 

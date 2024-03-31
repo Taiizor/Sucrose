@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">लेआउट क्रम (संख्या):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">पुस्तकालय क्रमबद्ध करें</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">अपनी पुस्तकालय में विषयों को किस प्रकार और किस प्रारूप में क्रमबद्ध किया जाएगा, उसे निर्धारित करें।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">क्रमबद्ध करने का मोड:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">क्रमबद्ध करने का प्रकार:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">स्टोर पेजिनेशन</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">हर स्टोर पेज के लिए कितने थीम होंगे, यह निर्धारित करें।</system:String>
 

@@ -7,6 +7,11 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">समानानुपातिक</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">समानानुपातिक भरना</system:String>
 
+    <system:String x:Key="Portal.Enum.SortModeType.None">कोई नहीं</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Name">नाम</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Creation">सृजन</system:String>
+    <system:String x:Key="Portal.Enum.SortModeType.Modification">संशोधन</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">भरना</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">कोई नहीं</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">समानानुपातिक</system:String>
@@ -24,6 +29,9 @@
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">डिफ़ॉल्ट</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">डेवलपर</system:String>
+
+    <system:String x:Key="Portal.Enum.SortKindType.Ascending">आरोही [A-Z]</system:String>
+    <system:String x:Key="Portal.Enum.SortKindType.Descending">अवरोही [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">डिफ़ॉल्ट</system:String>
 

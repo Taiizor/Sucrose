@@ -47,6 +47,13 @@
 
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.AdaptiveLayout">Layoutordning (antal):</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Sort">Bibliotekssortering</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.Description">Bestem, hvordan emnerne i din bibliotek skal sorteres og i hvilket format.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortMode">Sorteringsmetode:</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Sort.SortKind">Sorteringsart:</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Store">Butikssideinddeling</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Store.Description">Bestem antallet af temaer på hver side i butikken.</system:String>
 
