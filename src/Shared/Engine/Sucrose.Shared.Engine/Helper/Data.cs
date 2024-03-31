@@ -20,7 +20,11 @@ namespace Sucrose.Shared.Engine.Helper
         {
             if (SMMM.VolumeDesktop)
             {
-                if (!SWUD.IsDesktopBasic() || !SWUD.IsDesktopAdvanced())
+                if (SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced())
+                {
+                    return SMMM.Volume;
+                }
+                else
                 {
                     return 0;
                 }

@@ -109,7 +109,11 @@ namespace Sucrose.Undo
 
             foreach (Process Process in TerminateProcesses)
             {
-                Process.Kill();
+                try
+                {
+                    Process.Kill();
+                }
+                catch { }
             }
         }
 

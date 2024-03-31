@@ -26,6 +26,7 @@ namespace Sucrose.Backgroundog.Helper
 
             SBMI.Exit = false;
             SBMI.Initialize.Stop();
+
             SMMI.BackgroundogSettingManager.SetSetting(SMC.ClosePerformance, false);
             SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, false);
 
