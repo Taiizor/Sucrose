@@ -126,6 +126,7 @@ namespace Sucrose.Live.Nebula
                         Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
                     }
 
+                    SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, false);
                     SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, false);
 
                     if (SSTHV.IsUrl(Source) || File.Exists(Source))

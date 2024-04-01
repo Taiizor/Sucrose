@@ -20,6 +20,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             if (SSEMI.Compatible.State && !SSEMI.CompatibleTimer.IsEnabled)
             {
                 SSEMI.CompatibleTimer.Interval = TimeSpan.FromMilliseconds(SHS.Clamp(SSEMI.Compatible.TriggerTime, 1, int.MaxValue));
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
                 SSEMI.CompatibleTimer.Tick += (s, e) => SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, true);
                 SSMI.BackgroundogManager.StartChannel(SSSSBSS.Handler);

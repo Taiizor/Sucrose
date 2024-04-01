@@ -98,6 +98,8 @@
 
         public const string DownloadType = "DownloadType";
 
+        public const string AudioRequired = "AudioRequired";
+
         public const string DownloadValue = "DownloadValue";
 
         public const string DonateVisible = "DonateVisible";

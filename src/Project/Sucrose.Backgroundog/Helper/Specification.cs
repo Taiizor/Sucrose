@@ -133,46 +133,59 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.AudioManagement)
                 {
-                    SBMI.AudioManagement = false;
-
-                    _ = Task.Run(async () =>
+                    if (SMMM.AudioRequired)
                     {
-                        try
+                        SBMI.AudioManagement = false;
+
+                        _ = Task.Run(async () =>
                         {
-                            if (SBMI.SessionManagement)
+                            try
                             {
-                                SBMI.SessionManagement = false;
-
-                                SBMI.SessionManager = new();
-
-                                SBMI.AudioVisualizer = new();
-
-                                SBMI.AudioVisualizer.AudioDataAvailable += (s, e) =>
+                                if (SBMI.SessionManagement)
                                 {
-                                    try
+                                    SBMI.SessionManagement = false;
+
+                                    SBMI.SessionManager = new();
+
+                                    SBMI.AudioVisualizer = new();
+
+                                    SBMI.AudioVisualizer.AudioDataAvailable += (s, e) =>
                                     {
-                                        SBMI.AudioData.Data = e;
-                                    }
-                                    catch { }
-                                };
+                                        try
+                                        {
+                                            SBMI.AudioData.Data = e;
+                                        }
+                                        catch { }
+                                    };
 
-                                SBMI.AudioVisualizer.Start();
+                                    SBMI.AudioVisualizer.Start();
 
-                                SBMI.SessionManager.SessionListChanged += (s, e) => SBEAS.SessionListChanged();
+                                    SBMI.SessionManager.SessionListChanged += (s, e) => SBEAS.SessionListChanged();
+                                }
+
+                                SBEAS.SessionListChanged();
+
+                                await Task.Delay(SBMI.SpecificationTime);
+
+                                SBMI.AudioManagement = true;
                             }
-
-                            SBEAS.SessionListChanged();
-
-                            await Task.Delay(SBMI.SpecificationTime);
-
-                            SBMI.AudioManagement = true;
-                        }
-                        catch (Exception Exception)
-                        {
-                            SBMI.AudioManagement = true;
-                            SSWW.Watch_CatchException(Exception);
-                        }
-                    });
+                            catch (Exception Exception)
+                            {
+                                SBMI.AudioManagement = true;
+                                SSWW.Watch_CatchException(Exception);
+                            }
+                        });
+                    }
+                    else
+                    {
+                        SBMI.DataSource = null;
+                        SBMI.SessionManager = null;
+                        SBMI.AudioManagement = true;
+                        SBMI.AudioVisualizer.Stop();
+                        SBMI.AudioData.State = false;
+                        SBMI.SessionManagement = true;
+                        SBMI.SessionManager.SessionListChanged -= (s, e) => SBEAS.SessionListChanged();
+                    }
                 }
 
                 if (SBMI.BatteryManagement)
@@ -419,7 +432,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.FullscreenManagement)
+                if (SBMI.FullscreenManagement && (SBMM.FullscreenPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Fullscreen))
                 {
                     SBMI.FullscreenManagement = false;
 
@@ -485,7 +498,7 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SBMI.FocusManagement)
+                if (SBMI.FocusManagement && (SBMM.FocusPerformance != SSDEPT.Resume || SBMM.FullscreenPerformance != SSDEPT.Resume || SBMI.CategoryPerformance == SSDECPT.Focus || SBMI.CategoryPerformance == SSDECPT.Fullscreen))
                 {
                     SBMI.FocusManagement = false;
 
