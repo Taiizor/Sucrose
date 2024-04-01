@@ -5,46 +5,46 @@ namespace Sucrose.Shared.Watchdog
 {
     internal static class Watch
     {
-        public static void Watch_CatchException(Exception Exception)
+        public static async Task Watch_CatchException(Exception Exception)
         {
-            WatchLog(Exception, "CATCH");
+            await WatchLog(Exception, "CATCH");
         }
 
-        public static void Watch_ThreadException(Exception Exception)
+        public static async Task Watch_ThreadException(Exception Exception)
         {
-            WatchLog(Exception, "THREAD");
+            await WatchLog(Exception, "THREAD");
         }
 
-        public static void Watch_FirstChanceException(Exception Exception)
+        public static async Task Watch_FirstChanceException(Exception Exception)
         {
-            WatchLog(Exception, "FIRST CHANCE");
+            await WatchLog(Exception, "FIRST CHANCE");
         }
 
-        public static void Watch_UnobservedTaskException(Exception Exception)
+        public static async Task Watch_UnobservedTaskException(Exception Exception)
         {
-            WatchLog(Exception, "UNOBSERVED TASK");
+            await WatchLog(Exception, "UNOBSERVED TASK");
         }
 
-        public static void Watch_GlobalUnhandledException(Exception Exception)
+        public static async Task Watch_GlobalUnhandledException(Exception Exception)
         {
-            WatchLog(Exception, "GLOBAL UNHANDLED");
+            await WatchLog(Exception, "GLOBAL UNHANDLED");
         }
 
-        public static void Watch_DispatcherUnhandledException(Exception Exception)
+        public static async Task Watch_DispatcherUnhandledException(Exception Exception)
         {
-            WatchLog(Exception, "DISPATCHER UNHANDLED");
+            await WatchLog(Exception, "DISPATCHER UNHANDLED");
         }
 
-        private static void WatchLog(Exception Exception, string Type)
+        private static async Task WatchLog(Exception Exception, string Type)
         {
-            WriteLog($"{Type} EXCEPTION START");
-            WriteLog($"Application crashed: {Exception.Message}.");
-            WriteLog($"Inner exception: {Exception.InnerException}.");
-            WriteLog($"Stack trace: {Exception.StackTrace}.");
-            WriteLog($"{Type} EXCEPTION FINISH");
+            await WriteLog($"{Type} EXCEPTION START");
+            await WriteLog($"Application crashed: {Exception.Message}.");
+            await WriteLog($"Inner exception: {Exception.InnerException}.");
+            await WriteLog($"Stack trace: {Exception.StackTrace}.");
+            await WriteLog($"{Type} EXCEPTION FINISH");
         }
 
-        private static void WriteLog(string Text)
+        private static Task WriteLog(string Text)
         {
 #if PORTAL
             SMMI.PortalLogManager.Log(SELLT.Error, Text);
@@ -73,6 +73,8 @@ namespace Sucrose.Shared.Watchdog
 #elif LIVE_MPVPLAYER
             SMMI.MpvPlayerLiveLogManager.Log(SELLT.Error, Text);
 #endif
+
+            return Task.CompletedTask;
         }
     }
 }

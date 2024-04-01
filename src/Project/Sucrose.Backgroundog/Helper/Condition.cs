@@ -81,7 +81,7 @@ namespace Sucrose.Backgroundog.Helper
             await Task.CompletedTask;
         }
 
-        private static void Lifecycle()
+        private static async void Lifecycle()
         {
             if (SBMI.Performance == SSDEPT.Close)
             {
@@ -110,7 +110,7 @@ namespace Sucrose.Backgroundog.Helper
                         }
                         catch (Exception Exception)
                         {
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     }
                 }

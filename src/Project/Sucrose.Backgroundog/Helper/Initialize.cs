@@ -26,9 +26,14 @@ namespace Sucrose.Backgroundog.Helper
         public void Stop()
         {
             SBMI.Computer.Close();
-            SBMI.AudioVisualizer.Stop();
             SBMI.InitializeTimer.Dispose();
-            SBMI.SessionManager.SessionListChanged -= (s, e) => SBEAS.SessionListChanged();
+
+            try
+            {
+                SBMI.AudioVisualizer.Stop();
+                SBMI.SessionManager.SessionListChanged -= (s, e) => SBEAS.SessionListChanged();
+            }
+            catch { }
         }
 
         private async void InitializeTimer_Callback(object State)

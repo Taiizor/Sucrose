@@ -41,41 +41,41 @@ namespace Sucrose.Live.CefSharp
         {
             System.Windows.Forms.Application.SetUnhandledExceptionMode(UnhandledExceptionMode.Automatic);
 
-            System.Windows.Forms.Application.ThreadException += (s, e) =>
+            System.Windows.Forms.Application.ThreadException += async (s, e) =>
             {
                 Exception Exception = e.Exception;
 
-                SSWW.Watch_ThreadException(Exception);
+                await SSWW.Watch_ThreadException(Exception);
 
                 //Close();
                 Message(Exception.Message);
             };
 
-            AppDomain.CurrentDomain.FirstChanceException += (s, e) =>
+            AppDomain.CurrentDomain.FirstChanceException += async (s, e) =>
             {
                 Exception Exception = e.Exception;
 
-                SSWW.Watch_FirstChanceException(Exception);
+                await SSWW.Watch_FirstChanceException(Exception);
 
                 //Close();
                 //Message(Exception.Message);
             };
 
-            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            AppDomain.CurrentDomain.UnhandledException += async (s, e) =>
             {
                 Exception Exception = (Exception)e.ExceptionObject;
 
-                SSWW.Watch_GlobalUnhandledException(Exception);
+                await SSWW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
                 Message(Exception.Message);
             };
 
-            TaskScheduler.UnobservedTaskException += (s, e) =>
+            TaskScheduler.UnobservedTaskException += async (s, e) =>
             {
                 Exception Exception = e.Exception;
 
-                SSWW.Watch_UnobservedTaskException(Exception);
+                await SSWW.Watch_UnobservedTaskException(Exception);
 
                 e.SetObserved();
 
@@ -83,11 +83,11 @@ namespace Sucrose.Live.CefSharp
                 Message(Exception.Message);
             };
 
-            Current.DispatcherUnhandledException += (s, e) =>
+            Current.DispatcherUnhandledException += async (s, e) =>
             {
                 Exception Exception = e.Exception;
 
-                SSWW.Watch_DispatcherUnhandledException(Exception);
+                await SSWW.Watch_DispatcherUnhandledException(Exception);
 
                 e.Handled = true;
 

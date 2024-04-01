@@ -50,7 +50,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     SBMI.CpuManagement = false;
 
-                    _ = Task.Run(() =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
@@ -69,7 +69,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.CpuManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -78,7 +78,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     SBMI.BiosManagement = false;
 
-                    _ = Task.Run(() =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
@@ -102,12 +102,12 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.BiosManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
 
-                _ = Task.Run(() =>
+                _ = Task.Run(async () =>
                 {
                     try
                     {
@@ -127,19 +127,19 @@ namespace Sucrose.Backgroundog.Helper
                     }
                     catch (Exception Exception)
                     {
-                        SSWW.Watch_CatchException(Exception);
+                        await SSWW.Watch_CatchException(Exception);
                     }
                 });
 
                 if (SBMI.AudioManagement)
                 {
-                    if (SMMM.AudioRequired)
-                    {
-                        SBMI.AudioManagement = false;
+                    SBMI.AudioManagement = false;
 
-                        _ = Task.Run(async () =>
+                    _ = Task.Run(async () =>
+                    {
+                        try
                         {
-                            try
+                            if (SMMM.AudioRequired)
                             {
                                 if (SBMI.SessionManagement)
                                 {
@@ -169,23 +169,29 @@ namespace Sucrose.Backgroundog.Helper
 
                                 SBMI.AudioManagement = true;
                             }
-                            catch (Exception Exception)
+                            else
                             {
+
+                                SBMI.DataSource = null;
+                                SBMI.SessionManager = null;
                                 SBMI.AudioManagement = true;
-                                SSWW.Watch_CatchException(Exception);
+                                SBMI.AudioData.State = false;
+                                SBMI.SessionManagement = true;
+
+                                try
+                                {
+                                    SBMI.AudioVisualizer.Stop();
+                                    SBMI.SessionManager.SessionListChanged -= (s, e) => SBEAS.SessionListChanged();
+                                }
+                                catch { }
                             }
-                        });
-                    }
-                    else
-                    {
-                        SBMI.DataSource = null;
-                        SBMI.SessionManager = null;
-                        SBMI.AudioManagement = true;
-                        SBMI.AudioVisualizer.Stop();
-                        SBMI.AudioData.State = false;
-                        SBMI.SessionManagement = true;
-                        SBMI.SessionManager.SessionListChanged -= (s, e) => SBEAS.SessionListChanged();
-                    }
+                        }
+                        catch (Exception Exception)
+                        {
+                            SBMI.AudioManagement = true;
+                            await SSWW.Watch_CatchException(Exception);
+                        }
+                    });
                 }
 
                 if (SBMI.BatteryManagement)
@@ -213,7 +219,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.BatteryManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -256,7 +262,7 @@ namespace Sucrose.Backgroundog.Helper
                                                     SBMI.NetworkData.Ping = 0;
                                                     SBMI.PingAddress = string.Empty;
                                                     SBMI.NetworkData.PingData = new();
-                                                    SSWW.Watch_CatchException(Exception);
+                                                    await SSWW.Watch_CatchException(Exception);
                                                 }
                                             }
                                         }
@@ -275,7 +281,7 @@ namespace Sucrose.Backgroundog.Helper
                                                 SBMI.NetworkData.Ping = 0;
                                                 SBMI.PingAddress = string.Empty;
                                                 SBMI.NetworkData.PingData = new();
-                                                SSWW.Watch_CatchException(Exception);
+                                                await SSWW.Watch_CatchException(Exception);
                                             }
                                         }
 
@@ -296,7 +302,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.PingManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -305,7 +311,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     SBMI.GraphicManagement = false;
 
-                    _ = Task.Run(() =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
@@ -316,7 +322,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.GraphicManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -325,7 +331,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     SBMI.NetworkManagement = false;
 
-                    _ = Task.Run(() =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
@@ -336,7 +342,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.NetworkManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -399,7 +405,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.NetworkManagement2 = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -408,7 +414,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     SBMI.MotherboardManagement = false;
 
-                    _ = Task.Run(() =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
@@ -427,7 +433,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.MotherboardManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -440,6 +446,8 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         try
                         {
+                            SBMI.Fullscreen = false;
+
                             IntPtr Foreground = SWNM.GetForegroundWindow();
 
                             StringBuilder Class = new(256);
@@ -453,16 +461,14 @@ namespace Sucrose.Backgroundog.Helper
                                 {
                                     if (SWHF.IsFullscreen(Foreground, Screen.rcMonitor))
                                     {
-                                        SBMI.FullscreenManagement = true;
-
                                         SBMI.Fullscreen = true;
 
-                                        return;
+                                        break;
                                     }
                                 }
                             }
 
-                            SBMI.Fullscreen = false;
+                            Console.WriteLine("Fullscreen: " + SBMI.Fullscreen);
 
                             await Task.Delay(SBMI.SpecificationLessTime);
 
@@ -471,7 +477,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.FullscreenManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -493,7 +499,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.VirtualityManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -508,6 +514,8 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.FocusDesktop = SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
 
+                            Console.WriteLine("FocusDesktop: " + SBMI.FocusDesktop);
+
                             await Task.Delay(SBMI.SpecificationLessTime);
 
                             SBMI.FocusManagement = true;
@@ -515,7 +523,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.FocusManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -537,7 +545,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.RemoteManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -556,7 +564,7 @@ namespace Sucrose.Backgroundog.Helper
                             {
                                 if (Hardware.HardwareType == HardwareType.Cpu)
                                 {
-                                    _ = Task.Run(() =>
+                                    _ = Task.Run(async () =>
                                     {
                                         try
                                         {
@@ -578,13 +586,13 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            SSWW.Watch_CatchException(Exception);
+                                            await SSWW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
                                 else if (Hardware.HardwareType == HardwareType.Memory)
                                 {
-                                    _ = Task.Run(() =>
+                                    _ = Task.Run(async () =>
                                     {
                                         try
                                         {
@@ -622,13 +630,13 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            SSWW.Watch_CatchException(Exception);
+                                            await SSWW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
                                 else if (Hardware.HardwareType == HardwareType.Battery)
                                 {
-                                    _ = Task.Run(() =>
+                                    _ = Task.Run(async () =>
                                     {
                                         try
                                         {
@@ -697,13 +705,13 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            SSWW.Watch_CatchException(Exception);
+                                            await SSWW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
                                 else if (Hardware.HardwareType == HardwareType.Motherboard)
                                 {
-                                    _ = Task.Run(() =>
+                                    _ = Task.Run(async () =>
                                     {
                                         try
                                         {
@@ -714,26 +722,26 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            SSWW.Watch_CatchException(Exception);
+                                            await SSWW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
                                 else if (Hardware.HardwareType is HardwareType.GpuAmd or HardwareType.GpuIntel or HardwareType.GpuNvidia)
                                 {
-                                    _ = Task.Run(() =>
+                                    _ = Task.Run(async () =>
                                     {
                                         try
                                         {
                                             //Hardware.Update();
 
                                             List<SBSSSS> Sensors = new()
-                                        {
-                                            new SBSSSS
                                             {
-                                                Name = Hardware.Name,
-                                                Type = $"{Hardware.HardwareType}"
-                                            }
-                                        };
+                                                new SBSSSS
+                                                {
+                                                    Name = Hardware.Name,
+                                                    Type = $"{Hardware.HardwareType}"
+                                                }
+                                            };
 
                                             foreach (ISensor Sensor in Hardware.Sensors)
                                             {
@@ -769,7 +777,7 @@ namespace Sucrose.Backgroundog.Helper
                                         }
                                         catch (Exception Exception)
                                         {
-                                            SSWW.Watch_CatchException(Exception);
+                                            await SSWW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -782,7 +790,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.ComputerManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }
@@ -791,7 +799,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     SBMI.SignalManagement = false;
 
-                    _ = Task.Run(() =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
@@ -813,7 +821,7 @@ namespace Sucrose.Backgroundog.Helper
                         catch (Exception Exception)
                         {
                             SBMI.SignalManagement = true;
-                            SSWW.Watch_CatchException(Exception);
+                            await SSWW.Watch_CatchException(Exception);
                         }
                     });
                 }

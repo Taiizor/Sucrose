@@ -20,7 +20,7 @@ namespace Sucrose.Commandog
             }
             catch (Exception Exception)
             {
-                SSWW.Watch_CatchException(Exception);
+                await SSWW.Watch_CatchException(Exception);
             }
             finally
             {
