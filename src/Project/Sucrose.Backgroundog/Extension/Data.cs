@@ -61,6 +61,7 @@ namespace Sucrose.Backgroundog.Extension
                 { "Artist", SBMI.AudioData.Artist },
                 //{ "Hwnd", $"{SBMI.AudioData.Hwnd}" },
                 { "Subtitle", SBMI.AudioData.Subtitle },
+                { "Data", new JArray(SBMI.AudioData.Data) },
                 { "AlbumTitle", SBMI.AudioData.AlbumTitle },
                 { "TrackNumber", SBMI.AudioData.TrackNumber },
                 { "AlbumArtist", SBMI.AudioData.AlbumArtist },

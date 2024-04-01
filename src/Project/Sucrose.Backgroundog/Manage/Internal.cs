@@ -1,6 +1,7 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using NPSMLib;
 using System.Diagnostics;
+using SBEAV = Sucrose.Backgroundog.Extension.AudioVisualizer;
 using SBHI = Sucrose.Backgroundog.Helper.Initialize;
 using SBSDAS = Sucrose.Backgroundog.Struct.Data.AudioStruct;
 using SBSDBSS = Sucrose.Backgroundog.Struct.Data.BiosStruct;
@@ -27,6 +28,8 @@ namespace Sucrose.Backgroundog.Manage
         public static Process App = null;
 
         public static Process Live = null;
+
+        public static SBEAV AudioVisualizer;
 
         public static bool Condition = false;
 
@@ -167,6 +170,7 @@ namespace Sucrose.Backgroundog.Manage
             MaxSeekTime = TimeSpan.Zero,
             LastPlayingFileTime = new(),
             PositionSetFileTime = new(),
+            Data = Array.Empty<double>(),
             //SourceDeviceId = string.Empty,
             //RenderDeviceId = string.Empty,
             ThumbnailString = string.Empty,

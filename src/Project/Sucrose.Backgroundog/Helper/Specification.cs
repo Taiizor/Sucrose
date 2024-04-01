@@ -145,6 +145,19 @@ namespace Sucrose.Backgroundog.Helper
 
                                 SBMI.SessionManager = new();
 
+                                SBMI.AudioVisualizer = new();
+
+                                SBMI.AudioVisualizer.AudioDataAvailable += (s, e) =>
+                                {
+                                    try
+                                    {
+                                        SBMI.AudioData.Data = e;
+                                    }
+                                    catch { }
+                                };
+
+                                SBMI.AudioVisualizer.Start();
+
                                 SBMI.SessionManager.SessionListChanged += (s, e) => SBEAS.SessionListChanged();
                             }
 

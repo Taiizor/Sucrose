@@ -159,6 +159,10 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
+        public double[] Data;
+        /// <summary>
+        /// 
+        /// </summary>
         public string Subtitle;
         /// <summary>
         /// 

@@ -1,4 +1,5 @@
-﻿using SBHA = Sucrose.Backgroundog.Helper.Attempt;
+﻿using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
+using SBHA = Sucrose.Backgroundog.Helper.Attempt;
 using SBHC = Sucrose.Backgroundog.Helper.Condition;
 using SBHP = Sucrose.Backgroundog.Helper.Performance;
 using SBHS = Sucrose.Backgroundog.Helper.Specification;
@@ -25,7 +26,9 @@ namespace Sucrose.Backgroundog.Helper
         public void Stop()
         {
             SBMI.Computer.Close();
+            SBMI.AudioVisualizer.Stop();
             SBMI.InitializeTimer.Dispose();
+            SBMI.SessionManager.SessionListChanged -= (s, e) => SBEAS.SessionListChanged();
         }
 
         private async void InitializeTimer_Callback(object State)

@@ -41,8 +41,6 @@ namespace Sucrose.Wizard.View
 
         private static SSIIR Release { get; set; } = null;
 
-        private static bool HasFile { get; set; } = false;
-
         private static int MaxDelay => 5000;
 
         private static int MinDelay => 1000;
@@ -371,7 +369,6 @@ namespace Sucrose.Wizard.View
 
         private async Task Reloader()
         {
-            HasFile = false;
             HasBundle = false;
 
             Bundle = string.Empty;
@@ -447,14 +444,12 @@ namespace Sucrose.Wizard.View
                     if (e.Error != null)
                     {
                         HasBundle = false;
-                        HasFile = true;
 
                         Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Complete", "Error");
                     }
                     else
                     {
                         HasBundle = false;
-                        HasFile = false;
 
                         Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Complete", "Cancel");
                     }
