@@ -468,8 +468,6 @@ namespace Sucrose.Backgroundog.Helper
                                 }
                             }
 
-                            Console.WriteLine("Fullscreen: " + SBMI.Fullscreen);
-
                             await Task.Delay(SBMI.SpecificationLessTime);
 
                             SBMI.FullscreenManagement = true;
@@ -513,8 +511,6 @@ namespace Sucrose.Backgroundog.Helper
                         try
                         {
                             SBMI.FocusDesktop = SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
-
-                            Console.WriteLine("FocusDesktop: " + SBMI.FocusDesktop);
 
                             await Task.Delay(SBMI.SpecificationLessTime);
 
