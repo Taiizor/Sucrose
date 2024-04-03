@@ -801,6 +801,12 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             SBMI.PipeManagement = false;
 
+                            JsonSerializerSettings SerializerSettings = new()
+                            {
+                                Formatting = Formatting.None,
+                                TypeNameHandling = TypeNameHandling.None
+                            };
+
                             SPMI.BackgroundogManager.StartClient(JsonConvert.SerializeObject(new SPIB()
                             {
                                 Cpu = SBED.GetCpuInfo(),
@@ -812,7 +818,7 @@ namespace Sucrose.Backgroundog.Helper
                                 Graphic = SBED.GetGraphicInfo(),
                                 Network = SBED.GetNetworkInfo(),
                                 Motherboard = SBED.GetMotherboardInfo()
-                            }, Formatting.None));
+                            }, SerializerSettings));
 
                             SBMI.PipeManagement = true;
                         }

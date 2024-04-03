@@ -11,25 +11,29 @@ namespace Sucrose.Shared.Pipe.Services
     {
         public static void Handler(SPEMREA e)
         {
-            if (e != null && !string.IsNullOrEmpty(e.Message))
+            try
             {
-                SPIL Data = JsonConvert.DeserializeObject<SPIL>(e.Message);
-
-                if (Data.Hide)
+                if (e != null && !string.IsNullOrEmpty(e.Message))
                 {
-                    SSLMI.TrayIconManager.Hide();
-                }
+                    SPIL Data = JsonConvert.DeserializeObject<SPIL>(e.Message);
 
-                if (Data.Show)
-                {
-                    SSLMI.TrayIconManager.Show();
-                }
+                    if (Data.Hide)
+                    {
+                        SSLMI.TrayIconManager.Hide();
+                    }
 
-                if (Data.Release)
-                {
-                    SSLMI.TrayIconManager.Release();
+                    if (Data.Show)
+                    {
+                        SSLMI.TrayIconManager.Show();
+                    }
+
+                    if (Data.Release)
+                    {
+                        SSLMI.TrayIconManager.Release();
+                    }
                 }
             }
+            catch { }
         }
     }
 }

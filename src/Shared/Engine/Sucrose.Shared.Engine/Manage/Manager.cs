@@ -3,9 +3,9 @@ using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 
 namespace Sucrose.Shared.Engine.Manage
 {
