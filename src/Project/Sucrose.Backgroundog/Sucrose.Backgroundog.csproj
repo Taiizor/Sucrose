@@ -82,6 +82,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Library\Sucrose.Pipe\Sucrose.Pipe.csproj" />
+        <ProjectReference Include="..\..\Library\Sucrose.Signal\Sucrose.Signal.csproj" />
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
     </ItemGroup>
 

@@ -11,11 +11,14 @@ namespace Sucrose.Shared.Pipe.Services
     {
         public static void Handler(SPEMREA e)
         {
-            SSIW Data = JsonConvert.DeserializeObject<SSIW>(e.Message);
+            if (e != null && !string.IsNullOrEmpty(e.Message))
+            {
+                SPIW Data = JsonConvert.DeserializeObject<SPIW>(e.Message);
 
-            Variables.State = true;
-            Variables.Uri = Data.Url;
-            Variables.Hook = Data.Hook;
+                Variables.State = true;
+                Variables.Uri = Data.Url;
+                Variables.Hook = Data.Hook;
+            }
         }
     }
 }

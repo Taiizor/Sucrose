@@ -6,8 +6,8 @@ using SBHS = Sucrose.Backgroundog.Helper.Specification;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SPMI = Sucrose.Pipe.Manage.Internal;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 
 namespace Sucrose.Backgroundog.Helper
 {

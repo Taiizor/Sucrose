@@ -227,10 +227,6 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public string ThumbnailAddress;
-        /// <summary>
-        /// 
-        /// </summary>
         public MediaPlaybackMode MediaType;
         /// <summary>
         /// 

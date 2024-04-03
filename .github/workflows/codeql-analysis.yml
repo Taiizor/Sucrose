@@ -39,6 +39,7 @@ jobs:
             Release
         ]
         solution: [
+            src/Library/Sucrose.Pipe/Sucrose.Pipe.csproj,
             src/Library/Sucrose.Signal/Sucrose.Signal.csproj,
             src/Library/Sucrose.Memory/Sucrose.Memory.csproj,
             src/Library/Sucrose.Manager/Sucrose.Manager.csproj,

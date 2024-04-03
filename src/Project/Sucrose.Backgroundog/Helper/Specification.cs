@@ -20,13 +20,15 @@ using SHN = Skylark.Helper.Numeric;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SPIB = Sucrose.Pipe.Interface.Backgroundog;
+using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
-using SPIB = Sucrose.Pipe.Interface.Backgroundog;
-using SPMI = Sucrose.Pipe.Manage.Internal;
+using SSIB = Sucrose.Signal.Interface.Backgroundog;
+using SSMI = Sucrose.Signal.Manage.Internal;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -791,15 +793,15 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SMMM.PipeRequired)
+                _ = Task.Run(async () =>
                 {
-                    _ = Task.Run(async () =>
+                    try
                     {
-                        try
+                        if (SBMI.PipeManagement && SMMM.PipeRequired)
                         {
-                            //SPMI.BackgroundogManager.StartClient();
+                            SBMI.PipeManagement = false;
 
-                            SPIB Data = new()
+                            SPMI.BackgroundogManager.StartClient(JsonConvert.SerializeObject(new SPIB()
                             {
                                 Cpu = SBED.GetCpuInfo(),
                                 Bios = SBED.GetBiosInfo(),
@@ -810,18 +812,48 @@ namespace Sucrose.Backgroundog.Helper
                                 Graphic = SBED.GetGraphicInfo(),
                                 Network = SBED.GetNetworkInfo(),
                                 Motherboard = SBED.GetMotherboardInfo()
-                            };
+                            }, Formatting.None));
 
-                            SPMI.BackgroundogManager.StartClient(JsonConvert.SerializeObject(Data, Formatting.None));
-
-                            //SPMI.BackgroundogManager.DisposeClient();
+                            SBMI.PipeManagement = true;
                         }
-                        catch (Exception Exception)
+                    }
+                    catch (Exception Exception)
+                    {
+                        SBMI.PipeManagement = true;
+                        await SSWW.Watch_CatchException(Exception);
+                    }
+                });
+
+                _ = Task.Run(async () =>
+                {
+                    try
+                    {
+                        if (SBMI.SignalManagement && SMMM.SignalRequired)
                         {
-                            await SSWW.Watch_CatchException(Exception);
+                            SBMI.SignalManagement = false;
+
+                            SSMI.BackgroundogManager.FileSave<SSIB>(new()
+                            {
+                                Cpu = SBED.GetCpuInfo(),
+                                Bios = SBED.GetBiosInfo(),
+                                Date = SBED.GetDateInfo(),
+                                Audio = SBED.GetAudioInfo(),
+                                Memory = SBED.GetMemoryInfo(),
+                                Battery = SBED.GetBatteryInfo(),
+                                Graphic = SBED.GetGraphicInfo(),
+                                Network = SBED.GetNetworkInfo(),
+                                Motherboard = SBED.GetMotherboardInfo()
+                            });
+
+                            SBMI.SignalManagement = true;
                         }
-                    });
-                }
+                    }
+                    catch (Exception Exception)
+                    {
+                        SBMI.SignalManagement = true;
+                        await SSWW.Watch_CatchException(Exception);
+                    }
+                });
 
                 //_ = Task.Run(() =>
                 //{

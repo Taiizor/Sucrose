@@ -81,15 +81,6 @@ namespace Sucrose.Backgroundog.Extension
                     SBMI.AudioData.PositionSetFileTime = MediaTimeline.PositionSetFileTime;
 
                     SBMI.AudioData.ThumbnailString = ThumbnailString;
-
-                    if (string.IsNullOrEmpty(ThumbnailString))
-                    {
-                        SBMI.AudioData.ThumbnailAddress = ThumbnailString;
-                    }
-                    else
-                    {
-                        SBMI.AudioData.ThumbnailAddress = "data:image/png;base64," + ThumbnailString;
-                    }
                 }
             }
             else

@@ -5,11 +5,14 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 
 namespace Sucrose.Shared.Engine.Manage
 {
     internal static class Manager
     {
+        public static SSDECT CommunicationType => SMMI.BackgroundogSettingManager.GetSetting(SMC.CommunicationType, SSDECT.Signal);
+
         public static SEDST DuplicateScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default);
 
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);

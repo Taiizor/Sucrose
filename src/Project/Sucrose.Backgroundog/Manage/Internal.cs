@@ -51,15 +51,19 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool PingManagement = true;
 
+        public static bool PipeManagement = true;
+
         public static bool RemoteDesktop = false;
 
         public static bool AudioManagement = true;
 
         public static bool FocusManagement = true;
 
+        public static Timer InitializeTimer = null;
+
         public static bool RemoteManagement = true;
 
-        public static Timer InitializeTimer = null;
+        public static bool SignalManagement = true;
 
         public static bool SessionManagement = true;
 
@@ -172,7 +176,6 @@ namespace Sucrose.Backgroundog.Manage
             //SourceDeviceId = string.Empty,
             //RenderDeviceId = string.Empty,
             ThumbnailString = string.Empty,
-            ThumbnailAddress = string.Empty,
             MediaType = MediaPlaybackMode.Unknown,
             PlaybackMode = MediaPlaybackMode.Unknown,
             PlaybackState = MediaPlaybackState.Unknown,

@@ -9,7 +9,7 @@ namespace Sucrose.Signal
 {
     public class SignalT(string Name)
     {
-        private readonly JsonSerializerSettings SerializerSettings = new() { TypeNameHandling = TypeNameHandling.None, Formatting = Formatting.Indented };
+        private readonly JsonSerializerSettings SerializerSettings = new() { TypeNameHandling = TypeNameHandling.None, Formatting = Formatting.None };
         private readonly string Source = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.SignalT);
         private FileSystemWatcher FileWatcher;
 

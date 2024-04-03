@@ -1,7 +1,35 @@
-﻿namespace Sucrose.Pipe.Event
+﻿using Skylark.Standard.Extension.Cryptology;
+
+namespace Sucrose.Pipe.Event
 {
     public class MessageReceivedEventArgs : EventArgs
     {
-        public string Message { get; set; }
+        private string Data;
+
+        public string Message
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Data))
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return CryptologyExtension.BaseToText(Data);
+                }
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    Data = string.Empty;
+                }
+                else
+                {
+                    Data = CryptologyExtension.TextToBase(value);
+                }
+            }
+        }
     }
 }

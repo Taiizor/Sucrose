@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Dependency</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enum\CommunicationType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CommandsType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\CompatibilityType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\PerformanceType.cs" />

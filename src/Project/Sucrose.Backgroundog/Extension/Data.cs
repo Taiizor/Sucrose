@@ -78,7 +78,6 @@ namespace Sucrose.Backgroundog.Extension
                 { "ThumbnailString", SBMI.AudioData.ThumbnailString },
                 { "AlbumTrackCount", SBMI.AudioData.AlbumTrackCount },
                 { "PlaybackState", $"{SBMI.AudioData.PlaybackState}" },
-                { "ThumbnailAddress", SBMI.AudioData.ThumbnailAddress },
                 { "EndTime", SBMI.AudioData.EndTime.TotalMilliseconds },
                 { "Position", SBMI.AudioData.Position.TotalMilliseconds },
                 { "StartTime", SBMI.AudioData.StartTime.TotalMilliseconds },

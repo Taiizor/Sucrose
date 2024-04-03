@@ -166,6 +166,8 @@
 
         public const string StorePreviewHide = "StorePreviewHide";
 
+        public const string CommunicationType = "CommunicationType";
+
         public const string RemotePerformance = "RemotePerformance";
 
         public const string BackgroundOpacity = "BackgroundOpacity";

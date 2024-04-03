@@ -126,6 +126,7 @@ namespace Sucrose.Live.Vexana
                         Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
                     }
 
+                    SMMI.BackgroundogSettingManager.SetSetting(SMC.PipeRequired, false);
                     SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, false);
                     SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, false);
 
