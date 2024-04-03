@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Jednolite</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Jednolite Wypełnianie</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Zamknij</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Wstrzymaj</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Wznów</system:String>

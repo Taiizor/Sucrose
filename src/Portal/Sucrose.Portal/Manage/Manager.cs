@@ -8,12 +8,12 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal.Manage

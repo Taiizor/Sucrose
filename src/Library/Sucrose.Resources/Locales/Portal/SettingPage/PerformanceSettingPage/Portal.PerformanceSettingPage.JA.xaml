@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">注意: 一部のWebベースのテーマは正しく動作しない場合があり、以下のパフォーマンス設定は機能しない場合があります。</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">通信タイプ</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Web タイプのテーマにメッセージを送信する方法を決定します。</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU 使用率</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">CPU 使用率の設定による壁紙の動作。</system:String>
 

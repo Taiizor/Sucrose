@@ -7,7 +7,10 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Счетчики производительности</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Определяет, будут ли счетчики производительности работать в фоновом режиме.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примечание: Некоторые темы типа "Веб" могут не работать корректно, и ни один из нижеприведенных параметров производительности не будет работать.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примечание: Некоторые темы типа Web могут не работать корректно, и ни один из нижеприведенных параметров производительности не будет работать.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Тип коммуникации</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Определяет метод отправки сообщений темам типа Web.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Использование ЦП</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Определяет влияние ваших настроек использования процессора на обои.</system:String>

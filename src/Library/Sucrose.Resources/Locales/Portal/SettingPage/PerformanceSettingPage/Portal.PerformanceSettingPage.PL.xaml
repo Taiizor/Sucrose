@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Uwaga: Niektóre tapety o tematyce Web mogą nie działać poprawnie, i żadne z poniższych ustawień wydajności nie będzie działać.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Typ Komunikacji</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Określa metodę wysyłania wiadomości do motywów typu Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Użycie CPU</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Co dzieje się z tapetą na podstawie ustawień użycia CPU.</system:String>
 

@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Σημείωση: Ορισμένα θέματα τύπου Web ενδέχεται να μην λειτουργούν σωστά και καμία από τις παρακάτω ρυθμίσεις απόδοσης δεν θα ισχύσει.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Τύπος Επικοινωνίας</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Καθορίζει τη μέθοδο αποστολής μηνυμάτων σε θέματα τύπου Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Χρήση Επεξεργαστή</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Πώς θα επηρεάσει η ρύθμιση της χρήσης του επεξεργαστή το ταπετσαρία.</system:String>
 

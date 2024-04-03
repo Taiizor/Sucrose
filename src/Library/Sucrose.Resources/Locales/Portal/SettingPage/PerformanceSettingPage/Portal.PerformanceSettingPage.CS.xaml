@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Poznámka: Některá témata typu Web nemusí fungovat správně a žádné z následujících nastavení výkonu nebude fungovat.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Typ Komunikace</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Určuje způsob odesílání zpráv tématům typu Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Využití CPU</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití CPU.</system:String>
 

@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Orantılı</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Orantılı Doldur</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Kapat</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Durdur</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Sürdür</system:String>

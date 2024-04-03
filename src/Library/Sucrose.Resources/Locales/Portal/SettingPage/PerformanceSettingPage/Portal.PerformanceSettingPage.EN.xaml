@@ -7,7 +7,10 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Performance Counters</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Whether all performance counters should run in the background.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Note: Some Web-themed wallpapers may not work properly, and none of the performance settings below will work.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Note: Some Web themed wallpapers may not work properly, and none of the performance settings below will work.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Communication Type</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determines the method of sending messages to themes of type Web.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Processor Usage</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">What happens to the wallpaper based on your processor usage settings.</system:String>

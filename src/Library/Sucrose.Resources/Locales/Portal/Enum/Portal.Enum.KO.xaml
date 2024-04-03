@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">균일하게</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">균일하게 채우기</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">닫기</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">일시 정지</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">재개</system:String>

@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform Vullen</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Sluiten</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pauzeren</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Hervatten</system:String>

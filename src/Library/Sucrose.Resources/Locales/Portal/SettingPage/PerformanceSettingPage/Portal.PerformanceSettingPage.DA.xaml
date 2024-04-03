@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Bemærk: Nogle webbaserede temaer fungerer muligvis ikke korrekt, og ingen af de følgende ydelsesindstillinger vil fungere.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Kommunikationstype</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Afgør metoden til at sende beskeder til temaer af typen Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-brug</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Hvad der skal ske med tapetet baseret på dine CPU-brugsindstillinger.</system:String>
 

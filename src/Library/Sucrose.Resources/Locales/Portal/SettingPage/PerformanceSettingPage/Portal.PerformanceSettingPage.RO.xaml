@@ -7,7 +7,10 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Contoare de Performanță</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Dacă toate contoarele de performanță vor funcționa în fundal.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Notă: Unele teme de tip web pot să nu funcționeze corect și niciuna dintre următoarele setări de performanță nu va funcționa.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Notă: Unele teme de tip Web pot să nu funcționeze corect și niciuna dintre următoarele setări de performanță nu va funcționa.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Tip de Comunicare</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determină metoda de trimitere a mesajelor către temele de tip Web.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Utilizare Procesor</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a procesorului.</system:String>

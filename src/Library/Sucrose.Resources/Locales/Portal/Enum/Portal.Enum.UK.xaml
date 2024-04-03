@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Пропорційно</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Пропорційно заповнити</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Закрити</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Пауза</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Продовжити</system:String>

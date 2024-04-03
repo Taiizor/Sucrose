@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Hinweis: Einige Webbasierte Wallpaper funktionieren möglicherweise nicht ordnungsgemäß, und keine der unten aufgeführten Leistungseinstellungen wird funktionieren.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Kommunikationstyp</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Bestimmt die Methode zum Senden von Nachrichten an Themen des Typs Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-Auslastung</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Was mit dem Hintergrundbild basierend auf Ihren CPU-Auslastungseinstellungen passiert.</system:String>
 

@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform for å fylle</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Lukk</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pause</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Fortsett</system:String>

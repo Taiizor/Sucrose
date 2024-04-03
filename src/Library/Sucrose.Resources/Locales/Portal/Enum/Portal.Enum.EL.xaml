@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Ομοιόμορφη</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Ομοιόμορφο Γέμισμα</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Κλείσιμο</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Παύση</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Συνέχιση</system:String>

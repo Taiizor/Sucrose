@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Remarque: Certaines images d'arrière-plan à thème Web peuvent ne pas fonctionner correctement, et aucun des paramètres de performance ci-dessous ne fonctionnera.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Type de Communication</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Détermine la méthode d'envoi de messages aux thèmes de type Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Utilisation du Processeur</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Ce qui se passe avec l'arrière-plan en fonction de vos paramètres d'utilisation du processeur.</system:String>
 

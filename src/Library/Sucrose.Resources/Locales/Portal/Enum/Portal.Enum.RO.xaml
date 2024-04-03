@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform pentru a umple</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Închide</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Pauză</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Reia</system:String>

@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">İletişim Türü</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Web türündeki temalara iletilecek olan mesajların yollanma türünü belirler.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">İşlemci Kullanımı</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">İşlemci kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.</system:String>
 

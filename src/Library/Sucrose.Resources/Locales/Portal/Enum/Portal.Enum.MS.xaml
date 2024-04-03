@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Seragam</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Seragam Untuk Isi</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">Tutup</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">Berhenti</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">Sambung</system:String>

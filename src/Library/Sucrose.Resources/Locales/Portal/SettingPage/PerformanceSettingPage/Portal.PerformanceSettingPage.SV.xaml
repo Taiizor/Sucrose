@@ -7,7 +7,10 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Prestandamätare</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Om alla prestandamätare ska köra i bakgrunden.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Obs: Vissa webbaserade teman kan fungera dåligt, och ingen av följande prestandainställningar kommer att användas.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Obs: Vissa Webbaserade teman kan fungera dåligt, och ingen av följande prestandainställningar kommer att användas.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Kommunikationstyp</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Bestämmer metod för att skicka meddelanden till teman av typen Web.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-användning</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Din CPU-användningsinställning kommer att påverka vad som händer med bakgrundsbilden.</system:String>

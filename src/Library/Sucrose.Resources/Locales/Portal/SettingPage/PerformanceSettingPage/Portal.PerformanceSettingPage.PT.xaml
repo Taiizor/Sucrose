@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Alguns temas do tipo Web podem não funcionar corretamente e nenhuma das configurações de desempenho abaixo terá efeito.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Tipo de Comunicação</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determina o método de envio de mensagens para temas do tipo Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Uso da CPU</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">O que acontecerá com o papel de parede com base nas configurações de uso da CPU.</system:String>
 

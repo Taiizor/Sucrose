@@ -7,7 +7,10 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Ytelsesmålere</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Om alle ytelsesmålerne skal kjøre i bakgrunnen.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Merk: Noen webbaserte temaer kan kanskje ikke fungere skikkelig, og ingen av følgende ytelsesinnstillinger vil være aktive.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Merk: Noen Webbaserte temaer kan kanskje ikke fungere skikkelig, og ingen av følgende ytelsesinnstillinger vil være aktive.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Kommunikasjonstype</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Bestemmer metoden for å sende meldinger til temaer av typen Web.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-bruk</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Hvordan tapetet skal reagere på dine CPU-bruksinnstillinger.</system:String>

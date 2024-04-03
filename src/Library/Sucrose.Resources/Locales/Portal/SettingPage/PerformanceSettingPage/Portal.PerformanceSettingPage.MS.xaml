@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Sesetengah tema jenis Web mungkin tidak berfungsi dengan baik, dan tiada pengaturan prestasi di bawah akan berfungsi.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Jenis Komunikasi</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Menentukan kaedah penghantaran mesej kepada tema-tema jenis Web.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Penggunaan CPU</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Apa yang akan berlaku pada dinding semasa tetapan penggunaan CPU anda.</system:String>
 

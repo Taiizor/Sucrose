@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">注意：某些Web类型的主题可能无法正常工作，下面的性能设置将不起作用。</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">通信类型</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">确定将消息发送到 Web 类型主题的方法。</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU使用率</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">根据您的CPU使用设置，将影响壁纸。</system:String>
 

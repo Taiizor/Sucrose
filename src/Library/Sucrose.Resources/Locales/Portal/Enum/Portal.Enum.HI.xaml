@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">समानानुपातिक</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">समानानुपातिक भरना</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">बंद करें</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">रोकें</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">जारी रखें</system:String>

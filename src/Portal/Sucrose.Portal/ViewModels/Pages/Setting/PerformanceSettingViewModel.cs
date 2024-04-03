@@ -11,7 +11,8 @@ using SMR = Sucrose.Memory.Readonly;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDECNT = Sucrose.Shared.Dependency.Enum.CommunicationType;
+using SSDECST = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -83,6 +84,31 @@ namespace Sucrose.Portal.ViewModels.Pages
             Counter.FooterCard = CounterHint;
 
             Contents.Add(Counter);
+
+            SPVCEC Communication = new()
+            {
+                Expandable = false,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Communication.LeftIcon.Symbol = SymbolRegular.Communication24;
+            Communication.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Communication");
+            Communication.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Communication", "Description");
+
+            ComboBox CommunicationType = new();
+
+            CommunicationType.SelectionChanged += (s, e) => CommunicationTypeSelected(CommunicationType.SelectedIndex);
+
+            foreach (SSDECNT Type in Enum.GetValues(typeof(SSDECNT)))
+            {
+                CommunicationType.Items.Add(SRER.GetValue("Portal", "Enum", "CommunicationType", $"{Type}"));
+            }
+
+            CommunicationType.SelectedIndex = (int)SPMM.CommunicationType;
+
+            Communication.HeaderFrame = CommunicationType;
+
+            Contents.Add(Communication);
 
             TextBlock SystemResourcesArea = new()
             {
@@ -778,6 +804,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void CommunicationTypeSelected(int Index)
+        {
+            if (Index != (int)SPMM.CommunicationType)
+            {
+                SSDECNT Type = (SSDECNT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.CommunicationType, Type);
+            }
+        }
+
         private void RemotePerformanceSelected(int Index)
         {
             if (Index != (int)SPMM.RemotePerformance)
@@ -892,7 +928,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (State)
             {
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECST.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
             }
             else
             {

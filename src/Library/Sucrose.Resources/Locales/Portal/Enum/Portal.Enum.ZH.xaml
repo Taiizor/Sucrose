@@ -17,6 +17,9 @@
     <system:String x:Key="Portal.Enum.StretchType.Uniform">均匀</system:String>
     <system:String x:Key="Portal.Enum.StretchType.UniformToFill">均匀填充</system:String>
 
+    <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
+    <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
+
     <system:String x:Key="Portal.Enum.PerformanceType.Close">关闭</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Pause">暂停</system:String>
     <system:String x:Key="Portal.Enum.PerformanceType.Resume">继续</system:String>

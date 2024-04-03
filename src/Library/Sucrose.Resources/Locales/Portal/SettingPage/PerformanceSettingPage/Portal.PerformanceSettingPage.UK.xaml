@@ -7,7 +7,10 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Показники продуктивності</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Чи працюватимуть всі показники продуктивності у фоновому режимі.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примітка: Деякі теми веб-сайтів можуть працювати не належним чином, і жоден із наступних параметрів продуктивності не буде працювати.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примітка: Деякі теми Web-сайтів можуть працювати не належним чином, і жоден із наступних параметрів продуктивності не буде працювати.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Тип комунікації</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Визначає метод надсилання повідомлень темам типу Web.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Використання процесора</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Як використання процесора впливає на робочий стіл.</system:String>

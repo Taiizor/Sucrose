@@ -7,7 +7,10 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">Contatori di Prestazioni</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">Se i contatori di prestazioni devono funzionare in background o meno.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Alcuni temi di tipo web potrebbero non funzionare correttamente e nessuna delle seguenti impostazioni di prestazioni avrà effetto.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Alcuni temi di tipo Web potrebbero non funzionare correttamente e nessuna delle seguenti impostazioni di prestazioni avrà effetto.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">Tipo di Comunicazione</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determina il metodo di invio dei messaggi ai temi di tipo Web.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">Utilizzo della CPU</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Cosa dovrebbe accadere al wallpaper in base alle tue impostazioni di utilizzo della CPU.</system:String>

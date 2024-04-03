@@ -6,7 +6,11 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter">प्रदर्शन गणनाओं</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.Description">सभी प्रदर्शन गणनाओं का पृष्ठांतरण करना चाहिए या नहीं।</system:String>
-    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">नोट: कुछ वेब थीम्स सही तरीके से काम नहीं कर सकती हैं और निम्नलिखित प्रदर्शन सेटिंग्स का कोई भी काम नहीं कर सकता है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">नोट: कुछ Web थीम्स सही तरीके से काम नहीं कर सकती हैं और निम्नलिखित प्रदर्शन सेटिंग्स का कोई भी काम नहीं कर सकता है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication">संचार प्रकार</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Web प्रकार के थीम्स को संदेश भेजने का तरीका निर्धारित करता है।</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">सीपीयू उपयोग</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">सीपीयू उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
