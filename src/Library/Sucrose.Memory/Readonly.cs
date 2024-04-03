@@ -2,6 +2,7 @@
 {
     public static class Readonly
     {
+
         public static readonly string Language = "EN";
 
         public static readonly string Store = "Store";
@@ -27,6 +28,8 @@
         public static readonly string AppName = "Sucrose";
 
         public static readonly string Content = "Content";
+
+        public static readonly string PipeServerName = ".";
 
         public static readonly char SearchSplitChar = 'ꕥ';
 
@@ -78,11 +81,11 @@
 
         public static readonly string WebViewProcessName = "msedgewebview2";
 
+        public static readonly string AuroraLive = "Sucrose.Live.Aurora.exe";
+
         public static readonly string NebulaLive = "Sucrose.Live.Nebula.exe";
 
         public static readonly string VexanaLive = "Sucrose.Live.Vexana.exe";
-
-        public static readonly string AuroraLive = "Sucrose.Live.Aurora.exe";
 
         public static readonly string YouTubeContent = "YouTubeContent.html";
 

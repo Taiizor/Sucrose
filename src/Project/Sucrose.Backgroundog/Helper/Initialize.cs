@@ -7,6 +7,7 @@ using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SPMI = Sucrose.Pipe.Manage.Internal;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -27,6 +28,7 @@ namespace Sucrose.Backgroundog.Helper
         {
             SBMI.Computer.Close();
             SBMI.InitializeTimer.Dispose();
+            SPMI.BackgroundogManager.DisposeClient();
 
             try
             {

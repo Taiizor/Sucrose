@@ -1,12 +1,11 @@
-﻿using SHS = Skylark.Helper.Skymath;
-using SMC = Sucrose.Memory.Constant;
+﻿using SMC = Sucrose.Memory.Constant;
+using SPMI = Sucrose.Pipe.Manage.Internal;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SSMI = Sucrose.Signal.Manage.Internal;
-using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
+using SSPSBSS = Sucrose.Shared.Pipe.Services.BackgroundogPipeService;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 
@@ -16,14 +15,25 @@ namespace Sucrose.Shared.Engine.WebView.Helper
     {
         public static void StartCompatible()
         {
-            if (SSEMI.Compatible.State && !SSEMI.CompatibleTimer.IsEnabled)
+            if (SSEMI.Compatible.State)
             {
-                SSEMI.CompatibleTimer.Interval = TimeSpan.FromMilliseconds(SHS.Clamp(SSEMI.Compatible.TriggerTime, 1, int.MaxValue));
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
-                SSEMI.CompatibleTimer.Tick += (s, e) => SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
-                SMMI.BackgroundogSettingManager.SetSetting(SMC.SignalRequired, true);
-                SSMI.BackgroundogManager.StartChannel(SSSSBSS.Handler);
-                SSEMI.CompatibleTimer.Start();
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.PipeRequired, true);
+
+                _ = Task.Run(() =>
+                {
+                    SPMI.BackgroundogManager.MessageReceived += async (s, e) =>
+                    {
+                        SSPSBSS.Handler(e);
+
+                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                        {
+                            SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                        });
+                    };
+
+                    SPMI.BackgroundogManager.StartServer();
+                });
             }
         }
 

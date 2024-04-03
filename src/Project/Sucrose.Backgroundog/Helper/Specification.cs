@@ -25,8 +25,8 @@ using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSEPPE = Skylark.Standard.Extension.Ping.PingExtension;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
-using SSIB = Sucrose.Signal.Interface.Backgroundog;
-using SSMI = Sucrose.Signal.Manage.Internal;
+using SPIB = Sucrose.Pipe.Interface.Backgroundog;
+using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -791,15 +791,15 @@ namespace Sucrose.Backgroundog.Helper
                     });
                 }
 
-                if (SMMM.SignalRequired && SBMI.SignalManagement)
+                if (SMMM.PipeRequired)
                 {
-                    SBMI.SignalManagement = false;
-
                     _ = Task.Run(async () =>
                     {
                         try
                         {
-                            SSMI.BackgroundogManager.FileSave<SSIB>(new()
+                            //SPMI.BackgroundogManager.StartClient();
+
+                            SPIB Data = new()
                             {
                                 Cpu = SBED.GetCpuInfo(),
                                 Bios = SBED.GetBiosInfo(),
@@ -810,13 +810,14 @@ namespace Sucrose.Backgroundog.Helper
                                 Graphic = SBED.GetGraphicInfo(),
                                 Network = SBED.GetNetworkInfo(),
                                 Motherboard = SBED.GetMotherboardInfo()
-                            });
+                            };
 
-                            SBMI.SignalManagement = true;
+                            SPMI.BackgroundogManager.StartClient(JsonConvert.SerializeObject(Data, Formatting.None));
+
+                            //SPMI.BackgroundogManager.DisposeClient();
                         }
                         catch (Exception Exception)
                         {
-                            SBMI.SignalManagement = true;
                             await SSWW.Watch_CatchException(Exception);
                         }
                     });

@@ -219,11 +219,6 @@ namespace Sucrose.Shared.Zip.Helper
 
                     SSTHC Compatible = SSTHC.FromJson(Salt);
 
-                    if (Compatible.TriggerTime <= 0)
-                    {
-                        return SSDECT.TriggerTime;
-                    }
-
                     if (!string.IsNullOrEmpty(Compatible.LoopMode) && !Compatible.LoopMode.Contains("{0}"))
                     {
                         return SSDECT.LoopMode;

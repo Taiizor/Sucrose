@@ -85,8 +85,6 @@ namespace Sucrose.Manager.Manage
 
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
-        public static bool SignalRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.SignalRequired, false);
-
         public static DateTime UpdateTime => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateTime, new DateTime());
 
         public static string UpdatePercentage => SMMI.UpdateSettingManager.GetSetting(SMC.UpdatePercentage, "0%");
@@ -94,6 +92,8 @@ namespace Sucrose.Manager.Manage
         public static bool StorePreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.StorePreviewHide, false);
 
         public static bool AudioRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.AudioRequired, false);
+
+        public static bool PipeRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.PipeRequired, false);
 
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
 

@@ -41,7 +41,7 @@ namespace Sucrose.Backgroundog.Manage
 
         public static bool Virtuality = false;
 
-        public static int InitializeTime = 250;
+        public static int InitializeTime = 100;
 
         public static bool FocusDesktop = false;
 
@@ -56,8 +56,6 @@ namespace Sucrose.Backgroundog.Manage
         public static bool AudioManagement = true;
 
         public static bool FocusManagement = true;
-
-        public static bool SignalManagement = true;
 
         public static bool RemoteManagement = true;
 
@@ -103,9 +101,9 @@ namespace Sucrose.Backgroundog.Manage
 
         public static PerformanceCounter DownloadCounter = null;
 
-        public static int SpecificationTime = InitializeTime * 8;
+        public static int SpecificationTime = InitializeTime * 20;
 
-        public static int SpecificationLessTime = InitializeTime * 4;
+        public static int SpecificationLessTime = InitializeTime * 10;
 
         public static NowPlayingSessionManager SessionManager = null;
 

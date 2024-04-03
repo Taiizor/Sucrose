@@ -7,9 +7,6 @@ namespace Sucrose.Shared.Theme.Helper
     {
         public bool State { get; set; }
 
-        [JsonProperty("TriggerTime", Required = Required.Always)]
-        public int TriggerTime { get; set; } = 1000;
-
         [JsonProperty("LoopMode", Required = Required.Default)]
         public string LoopMode { get; set; } = string.Empty;
 
