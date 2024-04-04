@@ -19,7 +19,7 @@ namespace Sucrose.Shared.Live.Helper
             {
                 string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
 
-                if (File.Exists(InfoPath))
+                if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                 {
                     SSTHI Info = SSTHI.ReadJson(InfoPath);
 

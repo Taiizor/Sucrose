@@ -127,7 +127,7 @@ namespace Sucrose.Live.CefSharp
                 string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
                 string CompatiblePath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseCompatible);
 
-                if (File.Exists(InfoPath))
+                if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                 {
                     SSLHK.StopSubprocess();
 

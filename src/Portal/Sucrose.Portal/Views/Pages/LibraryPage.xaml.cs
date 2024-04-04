@@ -83,7 +83,7 @@ namespace Sucrose.Portal.Views.Pages
                         string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
-                        if (!Directory.Exists(ThemePath) || !File.Exists(InfoPath))
+                        if (!Directory.Exists(ThemePath) || !File.Exists(InfoPath) || !SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                         {
                             SPMI.Themes.Remove(Theme);
 
@@ -103,7 +103,7 @@ namespace Sucrose.Portal.Views.Pages
                     {
                         string InfoPath = Path.Combine(Folder, SMR.SucroseInfo);
 
-                        if (File.Exists(InfoPath))
+                        if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                         {
                             if (!SPMI.Themes.Contains(Path.GetFileName(Folder)))
                             {

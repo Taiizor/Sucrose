@@ -212,25 +212,27 @@ namespace Sucrose.Portal.Views.Pages.Store
             }
             else
             {
-                string InfoPath = Path.Combine(Theme, SMR.SucroseInfo);
-
-                if (File.Exists(InfoPath))
-                {
-                    SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                    Title = Info.Title.ToLowerInvariant();
-                    string Description = Info.Description.ToLowerInvariant();
-                    string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, true, string.Empty);
-
-                    if (Tags.Contains(Search) || Title.Contains(Search) || Description.Contains(Search))
-                    {
-                        return true;
-                    }
-                }
-
                 if (Title.Contains(Search))
                 {
                     return true;
+                }
+                else
+                {
+                    string InfoPath = Path.Combine(Theme, SMR.SucroseInfo);
+
+                    if (File.Exists(InfoPath))
+                    {
+                        SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                        Title = Info.Title.ToLowerInvariant();
+                        string Description = Info.Description.ToLowerInvariant();
+                        string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, true, string.Empty);
+
+                        if (Tags.Contains(Search) || Title.Contains(Search) || Description.Contains(Search))
+                        {
+                            return true;
+                        }
+                    }
                 }
             }
 
