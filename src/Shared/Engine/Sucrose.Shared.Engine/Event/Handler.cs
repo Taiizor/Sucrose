@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Windows;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
+using SEDST = Skylark.Enum.DisplayScreenType;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SWE = Skylark.Wing.Engine;
 using SWHPI = Skylark.Wing.Helper.ProcessInterop;
@@ -27,12 +27,12 @@ namespace Sucrose.Shared.Engine.Event
 
         public static void ContentRendered(Window Window)
         {
-            switch (SSEHD.GetDisplayType())
+            switch (SSEHD.GetDisplayScreenType())
             {
-                case SSDEDT.Expand:
+                case SEDST.SpanAcross:
                     SWE.WallpaperWindow(Window, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
                     break;
-                case SSDEDT.Duplicate:
+                case SEDST.SameDuplicate:
                     SWE.WallpaperWindow(Window, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
                     break;
                 default:
@@ -58,12 +58,12 @@ namespace Sucrose.Shared.Engine.Event
 
         public static void ApplicationRendered(Process Process)
         {
-            switch (SSEHD.GetDisplayType())
+            switch (SSEHD.GetDisplayScreenType())
             {
-                case SSDEDT.Expand:
+                case SEDST.SpanAcross:
                     SWE.WallpaperProcess(Process, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
                     break;
-                case SSDEDT.Duplicate:
+                case SEDST.SameDuplicate:
                     //SWE.WallpaperProcess(Process, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
                     break;
                 default:

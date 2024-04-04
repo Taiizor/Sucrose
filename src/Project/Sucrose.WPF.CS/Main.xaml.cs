@@ -100,7 +100,7 @@ namespace Sucrose.WPF.CS
                 {
                     MouseExtraHookStruct HookStruct = (MouseExtraHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseExtraHookStruct));
 
-                    MousePointStruct Position = Calculate.MousePosition(HookStruct, MouseScreenType.SpanAcross); //MouseScreenType.PerDisplay
+                    MousePointStruct Position = Calculate.MousePosition(HookStruct, DisplayScreenType.SpanAcross); //DisplayScreenType.PerDisplay
 
                     int X = Position.X;
                     int Y = Position.Y;

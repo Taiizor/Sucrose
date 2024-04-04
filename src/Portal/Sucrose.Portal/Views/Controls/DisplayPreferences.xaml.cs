@@ -3,7 +3,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SEDST = Skylark.Enum.DuplicateScreenType;
+using SEDEST = Skylark.Enum.DuplicateScreenType;
+using SEDYST = Skylark.Enum.DisplayScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -14,7 +15,6 @@ using SPVCDD = Sucrose.Portal.Views.Controls.Display.Duplicate;
 using SPVCDE = Sucrose.Portal.Views.Controls.Display.Expand;
 using SPVCDS = Sucrose.Portal.Views.Controls.Display.Screen;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -154,9 +154,9 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
 
-            if (SPMM.DisplayType != SSDEDT.Screen)
+            if (SPMM.DisplayScreenType != SEDYST.PerDisplay)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Screen);
+                SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.PerDisplay);
 
                 Restart();
             }
@@ -170,9 +170,9 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Visible;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
 
-            if (SPMM.DisplayType != SSDEDT.Expand)
+            if (SPMM.DisplayScreenType != SEDYST.SpanAcross)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Expand);
+                SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.SpanAcross);
 
                 Restart();
             }
@@ -186,9 +186,9 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Visible;
 
-            if (SPMM.DisplayType != SSDEDT.Duplicate)
+            if (SPMM.DisplayScreenType != SEDYST.SameDuplicate)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.DisplayType, SSDEDT.Duplicate);
+                SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.SameDuplicate);
 
                 Restart();
             }
@@ -204,7 +204,7 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void DuplicateScreenTypeChecked(SEDST Type)
+        private void DuplicateScreenTypeChecked(SEDEST Type)
         {
             if (SPMM.DuplicateScreenType != Type)
             {
@@ -297,7 +297,7 @@ namespace Sucrose.Portal.Views.Controls
 
             ExpanderDuplicateContent.Children.Add(DuplicateHint);
 
-            foreach (SEDST Type in Enum.GetValues(typeof(SEDST)))
+            foreach (SEDEST Type in Enum.GetValues(typeof(SEDEST)))
             {
                 RadioButton Radio = new()
                 {
@@ -311,12 +311,12 @@ namespace Sucrose.Portal.Views.Controls
                 ExpanderDuplicateContent.Children.Add(Radio);
             }
 
-            switch (SPMM.DisplayType)
+            switch (SPMM.DisplayScreenType)
             {
-                case SSDEDT.Expand:
+                case SEDYST.SpanAcross:
                     Expand.IsChecked = true;
                     break;
-                case SSDEDT.Duplicate:
+                case SEDYST.SameDuplicate:
                     Duplicate.IsChecked = true;
                     break;
                 default:

@@ -1,6 +1,7 @@
 ﻿using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SEDST = Skylark.Enum.DuplicateScreenType;
+using SEDEST = Skylark.Enum.DuplicateScreenType;
+using SEDYST = Skylark.Enum.DisplayScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -9,7 +10,6 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
@@ -38,9 +38,11 @@ namespace Sucrose.Portal.Manage
 
         public static SSDEPT MemoryPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.MemoryPerformance, SSDEPT.Pause);
 
+        public static SEDEST DuplicateScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDEST.Default);
+
         public static SSDEPT FocusPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.FocusPerformance, SSDEPT.Resume);
 
-        public static SEDST DuplicateScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDST.Default);
+        public static SEDYST DisplayScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayScreenType, SEDYST.PerDisplay);
 
         public static SSDEPT SaverPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.SaverPerformance, SSDEPT.Pause);
 
@@ -57,8 +59,6 @@ namespace Sucrose.Portal.Manage
         public static SSCECT ChannelType => SMMI.UpdateSettingManager.GetSetting(SMC.ChannelType, SSCECT.Release);
 
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
-
-        public static SSDEDT DisplayType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayType, SSDEDT.Screen);
 
         public static SEWTT ThemeType => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
 

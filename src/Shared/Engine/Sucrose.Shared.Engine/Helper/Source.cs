@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Net.Http;
+using SEDST = Skylark.Enum.DisplayScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMR = Sucrose.Memory.Readonly;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
@@ -57,18 +57,18 @@ namespace Sucrose.Shared.Engine.Helper
             string Content = @"<html><head><meta charset=""UTF-8""><meta http-equiv=""X-UA-Compatible"" content=""IE=edge,chrome=1""><meta name=""viewport"" content=""width=device-width,initial-scale=1""><meta http-equiv=""Permissions-Policy"" content=""interest-cohort=()""><style>body{padding:0;margin:0;overflow:hidden}iframe{margin:0;position:absolute;left:0;top:0;overflow:hidden}#player{width:100%;height:100vh}</style></head><body><div id=""player""></div><script>var tag=document.createElement(""script"");tag.src=""https://www.youtube.com/iframe_api"";var firstScriptTag=document.getElementsByTagName(""script"")[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);var player,videoId=""{Video}"",playlistId=""{Playlist}"";function onYouTubeIframeAPIReady(){var e={height:""{Height}"",width:""{Width}"",playerVars:{autoplay:1,loop:1,controls:0,disablekb:1,modestbranding:1,fs:0,rel:0,iv_load_policy:3,playsinline:0,cc_load_policy:0,version:3,showinfo:0,suggestedQuality:""highres""},events:{onStateChange:onPlayerStateChange,onReady:onPlayerReady,onError:onPlayerError}};videoId&&(e.videoId=videoId,e.playerVars.playlist=videoId),player=new YT.Player(""player"",e)}function onPlayerReady(e){playlistId&&player.loadPlaylist({list:playlistId,listType:""playlist"",index:0,startSeconds:0,suggestedQuality:""highres""}),videoId&&!playlistId&&player.setLoop(!1),e.target.setPlaybackQuality(""highres""),e.target.setVolume(0),toggleFullScreen()}var shuffleMode=!0,prevIndex=-1,first=!0;function onPlayerStateChange(e){if(playlistId){if(e.data===YT.PlayerState.ENDED)if(shuffleMode){var t=player.getPlaylist();player.playVideoAt(Math.floor(Math.random()*t.length))}else{var l=player.getPlaylistIndex();l===prevIndex?(prevIndex=-1,player.playVideoAt(0)):prevIndex=l}else if(first&&-1===e.data&&(first=!1,shuffleMode)){t=player.getPlaylist();player.playVideoAt(Math.floor(Math.random()*t.length))}}else e.data===YT.PlayerState.ENDED&&(player.seekTo(0),player.playVideo())}function onPlayerError(e){if(playlistId&&e.data){var t=player.getPlaylist(),l=player.getPlaylistIndex();l+1<t.length?player.playVideoAt(l+1):0<t.length&&player.playVideoAt(0)}}function playFirst(){-1!=player.getPlayerState()&&3!=player.getPlayerState()||playVideo()}function playVideo(){player.playVideo()}function pauseVideo(){player.pauseVideo()}function setVolume(e){player.setVolume(e)}function setShuffle(e){shuffleMode=e}function setLoop(e){e&&videoId&&!playlistId&&(e=!1),player.setLoop(e),e&&checkVideoEnded()&&playVideo()}function checkVideoEnded(){return player.getPlayerState()===YT.PlayerState.ENDED}function checkPlayingStatus(){return player.getPlayerState()===YT.PlayerState.PLAYING}function toggleFullScreen(){var e=document.getElementById(""player"");e.requestFullscreen?e.requestFullscreen():e.mozRequestFullScreen?e.mozRequestFullScreen():e.webkitRequestFullscreen?e.webkitRequestFullscreen():e.msRequestFullscreen&&e.msRequestFullscreen()}</script></body></html>";
 
             SEST Screen = SSEHD.GetScreenType();
-            SSDEDT Display = SSEHD.GetDisplayType();
+            SEDST Display = SSEHD.GetDisplayScreenType();
 
             switch (Display)
             {
-                case SSDEDT.Expand:
+                case SEDST.SpanAcross:
                     SSMMS EMonitor = SWHSM.OwnerScreen(SSEHD.GetExpandScreenType()); Content = Screen switch
                     {
                         SEST.WorkingArea => Content.Replace("{Height}", $"{EMonitor.rcWork.Height}").Replace("{Width}", $"{EMonitor.rcWork.Width}"),
                         _ => Content.Replace("{Height}", $"{EMonitor.rcMonitor.Height}").Replace("{Width}", $"{EMonitor.rcMonitor.Width}"),
                     };
                     break;
-                case SSDEDT.Duplicate:
+                case SEDST.SameDuplicate:
                     SSMMS DMonitor = SWHSM.OwnerScreen(0);
                     Content = Screen switch
                     {

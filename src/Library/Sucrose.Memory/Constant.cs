@@ -68,8 +68,6 @@
 
         public const string StretchType = "StretchType";
 
-        public const string DisplayType = "DisplayType";
-
         public const string CultureName = "CultureName";
 
         public const string TitleLength = "TitleLength";
@@ -167,6 +165,8 @@
         public const string StorePreviewHide = "StorePreviewHide";
 
         public const string CommunicationType = "CommunicationType";
+
+        public const string DisplayScreenType = "DisplayScreenType";
 
         public const string RemotePerformance = "RemotePerformance";
 

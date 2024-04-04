@@ -1,8 +1,8 @@
-﻿using SEDST = Skylark.Enum.DuplicateScreenType;
+﻿using SEDEST = Skylark.Enum.DuplicateScreenType;
+using SEDYST = Skylark.Enum.DisplayScreenType;
 using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SSDEDT = Sucrose.Shared.Dependency.Enum.DisplayType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SWUD = Skylark.Wing.Utility.Desktop;
@@ -62,17 +62,17 @@ namespace Sucrose.Shared.Engine.Helper
             return SMMM.ScreenIndex;
         }
 
-        public static SSDEDT GetDisplayType()
-        {
-            return SSEMM.DisplayType;
-        }
-
         public static SEEST GetExpandScreenType()
         {
             return SSEMM.ExpandScreenType;
         }
 
-        public static SEDST GetDuplicateScreenType()
+        public static SEDYST GetDisplayScreenType()
+        {
+            return SSEMM.DisplayScreenType;
+        }
+
+        public static SEDEST GetDuplicateScreenType()
         {
             return SSEMM.DuplicateScreenType;
         }
