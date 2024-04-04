@@ -19,7 +19,7 @@ namespace Sucrose.Shared.Engine.WebView.View
         {
             InitializeComponent();
 
-            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this, DateTime.Now);
 
             ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 

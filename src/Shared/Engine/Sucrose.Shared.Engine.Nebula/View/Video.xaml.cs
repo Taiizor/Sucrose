@@ -21,7 +21,7 @@ namespace Sucrose.Shared.Engine.Nebula.View
         {
             InitializeComponent();
 
-            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this, DateTime.Now);
 
             ContentRendered += (s, e) => SSEEH.ContentRendered(this);
 

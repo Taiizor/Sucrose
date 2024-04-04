@@ -12,7 +12,7 @@ using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using SWHPI = Skylark.Wing.Helper.ProcessInterop;
+using SWUS = Skylark.Wing.Utility.Screene;
 
 namespace Sucrose.Shared.Engine.Aurora.View
 {
@@ -34,27 +34,31 @@ namespace Sucrose.Shared.Engine.Aurora.View
             Closed += (s, e) => SSSHP.Kill(SSEAMI.Application);
             Loaded += (s, e) => SSEEH.WindowLoaded(this);
 
-            SSSHP.Run(SSEAMI.Application, SSEAMI.ApplicationArguments, ProcessWindowStyle.Normal);
+            SWUS.Initialize();
+
+            int ScreenCount = SWUS.Screens.Count();
+
+            for (int Count = 0; Count < ScreenCount; Count++)
+            {
+                SSEMI.Applications.Add(SSSHP.Run(SSEAMI.Application, SSEAMI.ApplicationArguments, ProcessWindowStyle.Normal));
+            }
 
             do
             {
-                if (SSSHP.Work(SSEAMI.Application))
-                {
-                    SSEAMI.ApplicationProcess = SSSHP.Get(SSEAMI.Application);
-
-                    SSEAMI.ApplicationHandle = SWHPI.MainWindowHandle(SSEAMI.ApplicationProcess);
-                }
-
-                Task.Delay(100).Wait();
-            } while (SSEAHR.Check());
+                Task.Delay(250).Wait();
+            } while (SSEAHR.Check(ScreenCount));
 
             SSEMI.GeneralTimer.Tick += new EventHandler(GeneralTimer_Tick);
             SSEMI.GeneralTimer.Interval = new TimeSpan(0, 0, 1);
             SSEMI.GeneralTimer.Start();
 
-            SSEEH.ApplicationLoaded(SSEAMI.ApplicationProcess);
-            SSEEH.ApplicationRendered(SSEAMI.ApplicationProcess);
-            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(SSEAMI.ApplicationProcess, SSEAMI.ApplicationHandle);
+            SSEMI.Applications.ForEach(Application =>
+            {
+                SSEEH.ApplicationLoaded(Application);
+                SSEEH.ApplicationRendered(Application);
+            });
+
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEMI.Applications.ForEach(Application => SSEEH.DisplaySettingsChanged(Application, DateTime.Now));
 
             SSEAHA.SetVolume(SSEHD.GetVolume());
         }

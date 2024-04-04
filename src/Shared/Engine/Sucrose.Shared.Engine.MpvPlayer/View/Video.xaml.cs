@@ -20,7 +20,7 @@ namespace Sucrose.Shared.Engine.MpvPlayer.View
         {
             InitializeComponent();
 
-            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this, DateTime.Now);
 
             SSEMPMI.Source = SSEHS.GetSource(Video).ToString();
 

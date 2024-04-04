@@ -1,9 +1,9 @@
-﻿using System.Diagnostics;
-using System.Windows;
+﻿using System.Windows;
 using SEDST = Skylark.Enum.DisplayScreenType;
+using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWE = Skylark.Wing.Engine;
-using SWHPI = Skylark.Wing.Helper.ProcessInterop;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -41,67 +41,109 @@ namespace Sucrose.Shared.Engine.Event
             }
         }
 
-        public static void ApplicationLoaded(Process Process)
+        public static void ApplicationLoaded(SSDSHS Application)
         {
-            IntPtr Handle = SWHPI.MainWindowHandle(Process);
-
             //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
-            SWHWO.RemoveWindowFromTaskbar(Handle);
+            SWHWO.RemoveWindowFromTaskbar(Application.Handle);
+            SWHWO.RemoveWindowFromTaskbar(Application.MainWindowHandle);
 
-            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+            SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_HIDE);
 
-            int currentStyle = SWNM.GetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE);
-            SWNM.SetWindowLong(Handle, (int)SWNM.GWL.GWL_STYLE, currentStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
+            int Style = SWNM.GetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE);
+            SWNM.SetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE, Style & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
 
-            SWHWO.BorderlessWinStyle(Handle);
+            int MainWindowStyle = SWNM.GetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE);
+            SWNM.SetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE, MainWindowStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
+
+            SWHWO.BorderlessWinStyle(Application.Handle);
+            SWHWO.BorderlessWinStyle(Application.MainWindowHandle);
         }
 
-        public static void ApplicationRendered(Process Process)
+        public static void ApplicationRendered(SSDSHS Application)
         {
             switch (SSEHD.GetDisplayScreenType())
             {
                 case SEDST.SpanAcross:
-                    SWE.WallpaperProcess(Process, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
+                    SWE.WallpaperProcess(Application.Process, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
                     break;
                 case SEDST.SameDuplicate:
-                    //SWE.WallpaperProcess(Process, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
+                    SSEMI.Applications.ForEach(Application => SWE.WallpaperProcess(Application.Process, SSEMI.Applications.IndexOf(Application), SSEHD.GetScreenType()));
                     break;
                 default:
-                    SWE.WallpaperProcess(Process, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
+                    SWE.WallpaperProcess(Application.Process, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
                     break;
             }
 
-            SWNM.ShowWindow(SWHPI.MainWindowHandle(Process), (int)SWNM.SHOWWINDOW.SW_SHOW);
+            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
         }
 
-        public static async void DisplaySettingsChanged(Window Window)
+        public static async void DisplaySettingsChanged(Window Window, DateTime DisplayChanged)
         {
+            SSEMI.DisplayChanged = DisplayChanged;
+
             Window.Hide();
 
-            await Task.Delay(2000);
+            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2))
+            {
+                await Task.Delay(500);
+
+                if (SSEMI.DisplayChanged != DisplayChanged)
+                {
+                    return;
+                }
+            }
 
             SWUS.Initialize();
 
-            await Task.Delay(500);
+            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2.5))
+            {
+                await Task.Delay(500);
+
+                if (SSEMI.DisplayChanged != DisplayChanged)
+                {
+                    return;
+                }
+            }
 
             ContentRendered(Window);
 
             Window.Show();
         }
 
-        public static async void DisplaySettingsChanged(Process Process, IntPtr Handle)
+        public static async void DisplaySettingsChanged(SSDSHS Application, DateTime DisplayChanged)
         {
-            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+            SSEMI.DisplayChanged = DisplayChanged;
 
-            await Task.Delay(2000);
+            SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+
+            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2))
+            {
+                await Task.Delay(500);
+
+                if (SSEMI.DisplayChanged != DisplayChanged)
+                {
+                    return;
+                }
+            }
 
             SWUS.Initialize();
 
-            await Task.Delay(500);
+            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2.5))
+            {
+                await Task.Delay(500);
 
-            ApplicationRendered(Process);
+                if (SSEMI.DisplayChanged != DisplayChanged)
+                {
+                    return;
+                }
+            }
 
-            SWNM.ShowWindow(Handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+            ApplicationRendered(Application);
+
+            SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
         }
     }
 }

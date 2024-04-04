@@ -1,4 +1,5 @@
 ﻿using System.Windows.Threading;
+using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -29,11 +30,15 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static string BatteryData = string.Empty;
 
+        public static List<SSDSHS> Applications = new();
+
         public delegate void ExecuteNormal(string Script);
 
         public static string MotherboardData = string.Empty;
 
         public delegate Task<string> ExecuteTask(string script);
+
+        public static DateTime DisplayChanged = DateTime.MinValue;
 
         public static readonly DispatcherTimer GeneralTimer = new();
 

@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\ArchitectureType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\WallpaperType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Struct\Handle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Struct\Host.cs" />
   </ItemGroup>
 </Project>
