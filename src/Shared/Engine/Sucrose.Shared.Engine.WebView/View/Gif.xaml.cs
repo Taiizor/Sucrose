@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -48,6 +49,15 @@ namespace Sucrose.Shared.Engine.WebView.View
                 SSEWVHG.SetLoop(SSEHD.GetLoop());
 
                 SSEWVHG.SetStretch(SSEHD.GetStretch());
+
+                if (SMMM.PausePerformance)
+                {
+                    SSEWVHG.Pause();
+                }
+                else
+                {
+                    SSEWVHG.Play();
+                }
             }
         }
 

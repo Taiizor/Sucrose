@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSEG = Sucrose.Shared.Engine.CefSharp.Event.Gif;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHG = Sucrose.Shared.Engine.CefSharp.Helper.Gif;
@@ -55,6 +56,15 @@ namespace Sucrose.Shared.Engine.CefSharp.View
                 SSECSHG.SetLoop(SSEHD.GetLoop());
 
                 SSECSHG.SetStretch(SSEHD.GetStretch());
+
+                if (SMMM.PausePerformance)
+                {
+                    SSECSHG.Pause();
+                }
+                else
+                {
+                    SSECSHG.Play();
+                }
             }
         }
 

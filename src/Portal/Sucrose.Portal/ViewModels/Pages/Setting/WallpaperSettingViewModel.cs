@@ -118,7 +118,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ToggleSwitch LoopState = new()
             {
-                IsChecked = SMMM.Shuffle
+                IsChecked = SMMM.Loop
             };
 
             LoopState.Checked += (s, e) => LoopStateChecked(true);

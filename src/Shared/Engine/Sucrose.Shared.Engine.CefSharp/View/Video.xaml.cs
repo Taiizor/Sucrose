@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSEV = Sucrose.Shared.Engine.CefSharp.Event.Video;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHV = Sucrose.Shared.Engine.CefSharp.Helper.Video;
@@ -58,6 +59,15 @@ namespace Sucrose.Shared.Engine.CefSharp.View
                 SSECSHV.SetVolume(SSEHD.GetVolume());
 
                 SSECSHV.SetStretch(SSEHD.GetStretch());
+
+                if (SMMM.PausePerformance)
+                {
+                    SSECSHV.Pause();
+                }
+                else
+                {
+                    SSECSHV.Play();
+                }
             }
         }
 

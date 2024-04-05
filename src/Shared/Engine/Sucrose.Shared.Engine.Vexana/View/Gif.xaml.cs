@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Media;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -50,6 +51,15 @@ namespace Sucrose.Shared.Engine.Vexana.View
             SSEVHG.SetLoop(SSEHD.GetLoop());
 
             SSEVMI.ImageEngine.Stretch = (Stretch)SSEHD.GetStretch();
+
+            if (SMMM.PausePerformance)
+            {
+                SSEVHG.Pause();
+            }
+            else
+            {
+                SSEVHG.Play();
+            }
         }
 
         public void Dispose()

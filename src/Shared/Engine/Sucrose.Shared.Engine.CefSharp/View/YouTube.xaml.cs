@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSEYT = Sucrose.Shared.Engine.CefSharp.Event.YouTube;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHYT = Sucrose.Shared.Engine.CefSharp.Helper.YouTube;
@@ -59,6 +60,15 @@ namespace Sucrose.Shared.Engine.CefSharp.View
                 SSECSHYT.SetVolume(SSEHD.GetVolume());
 
                 SSECSHYT.SetShuffle(SSEHD.GetShuffle());
+
+                if (SMMM.PausePerformance)
+                {
+                    SSECSHYT.Pause();
+                }
+                else
+                {
+                    SSECSHYT.Play();
+                }
             }
         }
 

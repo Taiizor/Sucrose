@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Media;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
@@ -54,6 +55,15 @@ namespace Sucrose.Shared.Engine.Nebula.View
             SSENHV.SetVolume(SSEHD.GetVolume());
 
             SSENMI.MediaEngine.Stretch = (Stretch)SSEHD.GetStretch();
+
+            if (SMMM.PausePerformance)
+            {
+                SSENHV.Pause();
+            }
+            else
+            {
+                SSENHV.Play();
+            }
         }
 
         public void Dispose()

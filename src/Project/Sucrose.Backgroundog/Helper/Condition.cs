@@ -9,6 +9,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
+using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
@@ -16,10 +17,6 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWHWAPI = Skylark.Wing.Helper.WinAPI;
-using SWUD = Skylark.Wing.Utility.Desktop;
-using SWNM = Skylark.Wing.Native.Methods;
-using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -99,72 +96,60 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (SBMI.Live != null && !SBMI.Live.HasExited)
                 {
-                    switch (SBMI.PausePerformance)
+                    if (SBMI.PausePerformance == SSDEPPT.Heavy)
                     {
-                        case SSDEPPT.Heavy:
-                            SSSEL.Resume(SBMI.Live);
+                        SSSEL.Resume(SBMI.Live);
 
-                            if (SMR.WebViewLive.Contains(SBMI.Live.ProcessName) || SMR.CefSharpLive.Contains(SBMI.Live.ProcessName))
+                        if (SMR.WebViewLive.Contains(SBMI.Live.ProcessName) || SMR.CefSharpLive.Contains(SBMI.Live.ProcessName))
+                        {
+                            try
                             {
-                                try
-                                {
-                                    Process[] Processes = Process.GetProcesses();
+                                Process[] Processes = Process.GetProcesses();
 
-                                    Processes
-                                        .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
-                                        .ToList()
-                                        .ForEach(Process =>
-                                        {
-                                            SSSEL.Resume(Process.MainWindowHandle);
-                                            SSSEL.Resume(Process.Handle);
-                                        });
-                                }
-                                catch (Exception Exception)
-                                {
-                                    await SSWW.Watch_CatchException(Exception);
-                                }
+                                Processes
+                                    .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
+                                    .ToList()
+                                    .ForEach(Process =>
+                                    {
+                                        SSSEL.Resume(Process.MainWindowHandle);
+                                        SSSEL.Resume(Process.Handle);
+                                    });
                             }
-                            break;
-                        case SSDEPPT.Light:
-                            break;
-                        default:
-                            break;
+                            catch (Exception Exception)
+                            {
+                                await SSWW.Watch_CatchException(Exception);
+                            }
+                        }
                     }
                 }
 
-                switch (SBMI.PausePerformance)
+                if (SBMI.PausePerformance == SSDEPPT.Heavy)
                 {
-                    case SSDEPPT.Heavy:
-                        if (!string.IsNullOrEmpty(SMMM.App))
+                    if (!string.IsNullOrEmpty(SMMM.App))
+                    {
+                        SBMI.Apps = SSSHP.Gets(SMMM.App);
+
+                        if (SBMI.Apps != null)
                         {
-                            SBMI.Apps = SSSHP.Gets(SMMM.App);
-
-                            if (SBMI.Apps != null)
+                            foreach (Process App in SBMI.Apps)
                             {
-                                foreach (Process App in SBMI.Apps)
-                                {
-                                    SBMI.App = App;
+                                SBMI.App = App;
 
-                                    if (App != null && !App.HasExited)
+                                if (App != null && !App.HasExited)
+                                {
+                                    try
                                     {
-                                        try
-                                        {
-                                            SSSEL.Resume(App.MainWindowHandle);
-                                            SSSEL.Resume(App.Handle);
-                                        }
-                                        catch (Exception Exception)
-                                        {
-                                            await SSWW.Watch_CatchException(Exception);
-                                        }
+                                        SSSEL.Resume(App.MainWindowHandle);
+                                        SSSEL.Resume(App.Handle);
+                                    }
+                                    catch (Exception Exception)
+                                    {
+                                        await SSWW.Watch_CatchException(Exception);
                                     }
                                 }
                             }
                         }
-                        break;
-                    case SSDEPPT.Light:
-                        break;
-                    default:
-                        break;
+                    }
                 }
             }
         }

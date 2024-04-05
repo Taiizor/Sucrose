@@ -12,9 +12,9 @@ using SBSDGS = Sucrose.Backgroundog.Struct.Data.GraphicStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
-using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
+using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using Timer = System.Threading.Timer;
 

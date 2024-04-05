@@ -1,14 +1,14 @@
 ﻿using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
-using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
+using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 
 namespace Sucrose.Backgroundog.Manage
 {
     internal static class Manager
     {
         public static SSDEPPT PausePerformanceType => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformanceType, SSDEPPT.Light);
-        
+
         public static SSDEPT FullscreenPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.FullscreenPerformance, SSDEPT.Close);
 
         public static SSDEPT VirtualPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.VirtualPerformance, SSDEPT.Resume);

@@ -6,6 +6,16 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class Gif
     {
+        public static void Play()
+        {
+            SSECSMI.CefEngine.ExecuteScriptAsync("SucrosePlay();");
+        }
+
+        public static void Pause()
+        {
+            SSECSMI.CefEngine.ExecuteScriptAsync("SucrosePause();");
+        }
+
         public static void PlayPause()
         {
             SSECSMI.CefEngine.ExecuteScriptAsync("SucrosePlayPause();");

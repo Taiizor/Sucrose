@@ -5,6 +5,16 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 {
     internal static class Gif
     {
+        public static async void Play()
+        {
+            await SSEWVMI.WebEngine.ExecuteScriptAsync("SucrosePlay();");
+        }
+
+        public static async void Pause()
+        {
+            await SSEWVMI.WebEngine.ExecuteScriptAsync("SucrosePause();");
+        }
+
         public static async void PlayPause()
         {
             await SSEWVMI.WebEngine.ExecuteScriptAsync("SucrosePlayPause();");
