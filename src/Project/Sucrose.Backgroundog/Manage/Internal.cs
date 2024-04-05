@@ -29,6 +29,8 @@ namespace Sucrose.Backgroundog.Manage
 
         public static Process Live = null;
 
+        public static Process[] Apps = null;
+
         public static SBEAV AudioVisualizer;
 
         public static bool Condition = false;

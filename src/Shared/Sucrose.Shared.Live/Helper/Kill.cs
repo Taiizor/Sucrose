@@ -38,7 +38,8 @@ namespace Sucrose.Shared.Live.Helper
                     .ToList()
                     .ForEach(Process =>
                     {
-                        SSSEL.Resume(Process);
+                        SSSEL.Resume(Process.MainWindowHandle);
+                        SSSEL.Resume(Process.Handle);
                         Process.Kill();
                     });
             }

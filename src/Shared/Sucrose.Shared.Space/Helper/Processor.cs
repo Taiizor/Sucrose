@@ -112,6 +112,18 @@ namespace Sucrose.Shared.Space.Helper
             }
         }
 
+        public static Process[] Gets(string Application)
+        {
+            if (Work(Application))
+            {
+                return Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application));
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static bool Work(string Application)
         {
             if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Application)).Any())

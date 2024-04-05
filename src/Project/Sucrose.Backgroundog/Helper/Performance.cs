@@ -16,6 +16,9 @@ using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHWAPI = Skylark.Wing.Helper.WinAPI;
+using SWUD = Skylark.Wing.Utility.Desktop;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Backgroundog.Helper
 {
@@ -107,11 +110,20 @@ namespace Sucrose.Backgroundog.Helper
 
                 if (!string.IsNullOrEmpty(SMMM.App))
                 {
-                    SBMI.App = SSSHP.Get(SMMM.App);
+                    SBMI.Apps = SSSHP.Gets(SMMM.App);
 
-                    if (SBMI.App != null && !SBMI.App.HasExited)
+                    if (SBMI.Apps != null)
                     {
-                        SSSEL.Suspend(SBMI.App);
+                        foreach (Process App in SBMI.Apps)
+                        {
+                            SBMI.App = App;
+
+                            if (App != null && !App.HasExited)
+                            {
+                                SSSEL.Suspend(App.MainWindowHandle);
+                                SSSEL.Suspend(App.Handle);
+                            }
+                        }
                     }
                 }
             }

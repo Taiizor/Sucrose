@@ -71,9 +71,10 @@ namespace Sucrose.Shared.Engine.Aurora.View
 
             SSEAHA.SetVolume(SSEHD.GetVolume());
 
-            if (!SSSHP.Work(SSEAMI.Application))
+            if (!SSSHP.Work(SSEAMI.Application) || SSEMI.Applications.Any(Application => Application.Process.HasExited))
             {
                 Close();
+                Environment.Exit(0);
             }
         }
 
