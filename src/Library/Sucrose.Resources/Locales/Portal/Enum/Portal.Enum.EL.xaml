@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Προεπιλεγμένο</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Προ-Κυκλοφορία</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Βαρύ</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Ελαφρύ</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">Αύξουσα [Α-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">Φθίνουσα [Z-Α]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Προεπιλογή</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Προχωρημένο</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Συμπιεσμένο</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">Εκτελέσιμο</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Όρια Οθόνης</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Προεπιλογή</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Προχωρημένο</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Επιτυχημένο</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' περιλαμβάνει πολλές τιμές</system:String>

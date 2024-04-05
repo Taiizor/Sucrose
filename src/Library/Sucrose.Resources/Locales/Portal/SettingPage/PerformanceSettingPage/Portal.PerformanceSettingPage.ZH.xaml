@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">注意：某些Web类型的主题可能无法正常工作，下面的性能设置将不起作用。</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">暂停规则</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">根据您的性能设置确定暂停壁纸的规则。</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">通信类型</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">确定将消息发送到 Web 类型主题的方法。</system:String>
 

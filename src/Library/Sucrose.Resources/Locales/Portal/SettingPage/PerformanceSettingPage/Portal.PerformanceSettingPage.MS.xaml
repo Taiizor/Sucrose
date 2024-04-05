@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Sesetengah tema jenis Web mungkin tidak berfungsi dengan baik, dan tiada pengaturan prestasi di bawah akan berfungsi.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Peraturan Jeda</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Menentukan peraturan untuk menghentikan latar belakang berdasarkan tetapan prestasi anda.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Jenis Komunikasi</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Menentukan kaedah penghantaran mesej kepada tema-tema jenis Web.</system:String>
 

@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Alguns temas do tipo Web podem não funcionar corretamente e nenhuma das configurações de desempenho abaixo terá efeito.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Regra de Pausa</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Determina a regra para pausar o papel de parede com base nas suas configurações de desempenho.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Tipo de Comunicação</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determina o método de envio de mensagens para temas do tipo Web.</system:String>
 

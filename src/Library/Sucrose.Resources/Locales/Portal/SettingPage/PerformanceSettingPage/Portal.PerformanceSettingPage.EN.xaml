@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Note: Some Web themed wallpapers may not work properly, and none of the performance settings below will work.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Pause Rule</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Determines the rule for pausing the wallpaper based on your performance settings.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Communication Type</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determines the method of sending messages to themes of type Web.</system:String>
 

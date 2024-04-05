@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Poznámka: Některá témata typu Web nemusí fungovat správně a žádné z následujících nastavení výkonu nebude fungovat.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Pravidlo Pozastavení</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Určuje pravidlo pro pozastavení tapety na základě vašich nastavení výkonu.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Typ Komunikace</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Určuje způsob odesílání zpráv tématům typu Web.</system:String>
 

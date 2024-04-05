@@ -12,6 +12,7 @@ using SBSDGS = Sucrose.Backgroundog.Struct.Data.GraphicStruct;
 using SBSDMDS = Sucrose.Backgroundog.Struct.Data.MotherboardStruct;
 using SBSDMYS = Sucrose.Backgroundog.Struct.Data.MemoryStruct;
 using SBSDNS = Sucrose.Backgroundog.Struct.Data.NetworkStruct;
+using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
@@ -44,6 +45,8 @@ namespace Sucrose.Backgroundog.Manage
         public static bool Virtuality = false;
 
         public static int InitializeTime = 100;
+
+        public static SSDEPPT PausePerformance;
 
         public static bool FocusDesktop = false;
 

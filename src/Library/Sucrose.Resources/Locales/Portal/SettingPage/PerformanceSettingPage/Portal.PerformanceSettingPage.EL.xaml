@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Σημείωση: Ορισμένα θέματα τύπου Web ενδέχεται να μην λειτουργούν σωστά και καμία από τις παρακάτω ρυθμίσεις απόδοσης δεν θα ισχύσει.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Κανόνας Παύσης</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Καθορίζει τον κανόνα για την παύση του ταπετσαρίας βάσει των ρυθμίσεών σας για την απόδοση.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Τύπος Επικοινωνίας</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Καθορίζει τη μέθοδο αποστολής μηνυμάτων σε θέματα τύπου Web.</system:String>
 

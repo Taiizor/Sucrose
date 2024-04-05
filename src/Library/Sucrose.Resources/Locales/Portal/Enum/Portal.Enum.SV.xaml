@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standard</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Utvecklare</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Tung</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Lätt</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">Stigande [A-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">Fallande [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standard</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Avancerad</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Komprimerad</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">Körbar</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Skärmgräns</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standard</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Avancerad</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Lyckat resultat</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">För många 'Tags'</system:String>

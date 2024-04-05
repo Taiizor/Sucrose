@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Varsayılan</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Geliştirici</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Ağır</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Hafif</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">Artan [A-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">Azalan [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Varsayılan</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Gelişmiş</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Sıkıştırılmış</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">Yürütülebilir</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Ekran Sınırları</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Varsayılan</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Gelişmiş</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Başarılı Sonuç</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' çok fazla değere sahip</system:String>

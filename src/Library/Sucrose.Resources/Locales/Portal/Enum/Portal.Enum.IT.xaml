@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Predefinito</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Sviluppatore</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Pesante</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Leggero</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">Crescente [A-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">Decrescente [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Predefinito</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Avanzato</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Compresso</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">Eseguibile</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Limiti dello schermo</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Predefinito</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Avanzato</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Esito positivo</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Troppi valori nei 'Tags'</system:String>

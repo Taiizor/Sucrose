@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">नोट: कुछ Web थीम्स सही तरीके से काम नहीं कर सकती हैं और निम्नलिखित प्रदर्शन सेटिंग्स का कोई भी काम नहीं कर सकता है।</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">रोकथाम नियम</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">आपकी प्रदर्शन सेटिंग्स के आधार पर वॉलपेपर को रोकने के नियम को निर्धारित करता है।</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">संचार प्रकार</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Web प्रकार के थीम्स को संदेश भेजने का तरीका निर्धारित करता है।</system:String>
 

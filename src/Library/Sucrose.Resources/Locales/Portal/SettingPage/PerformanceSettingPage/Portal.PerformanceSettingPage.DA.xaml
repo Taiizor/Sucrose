@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Bemærk: Nogle webbaserede temaer fungerer muligvis ikke korrekt, og ingen af de følgende ydelsesindstillinger vil fungere.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Pause Regel</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Bestemmer reglen for at sætte tapetet på pause baseret på dine ydeevneindstillinger.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Kommunikationstype</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Afgør metoden til at sende beskeder til temaer af typen Web.</system:String>
 

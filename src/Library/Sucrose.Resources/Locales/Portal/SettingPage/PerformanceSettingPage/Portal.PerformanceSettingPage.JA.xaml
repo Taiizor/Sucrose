@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">注意: 一部のWebベースのテーマは正しく動作しない場合があり、以下のパフォーマンス設定は機能しない場合があります。</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">一時停止ルール</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">パフォーマンス設定に基づいて壁紙の一時停止ルールを決定します。</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">通信タイプ</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Web タイプのテーマにメッセージを送信する方法を決定します。</system:String>
 

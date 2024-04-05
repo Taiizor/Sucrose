@@ -196,6 +196,8 @@
 
         public const string DuplicateScreenType = "DuplicateScreenType";
 
+        public const string PausePerformanceType = "PausePerformanceType";
+
         public const string FullscreenPerformance = "FullscreenPerformance";
     }
 }

@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">참고: 일부 Web 기반 테마는 제대로 작동하지 않을 수 있으며 다음 성능 설정 중 어느 하나도 작동하지 않을 것입니다.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">일시 정지 규칙</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">성능 설정을 기반으로 배경화면을 일시 중지하는 규칙을 결정합니다.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">통신 유형</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Web 타입의 테마에 메시지를 보내는 방법을 결정합니다.</system:String>
 

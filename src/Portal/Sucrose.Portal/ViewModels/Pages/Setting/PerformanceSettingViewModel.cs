@@ -13,6 +13,7 @@ using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECNT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSDECST = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
@@ -84,6 +85,31 @@ namespace Sucrose.Portal.ViewModels.Pages
             Counter.FooterCard = CounterHint;
 
             Contents.Add(Counter);
+
+            SPVCEC Pause = new()
+            {
+                Expandable = false,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Pause.LeftIcon.Symbol = SymbolRegular.PauseSettings20;
+            Pause.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Pause");
+            Pause.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Pause", "Description");
+
+            ComboBox PausePerformanceType = new();
+
+            PausePerformanceType.SelectionChanged += (s, e) => PausePerformanceTypeSelected(PausePerformanceType.SelectedIndex);
+
+            foreach (SSDEPPT Type in Enum.GetValues(typeof(SSDEPPT)))
+            {
+                PausePerformanceType.Items.Add(SRER.GetValue("Portal", "Enum", "PausePerformanceType", $"{Type}"));
+            }
+
+            PausePerformanceType.SelectedIndex = (int)SPMM.PausePerformanceType;
+
+            Pause.HeaderFrame = PausePerformanceType;
+
+            Contents.Add(Pause);
 
             SPVCEC Communication = new()
             {
@@ -907,6 +933,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SEST Type = (SEST)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.DownloadType, Type);
+            }
+        }
+
+        private void PausePerformanceTypeSelected(int Index)
+        {
+            if (Index != (int)SPMM.PausePerformanceType)
+            {
+                SSDEPPT Type = (SSDEPPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformanceType, Type);
             }
         }
 

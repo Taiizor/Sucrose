@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standar</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pengembang</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Berat</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Ringan</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">Menaik [A-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">Menurun [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">Standar</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Lanjutan</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Dikompresi</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">Ekseskusi</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Batasan Tampilan</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">Standar</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Lanjutan</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Sukses</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' memiliki terlalu banyak nilai</system:String>

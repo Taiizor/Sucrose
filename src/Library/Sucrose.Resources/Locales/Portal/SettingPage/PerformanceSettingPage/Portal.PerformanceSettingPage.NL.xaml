@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Opmerking: Sommige Web-gebaseerde thema's werken mogelijk niet correct en geen van de onderstaande prestatie-instellingen zal van toepassing zijn.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Pauze Regels</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Bepaalt de regel voor het pauzeren van de achtergrond op basis van uw prestatie-instellingen.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Communicatietype</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Bepaalt de methode om berichten te verzenden naar thema's van het type Web.</system:String>
 

@@ -7,6 +7,7 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
@@ -84,47 +85,77 @@ namespace Sucrose.Backgroundog.Helper
             else
             {
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, true);
+                SBMI.PausePerformance = SBMM.PausePerformanceType;
                 SBMI.Live = SSSHL.Get();
 
                 if (SBMI.Live != null && !SBMI.Live.HasExited)
                 {
-                    SSSEL.Suspend(SBMI.Live);
-
-                    if (SMR.WebViewLive.Contains(SBMI.Live.ProcessName) || SMR.CefSharpLive.Contains(SBMI.Live.ProcessName))
+                    switch (SBMI.PausePerformance)
                     {
-                        try
-                        {
-                            Process[] Processes = Process.GetProcesses();
+                        case SSDEPPT.Heavy:
+                            SSSEL.Suspend(SBMI.Live);
 
-                            Processes
-                                .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
-                                .ToList()
-                                .ForEach(Process => SSSEL.Suspend(Process));
-                        }
-                        catch (Exception Exception)
-                        {
-                            await SSWW.Watch_CatchException(Exception);
-                        }
+                            if (SMR.WebViewLive.Contains(SBMI.Live.ProcessName) || SMR.CefSharpLive.Contains(SBMI.Live.ProcessName))
+                            {
+                                try
+                                {
+                                    Process[] Processes = Process.GetProcesses();
+
+                                    Processes
+                                        .Where(Process => (Process.ProcessName.Contains(SMR.WebViewProcessName) || Process.ProcessName.Contains(SMR.CefSharpProcessName)) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName))
+                                        .ToList()
+                                        .ForEach(Process =>
+                                        {
+                                            SSSEL.Suspend(Process.MainWindowHandle);
+                                            SSSEL.Suspend(Process.Handle);
+                                        });
+                                }
+                                catch (Exception Exception)
+                                {
+                                    await SSWW.Watch_CatchException(Exception);
+                                }
+                            }
+                            break;
+                        case SSDEPPT.Light:
+                            break;
+                        default:
+                            break;
                     }
                 }
 
-                if (!string.IsNullOrEmpty(SMMM.App))
+                switch (SBMI.PausePerformance)
                 {
-                    SBMI.Apps = SSSHP.Gets(SMMM.App);
-
-                    if (SBMI.Apps != null)
-                    {
-                        foreach (Process App in SBMI.Apps)
+                    case SSDEPPT.Heavy:
+                        if (!string.IsNullOrEmpty(SMMM.App))
                         {
-                            SBMI.App = App;
+                            SBMI.Apps = SSSHP.Gets(SMMM.App);
 
-                            if (App != null && !App.HasExited)
+                            if (SBMI.Apps != null)
                             {
-                                SSSEL.Suspend(App.MainWindowHandle);
-                                SSSEL.Suspend(App.Handle);
+                                foreach (Process App in SBMI.Apps)
+                                {
+                                    SBMI.App = App;
+
+                                    if (App != null && !App.HasExited)
+                                    {
+                                        try
+                                        {
+                                            SSSEL.Suspend(App.MainWindowHandle);
+                                            SSSEL.Suspend(App.Handle);
+                                        }
+                                        catch (Exception Exception)
+                                        {
+                                            await SSWW.Watch_CatchException(Exception);
+                                        }
+                                    }
+                                }
                             }
                         }
-                    }
+                        break;
+                    case SSDEPPT.Light:
+                        break;
+                    default:
+                        break;
                 }
             }
         }

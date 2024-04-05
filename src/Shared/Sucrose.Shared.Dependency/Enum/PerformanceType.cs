@@ -7,6 +7,12 @@
         Resume
     }
 
+    internal enum PausePerformanceType
+    {
+        Heavy,
+        Light
+    }
+
     internal enum NetworkPerformanceType
     {
         Not,

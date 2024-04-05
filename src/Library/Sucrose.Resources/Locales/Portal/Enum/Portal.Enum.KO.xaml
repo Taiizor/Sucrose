@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">기본</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">개발자</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">무거운</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">가벼운</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">오름차순 [A-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">내림차순 [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">기본</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">고급</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">압축</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">실행 가능</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">화면 경계</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">기본</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">고급</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">성공</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' 값이 너무 많음</system:String>

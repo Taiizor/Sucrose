@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примітка: Деякі теми Web-сайтів можуть працювати не належним чином, і жоден із наступних параметрів продуктивності не буде працювати.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Правило паузи</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Визначає правило для призупинення робочого столу згідно з вашими налаштуваннями продуктивності.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Тип комунікації</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Визначає метод надсилання повідомлень темам типу Web.</system:String>
 

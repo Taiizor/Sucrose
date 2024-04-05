@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">デフォルト</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">開発者</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">重い</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">軽い</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">昇順 [A-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">降順 [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">デフォルト</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">高度な</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">圧縮</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">実行可能</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">ディスプレイ境界</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">デフォルト</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">高度な</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">成功</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags'は多すぎる値を持っています</system:String>

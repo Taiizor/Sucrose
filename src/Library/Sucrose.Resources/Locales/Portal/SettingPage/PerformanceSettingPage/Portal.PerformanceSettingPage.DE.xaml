@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Hinweis: Einige Webbasierte Wallpaper funktionieren möglicherweise nicht ordnungsgemäß, und keine der unten aufgeführten Leistungseinstellungen wird funktionieren.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Pause Regel</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Bestimmt die Regel für das Anhalten des Hintergrunds basierend auf Ihren Leistungseinstellungen.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Kommunikationstyp</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Bestimmt die Methode zum Senden von Nachrichten an Themen des Typs Web.</system:String>
 

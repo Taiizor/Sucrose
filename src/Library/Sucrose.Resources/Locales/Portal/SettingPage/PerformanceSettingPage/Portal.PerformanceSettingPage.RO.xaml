@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Notă: Unele teme de tip Web pot să nu funcționeze corect și niciuna dintre următoarele setări de performanță nu va funcționa.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Regulă de Pauză</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Stabilește regula pentru pauzarea tapetului pe baza setărilor de performanță.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Tip de Comunicare</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determină metoda de trimitere a mesajelor către temele de tip Web.</system:String>
 

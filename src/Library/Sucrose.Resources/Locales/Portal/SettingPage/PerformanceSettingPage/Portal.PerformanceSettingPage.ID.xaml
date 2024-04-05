@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Catatan: Beberapa tema berjenis Web mungkin tidak berfungsi dengan baik, dan tidak satu pun dari pengaturan kinerja di bawah ini akan berfungsi.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Aturan Jeda</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Menentukan aturan untuk memberhentikan wallpaper berdasarkan pengaturan kinerja Anda.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Jenis Komunikasi</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Menentukan metode pengiriman pesan ke tema-tema tipe Web.</system:String>
 

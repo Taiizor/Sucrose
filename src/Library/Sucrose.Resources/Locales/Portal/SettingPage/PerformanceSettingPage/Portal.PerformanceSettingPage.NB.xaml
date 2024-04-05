@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Merk: Noen Webbaserte temaer kan kanskje ikke fungere skikkelig, og ingen av følgende ytelsesinnstillinger vil være aktive.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Pause Regelen</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Bestemmer regelen for å pause bakgrunnen basert på dine ytelsesinnstillinger.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Kommunikasjonstype</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Bestemmer metoden for å sende meldinger til temaer av typen Web.</system:String>
 

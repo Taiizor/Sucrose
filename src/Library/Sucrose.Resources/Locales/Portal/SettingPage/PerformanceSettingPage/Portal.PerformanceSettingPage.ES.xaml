@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Nota: Algunos fondos de pantalla con temas Web pueden no funcionar correctamente, y ninguno de los ajustes de rendimiento a continuación funcionará.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Regla de Pausa</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Determina la regla para pausar el fondo de pantalla según tus ajustes de rendimiento.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Tipo de Comunicación</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Determina el método de envío de mensajes a temas de tipo Web.</system:String>
 

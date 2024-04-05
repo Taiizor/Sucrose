@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Remarque: Certaines images d'arrière-plan à thème Web peuvent ne pas fonctionner correctement, et aucun des paramètres de performance ci-dessous ne fonctionnera.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Règle de Pause</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Détermine la règle pour mettre en pause le papier peint en fonction de vos paramètres de performance.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Type de Communication</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Détermine la méthode d'envoi de messages aux thèmes de type Web.</system:String>
 

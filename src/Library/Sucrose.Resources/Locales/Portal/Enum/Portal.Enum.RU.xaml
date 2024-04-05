@@ -33,10 +33,14 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">По умолчанию</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Для разработчиков</system:String>
 
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Сильный</system:String>
+    <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Легкий</system:String>
+
     <system:String x:Key="Portal.Enum.SortKindType.Ascending">По возрастанию [A-Z]</system:String>
     <system:String x:Key="Portal.Enum.SortKindType.Descending">По убыванию [Z-A]</system:String>
 
     <system:String x:Key="Portal.Enum.ExpandScreenType.Default">По умолчанию</system:String>
+    <system:String x:Key="Portal.Enum.ExpandScreenType.Advanced">Продвинутый</system:String>
 
     <system:String x:Key="Portal.Enum.UpdateType.Compressed">Сжатый</system:String>
     <system:String x:Key="Portal.Enum.UpdateType.Executable">Исполняемый</system:String>
@@ -45,6 +49,7 @@
     <system:String x:Key="Portal.Enum.ScreenType.DisplayBound">Границы экрана</system:String>
 
     <system:String x:Key="Portal.Enum.DuplicateScreenType.Default">По умолчанию</system:String>
+    <system:String x:Key="Portal.Enum.DuplicateScreenType.Advanced">Продвинутый</system:String>
 
     <system:String x:Key="Portal.Enum.CompatibilityType.Pass">Успешно</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Слишком много значений в 'Tags'</system:String>

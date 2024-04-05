@@ -9,6 +9,9 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Counter.CounterHint">Примечание: Некоторые темы типа Web могут не работать корректно, и ни один из нижеприведенных параметров производительности не будет работать.</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause">Правило приостановки</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Pause.Description">Определяет правило для приостановки обоев на основе ваших настроек производительности.</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Тип коммуникации</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Определяет метод отправки сообщений темам типа Web.</system:String>
 
