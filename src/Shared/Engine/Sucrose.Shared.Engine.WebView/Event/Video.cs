@@ -15,6 +15,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
             SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].requestFullscreen();");
             SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
             SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
+            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync(SSEHS.GetVideoStyle());
 
             SSEWVHV.SetStretch(SSEHD.GetStretch());
             SSEWVHV.SetVolume(SSEHD.GetVolume());

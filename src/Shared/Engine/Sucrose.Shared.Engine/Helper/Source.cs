@@ -13,6 +13,11 @@ namespace Sucrose.Shared.Engine.Helper
 {
     internal static class Source
     {
+        public static string GetVideoStyle()
+        {
+            return "var style=document.createElement(\"style\");style.textContent=\"video::-webkit-media-controls,video::-webkit-media-controls-timeline,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-overflow-button,video::-webkit-media-controls-fullscreen-button,video::-webkit-media-controls-current-time-display,video::-webkit-media-controls-overflow-menu-button,video::-webkit-media-controls-time-remaining-display,video::-webkit-media-controls-toggle-closed-captions-button {display: none !important;}\",document.head.appendChild(style);";
+        }
+
         public static bool GetExtension(Uri Source)
         {
             return GetExtension(Source.ToString());
@@ -49,7 +54,9 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static string GetVideoContent(string Source)
         {
-            return $"<html><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"Permissions-Policy\" content=\"interest-cohort=()\"><style>body{{padding:0;margin:0;overflow:hidden}}</style></head><body><video autoplay name=\"media\" src=\"{{Source}}\"></video></body></html>";
+            string Content = @"<html><head><meta charset=""UTF-8""><meta http-equiv=""X-UA-Compatible"" content=""IE=edge,chrome=1""><meta name=""viewport"" content=""width=device-width,initial-scale=1""><meta http-equiv=""Permissions-Policy"" content=""interest-cohort=()""><style>body{padding:0;margin:0;overflow:hidden}video::-webkit-media-controls,video::-webkit-media-controls-current-time-display,video::-webkit-media-controls-fullscreen-button,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-overflow-button,video::-webkit-media-controls-overflow-menu-button,video::-webkit-media-controls-play-button,video::-webkit-media-controls-time-remaining-display,video::-webkit-media-controls-timeline,video::-webkit-media-controls-toggle-closed-captions-button,video::-webkit-media-controls-volume-slider{display:none!important}</style></head><body><video autoplay name=""media"" src=""{Source}""></video></body></html>";
+
+            return Content.Replace("{Source}", Source);
         }
 
         public static string GetYouTubeContent(string Video, string Playlist)
