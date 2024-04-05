@@ -9,14 +9,22 @@
     <Import_RootNamespace>Sucrose.Shared.Engine.MpvPlayer</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)View\Gif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)View\Video.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Gif.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Gif.xaml.cs">
+      <DependentUpon>Gif.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\Video.xaml.cs">
       <DependentUpon>Video.xaml</DependentUpon>
     </Compile>

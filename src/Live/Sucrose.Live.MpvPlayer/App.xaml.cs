@@ -10,6 +10,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEMPVG = Sucrose.Shared.Engine.MpvPlayer.View.Gif;
 using SSEMPVV = Sucrose.Shared.Engine.MpvPlayer.View.Video;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
@@ -136,6 +137,10 @@ namespace Sucrose.Live.MpvPlayer
 
                         switch (Info.Type)
                         {
+                            case SSDEWT.Gif:
+                                SSEMPVG Gif = new(Source);
+                                Gif.Show();
+                                break;
                             case SSDEWT.Video:
                                 SSEMPVV Video = new(Source);
                                 Video.Show();

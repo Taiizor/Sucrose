@@ -16,7 +16,10 @@
     {
         Vexana = EngineType.VexanaLive,
         WebView = EngineType.WebViewLive,
-        CefSharp = EngineType.CefSharpLive
+        CefSharp = EngineType.CefSharpLive,
+#if X64 || X86
+        MpvPlayer = EngineType.MpvPlayerLive
+#endif
     }
 
     internal enum UrlEngineType
