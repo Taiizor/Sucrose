@@ -69,6 +69,8 @@
 
         public static readonly string Launcher = "Sucrose.Launcher.exe";
 
+        public static readonly string Property = "Sucrose.Property.exe";
+
         public static readonly string Watchdog = "Sucrose.Watchdog.exe";
 
         public static readonly string VideoContent = "VideoContent.html";
@@ -118,6 +120,8 @@
         public static readonly string WizardMutex = "{Sucrose-Wallpaper-Engine-Wizard}";
 
         public static readonly string CefSharpProcessName = "CefSharp.BrowserSubprocess";
+
+        public static readonly string PropertyMutex = "{Sucrose-Wallpaper-Engine-Property}";
 
         public static readonly string LauncherMutex = "{Sucrose-Wallpaper-Engine-Launcher}";
 

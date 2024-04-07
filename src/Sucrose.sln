@@ -107,6 +107,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sucrose.Pipe", "Library\Suc
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sucrose.Shared.Pipe", "Shared\Sucrose.Shared.Pipe\Sucrose.Shared.Pipe.shproj", "{95B76D1C-7610-4A51-9BF1-CAD43FE553B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sucrose.Property", "Project\Sucrose.Property\Sucrose.Property.csproj", "{39ECB96A-28B6-4E97-9794-3A7778D17E80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -439,6 +441,22 @@ Global
 		{88AE7E16-5979-4DEB-8E8C-57ED02BAC88B}.Release|x64.Build.0 = Release|Any CPU
 		{88AE7E16-5979-4DEB-8E8C-57ED02BAC88B}.Release|x86.ActiveCfg = Release|Any CPU
 		{88AE7E16-5979-4DEB-8E8C-57ED02BAC88B}.Release|x86.Build.0 = Release|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|x64.Build.0 = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Debug|x86.Build.0 = Debug|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|ARM64.ActiveCfg = Release|ARM64
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|ARM64.Build.0 = Release|ARM64
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|x64.ActiveCfg = Release|x64
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|x64.Build.0 = Release|x64
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|x86.ActiveCfg = Release|x86
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -485,6 +503,7 @@ Global
 		{830BB296-2473-4039-A5F5-E95E83927713} = {05FDCE3B-F86D-4C30-A9A1-BF7CD6342B07}
 		{88AE7E16-5979-4DEB-8E8C-57ED02BAC88B} = {1DD66D11-65BD-40CB-BF05-4E7951DDFED3}
 		{95B76D1C-7610-4A51-9BF1-CAD43FE553B3} = {232CD10B-4CA0-403C-B469-82A002F7C130}
+		{39ECB96A-28B6-4E97-9794-3A7778D17E80} = {E9FDFBCD-9AC8-4C03-8E94-17B50D0AD090}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DA4A105-4BC7-4943-9328-F7274E75FCB3}
@@ -499,6 +518,11 @@ Global
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{22011896-0652-4d71-beda-3ec200d4ed8b}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems*{30366616-3837-4234-aea7-ca7dfbd55345}*SharedItemsImports = 13
 		Shared\Engine\Sucrose.Shared.Engine.Aurora\Sucrose.Shared.Engine.Aurora.projitems*{324086b2-c652-43ec-8433-bdbfc9345111}*SharedItemsImports = 13
+		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{39ecb96a-28b6-4e97-9794-3a7778d17e80}*SharedItemsImports = 5
+		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{39ecb96a-28b6-4e97-9794-3a7778d17e80}*SharedItemsImports = 5
+		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{39ecb96a-28b6-4e97-9794-3a7778d17e80}*SharedItemsImports = 5
+		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{39ecb96a-28b6-4e97-9794-3a7778d17e80}*SharedItemsImports = 5
+		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{39ecb96a-28b6-4e97-9794-3a7778d17e80}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{3f10435e-c82e-4480-895a-fcff79025276}*SharedItemsImports = 13
 		Shared\Sucrose.Shared.Discord\Sucrose.Shared.Discord.projitems*{55d4e156-3828-40a7-bb35-0377f917455b}*SharedItemsImports = 13
 		Shared\Engine\Sucrose.Shared.Engine.CefSharp\Sucrose.Shared.Engine.CefSharp.projitems*{5e032b27-faf9-4821-aa35-7e2a49e1e90e}*SharedItemsImports = 5

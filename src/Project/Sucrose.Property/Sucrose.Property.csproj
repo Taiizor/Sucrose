@@ -1,0 +1,118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
+        <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
+        <StartupObject>Sucrose.Property.App</StartupObject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <Company>Taiizor</Company>
+        <Title>Sucrose Wallpaper Engine</Title>
+        <Description>$(Title)</Description>
+        <Product>$(Title)</Product>
+        <InformationalVersion>$(Version)</InformationalVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
+        <AssemblyName>Sucrose.Property</AssemblyName>
+        <RootNamespace>$(AssemblyName)</RootNamespace>
+        <UseWindowsForms>true</UseWindowsForms>
+        <UseWPF>true</UseWPF>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
+        <DefineConstants>$(DefineConstants);PROPERTY</DefineConstants>
+        <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+        <OutputPath>..\..\Sucrose\Property\$(Platform)</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+        <RetainVMGarbageCollection>true</RetainVMGarbageCollection>
+        <ThreadPoolMinThreads>1</ThreadPoolMinThreads>
+        <ThreadPoolMaxThreads>100</ThreadPoolMaxThreads>
+        <!-- Supported as of .NET Core SDK 3.0 Preview 1 -->
+        <TieredCompilation>true</TieredCompilation>
+        <InvariantGlobalization>false</InvariantGlobalization>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'x86'">
+        <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x86</RuntimeIdentifier>
+        <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+        <DefineConstants>$(DefineConstants);X86</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'x64'">
+        <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+        <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+        <DefineConstants>$(DefineConstants);X64</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'arm64'">
+        <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-arm64</RuntimeIdentifier>
+        <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+        <DefineConstants>$(DefineConstants);ARM64</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
+            <TargetPath>$(AssemblyName).exe.config</TargetPath>
+        </AppConfigWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Skylark.Wing" Version="3.1.4.2" />
+        <PackageReference Include="WPF-UI" Version="3.0.0-preview.7" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.5.1" />
+        <PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="HandyControl">
+            <HintPath>reference\HandyControl.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Web" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\..\Library\Sucrose.Resources\Sucrose.Resources.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\..\Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
+
+    <ItemGroup>
+        <Folder Include="Properties\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Resource Include="Assets\**\*.*" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
+        <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
+    </PropertyGroup>
+
+    <Target Name="CopyFiles" BeforeTargets="Build">
+        <ItemGroup>
+            <FilesToCopy Include="$(SourceDirectory)\**\*.*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(DestinationDirectory)%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+
+</Project>

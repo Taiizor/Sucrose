@@ -52,10 +52,12 @@ namespace Sucrose.Shared.Watchdog
             SMMI.UpdateLogManager.Log(SELLT.Error, Text);
 #elif WIZARD
             SMMI.WizardLogManager.Log(SELLT.Error, Text);
-#elif WATCHDOG
-            SMMI.WatchdogLogManager.Log(SELLT.Error, Text);
 #elif LAUNCHER
             SMMI.LauncherLogManager.Log(SELLT.Error, Text);
+#elif PROPERTY
+            SMMI.PropertyLogManager.Log(SELLT.Error, Text);
+#elif WATCHDOG
+            SMMI.WatchdogLogManager.Log(SELLT.Error, Text);
 #elif COMMANDOG
             SMMI.CommandogLogManager.Log(SELLT.Error, Text);
 #elif LIVE_AURORA

@@ -1,16 +1,18 @@
-﻿using System.Globalization;
+﻿using HandyControl.Tools;
+using System.Globalization;
 using System.Windows;
+using Application = System.Windows.Application;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SPVMW = Sucrose.Property.View.MainWindow;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWVMW = Sucrose.Wizard.View.MainWindow;
 
-namespace Sucrose.Wizard
+namespace Sucrose.Property
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -65,6 +67,7 @@ namespace Sucrose.Wizard
                 Message(Exception.Message);
             };
 
+            ConfigHelper.Instance.SetLang(SMMM.Culture);
             SHC.All = new CultureInfo(SMMM.Culture, true);
         }
 
@@ -81,7 +84,7 @@ namespace Sucrose.Wizard
             {
                 HasError = false;
 
-                string Path = SMMI.WizardLogManager.LogFile();
+                string Path = SMMI.PropertyLogManager.LogFile();
 
                 SSSHW.Start(Message, Path);
 
@@ -91,7 +94,7 @@ namespace Sucrose.Wizard
 
         protected void Configure()
         {
-            SWVMW MainWindow = new();
+            SPVMW MainWindow = new();
             MainWindow.ShowDialog();
 
             Close();
@@ -114,7 +117,7 @@ namespace Sucrose.Wizard
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            if (SSSHI.Basic(SMR.WizardMutex, SMR.Wizard))
+            if (SSSHI.Basic(SMR.PropertyMutex, SMR.Property))
             {
                 Configure();
             }
