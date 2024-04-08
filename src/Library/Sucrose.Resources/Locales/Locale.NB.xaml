@@ -10,7 +10,8 @@
         <ResourceDictionary Source="Portal/Portal.NB.xaml" />
         <ResourceDictionary Source="Wizard/Wizard.NB.xaml" />
         <ResourceDictionary Source="Discord/Discord.NB.xaml" />
-        <ResourceDictionary Source="Watchdog/Watchdog.NB.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.NB.xaml" />
+        <ResourceDictionary Source="Property/Property.NB.xaml" />
+        <ResourceDictionary Source="Watchdog/Watchdog.NB.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

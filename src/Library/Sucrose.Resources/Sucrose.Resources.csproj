@@ -20,10 +20,4 @@
         <ProjectReference Include="..\Sucrose.Memory\Sucrose.Memory.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Page Update="Locales\Wizard\Wizard.CS.xaml">
-        <SubType>Designer</SubType>
-      </Page>
-    </ItemGroup>
-
 </Project>

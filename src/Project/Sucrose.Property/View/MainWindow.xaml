@@ -8,7 +8,7 @@
     xmlns:local="clr-namespace:Sucrose.Property.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Sucrose Property"
+    Title="{DynamicResource Property.WindowTitle}"
     MinWidth="365"
     MinHeight="100"
     MaxWidth="365"
@@ -32,14 +32,14 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Sucrose Property"
+            Title="{DynamicResource Property.WindowTitle}"
             Grid.Row="0"
             CloseWindowByDoubleClickOnIcon="True"
             MouseDown="TitleBar_MouseDown"
             ShowMaximize="False"
             ShowMinimize="False">
             <ui:TitleBar.Icon>
-                <ui:ImageIcon Source="pack://application:,,,/Assets/Logo.png" />
+                <ui:ImageIcon Source="pack://application:,,,/Assets/Icon256.png" />
             </ui:TitleBar.Icon>
         </ui:TitleBar>
 
