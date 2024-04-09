@@ -2,7 +2,6 @@
     x:Class="Sucrose.Property.View.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:Sucrose.Property.View"
@@ -81,6 +80,29 @@
                 <ui:TextBlock
                     Margin="0,0,0,5"
                     FontSize="16"
+                    Text="Price" />
+                <ui:NumberBox
+                    Margin="0,0,0,10"
+                    MaxDecimalPlaces="2"
+                    Maximum="100"
+                    Minimum="0"
+                    PlaceholderEnabled="True"
+                    PlaceholderText="12.98"
+                    Value="50.00" />
+
+                <ui:TextBlock
+                    Margin="0,0,0,5"
+                    FontSize="16"
+                    Text="API Key" />
+                <ui:PasswordBox
+                    Margin="0,0,0,10"
+                    Password="Sucrose Wallpaper Engine"
+                    PlaceholderEnabled="True"
+                    PlaceholderText="Enter a password" />
+
+                <ui:TextBlock
+                    Margin="0,0,0,5"
+                    FontSize="16"
                     Text="Scaling" />
                 <ComboBox Margin="0,0,0,10" SelectedIndex="3">
                     <ComboBoxItem Content="None" />
@@ -122,52 +144,126 @@
                 <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
                     <Grid>
                         <ui:DropDownButton
+                            x:Name="DropDown"
                             Click="DropDownButton_Click"
-                            Content="       |"
-                            Cursor="Hand" />
-                        <colorpicker:PortableColorPicker
-                            x:Name="PCP"
+                            Content="         "
+                            Cursor="Hand"
+                            Icon="{ui:SymbolIcon EyeDropper24}" />
+                        <Rectangle
                             Width="30"
-                            Margin="1,1,0,1"
+                            Margin="35,1,0,1"
                             HorizontalAlignment="Left"
                             IsEnabled="false"
                             IsHitTestVisible="False"
-                            PickerType="HSV"
-                            ShowAlpha="True"
-                            ShowFractionalPart="False"
-                            Style="{StaticResource DefaultColorPickerStyle}"
-                            UseHintColor="False"
-                            UseLayoutRounding="False" />
+                            RadiusX="5"
+                            RadiusY="5">
+                            <Rectangle.Fill>
+                                <SolidColorBrush x:Name="SCB" Color="DodgerBlue" />
+                            </Rectangle.Fill>
+                        </Rectangle>
                     </Grid>
-                    <ui:Button
-                        x:Name="OpenButton"
-                        Margin="10,0,0,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Stretch"
-                        Appearance="Secondary"
-                        Click="OpenButton_Click"
-                        Cursor="Hand"
-                        Icon="{ui:SymbolIcon EyeDropper24}" />
 
-
-
-                    <Popup Name="Popup" StaysOpen="False">
-                        <colorpicker:StandardColorPicker
-                            x:Name="CS"
-                            Background="Transparent"
-                            ColorChanged="ColorSliders_ColorChanged"
-                            PickerType="HSV"
-                            ShowAlpha="True"
-                            ShowFractionalPart="False"
-                            Style="{StaticResource DefaultColorPickerStyle}"
-                            UseHintColor="False"
-                            UseLayoutRounding="False" />
-                    </Popup>
-
-                    <Popup Name="Popup2" StaysOpen="False">
-                        <hc:ColorPicker Name="ColorPicker" SelectedColorChanged="ColorPicker_SelectedColorChanged" />
+                    <Popup>
+                        <hc:ColorPicker Name="ColorPicker" />
                     </Popup>
                 </StackPanel>
+
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops"
+                    FontSize="16"
+                    IsChecked="True" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 1"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 2"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 3"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 4"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 5"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 6"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 7"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 8"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 9"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 10"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 11"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 12"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 13"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 14"
+                    FontSize="16"
+                    IsChecked="False" />
+                <CheckBox
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
+                    Content="Random Drops 15"
+                    FontSize="16"
+                    IsChecked="False" />
 
                 <ui:TextBlock
                     Margin="0,0,0,5"
@@ -181,6 +277,7 @@
                     Cursor="Hand" />
 
                 <ui:Button
+                    x:Name="Refresh"
                     Margin="0,14,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"

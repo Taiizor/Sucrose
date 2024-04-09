@@ -1,8 +1,6 @@
 ﻿using HandyControl.Controls;
 using HandyControl.Themes;
 using HandyControl.Tools;
-using System.Reflection;
-using System.Resources;
 using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Appearance;
@@ -46,11 +44,8 @@ namespace Sucrose.Property.View
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            // Pencerenin maksimum yüksekliğini ekran yüksekliği ile sınırla
-            double screenHeight = SystemParameters.PrimaryScreenHeight;
-
-            // Pencerenin sağ alt köşede açılması için konumunu ayarla
-            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double ScreenWidth = SystemParameters.PrimaryScreenWidth;
+            double ScreenHeight = SystemParameters.PrimaryScreenHeight;
 
             AnchorStyles Anchor = SWHWTR.GetAnchorStyle();
             Rectangle TaskbarPosition = SWHWTR.GetPosition();
@@ -59,53 +54,46 @@ namespace Sucrose.Property.View
             switch (Anchor)
             {
                 case AnchorStyles.Top:
-                    MaxHeight = screenHeight - TaskbarCoordinates.Height - 20;
+                    MaxHeight = ScreenHeight - TaskbarCoordinates.Height - 20;
 
-                    Left = screenWidth - Width - 10;
-                    Top = screenHeight - Height - 10;
+                    Left = ScreenWidth - Width - 10;
+                    Top = ScreenHeight - Height - 10;
                     break;
                 case AnchorStyles.Bottom:
-                    MaxHeight = screenHeight - TaskbarCoordinates.Height - 20;
+                    MaxHeight = ScreenHeight - TaskbarCoordinates.Height - 20;
 
-                    Left = screenWidth - Width - 10;
+                    Left = ScreenWidth - Width - 10;
                     Top = TaskbarPosition.Top - Height - 10;
                     break;
                 case AnchorStyles.Left:
-                    MaxHeight = screenHeight - 20;
+                    MaxHeight = ScreenHeight - 20;
 
-                    Left = screenWidth - Width - 10;
-                    Top = screenHeight - Height - 10;
+                    Left = ScreenWidth - Width - 10;
+                    Top = ScreenHeight - Height - 10;
                     break;
                 case AnchorStyles.Right:
-                    MaxHeight = screenHeight - 20;
+                    MaxHeight = ScreenHeight - 20;
 
                     Left = TaskbarPosition.Left - Width - 10;
-                    Top = screenHeight - Height - 10;
+                    Top = ScreenHeight - Height - 10;
                     break;
                 default:
-                    MaxHeight = screenHeight - 20;
+                    MaxHeight = ScreenHeight - 20;
 
-                    Left = screenWidth - Width - 10;
-                    Top = screenHeight - Height - 10;
+                    Left = ScreenWidth - Width - 10;
+                    Top = ScreenHeight - Height - 10;
                     break;
             }
         }
 
         private void DropDownButton_Click(object sender, RoutedEventArgs e)
         {
-            Popup.IsOpen = true;
-        }
+            ColorPicker picker = SingleOpenHelper.CreateControl<ColorPicker>();
 
-        private void ColorSliders_ColorChanged(object sender, RoutedEventArgs e)
-        {
-            PCP.SelectedColor = CS.SelectedColor;
-        }
+            System.Windows.Media.Color Temp = SCB.Color;
 
-        private void OpenButton_Click(object sender, RoutedEventArgs e)
-        {
-            //Popup2.IsOpen = true;
-
-            HandyControl.Controls.ColorPicker picker = SingleOpenHelper.CreateControl<HandyControl.Controls.ColorPicker>();
+            picker.SelectedBrush = new(Temp);
+            picker.UseLayoutRounding = true;
 
             PopupWindow window = new()
             {
@@ -113,21 +101,18 @@ namespace Sucrose.Property.View
                 WindowStartupLocation = WindowStartupLocation.Manual,
                 AllowsTransparency = true,
                 WindowStyle = WindowStyle.None,
-                MinWidth = 0,
-                MinHeight = 0,
+                ResizeMode = ResizeMode.NoResize,
+                UseLayoutRounding = true,
+                ShowBorder = true,
+                Topmost = true,
                 Title = "Sucrose Property Color Picker"
             };
 
-            picker.Confirmed += (s, ee) => { PCP.SelectedColor = ee.Info; window.Close(); };
-            picker.SelectedColorChanged += (s, ee) => { PCP.SelectedColor = ee.Info; };
-            picker.Canceled += delegate { window.Close(); };
+            picker.Confirmed += (s, ee) => { SCB.Color = ee.Info; window.Close(); };
+            picker.SelectedColorChanged += (s, ee) => { SCB.Color = ee.Info; };
+            picker.Canceled += delegate { SCB.Color = Temp; window.Close(); };
 
-            window.Show(OpenButton, false);
-        }
-
-        private void ColorPicker_SelectedColorChanged(object sender, HandyControl.Data.FunctionEventArgs<System.Windows.Media.Color> e)
-        {
-            PCP.SelectedColor = e.Info;
+            window.Show(Refresh, false);
         }
     }
 }

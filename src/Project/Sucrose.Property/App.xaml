@@ -13,7 +13,6 @@
                 <ui:ThemesDictionary Theme="Dark" />
                 <hc:ThemeResources RequestedTheme="Dark" />
                 <ResourceDictionary Source="/Sucrose.Resources;component/Locales/Locale.EN.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ColorPicker;component/Styles/DefaultColorPickerStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
