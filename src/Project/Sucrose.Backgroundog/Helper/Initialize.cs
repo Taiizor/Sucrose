@@ -20,8 +20,11 @@ namespace Sucrose.Backgroundog.Helper
             TimerCallback Callback = InitializeTimer_Callback;
             SBMI.InitializeTimer = new(Callback, null, 0, SBMI.InitializeTime);
 
-            SMMI.BackgroundogSettingManager.SetSetting(SMC.ClosePerformance, false);
-            SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, false);
+            SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
+            {
+                new(SMC.ClosePerformance, false),
+                new(SMC.PausePerformance, false)
+            });
         }
 
         public void Stop()

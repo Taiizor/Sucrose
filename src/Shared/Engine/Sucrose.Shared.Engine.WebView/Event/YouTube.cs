@@ -14,12 +14,12 @@ namespace Sucrose.Shared.Engine.WebView.Event
         {
             SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SSEHD.GetVolume()});");
             SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("toggleFullScreen();");
+
+            SSEMI.Initialized = true;
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            SSEMI.Initialized = e.IsSuccess;
-
             SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;
 
             string Video = SSTHV.GetYouTubeVideoId(SSEWVMI.YouTube);

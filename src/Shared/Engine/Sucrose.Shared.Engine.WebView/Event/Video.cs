@@ -19,12 +19,12 @@ namespace Sucrose.Shared.Engine.WebView.Event
 
             SSEWVHV.SetStretch(SSEHD.GetStretch());
             SSEWVHV.SetVolume(SSEHD.GetVolume());
+
+            SSEMI.Initialized = true;
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            SSEMI.Initialized = e.IsSuccess;
-
             SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;
 
             Uri Video = SSEHS.GetSource(SSEWVMI.Video);

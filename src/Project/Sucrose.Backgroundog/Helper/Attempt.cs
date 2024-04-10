@@ -1,4 +1,6 @@
-﻿using SBMI = Sucrose.Backgroundog.Manage.Internal;
+﻿using Newtonsoft.Json.Linq;
+using System.Windows.Input;
+using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -27,8 +29,11 @@ namespace Sucrose.Backgroundog.Helper
             SBMI.Exit = false;
             SBMI.Initialize.Stop();
 
-            SMMI.BackgroundogSettingManager.SetSetting(SMC.ClosePerformance, false);
-            SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, false);
+            SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
+            {
+                new(SMC.ClosePerformance, false),
+                new(SMC.PausePerformance, false)
+            });
 
             await Task.CompletedTask;
         }

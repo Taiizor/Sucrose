@@ -16,12 +16,12 @@ namespace Sucrose.Shared.Engine.WebView.Event
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
             SSEWVHM.SetProcesses();
+
+            SSEMI.Initialized = true;
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            SSEMI.Initialized = e.IsSuccess;
-
             SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;
 
             SSEWVMI.WebEngine.Source = new(SSEWVMI.Url);

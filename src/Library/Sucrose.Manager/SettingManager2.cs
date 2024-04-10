@@ -89,6 +89,16 @@ namespace Sucrose.Manager
             SaveSetting();
         }
 
+        public void SetSetting<T>(KeyValuePair<string, T>[] pairs)
+        {
+            foreach (KeyValuePair<string, T> pair in pairs)
+            {
+                _settings.Properties[pair.Key] = ConvertToType<T>(pair.Value);
+            }
+
+            SaveSetting();
+        }
+
         public void SaveSetting()
         {
             _lock.EnterWriteLock();

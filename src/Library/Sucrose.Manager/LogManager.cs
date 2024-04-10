@@ -67,6 +67,49 @@ namespace Sucrose.Manager
             }
         }
 
+        public void Log(SELLT level, string[] messages)
+        {
+            if (logType == SELT.None)
+            {
+                return;
+            }
+
+            _lock.EnterWriteLock();
+
+            try
+            {
+                lock (lockObject)
+                {
+                    using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
+
+                    try
+                    {
+                        try
+                        {
+                            Mutex.WaitOne();
+                        }
+                        catch
+                        {
+                            //
+                        }
+
+                        foreach (string message in messages)
+                        {
+                            SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
+                        }
+                    }
+                    finally
+                    {
+                        Mutex.ReleaseMutex();
+                    }
+                }
+            }
+            finally
+            {
+                _lock.ExitWriteLock();
+            }
+        }
+
         public bool CheckFile()
         {
             return File.Exists(logFilePath);

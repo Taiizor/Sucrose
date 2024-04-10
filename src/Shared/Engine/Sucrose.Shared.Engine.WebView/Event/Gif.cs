@@ -14,12 +14,12 @@ namespace Sucrose.Shared.Engine.WebView.Event
         {
             SSEWVHG.SetStretch(SSEHD.GetStretch());
             SSEWVHG.SetLoop(SSEHD.GetLoop());
+
+            SSEMI.Initialized = true;
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            SSEMI.Initialized = e.IsSuccess;
-
             SSEWVMI.WebEngine.CoreWebView2.Settings.UserAgent = SMMM.UserAgent;
 
             Uri Gif = SSEHS.GetSource(SSEWVMI.Gif);

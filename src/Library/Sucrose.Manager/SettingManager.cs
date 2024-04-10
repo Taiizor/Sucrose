@@ -181,6 +181,14 @@ namespace Sucrose.Manager
 
         public void SetSetting<T>(string key, T value)
         {
+            SetSetting(new KeyValuePair<string, T>[]
+            {
+                new(key, value)
+            });
+        }
+
+        public void SetSetting<T>(KeyValuePair<string, T>[] pairs)
+        {
             _lock.EnterWriteLock();
 
             try
@@ -212,7 +220,10 @@ namespace Sucrose.Manager
                             settings = new Settings();
                         }
 
-                        settings.Properties[key] = ConvertToType<T>(value);
+                        foreach (KeyValuePair<string, T> pair in pairs)
+                        {
+                            settings.Properties[pair.Key] = ConvertToType<T>(pair.Value);
+                        }
 
                         SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
                     }
