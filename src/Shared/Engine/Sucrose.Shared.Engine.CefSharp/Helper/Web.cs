@@ -3,9 +3,11 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
+using SSECSES = Sucrose.Shared.Engine.CefSharp.Extension.Screenshot;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
+using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSMI = Sucrose.Signal.Manage.Internal;
@@ -18,6 +20,26 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class Web
     {
+        public static async void Play()
+        {
+            if (!SSECSMI.State)
+            {
+                SSECSMI.State = true;
+
+                SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
+            }
+        }
+
+        public static async void Pause()
+        {
+            if (SSECSMI.State)
+            {
+                SSECSMI.State = false;
+
+                SSECSMI.CefEngine.LoadHtml(SSEHS.GetImageContent(await SSECSES.Capture()));
+            }
+        }
+
         public static void StartCompatible()
         {
             if (SSEMI.Compatible.State)
@@ -33,12 +55,15 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
                         {
                             SPMI.BackgroundogManager.MessageReceived += async (s, e) =>
                             {
-                                SSPSBSS.Handler(e);
-
-                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                if (SSECSMI.State)
                                 {
-                                    SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
-                                });
+                                    SSPSBSS.Handler(e);
+
+                                    await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                    {
+                                        SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                    });
+                                }
                             };
 
                             SPMI.BackgroundogManager.StartServer();
@@ -49,12 +74,15 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                         SSMI.BackgroundogManager.StartChannel(async (s, e) =>
                         {
-                            SSSSBSS.Handler(s, e);
-
-                            await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                            if (SSECSMI.State)
                             {
-                                SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
-                            });
+                                SSSSBSS.Handler(s, e);
+
+                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                {
+                                    SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                });
+                            }
                         });
                         break;
                     default:

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSEU = Sucrose.Shared.Engine.CefSharp.Event.Url;
 using SSECSHCCM = Sucrose.Shared.Engine.CefSharp.Handler.CustomContextMenu;
 using SSECSHU = Sucrose.Shared.Engine.CefSharp.Helper.Url;
@@ -52,6 +53,15 @@ namespace Sucrose.Shared.Engine.CefSharp.View
             SSEHR.Control();
 
             SSECSHU.SetVolume(SSEHD.GetVolume());
+
+            if (SMMM.PausePerformance)
+            {
+                SSECSHU.Pause();
+            }
+            else
+            {
+                SSECSHU.Play();
+            }
         }
 
         public void Dispose()
