@@ -2,6 +2,7 @@
 using SHV = Skylark.Helper.Versionly;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SWUD = Skylark.Wing.Utility.Desktop;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSLMM = Sucrose.Shared.Live.Manage.Manager;
@@ -25,6 +26,8 @@ namespace Sucrose.Shared.Live.Helper
 
                     if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                     {
+                        SWUD.RefreshDesktop();
+
                         if (SMMM.PerformanceCounter)
                         {
                             SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Backgroundog}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
