@@ -3,8 +3,10 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
+using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
+using SSEWVES = Sucrose.Shared.Engine.WebView.Extension.Screenshot;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
@@ -17,6 +19,26 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 {
     internal static class Web
     {
+        public static async void Play()
+        {
+            if (!SSEWVMI.State)
+            {
+                SSEWVMI.State = true;
+
+                SSEWVMI.WebEngine.Source = SSEHS.GetSource(SSEWVMI.Web);
+            }
+        }
+
+        public static async void Pause()
+        {
+            if (SSEWVMI.State)
+            {
+                SSEWVMI.State = false;
+
+                SSEWVMI.WebEngine.CoreWebView2.NavigateToString(SSEHS.GetImageContent(await SSEWVES.Capture()));
+            }
+        }
+
         public static void StartCompatible()
         {
             if (SSEMI.Compatible.State)
@@ -32,12 +54,15 @@ namespace Sucrose.Shared.Engine.WebView.Helper
                         {
                             SPMI.BackgroundogManager.MessageReceived += async (s, e) =>
                             {
-                                SSPSBSS.Handler(e);
-
-                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                if (SSEWVMI.State)
                                 {
-                                    SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
-                                });
+                                    SSPSBSS.Handler(e);
+
+                                    await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                    {
+                                        SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                    });
+                                }
                             };
 
                             SPMI.BackgroundogManager.StartServer();
@@ -48,12 +73,15 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 
                         SSMI.BackgroundogManager.StartChannel(async (s, e) =>
                         {
-                            SSSSBSS.Handler(s, e);
-
-                            await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                            if (SSEWVMI.State)
                             {
-                                SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
-                            });
+                                SSSSBSS.Handler(s, e);
+
+                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                {
+                                    SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                });
+                            }
                         });
                         break;
                     default:
