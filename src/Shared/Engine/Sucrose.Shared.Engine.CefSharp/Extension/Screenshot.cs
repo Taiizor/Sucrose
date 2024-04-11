@@ -1,6 +1,7 @@
-﻿using CefSharp;
+﻿using System.IO;
+using System.Windows.Interop;
+using System.Windows.Media.Imaging;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
-using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 
 namespace Sucrose.Shared.Engine.CefSharp.Extension
 {
@@ -8,17 +9,46 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
     {
         public static async Task<string> Capture()
         {
-            SSECSMI.CefEngine.ExecuteScriptAsync(SSEHS.GetScreenshot());
+            InteropBitmap Bitmap = await SSECSMI.CefEngine.TakeScreenshot();
 
-            JavascriptResponse Response = await SSECSMI.CefEngine.EvaluateScriptAsync(@"html2canvas(document.body).then(canvas => { return canvas.toDataURL(""image/jpeg""); });");
+            return Bitmap.ToBase64();
 
-            if (Response.Result != null)
+            //SSECSMI.CefEngine.ExecuteScriptAsync(SSEHS.GetScreenshot());
+
+            //JavascriptResponse Response = await SSECSMI.CefEngine.EvaluateScriptAsync(@"html2canvas(document.body).then(canvas => { return canvas.toDataURL(""image/jpeg""); });");
+
+            //if (Response.Success)
+            //{
+            //    return Response.Result as string;
+            //}
+            //else
+            //{
+            //    return string.Empty;
+            //}
+        }
+
+        private static string ToBase64(this InteropBitmap InteropBitmap)
+        {
+            BitmapSource BitmapSource = InteropBitmap;
+
+            if (BitmapSource != null)
             {
-                return Response.Result as string;
+                MemoryStream Stream = new();
+
+                BitmapEncoder Encoder = new JpegBitmapEncoder();
+
+                Encoder.Frames.Add(BitmapFrame.Create(BitmapSource));
+                Encoder.Save(Stream);
+
+                byte[] Bytes = Stream.ToArray();
+                string Base64 = Convert.ToBase64String(Bytes);
+
+                // Data URL oluşturma
+                return $"data:image/jpeg;base64,{Base64}";
             }
             else
             {
-                return string.Empty;
+                throw new ArgumentException("Given InteropBitmap cannot be converted to BitmapSource.");
             }
         }
     }
