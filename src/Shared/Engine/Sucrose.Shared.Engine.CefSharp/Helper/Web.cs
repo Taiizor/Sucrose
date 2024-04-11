@@ -36,7 +36,11 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SSECSMI.State = false;
 
-                SSECSMI.CefEngine.LoadHtml(SSEHS.GetImageContent(await SSECSES.Capture()));
+                string Path = SSEHS.GetImageContentPath();
+
+                SSEHS.WriteImageContent(Path, await SSECSES.Capture());
+
+                SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
             }
         }
 

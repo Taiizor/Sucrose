@@ -1,7 +1,6 @@
-﻿using CefSharp;
+﻿using SSECSES = Sucrose.Shared.Engine.CefSharp.Extension.Screenshot;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
-using SSECSES = Sucrose.Shared.Engine.CefSharp.Extension.Screenshot;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
@@ -26,7 +25,11 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SSECSMI.State = false;
 
-                SSECSMI.CefEngine.LoadHtml(SSEHS.GetImageContent(await SSECSES.Capture()));
+                string Path = SSEHS.GetImageContentPath();
+
+                SSEHS.WriteImageContent(Path, await SSECSES.Capture());
+
+                SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
             }
         }
 

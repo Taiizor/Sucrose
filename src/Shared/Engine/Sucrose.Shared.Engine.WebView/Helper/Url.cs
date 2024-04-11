@@ -25,7 +25,11 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             {
                 SSEWVMI.State = false;
 
-                SSEWVMI.WebEngine.CoreWebView2.NavigateToString(SSEHS.GetImageContent(await SSEWVES.Capture()));
+                string Path = SSEHS.GetImageContentPath();
+
+                SSEHS.WriteImageContent(Path, await SSEWVES.Capture());
+
+                SSEWVMI.WebEngine.Source = SSEHS.GetSource(Path);
             }
         }
 

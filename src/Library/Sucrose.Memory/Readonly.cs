@@ -73,6 +73,8 @@
 
         public static readonly string Watchdog = "Sucrose.Watchdog.exe";
 
+        public static readonly string ImageContent = "ImageContent.html";
+
         public static readonly string VideoContent = "VideoContent.html";
 
         public static readonly string SearchSplit = $"{SearchSplitChar}";

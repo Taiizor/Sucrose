@@ -135,6 +135,16 @@ namespace Sucrose.Shared.Engine.Helper
             WriteVideoContent(VideoContentPath, Content.ToString());
         }
 
+        public static void WriteImageContent(string ImageContentPath, string Content)
+        {
+            if (!Directory.Exists(Path.GetDirectoryName(ImageContentPath)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(ImageContentPath));
+            }
+
+            File.WriteAllText(ImageContentPath, GetImageContent(Content));
+        }
+
         public static void WriteYouTubeContent(string YouTubeContentPath, string Video, string Playlist)
         {
             if (!Directory.Exists(Path.GetDirectoryName(YouTubeContentPath)))
@@ -158,6 +168,11 @@ namespace Sucrose.Shared.Engine.Helper
         public static string GetGifContentPath()
         {
             return Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Content, SMR.GifContent);
+        }
+
+        public static string GetImageContentPath()
+        {
+            return Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Content, SMR.ImageContent);
         }
 
         public static string GetVideoContentPath()
