@@ -27,7 +27,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                 string Path = SSEHS.GetImageContentPath();
 
-                SSEHS.WriteImageContent(Path, await SSECSES.Capture());
+                SSEHS.WriteImageContent(Path, SSECSES.Capture());
 
                 SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
             }
