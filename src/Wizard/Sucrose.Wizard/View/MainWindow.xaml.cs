@@ -410,6 +410,8 @@ namespace Sucrose.Wizard.View
         {
             WindowCorner();
 
+            SSHG.SetUri(SMR.WizardWebsite);
+
             await Start();
         }
 
