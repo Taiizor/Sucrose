@@ -12,12 +12,12 @@ namespace Sucrose.Shared.Engine.WebView.Event
     {
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
+            SSEMI.Initialized = true;
+
             if (SSEMI.Properties.State)
             {
                 SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
             }
-
-            SSEMI.Initialized = true;
         }
 
         public static void WebEngineInitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
