@@ -19,7 +19,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 {
     internal static class Web
     {
-        public static async void Play()
+        public static void Play()
         {
             if (!SSEWVMI.State)
             {

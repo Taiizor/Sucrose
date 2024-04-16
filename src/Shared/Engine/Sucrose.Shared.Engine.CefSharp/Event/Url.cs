@@ -11,6 +11,11 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
     {
         public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            if (SMMM.DeveloperMode)
+            {
+                SSECSMI.CefEngine.ShowDevTools();
+            }
+
             SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
@@ -27,11 +32,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)
         {
             SSECSMI.CefEngine.Address = SSECSMI.Url;
-
-            if (SMMM.DeveloperMode)
-            {
-                SSECSMI.CefEngine.ShowDevTools();
-            }
         }
     }
 }

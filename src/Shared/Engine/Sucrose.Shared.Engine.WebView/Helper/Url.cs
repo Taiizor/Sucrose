@@ -9,7 +9,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 {
     internal static class Url
     {
-        public static async void Play()
+        public static void Play()
         {
             if (!SSEWVMI.State)
             {

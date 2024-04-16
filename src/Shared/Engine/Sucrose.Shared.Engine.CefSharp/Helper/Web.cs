@@ -20,7 +20,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class Web
     {
-        public static async void Play()
+        public static void Play()
         {
             if (!SSECSMI.State)
             {
@@ -30,7 +30,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
         }
 
-        public static async void Pause()
+        public static void Pause()
         {
             if (SSECSMI.State)
             {
