@@ -37,16 +37,44 @@ namespace Sucrose.Shared.Engine.MpvPlayer.Helper
 
         public static void SetStretch(Stretch Mode)
         {
-            KeyValuePair<string, string> Scaler = Mode switch
-            {
-                Stretch.None => new("video-unscaled", "yes"),
-                Stretch.Fill => new("keepaspect", "no"),
-                Stretch.Uniform => new("keepaspect", "yes"),
-                Stretch.UniformToFill => new("panscan", "1.0"),
-                _ => new("video-unscaled", "yes"),
-            };
+            string KeepAspect = Mode != Stretch.Fill ? "yes" : "no";
+            string VideoUnscaled = Mode != Stretch.None ? "no" : "yes";
+            string Panscan = Mode == Stretch.UniformToFill ? "1.0" : "0.0";
 
-            SSEMPMI.MediaEngine.API.SetPropertyString(Scaler.Key, Scaler.Value);
+            SSEMPMI.MediaEngine.API.SetPropertyString("panscan", Panscan);
+            SSEMPMI.MediaEngine.API.SetPropertyString("keepaspect", KeepAspect);
+            SSEMPMI.MediaEngine.API.SetPropertyString("video-unscaled", VideoUnscaled);
+
+            /*
+                switch (Mode)
+                {
+                    case Stretch.None:
+                        SSEMPMI.MediaEngine.API.SetPropertyString("panscan", "0.0");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("keepaspect", "yes");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("video-unscaled", "yes");
+                        break;
+                    case Stretch.Fill:
+                        SSEMPMI.MediaEngine.API.SetPropertyString("panscan", "0.0");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("keepaspect", "no");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("video-unscaled", "no");
+                        break;
+                    case Stretch.Uniform:
+                        SSEMPMI.MediaEngine.API.SetPropertyString("panscan", "0.0");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("keepaspect", "yes");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("video-unscaled", "no");
+                        break;
+                    case Stretch.UniformToFill:
+                        SSEMPMI.MediaEngine.API.SetPropertyString("panscan", "1.0");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("keepaspect", "yes");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("video-unscaled", "no");
+                        break;
+                    default:
+                        SSEMPMI.MediaEngine.API.SetPropertyString("panscan", "0.0");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("keepaspect", "no");
+                        SSEMPMI.MediaEngine.API.SetPropertyString("video-unscaled", "no");
+                        break;
+                }
+            */
         }
     }
 }
