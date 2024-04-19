@@ -113,8 +113,6 @@
 
         public static readonly string SucroseCompatible = "SucroseCompatible.json";
 
-        public static readonly string WizardWebsite = "https://github.vegalya.com";
-
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Engine-Live}";
 
         public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
