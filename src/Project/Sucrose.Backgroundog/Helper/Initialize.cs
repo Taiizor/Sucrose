@@ -62,6 +62,8 @@ namespace Sucrose.Backgroundog.Helper
                     await SBHA.Start();
                 }
 
+                await Task.Delay(SBMI.SpecificationMaxTime);
+
                 SBMI.Processing = true;
             }
         }
