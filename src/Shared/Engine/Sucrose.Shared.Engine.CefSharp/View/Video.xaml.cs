@@ -63,10 +63,14 @@ namespace Sucrose.Shared.Engine.CefSharp.View
                 if (SMMM.PausePerformance)
                 {
                     SSECSHV.Pause();
+
+                    SSEMI.PausePerformance = true;
                 }
-                else
+                else if (SSEMI.PausePerformance)
                 {
                     SSECSHV.Play();
+
+                    SSEMI.PausePerformance = false;
                 }
             }
         }

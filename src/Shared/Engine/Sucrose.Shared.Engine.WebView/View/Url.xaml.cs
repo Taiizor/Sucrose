@@ -49,10 +49,14 @@ namespace Sucrose.Shared.Engine.WebView.View
             if (SMMM.PausePerformance)
             {
                 SSEWVHU.Pause();
+
+                SSEMI.PausePerformance = true;
             }
-            else
+            else if (SSEMI.PausePerformance)
             {
                 SSEWVHU.Play();
+
+                SSEMI.PausePerformance = false;
             }
         }
 

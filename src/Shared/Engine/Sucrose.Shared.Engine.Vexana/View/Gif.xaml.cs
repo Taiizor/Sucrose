@@ -55,10 +55,14 @@ namespace Sucrose.Shared.Engine.Vexana.View
             if (SMMM.PausePerformance)
             {
                 SSEVHG.Pause();
+
+                SSEMI.PausePerformance = true;
             }
-            else
+            else if (SSEMI.PausePerformance)
             {
                 SSEVHG.Play();
+
+                SSEMI.PausePerformance = false;
             }
         }
 

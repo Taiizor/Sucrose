@@ -14,6 +14,8 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static SSTHC Compatible = new();
 
+        public static bool PausePerformance = false;
+
         public static string CpuData = string.Empty;
 
         public static string BiosData = string.Empty;

@@ -57,10 +57,14 @@ namespace Sucrose.Shared.Engine.MpvPlayer.View
             if (SMMM.PausePerformance)
             {
                 SSEMPHG.Pause();
+
+                SSEMI.PausePerformance = true;
             }
-            else
+            else if (SSEMI.PausePerformance)
             {
                 SSEMPHG.Play();
+
+                SSEMI.PausePerformance = false;
             }
         }
 

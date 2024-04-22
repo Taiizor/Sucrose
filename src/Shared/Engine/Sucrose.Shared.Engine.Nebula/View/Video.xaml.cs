@@ -59,10 +59,14 @@ namespace Sucrose.Shared.Engine.Nebula.View
             if (SMMM.PausePerformance)
             {
                 SSENHV.Pause();
+
+                SSEMI.PausePerformance = true;
             }
-            else
+            else if (SSEMI.PausePerformance)
             {
                 SSENHV.Play();
+
+                SSEMI.PausePerformance = false;
             }
         }
 
