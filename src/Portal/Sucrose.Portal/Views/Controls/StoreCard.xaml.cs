@@ -17,14 +17,16 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
-using SSSHD = Sucrose.Shared.Store.Helper.Download;
+using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
+using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
@@ -123,7 +125,11 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SPMI.StoreDownloader[Theme] = false;
 
-                SPMI.StoreDownloader[Theme] = SSSHD.Cache(Wallpaper, Theme, Agent, Key, SPMM.StoreType);
+                SPMI.StoreDownloader[Theme] = SPMM.StoreType switch
+                {
+                    SSDEST.GitHub => SSSHGHD.Cache(Wallpaper, Theme, Agent, Key),
+                    _ => SSSHSD.Cache(Wallpaper, Theme, Agent),
+                };
 
                 if (SPMI.StoreDownloader[Theme])
                 {
@@ -155,7 +161,15 @@ namespace Sucrose.Portal.Views.Controls
             string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
             string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
-            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key, SPMM.StoreType);
+            switch (SPMM.StoreType)
+            {
+                case SSDEST.GitHub:
+                    await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key);
+                    break;
+                default:
+                    await SSSHSD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys);
+                    break;
+            }
 
             await Task.Delay(100);
 
@@ -269,7 +283,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Info != null && SMMM.StorePreview)
             {
-                string GifPath = GifPath = $"{SSSHS.Source(SPMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
+                string GifPath = $"{SSSHS.Source(SPMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
 
                 AnimationBehavior.SetSourceUri(Imaginer, new(GifPath));
                 AnimationBehavior.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);

@@ -12,6 +12,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -690,6 +691,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (NewStore != SPMM.StoreType)
             {
+                SSSMI.State = true;
                 SMMI.PortalSettingManager.SetSetting(SMC.StoreType, NewStore);
             }
         }

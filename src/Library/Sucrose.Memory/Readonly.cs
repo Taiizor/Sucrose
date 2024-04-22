@@ -33,6 +33,8 @@
 
         public static readonly char SearchSplitChar = 'ꕥ';
 
+        public static readonly string SoferityFile = "File";
+
         public static readonly char StartCommandChar = '✔';
 
         public static readonly string CacheFolder = "Cache";
@@ -115,9 +117,11 @@
 
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Engine-Live}";
 
-        public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
-
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";
+
+        public static readonly string SoferityWebsite = $"https://sucrose.soferity.com";
+
+        public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
 
         public static readonly string WizardMutex = "{Sucrose-Wallpaper-Engine-Wizard}";
 
@@ -133,6 +137,8 @@
 
         public static readonly string KeyYouTube = $"https://www.youtube.com/watch?v=kRyML8axJxA";
 
+        public static readonly string SoferityRawWebsite = $"{SoferityWebsite}/{StoreRepository}";
+
         public static readonly string OfficialWebsite = $"https://github.com/{Owner}/{Repository}";
 
         public static readonly string BackgroundogMutex = "{Sucrose-Wallpaper-Engine-Backgroundog}";
@@ -142,8 +148,6 @@
         public static readonly string StoreWebsite = $"https://github.com/{Owner}/{StoreRepository}";
 
         public static readonly string RepositoryWebsite = $"https://github.com/{Owner}/{Repository}";
-
-        public static readonly string SoferityRawWebsite = $"https://sucrose.soferity.com/{StoreRepository}";
 
         public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
