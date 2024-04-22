@@ -42,9 +42,11 @@
 
         public const string PingValue = "PingValue";
 
-        public const string UserAgent = "UserAgent";
+        public const string StoreType = "StoreType";
 
         public const string ThemeType = "ThemeType";
+
+        public const string UserAgent = "UserAgent";
 
         public const string StoreStart = "StoreStart";
 

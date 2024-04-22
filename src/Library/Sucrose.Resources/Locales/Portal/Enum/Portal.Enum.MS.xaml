@@ -12,6 +12,9 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Penciptaan</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Pengubahan</system:String>
 
+    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Isi</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Tiada</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Seragam</system:String>

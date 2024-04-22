@@ -12,6 +12,9 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">创建</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">修改</system:String>
 
+    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">填充</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">无</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">均匀</system:String>

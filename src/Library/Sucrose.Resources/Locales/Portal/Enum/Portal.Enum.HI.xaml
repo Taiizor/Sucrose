@@ -12,6 +12,9 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">सृजन</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">संशोधन</system:String>
 
+    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">भरना</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">कोई नहीं</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">समानानुपातिक</system:String>

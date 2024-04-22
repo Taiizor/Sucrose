@@ -12,9 +12,10 @@ using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
+using SSDESET = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDESHT = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal.Manage
@@ -61,11 +62,13 @@ namespace Sucrose.Portal.Manage
 
         public static SSCECT ChannelType => SMMI.UpdateSettingManager.GetSetting(SMC.ChannelType, SSCECT.Release);
 
+        public static SSDESHT StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDESHT.Fill);
+
+        public static SSDESET StoreType => SMMI.PortalSettingManager.GetSetting(SMC.StoreType, SSDESET.Soferity);
+
         public static SEST ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SEST.DisplayBound);
 
         public static SEWTT ThemeType => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        public static SSDEST StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDEST.Fill);
 
         public static WindowBackdropType DefaultBackdropType => WindowBackdropType.None;
 

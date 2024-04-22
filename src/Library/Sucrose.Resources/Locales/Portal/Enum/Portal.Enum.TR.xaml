@@ -12,6 +12,9 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Oluşturma</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Değiştirme</system:String>
 
+    <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
+    <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
+
     <system:String x:Key="Portal.Enum.StretchType.Fill">Doldur</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Hiçbiri</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Orantılı</system:String>

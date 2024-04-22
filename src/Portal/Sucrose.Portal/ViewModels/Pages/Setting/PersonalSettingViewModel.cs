@@ -9,9 +9,11 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using TextBlock = System.Windows.Controls.TextBlock;
+using Sucrose.Shared.Dependency.Enum;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -41,6 +43,46 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Contents.Add(StoreArea);
+
+            SPVCEC Service = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Service.LeftIcon.Symbol = SymbolRegular.ServerSurfaceMultiple16; //SymbolRegular.CloudFlow24
+            Service.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Service");
+            Service.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Service", "Description");
+
+            ComboBox StoreType = new();
+
+            StoreType.SelectionChanged += (s, e) => StoreTypeSelected(StoreType.SelectedIndex);
+
+            foreach (SSDEST Type in Enum.GetValues(typeof(SSDEST)))
+            {
+                StoreType.Items.Add(new ComboBoxItem()
+                {
+                    Content = SRER.GetValue("Portal", "Enum", "StoreType", $"{Type}")
+                });
+            }
+
+            StoreType.SelectedIndex = (int)SPMM.StoreType;
+
+            Service.HeaderFrame = StoreType;
+
+            TextBlock ServiceHint = new()
+            {
+                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Service", "ServiceHint"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                TextAlignment = TextAlignment.Left,
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            Service.FooterCard = ServiceHint;
+
+            Contents.Add(Service);
 
             SPVCEC Duration = new()
             {
@@ -640,6 +682,16 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewMode != SPMM.LibrarySortMode)
             {
                 SMMI.PortalSettingManager.SetSetting(SMC.LibrarySortMode, NewMode);
+            }
+        }
+
+        private void StoreTypeSelected(int Index)
+        {
+            SSDEST NewStore = (SSDEST)Index;
+
+            if (NewStore != SPMM.StoreType)
+            {
+                SMMI.PortalSettingManager.SetSetting(SMC.StoreType, NewStore);
             }
         }
 
