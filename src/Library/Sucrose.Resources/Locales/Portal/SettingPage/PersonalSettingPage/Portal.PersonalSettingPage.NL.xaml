@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Winkelserver</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Geeft aan welke server zal worden gebruikt om de in de winkel vermelde thema's weer te geven.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Opmerking: Als {0} is geselecteerd als de server, is het noodzakelijk om een {2} in te voeren om verzoeklimieten te vermijden. Anders kunt u problemen ondervinden bij het openen van thema's in de winkel. Als {1} is geselecteerd, hebt u een soepelere winkelervaring.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Winkel Vernieuwen</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Hoe vaak de thema's in de winkellijst vernieuwd moeten worden.</system:String>
 

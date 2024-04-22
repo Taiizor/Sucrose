@@ -14,6 +14,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -23,6 +24,7 @@ using SSSHD = Sucrose.Shared.Store.Helper.Download;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
@@ -121,7 +123,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SPMI.StoreDownloader[Theme] = false;
 
-                SPMI.StoreDownloader[Theme] = SSSHD.Cache(Wallpaper, Theme, Agent, Key);
+                SPMI.StoreDownloader[Theme] = SSSHD.Cache(Wallpaper, Theme, Agent, Key, SPMM.StoreType);
 
                 if (SPMI.StoreDownloader[Theme])
                 {
@@ -153,7 +155,7 @@ namespace Sucrose.Portal.Views.Controls
             string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
             string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
-            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key);
+            await SSSHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key, SPMM.StoreType);
 
             await Task.Delay(100);
 
@@ -267,7 +269,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Info != null && SMMM.StorePreview)
             {
-                string GifPath = $"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
+                string GifPath = GifPath = $"{SSSHS.Source(SPMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
 
                 AnimationBehavior.SetSourceUri(Imaginer, new(GifPath));
                 AnimationBehavior.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);

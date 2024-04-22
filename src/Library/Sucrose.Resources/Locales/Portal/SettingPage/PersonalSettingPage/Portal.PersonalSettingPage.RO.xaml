@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Server Magazin</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Specifică care server va fi utilizat pentru afișarea temelor listate în magazin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Notă: Dacă {0} este selectat ca server, este necesar să introduceți un {2} pentru a evita limitele de cerere. În caz contrar, puteți întâmpina probleme în accesarea temelor din magazin. Dacă este selectat {1}, veți avea o experiență mai fluidă în magazin.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Actualizare Magazin</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Durata pentru care temele listate în magazin se vor actualiza.</system:String>
 

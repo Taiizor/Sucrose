@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Butiksserver</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Angiver hvilken server der vil blive brugt til at vise de temaer, der er angivet i butikken.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Bemærk: Hvis {0} vælges som server, er det nødvendigt at indtaste en {2} for at undgå anmodningsbegrænsninger. Ellers kan du opleve problemer med at få adgang til temaer i butikken. Hvis {1} vælges, får du en mere problemfri butiksoplevelse.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Butik Genindlæsning</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Hvor længe temalister i butikken skal genindlæses.</system:String>
 

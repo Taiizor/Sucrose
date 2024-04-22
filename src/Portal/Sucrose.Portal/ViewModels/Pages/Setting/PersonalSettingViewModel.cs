@@ -9,11 +9,10 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using TextBlock = System.Windows.Controls.TextBlock;
-using Sucrose.Shared.Dependency.Enum;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
@@ -44,14 +43,14 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(StoreArea);
 
-            SPVCEC Service = new()
+            SPVCEC Server = new()
             {
                 Margin = new Thickness(0, 10, 0, 0)
             };
 
-            Service.LeftIcon.Symbol = SymbolRegular.ServerSurfaceMultiple16; //SymbolRegular.CloudFlow24
-            Service.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Service");
-            Service.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Service", "Description");
+            Server.LeftIcon.Symbol = SymbolRegular.ServerSurfaceMultiple16; //SymbolRegular.CloudFlow24
+            Server.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Server");
+            Server.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Server", "Description");
 
             ComboBox StoreType = new();
 
@@ -67,11 +66,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             StoreType.SelectedIndex = (int)SPMM.StoreType;
 
-            Service.HeaderFrame = StoreType;
+            Server.HeaderFrame = StoreType;
 
-            TextBlock ServiceHint = new()
+            TextBlock ServerHint = new()
             {
-                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Service", "ServiceHint"),
+                Text = string.Format(SRER.GetValue("Portal", "PersonalSettingPage", "Server", "ServerHint"), SRER.GetValue("Portal", "Enum", "StoreType", $"{SSDEST.GitHub}"), SRER.GetValue("Portal", "Enum", "StoreType", $"{SSDEST.Soferity}"), SRER.GetValue("Portal", "OtherSettingPage", "Key")),
                 Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 TextWrapping = TextWrapping.WrapWithOverflow,
@@ -80,9 +79,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                 FontWeight = FontWeights.SemiBold
             };
 
-            Service.FooterCard = ServiceHint;
+            Server.FooterCard = ServerHint;
 
-            Contents.Add(Service);
+            Contents.Add(Server);
 
             SPVCEC Duration = new()
             {

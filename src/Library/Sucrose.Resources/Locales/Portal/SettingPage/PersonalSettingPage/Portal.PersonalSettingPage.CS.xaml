@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Server Obchodu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Určuje, který server bude použit k zobrazení témat uvedených v obchodě.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli limitům žádostí. Jinak můžete mít problémy s přístupem k tématům v obchodě. Pokud je vybráno {1}, budete mít plynulejší zkušenost s obchodem.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Obchodní Aktualizace</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Určuje, jak často budou seznamy témat v obchodě aktualizovány.</system:String>
 

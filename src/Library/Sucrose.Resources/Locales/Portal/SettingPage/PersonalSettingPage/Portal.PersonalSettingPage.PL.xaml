@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Serwer Sklepu</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Określa, który serwer będzie używany do wyświetlania tematów wymienionych w sklepie.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Uwaga: Jeśli jako serwer zostanie wybrany {0}, konieczne będzie wprowadzenie {2}, aby uniknąć limitów żądań. W przeciwnym razie możesz mieć problemy z dostępem do tematów w sklepie. Jeśli wybrano {1}, będziesz miał bardziej płynne doświadczenie ze sklepem.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Odświeżanie Sklepu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Jak często odświeżane będą tematy wymienione w sklepie.</system:String>
 

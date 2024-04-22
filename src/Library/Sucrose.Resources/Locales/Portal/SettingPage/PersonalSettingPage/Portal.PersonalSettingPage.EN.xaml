@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Store Server</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Specifies which server will be used to display the themes listed in the store.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Note: If {0} is selected as the server, it is necessary to enter a {2} to avoid request limits. Otherwise, you may experience issues accessing themes in the store. If {1} is selected, you will have a smoother store experience.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Store Refresh</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">How often themes listed in the store will be refreshed.</system:String>
 

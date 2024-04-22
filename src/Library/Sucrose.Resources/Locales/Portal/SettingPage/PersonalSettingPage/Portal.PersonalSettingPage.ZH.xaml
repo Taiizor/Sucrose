@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">商店服务器</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">指定用于显示商店中列出的主题的服务器。</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">注意：如果选择 {0} 作为服务器，则必须输入 {2} 以避免请求限制。否则，您可能会在访问商店主题时遇到问题。如果选择 {1}，您将拥有更流畅的商店体验。</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">商店刷新</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">商店列表中的主题刷新频率。</system:String>
 

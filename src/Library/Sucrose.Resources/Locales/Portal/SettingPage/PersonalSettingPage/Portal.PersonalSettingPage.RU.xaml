@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Сервер магазина</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Указывает, какой сервер будет использоваться для отображения тем, перечисленных в магазине.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Примечание: Если выбран сервер {0}, необходимо ввести {2}, чтобы избежать ограничений запросов. В противном случае возможны проблемы с доступом к темам в магазине. Если выбран {1}, вы получите более плавный опыт в магазине.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Обновление магазина</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Продолжительность обновления тем, отображаемых в магазине.</system:String>
 

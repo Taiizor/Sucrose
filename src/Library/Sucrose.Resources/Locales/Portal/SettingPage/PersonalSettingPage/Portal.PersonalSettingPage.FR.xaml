@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Serveur de Magasin</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Spécifie quel serveur sera utilisé pour afficher les thèmes répertoriés dans le magasin.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Remarque : Si {0} est sélectionné comme serveur, il est nécessaire de saisir un {2} pour éviter les limites de demande. Sinon, vous risquez de rencontrer des problèmes d'accès aux thèmes dans le magasin. Si {1} est sélectionné, vous bénéficierez d'une expérience de magasin plus fluide.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Actualisation du Magasin</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">À quelle fréquence les thèmes répertoriés dans le magasin seront-ils actualisés ?</system:String>
 

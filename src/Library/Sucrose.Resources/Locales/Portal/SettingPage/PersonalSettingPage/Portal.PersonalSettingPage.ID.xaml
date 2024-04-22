@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Server Toko</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Menentukan server mana yang akan digunakan untuk menampilkan tema yang tercantum di toko.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Catatan: Jika {0} dipilih sebagai server, perlu untuk memasukkan {2} agar tidak terkena batas permintaan. Jika tidak, Anda mungkin mengalami masalah mengakses tema di toko. Jika {1} dipilih, Anda akan memiliki pengalaman toko yang lebih lancar.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Penyegaran Toko</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Berapa lama tema yang terdaftar di toko akan disegarkan.</system:String>
 

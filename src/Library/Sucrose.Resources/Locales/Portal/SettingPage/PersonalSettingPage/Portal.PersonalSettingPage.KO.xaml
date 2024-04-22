@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">스토어 서버</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">상점에 나열된 테마를 표시하는 데 사용될 서버를 지정합니다.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">참고: 서버로 {0}이 선택된 경우, 요청 제한을 피하기 위해 {2}을(를) 입력해야 합니다. 그렇지 않으면 상점의 테마에 액세스하는 데 문제가 발생할 수 있습니다. {1}이(가) 선택된 경우, 더 원활한 상점 경험을 얻을 수 있습니다.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">스토어 갱신</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">스토어에 표시되는 테마가 갱신되는 데 걸리는 시간입니다.</system:String>
 

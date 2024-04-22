@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Pelayan Kedai</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Menentukan pelayan yang akan digunakan untuk memaparkan tema yang disenaraikan dalam kedai.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Nota: Jika {0} dipilih sebagai pelayan, perlu memasukkan {2} untuk mengelakkan had permintaan. Jika tidak, anda mungkin mengalami masalah mengakses tema dalam kedai. Jika {1} dipilih, anda akan mempunyai pengalaman kedai yang lebih lancar.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Penyegaran Kedai</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Berapa lama tema yang disenaraikan di kedai akan disegarkan semula.</system:String>
 

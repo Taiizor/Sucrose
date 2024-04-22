@@ -143,6 +143,8 @@
 
         public static readonly string RepositoryWebsite = $"https://github.com/{Owner}/{Repository}";
 
+        public static readonly string SoferityRawWebsite = $"https://sucrose.soferity.com/{StoreRepository}";
+
         public static readonly string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         public static readonly string DiscussionsWebsite = $"https://github.com/{Owner}/{Repository}/discussions";
@@ -155,9 +157,9 @@
 
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        public static readonly string RawWebsite = $"https://raw.githubusercontent.com/{Owner}/{StoreRepository}/{Branch}";
-
         public static readonly string DownloadStore = $"https://apps.microsoft.com/detail/XP8JGPBHTJGLCQ?launch=true&mode=full";
+
+        public static readonly string GitHubRawWebsite = $"https://raw.githubusercontent.com/{Owner}/{StoreRepository}/{Branch}";
 
         public static readonly string StoreReportWebsite = $"https://github.com/{Owner}/{StoreRepository}/issues/new?assignees=&labels=wallpaper&projects=&template=wallpaper_report.yaml";
     }

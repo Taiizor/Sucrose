@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Store-Server</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Legt fest, welcher Server zum Anzeigen der im Store aufgeführten Themen verwendet wird.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Hinweis: Wenn {0} als Server ausgewählt ist, ist es erforderlich, eine {2} einzugeben, um Anforderungslimits zu vermeiden. Andernfalls können Probleme beim Zugriff auf Themen im Store auftreten. Wenn {1} ausgewählt ist, haben Sie ein reibungsloseres Store-Erlebnis.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Store-Aktualisierung</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Wie oft werden die im Store aufgelisteten Themen aktualisiert?</system:String>
 
@@ -27,7 +32,7 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview">Themen-Vorschau</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.Description">Ob Themen beim Überfahren angezeigt werden sollen.</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Shop-Vorschau:</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreview">Store-Vorschau:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.StorePreviewHide">Details Ausblenden:</system:String>
 
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotheks-Vorschau:</system:String>

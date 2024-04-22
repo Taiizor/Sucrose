@@ -3,8 +3,11 @@ using System.Net.Http;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
+using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIC = Skylark.Standard.Interface.IContents;
+using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
@@ -13,7 +16,7 @@ namespace Sucrose.Shared.Store.Helper
 {
     internal static class Download
     {
-        public static bool Store(string Store, string Agent, string Key)
+        public static bool Store(string Store, string Agent, string Key, SSDEST Type)
         {
             if (Directory.Exists(Path.GetDirectoryName(Store)))
             {
@@ -80,7 +83,7 @@ namespace Sucrose.Shared.Store.Helper
             return false;
         }
 
-        public static bool Cache(KeyValuePair<string, SSSIW> Wallpaper, string Theme, string Agent, string Key)
+        public static bool Cache(KeyValuePair<string, SSSIW> Wallpaper, string Theme, string Agent, string Key, SSDEST Type)
         {
             string Info = Path.Combine(Theme, SMR.SucroseInfo);
             string Cover = Path.Combine(Theme, Wallpaper.Value.Cover);
@@ -140,8 +143,8 @@ namespace Sucrose.Shared.Store.Helper
 
                 try
                 {
-                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
-                    using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SMR.RawWebsite}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
+                    using HttpResponseMessage ResponseInfo = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SSSHS.Source(SPMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{SMR.SucroseInfo}")).Result;
+                    using HttpResponseMessage ResponseCover = SSSMI.Client.GetAsync(EncodeSpacesOnly($"{SSSHS.Source(SPMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Cover}")).Result;
 
                     ResponseInfo.EnsureSuccessStatusCode();
                     ResponseCover.EnsureSuccessStatusCode();
@@ -180,7 +183,7 @@ namespace Sucrose.Shared.Store.Helper
             }
         }
 
-        public static async Task<bool> Theme(string Source, string Output, string Agent, string Keys, string Key, bool Sub = true)
+        public static async Task<bool> Theme(string Source, string Output, string Agent, string Keys, string Key, SSDEST Type, bool Sub = true)
         {
             InitializeClient(Agent, Key);
 

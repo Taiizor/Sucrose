@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">Butiksserver</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">Anger vilken server som kommer att användas för att visa de teman som listas i butiken.</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">Observera: Om {0} väljs som server måste en {2} anges för att undvika begänsningar för förfrågningar. Annars kan du uppleva problem med att komma åt teman i butiken. Om {1} väljs får du en smidigare butiksupplevelse.</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">Butik Uppdatering</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">Hur länge de listade temana i butiken ska uppdateras.</system:String>
 

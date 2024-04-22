@@ -4,6 +4,11 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.PersonalSettingPage.Title">PersonalSettingPage</system:String>
 
+    <system:String x:Key="Portal.PersonalSettingPage.Server">स्टोर सर्वर</system:String>
+    <system:String x:Key="Portal.PersonalSettingPage.Server.Description">यह निर्दिष्ट करता है कि किस सर्वर का उपयोग स्टोर में सूचीबद्ध थीम्स को दिखाने के लिए किया जाएगा।</system:String>
+
+    <system:String x:Key="Portal.PersonalSettingPage.Server.ServerHint">नोट: यदि {0} को सर्वर के रूप में चयनित किया गया है, तो अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना आवश्यक है। अन्यथा, स्टोर में थीम्स तक पहुँचने में आपको समस्याएँ आ सकती हैं। यदि {1} चयनित है, तो आपको स्टोर अनुभव में एक स्मूदर अनुभव होगा।</system:String>
+
     <system:String x:Key="Portal.PersonalSettingPage.Duration">स्टोर रीन्यूअल</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Duration.Description">स्टोर पर दिखाए जाने वाले थीमों को कितनी समय के लिए नवीनीकरण किया जाएगा।</system:String>
 
