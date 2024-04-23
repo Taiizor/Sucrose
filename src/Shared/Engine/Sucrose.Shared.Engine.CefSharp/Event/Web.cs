@@ -1,4 +1,5 @@
 ﻿using CefSharp;
+using System.IO;
 using System.Windows;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSHW = Sucrose.Shared.Engine.CefSharp.Helper.Web;
@@ -6,6 +7,7 @@ using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {
@@ -23,11 +25,29 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
             SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
+        private static async void PropertiesWatcher(object sender, FileSystemEventArgs e)
+        {
+            await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+            {
+                try
+                {
+                    SSEMI.Properties = SSTHP.ReadJson(e.FullPath);
+
+                    SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                }
+                catch { }
+            });
+        }
+
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
             if (SSEMI.Properties.State)
             {
                 SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+
+                SSEHP.ChangedEventHandler += PropertiesWatcher;
+
+                SSEHP.StartWatcher();
             }
         }
 

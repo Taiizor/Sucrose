@@ -10,6 +10,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
@@ -174,8 +175,22 @@ namespace Sucrose.Live.WebView
 
                         if (File.Exists(PropertiesPath))
                         {
-                            SSEMI.Properties = SSTHP.ReadJson(PropertiesPath);
+                            string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                            string PropertiesFile = Path.Combine(PropertiesCache, $"{SMMM.LibrarySelected}.json");
+
+                            if (!Directory.Exists(PropertiesCache))
+                            {
+                                Directory.CreateDirectory(PropertiesCache);
+                            }
+
+                            if (!File.Exists(PropertiesFile))
+                            {
+                                File.Copy(PropertiesPath, PropertiesFile, true);
+                            }
+
+                            SSEMI.Properties = SSTHP.ReadJson(PropertiesFile);
                             SSEMI.Properties.State = true;
+                            SSEHP.Watcher(PropertiesFile);
                         }
 
                         if (File.Exists(CompatiblePath))

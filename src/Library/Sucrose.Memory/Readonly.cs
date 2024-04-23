@@ -51,6 +51,8 @@
 
         public static readonly string StoreFile = "Store.json";
 
+        public static readonly string Properties = "Properties";
+
         public static readonly string SettingFolder = "Setting";
 
         public static readonly string StoreRepository = "Store";
@@ -111,9 +113,9 @@
 
         public static readonly string TaskDescription = "Sucrose Wallpaper Engine";
 
-        public static readonly string SucroseProperties = "SucroseProperties.json";
-
         public static readonly string SucroseCompatible = "SucroseCompatible.json";
+
+        public static readonly string SucroseProperties = "SucroseProperties.json";
 
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Engine-Live}";
 

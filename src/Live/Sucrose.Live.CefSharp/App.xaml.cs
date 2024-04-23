@@ -16,6 +16,7 @@ using SSECSVU = Sucrose.Shared.Engine.CefSharp.View.Url;
 using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
 using SSECSVW = Sucrose.Shared.Engine.CefSharp.View.Web;
 using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
+using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -187,8 +188,22 @@ namespace Sucrose.Live.CefSharp
 
                         if (File.Exists(PropertiesPath))
                         {
-                            SSEMI.Properties = SSTHP.ReadJson(PropertiesPath);
+                            string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                            string PropertiesFile = Path.Combine(PropertiesCache, $"{SMMM.LibrarySelected}.json");
+
+                            if (!Directory.Exists(PropertiesCache))
+                            {
+                                Directory.CreateDirectory(PropertiesCache);
+                            }
+
+                            if (!File.Exists(PropertiesFile))
+                            {
+                                File.Copy(PropertiesPath, PropertiesFile, true);
+                            }
+
+                            SSEMI.Properties = SSTHP.ReadJson(PropertiesFile);
                             SSEMI.Properties.State = true;
+                            SSEHP.Watcher(PropertiesFile);
                         }
 
                         if (File.Exists(CompatiblePath))

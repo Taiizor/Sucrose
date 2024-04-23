@@ -186,14 +186,31 @@
                     Content="Refresh"
                     Cursor="Hand" />
 
-                <ui:Button
-                    x:Name="Refresh"
+                <Grid
                     Margin="0,14,0,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    Appearance="Secondary"
-                    Cursor="Hand"
-                    Icon="{ui:SymbolIcon ArrowCounterclockWise48}" />
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom">
+                    <ui:Button
+                        x:Name="Delete"
+                        HorizontalAlignment="Left"
+                        Appearance="Secondary"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon Delete48}" />
+
+                    <ui:Button
+                        x:Name="Reload"
+                        HorizontalAlignment="Center"
+                        Appearance="Secondary"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon PaintBrush24}" />
+
+                    <ui:Button
+                        x:Name="Refresh"
+                        HorizontalAlignment="Right"
+                        Appearance="Secondary"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon ArrowCounterclockWise48}" />
+                </Grid>
             </StackPanel>
         </ScrollViewer>
     </Grid>

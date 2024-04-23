@@ -8,19 +8,21 @@ namespace Sucrose.Shared.Engine.Manage
 {
     internal static class Internal
     {
-        public static bool Initialized = false;
-
         public static SSTHP Properties = new();
 
+        public static bool Initialized = false;
+
         public static SSTHC Compatible = new();
+
+        public static bool PropertiesWatcher = true;
 
         public static bool PausePerformance = false;
 
         public static string CpuData = string.Empty;
 
-        public static string BiosData = string.Empty;
-
         public static string DateData = string.Empty;
+
+        public static string BiosData = string.Empty;
 
         public static string AudioData = string.Empty;
 
