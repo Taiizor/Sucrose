@@ -4,6 +4,7 @@ using SESMIEN = Sucrose.Shared.Engine.Manage.Internal.ExecuteNormal;
 using SESMIET = Sucrose.Shared.Engine.Manage.Internal.ExecuteTask;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
 
 namespace Sucrose.Shared.Engine.Helper
 {
@@ -68,7 +69,7 @@ namespace Sucrose.Shared.Engine.Helper
             {
                 if (SSEMI.Properties.PropertyList.Any())
                 {
-                    foreach (KeyValuePair<string, object> Pair in SSEMI.Properties.PropertyList)
+                    foreach (KeyValuePair<string, SSTMCM> Pair in SSEMI.Properties.PropertyList)
                     {
                         string Key = Pair.Key;
                         object Value = Pair.Value;

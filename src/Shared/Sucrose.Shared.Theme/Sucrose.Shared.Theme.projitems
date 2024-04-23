@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Theme</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Converter\ModelConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\VersionConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Converter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Info.cs" />
@@ -17,5 +18,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Serialize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Various.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Filter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\PasswordBoxModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\NumberBoxModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\TextBoxModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\FileDropDownModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ColorPickerModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CheckBoxModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ButtonModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\DropDownModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\LabelModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SliderModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ControlModel.cs" />
   </ItemGroup>
 </Project>

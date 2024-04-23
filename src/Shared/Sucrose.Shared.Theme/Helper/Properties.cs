@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
+using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
 
 namespace Sucrose.Shared.Theme.Helper
 {
@@ -11,7 +12,7 @@ namespace Sucrose.Shared.Theme.Helper
         public string PropertyListener { get; set; } = string.Empty;
 
         [JsonProperty("PropertyList", Required = Required.Always)]
-        public Dictionary<string, object> PropertyList { get; set; } = new();
+        public Dictionary<string, SSTMCM> PropertyList { get; set; } = new();
     }
 
     internal partial class Properties

@@ -1,9 +1,15 @@
 ﻿using HandyControl.Controls;
+using HandyControl.Themes;
 using HandyControl.Tools;
 using System.Windows;
+using Wpf.Ui.Controls;
 using Control = System.Windows.Controls.Control;
 using CPicker = HandyControl.Controls.ColorPicker;
 using UserControl = System.Windows.Controls.UserControl;
+using SPMI = Sucrose.Property.Manage.Internal;
+using SPMM = Sucrose.Property.Manage.Manager;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SEWTT = Skylark.Enum.WindowsThemeType;
 
 namespace Sucrose.Property.Controls
 {
@@ -18,6 +24,29 @@ namespace Sucrose.Property.Controls
         {
             DataContext = this;
             InitializeComponent();
+
+            if (SPMM.BackdropType == WindowBackdropType.Auto)
+            {
+                if (SWHWT.GetTheme() == SEWTT.Dark)
+                {
+                    ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
+                }
+                else
+                {
+                    ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
+                }
+            }
+            else
+            {
+                if (SPMM.ThemeType == SEWTT.Dark)
+                {
+                    ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
+                }
+                else
+                {
+                    ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
+                }
+            }
         }
 
         private void DropDownButton_Click(object sender, RoutedEventArgs e)

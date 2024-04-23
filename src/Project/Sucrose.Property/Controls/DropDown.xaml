@@ -10,10 +10,10 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <ComboBox x:Name="Component" SelectedIndex="3">
-        <ComboBoxItem Content="None" />
-        <ComboBoxItem Content="Fill" />
-        <ComboBoxItem Content="Uniform" />
-        <ComboBoxItem Content="UniformToFill" />
-    </ComboBox>
+    <ComboBox
+        x:Name="Component"
+        ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        SelectedIndex="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        Text="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}" />
 </UserControl>

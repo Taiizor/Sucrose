@@ -97,33 +97,6 @@
         <Resource Include="Assets\**\*.*" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Update="Controls\Label.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\CheckBox.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\ColorPicker.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\FileDropDown.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\DropDown.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\NumberBox.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\Button.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\PasswordBox.xaml.cs">
-        <SubType>Code</SubType>
-      </Compile>
-    </ItemGroup>
-
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>

@@ -7,6 +7,7 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:Sucrose.Property.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{DynamicResource Property.WindowTitle}"
     MinWidth="365"
@@ -14,7 +15,7 @@
     MaxWidth="365"
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-    ExtendsContentIntoTitleBar="False"
+    ExtendsContentIntoTitleBar="True"
     Icon="\Sucrose.Property;component\Assets\ICO.ico"
     ResizeMode="NoResize"
     SizeToContent="Height"
@@ -48,63 +49,13 @@
             Margin="20,10,10,20"
             HorizontalScrollBarVisibility="Disabled"
             VerticalScrollBarVisibility="Auto">
-            <StackPanel
-                Margin="0,0,10,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Top"
-                Orientation="Vertical">
-
-                <control:Label
-                    Margin="0,0,0,5"
-                    Help="Area of puddle radius"
-                    Value="Puddle Radius" />
-                <control:Slider
-                    Help="Puddle Radius"
-                    Max="100"
-                    Min="0"
-                    Step="10"
-                    Value="50" />
-
-                <control:Label Margin="0,0,0,5" Value="Location" />
-                <control:TextBox
-                    Help="Your city and country"
-                    Hint="City, Country"
-                    Value="Ankara, Turkey" />
-
-                <control:Label Margin="0,0,0,5" Value="Price" />
-                <control:NumberBox
-                    Help="Price value"
-                    Hint="12.98"
-                    Max="100"
-                    Min="0"
-                    Value="50" />
-
-                <control:Label Margin="0,0,0,5" Value="API Key" />
-                <control:PasswordBox
-                    Help="Your secret api key"
-                    Hint="Enter api key"
-                    Value="Sucrose Wallpaper Engine" />
-
-                <control:Label Margin="0,0,0,5" Value="Scaling" />
-                <control:DropDown />
-
-                <control:Label Margin="0,0,0,5" Value="Background" />
-                <control:FileDropDown />
-
-                <control:Label Margin="0,0,0,5" Value="Overlay Color" />
-                <control:ColorPicker Control="{x:Reference Refresh}" />
-
-                <control:CheckBox
-                    Help="Check random drops mode"
-                    Hint="Random Drops"
-                    Value="true" />
-
-                <control:Label Margin="0,0,0,5" Value="Click to Update" />
-                <control:Button
-                    Help="Click to refresh"
-                    Hint="Refresh"
-                    Value="OK" />
-
+            <StackPanel>
+                <StackPanel
+                    x:Name="Container"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Orientation="Vertical" />
                 <Grid
                     Margin="0,14,0,0"
                     HorizontalAlignment="Stretch"

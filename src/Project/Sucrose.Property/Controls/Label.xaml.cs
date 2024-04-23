@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
@@ -8,14 +9,19 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class Label : UserControl
     {
-        public Label()
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(string), typeof(Label), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(Label), new PropertyMetadata(null));
+        
+        public Label(SSTMLM Data)
         {
             DataContext = this;
+
+            Help = Data.Help;
+            Value = Data.Value;
+
             InitializeComponent();
         }
-
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(string), typeof(Label), new PropertyMetadata(null));
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(Label), new PropertyMetadata(null));
 
         public string Value
         {

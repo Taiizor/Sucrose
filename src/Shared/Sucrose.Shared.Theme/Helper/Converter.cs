@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Globalization;
+using SSTCMC = Sucrose.Shared.Theme.Converter.ModelConverter;
 
 namespace Sucrose.Shared.Theme.Helper
 {
@@ -13,12 +14,13 @@ namespace Sucrose.Shared.Theme.Helper
             Formatting = Formatting.Indented,
             Converters =
             {
+                new SSTCMC(),
                 new VersionConverter(),
                 new IsoDateTimeConverter
                 {
                     DateTimeStyles = DateTimeStyles.AssumeUniversal
                 }
-            },
+            }
         };
     }
 }
