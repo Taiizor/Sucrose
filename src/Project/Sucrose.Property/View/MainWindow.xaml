@@ -2,6 +2,7 @@
     x:Class="Sucrose.Property.View.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:Sucrose.Property.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:Sucrose.Property.View"
@@ -53,138 +54,56 @@
                 VerticalAlignment="Top"
                 Orientation="Vertical">
 
-                <ui:TextBlock
+                <control:Label
                     Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="Puddle Radius" />
-                <Slider
-                    Margin="0,0,0,10"
-                    Cursor="Hand"
-                    IsSnapToTickEnabled="True"
-                    Maximum="100"
-                    Minimum="0"
-                    TickFrequency="1"
-                    TickPlacement="None"
+                    Help="Area of puddle radius"
+                    Value="Puddle Radius" />
+                <control:Slider
+                    Help="Puddle Radius"
+                    Max="100"
+                    Min="0"
+                    Step="10"
                     Value="50" />
 
-                <ui:TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="Location" />
-                <ui:TextBox
-                    Margin="0,0,0,10"
-                    PlaceholderEnabled="True"
-                    PlaceholderText="City, Country"
-                    Text="Ankara, Turkey" />
+                <control:Label Margin="0,0,0,5" Value="Location" />
+                <control:TextBox
+                    Help="Your city and country"
+                    Hint="City, Country"
+                    Value="Ankara, Turkey" />
 
-                <ui:TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="Price" />
-                <ui:NumberBox
-                    Margin="0,0,0,10"
-                    MaxDecimalPlaces="2"
-                    Maximum="100"
-                    Minimum="0"
-                    PlaceholderEnabled="True"
-                    PlaceholderText="12.98"
-                    Value="50.00" />
+                <control:Label Margin="0,0,0,5" Value="Price" />
+                <control:NumberBox
+                    Help="Price value"
+                    Hint="12.98"
+                    Max="100"
+                    Min="0"
+                    Value="50" />
 
-                <ui:TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="API Key" />
-                <ui:PasswordBox
-                    Margin="0,0,0,10"
-                    Password="Sucrose Wallpaper Engine"
-                    PlaceholderEnabled="True"
-                    PlaceholderText="Enter a password" />
+                <control:Label Margin="0,0,0,5" Value="API Key" />
+                <control:PasswordBox
+                    Help="Your secret api key"
+                    Hint="Enter api key"
+                    Value="Sucrose Wallpaper Engine" />
 
-                <ui:TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="Scaling" />
-                <ComboBox Margin="0,0,0,10" SelectedIndex="3">
-                    <ComboBoxItem Content="None" />
-                    <ComboBoxItem Content="Fill" />
-                    <ComboBoxItem Content="Uniform" />
-                    <ComboBoxItem Content="UniformToFill" />
-                </ComboBox>
+                <control:Label Margin="0,0,0,5" Value="Scaling" />
+                <control:DropDown />
 
-                <ui:TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="Background" />
-                <Grid Margin="0,0,0,10" HorizontalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <ComboBox
-                        Grid.Column="0"
-                        HorizontalAlignment="Stretch"
-                        SelectedIndex="0">
-                        <ComboBoxItem Content="BigMountain.jpeg" />
-                        <ComboBoxItem Content="VintageVillage.jpg" />
-                    </ComboBox>
-                    <ui:Button
-                        Grid.Column="1"
-                        Margin="10,0,0,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Stretch"
-                        Appearance="Secondary"
-                        Cursor="Hand"
-                        Icon="{ui:SymbolIcon Open48}" />
-                </Grid>
+                <control:Label Margin="0,0,0,5" Value="Background" />
+                <control:FileDropDown />
 
-                <ui:TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="Overlay Color" />
-                <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-                    <Grid>
-                        <ui:DropDownButton
-                            x:Name="DropDown"
-                            Click="DropDownButton_Click"
-                            Content="         "
-                            Cursor="Hand"
-                            Icon="{ui:SymbolIcon EyeDropper24}" />
-                        <Rectangle
-                            Width="30"
-                            Margin="35,1,0,1"
-                            HorizontalAlignment="Left"
-                            IsEnabled="false"
-                            IsHitTestVisible="False"
-                            RadiusX="5"
-                            RadiusY="5">
-                            <Rectangle.Fill>
-                                <SolidColorBrush x:Name="SCB" Color="DodgerBlue" />
-                            </Rectangle.Fill>
-                        </Rectangle>
-                    </Grid>
+                <control:Label Margin="0,0,0,5" Value="Overlay Color" />
+                <control:ColorPicker Control="{x:Reference Refresh}" />
 
-                    <Popup>
-                        <hc:ColorPicker Name="ColorPicker" />
-                    </Popup>
-                </StackPanel>
+                <control:CheckBox
+                    Help="Check random drops mode"
+                    Hint="Random Drops"
+                    Value="true" />
 
-                <CheckBox
-                    Margin="0,0,0,5"
-                    HorizontalAlignment="Stretch"
-                    Content="Random Drops"
-                    FontSize="16"
-                    IsChecked="True" />
-
-                <ui:TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="16"
-                    Text="Click to Update" />
-                <ui:Button
-                    Margin="0,0,0,10"
-                    HorizontalAlignment="Stretch"
-                    Appearance="Secondary"
-                    Content="Refresh"
-                    Cursor="Hand" />
+                <control:Label Margin="0,0,0,5" Value="Click to Update" />
+                <control:Button
+                    Help="Click to refresh"
+                    Hint="Refresh"
+                    Value="OK" />
 
                 <Grid
                     Margin="0,14,0,0"

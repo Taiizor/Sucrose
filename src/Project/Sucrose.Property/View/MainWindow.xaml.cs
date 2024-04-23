@@ -1,6 +1,4 @@
-﻿using HandyControl.Controls;
-using HandyControl.Themes;
-using HandyControl.Tools;
+﻿using HandyControl.Themes;
 using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Appearance;
@@ -84,35 +82,6 @@ namespace Sucrose.Property.View
                     Top = ScreenHeight - Height - 10;
                     break;
             }
-        }
-
-        private void DropDownButton_Click(object sender, RoutedEventArgs e)
-        {
-            ColorPicker picker = SingleOpenHelper.CreateControl<ColorPicker>();
-
-            System.Windows.Media.Color Temp = SCB.Color;
-
-            picker.SelectedBrush = new(Temp);
-            picker.UseLayoutRounding = true;
-
-            PopupWindow window = new()
-            {
-                PopupElement = picker,
-                WindowStartupLocation = WindowStartupLocation.Manual,
-                AllowsTransparency = true,
-                WindowStyle = WindowStyle.None,
-                ResizeMode = ResizeMode.NoResize,
-                UseLayoutRounding = true,
-                ShowBorder = true,
-                Topmost = true,
-                Title = "Sucrose Property Color Picker"
-            };
-
-            picker.Confirmed += (s, ee) => { SCB.Color = ee.Info; window.Close(); };
-            picker.SelectedColorChanged += (s, ee) => { SCB.Color = ee.Info; };
-            picker.Canceled += delegate { SCB.Color = Temp; window.Close(); };
-
-            window.Show(Refresh, false);
         }
     }
 }

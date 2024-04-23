@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="Sucrose.Property.Controls.ColorPicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:Sucrose.Property.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Width="Auto"
+    Height="Auto"
+    Margin="0,0,0,10"
+    mc:Ignorable="d">
+    <StackPanel Orientation="Horizontal">
+        <Grid>
+            <ui:DropDownButton
+                x:Name="DropDown"
+                Click="DropDownButton_Click"
+                Content="         "
+                Cursor="Hand"
+                Icon="{ui:SymbolIcon EyeDropper24}" />
+            <Rectangle
+                Width="30"
+                Margin="35,1,0,1"
+                HorizontalAlignment="Left"
+                IsEnabled="false"
+                IsHitTestVisible="False"
+                RadiusX="5"
+                RadiusY="5">
+                <Rectangle.Fill>
+                    <SolidColorBrush x:Name="SCB" Color="DodgerBlue" />
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+
+        <Popup>
+            <hc:ColorPicker Name="ColorPicker2" />
+        </Popup>
+    </StackPanel>
+</UserControl>

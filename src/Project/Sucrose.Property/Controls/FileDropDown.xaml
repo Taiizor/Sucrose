@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="Sucrose.Property.Controls.FileDropDown"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Sucrose.Property.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Width="Auto"
+    Height="Auto"
+    Margin="0,0,0,10"
+    mc:Ignorable="d">
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <ComboBox
+            x:Name="Component"
+            Grid.Column="0"
+            HorizontalAlignment="Stretch"
+            SelectedIndex="0">
+            <ComboBoxItem Content="BigMountain.jpeg" />
+            <ComboBoxItem Content="VintageVillage.jpg" />
+        </ComboBox>
+        <ui:Button
+            x:Name="Command"
+            Grid.Column="1"
+            Margin="10,0,0,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Stretch"
+            Appearance="Secondary"
+            Cursor="Hand"
+            Icon="{ui:SymbolIcon Open48}" />
+    </Grid>
+</UserControl>

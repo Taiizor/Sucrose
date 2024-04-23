@@ -1,0 +1,23 @@
+﻿<UserControl
+    x:Class="Sucrose.Property.Controls.Slider"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Sucrose.Property.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Width="Auto"
+    Height="Auto"
+    Margin="0,0,0,10"
+    mc:Ignorable="d">
+    <Slider
+        x:Name="Component"
+        Cursor="Hand"
+        IsSnapToTickEnabled="True"
+        Maximum="{Binding Max, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        Minimum="{Binding Min, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        TickFrequency="{Binding Step, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        TickPlacement="None"
+        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        Value="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+</UserControl>
