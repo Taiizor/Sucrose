@@ -1,15 +1,20 @@
 ﻿using HandyControl.Tools;
 using System.Globalization;
+using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SPMI = Sucrose.Property.Manage.Internal;
 using SPVMW = Sucrose.Property.View.MainWindow;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Property
@@ -94,8 +99,41 @@ namespace Sucrose.Property
 
         protected void Configure()
         {
-            SPVMW MainWindow = new();
-            MainWindow.ShowDialog();
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
+            {
+                string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
+
+                if (File.Exists(PropertiesPath))
+                {
+                    string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+
+                    if (File.Exists(InfoPath))
+                    {
+                        SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                        if (Info.Type == SSDEWT.Web)
+                        {
+                            string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                            string PropertiesFile = Path.Combine(PropertiesCache, $"{SMMM.LibrarySelected}.json");
+
+                            if (!Directory.Exists(PropertiesCache))
+                            {
+                                Directory.CreateDirectory(PropertiesCache);
+                            }
+
+                            if (!File.Exists(PropertiesFile))
+                            {
+                                File.Copy(PropertiesPath, PropertiesFile, true);
+                            }
+
+                            SPMI.Properties = SSTHP.ReadJson(PropertiesFile);
+
+                            SPVMW MainWindow = new();
+                            MainWindow.ShowDialog();
+                        }
+                    }
+                }
+            }
 
             Close();
         }

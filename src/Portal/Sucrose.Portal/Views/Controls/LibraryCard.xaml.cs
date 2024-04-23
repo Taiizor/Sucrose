@@ -16,6 +16,8 @@ using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -92,6 +94,11 @@ namespace Sucrose.Portal.Views.Controls
         private void MenuFind_Click(object sender, RoutedEventArgs e)
         {
             SSSHP.Run(Theme);
+        }
+
+        private void MenuCustomize_Click(object sender, RoutedEventArgs e)
+        {
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Property}{SMR.ValueSeparator}{SSSMI.Property}");
         }
 
         private async void MenuEdit_Click(object sender, RoutedEventArgs e)
@@ -183,6 +190,13 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
+            string PropertiesPath = Path.Combine(Theme, SMR.SucroseProperties);
+
+            if (Info.Type == SSDEWT.Web && File.Exists(PropertiesPath))
+            {
+                MenuCustomize.IsEnabled = true;
+            }
+
             if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
             {
                 if (SMMM.LibrarySelected == Path.GetFileName(Theme) && SSSHL.Run())

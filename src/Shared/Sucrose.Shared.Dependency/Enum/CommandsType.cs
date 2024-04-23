@@ -17,6 +17,7 @@
         Wizard,
         Publish,
         Startup,
+        Property,
         StartupM,
         StartupP,
         Official,

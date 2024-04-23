@@ -16,6 +16,7 @@ using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
 using SSLHR = Sucrose.Shared.Launcher.Helper.Radius;
 using SSLMM = Sucrose.Shared.Launcher.Manage.Manager;
+using SSLPE = Sucrose.Shared.Launcher.Command.Property;
 using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
 using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
@@ -94,7 +95,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
                         if (Info.Type == SSDEWT.Web)
                         {
-                            ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallCustomizeText"), null, null);
+                            ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallCustomizeText"), null, CommandProperty);
                         }
                     }
                 }
@@ -205,6 +206,11 @@ namespace Sucrose.Shared.Launcher.Manager
         private void CommandInterface(object sender, EventArgs e)
         {
             SSLCI.Command();
+        }
+
+        private void CommandProperty(object sender, EventArgs e)
+        {
+            SSLPE.Command();
         }
 
         private void CommandSetting(object sender, EventArgs e)

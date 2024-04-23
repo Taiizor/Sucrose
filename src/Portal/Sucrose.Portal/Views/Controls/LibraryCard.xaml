@@ -43,7 +43,9 @@
                 Icon="{ui:SymbolIcon Eye24}"
                 IsEnabled="False" />
             <ui:MenuItem
+                Click="MenuCustomize_Click"
                 Cursor="Hand"
+                x:Name="MenuCustomize"
                 Header="{DynamicResource Portal.LibraryCard.MenuCustomize}"
                 Icon="{ui:SymbolIcon Color24}"
                 IsEnabled="False" />

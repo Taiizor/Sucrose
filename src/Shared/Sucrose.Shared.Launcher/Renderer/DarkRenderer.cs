@@ -21,9 +21,9 @@ namespace Sucrose.Shared.Launcher.Renderer
             (
                 Pens.White, new Point[]
                 {
-                    new Point(Rectangle.Left, Rectangle.Top),
-                    new Point(Rectangle.Right, Rectangle.Top + (Rectangle.Height /2)),
-                    new Point(Rectangle.Left, Rectangle.Top + Rectangle.Height)
+                    new(Rectangle.Left, Rectangle.Top),
+                    new(Rectangle.Right, Rectangle.Top + (Rectangle.Height /2)),
+                    new(Rectangle.Left, Rectangle.Top + Rectangle.Height)
                 }
             );
         }
@@ -40,9 +40,9 @@ namespace Sucrose.Shared.Launcher.Renderer
             (
                 Pens.White, new Point[]
                 {
-                    new Point(Rectangle.Left, Rectangle.Bottom - (Rectangle.Height /2)),
-                    new Point(Rectangle.Left + (Rectangle.Width /3),  Rectangle.Bottom),
-                    new Point(Rectangle.Right, Rectangle.Top)
+                    new(Rectangle.Left, Rectangle.Bottom - (Rectangle.Height /2)),
+                    new(Rectangle.Left + (Rectangle.Width /3),  Rectangle.Bottom),
+                    new(Rectangle.Right, Rectangle.Top)
                 }
             );
         }
