@@ -101,32 +101,32 @@ namespace Sucrose.Property
         {
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
             {
-                string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
+                SPMI.PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
 
-                if (File.Exists(PropertiesPath))
+                if (File.Exists(SPMI.PropertiesPath))
                 {
-                    string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+                    SPMI.InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
 
-                    if (File.Exists(InfoPath))
+                    if (File.Exists(SPMI.InfoPath))
                     {
-                        SSTHI Info = SSTHI.ReadJson(InfoPath);
+                        SSTHI Info = SSTHI.ReadJson(SPMI.InfoPath);
 
                         if (Info.Type == SSDEWT.Web)
                         {
-                            string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
-                            string PropertiesFile = Path.Combine(PropertiesCache, $"{SMMM.LibrarySelected}.json");
+                            SPMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                            SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SMMM.LibrarySelected}.json");
 
-                            if (!Directory.Exists(PropertiesCache))
+                            if (!Directory.Exists(SPMI.PropertiesCache))
                             {
-                                Directory.CreateDirectory(PropertiesCache);
+                                Directory.CreateDirectory(SPMI.PropertiesCache);
                             }
 
-                            if (!File.Exists(PropertiesFile))
+                            if (!File.Exists(SPMI.PropertiesFile))
                             {
-                                File.Copy(PropertiesPath, PropertiesFile, true);
+                                File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
                             }
 
-                            SPMI.Properties = SSTHP.ReadJson(PropertiesFile);
+                            SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
 
                             SPVMW MainWindow = new();
                             MainWindow.ShowDialog();

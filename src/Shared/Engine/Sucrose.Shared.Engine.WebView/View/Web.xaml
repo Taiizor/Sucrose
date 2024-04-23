@@ -7,7 +7,7 @@
     Title="Web"
     AllowsTransparency="False"
     Background="Transparent"
-    Left="-9999"
+    Left="-99999"
     ResizeMode="NoResize"
     WindowStyle="None"
     mc:Ignorable="d" />

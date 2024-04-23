@@ -8,7 +8,7 @@
     Title="Gif"
     AllowsTransparency="False"
     Background="Black"
-    Left="-9999"
+    Left="-99999"
     ResizeMode="NoResize"
     WindowStyle="None"
     mc:Ignorable="d">

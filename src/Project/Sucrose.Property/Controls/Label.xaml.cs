@@ -1,6 +1,6 @@
-﻿using System.Windows;
-using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
+﻿using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
 using UserControl = System.Windows.Controls.UserControl;
+using ToolTip = System.Windows.Controls.ToolTip;
 
 namespace Sucrose.Property.Controls
 {
@@ -9,30 +9,25 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class Label : UserControl
     {
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(string), typeof(Label), new PropertyMetadata(null));
-
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(Label), new PropertyMetadata(null));
-        
         public Label(SSTMLM Data)
         {
             DataContext = this;
 
-            Help = Data.Help;
-            Value = Data.Value;
-
             InitializeComponent();
+
+            InitializeData(Data);
         }
 
-        public string Value
+        private void InitializeData(SSTMLM Data)
         {
-            get => (string)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
-        }
+            Component.Text = Data.Value;
 
-        public string Help
-        {
-            get => (string)GetValue(HelpProperty);
-            set => SetValue(HelpProperty, value);
+            ToolTip HelpTip = new()
+            {
+                Content = Data.Help
+            };
+
+            Component.ToolTip = HelpTip;
         }
     }
 }

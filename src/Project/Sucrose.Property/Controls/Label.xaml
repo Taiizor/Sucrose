@@ -10,9 +10,5 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <ui:TextBlock
-        x:Name="Component"
-        FontSize="16"
-        Text="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+    <ui:TextBlock x:Name="Component" FontSize="16" />
 </UserControl>

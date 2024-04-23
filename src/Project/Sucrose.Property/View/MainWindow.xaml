@@ -17,7 +17,10 @@
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     ExtendsContentIntoTitleBar="True"
     Icon="\Sucrose.Property;component\Assets\ICO.ico"
+    Left="-99999"
+    Loaded="MainWindow_Loaded"
     ResizeMode="NoResize"
+    ShowInTaskbar="False"
     SizeToContent="Height"
     Topmost="False"
     WindowBackdropType="None"
@@ -49,10 +52,9 @@
             Margin="20,10,10,20"
             HorizontalScrollBarVisibility="Disabled"
             VerticalScrollBarVisibility="Auto">
-            <StackPanel>
+            <StackPanel Margin="0,0,10,0">
                 <StackPanel
                     x:Name="Container"
-                    Margin="0,0,10,0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Orientation="Vertical" />
@@ -64,22 +66,28 @@
                         x:Name="Delete"
                         HorizontalAlignment="Left"
                         Appearance="Secondary"
+                        Click="Delete_Click"
                         Cursor="Hand"
-                        Icon="{ui:SymbolIcon Delete48}" />
-
-                    <ui:Button
-                        x:Name="Reload"
-                        HorizontalAlignment="Center"
-                        Appearance="Secondary"
-                        Cursor="Hand"
-                        Icon="{ui:SymbolIcon PaintBrush24}" />
+                        Icon="{ui:SymbolIcon Delete48}"
+                        ToolTipService.ToolTip="Delete Copy - Kopyayı Sil" />
 
                     <ui:Button
                         x:Name="Refresh"
+                        HorizontalAlignment="Center"
+                        Appearance="Secondary"
+                        Click="Refresh_Click"
+                        Cursor="Hand"
+                        Icon="{ui:SymbolIcon PaintBrush24}"
+                        ToolTipService.ToolTip="Refresh Interface - Arayüzü Yenile" />
+
+                    <ui:Button
+                        x:Name="Restore"
                         HorizontalAlignment="Right"
                         Appearance="Secondary"
+                        Click="Restore_Click"
                         Cursor="Hand"
-                        Icon="{ui:SymbolIcon ArrowCounterclockWise48}" />
+                        Icon="{ui:SymbolIcon ArrowCounterclockWise48}"
+                        ToolTipService.ToolTip="Restore Default - Varsayılana Döndür" />
                 </Grid>
             </StackPanel>
         </ScrollViewer>
