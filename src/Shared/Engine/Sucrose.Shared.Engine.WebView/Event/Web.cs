@@ -30,11 +30,20 @@ namespace Sucrose.Shared.Engine.WebView.Event
         {
             SSEMI.Initialized = true;
 
+            if (!string.IsNullOrEmpty(SSEMI.PropertiesFile))
+            {
+                SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
+                SSEMI.Properties.State = true;
+            }
+
             if (SSEMI.Properties.State)
             {
                 SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
 
-                SSEHP.CreatedEventHandler += PropertiesWatcher;
+                if (SSEMI.PropertiesWatcher)
+                {
+                    SSEHP.CreatedEventHandler += PropertiesWatcher;
+                }
 
                 SSEHP.StartWatcher();
             }

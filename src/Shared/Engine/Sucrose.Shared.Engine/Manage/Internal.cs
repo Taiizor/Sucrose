@@ -2,43 +2,62 @@
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSESB = Sucrose.Shared.Engine.Setting.Browser;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 
 namespace Sucrose.Shared.Engine.Manage
 {
     internal static class Internal
     {
+        public static SSTHI Info = new();
+
         public static SSTHP Properties = new();
 
         public static bool Initialized = false;
 
         public static SSTHC Compatible = new();
 
-        public static bool PropertiesWatcher = true;
-
         public static bool PausePerformance = false;
+
+        public static bool PropertiesWatcher = true;
 
         public static string CpuData = string.Empty;
 
+        public static string BiosData = string.Empty;
+
         public static string DateData = string.Empty;
 
-        public static string BiosData = string.Empty;
+        public static string InfoPath = string.Empty;
 
         public static string AudioData = string.Empty;
 
         public static string MemoryData = string.Empty;
 
+        public static List<SSDSHS> Applications = new();
+
+        public static string BatteryData = string.Empty;
+
         public static string NetworkData = string.Empty;
 
         public static string GraphicData = string.Empty;
 
-        public static string BatteryData = string.Empty;
-
-        public static List<SSDSHS> Applications = new();
+        public static string WatcherFile = string.Empty;
 
         public delegate void ExecuteNormal(string Script);
 
+        public static string CompatiblePath = string.Empty;
+
+        public static string PropertiesFile = string.Empty;
+
+        public static string PropertiesPath = string.Empty;
+
+        public static string LibraryLocation = string.Empty;
+
+        public static string LibrarySelected = string.Empty;
+
         public static string MotherboardData = string.Empty;
+
+        public static string PropertiesCache = string.Empty;
 
         public delegate Task<string> ExecuteTask(string script);
 

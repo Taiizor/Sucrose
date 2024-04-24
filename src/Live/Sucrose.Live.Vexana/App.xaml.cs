@@ -10,6 +10,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
@@ -111,19 +112,22 @@ namespace Sucrose.Live.Vexana
 
         protected void Configure()
         {
-            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
+            SSEMI.LibraryLocation = SMMM.LibraryLocation;
+            SSEMI.LibrarySelected = SMMM.LibrarySelected;
+
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
             {
-                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+                SSEMI.InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseInfo);
 
-                if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                if (File.Exists(SSEMI.InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(SSEMI.InfoPath)))
                 {
-                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+                    SSEMI.Info = SSTHI.ReadJson(SSEMI.InfoPath);
 
-                    string Source = Info.Source;
+                    string Source = SSEMI.Info.Source;
 
                     if (!SSTHV.IsUrl(Source))
                     {
-                        Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
+                        Source = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, Source);
                     }
 
                     SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
@@ -138,7 +142,7 @@ namespace Sucrose.Live.Vexana
                     {
                         SSSHS.Apply();
 
-                        switch (Info.Type)
+                        switch (SSEMI.Info.Type)
                         {
                             case SSDEWT.Gif:
                                 SSEVVG Gif = new(Source);

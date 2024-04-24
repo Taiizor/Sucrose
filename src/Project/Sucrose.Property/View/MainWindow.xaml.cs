@@ -152,6 +152,8 @@ namespace Sucrose.Property.View
 
         private async void Delete_Click(object sender, RoutedEventArgs e)
         {
+            Restore.IsEnabled = false;
+            Refresh.IsEnabled = false;
             Delete.IsEnabled = false;
 
             SPMI.EngineLive = SMMM.LibrarySelected == SPMI.Library && SSSHL.Run();
@@ -191,11 +193,15 @@ namespace Sucrose.Property.View
             SPMI.EngineLive = false;
 
             Delete.IsEnabled = true;
+            Refresh.IsEnabled = true;
+            Restore.IsEnabled = true;
         }
 
         private async void Refresh_Click(object sender, RoutedEventArgs e)
         {
+            Restore.IsEnabled = false;
             Refresh.IsEnabled = false;
+            Delete.IsEnabled = false;
 
             SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
 
@@ -209,12 +215,16 @@ namespace Sucrose.Property.View
 
             await Task.Delay(250);
 
+            Delete.IsEnabled = true;
             Refresh.IsEnabled = true;
+            Restore.IsEnabled = true;
         }
 
         private async void Restore_Click(object sender, RoutedEventArgs e)
         {
             Restore.IsEnabled = false;
+            Refresh.IsEnabled = false;
+            Delete.IsEnabled = false;
 
             File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
 
@@ -239,6 +249,8 @@ namespace Sucrose.Property.View
 
             await Task.Delay(250);
 
+            Delete.IsEnabled = true;
+            Refresh.IsEnabled = true;
             Restore.IsEnabled = true;
         }
 

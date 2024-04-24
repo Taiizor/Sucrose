@@ -122,13 +122,16 @@ namespace Sucrose.Live.WebView
 
         protected void Configure()
         {
-            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
-            {
-                string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
-                string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
-                string CompatiblePath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseCompatible);
+            SSEMI.LibraryLocation = SMMM.LibraryLocation;
+            SSEMI.LibrarySelected = SMMM.LibrarySelected;
 
-                if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SSEMI.LibrarySelected))
+            {
+                SSEMI.InfoPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseInfo);
+                SSEMI.CompatiblePath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseCompatible);
+                SSEMI.PropertiesPath = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, SMR.SucroseProperties);
+
+                if (File.Exists(SSEMI.InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(SSEMI.InfoPath)))
                 {
                     SSLHK.StopSubprocess();
 
@@ -152,13 +155,13 @@ namespace Sucrose.Live.WebView
 
                     SSEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);
 
-                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+                    SSEMI.Info = SSTHI.ReadJson(SSEMI.InfoPath);
 
-                    string Source = Info.Source;
+                    string Source = SSEMI.Info.Source;
 
                     if (!SSTHV.IsUrl(Source))
                     {
-                        Source = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, Source);
+                        Source = Path.Combine(SSEMI.LibraryLocation, SSEMI.LibrarySelected, Source);
                     }
 
                     SMMI.BackgroundogSettingManager.SetSetting(new KeyValuePair<string, bool>[]
@@ -173,34 +176,35 @@ namespace Sucrose.Live.WebView
                     {
                         SSSHS.Apply();
 
-                        if (File.Exists(PropertiesPath))
+                        if (File.Exists(SSEMI.PropertiesPath))
                         {
-                            string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
-                            string PropertiesFile = Path.Combine(PropertiesCache, $"{SMMM.LibrarySelected}.json");
-                            string WatcherFile = Path.Combine(PropertiesCache, $"*.{SMMM.LibrarySelected}.json");
+                            SSEMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                            SSEMI.PropertiesFile = Path.Combine(SSEMI.PropertiesCache, $"{SSEMI.LibrarySelected}.json");
+                            SSEMI.WatcherFile = Path.Combine(SSEMI.PropertiesCache, $"*.{SSEMI.LibrarySelected}.json");
 
-                            if (!Directory.Exists(PropertiesCache))
+                            if (!Directory.Exists(SSEMI.PropertiesCache))
                             {
-                                Directory.CreateDirectory(PropertiesCache);
+                                Directory.CreateDirectory(SSEMI.PropertiesCache);
                             }
 
-                            if (!File.Exists(PropertiesFile))
+                            if (!File.Exists(SSEMI.PropertiesFile))
                             {
-                                File.Copy(PropertiesPath, PropertiesFile, true);
+                                File.Copy(SSEMI.PropertiesPath, SSEMI.PropertiesFile, true);
                             }
 
-                            SSEMI.Properties = SSTHP.ReadJson(PropertiesFile);
+                            SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
                             SSEMI.Properties.State = true;
-                            SSEHP.Watcher(WatcherFile);
+
+                            SSEHP.Watcher(SSEMI.WatcherFile);
                         }
 
-                        if (File.Exists(CompatiblePath))
+                        if (File.Exists(SSEMI.CompatiblePath))
                         {
-                            SSEMI.Compatible = SSTHC.ReadJson(CompatiblePath);
+                            SSEMI.Compatible = SSTHC.ReadJson(SSEMI.CompatiblePath);
                             SSEMI.Compatible.State = true;
                         }
 
-                        switch (Info.Type)
+                        switch (SSEMI.Info.Type)
                         {
                             case SSDEWT.Gif:
                                 SSEWVVG Gif = new(Source);

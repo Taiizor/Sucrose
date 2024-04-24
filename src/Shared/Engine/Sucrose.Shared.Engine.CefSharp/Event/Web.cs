@@ -41,11 +41,20 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
+            if (!string.IsNullOrEmpty(SSEMI.PropertiesFile))
+            {
+                SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
+                SSEMI.Properties.State = true;
+            }
+
             if (SSEMI.Properties.State)
             {
                 SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
 
-                SSEHP.CreatedEventHandler += PropertiesWatcher;
+                if (SSEMI.PropertiesWatcher)
+                {
+                    SSEHP.CreatedEventHandler += PropertiesWatcher;
+                }
 
                 SSEHP.StartWatcher();
             }
