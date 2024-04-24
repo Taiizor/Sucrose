@@ -1,14 +1,17 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
+using XamlAnimatedGif;
 using Button = Wpf.Ui.Controls.Button;
 using SCHB = Skylark.Clipboard.Helper.Board;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
@@ -92,6 +95,8 @@ namespace Sucrose.Portal.Views.Windows
                 ApplyGeneral(false);
                 RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPLP));
             }
+
+            AnimationBehavior.SetDownloadCacheLocation(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary));
         }
 
         private void ApplyTheme(Button Button)
