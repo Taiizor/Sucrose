@@ -92,12 +92,7 @@ namespace Sucrose.Signal
 
         public void FileSave<T>(T Data)
         {
-            string Destination = Path.Combine(Source, Name);
-
-            while (File.Exists(Destination))
-            {
-                Destination = Path.Combine(Source, $"{Path.GetFileNameWithoutExtension(Name)}-{SMR.Randomise.Next(0, int.MaxValue)}{Path.GetExtension(Name)}");
-            }
+            string Destination = Path.Combine(Source, $"{Path.GetFileNameWithoutExtension(Name)}-{Guid.NewGuid()}{Path.GetExtension(Name)}");
 
             SSHW.Write(Destination, JsonConvert.SerializeObject(Data, SerializerSettings));
         }

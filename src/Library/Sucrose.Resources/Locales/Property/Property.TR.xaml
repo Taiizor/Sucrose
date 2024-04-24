@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">Kopyayı Sil</system:String>
+    <system:String x:Key="Property.RefreshTip">Arayüzü Yenile</system:String>
+    <system:String x:Key="Property.RestoreTip">Varsayılana Döndür</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">Kontrol tipi '{0}' desteklenmiyor.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">Renk</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">İptal</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">Onayla</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">Damlalık</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">Bir dosya seç</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">Tüm Dosyalar (*.*)|*.*</system:String>
 </ResourceDictionary>

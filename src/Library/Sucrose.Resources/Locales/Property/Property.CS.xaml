@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">Smazat kopii</system:String>
+    <system:String x:Key="Property.RefreshTip">Obnovit rozhraní</system:String>
+    <system:String x:Key="Property.RestoreTip">Obnovit výchozí</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">Typ ovládacího prvku '{0}' není podporován.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">Barva</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">Storno</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">Potvrdit</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">Pipeta</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">Vyberte soubor</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">Všechny soubory (*.*)|*.*</system:String>
 </ResourceDictionary>

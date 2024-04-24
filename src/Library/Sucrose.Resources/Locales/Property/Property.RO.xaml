@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">Ștergeți copia</system:String>
+    <system:String x:Key="Property.RefreshTip">Reîmprospătați interfața</system:String>
+    <system:String x:Key="Property.RestoreTip">Restabiliți implicitul</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">Tipul de control '{0}' nu este suportat.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">Culoare</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">Anulare</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">Confirmare</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">Pipetă</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">Selectați un fișier</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">Toate fișierele (*.*)|*.*</system:String>
 </ResourceDictionary>

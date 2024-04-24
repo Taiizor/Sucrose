@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">Kopie verwijderen</system:String>
+    <system:String x:Key="Property.RefreshTip">Interface vernieuwen</system:String>
+    <system:String x:Key="Property.RestoreTip">Standaard herstellen</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">Het besturingselementtype '{0}' wordt niet ondersteund.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">Kleur</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">Annuleren</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">Bevestigen</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">Pipet</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">Selecteer een bestand</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">Alle bestanden (*.*)|*.*</system:String>
 </ResourceDictionary>

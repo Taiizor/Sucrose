@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">Eliminar copia</system:String>
+    <system:String x:Key="Property.RefreshTip">Actualizar interfaz</system:String>
+    <system:String x:Key="Property.RestoreTip">Restaurar predeterminado</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">El tipo de control '{0}' no está soportado.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">Color</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">Cancelar</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">Confirmar</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">Pipeta</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">Seleccionar un archivo</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">Todos los archivos (*.*)|*.*</system:String>
 </ResourceDictionary>

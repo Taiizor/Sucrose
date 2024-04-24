@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">コピーを削除</system:String>
+    <system:String x:Key="Property.RefreshTip">インターフェイスを更新</system:String>
+    <system:String x:Key="Property.RestoreTip">デフォルトに戻す</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">コントロール タイプ '{0}' はサポートされていません。</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">色</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">キャンセル</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">確認</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">目詰め管</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">ファイルを選択</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">すべてのファイル (*.*)|*.*</system:String>
 </ResourceDictionary>

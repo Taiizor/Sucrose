@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">Видалити копію</system:String>
+    <system:String x:Key="Property.RefreshTip">Оновити інтерфейс</system:String>
+    <system:String x:Key="Property.RestoreTip">Відновити налаштування за замовчуванням</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">Тип елементу керування '{0}' не підтримується.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">Колір</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">Скасувати</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">Підтвердити</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">Піпетка</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">Виберіть файл</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">Усі файли (*.*)|*.*</system:String>
 </ResourceDictionary>

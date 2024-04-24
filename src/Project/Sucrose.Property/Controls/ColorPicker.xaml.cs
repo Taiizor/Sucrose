@@ -5,11 +5,12 @@ using System.Windows;
 using Wpf.Ui.Controls;
 using Control = System.Windows.Controls.Control;
 using CPicker = HandyControl.Controls.ColorPicker;
-using DColor = System.Drawing.Color;
-using MColor = System.Windows.Media.Color;
+using DrawingColor = System.Drawing.Color;
+using MediaColor = System.Windows.Media.Color;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SPHP = Sucrose.Property.Helper.Properties;
 using SPMM = Sucrose.Property.Manage.Manager;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSECCE = Skylark.Standard.Extension.Color.ColorExtension;
 using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -60,8 +61,8 @@ namespace Sucrose.Property.Controls
         private void InitializeData(string Key, SSTMCPM Data)
         {
             Label.Text = Data.Text;
-            DColor Color = SSECCE.HexToColor(Data.Value);
-            Component.Color = MColor.FromArgb(Color.A, Color.R, Color.G, Color.B);
+            DrawingColor Color = SSECCE.HexToColor(Data.Value);
+            Component.Color = MediaColor.FromArgb(Color.A, Color.R, Color.G, Color.B);
 
             DropDownButton.Click += (s, e) => DropDownButton_Click(Key, Data);
 
@@ -80,44 +81,48 @@ namespace Sucrose.Property.Controls
         {
             CPicker Picker = SingleOpenHelper.CreateControl<CPicker>();
 
-            MColor Temp = Component.Color;
+            MediaColor UndoColor = Component.Color;
 
-            Picker.SelectedBrush = new(Temp);
-            Picker.UseLayoutRounding = true;
+            Picker.SelectedBrush = new(UndoColor);
+            Picker.UseLayoutRounding = false;
 
-            PopupWindow PWindow = new()
+            PopupWindow PopupWindow = new()
             {
-                PopupElement = Picker,
+                Title = SRER.GetValue("Property", "ColorPicker", "Popup", "Title"),
                 WindowStartupLocation = WindowStartupLocation.Manual,
-                AllowsTransparency = true,
-                WindowStyle = WindowStyle.None,
                 ResizeMode = ResizeMode.NoResize,
+                WindowStyle = WindowStyle.None,
+                AllowsTransparency = true,
                 UseLayoutRounding = true,
+                PopupElement = Picker,
                 ShowBorder = true,
-                Topmost = true,
-                Title = "Sucrose Property Color Picker"
+                Topmost = true
             };
 
-            Picker.Confirmed += (s, ee) =>
+            Picker.Confirmed += (s, e) =>
             {
-                Data.Value = ee.Info.ToString();
-                Component.Color = ee.Info;
+                Data.Value = e.Info.ToString();
+
+                Component.Color = e.Info;
+
                 SPHP.Change(Key, Data);
-                PWindow.Close();
+
+                PopupWindow.Close();
             };
 
-            Picker.SelectedColorChanged += (s, ee) =>
+            Picker.SelectedColorChanged += (s, e) =>
             {
-                Component.Color = ee.Info;
+                Component.Color = e.Info;
             };
 
             Picker.Canceled += delegate
             {
-                Component.Color = Temp;
-                PWindow.Close();
+                Component.Color = UndoColor;
+
+                PopupWindow.Close();
             };
 
-            PWindow.Show(Control, false);
+            PopupWindow.Show(Control, false);
         }
     }
 }

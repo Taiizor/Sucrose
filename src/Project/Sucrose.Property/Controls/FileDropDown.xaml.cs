@@ -3,6 +3,7 @@ using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SMR = Sucrose.Memory.Readonly;
 using SPHP = Sucrose.Property.Helper.Properties;
 using SPMI = Sucrose.Property.Manage.Internal;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSTMFDDM = Sucrose.Shared.Theme.Model.FileDropDownModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
@@ -38,8 +39,15 @@ namespace Sucrose.Property.Controls
                     Content = Data.Help
                 };
 
-                Container.ToolTip = HelpTip;
+                Component.ToolTip = HelpTip;
             }
+
+            ToolTip CommandTip = new()
+            {
+                Content = SRER.GetValue("Property", "FileDropDown", "Tip")
+            };
+
+            Command.ToolTip = CommandTip;
         }
 
         private void Component_Items(SSTMFDDM Data)
@@ -64,7 +72,7 @@ namespace Sucrose.Property.Controls
         {
             string Filter = $"{Data.Desc} ({Data.Filter.Replace("|", ", ")})|{Data.Filter.Replace('|', ';')}";
 
-            Filter += "|All Files (*.*)|*.*";
+            Filter += $"|{SRER.GetValue("Property", "FileDropDown", "Filter")}";
 
             OpenFileDialog FileDialog = new()
             {

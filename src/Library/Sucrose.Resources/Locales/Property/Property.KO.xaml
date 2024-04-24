@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">복사본 삭제</system:String>
+    <system:String x:Key="Property.RefreshTip">인터페이스 새로 고침</system:String>
+    <system:String x:Key="Property.RestoreTip">기본값 복원</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">컨트롤 유형 '{0}'은(는) 지원되지 않습니다.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">색상</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">취소</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">확인</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">색상 선택기</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">파일 선택</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">모든 파일 (*.*)|*.*</system:String>
 </ResourceDictionary>

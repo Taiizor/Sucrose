@@ -35,9 +35,5 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Grid>
-
-        <Popup>
-            <hc:ColorPicker Name="ColorPicker2" />
-        </Popup>
     </StackPanel>
 </UserControl>

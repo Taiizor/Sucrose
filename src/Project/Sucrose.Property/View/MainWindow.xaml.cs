@@ -17,6 +17,7 @@ using SPCS = Sucrose.Property.Controls.Slider;
 using SPCTB = Sucrose.Property.Controls.TextBox;
 using SPMI = Sucrose.Property.Manage.Internal;
 using SPMM = Sucrose.Property.Manage.Manager;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -88,7 +89,7 @@ namespace Sucrose.Property.View
                     "passwordbox" => new SPCPB(Pair.Key, Pair.Value as SSTMPBM),
                     "filedropdown" => new SPCFDD(Pair.Key, Pair.Value as SSTMFDDM),
                     "colorpicker" => new SPCCP(Pair.Key, Pair.Value as SSTMCPM, Restore),
-                    _ => throw new NotSupportedException($"Control type '{Pair.Value.Type}' is not supported."),
+                    _ => throw new NotSupportedException(string.Format(SRER.GetValue("Property", "Type", "NotSupport"), Pair.Value.Type)),
                 });
             }
         }

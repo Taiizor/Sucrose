@@ -3,4 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Property.WindowTitle">Sucrose Property</system:String>
+
+    <system:String x:Key="Property.DeleteTip">Hapus Salinan</system:String>
+    <system:String x:Key="Property.RefreshTip">Segarkan Antarmuka</system:String>
+    <system:String x:Key="Property.RestoreTip">Pulihkan Default</system:String>
+
+    <system:String x:Key="Property.Type.NotSupport">Tipe kontrol '{0}' tidak didukung.</system:String>
+
+    <system:String x:Key="Property.ColorPicker.Color">Warna</system:String>
+    <system:String x:Key="Property.ColorPicker.Cancel">Batal</system:String>
+    <system:String x:Key="Property.ColorPicker.Confirm">Konfirmasi</system:String>
+    <system:String x:Key="Property.ColorPicker.EyeDropper">Pipet</system:String>
+    <system:String x:Key="Property.ColorPicker.Popup.Title">Sucrose Property Color Picker</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Tip">Pilih sebuah file</system:String>
+    <system:String x:Key="Property.FileDropDown.Filter">Semua File (*.*)|*.*</system:String>
 </ResourceDictionary>

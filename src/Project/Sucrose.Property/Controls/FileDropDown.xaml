@@ -15,7 +15,7 @@
             x:Name="Label"
             Margin="0,0,0,5"
             FontSize="16" />
-        <Grid x:Name="Container" HorizontalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />

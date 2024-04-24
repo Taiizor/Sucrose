@@ -69,7 +69,7 @@
                         Click="Delete_Click"
                         Cursor="Hand"
                         Icon="{ui:SymbolIcon Delete48}"
-                        ToolTipService.ToolTip="Delete Copy - Kopyayı Sil" />
+                        ToolTipService.ToolTip="{DynamicResource Property.DeleteTip}" />
 
                     <ui:Button
                         x:Name="Refresh"
@@ -78,7 +78,7 @@
                         Click="Refresh_Click"
                         Cursor="Hand"
                         Icon="{ui:SymbolIcon PaintBrush24}"
-                        ToolTipService.ToolTip="Refresh Interface - Arayüzü Yenile" />
+                        ToolTipService.ToolTip="{DynamicResource Property.RefreshTip}" />
 
                     <ui:Button
                         x:Name="Restore"
@@ -87,7 +87,7 @@
                         Click="Restore_Click"
                         Cursor="Hand"
                         Icon="{ui:SymbolIcon ArrowCounterclockWise48}"
-                        ToolTipService.ToolTip="Restore Default - Varsayılana Döndür" />
+                        ToolTipService.ToolTip="{DynamicResource Property.RestoreTip}" />
                 </Grid>
             </StackPanel>
         </ScrollViewer>
