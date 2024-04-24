@@ -177,6 +177,7 @@ namespace Sucrose.Live.WebView
                         {
                             string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                             string PropertiesFile = Path.Combine(PropertiesCache, $"{SMMM.LibrarySelected}.json");
+                            string WatcherFile = Path.Combine(PropertiesCache, $"*.{SMMM.LibrarySelected}.json");
 
                             if (!Directory.Exists(PropertiesCache))
                             {
@@ -190,7 +191,7 @@ namespace Sucrose.Live.WebView
 
                             SSEMI.Properties = SSTHP.ReadJson(PropertiesFile);
                             SSEMI.Properties.State = true;
-                            SSEHP.Watcher(PropertiesFile);
+                            SSEHP.Watcher(WatcherFile);
                         }
 
                         if (File.Exists(CompatiblePath))

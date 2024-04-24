@@ -34,7 +34,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
             {
                 SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
 
-                SSEHP.ChangedEventHandler += PropertiesWatcher;
+                SSEHP.CreatedEventHandler += PropertiesWatcher;
 
                 SSEHP.StartWatcher();
             }

@@ -44,7 +44,7 @@ namespace Sucrose.Property.Controls
             if (Directory.Exists(Folder))
             {
                 string[] Extensions = Data.Filter.Replace("*", "").Split('|');
-                string[] Files = Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly).Where(File => Extensions.Any(Extension => File.EndsWith(Extension))).ToArray();
+                string[] Files = Directory.GetFiles(Folder, "*.*", SearchOption.TopDirectoryOnly).Where(Record => Extensions.Any(Extension => Record.EndsWith(Extension))).ToArray();
 
                 foreach (string File in Files)
                 {

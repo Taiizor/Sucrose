@@ -45,7 +45,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
             {
                 SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
 
-                SSEHP.ChangedEventHandler += PropertiesWatcher;
+                SSEHP.CreatedEventHandler += PropertiesWatcher;
 
                 SSEHP.StartWatcher();
             }

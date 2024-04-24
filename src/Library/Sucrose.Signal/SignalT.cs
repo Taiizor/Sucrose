@@ -168,8 +168,16 @@ namespace Sucrose.Signal
         {
             Timer Deletion = new(3000);
 
-            Deletion.Elapsed += (sender, e) => FileDelete(Source);
+            Deletion.Elapsed += (s, e) =>
+            {
+                FileDelete(Source);
+
+                Deletion.Stop();
+                Deletion.Dispose();
+            };
+
             Deletion.AutoReset = false;
+
             Deletion.Start();
         }
     }

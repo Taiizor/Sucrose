@@ -190,6 +190,7 @@ namespace Sucrose.Live.CefSharp
                         {
                             string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                             string PropertiesFile = Path.Combine(PropertiesCache, $"{SMMM.LibrarySelected}.json");
+                            string WatcherFile = Path.Combine(PropertiesCache, $"*.{SMMM.LibrarySelected}.json");
 
                             if (!Directory.Exists(PropertiesCache))
                             {
@@ -203,7 +204,7 @@ namespace Sucrose.Live.CefSharp
 
                             SSEMI.Properties = SSTHP.ReadJson(PropertiesFile);
                             SSEMI.Properties.State = true;
-                            SSEHP.Watcher(PropertiesFile);
+                            SSEHP.Watcher(WatcherFile);
                         }
 
                         if (File.Exists(CompatiblePath))
