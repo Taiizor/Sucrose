@@ -192,7 +192,17 @@ namespace Sucrose.Live.WebView
                                 File.Copy(SSEMI.PropertiesPath, SSEMI.PropertiesFile, true);
                             }
 
-                            SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
+                            try
+                            {
+                                SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
+                            }
+                            catch (NotSupportedException Ex)
+                            {
+                                File.Delete(SSEMI.PropertiesFile);
+
+                                throw new NotSupportedException(Ex.Message);
+                            }
+
                             SSEMI.Properties.State = true;
 
                             SSEHP.Watcher(SSEMI.WatcherFile);

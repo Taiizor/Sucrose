@@ -12,9 +12,14 @@ namespace Sucrose.Shared.Space.Helper
         public static async Task Start(string Application)
         {
             SSLHK.Stop();
+
+            SSSHP.Kill(SMR.Undo);
             SSSHP.Kill(SMR.Portal);
             SSSHP.Kill(SMR.Update);
+            SSSHP.Kill(SMR.Wizard);
             SSSHP.Kill(SMR.Launcher);
+            SSSHP.Kill(SMR.Property);
+            SSSHP.Kill(SMR.Watchdog);
             SSSHP.Kill(SMR.Backgroundog);
 
             await Task.Delay(TimeSpan.FromSeconds(3));

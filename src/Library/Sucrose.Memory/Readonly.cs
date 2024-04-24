@@ -57,6 +57,8 @@
 
         public static readonly string StoreRepository = "Store";
 
+        public static readonly string Undo = "Sucrose.Undo.exe";
+
         public static readonly string HostEntry = "www.google.com";
 
         public static readonly string Update = "Sucrose.Update.exe";

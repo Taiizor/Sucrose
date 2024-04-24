@@ -99,7 +99,8 @@ namespace Sucrose.Property
 
         protected void Configure(string[] Args)
         {
-            SPMI.Library = SMMM.LibrarySelected;
+            SPMI.LibraryLocation = SMMM.LibraryLocation;
+            SPMI.LibrarySelected = SMMM.LibrarySelected;
 
             if (Args.Any())
             {
@@ -107,13 +108,13 @@ namespace Sucrose.Property
 
                 if (Arguments.Any() && Arguments.Count() == 1)
                 {
-                    SPMI.Library = Arguments.First();
+                    SPMI.LibrarySelected = Arguments.First();
                 }
             }
 
-            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SPMI.Library))
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SPMI.LibrarySelected))
             {
-                SPMI.Path = Path.Combine(SMMM.LibraryLocation, SPMI.Library);
+                SPMI.Path = Path.Combine(SPMI.LibraryLocation, SPMI.LibrarySelected);
 
                 SPMI.PropertiesPath = Path.Combine(SPMI.Path, SMR.SucroseProperties);
 
@@ -128,8 +129,8 @@ namespace Sucrose.Property
                         if (Info.Type == SSDEWT.Web)
                         {
                             SPMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
-                            SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SPMI.Library}.json");
-                            SPMI.WatcherFile = Path.Combine(SPMI.PropertiesCache, $"*.{SPMI.Library}.json");
+                            SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SPMI.LibrarySelected}.json");
+                            SPMI.WatcherFile = Path.Combine(SPMI.PropertiesCache, $"*.{SPMI.LibrarySelected}.json");
 
                             if (!Directory.Exists(SPMI.PropertiesCache))
                             {
@@ -141,7 +142,16 @@ namespace Sucrose.Property
                                 File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
                             }
 
-                            SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
+                            try
+                            {
+                                SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
+                            }
+                            catch (NotSupportedException Ex)
+                            {
+                                File.Delete(SPMI.PropertiesFile);
+
+                                throw new NotSupportedException(Ex.Message);
+                            }
 
                             SPVMW MainWindow = new();
                             MainWindow.ShowDialog();
