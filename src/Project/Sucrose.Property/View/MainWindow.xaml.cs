@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SPCB = Sucrose.Property.Controls.Button;
 using SPCCB = Sucrose.Property.Controls.CheckBox;
 using SPCCP = Sucrose.Property.Controls.ColorPicker;
@@ -152,7 +153,7 @@ namespace Sucrose.Property.View
         {
             Delete.IsEnabled = false;
 
-            SPMI.EngineLive = SSSHL.Run();
+            SPMI.EngineLive = SMMM.LibrarySelected == SPMI.Library && SSSHL.Run();
 
             if (SPMI.EngineLive)
             {
@@ -216,7 +217,7 @@ namespace Sucrose.Property.View
 
             File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
 
-            if (SSSHL.Run())
+            if (SMMM.LibrarySelected == SPMI.Library && SSSHL.Run())
             {
                 await Task.Delay(250);
 

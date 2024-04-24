@@ -6,6 +6,8 @@ namespace Sucrose.Property.Manage
     {
         public static string Path;
 
+        public static string Library;
+
         public static string InfoPath;
 
         public static string WatcherFile;
