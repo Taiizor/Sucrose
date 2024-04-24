@@ -129,6 +129,7 @@ namespace Sucrose.Property
                         {
                             SPMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                             SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{Library}.json");
+                            SPMI.WatcherFile = Path.Combine(SPMI.PropertiesCache, $"*.{Library}.json");
 
                             if (!Directory.Exists(SPMI.PropertiesCache))
                             {

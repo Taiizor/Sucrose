@@ -10,24 +10,30 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <Grid x:Name="Container" HorizontalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <ComboBox
-            x:Name="Component"
-            Grid.Column="0"
-            HorizontalAlignment="Stretch"
-            MaxDropDownHeight="200" />
-        <ui:Button
-            x:Name="Command"
-            Grid.Column="1"
-            Margin="10,0,0,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Stretch"
-            Appearance="Secondary"
-            Cursor="Hand"
-            Icon="{ui:SymbolIcon Open48}" />
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <ui:TextBlock
+            x:Name="Label"
+            Margin="0,0,0,5"
+            FontSize="16" />
+        <Grid x:Name="Container" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ComboBox
+                x:Name="Component"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                MaxDropDownHeight="200" />
+            <ui:Button
+                x:Name="Command"
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Stretch"
+                Appearance="Secondary"
+                Cursor="Hand"
+                Icon="{ui:SymbolIcon Open48}" />
+        </Grid>
+    </StackPanel>
 </UserControl>

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SMR = Sucrose.Memory.Readonly;
+using SPHP = Sucrose.Property.Helper.Properties;
 using SPMI = Sucrose.Property.Manage.Internal;
 using SSTMFDDM = Sucrose.Shared.Theme.Model.FileDropDownModel;
 using ToolTip = System.Windows.Controls.ToolTip;
@@ -13,18 +14,22 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class FileDropDown : UserControl
     {
-        public FileDropDown(SSTMFDDM Data)
+        public FileDropDown(string Key, SSTMFDDM Data)
         {
             InitializeComponent();
 
-            InitializeData(Data);
+            InitializeData(Key, Data);
         }
 
-        private void InitializeData(SSTMFDDM Data)
+        private void InitializeData(string Key, SSTMFDDM Data)
         {
             Component_Items(Data);
+            Label.Text = Data.Text;
             Component.Text = Data.Value;
+
             Command.Click += async (s, e) => await Command_Click(Data);
+
+            Component.SelectionChanged += (s, e) => Component_Changed(Key, Data, $"{Component.SelectedValue}");
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -66,9 +71,9 @@ namespace Sucrose.Property.Controls
                 Filter = Filter,
                 FilterIndex = 1,
 
-                //Multiselect = true,
-
                 Title = Data.Title,
+
+                Multiselect = false,
 
                 InitialDirectory = SMR.DesktopPath
             };
@@ -92,6 +97,13 @@ namespace Sucrose.Property.Controls
             }
 
             await Task.CompletedTask;
+        }
+
+        private void Component_Changed(string Key, SSTMFDDM Data, string Value)
+        {
+            Data.Value = Value;
+
+            SPHP.Change(Key, Data);
         }
     }
 }

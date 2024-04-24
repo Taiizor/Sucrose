@@ -5,6 +5,7 @@ namespace Sucrose.Shared.Theme.Helper
 {
     internal partial class Compatible
     {
+        [JsonIgnore]
         public bool State { get; set; }
 
         [JsonProperty("LoopMode", Required = Required.Default)]
@@ -68,9 +69,19 @@ namespace Sucrose.Shared.Theme.Helper
             return JsonConvert.DeserializeObject<Compatible>(Json, Converter.Settings);
         }
 
-        public static Compatible ReadJson(string Json)
+        public static Compatible ReadJson(string Path)
         {
-            return JsonConvert.DeserializeObject<Compatible>(File.ReadAllText(Json), Converter.Settings);
+            return JsonConvert.DeserializeObject<Compatible>(ReadCompatible(Path), Converter.Settings);
+        }
+
+        public static string ReadCompatible(string Path)
+        {
+            return File.ReadAllText(Path);
+        }
+
+        public static void WriteJson(string Path, Compatible Compatible)
+        {
+            File.WriteAllText(Path, JsonConvert.SerializeObject(Compatible, Converter.Settings));
         }
     }
 }

@@ -5,11 +5,8 @@ namespace Sucrose.Shared.Theme.Model
 {
     public class ButtonModel : SSTMCM
     {
-        [JsonProperty("value", Required = Required.AllowNull)]
+        [JsonProperty("value", Required = Required.Always)]
         public string Value { get; set; }
-
-        [JsonProperty("command", Required = Required.Always)]
-        public string Command { get; set; }
 
         public ButtonModel() : base("button") { }
     }

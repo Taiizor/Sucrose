@@ -10,5 +10,8 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <ui:TextBox x:Name="Component" PlaceholderEnabled="True" />
+    <ui:TextBox
+        x:Name="Component"
+        MaxLength="999"
+        PlaceholderEnabled="True" />
 </UserControl>

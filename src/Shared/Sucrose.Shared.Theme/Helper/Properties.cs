@@ -6,6 +6,7 @@ namespace Sucrose.Shared.Theme.Helper
 {
     internal partial class Properties
     {
+        [JsonIgnore]
         public bool State { get; set; }
 
         [JsonProperty("PropertyListener", Required = Required.Always)]
@@ -36,9 +37,19 @@ namespace Sucrose.Shared.Theme.Helper
             return JsonConvert.DeserializeObject<Properties>(Json, Converter.Settings);
         }
 
-        public static Properties ReadJson(string Json)
+        public static Properties ReadJson(string Path)
         {
-            return JsonConvert.DeserializeObject<Properties>(File.ReadAllText(Json), Converter.Settings);
+            return JsonConvert.DeserializeObject<Properties>(ReadProperties(Path), Converter.Settings);
+        }
+
+        public static string ReadProperties(string Path)
+        {
+            return File.ReadAllText(Path);
+        }
+
+        public static void WriteJson(string Path, Properties Properties)
+        {
+            File.WriteAllText(Path, JsonConvert.SerializeObject(Properties, Converter.Settings));
         }
     }
 }

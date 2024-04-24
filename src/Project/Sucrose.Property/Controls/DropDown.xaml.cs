@@ -1,4 +1,5 @@
-﻿using SSTMDDM = Sucrose.Shared.Theme.Model.DropDownModel;
+﻿using SPHP = Sucrose.Property.Helper.Properties;
+using SSTMDDM = Sucrose.Shared.Theme.Model.DropDownModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -9,18 +10,20 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class DropDown : UserControl
     {
-        public DropDown(SSTMDDM Data)
+        public DropDown(string Key, SSTMDDM Data)
         {
             InitializeComponent();
 
-            InitializeData(Data);
+            InitializeData(Key, Data);
         }
 
-        private void InitializeData(SSTMDDM Data)
+        private void InitializeData(string Key, SSTMDDM Data)
         {
-            Component.Text = Data.Text;
+            Label.Text = Data.Text;
             Component.ItemsSource = Data.Items;
             Component.SelectedIndex = Data.Value;
+
+            Component.SelectionChanged += (s, e) => Component_Changed(Key, Data, Component.SelectedIndex);
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -31,6 +34,13 @@ namespace Sucrose.Property.Controls
 
                 Component.ToolTip = HelpTip;
             }
+        }
+
+        private void Component_Changed(string Key, SSTMDDM Data, int Value)
+        {
+            Data.Value = Value;
+
+            SPHP.Change(Key, Data);
         }
     }
 }

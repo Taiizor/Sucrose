@@ -10,5 +10,11 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <ComboBox x:Name="Component" MaxDropDownHeight="200" />
+    <StackPanel Orientation="Vertical">
+        <ui:TextBlock
+            x:Name="Label"
+            Margin="0,0,0,5"
+            FontSize="16" />
+        <ComboBox x:Name="Component" MaxDropDownHeight="200" />
+    </StackPanel>
 </UserControl>

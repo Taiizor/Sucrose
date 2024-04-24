@@ -8,6 +8,7 @@ using CPicker = HandyControl.Controls.ColorPicker;
 using DColor = System.Drawing.Color;
 using MColor = System.Windows.Media.Color;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SPHP = Sucrose.Property.Helper.Properties;
 using SPMM = Sucrose.Property.Manage.Manager;
 using SSECCE = Skylark.Standard.Extension.Color.ColorExtension;
 using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
@@ -22,15 +23,15 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class ColorPicker : UserControl
     {
-        public Control Control { get; set; }
+        private Control Control { get; set; }
 
-        public ColorPicker(SSTMCPM Data, Control Control)
+        public ColorPicker(string Key, SSTMCPM Data, Control Control)
         {
             InitializeComponent();
 
-            InitializeData(Data);
-
             this.Control = Control;
+
+            InitializeData(Key, Data);
 
             if (SPMM.BackdropType == WindowBackdropType.Auto)
             {
@@ -56,10 +57,13 @@ namespace Sucrose.Property.Controls
             }
         }
 
-        private void InitializeData(SSTMCPM Data)
+        private void InitializeData(string Key, SSTMCPM Data)
         {
+            Label.Text = Data.Text;
             DColor Color = SSECCE.HexToColor(Data.Value);
             Component.Color = MColor.FromArgb(Color.A, Color.R, Color.G, Color.B);
+
+            DropDownButton.Click += (s, e) => DropDownButton_Click(Key, Data);
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -72,7 +76,7 @@ namespace Sucrose.Property.Controls
             }
         }
 
-        private void DropDownButton_Click(object sender, RoutedEventArgs e)
+        private void DropDownButton_Click(string Key, SSTMCPM Data)
         {
             CPicker Picker = SingleOpenHelper.CreateControl<CPicker>();
 
@@ -94,9 +98,24 @@ namespace Sucrose.Property.Controls
                 Title = "Sucrose Property Color Picker"
             };
 
-            Picker.Confirmed += (s, ee) => { Component.Color = ee.Info; PWindow.Close(); };
-            Picker.SelectedColorChanged += (s, ee) => { Component.Color = ee.Info; };
-            Picker.Canceled += delegate { Component.Color = Temp; PWindow.Close(); };
+            Picker.Confirmed += (s, ee) =>
+            {
+                Data.Value = ee.Info.ToString();
+                Component.Color = ee.Info;
+                SPHP.Change(Key, Data);
+                PWindow.Close();
+            };
+
+            Picker.SelectedColorChanged += (s, ee) =>
+            {
+                Component.Color = ee.Info;
+            };
+
+            Picker.Canceled += delegate
+            {
+                Component.Color = Temp;
+                PWindow.Close();
+            };
 
             PWindow.Show(Control, false);
         }

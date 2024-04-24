@@ -78,15 +78,15 @@ namespace Sucrose.Property.View
                 Container.Children.Add(Pair.Value.Type.ToLower() switch
                 {
                     "label" => new SPCL(Pair.Value as SSTMLM),
-                    "button" => new SPCB(Pair.Value as SSTMBM),
-                    "slider" => new SPCS(Pair.Value as SSTMSM),
-                    "textbox" => new SPCTB(Pair.Value as SSTMTBM),
-                    "checkbox" => new SPCCB(Pair.Value as SSTMCBM),
-                    "dropdown" => new SPCDD(Pair.Value as SSTMDDM),
-                    "numberbox" => new SPCNB(Pair.Value as SSTMNBM),
-                    "passwordbox" => new SPCPB(Pair.Value as SSTMPBM),
-                    "filedropdown" => new SPCFDD(Pair.Value as SSTMFDDM),
-                    "colorpicker" => new SPCCP(Pair.Value as SSTMCPM, Restore),
+                    "button" => new SPCB(Pair.Key, Pair.Value as SSTMBM),
+                    "slider" => new SPCS(Pair.Key, Pair.Value as SSTMSM),
+                    "textbox" => new SPCTB(Pair.Key, Pair.Value as SSTMTBM),
+                    "checkbox" => new SPCCB(Pair.Key, Pair.Value as SSTMCBM),
+                    "dropdown" => new SPCDD(Pair.Key, Pair.Value as SSTMDDM),
+                    "numberbox" => new SPCNB(Pair.Key, Pair.Value as SSTMNBM),
+                    "passwordbox" => new SPCPB(Pair.Key, Pair.Value as SSTMPBM),
+                    "filedropdown" => new SPCFDD(Pair.Key, Pair.Value as SSTMFDDM),
+                    "colorpicker" => new SPCCP(Pair.Key, Pair.Value as SSTMCPM, Restore),
                     _ => throw new NotSupportedException($"Control type '{Pair.Value.Type}' is not supported."),
                 });
             }
@@ -169,8 +169,6 @@ namespace Sucrose.Property.View
 
             SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
 
-            await Task.Delay(250);
-
             if (SPMI.EngineLive)
             {
                 await Task.Delay(250);
@@ -217,6 +215,13 @@ namespace Sucrose.Property.View
             Restore.IsEnabled = false;
 
             File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
+
+            if (SSSHL.Run())
+            {
+                await Task.Delay(250);
+
+                File.Copy(SPMI.PropertiesPath, SPMI.WatcherFile.Replace("*", $"{Guid.NewGuid()}"), true);
+            }
 
             await Task.Delay(250);
 

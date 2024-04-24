@@ -8,6 +8,8 @@ namespace Sucrose.Property.Manage
 
         public static string InfoPath;
 
+        public static string WatcherFile;
+
         public static string PropertiesFile;
 
         public static string PropertiesPath;

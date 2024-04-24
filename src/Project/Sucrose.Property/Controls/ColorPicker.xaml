@@ -11,11 +11,14 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <StackPanel Orientation="Horizontal">
+    <StackPanel Orientation="Vertical">
+        <ui:TextBlock
+            x:Name="Label"
+            Margin="0,0,0,5"
+            FontSize="16" />
         <Grid x:Name="Container">
             <ui:DropDownButton
-                x:Name="DropDown"
-                Click="DropDownButton_Click"
+                x:Name="DropDownButton"
                 Content="         "
                 Cursor="Hand"
                 Icon="{ui:SymbolIcon EyeDropper24}" />

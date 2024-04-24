@@ -1,4 +1,5 @@
-﻿using SSTMPBM = Sucrose.Shared.Theme.Model.PasswordBoxModel;
+﻿using SPHP = Sucrose.Property.Helper.Properties;
+using SSTMPBM = Sucrose.Shared.Theme.Model.PasswordBoxModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -9,17 +10,19 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class PasswordBox : UserControl
     {
-        public PasswordBox(SSTMPBM Data)
+        public PasswordBox(string Key, SSTMPBM Data)
         {
             InitializeComponent();
 
-            InitializeData(Data);
+            InitializeData(Key, Data);
         }
 
-        private void InitializeData(SSTMPBM Data)
+        private void InitializeData(string Key, SSTMPBM Data)
         {
             Component.Password = Data.Value;
             Component.PlaceholderText = Data.Text;
+
+            Component.PasswordChanged += (s, e) => Component_Changed(Key, Data, Component.Password);
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -30,6 +33,13 @@ namespace Sucrose.Property.Controls
 
                 Component.ToolTip = HelpTip;
             }
+        }
+
+        private void Component_Changed(string Key, SSTMPBM Data, string Value)
+        {
+            Data.Value = Value;
+
+            SPHP.Change(Key, Data);
         }
     }
 }

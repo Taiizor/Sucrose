@@ -1,4 +1,5 @@
-﻿using SSTMBM = Sucrose.Shared.Theme.Model.ButtonModel;
+﻿using SPHP = Sucrose.Property.Helper.Properties;
+using SSTMBM = Sucrose.Shared.Theme.Model.ButtonModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -9,18 +10,18 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class Button : UserControl
     {
-        public Button(SSTMBM Data)
+        public Button(string Key, SSTMBM Data)
         {
             InitializeComponent();
 
-            InitializeData(Data);
+            InitializeData(Key, Data);
         }
 
-        private void InitializeData(SSTMBM Data)
+        private void InitializeData(string Key, SSTMBM Data)
         {
             Component.Content = Data.Text;
 
-            Component.Click += async (s, e) => await Component_Click(Data);
+            Component.Click += (s, e) => Component_Click(Key, Data);
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -33,23 +34,9 @@ namespace Sucrose.Property.Controls
             }
         }
 
-        // Tıklama gerçekleştikten sonra yeni ayarlar cache property'sine aktarılır. Sonrasında tekrar komut gerçekleşmesin
-        // diye değer null yapılır.
-        private async Task Component_Click(SSTMBM Data)
+        private void Component_Click(string Key, SSTMBM Data)
         {
-            Component.IsEnabled = false;
-
-            Data.Value = Data.Command;
-
-            await Task.Delay(100);
-
-            Data.Value = null;
-
-            await Task.Delay(100);
-
-            Component.IsEnabled = true;
-
-            await Task.CompletedTask;
+            SPHP.Change(Key, Data);
         }
     }
 }

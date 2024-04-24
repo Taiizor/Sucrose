@@ -1,4 +1,5 @@
-﻿using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
+﻿using SPHP = Sucrose.Property.Helper.Properties;
+using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -9,19 +10,22 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class Slider : UserControl
     {
-        public Slider(SSTMSM Data)
+        public Slider(string Key, SSTMSM Data)
         {
             InitializeComponent();
 
-            InitializeData(Data);
+            InitializeData(Key, Data);
         }
 
-        private void InitializeData(SSTMSM Data)
+        private void InitializeData(string Key, SSTMSM Data)
         {
+            Label.Text = Data.Text;
             Component.Maximum = Data.Max;
             Component.Minimum = Data.Min;
             Component.Value = Data.Value;
             Component.TickFrequency = Data.Step;
+
+            Component.ValueChanged += (s, e) => Component_Changed(Key, Data, e.NewValue);
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -32,6 +36,13 @@ namespace Sucrose.Property.Controls
 
                 Component.ToolTip = HelpTip;
             }
+        }
+
+        private void Component_Changed(string Key, SSTMSM Data, double Value)
+        {
+            Data.Value = Value;
+
+            SPHP.Change(Key, Data);
         }
     }
 }

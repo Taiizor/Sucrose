@@ -1,4 +1,5 @@
-﻿using SSTMTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
+﻿using SPHP = Sucrose.Property.Helper.Properties;
+using SSTMTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -9,17 +10,19 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class TextBox : UserControl
     {
-        public TextBox(SSTMTBM Data)
+        public TextBox(string Key, SSTMTBM Data)
         {
             InitializeComponent();
 
-            InitializeData(Data);
+            InitializeData(Key, Data);
         }
 
-        private void InitializeData(SSTMTBM Data)
+        private void InitializeData(string Key, SSTMTBM Data)
         {
             Component.Text = Data.Value;
             Component.PlaceholderText = Data.Text;
+
+            Component.TextChanged += (s, e) => Component_Changed(Key, Data, Component.Text);
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -30,6 +33,13 @@ namespace Sucrose.Property.Controls
 
                 Component.ToolTip = HelpTip;
             }
+        }
+
+        private void Component_Changed(string Key, SSTMTBM Data, string Value)
+        {
+            Data.Value = Value;
+
+            SPHP.Change(Key, Data);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SSTMCBM = Sucrose.Shared.Theme.Model.CheckBoxModel;
+﻿using SPHP = Sucrose.Property.Helper.Properties;
+using SSTMCBM = Sucrose.Shared.Theme.Model.CheckBoxModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -9,17 +10,20 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class CheckBox : UserControl
     {
-        public CheckBox(SSTMCBM Data)
+        public CheckBox(string Key, SSTMCBM Data)
         {
             InitializeComponent();
 
-            InitializeData(Data);
+            InitializeData(Key, Data);
         }
 
-        private void InitializeData(SSTMCBM Data)
+        private void InitializeData(string Key, SSTMCBM Data)
         {
             Component.Content = Data.Text;
             Component.IsChecked = Data.Value;
+
+            Component.Checked += (s, e) => Component_Changed(Key, Data, true);
+            Component.Unchecked += (s, e) => Component_Changed(Key, Data, false);
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
@@ -30,6 +34,13 @@ namespace Sucrose.Property.Controls
 
                 Component.ToolTip = HelpTip;
             }
+        }
+
+        private void Component_Changed(string Key, SSTMCBM Data, bool Value)
+        {
+            Data.Value = Value;
+
+            SPHP.Change(Key, Data);
         }
     }
 }
