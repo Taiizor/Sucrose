@@ -5,11 +5,15 @@ using System.Windows;
 using Wpf.Ui.Controls;
 using Control = System.Windows.Controls.Control;
 using CPicker = HandyControl.Controls.ColorPicker;
-using UserControl = System.Windows.Controls.UserControl;
-using SPMI = Sucrose.Property.Manage.Internal;
-using SPMM = Sucrose.Property.Manage.Manager;
-using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using DColor = System.Drawing.Color;
+using MColor = System.Windows.Media.Color;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SPMM = Sucrose.Property.Manage.Manager;
+using SSECCE = Skylark.Standard.Extension.Color.ColorExtension;
+using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
+using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using ToolTip = System.Windows.Controls.ToolTip;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
 {
@@ -20,10 +24,13 @@ namespace Sucrose.Property.Controls
     {
         public Control Control { get; set; }
 
-        public ColorPicker()
+        public ColorPicker(SSTMCPM Data, Control Control)
         {
-            DataContext = this;
             InitializeComponent();
+
+            InitializeData(Data);
+
+            this.Control = Control;
 
             if (SPMM.BackdropType == WindowBackdropType.Auto)
             {
@@ -49,18 +56,34 @@ namespace Sucrose.Property.Controls
             }
         }
 
+        private void InitializeData(SSTMCPM Data)
+        {
+            DColor Color = SSECCE.HexToColor(Data.Value);
+            Component.Color = MColor.FromArgb(Color.A, Color.R, Color.G, Color.B);
+
+            if (!string.IsNullOrEmpty(Data.Help))
+            {
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
+
+                Container.ToolTip = HelpTip;
+            }
+        }
+
         private void DropDownButton_Click(object sender, RoutedEventArgs e)
         {
-            CPicker picker = SingleOpenHelper.CreateControl<CPicker>();
+            CPicker Picker = SingleOpenHelper.CreateControl<CPicker>();
 
-            System.Windows.Media.Color Temp = SCB.Color;
+            MColor Temp = Component.Color;
 
-            picker.SelectedBrush = new(Temp);
-            picker.UseLayoutRounding = true;
+            Picker.SelectedBrush = new(Temp);
+            Picker.UseLayoutRounding = true;
 
-            PopupWindow window = new()
+            PopupWindow PWindow = new()
             {
-                PopupElement = picker,
+                PopupElement = Picker,
                 WindowStartupLocation = WindowStartupLocation.Manual,
                 AllowsTransparency = true,
                 WindowStyle = WindowStyle.None,
@@ -71,11 +94,11 @@ namespace Sucrose.Property.Controls
                 Title = "Sucrose Property Color Picker"
             };
 
-            picker.Confirmed += (s, ee) => { SCB.Color = ee.Info; window.Close(); };
-            picker.SelectedColorChanged += (s, ee) => { SCB.Color = ee.Info; };
-            picker.Canceled += delegate { SCB.Color = Temp; window.Close(); };
+            Picker.Confirmed += (s, ee) => { Component.Color = ee.Info; PWindow.Close(); };
+            Picker.SelectedColorChanged += (s, ee) => { Component.Color = ee.Info; };
+            Picker.Canceled += delegate { Component.Color = Temp; PWindow.Close(); };
 
-            window.Show(Control, false);
+            PWindow.Show(Control, false);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SSTMBM = Sucrose.Shared.Theme.Model.ButtonModel;
+using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
@@ -8,32 +9,47 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class Button : UserControl
     {
-        public Button()
+        public Button(SSTMBM Data)
         {
-            DataContext = this;
             InitializeComponent();
+
+            InitializeData(Data);
         }
 
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(string), typeof(Button), new PropertyMetadata(null));
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(Button), new PropertyMetadata(null));
-        public static readonly DependencyProperty HintProperty = DependencyProperty.Register("Hint", typeof(string), typeof(Button), new PropertyMetadata(null));
-
-        public string Value
+        private void InitializeData(SSTMBM Data)
         {
-            get => (string)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
+            Component.Content = Data.Text;
+
+            Component.Click += async (s, e) => await Component_Click(Data);
+
+            if (!string.IsNullOrEmpty(Data.Help))
+            {
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
+
+                Component.ToolTip = HelpTip;
+            }
         }
 
-        public string Help
+        // Tıklama gerçekleştikten sonra yeni ayarlar cache property'sine aktarılır. Sonrasında tekrar komut gerçekleşmesin
+        // diye değer null yapılır.
+        private async Task Component_Click(SSTMBM Data)
         {
-            get => (string)GetValue(HelpProperty);
-            set => SetValue(HelpProperty, value);
-        }
+            Component.IsEnabled = false;
 
-        public string Hint
-        {
-            get => (string)GetValue(HintProperty);
-            set => SetValue(HintProperty, value);
+            Data.Value = Data.Command;
+
+            await Task.Delay(100);
+
+            Data.Value = null;
+
+            await Task.Delay(100);
+
+            Component.IsEnabled = true;
+
+            await Task.CompletedTask;
         }
     }
 }

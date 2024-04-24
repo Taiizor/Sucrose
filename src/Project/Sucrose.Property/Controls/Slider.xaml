@@ -14,10 +14,5 @@
         x:Name="Component"
         Cursor="Hand"
         IsSnapToTickEnabled="True"
-        Maximum="{Binding Max, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        Minimum="{Binding Min, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        TickFrequency="{Binding Step, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        TickPlacement="None"
-        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        Value="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+        TickPlacement="None" />
 </UserControl>

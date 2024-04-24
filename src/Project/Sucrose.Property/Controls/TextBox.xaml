@@ -10,10 +10,5 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <ui:TextBox
-        x:Name="Component"
-        PlaceholderEnabled="True"
-        PlaceholderText="{Binding Hint, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        Text="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+    <ui:TextBox x:Name="Component" PlaceholderEnabled="True" />
 </UserControl>

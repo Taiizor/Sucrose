@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SSTMCBM = Sucrose.Shared.Theme.Model.CheckBoxModel;
+using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
@@ -8,32 +9,27 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class CheckBox : UserControl
     {
-        public CheckBox()
+        public CheckBox(SSTMCBM Data)
         {
-            DataContext = this;
             InitializeComponent();
+
+            InitializeData(Data);
         }
 
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(bool), typeof(CheckBox), new PropertyMetadata(false));
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(CheckBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty HintProperty = DependencyProperty.Register("Hint", typeof(string), typeof(CheckBox), new PropertyMetadata(null));
-
-        public bool Value
+        private void InitializeData(SSTMCBM Data)
         {
-            get => (bool)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
-        }
+            Component.Content = Data.Text;
+            Component.IsChecked = Data.Value;
 
-        public string Help
-        {
-            get => (string)GetValue(HelpProperty);
-            set => SetValue(HelpProperty, value);
-        }
+            if (!string.IsNullOrEmpty(Data.Help))
+            {
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
 
-        public string Hint
-        {
-            get => (string)GetValue(HintProperty);
-            set => SetValue(HintProperty, value);
+                Component.ToolTip = HelpTip;
+            }
         }
     }
 }

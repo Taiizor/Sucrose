@@ -101,11 +101,13 @@ namespace Sucrose.Property
         {
             if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
             {
-                SPMI.PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
+                SPMI.Path = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected);
+
+                SPMI.PropertiesPath = Path.Combine(SPMI.Path, SMR.SucroseProperties);
 
                 if (File.Exists(SPMI.PropertiesPath))
                 {
-                    SPMI.InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
+                    SPMI.InfoPath = Path.Combine(SPMI.Path, SMR.SucroseInfo);
 
                     if (File.Exists(SPMI.InfoPath))
                     {

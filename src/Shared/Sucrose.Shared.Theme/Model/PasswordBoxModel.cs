@@ -8,6 +8,6 @@ namespace Sucrose.Shared.Theme.Model
         [JsonProperty("value")]
         public string Value { get; set; }
 
-        public PasswordBoxModel() : base("textbox") { }
+        public PasswordBoxModel() : base("passwordbox") { }
     }
 }

@@ -13,8 +13,5 @@
     <CheckBox
         x:Name="Component"
         HorizontalAlignment="Stretch"
-        Content="{Binding Hint, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        FontSize="16"
-        IsChecked="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+        FontSize="16" />
 </UserControl>

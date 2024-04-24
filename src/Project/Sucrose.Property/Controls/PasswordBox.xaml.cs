@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SSTMPBM = Sucrose.Shared.Theme.Model.PasswordBoxModel;
+using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
@@ -8,32 +9,27 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class PasswordBox : UserControl
     {
-        public PasswordBox()
+        public PasswordBox(SSTMPBM Data)
         {
-            DataContext = this;
             InitializeComponent();
+
+            InitializeData(Data);
         }
 
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(string), typeof(PasswordBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty HintProperty = DependencyProperty.Register("Hint", typeof(string), typeof(PasswordBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(PasswordBox), new PropertyMetadata(null));
-
-        public string Value
+        private void InitializeData(SSTMPBM Data)
         {
-            get => (string)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
-        }
+            Component.Password = Data.Value;
+            Component.PlaceholderText = Data.Text;
 
-        public string Hint
-        {
-            get => (string)GetValue(HintProperty);
-            set => SetValue(HintProperty, value);
-        }
+            if (!string.IsNullOrEmpty(Data.Help))
+            {
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
 
-        public string Help
-        {
-            get => (string)GetValue(HelpProperty);
-            set => SetValue(HelpProperty, value);
+                Component.ToolTip = HelpTip;
+            }
         }
     }
 }

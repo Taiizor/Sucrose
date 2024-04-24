@@ -12,12 +12,6 @@
     mc:Ignorable="d">
     <ui:NumberBox
         x:Name="Component"
-        MaxDecimalPlaces="2"
-        Maximum="{Binding Max, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        Minimum="{Binding Min, RelativeSource={RelativeSource AncestorType=UserControl}}"
         PlaceholderEnabled="True"
-        PlaceholderText="{Binding Hint, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        SpinButtonPlacementMode="Compact"
-        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        Value="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+        SpinButtonPlacementMode="Inline" />
 </UserControl>

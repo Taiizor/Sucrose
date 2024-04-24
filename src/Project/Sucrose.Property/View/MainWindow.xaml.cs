@@ -1,40 +1,38 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using SEWTT = Skylark.Enum.WindowsThemeType;
-using SPMI = Sucrose.Property.Manage.Internal;
-using SPMM = Sucrose.Property.Manage.Manager;
-using SSLHK = Sucrose.Shared.Live.Helper.Kill;
-using SSLHR = Sucrose.Shared.Live.Helper.Run;
-using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
-using SWHWTR = Skylark.Wing.Helper.WindowsTaskbar;
-using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SPCB = Sucrose.Property.Controls.Button;
 using SPCCB = Sucrose.Property.Controls.CheckBox;
 using SPCCP = Sucrose.Property.Controls.ColorPicker;
 using SPCDD = Sucrose.Property.Controls.DropDown;
-using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SPCFDD = Sucrose.Property.Controls.FileDropDown;
 using SPCL = Sucrose.Property.Controls.Label;
 using SPCNB = Sucrose.Property.Controls.NumberBox;
 using SPCPB = Sucrose.Property.Controls.PasswordBox;
 using SPCS = Sucrose.Property.Controls.Slider;
 using SPCTB = Sucrose.Property.Controls.TextBox;
-using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
-using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
+using SPMI = Sucrose.Property.Manage.Internal;
+using SPMM = Sucrose.Property.Manage.Manager;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
+using SSLHR = Sucrose.Shared.Live.Helper.Run;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
+using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
 using SSTMBM = Sucrose.Shared.Theme.Model.ButtonModel;
 using SSTMCBM = Sucrose.Shared.Theme.Model.CheckBoxModel;
+using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
 using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
 using SSTMDDM = Sucrose.Shared.Theme.Model.DropDownModel;
 using SSTMFDDM = Sucrose.Shared.Theme.Model.FileDropDownModel;
-using SSTMFTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
-using SSTMFNBM = Sucrose.Shared.Theme.Model.NumberBoxModel;
-using SSTMFPBM = Sucrose.Shared.Theme.Model.PasswordBoxModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
+using SSTMNBM = Sucrose.Shared.Theme.Model.NumberBoxModel;
+using SSTMPBM = Sucrose.Shared.Theme.Model.PasswordBoxModel;
+using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
+using SSTMTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
-using System.IO;
+using SWHWTR = Skylark.Wing.Helper.WindowsTaskbar;
 
 namespace Sucrose.Property.View
 {
@@ -80,15 +78,15 @@ namespace Sucrose.Property.View
                 Container.Children.Add(Pair.Value.Type.ToLower() switch
                 {
                     "label" => new SPCL(Pair.Value as SSTMLM),
-                    //"button" => new SPCB(Pair.Value),
-                    //"slider" => new SPCS(Pair.Value),
-                    //"textbox" => new SPCTB(Pair.Value),
-                    //"checkbox" => new SPCCB(Pair.Value),
-                    //"dropdown" => new SPCDD(Pair.Value),
-                    //"numberbox" => new SPCNB(Pair.Value),
-                    //"colorpicker" => new SPCCP(Pair.Value),
-                    //"passwordbox" => new SPCPB(Pair.Value),
-                    //"filedropdown" => new SPCFDD(Pair.Value),
+                    "button" => new SPCB(Pair.Value as SSTMBM),
+                    "slider" => new SPCS(Pair.Value as SSTMSM),
+                    "textbox" => new SPCTB(Pair.Value as SSTMTBM),
+                    "checkbox" => new SPCCB(Pair.Value as SSTMCBM),
+                    "dropdown" => new SPCDD(Pair.Value as SSTMDDM),
+                    "numberbox" => new SPCNB(Pair.Value as SSTMNBM),
+                    "passwordbox" => new SPCPB(Pair.Value as SSTMPBM),
+                    "filedropdown" => new SPCFDD(Pair.Value as SSTMFDDM),
+                    "colorpicker" => new SPCCP(Pair.Value as SSTMCPM, Restore),
                     _ => throw new NotSupportedException($"Control type '{Pair.Value.Type}' is not supported."),
                 });
             }

@@ -1,16 +1,16 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
-using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
-using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
 using SSTMBM = Sucrose.Shared.Theme.Model.ButtonModel;
 using SSTMCBM = Sucrose.Shared.Theme.Model.CheckBoxModel;
+using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
 using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
 using SSTMDDM = Sucrose.Shared.Theme.Model.DropDownModel;
 using SSTMFDDM = Sucrose.Shared.Theme.Model.FileDropDownModel;
-using SSTMFTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
-using SSTMFNBM = Sucrose.Shared.Theme.Model.NumberBoxModel;
-using SSTMFPBM = Sucrose.Shared.Theme.Model.PasswordBoxModel;
+using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
+using SSTMNBM = Sucrose.Shared.Theme.Model.NumberBoxModel;
+using SSTMPBM = Sucrose.Shared.Theme.Model.PasswordBoxModel;
+using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
+using SSTMTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
 
 namespace Sucrose.Shared.Theme.Converter
 {
@@ -33,10 +33,10 @@ namespace Sucrose.Shared.Theme.Converter
                 "slider" => jsonObject.ToObject<SSTMSM>(),
                 "checkbox" => jsonObject.ToObject<SSTMCBM>(),
                 "dropdown" => jsonObject.ToObject<SSTMDDM>(),
-                "textbox" => jsonObject.ToObject<SSTMFTBM>(),
-                "numberbox" => jsonObject.ToObject<SSTMFNBM>(),
+                "textbox" => jsonObject.ToObject<SSTMTBM>(),
+                "numberbox" => jsonObject.ToObject<SSTMNBM>(),
                 "colorpicker" => jsonObject.ToObject<SSTMCPM>(),
-                "passwordbox" => jsonObject.ToObject<SSTMFPBM>(),
+                "passwordbox" => jsonObject.ToObject<SSTMPBM>(),
                 "filedropdown" => jsonObject.ToObject<SSTMFDDM>(),
                 _ => throw new NotSupportedException($"Control type '{type}' is not supported."),
             };

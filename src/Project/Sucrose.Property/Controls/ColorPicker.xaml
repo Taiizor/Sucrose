@@ -12,7 +12,7 @@
     Margin="0,0,0,10"
     mc:Ignorable="d">
     <StackPanel Orientation="Horizontal">
-        <Grid>
+        <Grid x:Name="Container">
             <ui:DropDownButton
                 x:Name="DropDown"
                 Click="DropDownButton_Click"
@@ -28,7 +28,7 @@
                 RadiusX="5"
                 RadiusY="5">
                 <Rectangle.Fill>
-                    <SolidColorBrush x:Name="SCB" Color="DodgerBlue" />
+                    <SolidColorBrush x:Name="Component" Color="DodgerBlue" />
                 </Rectangle.Fill>
             </Rectangle>
         </Grid>

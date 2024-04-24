@@ -10,7 +10,7 @@
     Height="Auto"
     Margin="0,0,0,10"
     mc:Ignorable="d">
-    <Grid HorizontalAlignment="Stretch">
+    <Grid x:Name="Container" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
@@ -19,10 +19,7 @@
             x:Name="Component"
             Grid.Column="0"
             HorizontalAlignment="Stretch"
-            SelectedIndex="0">
-            <ComboBoxItem Content="BigMountain.jpeg" />
-            <ComboBoxItem Content="VintageVillage.jpg" />
-        </ComboBox>
+            MaxDropDownHeight="200" />
         <ui:Button
             x:Name="Command"
             Grid.Column="1"

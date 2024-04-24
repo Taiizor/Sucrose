@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SSTMNBM = Sucrose.Shared.Theme.Model.NumberBoxModel;
+using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
@@ -8,46 +9,30 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class NumberBox : UserControl
     {
-        public NumberBox()
+        public NumberBox(SSTMNBM Data)
         {
-            DataContext = this;
             InitializeComponent();
+
+            InitializeData(Data);
         }
 
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(double), typeof(NumberBox), new PropertyMetadata(1.0));
-        public static readonly DependencyProperty HintProperty = DependencyProperty.Register("Hint", typeof(string), typeof(NumberBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(NumberBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty MaxProperty = DependencyProperty.Register("Max", typeof(double), typeof(NumberBox), new PropertyMetadata(2.0));
-        public static readonly DependencyProperty MinProperty = DependencyProperty.Register("Min", typeof(double), typeof(NumberBox), new PropertyMetadata(0.0));
-
-        public double Value
+        private void InitializeData(SSTMNBM Data)
         {
-            get => (double)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
-        }
+            Component.Maximum = Data.Max;
+            Component.Minimum = Data.Min;
+            Component.Value = Data.Value;
+            Component.PlaceholderText = Data.Text;
+            Component.MaxDecimalPlaces = Data.Places;
 
-        public string Hint
-        {
-            get => (string)GetValue(HintProperty);
-            set => SetValue(HintProperty, value);
-        }
+            if (!string.IsNullOrEmpty(Data.Help))
+            {
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
 
-        public string Help
-        {
-            get => (string)GetValue(HelpProperty);
-            set => SetValue(HelpProperty, value);
-        }
-
-        public double Max
-        {
-            get => (double)GetValue(MaxProperty);
-            set => SetValue(MaxProperty, value);
-        }
-
-        public double Min
-        {
-            get => (double)GetValue(MinProperty);
-            set => SetValue(MinProperty, value);
+                Component.ToolTip = HelpTip;
+            }
         }
     }
 }

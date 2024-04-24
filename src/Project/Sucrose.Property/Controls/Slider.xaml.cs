@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
+using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
@@ -8,46 +9,29 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class Slider : UserControl
     {
-        public Slider()
+        public Slider(SSTMSM Data)
         {
-            DataContext = this;
             InitializeComponent();
+
+            InitializeData(Data);
         }
 
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(double), typeof(Slider), new PropertyMetadata(1.0));
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(Slider), new PropertyMetadata(null));
-        public static readonly DependencyProperty StepProperty = DependencyProperty.Register("Step", typeof(double), typeof(Slider), new PropertyMetadata(1.0));
-        public static readonly DependencyProperty MaxProperty = DependencyProperty.Register("Max", typeof(double), typeof(Slider), new PropertyMetadata(2.0));
-        public static readonly DependencyProperty MinProperty = DependencyProperty.Register("Min", typeof(double), typeof(Slider), new PropertyMetadata(0.0));
-
-        public double Value
+        private void InitializeData(SSTMSM Data)
         {
-            get => (double)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
-        }
+            Component.Maximum = Data.Max;
+            Component.Minimum = Data.Min;
+            Component.Value = Data.Value;
+            Component.TickFrequency = Data.Step;
 
-        public string Help
-        {
-            get => (string)GetValue(HelpProperty);
-            set => SetValue(HelpProperty, value);
-        }
+            if (!string.IsNullOrEmpty(Data.Help))
+            {
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
 
-        public double Step
-        {
-            get => (double)GetValue(StepProperty);
-            set => SetValue(StepProperty, value);
-        }
-
-        public double Max
-        {
-            get => (double)GetValue(MaxProperty);
-            set => SetValue(MaxProperty, value);
-        }
-
-        public double Min
-        {
-            get => (double)GetValue(MinProperty);
-            set => SetValue(MinProperty, value);
+                Component.ToolTip = HelpTip;
+            }
         }
     }
 }

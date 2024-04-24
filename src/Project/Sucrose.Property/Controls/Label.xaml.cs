@@ -1,6 +1,6 @@
 ﻿using SSTMLM = Sucrose.Shared.Theme.Model.LabelModel;
-using UserControl = System.Windows.Controls.UserControl;
 using ToolTip = System.Windows.Controls.ToolTip;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
 {
@@ -11,8 +11,6 @@ namespace Sucrose.Property.Controls
     {
         public Label(SSTMLM Data)
         {
-            DataContext = this;
-
             InitializeComponent();
 
             InitializeData(Data);
@@ -22,12 +20,15 @@ namespace Sucrose.Property.Controls
         {
             Component.Text = Data.Value;
 
-            ToolTip HelpTip = new()
+            if (!string.IsNullOrEmpty(Data.Help))
             {
-                Content = Data.Help
-            };
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
 
-            Component.ToolTip = HelpTip;
+                Component.ToolTip = HelpTip;
+            }
         }
     }
 }

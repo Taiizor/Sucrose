@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SSTMTBM = Sucrose.Shared.Theme.Model.TextBoxModel;
+using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace Sucrose.Property.Controls
@@ -8,32 +9,27 @@ namespace Sucrose.Property.Controls
     /// </summary>
     public partial class TextBox : UserControl
     {
-        public TextBox()
+        public TextBox(SSTMTBM Data)
         {
-            DataContext = this;
             InitializeComponent();
+
+            InitializeData(Data);
         }
 
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(string), typeof(TextBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty HintProperty = DependencyProperty.Register("Hint", typeof(string), typeof(TextBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty HelpProperty = DependencyProperty.Register("Help", typeof(string), typeof(TextBox), new PropertyMetadata(null));
-
-        public string Value
+        private void InitializeData(SSTMTBM Data)
         {
-            get => (string)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
-        }
+            Component.Text = Data.Value;
+            Component.PlaceholderText = Data.Text;
 
-        public string Hint
-        {
-            get => (string)GetValue(HintProperty);
-            set => SetValue(HintProperty, value);
-        }
+            if (!string.IsNullOrEmpty(Data.Help))
+            {
+                ToolTip HelpTip = new()
+                {
+                    Content = Data.Help
+                };
 
-        public string Help
-        {
-            get => (string)GetValue(HelpProperty);
-            set => SetValue(HelpProperty, value);
+                Component.ToolTip = HelpTip;
+            }
         }
     }
 }

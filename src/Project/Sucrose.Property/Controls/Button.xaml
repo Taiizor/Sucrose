@@ -14,7 +14,5 @@
         x:Name="Component"
         HorizontalAlignment="Stretch"
         Appearance="Secondary"
-        Content="{Binding Hint, RelativeSource={RelativeSource AncestorType=UserControl}}"
-        Cursor="Hand"
-        ToolTipService.ToolTip="{Binding Help, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+        Cursor="Hand" />
 </UserControl>

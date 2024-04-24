@@ -8,6 +8,9 @@ namespace Sucrose.Shared.Theme.Model
         [JsonProperty("value")]
         public string Value { get; set; }
 
+        [JsonProperty("command")]
+        public string Command { get; set; }
+
         public ButtonModel() : base("button") { }
     }
 }

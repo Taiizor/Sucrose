@@ -4,6 +4,8 @@ namespace Sucrose.Property.Manage
 {
     internal static class Internal
     {
+        public static string Path;
+
         public static string InfoPath;
 
         public static string PropertiesFile;
