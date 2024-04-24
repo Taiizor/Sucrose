@@ -25,6 +25,12 @@ namespace Sucrose.Shared.Theme.Converter
         {
             JObject jsonObject = JObject.Load(reader);
             string type = jsonObject["type"]?.Value<string>();
+            string text = jsonObject["text"]?.Value<string>();
+
+            if (type?.ToLower() == "label" && string.IsNullOrEmpty(text))
+            {
+                jsonObject["text"] = string.Empty;
+            }
 
             SSTMCM control = type?.ToLower() switch
             {

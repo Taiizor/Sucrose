@@ -98,7 +98,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuCustomize_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Property}{SMR.ValueSeparator}{SSSMI.Property}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.PropertyA}{SMR.ValueSeparator}{SSSMI.Property}{SMR.ValueSeparator}{Path.GetFileName(Theme)}");
         }
 
         private async void MenuEdit_Click(object sender, RoutedEventArgs e)

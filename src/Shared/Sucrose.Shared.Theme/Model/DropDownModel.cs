@@ -5,10 +5,10 @@ namespace Sucrose.Shared.Theme.Model
 {
     public class DropDownModel : SSTMCM
     {
-        [JsonProperty("value")]
+        [JsonProperty("value", Required = Required.Always)]
         public int Value { get; set; }
 
-        [JsonProperty("items")]
+        [JsonProperty("items", Required = Required.Always)]
         public string[] Items { get; set; }
 
         public DropDownModel() : base("dropdown") { }

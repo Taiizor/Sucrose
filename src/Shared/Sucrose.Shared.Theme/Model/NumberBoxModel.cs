@@ -5,16 +5,16 @@ namespace Sucrose.Shared.Theme.Model
 {
     public class NumberBoxModel : SSTMCM
     {
-        [JsonProperty("min")]
+        [JsonProperty("min", Required = Required.Always)]
         public double Min { get; set; }
 
-        [JsonProperty("max")]
+        [JsonProperty("max", Required = Required.Always)]
         public double Max { get; set; }
 
-        [JsonProperty("places")]
+        [JsonProperty("places", Required = Required.Always)]
         public int Places { get; set; }
 
-        [JsonProperty("value")]
+        [JsonProperty("value", Required = Required.Always)]
         public double Value { get; set; }
 
         public NumberBoxModel() : base("numberbox") { }

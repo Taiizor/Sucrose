@@ -97,11 +97,23 @@ namespace Sucrose.Property
             }
         }
 
-        protected void Configure()
+        protected void Configure(string[] Args)
         {
-            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(SMMM.LibrarySelected))
+            string Library = SMMM.LibrarySelected;
+
+            if (Args.Any())
             {
-                SPMI.Path = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected);
+                string[] Arguments = Args.First().Split(SMR.ValueSeparatorChar);
+
+                if (Arguments.Any() && Arguments.Count() == 1)
+                {
+                    Library = Arguments.First();
+                }
+            }
+
+            if (SMMI.LibrarySettingManager.CheckFile() && !string.IsNullOrEmpty(Library))
+            {
+                SPMI.Path = Path.Combine(SMMM.LibraryLocation, Library);
 
                 SPMI.PropertiesPath = Path.Combine(SPMI.Path, SMR.SucroseProperties);
 
@@ -116,7 +128,7 @@ namespace Sucrose.Property
                         if (Info.Type == SSDEWT.Web)
                         {
                             SPMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
-                            SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SMMM.LibrarySelected}.json");
+                            SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{Library}.json");
 
                             if (!Directory.Exists(SPMI.PropertiesCache))
                             {
@@ -159,7 +171,7 @@ namespace Sucrose.Property
 
             if (SSSHI.Basic(SMR.PropertyMutex, SMR.Property))
             {
-                Configure();
+                Configure(e.Args);
             }
             else
             {

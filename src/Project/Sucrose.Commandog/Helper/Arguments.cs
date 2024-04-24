@@ -132,6 +132,9 @@ namespace Sucrose.Commandog.Helper
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                     }
                                     break;
+                                case SSDECT.PropertyA:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    break;
                                 case SSDECT.Scheduler:
                                     switch (SCHP.ArgumentValue<SSDESCT>(Values[0]))
                                     {

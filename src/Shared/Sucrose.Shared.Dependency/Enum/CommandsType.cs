@@ -22,6 +22,7 @@
         StartupP,
         Official,
         Watchdog,
+        PropertyA,
         Scheduler,
         Interface,
         Repository,
