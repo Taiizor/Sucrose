@@ -8,7 +8,6 @@
 
     internal enum SortModeType
     {
-        None,
         Name,
         Creation,
         Modification

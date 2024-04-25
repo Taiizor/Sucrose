@@ -13,8 +13,6 @@ namespace Sucrose.Portal.Manage
 {
     internal static class Internal
     {
-        public static List<string> Themes = new();
-
         public static SPSDS DonateService = new();
 
         public static SPSSS SearchService = new();

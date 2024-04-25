@@ -19,7 +19,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
         public FullLibraryPage(List<string> Themes)
         {
-            this.Themes = Themes;
+            this.Themes.AddRange(Themes);
             DataContext = this;
 
             InitializeComponent();
@@ -44,13 +44,15 @@ namespace Sucrose.Portal.Views.Pages.Library
 
             foreach (string Theme in Themes)
             {
+                string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+
                 if (string.IsNullOrEmpty(Search))
                 {
                     if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                     {
-                        SPVCLC LibraryCard = new(Path.Combine(SMMM.LibraryLocation, Theme), SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo)));
+                        SPVCLC LibraryCard = new(ThemePath, SSTHI.ReadJson(Path.Combine(ThemePath, SMR.SucroseInfo)));
 
-                        LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
+                        LibraryCard.IsVisibleChanged += (s, e) => ThemeCard_IsVisibleChanged(s, e, Theme);
 
                         ThemeLibrary.Children.Add(LibraryCard);
 
@@ -63,7 +65,7 @@ namespace Sucrose.Portal.Views.Pages.Library
                 }
                 else
                 {
-                    SSTHI Info = SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo));
+                    SSTHI Info = SSTHI.ReadJson(Path.Combine(ThemePath, SMR.SucroseInfo));
 
                     string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, true, string.Empty);
                     string Description = Info.Description.ToLowerInvariant();
@@ -73,9 +75,9 @@ namespace Sucrose.Portal.Views.Pages.Library
                     {
                         if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                         {
-                            SPVCLC LibraryCard = new(Path.Combine(SMMM.LibraryLocation, Theme), Info);
+                            SPVCLC LibraryCard = new(ThemePath, Info);
 
-                            LibraryCard.IsVisibleChanged += ThemeCard_IsVisibleChanged;
+                            LibraryCard.IsVisibleChanged += (s, e) => ThemeCard_IsVisibleChanged(s, e, Theme);
 
                             ThemeLibrary.Children.Add(LibraryCard);
 
@@ -112,10 +114,15 @@ namespace Sucrose.Portal.Views.Pages.Library
             await AddThemes(SPMI.SearchService.SearchText, ThemePagination.SelectPage);
         }
 
-        private async void ThemeCard_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void ThemeCard_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e, string Theme)
         {
             if ((bool)e.NewValue == false)
             {
+                if ((sender as SPVCLC).Delete)
+                {
+                    Themes.Remove(Theme);
+                }
+
                 await Task.Delay(250);
 
                 if (ThemeLibrary.Children.Count <= 0)

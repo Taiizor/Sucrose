@@ -11,7 +11,6 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
@@ -35,6 +34,7 @@ namespace Sucrose.Portal.Views.Controls
         private readonly string Theme = string.Empty;
         private readonly SPEIL Loader = new();
         private SSTHI Info = new();
+        public bool Delete;
 
         internal LibraryCard(string Theme, SSTHI Info)
         {
@@ -172,12 +172,12 @@ namespace Sucrose.Portal.Views.Controls
                 MinWidth = 0;
                 MinHeight = 0;
 
+                Delete = true;
+
                 Imagine.Source = null;
                 Imaginer.Source = null;
 
                 Visibility = Visibility.Hidden;
-
-                SPMI.Themes.Remove(Path.GetFileName(Theme));
 
                 await Task.Run(() => Directory.Delete(Theme, true));
             }

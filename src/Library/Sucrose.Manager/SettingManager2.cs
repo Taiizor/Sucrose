@@ -10,10 +10,8 @@ namespace Sucrose.Manager
 {
     public class SettingManager2
     {
-        private Settings _settings = new();
         private static object lockObject = new();
         private readonly string _settingsFilePath;
-        private DateTime _lastWrite = DateTime.Now;
         private readonly ReaderWriterLockSlim _lock;
         private readonly JsonSerializerSettings _serializerSettings;
 
@@ -63,16 +61,11 @@ namespace Sucrose.Manager
 
                         if (CheckFile())
                         {
-                            if (File.GetLastWriteTime(_settingsFilePath) > _lastWrite)
-                            {
-                                string json = SMHR.Read(_settingsFilePath).Result;
+                            string json = SMHR.Read(_settingsFilePath).Result;
 
-                                _settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                                _lastWrite = DateTime.Now;
-                            }
-
-                            if (_settings.Properties.TryGetValue(key, out object value))
+                            if (settings.Properties.TryGetValue(key, out object value))
                             {
                                 return ConvertToType<T>(value);
                             }
@@ -115,16 +108,11 @@ namespace Sucrose.Manager
 
                         if (CheckFile())
                         {
-                            if (File.GetLastWriteTime(_settingsFilePath) > _lastWrite)
-                            {
-                                string json = SMHR.Read(_settingsFilePath).Result;
+                            string json = SMHR.Read(_settingsFilePath).Result;
 
-                                _settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                                _lastWrite = DateTime.Now;
-                            }
-
-                            if (_settings.Properties.TryGetValue(key, out object value))
+                            if (settings.Properties.TryGetValue(key, out object value))
                             {
                                 return JsonConvert.DeserializeObject<T>(value.ToString());
                             }
@@ -167,16 +155,11 @@ namespace Sucrose.Manager
 
                         if (CheckFile())
                         {
-                            if (File.GetLastWriteTime(_settingsFilePath) > _lastWrite)
-                            {
-                                string json = SMHR.Read(_settingsFilePath).Result;
+                            string json = SMHR.Read(_settingsFilePath).Result;
 
-                                _settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                            Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                                _lastWrite = DateTime.Now;
-                            }
-
-                            if (_settings.Properties.TryGetValue(key, out object value))
+                            if (settings.Properties.TryGetValue(key, out object value))
                             {
                                 return ConvertToType<T>(value);
                             }
@@ -225,24 +208,24 @@ namespace Sucrose.Manager
                             //
                         }
 
+                        Settings settings;
+
                         if (CheckFile())
                         {
                             string json = SMHR.Read(_settingsFilePath).Result;
-                            _settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                            settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
                         }
                         else
                         {
-                            _settings = new Settings();
+                            settings = new Settings();
                         }
 
                         foreach (KeyValuePair<string, T> pair in pairs)
                         {
-                            _settings.Properties[pair.Key] = ConvertToType<T>(pair.Value);
+                            settings.Properties[pair.Key] = ConvertToType<T>(pair.Value);
                         }
 
-                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(_settings, _serializerSettings));
-
-                        _lastWrite = DateTime.Now;
+                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
                     }
                     finally
                     {
@@ -312,11 +295,9 @@ namespace Sucrose.Manager
                             //
                         }
 
-                        _settings = new();
+                        Settings settings = new();
 
-                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(_settings, _serializerSettings));
-
-                        _lastWrite = DateTime.Now;
+                        SMHW.Write(_settingsFilePath, JsonConvert.SerializeObject(settings, _serializerSettings));
                     }
                     finally
                     {
@@ -354,11 +335,9 @@ namespace Sucrose.Manager
                 {
                     try
                     {
-                        _settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
+                        Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                        _lastWrite = DateTime.Now;
-
-                        if (_settings != null && _settings.Properties != null)
+                        if (settings != null && settings.Properties != null)
                         {
                             return;
                         }

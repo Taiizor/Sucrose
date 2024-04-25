@@ -27,6 +27,8 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class LibraryPage : INavigableView<SPVMPLVM>, IDisposable
     {
+        private static List<string> Themes = SMMM.Themes;
+
         private SPVPLELP EmptyLibraryPage { get; set; }
 
         private SPVPLFLP FullLibraryPage { get; set; }
@@ -72,20 +74,18 @@ namespace Sucrose.Portal.Views.Pages
 
         private void InitializeThemes()
         {
-            SPMI.Themes = SMMM.Themes;
-
             if (Directory.Exists(SMMM.LibraryLocation))
             {
-                if (SPMI.Themes.Any())
+                if (Themes.Any())
                 {
-                    foreach (string Theme in SPMI.Themes.ToList())
+                    foreach (string Theme in Themes.ToList())
                     {
                         string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
                         if (!Directory.Exists(ThemePath) || !File.Exists(InfoPath) || !SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                         {
-                            SPMI.Themes.Remove(Theme);
+                            Themes.Remove(Theme);
 
                             if (Directory.Exists(ThemePath) && SMMM.LibraryDelete)
                             {
@@ -105,9 +105,9 @@ namespace Sucrose.Portal.Views.Pages
 
                         if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
                         {
-                            if (!SPMI.Themes.Contains(Path.GetFileName(Folder)))
+                            if (!Themes.Contains(Path.GetFileName(Folder)))
                             {
-                                SPMI.Themes.Add(Path.GetFileName(Folder));
+                                Themes.Add(Path.GetFileName(Folder));
                             }
                         }
                         else if (SMMM.LibraryDelete)
@@ -119,59 +119,49 @@ namespace Sucrose.Portal.Views.Pages
             }
             else
             {
-                SPMI.Themes.Clear();
+                Themes.Clear();
             }
 
-            SMMI.ThemesManager.SetSetting(SMC.Themes, SPMI.Themes);
+            Dictionary<string, object> SortThemes = new();
 
-            if (SPMM.LibrarySortMode == SSDESMT.None)
+            foreach (string Theme in Themes)
             {
-                if (SPMM.LibrarySortKind == SSDESKT.Descending)
+                string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
+
+                if (SPMM.LibrarySortMode == SSDESMT.Name)
                 {
-                    SPMI.Themes.Reverse();
+                    SortThemes.Add(Theme, SSTHI.ReadJson(InfoPath).Title);
                 }
+                else if (SPMM.LibrarySortMode == SSDESMT.Creation)
+                {
+                    SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
+                }
+                else if (SPMM.LibrarySortMode == SSDESMT.Modification)
+                {
+                    SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
+                }
+            }
+
+            if (SPMM.LibrarySortKind == SSDESKT.Ascending)
+            {
+                SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
             }
             else
             {
-                Dictionary<string, object> Themes = new();
-
-                foreach (string Theme in SPMI.Themes)
-                {
-                    string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
-
-                    if (SPMM.LibrarySortMode == SSDESMT.Name)
-                    {
-                        Themes.Add(Theme, SSTHI.ReadJson(InfoPath).Title);
-                    }
-                    else if (SPMM.LibrarySortMode == SSDESMT.Creation)
-                    {
-                        Themes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
-                    }
-                    else if (SPMM.LibrarySortMode == SSDESMT.Modification)
-                    {
-                        Themes.Add(Theme, Directory.GetLastWriteTime(InfoPath));
-                    }
-                }
-
-                if (SPMM.LibrarySortKind == SSDESKT.Ascending)
-                {
-                    Themes = Themes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-                }
-                else
-                {
-                    Themes = Themes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-                }
-
-                SPMI.Themes.Clear();
-                SPMI.Themes.AddRange(Themes.Select(Theme => Theme.Key));
+                SortThemes = SortThemes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
             }
+
+            Themes.Clear();
+            Themes.AddRange(SortThemes.Select(Theme => Theme.Key));
+
+            SMMI.ThemesManager.SetSetting(SMC.Themes, Themes);
         }
 
         private async Task Start(bool Progress = false)
         {
-            if (SPMI.Themes.Any())
+            if (Themes.Any())
             {
-                FullLibraryPage = new(SPMI.Themes);
+                FullLibraryPage = new(Themes);
 
                 FrameLibrary.Content = FullLibraryPage;
             }

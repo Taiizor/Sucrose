@@ -52,11 +52,11 @@ namespace Sucrose.Portal.Manage
 
         public static SSDESKT LibrarySortKind => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortKind, SSDESKT.Descending);
 
+        public static SSDESMT LibrarySortMode => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortMode, SSDESMT.Creation);
+
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Close);
 
         public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
-
-        public static SSDESMT LibrarySortMode => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortMode, SSDESMT.None);
 
         public static SSCEUT UpdateType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
 
