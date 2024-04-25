@@ -202,6 +202,12 @@ namespace Sucrose.Live.WebView
 
                                 throw new NotSupportedException(Ex.Message);
                             }
+                            catch (Exception Ex)
+                            {
+                                File.Delete(SSEMI.PropertiesFile);
+
+                                throw new Exception(Ex.Message, Ex.InnerException);
+                            }
 
                             SSEMI.Properties.State = true;
 

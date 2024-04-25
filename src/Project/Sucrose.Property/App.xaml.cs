@@ -152,6 +152,12 @@ namespace Sucrose.Property
 
                                 throw new NotSupportedException(Ex.Message);
                             }
+                            catch (Exception Ex)
+                            {
+                                File.Delete(SPMI.PropertiesFile);
+
+                                throw new Exception(Ex.Message, Ex.InnerException);
+                            }
 
                             SPVMW MainWindow = new();
                             MainWindow.ShowDialog();
