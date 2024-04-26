@@ -3,6 +3,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Threading;
+using SHC = Skylark.Helper.Culture;
+using SRER = Sucrose.Resources.Extension.Resources;
+using SRHR = Sucrose.Resources.Helper.Resources;
 
 namespace Sucrose.Undo
 {
@@ -18,6 +21,10 @@ namespace Sucrose.Undo
         private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
 
         private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
+
+        private static string Message => SRER.GetValue("Undo", "QuestionMessage");
+
+        private static string Title => SRER.GetValue("Undo", "QuestionTitle");
 
         private static string TemporaryFile => "Sucrose.Backgroundog.sys";
 
@@ -130,30 +137,42 @@ namespace Sucrose.Undo
         {
             base.OnStartup(e);
 
-            await Task.Delay(Delay);
+            MessageBoxResult Result = MessageBoxResult.Yes;
 
-            TerminateProcess(Application);
+            SRHR.SetLanguage(SHC.CurrentUITwoLetterISOLanguageName);
 
-            await Task.Delay(Delay);
-
-            DeleteDirectory(UninstallPath);
-
-            await Task.Delay(Delay);
-
-            RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true);
-            HomeKey?.DeleteSubKey(Application, false);
-
-            if (File.Exists(Desktop))
+            if (!e.Args.Any())
             {
-                File.Delete(Desktop);
+                Result = MessageBox.Show(Message, Title, MessageBoxButton.YesNo, MessageBoxImage.Question);
             }
 
-            if (File.Exists(StartMenu))
+            if (Result == MessageBoxResult.Yes)
             {
-                File.Delete(StartMenu);
-            }
+                await Task.Delay(Delay);
 
-            await Task.Delay(Delay);
+                TerminateProcess(Application);
+
+                await Task.Delay(Delay);
+
+                DeleteDirectory(UninstallPath);
+
+                await Task.Delay(Delay);
+
+                RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true);
+                HomeKey?.DeleteSubKey(Application, false);
+
+                if (File.Exists(Desktop))
+                {
+                    File.Delete(Desktop);
+                }
+
+                if (File.Exists(StartMenu))
+                {
+                    File.Delete(StartMenu);
+                }
+
+                await Task.Delay(Delay);
+            }
 
             Close();
         }

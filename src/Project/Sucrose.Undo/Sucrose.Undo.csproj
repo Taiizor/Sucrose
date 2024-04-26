@@ -67,6 +67,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\Library\Sucrose.Resources\Sucrose.Resources.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Folder Include="Properties\" />
     </ItemGroup>
 
