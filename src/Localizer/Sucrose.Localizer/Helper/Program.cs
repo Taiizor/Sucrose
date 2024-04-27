@@ -1,4 +1,5 @@
-﻿using SLHCTX = Sucrose.Localizer.Helper.CsvToXaml;
+﻿using SLHA = Sucrose.Localizer.Helper.Against;
+using SLHCTX = Sucrose.Localizer.Helper.CsvToXaml;
 using SLHXTC = Sucrose.Localizer.Helper.XamlToCsv;
 
 namespace Sucrose.Localizer.Helper
@@ -13,6 +14,7 @@ namespace Sucrose.Localizer.Helper
 
             Console.WriteLine("1. Convert XAML files to CSV files");
             Console.WriteLine("2. Convert CSV files to XAML files");
+            Console.WriteLine("3. Check the CSV files against each other");
 
             Console.WriteLine();
 
@@ -47,6 +49,14 @@ namespace Sucrose.Localizer.Helper
                     Console.WriteLine();
 
                     SLHCTX.Convert(csvDirectory, xamlDirectory);
+                    break;
+                case "3":
+                    Console.Write("Location of CSV files: ");
+                    csvDirectory = Console.ReadLine();
+
+                    Console.WriteLine();
+
+                    SLHA.Check(csvDirectory);
                     break;
                 default:
                     Console.WriteLine("Invalid selection.");
