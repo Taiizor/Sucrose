@@ -1,7 +1,7 @@
 ﻿using CsvHelper;
-using Skylark.Standard.Extension.Cryptology;
 using System.Globalization;
 using System.Text;
+using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 
 namespace Sucrose.Localizer.Helper
 {
@@ -29,7 +29,7 @@ namespace Sucrose.Localizer.Helper
         {
             foreach (string csvFilePath in Directory.GetFiles(csvDirectory, "*.csv"))
             {
-                using StreamReader reader = new(csvFilePath);
+                using StreamReader reader = new(csvFilePath, Encoding.UTF8);
                 using CsvReader csv = new(reader, CultureInfo.InvariantCulture);
                 IEnumerable<dynamic> records = csv.GetRecords<dynamic>();
 
@@ -71,7 +71,7 @@ namespace Sucrose.Localizer.Helper
             }
             else if (key == "Base64")
             {
-                xamlContent.AppendLine(CryptologyExtension.BaseToText(value));
+                xamlContent.AppendLine(SSECCE.BaseToText(value));
             }
             else
             {
@@ -87,7 +87,7 @@ namespace Sucrose.Localizer.Helper
 
                 kvp.Value.AppendLine("</ResourceDictionary>");
 
-                using (StreamWriter writer = new(xamlFilePath))
+                using (StreamWriter writer = new(xamlFilePath, false, Encoding.UTF8))
                 {
                     string value = kvp.Value.ToString();
 

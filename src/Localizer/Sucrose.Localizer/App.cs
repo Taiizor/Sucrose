@@ -11,7 +11,9 @@ namespace Sucrose.Localizer
         {
             try
             {
+                Console.InputEncoding = Encoding.UTF8;
                 Console.OutputEncoding = Encoding.UTF8;
+
                 SHC.All = new CultureInfo(SHC.CurrentUITwoLetterISOLanguageName, true);
 
                 SLHP.Start();

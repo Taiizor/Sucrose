@@ -1,4 +1,5 @@
 ﻿using SLHA = Sucrose.Localizer.Helper.Against;
+using SLHC = Sucrose.Localizer.Helper.Creating;
 using SLHCTX = Sucrose.Localizer.Helper.CsvToXaml;
 using SLHXTC = Sucrose.Localizer.Helper.XamlToCsv;
 
@@ -15,6 +16,7 @@ namespace Sucrose.Localizer.Helper
             Console.WriteLine("1. Convert XAML files to CSV files");
             Console.WriteLine("2. Convert CSV files to XAML files");
             Console.WriteLine("3. Check the CSV files against each other");
+            Console.WriteLine("4. Create a new language file from CSV files");
 
             Console.WriteLine();
 
@@ -57,6 +59,25 @@ namespace Sucrose.Localizer.Helper
                     Console.WriteLine();
 
                     SLHA.Check(csvDirectory);
+                    break;
+                case "4":
+                    Console.Write("Location of CSV files: ");
+                    csvDirectory = Console.ReadLine();
+
+                    Console.WriteLine();
+
+                    Console.Write("Source language (EN): ");
+                    string sourceLang = Console.ReadLine();
+
+                    Console.Write("Output language (TR): ");
+                    string outputLang = Console.ReadLine();
+
+                    Console.Write("Output language name (English): ");
+                    string outputLangName = Console.ReadLine();
+
+                    Console.WriteLine();
+
+                    SLHC.Create(csvDirectory, sourceLang, outputLang, outputLangName);
                     break;
                 default:
                     Console.WriteLine("Invalid selection.");

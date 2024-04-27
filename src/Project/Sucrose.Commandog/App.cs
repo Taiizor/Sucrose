@@ -13,7 +13,9 @@ namespace Sucrose.Commandog
         {
             try
             {
+				Console.InputEncoding = Encoding.UTF8;
                 Console.OutputEncoding = Encoding.UTF8;
+
                 SHC.All = new CultureInfo(SMMM.Culture, true);
 
                 await SCHA.Parse(Args);

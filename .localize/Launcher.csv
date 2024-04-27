@@ -1,4 +1,4 @@
-File,Key,Value
+﻿File,Key,Value
 Launcher\Launcher.xaml,Launcher.ExitIcon,Assets/Exit.ico
 Launcher\Launcher.xaml,Launcher.ReportIcon,Assets/Error.ico
 Launcher\Launcher.xaml,Launcher.UpdateIcon,Assets/Update.ico

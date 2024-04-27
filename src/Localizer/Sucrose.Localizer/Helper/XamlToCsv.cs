@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using Skylark.Standard.Extension.Cryptology;
 using System.Globalization;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 
@@ -33,7 +34,7 @@ namespace Sucrose.Localizer.Helper
                     XmlDocument xmlDoc = new();
                     xmlDoc.Load(file);
 
-                    string fileContent = File.ReadAllText(file);
+                    string fileContent = File.ReadAllText(file, Encoding.UTF8);
                     string[] lines = fileContent.Split(new string[] { Environment.NewLine, "\n" }, StringSplitOptions.None);
 
                     if (!localizationData.ContainsKey(languageCode))
@@ -107,7 +108,7 @@ namespace Sucrose.Localizer.Helper
                 string languageCode = kvp.Key;
                 string outputFileName = Path.Combine(outputDirectory, $"{languageCode}.csv");
 
-                using (StreamWriter writer = new(outputFileName))
+                using (StreamWriter writer = new(outputFileName, false, Encoding.UTF8))
                 using (CsvWriter csv = new(writer, CultureInfo.InvariantCulture))
                 {
                     csv.WriteField("File");
