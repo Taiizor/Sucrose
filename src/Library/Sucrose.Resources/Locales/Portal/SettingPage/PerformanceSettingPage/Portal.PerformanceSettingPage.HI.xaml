@@ -17,22 +17,29 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu">सीपीयू उपयोग</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">सीपीयू उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">सीपीयू उपयोग (%):</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">मेमोरी उपयोग</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">मेमोरी उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.MemoryUsage">मेमोरी उपयोग (%):</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Network">नेटवर्क उपयोग</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">नेटवर्क उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">नेटवर्क एडाप्टर:</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">नेटवर्क एडाप्टर्स की सूची अभी तक बनाई नहीं गई है</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">अपलोड साइज:</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkDownload">डाउनलोड साइज:</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkPing">पिंग मान (मिलिसेकंड):</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Battery">बैटरी पावर</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Battery.Description">लैपटॉप बैटरी पॉवर पर काम करते समय वॉलपेपर पर क्या होने वाला है।</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Battery.BatteryUsage">बैटरी स्थिति (%):</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Saver">बैटरी बचाने वाला</system:String>

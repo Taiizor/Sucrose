@@ -21,5 +21,4 @@
     <system:String x:Key="Portal.Area.Extensions">Erweiterungen</system:String>
     <system:String x:Key="Portal.Area.SystemResources">Systemressourcen</system:String>
     <system:String x:Key="Portal.Area.AppearanceBehavior">Erscheinungsbild &amp; Verhalten</system:String>
-
 </ResourceDictionary>

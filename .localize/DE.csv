@@ -229,7 +229,6 @@ Portal\Area\Portal.Area.DE.xaml,Portal.Area.Developer,Entwickler
 Portal\Area\Portal.Area.DE.xaml,Portal.Area.Extensions,Erweiterungen
 Portal\Area\Portal.Area.DE.xaml,Portal.Area.SystemResources,Systemressourcen
 Portal\Area\Portal.Area.DE.xaml,Portal.Area.AppearanceBehavior,Erscheinungsbild &amp; Verhalten
-Portal\Area\Portal.Area.DE.xaml,,
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.All,Alle
 Portal\Category\Portal.Category.DE.xaml,,
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.Abstract,Abstrakt
@@ -473,7 +472,6 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.MenuShare,Teilen
 Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.MenuDelete,Löschen
 Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.MenuEdit,Bearbeiten
-Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,,
 Portal\Controls\OtherAbout\Portal.OtherAbout.DE.xaml,Portal.OtherAbout.Title,Über
 Portal\Controls\OtherAbout\Portal.OtherAbout.DE.xaml,Portal.OtherAbout.Close,Schließen
 Portal\Controls\OtherAbout\Portal.OtherAbout.DE.xaml,,

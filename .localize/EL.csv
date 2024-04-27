@@ -794,8 +794,8 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Server,Διακομιστής Καταστήματος
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Server.Description,Καθορίζει ποιός διακομιστής θα χρησιμοποιηθεί για την εμφάνιση των θεμάτων που αναφέρονται στο κατάστημα.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Σημείωση: Εάν επιλεγεί το {0} ως διακομιστής, είναι απαραίτητο να εισαγάγετε ένα {2} για να αποφευχθούν τα όρια αιτήσεων. Διαφορετικά, ενδέχεται να αντιμετωπίσετε προβλήματα πρόσβασης σε θέματα στο κατάστημα. Εάν επιλεγεί το {1}, θα έχετε μια πιο ομαλή εμπειρία στο κατάστημα."
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Duration,Ανανέωση Καταστήματος

@@ -752,22 +752,29 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Cpu,सीपीयू उपयोग
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Cpu.Description,सीपीयू उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,सीपीयू उपयोग (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory,मेमोरी उपयोग
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory.Description,मेमोरी उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,मेमोरी उपयोग (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network,नेटवर्क उपयोग
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.Description,नेटवर्क उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,नेटवर्क एडाप्टर:
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,नेटवर्क एडाप्टर्स की सूची अभी तक बनाई नहीं गई है
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,अपलोड साइज:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,डाउनलोड साइज:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,पिंग मान (मिलिसेकंड):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Battery,बैटरी पावर
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Battery.Description,लैपटॉप बैटरी पॉवर पर काम करते समय वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,बैटरी स्थिति (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Saver,बैटरी बचाने वाला
