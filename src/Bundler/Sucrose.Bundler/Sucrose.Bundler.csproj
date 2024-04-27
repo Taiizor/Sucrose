@@ -107,6 +107,7 @@
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundler\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Launcher\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Property\**" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Localizer\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Live.Aurora\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Live.Nebula\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Live.Vexana\**" />

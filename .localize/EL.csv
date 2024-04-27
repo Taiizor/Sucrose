@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuRUwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.EL.xaml,Discord.BrowseButton,Περιήγηση
+Discord\Discord.EL.xaml,Discord.Details,Κινητήρας ταπετσαρίας
+Discord\Discord.EL.xaml,Discord.DownloadButton,Λήψη
+Discord\Discord.EL.xaml,,
+Discord\Discord.EL.xaml,Discord.LargestText0,Η Δύναμη του Παγωτού με Μπανάνα
+Discord\Discord.EL.xaml,Discord.LargestText1,Το Καρναβάλι του Χαμογελαστού Καπέλου
+Discord\Discord.EL.xaml,Discord.LargestText2,Οι Πουλιές που Χρωματίζουν τα Σύννεφα
+Discord\Discord.EL.xaml,Discord.LargestText3,Οι Κρυφές Περιπέτειες των Τρεχόντων Πιγουίνων
+Discord\Discord.EL.xaml,Discord.LargestText4,Οι Κουνημένοι Κουνέλια στον Κήπο των Αγριολούλουδων
+Discord\Discord.EL.xaml,Discord.LargestText5,Οι Ανεμόμυλοι που Τραγουδούν
+Discord\Discord.EL.xaml,Discord.LargestText6,Οι Μυστηριώδεις Μέλισσες του Μαγικού Δάσους
+Discord\Discord.EL.xaml,Discord.LargestText7,Ένα Ονειρεμένο Σμήνος Ψαριών
+Discord\Discord.EL.xaml,Discord.LargestText8,Ο Χορός του Δράκου με τα Κρυστάλλινα Μάτια
+Discord\Discord.EL.xaml,Discord.LargestText9,Ένα Μονοπάτι Παραμυθένιο με Λουλούδια
+Discord\Discord.EL.xaml,Discord.LargestText10,Αστέρια που Πέφτουν από τον Ουρανό
+Discord\Discord.EL.xaml,Discord.LargestText11,Χορός Κάτω από το Φως του Σπασμένου Φεγγαριού
+Discord\Discord.EL.xaml,Discord.LargestText12,Οι Μυστηριώδεις Δράκοι του Ουράνιου Τόξου
+Discord\Discord.EL.xaml,Discord.LargestText13,Μαγικό Παραμυθένιο Δάσος
+Discord\Discord.EL.xaml,Discord.LargestText14,Βροχή Λουλουδιών προς τον Ουρανό
+Discord\Discord.EL.xaml,Discord.LargestText15,Η Σιωπηλή Αγγίξη του Χρόνου
+Discord\Discord.EL.xaml,Discord.LargestText16,Χώρα Σουρεάλ Όνειρα
+Discord\Discord.EL.xaml,Discord.LargestText17,Τραγούδια της Χρυσής Καταρράκτης
+Discord\Discord.EL.xaml,Discord.LargestText18,Παραμυθένια Πλοία που Κολυμπούν στον Ουρανό
+Discord\Discord.EL.xaml,Discord.LargestText19,Χρωματιστός Αέρας με Μπαλόνια
+Discord\Discord.EL.xaml,Discord.LargestText20,Μυστηριώδης Υποβρύχια Πόλη
+Discord\Discord.EL.xaml,Discord.LargestText21,Αστρόσκονη Ουρανού
+Discord\Discord.EL.xaml,Discord.LargestText22,Ανέμους που Τρέχουν πίσω από το Άγνωστο
+Discord\Discord.EL.xaml,Discord.LargestText23,Συναρπαστικές Ιστορίες Κάτω από το Φως του Φεγγαριού
+Discord\Discord.EL.xaml,,
+Discord\Discord.EL.xaml,Discord.SmallestText0,Τα Μυστηριώδη Αποτυπώματα Ποδιών
+Discord\Discord.EL.xaml,Discord.SmallestText1,Οι Ψηλομαλλά Ψάρια με Αερόσακο
+Discord\Discord.EL.xaml,Discord.SmallestText2,Τα Λουλούδια που Γελούν
+Discord\Discord.EL.xaml,Discord.SmallestText3,Τα Ζαχαρωτά Σύννεφα από Βαμβάκι
+Discord\Discord.EL.xaml,Discord.SmallestText4,Οι Παγωμένοι Δράκοι της Πίτσας
+Discord\Discord.EL.xaml,Discord.SmallestText5,Οι Λαμπεροί Πειρατές Μανιταρόκοσμου
+Discord\Discord.EL.xaml,Discord.SmallestText6,Αόρατα Ίχνη Μονόκερωπου
+Discord\Discord.EL.xaml,Discord.SmallestText7,Χρωματιστά Σύννεφα Σκόνης
+Discord\Discord.EL.xaml,Discord.SmallestText8,Χρυσά Μπαλόνια Πεταλούδες
+Discord\Discord.EL.xaml,Discord.SmallestText9,Ταξίδι στη Γλυκιά Κρατήρα
+Discord\Discord.EL.xaml,Discord.SmallestText10,Κομμάτια Πίτσας που Πετούν με Πύραυλο
+Discord\Discord.EL.xaml,Discord.SmallestText11,Χορός των Θαλάσσιων Κοχυλιών με τον Ήλιο
+Discord\Discord.EL.xaml,Discord.SmallestText12,Αόρατα Δάχτυλα Αστεριού
+Discord\Discord.EL.xaml,Discord.SmallestText13,Ομίχλη Υποβρύχιου Χορού
+Discord\Discord.EL.xaml,Discord.SmallestText14,Τα Χρώματα του Ουράνιου Τόξου
+Discord\Discord.EL.xaml,Discord.SmallestText15,Ο Δρόμος της Ζαχαρωτού Καταιγίδας
+Discord\Discord.EL.xaml,Discord.SmallestText16,Ατέλειωτη Γαλαξίας Πίτσας
+Discord\Discord.EL.xaml,Discord.SmallestText17,Το Χαμόγελο του Ηλίου
+Discord\Discord.EL.xaml,Discord.SmallestText18,Το Χαμένο Χαμόγελο της Κρυφής Λίμνης
+Discord\Discord.EL.xaml,Discord.SmallestText19,Οι Σκιές των Ονείρων Πουλιών
+Discord\Discord.EL.xaml,Discord.SmallestText20,Πεταλούδες που Ανατολικά προς τον Ουρανό
+Discord\Discord.EL.xaml,Discord.SmallestText21,Τραγούδια που Κρύβονται Πίσω από τα Αστέρια
+Discord\Discord.EL.xaml,Discord.SmallestText22,Τα Θολά Βουνά του Παραμυθένιου Κόσμου
+Discord\Discord.EL.xaml,Discord.SmallestText23,Η Νεράιδα του Μαγικού Δάσους
+Discord\Discord.EL.xaml,,
+Discord\Discord.EL.xaml,Discord.StatementText0,Ένα Σύμπαν Γεμάτο Χάος
+Discord\Discord.EL.xaml,Discord.StatementText1,Στην Καρδιά των Ατελείωτων Περιπετειών
+Discord\Discord.EL.xaml,Discord.StatementText2,Ένας Περίεργος και Μαγικός Κόσμος
+Discord\Discord.EL.xaml,Discord.StatementText3,Που Δοκιμάζει τα Όρια της Φαντασίας
+Discord\Discord.EL.xaml,Discord.StatementText4,Ένας Ασυνήθιστος Πραγματικότητα
+Discord\Discord.EL.xaml,Discord.StatementText5,Στα Βάθη της Φαντασίας
+Discord\Discord.EL.xaml,Discord.StatementText6,Ένας Μαγικός Ταξίδι Ανακάλυψης
+Discord\Discord.EL.xaml,Discord.StatementText7,Στην Πύλη των Άγνωστων Κόσμων
+Discord\Discord.EL.xaml,Discord.StatementText8,Ένας Πολύπλοκος Κόσμος Ονείρων
+Discord\Discord.EL.xaml,Discord.StatementText9,Μια Περιπέτεια που Προκαλεί τα Όρια
+Discord\Discord.EL.xaml,Discord.StatementText10,Μια Δυναμική και Εκπληκτική Εμπειρία
+Discord\Discord.EL.xaml,Discord.StatementText11,Μέσα σε ένα Φανταστικό Παραμύθι
+Discord\Discord.EL.xaml,Discord.StatementText12,Μεταξύ Μαγικών Πυλών
+Discord\Discord.EL.xaml,Discord.StatementText13,Ταξίδι προς τον Ουρανό της Νύχτας
+Discord\Discord.EL.xaml,Discord.StatementText14,Στα Ίχνη της Χαμένης Ήπείρου
+Discord\Discord.EL.xaml,Discord.StatementText15,Η Ιστορία των Άγνωστων Πλανητών
+Discord\Discord.EL.xaml,Discord.StatementText16,Η Ανακάλυψη των Παράλληλων Σύμπαντων
+Discord\Discord.EL.xaml,Discord.StatementText17,Η Είσοδος στα Θρυλικά Κόσμηματα
+Discord\Discord.EL.xaml,Discord.StatementText18,Η Πραγματικότητα που Υφαίνεται με Ύφασμα Ονείρων
+Discord\Discord.EL.xaml,Discord.StatementText19,Ένα Ονειρικό Ταξίδι ανάμεσα στα Άστρα
+Discord\Discord.EL.xaml,Discord.StatementText20,Πίσω από τις Πόρτες του Χρόνου
+Discord\Discord.EL.xaml,Discord.StatementText21,Η Ομάδα των Λαμπερών Αστεριών
+Discord\Discord.EL.xaml,Discord.StatementText22,Το Σιωπηλό Κύκνειο του Άγνωστου
+Discord\Discord.EL.xaml,Discord.StatementText23,Ένας Συναρπαστικός Κόσμος
+Discord\Discord.EL.xaml,Discord.StatementText24,Στη Κορυφή των Μυστικών Βουνών
+Discord\Discord.EL.xaml,Discord.StatementText25,Στα Ίχνη των Χαμένων Βασιλείων
+Discord\Discord.EL.xaml,Discord.StatementText26,Το Ονειρικό Ταξίδι ανάμεσα στα Άστρα
+Discord\Discord.EL.xaml,Discord.StatementText27,Μαγικά Νυχτερινά Πλάσματα
+Discord\Discord.EL.xaml,Discord.StatementText28,Η Αρχή μιας Ατελείωτης Ιστορίας
+Discord\Discord.EL.xaml,Discord.StatementText29,Οι Πολύχρωμοι Φουσκωτοί Προς τον Ουρανό
+Discord\Discord.EL.xaml,Discord.StatementText30,Το Μυστηριώδες Νυχτερινό Ουρανό
+Discord\Discord.EL.xaml,Discord.StatementText31,Η Διαδρομή του Χαμένου Βασιλείου
+Discord\Discord.EL.xaml,Discord.StatementText32,Η Πύλη προς τα Άγνωστα Κόσμηματα
+Discord\Discord.EL.xaml,Discord.StatementText33,Χορός στη Φωλιά του Χρόνου
+Discord\Discord.EL.xaml,Discord.StatementText34,Ιστορίες που Κατακλύζουν τη Νύχτα
+Discord\Discord.EL.xaml,Discord.StatementText35,Το Μαγικό Κόσμημα του Καθρέφτη
+Discord\Discord.EL.xaml,Discord.StatementText36,Ταξίδι στις Πύλες του Αιωνίου
+Discord\Discord.EL.xaml,Discord.StatementText37,Το Νυχτερινό Ταξίδι του Κυνηγού Όνειρων
+Discord\Discord.EL.xaml,Discord.StatementText38,Ονειροπόληση Κρυστάλλινης Πόλης
+Discord\Discord.EL.xaml,Discord.StatementText39,Αστέρια που λάμπουν στο σκοτάδι
+Discord\Discord.EL.xaml,Discord.StatementText40,"Πίσω από τα αστέρια, μια μαγική νύχτα"
+Discord\Discord.EL.xaml,Discord.StatementText41,Μυστηριώδεις Ιστορίες Φεγγαρόφωτο
+Discord\Discord.EL.xaml,Discord.StatementText42,"Πριν από τη χρυσή πόρτα, στην κατώφλια άγνωστων κόσμων"
+Discord\Discord.EL.xaml,Discord.StatementText43,Μαγικοί δρόμοι σε μια μυστηριώδη νύχτα
+Discord\Discord.EL.xaml,Discord.StatementText44,Ονειροπόληση μπαλόνια που σκάρφαλν στον ουρανό
+Discord\Discord.EL.xaml,Discord.StatementText45,Το Μονοπάτι των Ονείρων κάτω από τα αστέρια
+Discord\Discord.EL.xaml,Discord.StatementText46,Κρυμμένη πόλη κοντά στην ακτή των αστεριών
+Discord\Discord.EL.xaml,Discord.StatementText47,Η περιπέτεια πίσω από τον ομιχλώδη βουνό
+Discord\Discord.EL.xaml,Discord.StatementText48,"Στο σκοτεινό, αστραφτερό νυχτερινό ουρανό"
+Launcher\Launcher.EL.xaml,Launcher.WallCustomizeText,Προσαρμογή Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.CreateLogText,Δημιουργία Αρχείου Καταγραφής
+Launcher\Launcher.EL.xaml,Launcher.ExitText,Έξοδος
+Launcher\Launcher.EL.xaml,Launcher.OpenReportText,Αναφορά Προβλήματος
+Launcher\Launcher.EL.xaml,Launcher.OpenText,Άνοιγμα του Sucrose
+Launcher\Launcher.EL.xaml,Launcher.ReportText,Αναφορά Σφάλματος
+Launcher\Launcher.EL.xaml,Launcher.ReportWindowTitle,Διάγνωση Sucrose
+Launcher\Launcher.EL.xaml,Launcher.SaveDialogFilter,ZIP Αρχεία (*.zip)|*.zip|Όλα τα Αρχεία (*.*)|*.*
+Launcher\Launcher.EL.xaml,Launcher.SaveDialogTitle,Αποθήκευση Αρχείου Καταγραφής
+Launcher\Launcher.EL.xaml,Launcher.SettingText,Ρυθμίσεις
+Launcher\Launcher.EL.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.EL.xaml,Launcher.WallChangeText,Αλλαγή Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallCloseText,Κλείσιμο Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallOpenText,Άνοιγμα Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallStartText,Έναρξη Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.WallStopText,Διακοπή Ταπετσαρίας
+Launcher\Launcher.EL.xaml,Launcher.UpdateText,Έλεγχος Ενημερώσεων
+Launcher\Launcher.EL.xaml,,
+Launcher\Launcher.EL.xaml,Launcher.UpdateText.Done,Αναμονή για Ενημερώσεις
+Launcher\Launcher.EL.xaml,Launcher.UpdateText.Check,Έλεγχος Ενημερώσεων
+Launcher\Launcher.EL.xaml,Launcher.UpdateText.Progress,Πρόοδος Ενημερώσεων {0}
+Portal\Portal.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.EL.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.EL.xaml,,
+Property\Property.EL.xaml,Property.DeleteTip,Διαγραφή αντιγράφου
+Property\Property.EL.xaml,Property.RefreshTip,Ανανέωση διεπαφής
+Property\Property.EL.xaml,Property.RestoreTip,Επαναφορά προεπιλογής
+Property\Property.EL.xaml,,
+Property\Property.EL.xaml,Property.Type.NotSupport,Ο τύπος ελέγχου '{0}' δεν υποστηρίζεται.
+Property\Property.EL.xaml,,
+Property\Property.EL.xaml,Property.ColorPicker.Color,Χρώμα
+Property\Property.EL.xaml,Property.ColorPicker.Cancel,Ακύρωση
+Property\Property.EL.xaml,Property.ColorPicker.Confirm,Επιβεβαίωση
+Property\Property.EL.xaml,Property.ColorPicker.EyeDropper,Πιπέτα
+Property\Property.EL.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.EL.xaml,,
+Property\Property.EL.xaml,Property.FileDropDown.Tip,Επιλογή αρχείου
+Property\Property.EL.xaml,Property.FileDropDown.Filter,Όλα τα αρχεία (*.*)|*.*
+Undo\Undo.EL.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.EL.xaml,,
+Undo\Undo.EL.xaml,Undo.QuestionMessage,Θέλετε πραγματικά να απεγκαταστήσετε το Sucrose Wallpaper Engine;
+Update\Update.EL.xaml,Update.HelpText,Λύστε το Πρόβλημα
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.UpdateBox.WindowTitle,Ενημέρωση Sucrose
+Update\Update.EL.xaml,Update.UpdateBox.InstallText,Εγκατάσταση Ενημέρωσης
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.InfoBox.WindowTitle,Ενημέρωση Sucrose
+Update\Update.EL.xaml,Update.InfoBox.TextMessage,Μήνυμα
+Update\Update.EL.xaml,Update.InfoBox.CloseText,Κλείσιμο
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Empty,Βρισκόμαστε σε στιγμές όπου οι ενημερώσεις είναι κρυμμένες σαν ένα χαμένο κόσμημα. Μπορείτε να απολαύσετε την εμπειρία ακόμα και χρησιμοποιώντας την τρέχουσα έκδοση.
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Error,"Καταλάβαμε ότι υπήρξε ένα σφάλμα στον δρόμο κατά τη λήψη του αρχείου ενημέρωσης και ότι αυτό το ταξίδι τελείωσε προς το παρόν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς μια ισχυρότερη ενημέρωση σας περιμένει όταν αυτά τα προβλήματα επιλυθούν."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Update,"Η εφαρμογή είναι ήδη μαζί σας σε μια ενημερωμένη και καινοτόμο μορφή, όπως η τελευταία σελίδα ενός βιβλίου. Είμαστε εδώ για να σας προσφέρουμε πάντα την καλύτερη και πιο ενημερωμένη εμπειρία."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Status,"Βρισκόμαστε στην προσοχή ενός ονείρου προς το παρόν ανεπιτυχές να φτάσουμε στο αρχείο ενημέρωσης. Παρ' όλα αυτά, μπορείτε να συνεχίσετε να απολαμβάνετε το όνειρό σας χρησιμοποιώντας την τρέχουσα έκδοση."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Channel,"Ο επιλεγμένος κανάλι ενημέρωσης είναι σαν ένα δάσος σιωπής. Προς το παρόν δεν υπάρχουν πληροφορίες για νέες ενημερώσεις. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα σας προσφέρουμε περισσότερα όταν αυτή η σιωπή διακοπεί."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Extract,"Κατά την προσπάθεια ανάκτησης του αρχείου ενημέρωσης, αντιμετωπίσαμε ένα εμπόδιο από τα βάθη της θάλασσας. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα επιστρέψουμε για να ανακαλύψουμε νέους θησαυρούς όταν η θάλασσα ηρεμήσει."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Network,"Η ασθενής σύνδεσή σας είναι σαν τα σύννεφα να καλύπτουν τον ήλιο. Όταν τα σύννεφα διαλυθούν, σας περιμένει μια πιο φωτεινή εμπειρία."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Updating,"Η ενημέρωση της εφαρμογής προχωρά σιωπηλά, σαν να προσεγγίζουμε νέους θησαυρούς που τα κύματα φέρνουν στην ακτή. Αυτές οι πολύτιμες αναβαθμίσεις συλλέγονται για εσάς στο παρασκήνιο."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Releases,"Βρισκόμαστε σε ένα σημείο όπου ο αστέρας της ενημέρωσης δεν έχει ακόμα ανατείλει. Προς το παρόν, δεν υπάρχει καμία πληροφορία για ενημερώσεις, αλλά μπορείτε να συνεχίσετε να χρησιμοποιείτε την υπάρχουσα έκδοση."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Download,"Κατά την λήψη του αρχείου ενημέρωσης, ανακαλύψαμε ότι οι αστέρες στον ουρανό ήταν σε λάθος σειρά. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς όταν οι αστέρες έλθουν σε σωστή τάξη, θα σας προσφέρουμε μια βελτιωμένη ενημέρωση."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Cancelled,"Η λήψη του αρχείου ενημέρωσης ακυρώθηκε, καθώς οι δρόμοι μας απομακρύνθηκαν ξαφνικά. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις, διότι μια νέα αρχή είναι πάντα εφικτή."
+Update\Update.EL.xaml,Update.InfoBox.TextMessage.Condition,"Φαίνεται ότι οι συνθήκες για την απελευθέρωση των αρχείων ενημέρωσης είναι ακόμα ανεκπλήρωτες, ως να λείπει ένα κλειδί για να ξεκλειδώσουν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις."
+Watchdog\Watchdog.EL.xaml,Watchdog.HelpButton,Βοήθεια
+Watchdog\Watchdog.EL.xaml,Watchdog.CloseButton,Έξοδος
+Watchdog\Watchdog.EL.xaml,Watchdog.ErrorMessage,Προέκυψε μια απροσδόκητη σφάλμα:
+Watchdog\Watchdog.EL.xaml,Watchdog.ErrorTitle,Σφάλμα
+Watchdog\Watchdog.EL.xaml,Watchdog.HideButton,Απόκρυψη
+Watchdog\Watchdog.EL.xaml,Watchdog.ShowButton,Εμφάνιση
+Watchdog\Watchdog.EL.xaml,Watchdog.StackTrace,Πρόσκληση Στοίβας:
+Watchdog\Watchdog.EL.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.EL.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.ReloadText,ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Preparing,ΠΡΟΕΤΟΙΜΑΖΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΠΡΟΕΤΟΙΜΑΣΙΕΣ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Temporary,ΕΛΕΓΧΟΣ ΠΡΟΣΩΡΙΝΩΝ ΤΟΠΟΘΕΣΙΩΝ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Temporary.Error,ΤΑ ΠΡΟΣΩΡΙΝΑ ΤΟΠΟΘΕΤΗΣΕΙΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΟΥΝ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Connection,ΕΛΕΓΧΟΣ ΣΥΝΔΕΣΗΣ ΣΤΟ ΔΙΑΔΙΚΤΥΟ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Connection.None,ΧΩΡΙΣ ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Connection.Error,Η ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΕΙ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Searching,ΑΝΑΖΗΤΗΣΗ ΓΙΑ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Searching.Not,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΒΡΕΘΗΚΑΝ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Searching.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΝΑΖΗΤΗΘΟΥΝ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Listing,ΠΑΡΑΛΑΜΒΑΝΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Listing.Empty,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΕΙΝΑΙ ΚΕΝΕΣ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Listing.Error,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΛΗΦΘΟΥΝ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Filtering,ΟΙ ΛΙΣΤΕΣ ΕΙΝΑΙ ΣΕ ΦΑΣΗ ΦΙΛΤΡΑΡΙΣΜΑΤΟΣ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Filtering.Not,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΜΠΟΡΟΥΝ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Filtering.Error,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading,ΚΑΤΕΒΑΖΟΝΤΑΣ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΚΑΤΕΒΑΣΤΟΥΝ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading.Complete.Cancel,Η ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ ΑΚΥΡΩΘΗΚΕ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading.Complete.Error,ΥΠΗΡΞΕ ΣΦΑΛΜΑ ΚΑΤΑ ΤΗ ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ
+Wizard\Wizard.EL.xaml,,
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting,ΑΠΟΣΥΜΠΙΕΣΗ ΤΟΥ ΚΑΤΕΒΑΣΜΕΝΟΥ ΑΡΧΕΙΟΥ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Executing,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΚΤΕΛΕΙΤΑΙ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Executed,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Failed,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΑΠΕΤΥΧΕ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Corrupt,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΕΙΝΑΙ ΚΑΤΕΣΤΡΑΜΜΕΝΟ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Not,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟΠΟΙΗΣΙΜΟ
+Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Error,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΠΟΣΥΜΠΙΕΣΤΕΙ
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Sound,Ήχος
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Log,Αρχείο καταγραφής
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Hook,Αγκίστρι
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Store,Κατάστημα
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Donate,Δωρεά
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.System,Σύστημα
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Cache,Προσωρινή μνήμη
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Laptop,Φορητός Υπολογιστής
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Support,Υποστήριξη
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Reset,Επαναφορά
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Backup,Αντίγραφο Ασφαλείας
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Priority,Προτεραιότητα
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Engines,Μηχανές
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Update,Ενημέρωση
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Library,Βιβλιοθήκη
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Developer,Προγραμματιστής
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Extensions,Επεκτάσεις
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.SystemResources,Συστημικοί Πόροι
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.AppearanceBehavior,Εμφάνιση &amp; Συμπεριφορά
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.All,Όλα
+Portal\Category\Portal.Category.EL.xaml,,
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Abstract,Αφηρημένα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Ambience,Περιβάλλον
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Animals,Ζώα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Animation,Κινούμενα Σχέδια
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Anime,Κινούμενα Σχέδια Anime
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.ArchitectureandBuildings,Αρχιτεκτονική και Κτίρια
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.ArtandAbstract,Τέχνη και Αφηρημένο
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Artworks,Έργα Τέχνης
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Bard,Βαρδάρης
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.BlackandWhite,Ασπρόμαυρα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.CartoonandComics,Κινούμενα Σχέδια και Κόμικς
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.CitiesandPlaces,Πόλεις και Τοποθεσίες
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.CloudsandSkies,Σύννεφα και Ουρανός
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.ColorfulGradients,Πολύχρωμα Διακυμάνσεις
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.ComicBooks,Κόμικς
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.DigitalArt,Ψηφιακή Τέχνη
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Dynamic,Δυναμικά
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.EnchantedForests,Μαγικά Δάση
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Fantasy,Φαντασία
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.FilmandTV,Ταινία και Τηλεόραση
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.FoodandDrinks,Φαγητό και Ποτά
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Galaxy,Γαλαξίας
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Game,Παιχνίδι
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.GeometricPatterns,Γεωμετρικά Σχέδια
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.HolidaysandSeasons,Διακοπές και Εποχές
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.HorrorandHalloween,Τρόμος και Halloween
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.InspirationalQuotes,Εμπνευστικές Φράσεις
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.KidsandCartoon,Παιδιά και Κινούμενα Σχέδια
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Landscape,Τοπία
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Lifestyle,Τρόπος ζωής
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.LineArt,Γραμμική Τέχνη
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Medieval,Μεσαιωνικά
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Minimalist,Μινιμαλιστικό
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Music,Μουσική
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Nature,Φύση
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Nightscapes,Νυχτερινά Τοπία
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.PatternsandTextures,Μοτίβα και Υφές
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Retro,Ρετρό
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Sky,Ουρανός
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Space,Διάστημα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Sports,Αθλητισμός
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Superheroes,Υπερήρωες
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.System,Σύστημα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Tavern,Ταβέρνα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Technology,Τεχνολογία
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Temple,Ναός
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Time,Χρόνος
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.UnderwaterandMarine,Υποβρύχιο και Θαλάσσιο
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Vehicles,Οχήματα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Vintage,Εποχή
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.War,Πόλεμος
+Portal\Controls\Portal.Controls.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.Fill,Γέμισμα
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.None,Καμία
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.Uniform,Ομοιόμορφη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.UniformToFill,Ομοιόμορφο Γέμισμα
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.None,Καμία
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Name,Όνομα
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Creation,Δημιουργία
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Modification,Τροποποίηση
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.Fill,Γέμισμα
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.None,Καμία
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.Uniform,Ομοιόμορφη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StretchType.UniformToFill,Ομοιόμορφο Γέμισμα
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PerformanceType.Close,Κλείσιμο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PerformanceType.Pause,Παύση
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PerformanceType.Resume,Συνέχιση
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Mica,Μίκα
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.None,Καμία
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Auto,Αυτόματο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Tabbed,Καρτελέτα
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Ακρυλικό
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.Release,Προεπιλεγμένο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.PreRelease,Προ-Κυκλοφορία
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PausePerformanceType.Heavy,Βαρύ
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PausePerformanceType.Light,Ελαφρύ
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortKindType.Ascending,Αύξουσα [Α-Z]
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortKindType.Descending,Φθίνουσα [Z-Α]
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ExpandScreenType.Default,Προεπιλογή
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ExpandScreenType.Advanced,Προχωρημένο
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateType.Compressed,Συμπιεσμένο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.UpdateType.Executable,Εκτελέσιμο
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ScreenType.WorkingArea,Χώρος Εργασίας
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ScreenType.DisplayBound,Όρια Οθόνης
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.DuplicateScreenType.Default,Προεπιλογή
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.DuplicateScreenType.Advanced,Προχωρημένο
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Pass,Επιτυχημένο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' περιλαμβάνει πολλές τιμές
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Type,Το θέμα δημιουργήθηκε για έναν τύπο που η εφαρμογή δεν υποστηρίζει
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Title,Η τιμή 'Title' είναι άδεια ή πολύ μεγάλη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Author,Η τιμή 'Author' είναι άδεια ή πολύ μεγάλη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Source,Το αρχείο 'Source' δεν βρέθηκε
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Contact,Η τιμή 'Contact' είναι άδεια ή πολύ μεγάλη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Preview,Το αρχείο 'Preview' δεν βρέθηκε
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Encrypt,Το συγκεκριμένο αρχείο είναι κρυπτογραφημένο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.ZipType,Το συγκεκριμένο αρχείο δεν είναι πραγματικό αρχείο '.zip'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InfoFile,Το αρχείο 'SucroseInfo.json' δεν βρέθηκε
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.NotFound,Το συγκεκριμένο αρχείο δεν βρέθηκε
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.LoopMode,Μη έγκυρη τιμή 'LoopMode'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Arguments,Η τιμή 'Arguments' είναι πολύ μεγάλη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Extension,Το συγκεκριμένο αρχείο δεν έχει κατάληξη '.zip'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Thumbnail,Το αρχείο 'Thumbnail' δεν βρέθηκε
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemCpu,Μη έγκυρη τιμή 'SystemCpu'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Το αρχείο 'SucroseInfo.json' είναι άδειο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.AppVersion,Το θέμα δημιουργήθηκε για μια υψηλότερη έκδοση της εφαρμογής
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Η τιμή 'Source' περιλαμβάνει μη έγκυρη τιμή
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemBios,Μη έγκυρη τιμή 'SystemBios'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemDate,Μη έγκυρη τιμή 'SystemDate'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemAudio,Μη έγκυρη τιμή 'SystemAudio'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Description,Η τιμή 'Description' είναι άδεια ή πολύ μεγάλη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Το αρχείο 'SucroseInfo.json' δεν είναι έγκυρο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.TriggerTime,Μη έγκυρη τιμή 'TriggerTime'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.StretchMode,Μη έγκυρη τιμή 'StretchMode'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Μη έγκυρη τιμή 'VolumeLevel'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Μη έγκυρη τιμή 'ShuffleMode'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidTags,Οι τιμές 'Tags' είναι πολύ μικρές ή πολύ μεγάλες
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidFile,Μη έγκυρο αρχείο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.PropertyList,Η τιμή 'PropertyList' είναι άδεια
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemMemory,Μη έγκυρη τιμή 'SystemMemory'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemBattery,Μη έγκυρη τιμή 'SystemBattery'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Μη έγκυρη τιμή 'SystemGraphic'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Μη έγκυρη τιμή 'SystemNetwork'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidContact,Η τιμή 'Contact' δεν είναι 'URL' ή 'Διεύθυνση Email'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Μη έγκυρη επέκταση αρχείου
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Το αρχείο 'SucroseCompatible.json' είναι άδειο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Το αρχείο 'SucroseProperties.json' είναι άδειο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.PropertyListener,Μη έγκυρη τιμή 'PropertyListener'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Μη έγκυρη τιμή 'SystemMotherboard'
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Το αρχείο 'SucroseCompatible.json' δεν είναι έγκυρο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Το αρχείο 'SucroseProperties.json' δεν είναι έγκυρο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Απρόβλεπτες συνέπειες
+Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.EL.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.EL.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Portal.LibraryPage.Import.Successful,Το θέμα '{0}' προστέθηκε με επιτυχία στη βιβλιοθήκη.
+Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Portal.LibraryPage.Import.Unsuccessful,Το θέμα '{0}' δεν μπόρεσε να προστεθεί στη βιβλιοθήκη. Αιτία: '{1}'.
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuHelp,Βοήθεια
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuAbout,Σχετικά
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuHelpTip,Προβολή Βοήθειας
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuAboutTip,Προβολή Πληροφοριών Σχετικά
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuLibrary,Βιβλιοθήκη
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuStore,Κατάστημα
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuLibraryTip,Βιβλιοθήκη Θεμάτων
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuStoreTip,Κατάστημα Θεμάτων
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuGeneral,Γενικές
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuPersonal,Προσωπικές
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuPerformance,Απόδοση
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuWallpaper,Ταπετσαρία
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuSystem,Σύστημα
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuDonate,Δωρεά
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuOther,Άλλες
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuBackTip,Πίσω
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuGeneralTip,Γενικές Ρυθμίσεις
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuPersonalTip,Προσωπικές Ρυθμίσεις
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuPerformanceTip,Ρυθμίσεις Απόδοσης
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuWallpaperTip,Ρυθμίσεις Ταπετσαρίας
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuSystemTip,Ρυθμίσεις Συστήματος
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuDonateTip,Ρυθμίσεις Δωρεάς
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuOtherTip,Άλλες Ρυθμίσεις
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuSettingTip,Ρυθμίσεις
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.SearchBoxHint,Αναζήτηση Ταπετσαρίας
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.SearchBoxTip,Αντιμετωπίζετε δυσκολία στην εύρεση αυτού που χρειάζεστε;
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuLightTip,Φωτεινό Θέμα
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuDarkTip,Σκοτεινό Θέμα
+Portal\MainWindow\Portal.MainWindow.EL.xaml,,
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Δημιουργία Ταπετσαρίας
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Αλλαγή Ταπετσαρίας
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Προτιμήσεις Οθόνης
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuDonateOptionsTip,Επιλογές Δωρεάς
+Portal\MainWindow\Portal.MainWindow.EL.xaml,Portal.MainWindow.MenuOtherOptionsTip,Άλλες Επιλογές
+Portal\SettingPage\Portal.SettingPage.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuRUwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkVMLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.EL.xaml,,
+Portal\StorePage\Portal.StorePage.EL.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Title,Προτιμήσεις Οθόνης
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Close,Κλείσιμο
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Expander,Κατάσταση Τοποθέτησης
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Expander.Description,Πώς οι ταπετσαρίες εφαρμόζονται στις ενεργές οθόνες.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Screen,Μόνο στην επιλεγμένη οθόνη
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Expand,Επέκταση ανάμεσα στις οθόνες
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Expand.Monitor,Όλες οι οθόνες
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Expand.Hint,Επιλέξτε τη λειτουργία επέκτασης ανάμεσα στις οθόνες
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Duplicate,Αντιγραφή της ίδιας ταπετσαρίας
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EL.xaml,Portal.DisplayPreferences.Duplicate.Hint,Επιλέξτε τη λειτουργία αντιγραφής της ίδιας ταπετσαρίας
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,Portal.ExpanderCard.TitleText,Τίτλος
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,Portal.ExpanderCard.DescriptionText,Περιγραφή
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,Portal.ExpanderCard.ExpandUpTip,Σύμπτυξη
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EL.xaml,Portal.ExpanderCard.ExpandDownTip,Επέκταση
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.TitleText,Τίτλος
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.DescriptionText,Περιγραφή
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MoreTip,Περισσότερα
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.VersionTip,"Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose"
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuReview,Κριτική
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuUse,Χρησιμοποίησε
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuPreview,Προεπισκόπηση
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuCustomize,Προσαρμογή
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuFind,Εύρεση
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuShare,Κοινοποίηση
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuDelete,Διαγραφή
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuEdit,Επεξεργασία
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Title,Σχετικά
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Close,Κλείσιμο
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.About,"Γειά σας, το όνομά μου είναι Bayram Emekli, γνωστός και ως Taiizor. Είμαι ο δημιουργός της εφαρμογής Sucrose Wallpaper Engine, η οποία είναι δωρεάν και ανοικτού κώδικα. Σας ευχαριστώ που χρησιμοποιείτε την εφαρμογή που ανέπτυξα."
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Update,Έκδοση: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Update.Description,Τελευταίος έλεγχος: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Update.Notes,Σημειώσεις ενημέρωσης
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Partners,Συνεργάτες μας
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Contributors,Συνεισφέροντες
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.TermsOfService,Όροι Υπηρεσίας
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.PrivacyPolicy,Πολιτική Απορρήτου
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.CodeOfConduct,Κώδικας Συμπεριφοράς των Συντελεστών
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Title,Βοήθεια
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Close,Κλείσιμο
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.WebPage,Ιστοσελίδα
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.WebPage.Description,Επίσημη ιστοσελίδα του Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Documentation,Τεκμηρίωση
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Documentation.Description,Επίσημη σελίδα τεκμηρίωσης του Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Repository,Κώδικας Πηγής
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Repository.Description,Επίσημη σελίδα του κώδικα πηγής του Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Discussions,Συζητήσεις
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Discussions.Description,Επίσημη σελίδα συζητήσεων του Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Report,Αναφορά Σφαλμάτων
+Portal\Controls\OtherHelp\Portal.OtherHelp.EL.xaml,Portal.OtherHelp.Report.Description,Επίσημη σελίδα αναφοράς σφαλμάτων του Sucrose Wallpaper Engine
+Portal\Controls\Pagination\Portal.Pagination.EL.xaml,Portal.Pagination.PageJump,Αλμα
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.TitleText,Τίτλος
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.DescriptionText,Περιγραφή
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.VersionTip,"Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose"
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuInstall,Εγκατάσταση
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuReport,Αναφορά
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Title,Δημιουργία Θέματος
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Create,Δημιουργία
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Close,Κλείσιμο
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Gif,Θέμα Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Gif.Description,Δημιουργήστε το δικό σας θέμα τύπου Gif.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Url,Θέμα Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Url.Description,Δημιουργήστε το δικό σας θέμα τύπου Url.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Web,Θέμα Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Web.Description,Δημιουργήστε το δικό σας θέμα τύπου Web.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Video,Θέμα Video
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Video.Description,Δημιουργήστε το δικό σας θέμα τύπου Video.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.YouTube,Θέμα YouTube
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.YouTube.Description,Δημιουργήστε το δικό σας θέμα τύπου YouTube.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Application,Θέμα Application
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Application.Description,Δημιουργήστε το δικό σας θέμα τύπου Application.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeThumbnail,Εξώφυλλο
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview,Προεπισκόπηση
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeTitle,Τίτλος
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeDescription,Περιγραφή
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeAuthor,Συγγραφέας
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeContact,Επικοινωνία
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeTags,Ετικέτες
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeArguments,Ορίσματα
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Επιλέξτε μια εικόνα εξωφύλλου
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview.Hint,Επιλέξτε ένα αρχείο προεπισκόπησης
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Παρακαλούμε εισάγετε έναν έγκυρο τίτλο
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Παρακαλούμε εισάγετε μια έγκυρη περιγραφή
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Παρακαλούμε εισάγετε έναν έγκυρο όνομα συγγραφέα
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeContact.Hint,Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση επικοινωνίας
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeTags.Hint,Παρακαλούμε εισάγετε έγκυρες ετικέτες θέματος
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Παρακαλούμε εισάγετε έγκυρες παραμέτρους εφαρμογής
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Delete,Αναίρεση
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Gif,Σύρετε και αποθέστε το αρχείο GIF εδώ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Video,Σύρετε και αποθέστε το αρχείο video εδώ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Επιλογή Εξωφύλλου
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Αρχεία Εικόνας (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview.Title,Επιλογή Αρχείου Προεπισκόπησης
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview.Filter,Αρχεία GIF (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Title,Διαγραφή Θέματος
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Delete,Διαγραφή
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Close,Κλείσιμο
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeTitle,Τίτλος
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeDescription,Περιγραφή
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeType,Τύπος
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeAuthor,Συγγραφέας
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeSize,Μέγεθος
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeVersion,Έκδοση
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeTags,Ετικέτες
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeTagsText,Καμία
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeCreate,Δημιουργία
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeCreateDate,Άγνωστο
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeModify,Τροποποίηση
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.ThemeModifyDate,Άγνωστο
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.Title,Επεξεργασία Θέματος
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.Close,Κλείσιμο
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.Save,Αποθήκευση
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeTitle,Τίτλος
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeDescription,Περιγραφή
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeAuthor,Συγγραφέας
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeContact,Επικοινωνία
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeTags,Ετικέτες
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeArguments,Ορίσματα
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeTitle.Hint,Παρακαλώ εισάγετε έναν έγκυρο τίτλο
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeDescription.Hint,Παρακαλώ εισάγετε μια έγκυρη περιγραφή
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,Παρακαλώ εισάγετε έναν έγκυρο όνομα συγγραφέα
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeContact.Hint,Παρακαλώ εισάγετε μια έγκυρη διεύθυνση επικοινωνίας
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeTags.Hint,Παρακαλώ εισάγετε έγκυρες ετικέτες θέματος
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EL.xaml,Portal.ThemeEdit.ThemeArguments.Hint,Παρακαλώ εισάγετε έγκυρες παραμέτρους εφαρμογής
+Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,Portal.ThemeImport.Title,Εισαγωγή Θέματος
+Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,Portal.ThemeImport.Close,Κλείσιμο
+Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,Portal.ThemeImport.Info,Πληροφορίες Θέματος
+Portal\Controls\ThemeImport\Portal.ThemeImport.EL.xaml,Portal.ThemeImport.Type,Περιγραφές Αιτίας
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.Title,Κριτική Θέματος
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.Close,Κλείσιμο
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeTitle,Τίτλος
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeDescription,Περιγραφή
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeType,Τύπος
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeAuthor,Συγγραφέας
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeSize,Μέγεθος
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeVersion,Έκδοση
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeTags,Ετικέτες
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeTagsText,Καμία
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeCreate,Δημιουργήθηκε
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeCreateDate,Άγνωστο
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeModify,Τροποποιήθηκε
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeModifyDate,Άγνωστο
+Portal\Controls\ThemeReview\Portal.ThemeReview.EL.xaml,Portal.ThemeReview.ThemeContact,Διεύθυνση Επικοινωνίας του Θέματος
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.Title,Κοινοποίηση Θέματος
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.Close,Κλείσιμο
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemeTitle,Τίτλος
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemeDescription,Περιγραφή
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemeExport,Εξαγωγή
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish,Δημοσίευση στο Κατάστημα
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemeCopy,Αντιγραφή συνδέσμου
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogTitle,Αποθήκευση αρχείου θέματος
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,Portal.EmptyLibraryPage.TitleText,Η βιβλιοθήκη σας έχει καλυφθεί από αραχνοσημάδια
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,Portal.EmptyLibraryPage.DescriptionText,"Αντί για ταπετσαρίες, ένα υπέροχο έργο τέχνης από αραχνοσημάδια διακοσμεί τη βιβλιοθήκη σας"
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.EL.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,Portal.SearchLibraryPage.TitleText,Η βιβλιοθήκη σας έχει μαγευτεί από αραχνοσημάδια
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EL.xaml,Portal.SearchLibraryPage.DescriptionText,"Λόγω της λεπτομέρειας στην επιλογή των ταπετσαριών, δεν υπάρχει πλέον χώρος για άλλα ταπετσαρίες"
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.DonateMenu,Μενού Δωρεάς
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.DonateMenu.Description,Ορατότητα του μενού δωρεάς στη διεπαφή.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Εμφάνιση
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Απόκρυψη
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.Advertising,Διαφημίσεις Υποστήριξης
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.Advertising.Description,Συνεισφέρετε στην ανάπτυξη της εφαρμογής παρακολουθώντας διαφημίσεις.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Διάρκεια Διαφημίσεων (λεπτά):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EL.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Συμβουλή: Οι διαφημίσεις θα εμφανίζονται με τον ελάχιστο ενοχλητικό τρόπο.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Γλώσσα Εφαρμογής
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,Επιλέξτε τη γλώσσα στην οποία θέλετε να προβάλετε την εφαρμογή.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup,Εκκίνηση με την έναρξη του συστήματος
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,"Για να αναπαράγετε τα ταπετσαρίες σας, η εφαρμογή Sucrose πρέπει να εκκινεί στο παρασκήνιο."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Καθόλου
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Κανονική
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Υψηλή Προτεραιότητα
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Χρονοδιάγραμμα
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.NotifyIcon,Εικονίδιο ενημερώσεων
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Ορατότητα του εικονιδίου ενημερώσεων στη γραμμή εργασιών του συστήματος. Το Sucrose θα συνεχίσει να λειτουργεί στο παρασκήνιο.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Ορατό
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Αόρατο
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Όταν κλείνετε το εικονίδιο ενημερώσεων, να κλείνονται και όλες οι εφαρμογές του Sucrose"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop,Φόντο παραθύρου
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Χρησιμοποιείται για την προσαρμογή του φόντου του παραθύρου της εφαρμογής.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Επιλέξτε εικόνα φόντου
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Επιλέξτε μια εικόνα φόντου
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Αρχεία εικόνας (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Επέκταση του φόντου:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Διαφάνεια του φόντου (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.EngineVolume,Ένταση Ήχου
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Η ένταση ήχου που ισχύει για όλα τα ταπετσαρίες.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Αναπαραγωγή ήχου μόνο όταν εστιάζετε στην επιφάνεια εργασίας
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary,Τοποθεσία βιβλιοθήκης
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Η τοποθεσία όπου θα αποθηκεύονται τα θέματα που προσθέτετε στη βιβλιοθήκη σας.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Παρακαλώ επιλέξτε έναν κενό φάκελο
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Παρακαλώ περιμένετε λίγο κατά τη μετακίνηση της τοποθεσίας
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Μετακίνηση της υφιστάμενης βιβλιοθήκης σας σε νέα τοποθεσία
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.DiscordHook.Description,Το Sucrose διαχειρίζεται την επικοινωνία με το Discord.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Ανανέωση σύνδεσης:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Διάστημα Ανανέωσης (δευτερόλεπτα):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Agent,Πράκτορας Διαδικτύου
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Agent.Description,Το αναγνωριστικό πράκτορα σας για καταστάσεις που απαιτούν σύνδεση στο διαδίκτυο.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Key,Προσωπικό Κλειδί Πρόσβασης
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Key.Description,Απαιτείται για ασφαλή λήψη ενημερώσεων από το κατάστημα και την εφαρμογή.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Key.HintKey,"Αν δεν γνωρίζετε πώς να λάβετε ένα προσωπικό κλειδί πρόσβασης, κάντε κλικ εδώ."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Key.PersonalKey,Παρακαλώ εισάγετε ένα προσωπικό κλειδί πρόσβασης
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Παρακαλώ εισάγετε ένα έγκυρο προσωπικό κλειδί πρόσβασης
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Channel,Κανάλι Ενημερώσεων
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Channel.Description,Ποιο κανάλι θα χρησιμοποιηθεί για τις ενημερώσεις.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Update,Μέθοδος Ενημέρωσης
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Update.Description,Πώς θα γίνει η διαδικασία ενημέρωσης.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Update.Limit,Όριο Εύρους Ζώνης για Λήψη:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer,Εργαλεία Προγραμματιστή
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer.Description,Εμφάνιση ή απόκρυψη των εργαλείων προγραμματιστή για την μηχανή WebView και CefSharp.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Counter,Μετρητές Απόδοσης
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Counter.Description,Εάν οι μετρητές απόδοσης θα λειτουργούν στο παρασκήνιο.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,Σημείωση: Ορισμένα θέματα τύπου Web ενδέχεται να μην λειτουργούν σωστά και καμία από τις παρακάτω ρυθμίσεις απόδοσης δεν θα ισχύσει.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Pause,Κανόνας Παύσης
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Pause.Description,Καθορίζει τον κανόνα για την παύση του ταπετσαρίας βάσει των ρυθμίσεών σας για την απόδοση.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Communication,Τύπος Επικοινωνίας
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Communication.Description,Καθορίζει τη μέθοδο αποστολής μηνυμάτων σε θέματα τύπου Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Cpu,Χρήση Επεξεργαστή
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Cpu.Description,Πώς θα επηρεάσει η ρύθμιση της χρήσης του επεξεργαστή το ταπετσαρία.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Χρήση Επεξεργαστή (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Memory,Χρήση Μνήμης
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Memory.Description,Πώς θα επηρεάσει η ρύθμιση της χρήσης μνήμης το ταπετσαρία.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Χρήση Μνήμης (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Network,Χρήση Δικτύου
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Network.Description,Πώς θα επηρεάσει η ρύθμιση της χρήσης δικτύου το ταπετσαρία.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Δικτυακός Προσαρμογέας:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Η λίστα των δικτυακών προσαρμογέων δεν έχει δημιουργηθεί ακόμα
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Μέγεθος Αποστολής:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Μέγεθος Λήψης:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping Χρόνος (MS):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Battery,Κατάσταση Μπαταρίας
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Battery.Description,Πώς θα επηρεάσει η ρύθμιση της κατάστασης της μπαταρίας το ταπετσαρία όταν είναι ενεργοποιημένη.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Κατάσταση Μπαταρίας (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Saver,Λειτουργία Εξοικονόμησης Μπαταρίας
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Saver.Description,Πώς θα επηρεάσει η ρύθμιση της λειτουργίας εξοικονόμησης μπαταρίας το ταπετσαρία όταν είναι ενεργοποιημένη.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Virtual,Εικονικές Μηχανές
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Virtual.Description,Πώς θα επηρεάσει η ρύθμιση των εικονικών μηχανών το ταπετσαρία όταν είναι ενεργοποιημένη.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Remote,Απομακρυσμένη Γραφική Διεπαφή
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Remote.Description,Πώς θα επηρεάσει η ρύθμιση της απομακρυσμένης γραφικής διεπαφής το ταπετσαρία όταν είναι ενεργοποιημένη.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Fullscreen,Λειτουργία Πλήρης Οθόνης
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,Πώς θα επηρεάσει η ρύθμιση της λειτουργίας πλήρης οθόνης το ταπετσαρία όταν είναι ενεργοποιημένη.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Focus,Λειτουργία Εστίασης
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Focus.Description,Πώς θα επηρεάσει η ρύθμιση της λειτουργίας εστίασης το ταπετσαρία όταν υπάρχει εστίαση σε κάποια άλλη εφαρμογή.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Server,Διακομιστής Καταστήματος
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Server.Description,Καθορίζει ποιός διακομιστής θα χρησιμοποιηθεί για την εμφάνιση των θεμάτων που αναφέρονται στο κατάστημα.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Σημείωση: Εάν επιλεγεί το {0} ως διακομιστής, είναι απαραίτητο να εισαγάγετε ένα {2} για να αποφευχθούν τα όρια αιτήσεων. Διαφορετικά, ενδέχεται να αντιμετωπίσετε προβλήματα πρόσβασης σε θέματα στο κατάστημα. Εάν επιλεγεί το {1}, θα έχετε μια πιο ομαλή εμπειρία στο κατάστημα."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Duration,Ανανέωση Καταστήματος
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Duration.Description,Πόσο συχνά θα γίνεται η ανανέωση των θεμάτων που εμφανίζονται στο κατάστημα.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.StoreStart,Αυτόματη Εκκίνηση
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.StoreStart.Description,Θα ορίζεται αυτόματα το θέμα που λαμβάνετε από το κατάστημα ως ταπετσαρία.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adult,Άκατάλληλο Περιεχόμενο
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adult.Description,Θα εμφανίζονται ή όχι περιεχόμενα που έχουν χαρακτηριστεί ως μη ασφαλή (NSFW) στο κατάστημα.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Confirm,Επιβεβαίωση Διαγραφής
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Confirm.Description,Θα ζητείται επιβεβαίωση πριν διαγράψετε θέματα από την βιβλιοθήκη σας.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Delete,Διαγραφή Κακόβουλων Θεμάτων
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Delete.Description,Θα γίνεται αυτόματη διαγραφή των κακόβουλων ή ελλιπών θεμάτων από τη βιβλιοθήκη σας.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,"Σημείωση: Χρησιμοποιείτε με προσοχή, καθώς μπορεί να οδηγήσει σε απώλεια δεδομένων."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.LibraryStart,Αυτόματη Εκκίνηση
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Το θέμα που δημιουργήσατε θα ορίζεται αυτόματα ως ταπετσαρία.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview,Προεπισκόπηση Θεμάτων
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview.Description,Θα εμφανίζεται προεπισκόπηση όταν το ποντίκι βρίσκεται πάνω από ένα θέμα.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Προεπισκόπηση Καταστήματος:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Απόκρυψη Λεπτομερειών:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Προεπισκόπηση Βιβλιοθήκης:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Απόκρυψη Λεπτομερειών:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme,Προσαρμογή Θεμάτων
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme.Description,Προσαρμόστε τα ονόματα ή τις περιγραφές των θεμάτων που εμφανίζονται.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Μήκος Τίτλου (Χαρακτήρες):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Μήκος Περιγραφής (Χαρακτήρες):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adaptive,Προσαρμοστική Διάταξη
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adaptive.Description,Προσαρμόστε τη διάταξη ή τις αποστάσεις των θεμάτων που εμφανίζονται.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Απόσταση Γραμμών (Εικόνα):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Διάταξη Σειράς (Τεμάχια):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Sort,Ταξινόμηση Βιβλιοθήκης
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Sort.Description,Καθορίστε πώς θα ταξινομούνται τα θέματα στη βιβλιοθήκη σας και σε ποιο μορφότυπο.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Sort.SortMode,Τρόπος Ταξινόμησης:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Sort.SortKind,Είδος Ταξινόμησης:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Store,Σελιδοποίηση Καταστήματος
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Store.Description,Καθορίστε πόσα θέματα θα υπάρχουν σε κάθε σελίδα του καταστήματος.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Library,Σελιδοποίηση Βιβλιοθήκης
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Library.Description,Καθορίστε πόσα θέματα θα υπάρχουν σε κάθε σελίδα της βιβλιοθήκης σας.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LogTemporary,Αρχεία Καταγραφής
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LogTemporary.Description,Διαχείριση όλων των αρχείων καταγραφής που δημιουργεί η εφαρμογή.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LogTemporary.Create,Δημιουργία
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Εκκαθάριση
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων καταγραφής είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.CacheTemporary,Εκκαθάριση Προσωρινής Μνήμης
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.CacheTemporary.Description,Καθαρίστε όλα τα αρχεία προσωρινής μνήμης που δημιουργεί η εφαρμογή.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Έναρξη Εκκαθάρισης
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων προσωρινής μνήμης είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.StoreTemporary,Εκκαθάριση Καταστήματος
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.StoreTemporary.Description,Καθαρίστε όλα τα αρχεία καταστήματος που δημιουργεί η εφαρμογή.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Έναρξη Εκκαθάρισης
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων καταστήματος είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LibraryTemporary,Εκκαθάριση Βιβλιοθήκης
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,Καθαρίστε όλα τα αρχεία θεμάτων που υπάρχουν στη βιβλιοθήκη σας ή που δημιουργεί η εφαρμογή.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Έναρξη Εκκαθάρισης
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Σημείωση: Το συνολικό μέγεθος των αρχείων θεμάτων στη βιβλιοθήκη σας είναι {0}. Όλες οι εφαρμογές θα κλείσουν όταν αρχίσει η διαδικασία εκκαθάρισης.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingBackup,Αρχεία Ρυθμίσεων
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingBackup.Description,Διαχείριση όλων των αρχείων ρυθμίσεων που δημιουργεί η εφαρμογή.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingBackup.Export,Εξαγωγή
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingBackup.Import,Εισαγωγή
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επιλεγμένη εργασία.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingReset,Επαναφορά Ρυθμίσεων
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingReset.Description,Επαναφέρετε όλες τις ρυθμίσεις που δημιουργεί η εφαρμογή στην προεπιλεγμένη κατάσταση.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingReset.Start,Έναρξη Επαναφοράς
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.SettingReset.Hint,Σημείωση: Όλες οι εφαρμογές θα κλείσουν όταν ξεκινήσετε την επαναφορά των ρυθμίσεων.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Αποθήκευση Αρχείου Καταγραφής
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλοι οι Τύποι Αρχείων (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ScreenLayout,Διάταξη Οθόνης
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Αλλάζει τη διάταξη των ταπετσαριών στην οθόνη σας.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.StretchMode,Λειτουργία Επέκτασης
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Αλλάζει τον τρόπο με τον οποίο επεκτείνονται τα υποστηριζόμενα ταπετσαρίες.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.LoopMode,Λειτουργία Επανάληψης
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Αλλάζει τη λειτουργία επανάληψης για τις υποστηριζόμενες ταπετσαρίες.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ShuffleMode,Λειτουργία Ανακάτεμα
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Αλλάζει τη λειτουργία ανακάτεμα για τις υποστηριζόμενες ταπετσαρίες.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.GifPlayer,Πρόσθετο Gif
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Gif που υπάρχουν στη βιβλιοθήκη σας.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.VideoPlayer,Πρόσθετο Video
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Επιλέξτε το πρόσθετο που θα αναπαράγει τα ταπετσαρίες τύπου Video που υπάρχουν στη βιβλιοθήκη σας.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.UrlPlayer,Μηχανή Url
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Url που υπάρχουν στη βιβλιοθήκη σας.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.WebPlayer,Μηχανή Web
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Web που υπάρχουν στη βιβλιοθήκη σας.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.YouTubePlayer,Μηχανή YouTube
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου YouTube που υπάρχουν στη βιβλιοθήκη σας.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Μηχανή Application
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Επιλέξτε τη μηχανή που θα εκτελεί τις ταπετσαρίες τύπου Application που υπάρχουν στη βιβλιοθήκη σας.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,Portal.BrokenStorePage.TitleText,Ένα Στιγμιότυπο Όπου το Διαδίκτυο Έχει Σβήσει
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EL.xaml,Portal.BrokenStorePage.DescriptionText,"Σαν έναν ουρανό χωρίς αστέρια, εδώ δεν υπάρχει φωτεινότητα στο διαδίκτυο"
+Portal\StorePage\FullStorePage\Portal.FullStorePage.EL.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,Portal.SearchStorePage.TitleText,Η απάντηση στα ψάξιμά σας μπορεί να κρύβεται στον ουρανό
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EL.xaml,Portal.SearchStorePage.DescriptionText,"Αν τα αποτελέσματα δεν είναι όπως τα περιμένατε, ο ουρανός μπορεί να σας προσφέρει μια νέα εμπειρία"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,Portal.UnknownStorePage.TitleText,Ανακαλύψτε τον Μυστηριώδη Κατάσταση στο Κατάστημα
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EL.xaml,Portal.UnknownStorePage.DescriptionText,Κυνηγήστε το άγνωστο και ξεκινήστε ένα ταξίδι για να ανακαλύψετε το μυστηριώδες γεγονός που συνέβη στο κατάστημα

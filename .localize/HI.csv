@@ -1,0 +1,942 @@
+File,Key,Value
+Locale.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSEkueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.HI.xaml,Discord.BrowseButton,ब्राउज़ कर
+Discord\Discord.HI.xaml,Discord.Details,वॉलपेपर इंजन
+Discord\Discord.HI.xaml,Discord.DownloadButton,डाउनलोड कर
+Discord\Discord.HI.xaml,,
+Discord\Discord.HI.xaml,Discord.LargestText0,केला आइसक्रीम पॉवर
+Discord\Discord.HI.xaml,Discord.LargestText1,मुस्कानी टोपी राक्षस
+Discord\Discord.HI.xaml,Discord.LargestText2,रंगीन मेंढ़़ों वाला चिड़िया
+Discord\Discord.HI.xaml,Discord.LargestText3,दौड़ते पेंगुइन के गुप्त साहस
+Discord\Discord.HI.xaml,Discord.LargestText4,दैसी में खो जाने वाले खरगोश
+Discord\Discord.HI.xaml,Discord.LargestText5,गाते हुए हवा के गलियारे
+Discord\Discord.HI.xaml,Discord.LargestText6,रहस्यमय जंगल की रहस्यमय मधुमक्खियाँ
+Discord\Discord.HI.xaml,Discord.LargestText7,सपनों भरी मछली की झुण्डी
+Discord\Discord.HI.xaml,Discord.LargestText8,क्रिस्टल-आंखों वाले एज़ड्रेगा का नृत्य
+Discord\Discord.HI.xaml,Discord.LargestText9,फूलों से ढकी किस्सा मार्ग
+Discord\Discord.HI.xaml,Discord.LargestText10,आसमान से गिरते हुए तारे
+Discord\Discord.HI.xaml,Discord.LargestText11,टूटे हुए चाँद की रोशनी में नृत्य
+Discord\Discord.HI.xaml,Discord.LargestText12,रहस्यमय रेनबो ड्रैगन्स
+Discord\Discord.HI.xaml,Discord.LargestText13,जादुई जंगल की कहानी
+Discord\Discord.HI.xaml,Discord.LargestText14,आकाश में फूल बरसात
+Discord\Discord.HI.xaml,Discord.LargestText15,समय के शांत स्पर्श
+Discord\Discord.HI.xaml,Discord.LargestText16,स्युरियल सपनों की देश
+Discord\Discord.HI.xaml,Discord.LargestText17,सोने की झील के गाने
+Discord\Discord.HI.xaml,Discord.LargestText18,आकाश में तैरती हुई किस्सा जहाज
+Discord\Discord.HI.xaml,Discord.LargestText19,रंगीन गुब्बार वाला जंगल
+Discord\Discord.HI.xaml,Discord.LargestText20,रहस्यमय अंडरवॉटर सिटी
+Discord\Discord.HI.xaml,Discord.LargestText21,सितारों के धूली आकाश
+Discord\Discord.HI.xaml,Discord.LargestText22,अनजाने की पीछे भागते हुए हवाएँ
+Discord\Discord.HI.xaml,Discord.LargestText23,चाँदनी के नीचे कहानीआंतर
+Discord\Discord.HI.xaml,,
+Discord\Discord.HI.xaml,Discord.SmallestText0,रहस्यमय पैर के निशान
+Discord\Discord.HI.xaml,Discord.SmallestText1,उड़ते बैलून मछलियाँ
+Discord\Discord.HI.xaml,Discord.SmallestText2,हँसते हुए फूल
+Discord\Discord.HI.xaml,Discord.SmallestText3,मिठाई कपास के बादल
+Discord\Discord.HI.xaml,Discord.SmallestText4,फ्रोजन पिज्जा ड्रैगन्स
+Discord\Discord.HI.xaml,Discord.SmallestText5,चमकदार कुकुरमुत्यादियाँ
+Discord\Discord.HI.xaml,Discord.SmallestText6,अदृश्य एकाश्व पदचिह्न
+Discord\Discord.HI.xaml,Discord.SmallestText7,रंगीन धूल बादल
+Discord\Discord.HI.xaml,Discord.SmallestText8,सोने के गुब्बार कीटाएँ
+Discord\Discord.HI.xaml,Discord.SmallestText9,कैंडी क्रेटर यात्रा
+Discord\Discord.HI.xaml,Discord.SmallestText10,रॉकेट से उड़ता पिज्जा स्लाइसेस
+Discord\Discord.HI.xaml,Discord.SmallestText11,सूर्य के साथ नृत्य करते समुद्र की शंखें
+Discord\Discord.HI.xaml,Discord.SmallestText12,अदृश्य सितारे उंगलियाँ
+Discord\Discord.HI.xaml,Discord.SmallestText13,धूंध में समुद्री नृत्य
+Discord\Discord.HI.xaml,Discord.SmallestText14,रैनबो बर्ड माइग्रेशन
+Discord\Discord.HI.xaml,Discord.SmallestText15,कैंडी स्टॉर्म पथ
+Discord\Discord.HI.xaml,Discord.SmallestText16,अनंत पिज्जा गैलेक्सी
+Discord\Discord.HI.xaml,Discord.SmallestText17,सूर्य की मुस्कान
+Discord\Discord.HI.xaml,Discord.SmallestText18,गुप्त तालाब की खोई हुई मुस्कान
+Discord\Discord.HI.xaml,Discord.SmallestText19,सपना पक्षियों की छाया
+Discord\Discord.HI.xaml,Discord.SmallestText20,आकाश में उड़ने वाले तितलियाँ
+Discord\Discord.HI.xaml,Discord.SmallestText21,तारों के पीछे छुपे गीत
+Discord\Discord.HI.xaml,Discord.SmallestText22,कहानी का कुहरा पहाड़
+Discord\Discord.HI.xaml,Discord.SmallestText23,रहस्यमय जंगल की परी
+Discord\Discord.HI.xaml,,
+Discord\Discord.HI.xaml,Discord.StatementText0,भरपूर असमंजस के साथ एक ब्रह्मांड
+Discord\Discord.HI.xaml,Discord.StatementText1,अनंत साहसों के बीच
+Discord\Discord.HI.xaml,Discord.StatementText2,अजीब और जादुई दुनिया
+Discord\Discord.HI.xaml,Discord.StatementText3,कल्पना की सीमाओं को चुनौती देने वाला
+Discord\Discord.HI.xaml,Discord.StatementText4,असामान्य वास्तविकता
+Discord\Discord.HI.xaml,Discord.StatementText5,कल्पना के गहराईयों में
+Discord\Discord.HI.xaml,Discord.StatementText6,जादुई खोज यात्रा
+Discord\Discord.HI.xaml,Discord.StatementText7,अज्ञात दुनियों के द्वार पर
+Discord\Discord.HI.xaml,Discord.StatementText8,जटिल सपनों का संसार
+Discord\Discord.HI.xaml,Discord.StatementText9,सीमाओं को चुनौती देने वाला साहस
+Discord\Discord.HI.xaml,Discord.StatementText10,गतिशील और आश्चर्यजनक अनुभव
+Discord\Discord.HI.xaml,Discord.StatementText11,एक किस्से की तरह किस्सा
+Discord\Discord.HI.xaml,Discord.StatementText12,जादुई पोर्टल्स के बीच
+Discord\Discord.HI.xaml,Discord.StatementText13,रात के आसमान की यात्रा
+Discord\Discord.HI.xaml,Discord.StatementText14,हिल गई महाद्वीप की खोज में
+Discord\Discord.HI.xaml,Discord.StatementText15,अज्ञात ग्रहों की कहानी
+Discord\Discord.HI.xaml,Discord.StatementText16,समान्तर ब्रह्मांडों का खोज
+Discord\Discord.HI.xaml,Discord.StatementText17,पौराणिक देशों का प्रवेश
+Discord\Discord.HI.xaml,Discord.StatementText18,सपनों के तार के साथ बुनी हुई वास्तविकता
+Discord\Discord.HI.xaml,Discord.StatementText19,तारों के बीच एक सपना
+Discord\Discord.HI.xaml,Discord.StatementText20,समय के दरवाजों के पीछे
+Discord\Discord.HI.xaml,Discord.StatementText21,चमकते हुए तारों का समूह
+Discord\Discord.HI.xaml,Discord.StatementText22,अज्ञात की चुप्पी चीख
+Discord\Discord.HI.xaml,Discord.StatementText23,एक आदर्श दुनिया
+Discord\Discord.HI.xaml,Discord.StatementText24,मिस्टिक पहाड़ों के शिखर पर
+Discord\Discord.HI.xaml,Discord.StatementText25,खोए हुए राज्यों की खोज में
+Discord\Discord.HI.xaml,Discord.StatementText26,तारों के बीच सपना यात्रा
+Discord\Discord.HI.xaml,Discord.StatementText27,जादुई रात के जीवों
+Discord\Discord.HI.xaml,Discord.StatementText28,अनंत कहानी का आरंभ
+Discord\Discord.HI.xaml,Discord.StatementText29,आसमान में उड़ने वाले रंगीन गुब्बार
+Discord\Discord.HI.xaml,Discord.StatementText30,रहस्यमय रात का आकाश
+Discord\Discord.HI.xaml,Discord.StatementText31,सपनों के राज्य का रास्ता
+Discord\Discord.HI.xaml,Discord.StatementText32,अज्ञात दिशाओं के खुले दरवाजे
+Discord\Discord.HI.xaml,Discord.StatementText33,समय के कोल में नृत्य
+Discord\Discord.HI.xaml,Discord.StatementText34,रात में दबे हुए किस्से
+Discord\Discord.HI.xaml,Discord.StatementText35,जादुई आइना दुनिया
+Discord\Discord.HI.xaml,Discord.StatementText36,अनंत के दरवाजों पर यात्रा
+Discord\Discord.HI.xaml,Discord.StatementText37,सपना शिकारी रात की यात्रा
+Discord\Discord.HI.xaml,Discord.StatementText38,क्रिस्टल शहर का सपना
+Discord\Discord.HI.xaml,Discord.StatementText39,अंधकार में चमकते हुए तारे
+Discord\Discord.HI.xaml,Discord.StatementText40,तारों के पीछे एक रहस्यमय रात
+Discord\Discord.HI.xaml,Discord.StatementText41,रहस्यमय चाँदनी की कहानियाँ
+Discord\Discord.HI.xaml,Discord.StatementText42,सोने के दरवाजे अज्ञात दिशाओं की क्षमता में
+Discord\Discord.HI.xaml,Discord.StatementText43,जादुई रात के रहस्यमय मार्ग
+Discord\Discord.HI.xaml,Discord.StatementText44,आसमान में उड़ने वाले सपने गुब्बारे
+Discord\Discord.HI.xaml,Discord.StatementText45,सितारों के नीचे सपने का रास्ता
+Discord\Discord.HI.xaml,Discord.StatementText46,गुप्त दुनिया सितारों के किनारे का गाँव
+Discord\Discord.HI.xaml,Discord.StatementText47,मिस्टी पहाड़ के पीछे की कहानी
+Discord\Discord.HI.xaml,Discord.StatementText48,अंधकार में चमकती सितारों वाली रात
+Launcher\Launcher.HI.xaml,Launcher.WallCustomizeText,वॉलपेपर कस्टमाइज़ करें
+Launcher\Launcher.HI.xaml,Launcher.CreateLogText,डेली लॉग बनाएँ
+Launcher\Launcher.HI.xaml,Launcher.ExitText,निकास
+Launcher\Launcher.HI.xaml,Launcher.OpenReportText,समस्या रिपोर्ट करें
+Launcher\Launcher.HI.xaml,Launcher.OpenText,Sucrose खोलें
+Launcher\Launcher.HI.xaml,Launcher.ReportText,समस्या रिपोर्ट करें
+Launcher\Launcher.HI.xaml,Launcher.ReportWindowTitle,Sucrose डायग्नोस्टिक्स
+Launcher\Launcher.HI.xaml,Launcher.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
+Launcher\Launcher.HI.xaml,Launcher.SaveDialogTitle,डेली लॉग फ़ाइल सहेजें
+Launcher\Launcher.HI.xaml,Launcher.SettingText,सेटिंग्स
+Launcher\Launcher.HI.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.HI.xaml,Launcher.WallChangeText,वॉलपेपर बदलें
+Launcher\Launcher.HI.xaml,Launcher.WallCloseText,वॉलपेपर बंद करें
+Launcher\Launcher.HI.xaml,Launcher.WallOpenText,वॉलपेपर खोलें
+Launcher\Launcher.HI.xaml,Launcher.WallStartText,वॉलपेपर शुरू करें
+Launcher\Launcher.HI.xaml,Launcher.WallStopText,वॉलपेपर रोकें
+Launcher\Launcher.HI.xaml,Launcher.UpdateText,अद्यतनों की जांच करें
+Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.UpdateText.Done,अद्यतन बाकी हैं
+Launcher\Launcher.HI.xaml,Launcher.UpdateText.Check,अद्यतनों की जांच हो रही है
+Launcher\Launcher.HI.xaml,Launcher.UpdateText.Progress,अद्यतन प्रगति {0}
+Portal\Portal.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.HI.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.HI.xaml,,
+Property\Property.HI.xaml,Property.DeleteTip,कॉपी हटाएं
+Property\Property.HI.xaml,Property.RefreshTip,इंटरफेस को रिफ़्रेश करें
+Property\Property.HI.xaml,Property.RestoreTip,डिफ़ॉल्ट को बहाल करें
+Property\Property.HI.xaml,,
+Property\Property.HI.xaml,Property.Type.NotSupport,नियंत्रण प्रकार '{0}' समर्थित नहीं है।
+Property\Property.HI.xaml,,
+Property\Property.HI.xaml,Property.ColorPicker.Color,रंग
+Property\Property.HI.xaml,Property.ColorPicker.Cancel,रद्द करें
+Property\Property.HI.xaml,Property.ColorPicker.Confirm,पुष्टि करें
+Property\Property.HI.xaml,Property.ColorPicker.EyeDropper,नेत्र-स्रोत
+Property\Property.HI.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.HI.xaml,,
+Property\Property.HI.xaml,Property.FileDropDown.Tip,एक फ़ाइल का चयन करें
+Property\Property.HI.xaml,Property.FileDropDown.Filter,सभी फ़ाइलें (*.*)|*.*
+Undo\Undo.HI.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.HI.xaml,,
+Undo\Undo.HI.xaml,Undo.QuestionMessage,क्या आप वास्तव में Sucrose Wallpaper Engine को अनइंस्टॉल करना चाहते हैं?
+Update\Update.HI.xaml,Update.HelpText,समस्या को हल करें
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.UpdateBox.WindowTitle,Sucrose अद्यतन
+Update\Update.HI.xaml,Update.UpdateBox.InstallText,अद्यतन स्थापित करें
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.InfoBox.WindowTitle,Sucrose अद्यतन
+Update\Update.HI.xaml,Update.InfoBox.TextMessage,संदेश
+Update\Update.HI.xaml,Update.InfoBox.CloseText,बंद करें
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Empty,हम उस समय में हैं जब अद्यतन फ़ाइलें एक गुम गहना की तरह छिपी हुई हैं। आप अभी मौजूदा संस्करण का उपयोग करके भी अनुभव से मजा ले सकते हैं।
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Error,"हमने पाया कि अद्यतन फाइल को डाउनलोड करते समय, रास्ते में एक क्रैक हो गया है, और यह यात्रा अब समाप्त हो गई है। मौजूदा संस्करण के साथ अपनी यात्रा को जारी रखें, क्योंकि जैसे-तैसे ही, प्रतिक्रिया प्राप्त होने पर, महान प्रतिक्रिया प्राप्त होती है।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Update,अनुप्रयोग एक पुस्तक के नवीनतम पृष्ठ की तरह पहले से ही सबसे अद्यतित और नवीनतम रूप में आपके साथ है। हर समय सबसे अच्छी और सबसे अद्यतित अनुभव प्रदान करने के लिए यहां है।
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Status,"हम एक सपने के कगार पर हैं जिस तक अपडेट फ़ाइलों तक पहुंच नहीं है। हालाँकि, आप वर्तमान संस्करण के साथ अपना सपना जीना जारी रख सकते हैं।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Channel,"चयनित अपडेट चैनल एक मौन जंगल की तरह है। नए अपडेट की जानकारी अभी यहां नहीं है। वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि इस मौन को तोड़ने पर हम आपको और अधिक प्रदान करेंगे।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Extract,"अपडेट फ़ाइल को निकालने का प्रयास करते समय, हमने समुद्र की गहराई से उत्पन्न एक बाधा का सामना किया। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि समुद्र अधिक शांत होने पर हम नए खजाने खोजने के लिए वापस आएंगे।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Network,"आपके कनेक्शन की कमजोरी, बादलों के सूर्य को ढकने जैसी है। बादल छंटने पर अधिक उज्ज्वल अनुभव आपका इंतजार कर रहा होगा।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Updating,"अनुप्रयोग अपडेट, समुद्र की लहरों के तट पर लाए गए नए खजाने की तरह, चुपके से आगे बढ़ रहा है। इन मूल्यवान नवाचारों को आपके लिए पृष्ठभूमि में एकत्र किया जा रहा है।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Releases,"अनुप्रयोग में हम एक ऐसी पल का अनुभव कर रहे हैं जब अपडेट स्टार अभी तक पैदा नहीं हुआ है। वर्तमान में कोई भी अपडेट जानकारी नहीं है, लेकिन आप पहले से ही मौजूद संस्करण का उपयोग करना जारी रख सकते हैं।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Download,"अपडेट फ़ाइल को डाउनलोड करते समय, हमने खोज की कि आकाश में तारे गलत क्रम में हैं। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि तारे सही hizaya आते ही हम आपको एक बेहतर अपडेट प्रदान करेंगे।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Cancelled,"अपडेट फ़ाइल को डाउनलोड करना रद्द कर दिया गया है, क्योंकि हमारे रास्ते अचानक अलग हो गए हैं। वर्तमान संस्करण के साथ अपने सफर को जारी रखें और भविष्य के अपडेट्स के लिए तैयार रहें, क्योंकि एक नई शुरुआत हमेशा संभव है।"
+Update\Update.HI.xaml,Update.InfoBox.TextMessage.Condition,"अपडेट फ़ाइलों में शर्तें, चाबी को अनलॉक करने के लिए अपूर्ण लगती हैं। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें और भविष्य के अपडेट्स के लिए तैयार रहें।"
+Watchdog\Watchdog.HI.xaml,Watchdog.HelpButton,सहायता
+Watchdog\Watchdog.HI.xaml,Watchdog.CloseButton,बंद करें
+Watchdog\Watchdog.HI.xaml,Watchdog.ErrorMessage,एक अप्रत्याशित त्रुटि हुई:
+Watchdog\Watchdog.HI.xaml,Watchdog.ErrorTitle,त्रुटि
+Watchdog\Watchdog.HI.xaml,Watchdog.HideButton,छिपाएँ
+Watchdog\Watchdog.HI.xaml,Watchdog.ShowButton,दिखाएँ
+Watchdog\Watchdog.HI.xaml,Watchdog.StackTrace,स्टैक ट्रेस:
+Watchdog\Watchdog.HI.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.HI.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.ReloadText,पुनः प्रयास करें
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Preparing,आवश्यक तैयारियों को तैयार कर रहे हैं
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Temporary,तात्कालिक स्थानों की जाँच कर रहे हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Temporary.Error,तात्कालिक स्थानों की जाँच नहीं की जा सकी
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Connection,इंटरनेट कनेक्शन की जाँच कर रहे हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Connection.None,कोई इंटरनेट कनेक्शन नहीं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Connection.Error,इंटरनेट कनेक्शन की जाँच नहीं की जा सकी
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Searching,आवश्यक फ़ाइलें खोज रहे हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Searching.Not,आवश्यक फ़ाइलें नहीं मिलीं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Searching.Error,आवश्यक फ़ाइलें खोजी नहीं जा सकीं
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Listing,आवश्यक सूचियों को प्राप्त कर रहे हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Listing.Empty,आवश्यक सूचियाँ खाली हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Listing.Error,आवश्यक सूचियाँ प्राप्त नहीं की जा सकीं
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Filtering,सूचियों को फ़िल्टर कर रहे हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Filtering.Not,सूचियाँ फ़िल्टर नहीं की जा सकीं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Filtering.Error,सूचियों को फ़िल्टर नहीं किया जा सका
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading,आवश्यक फ़ाइलें डाउनलोड कर रहे हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading.Error,आवश्यक फ़ाइलें डाउनलोड नहीं की जा सकीं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading.Complete.Cancel,आवश्यक फ़ाइल का डाउनलोड रद्द किया गया था
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading.Complete.Error,आवश्यक फ़ाइल के डाउनलोड के दौरान एक त्रुटि हुई
+Wizard\Wizard.HI.xaml,,
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting,डाउनलोड किए गए फ़ाइल को निकाल रहे हैं
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Executing,निकाला गया फ़ाइल कार्यान्वित हो रही है
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Executed,निकाला गया फ़ाइल कार्यान्वित किया गया है
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Failed,डाउनलोड की गई फ़ाइल असफल हो गई
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Corrupt,डाउनलोड की गई फ़ाइल कोरप्ट है
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Not,डाउनलोड की गई फ़ाइल उपयोग योग्य नहीं है
+Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Error,डाउनलोड की गई फ़ाइल को निकाला नहीं जा सका
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Sound,ध्वनि
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Log,लॉग
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Hook,कुंजी
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Store,स्टोर
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Donate,दान
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.System,सिस्टम
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Cache,कैश
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Laptop,लैपटॉप
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Support,समर्थन
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Reset,रीसेट
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Backup,बैकअप
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Priority,प्राथमिकता
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Engines,इंजन्स
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Update,अपडेट
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Library,लाइब्रेरी
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Developer,डेवलपर
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Extensions,एक्सटेंशन्स
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.SystemResources,सिस्टम संसाधन
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.AppearanceBehavior,दिखावट और व्यवहार
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.All,सभी
+Portal\Category\Portal.Category.HI.xaml,,
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Abstract,अल्परूप
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Ambience,आवाज
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Animals,पशु
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Animation,एनिमेशन
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Anime,एनिमे
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.ArchitectureandBuildings,आर्किटेक्चर और इमारतें
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.ArtandAbstract,कला और अल्परूप
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Artworks,कला कृतियाँ
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Bard,गायक
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.BlackandWhite,काला और सफेद
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.CartoonandComics,कार्टून और कॉमिक्स
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.CitiesandPlaces,शहर और स्थान
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.CloudsandSkies,बादल और आसमान
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.ColorfulGradients,रंगीन ग्रेडिएंट्स
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.ComicBooks,कॉमिक बुक्स
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.DigitalArt,डिजिटल कला
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Dynamic,गतिशील
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.EnchantedForests,मोहक जंगल
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Fantasy,काल्पनिक
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.FilmandTV,फिल्म और टीवी
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.FoodandDrinks,खाना और पीना
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Galaxy,गैलेक्सी
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Game,खेल
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.GeometricPatterns,ज्यामिति पैटर्न
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.HolidaysandSeasons,त्योहार और मौसम
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.HorrorandHalloween,डर और हैलोवीन
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.InspirationalQuotes,प्रेरणादायक उद्धरण
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.KidsandCartoon,बच्चे और कार्टून
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Landscape,दृश्य
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Lifestyle,जीवन शैली
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.LineArt,रेखा कला
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Medieval,मध्यकाल
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Minimalist,न्यूनात्मक
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Music,संगीत
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Nature,प्राकृतिक
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Nightscapes,रात्रि दृश्य
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.PatternsandTextures,पैटर्न और टेक्सचर्स
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Retro,रेट्रो
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.RGB,रेड-ग्रीन-ब्लू
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Sky,आकाश
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Space,अंतरिक्ष
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Sports,खेल
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Superheroes,सुपरहीरोज
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.System,सिस्टम
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Tavern,दरबार
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Technology,प्रौद्योगिकी
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Temple,मंदिर
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Time,समय
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.UnderwaterandMarine,पानी के नीचे और समुंदरी
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Vehicles,वाहन
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Vintage,पुराना
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.War,युद्ध
+Portal\Controls\Portal.Controls.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.Fill,भरना
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.None,कोई नहीं
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.Uniform,समानानुपातिक
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.UniformToFill,समानानुपातिक भरना
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.None,कोई नहीं
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Name,नाम
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Creation,सृजन
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Modification,संशोधन
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.Fill,भरना
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.None,कोई नहीं
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.Uniform,समानानुपातिक
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StretchType.UniformToFill,समानानुपातिक भरना
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PerformanceType.Close,बंद करें
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PerformanceType.Pause,रोकें
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PerformanceType.Resume,जारी रखें
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Mica,माइका
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.None,कोई नहीं
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Auto,स्वचालित
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Tabbed,टैब किया गया
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Acrylic,ऐक्रिलिक
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ChannelType.Release,डिफ़ॉल्ट
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ChannelType.PreRelease,डेवलपर
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PausePerformanceType.Heavy,भारी
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PausePerformanceType.Light,हल्का
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortKindType.Ascending,आरोही [A-Z]
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortKindType.Descending,अवरोही [Z-A]
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ExpandScreenType.Default,डिफ़ॉल्ट
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ExpandScreenType.Advanced,उन्नत
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateType.Compressed,संकुचित
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.UpdateType.Executable,क्रियान्वित
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ScreenType.WorkingArea,काम क्षेत्र
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ScreenType.DisplayBound,प्रदर्शन सीमा
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.DuplicateScreenType.Default,डिफ़ॉल्ट
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.DuplicateScreenType.Advanced,उन्नत
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Pass,सफल परिणाम
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' में बहुत सारे मूल्य हैं
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Type,"थीम, ऐसे एक प्रकार के आवश्यकता नहीं है, जो ऐप्लिकेशन से संगत नहीं है"
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Title,'Title' मान खाली है या बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Author,'Author' मूल्य खाली है या बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Source,'Source' फ़ाइल नहीं मिल सकी
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' मूल्य खाली है या बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' फ़ाइल नहीं मिल सकी
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Encrypt,संबंधित फ़ाइल एन्क्रिप्ट है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.ZipType,संबंधित फ़ाइल वास्तव में एक '.zip' फ़ाइल नहीं है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json' फ़ाइल नहीं मिल सकी
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.NotFound,संबंधित फ़ाइल नहीं मिल सकी
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.LoopMode,'LoopMode' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments' मूल्य बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Extension,संबंधित फ़ाइल '.zip' विस्तारण नहीं है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail' फ़ाइल नहीं मिल सकी
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemCpu,'SystemCpu' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json' फ़ाइल खाली है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.AppVersion,"थीम, ऐप के एक उच्च संस्करण के लिए बनाई गई है"
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemBios,'SystemBios' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemDate,'SystemDate' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemAudio,'SystemAudio' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Description,'Description' मूल्य खाली है या बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json' फ़ाइल अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.TriggerTime,'TriggerTime' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.StretchMode,'StretchMode' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.VolumeLevel,'VolumeLevel' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.ShuffleMode,'ShuffleMode' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags' मूल्य बहुत छोटा या बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidFile,अमान्य फ़ाइल
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList' मूल्य खाली है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemMemory,'SystemMemory' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemBattery,'SystemBattery' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemGraphic,'SystemGraphic' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemNetwork,'SystemNetwork' मूल्य अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidContact,'Contact' मूल्य 'Url' या 'मेल पता' नहीं है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidExtension,अमान्य फ़ाइल विस्तारण
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json' फ़ाइल खाली है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json' फ़ाइल खाली है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.PropertyListener,अमान्य 'PropertyListener' मूल्य
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,अमान्य 'SystemMotherboard' मूल्य
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' फ़ाइल अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' फ़ाइल अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,अप्रत्याशित परिणाम
+Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.HI.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.HI.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Portal.LibraryPage.Import.Successful,'{0}' थीम सफलतापूर्वक पुस्तकालय में जोड़ दी गई।
+Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Portal.LibraryPage.Import.Unsuccessful,'{0}' थीम पुस्तकालय में जोड़ा नहीं जा सका। कारण: '{1}'।
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuHelp,सहायता
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuAbout,बारे में
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuHelpTip,सहायता देखें
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuAboutTip,बारे में देखें
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuLibrary,पुस्तकालय
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuStore,स्टोर
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuLibraryTip,थीम पुस्तकालय
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuStoreTip,थीम स्टोर
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuGeneral,सामान्य
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuPersonal,व्यक्तिगत
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuPerformance,प्रदर्शन
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuWallpaper,वॉलपेपर
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuSystem,सिस्टम
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuDonate,दान करें
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuOther,अन्य
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuBackTip,पीछे जाएं
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuGeneralTip,सामान्य सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuPersonalTip,व्यक्तिगत सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuPerformanceTip,प्रदर्शन सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuWallpaperTip,वॉलपेपर सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuSystemTip,सिस्टम सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuDonateTip,दान सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuOtherTip,अन्य सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuSettingTip,सेटिंग्स
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.SearchBoxHint,एक वॉलपेपर खोजें
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.SearchBoxTip,क्या आपको जो चाहिए ढूंढ़ने में कठिनाई हो रही है?
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuLightTip,प्रकाशमान थीम
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuDarkTip,डार्क थीम
+Portal\MainWindow\Portal.MainWindow.HI.xaml,,
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuCreateWallpaperTip,वॉलपेपर बनाएं
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,वॉलपेपर साइक्लिंग
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,प्रदर्शन पसंद
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuDonateOptionsTip,दान विकल्प
+Portal\MainWindow\Portal.MainWindow.HI.xaml,Portal.MainWindow.MenuOtherOptionsTip,अन्य विकल्प
+Portal\SettingPage\Portal.SettingPage.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuSEkueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.HI.xaml,,
+Portal\StorePage\Portal.StorePage.HI.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Title,डिस्प्ले प्राथमिकताएँ
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Close,बंद करें
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Expander,स्थानन मोड
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Expander.Description,वॉलपेपर को सक्रिय स्क्रीन्स पर कैसे लागू करें।
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Screen,केवल चयनित स्क्रीन
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Expand,स्क्रीन्स को फैलाएं
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Expand.Monitor,सभी मॉनिटर
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Expand.Hint,स्क्रीन्स को फैलाने का मोड चुनें
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Duplicate,समान वॉलपेपर की प्रतिलिपि बनाएं
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.HI.xaml,Portal.DisplayPreferences.Duplicate.Hint,समान वॉलपेपर की प्रतिलिपि बनाने का मोड चुनें
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,Portal.ExpanderCard.TitleText,शीर्षक
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,Portal.ExpanderCard.DescriptionText,विवरण
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,Portal.ExpanderCard.ExpandUpTip,सुकना
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.HI.xaml,Portal.ExpanderCard.ExpandDownTip,फैलाना
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.TitleText,शीर्षक
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.DescriptionText,विवरण
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MoreTip,अधिक
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.VersionTip,Sucrose का नवीनीकरण करने के लिए इस थीम का उपयोग करें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuReview,समीक्षा
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuUse,उपयोग करें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuPreview,पूर्वावलोकन
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuCustomize,अनुकूलित करें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuFind,खोजें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuShare,साझा करें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuDelete,मिटाएं
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuEdit,संपादित करें
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Title,हमारे बारे में
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Close,बंद करें
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.About,"नमस्ते, मेरा नाम Bayram Emekli है, जिन्हें Taiizor उपयोगकर्ता नाम से भी जाना जाता है। मैं Sucrose Wallpaper Engine ऐप के मुफ्त और ओपन सोर्स संस्करण के डेवलपर हूँ। मेरे डेवलप किए गए ऐप का उपयोग करने के लिए आपका धन्यवाद।"
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Update,संस्करण: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Update.Description,आखिरी जांच: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Update.Notes,नोट्स अपडेट करें
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Partners,साझेदार
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Contributors,सहयोगी
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.TermsOfService,सेवा विशेषज्ञों की शर्तें
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.PrivacyPolicy,गोपनीयता नीति
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.CodeOfConduct,सहयोगी समुदाय संरचना समझौता
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Title,सहायता
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Close,बंद करें
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.WebPage,वेब पेज
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine की आधिकारिक वेब पेज
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Documentation,दस्तावेज़ीकरण
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine की आधिकारिक दस्तावेज़ीकरण पेज
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Repository,स्रोत कोड
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine की आधिकारिक स्रोत कोड पेज
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Discussions,चर्चाएँ
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine की आधिकारिक चर्चाएँ पेज
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Report,समस्या रिपोर्ट करें
+Portal\Controls\OtherHelp\Portal.OtherHelp.HI.xaml,Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine की आधिकारिक समस्या रिपोर्ट पेज
+Portal\Controls\Pagination\Portal.Pagination.HI.xaml,Portal.Pagination.PageJump,छलाना
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.TitleText,शीर्षक
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.DescriptionText,विवरण
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.VersionTip,Sucrose का अपडेट करके इस थीम का उपयोग करने के लिए
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.MenuInstall,इंस्टॉल करें
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.MenuReport,रिपोर्ट करें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Title,थीम बनाएं
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Create,बनाएं
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Close,बंद करें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Gif,Gif थीम
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Gif.Description,Gif प्रकार की अपनी खुद की थीम बनाएं।
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Url,Url थीम
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Url.Description,Url प्रकार की अपनी खुद की थीम बनाएं।
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Web,Web थीम
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Web.Description,Web प्रकार की अपनी खुद की थीम बनाएं।
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Video,Video थीम
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Video.Description,Video प्रकार की अपनी खुद की थीम बनाएं।
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.YouTube,YouTube थीम
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.YouTube.Description,YouTube प्रकार की अपनी खुद की थीम बनाएं।
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Application,Application थीम
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Application.Description,Application प्रकार की अपनी खुद की थीम बनाएं।
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeThumbnail,थंबनेल
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview,पूर्वावलोकन
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeTitle,शीर्षक
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeDescription,विवरण
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeAuthor,लेखक
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeContact,संपर्क करें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeTags,टैग्स
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeArguments,आर्ग्यूमेंट्स
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeUrl.Hint,कृपया एक मान्य Url पता लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,कृपया एक थंबनेल चित्र का चयन करें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview.Hint,कृपया एक पूर्वावलोकन फ़ाइल का चयन करें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeTitle.Hint,कृपया एक मान्य शीर्षक लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeDescription.Hint,कृपया एक मान्य विवरण लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,कृपया एक मान्य लेखक नाम लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeContact.Hint,कृपया एक मान्य संपर्क पता लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeTags.Hint,कृपया मान्य थीम टैग्स लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeArguments.Hint,कृपया मान्य ऐप्लिकेशन आर्ग्यूमेंट्स लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Delete,पूर्व वस्तुओं को हटाएँ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Gif,अपनी Gif फ़ाइल यहां खींचें और छोड़ें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Video,अपनी वीडियो फ़ाइल यहां खींचें और छोड़ें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,थंबनेल चित्र चुनें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,छवि फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview.Title,पूर्वावलोकन फ़ाइल चुनें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif फ़ाइलें (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Title,थीम हटाना
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Delete,हटाएं
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Close,बंद करें
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeTitle,शीर्षक
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeDescription,विवरण
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeType,प्रकार
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeAuthor,लेखक
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeAuthorName,टाइज़र
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeSize,आकार
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeVersion,संस्करण
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeTags,टैग
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeTagsText,नहीं
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeCreate,निर्माण
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeCreateDate,अज्ञात
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeModify,संशोधन
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.ThemeModifyDate,अज्ञात
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.Title,थीम संपादन
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.Close,बंद करें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.Save,सहेजें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeTitle,शीर्षक
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeDescription,विवरण
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeAuthor,लेखक
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeContact,संपर्क करें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeTags,टैग
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeArguments,आर्ग्यूमेंट
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeTitle.Hint,कृपया एक मान्य शीर्षक लिखें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeDescription.Hint,कृपया एक मान्य विवरण लिखें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,कृपया एक मान्य लेखक नाम लिखें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeContact.Hint,कृपया एक मान्य संपर्क पता लिखें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeTags.Hint,कृपया मान्य थीम टैग्स लिखें
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.HI.xaml,Portal.ThemeEdit.ThemeArguments.Hint,कृपया मान्य एप्लिकेशन आर्ग्यूमेंट्स लिखें
+Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Portal.ThemeImport.Title,थीम आयात
+Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Portal.ThemeImport.Close,बंद करें
+Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Portal.ThemeImport.Info,थीम जानकारी
+Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Portal.ThemeImport.Type,कारण विवरण
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.Title,थीम समीक्षा
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.Close,बंद करें
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeTitle,शीर्षक
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeDescription,विवरण
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeType,प्रकार
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeAuthor,लेखक
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeAuthorName,टाइज़र
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeSize,आकार
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeVersion,संस्करण
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeTags,टैग
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeTagsText,नहीं
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeCreate,निर्माण
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeCreateDate,अज्ञात
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeModify,संशोधन
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeModifyDate,अज्ञात
+Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.ThemeContact,थीम संपर्क पता
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.Title,थीम साझा करें
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.Close,बंद करें
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemeTitle,शीर्षक
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemeDescription,विवरण
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemeExport,निर्यात करें
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish,स्टोर में प्रकाशित करें
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemeCopy,लिंक कॉपी करें
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogTitle,थीम फ़ाइल सहेजें
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,Portal.EmptyLibraryPage.TitleText,आपकी पुस्तकालय को मकड़ी जाल से बुना गया है
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,Portal.EmptyLibraryPage.DescriptionText,"वॉलपेपरों की जगह पर एक शानदार कला का नतीजा है, जिसे मकड़ी जाल से बनाया गया है"
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.HI.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,Portal.SearchLibraryPage.TitleText,आपकी पुस्तकालय में जाली जादू चल रहा है
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.HI.xaml,Portal.SearchLibraryPage.DescriptionText,आपके वॉलपेपर चयन की बात के कारण वॉलपेपरों को स्थान नहीं मिल रहा है
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.DonateMenu,दान मेनू
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.DonateMenu.Description,उपयोगकर्ता इंटरफ़ेस में दान मेनू की दिखाई देने की स्थिति।
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,दिखाई देता है
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,छुपा हुआ
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.Advertising,विज्ञापन सहायता
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.Advertising.Description,ऐप के विकास में सहायक बनने के लिए विज्ञापन देखकर सहायता करें।
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,विज्ञापन की देरी (मिनट):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.HI.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,सुझाव: विज्ञापन आपको कम से कम असुविधा देने के रूप में दिखाए जाएंगे।
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationLanguage,ऐप्लिकेशन भाषा
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,उस भाषा को चुनें जिसमें आप ऐप्लिकेशन को देखना चाहते हैं।
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup,ऐप्लिकेशन स्टार्टअप
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,"वॉलपेपर को प्ले करने के लिए, Sucrose को प्रारंभ में बैकग्राउंड में चलाना होगा।"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,कोई नहीं
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,सामान्य
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,प्राथमिकता
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,समय सूचीकरण
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.NotifyIcon,सूचना चिन्ह
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,सिस्टम ट्रे दर्शानी. Sucrose गुप्त रूप से जारी रहेगा।
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,दिखाएं
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,छुपाएं
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,सिस्टम ट्रे बंद किया जब Sucrose अनुप्रयोग बंद किया जाए
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop,विंडो बैकग्राउंड
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,अनुप्रयोग के विंडो बैकग्राउंड को व्यक्तिगत करने के लिए उपयोग किया जाता है।
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,बैकग्राउंड चित्र का चयन करें
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,किसी बैकग्राउंड चित्र का चयन करें
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,चित्र फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,बैकग्राउंड मोड:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,बैकग्राउंड पारदर्शिता (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.EngineVolume,आवाज स्तर
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.EngineVolume.Description,सभी वॉलपेपर्स के लिए लागू होने वाले आवाज स्तर।
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,आवाज केवल डेस्कटॉप पर फोकस होने पर प्ले करें
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary,लाइब्रेरी स्थान
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,आपके द्वारपेच में जोड़े गए थीमों को संग्रहित करने के लिए स्थल का चयन करें।
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,कृपया खाली फ़ोल्डर का चयन करें
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"कृपया कुछ समय इंतजार करें, स्थान बदलते समय"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,वर्तमान लाइब्रेरी को नई स्थान पर ले जाएं
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.DiscordHook.Description,"Sucrose, Discord के साथ संचालन संवाद सुनिश्चित करता है।"
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,कनेक्शन रिफ्रेश:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,रिफ्रेश अवधि (सेकंड):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Agent,इंटरनेट प्रतिष्ठा
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Agent.Description,इंटरनेट कनेक्शन की आवश्यकता होने पर आपकी प्रतिष्ठा.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Key,व्यक्तिगत पहुंच टोकन
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Key.Description,स्टोर और ऐप्डेट को सही तरीके से उपयोग करने के लिए आवश्यक।
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Key.HintKey,अगर आपको व्यक्तिगत पहुँच कुंजी प्राप्त करने का तरीका नहीं पता है तो यहाँ क्लिक करें।
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Key.PersonalKey,कृपया एक व्यक्तिगत पहुँच कुंजी दर्ज करें
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,कृपया एक मान्य व्यक्तिगत पहुँच कुंजी दर्ज करें
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Channel,अपडेट चैनल
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Channel.Description,अपडेट प्रक्रिया किस चैनल के माध्यम से की जाएगी या नहीं।
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Update,अपडेट विधि
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Update.Description,अपडेट प्रक्रिया किस विधि से की जाएगी या नहीं।
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Update.Limit,डाउनलोड बैंडविड्थ सीमा:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Developer,डेवलपर टूल
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Developer.Description,WebView और CefSharp मोटर के लिए डेवलपर टूल दिखाए जाएंगे या नहीं।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Counter,प्रदर्शन गणनाओं
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Counter.Description,सभी प्रदर्शन गणनाओं का पृष्ठांतरण करना चाहिए या नहीं।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,नोट: कुछ Web थीम्स सही तरीके से काम नहीं कर सकती हैं और निम्नलिखित प्रदर्शन सेटिंग्स का कोई भी काम नहीं कर सकता है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Pause,रोकथाम नियम
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Pause.Description,आपकी प्रदर्शन सेटिंग्स के आधार पर वॉलपेपर को रोकने के नियम को निर्धारित करता है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Communication,संचार प्रकार
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Communication.Description,Web प्रकार के थीम्स को संदेश भेजने का तरीका निर्धारित करता है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Cpu,सीपीयू उपयोग
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Cpu.Description,सीपीयू उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,सीपीयू उपयोग (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory,मेमोरी उपयोग
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory.Description,मेमोरी उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,मेमोरी उपयोग (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network,नेटवर्क उपयोग
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.Description,नेटवर्क उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,नेटवर्क एडाप्टर:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,नेटवर्क एडाप्टर्स की सूची अभी तक बनाई नहीं गई है
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,अपलोड साइज:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,डाउनलोड साइज:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,पिंग मान (मिलिसेकंड):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Battery,बैटरी पावर
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Battery.Description,लैपटॉप बैटरी पॉवर पर काम करते समय वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,बैटरी स्थिति (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Saver,बैटरी बचाने वाला
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Saver.Description,लैपटॉप बैटरी बचाने के मोड पर काम करते समय वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Virtual,वर्चुअलाइजेशन
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Virtual.Description,वर्चुअलाइजेशन एप्लिकेशन चलते समय वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Remote,दूरस्थ डेस्कटॉप
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Remote.Description,दूरस्थ डेस्कटॉप एप्लिकेशन चलते समय वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Fullscreen,पूर्णस्क्रीन मोड
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,किसी भी ऐप्लिकेशन को पूर्णस्क्रीन मोड में चलते समय वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Focus,फोकस मोड
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Focus.Description,किसी अन्य एप्लिकेशन पर ध्यान केंद्रित करते समय वॉलपेपर पर क्या होने वाला है।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Server,स्टोर सर्वर
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Server.Description,यह निर्दिष्ट करता है कि किस सर्वर का उपयोग स्टोर में सूचीबद्ध थीम्स को दिखाने के लिए किया जाएगा।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Server.ServerHint,"नोट: यदि {0} को सर्वर के रूप में चयनित किया गया है, तो अनुरोध सीमाओं से बचने के लिए एक {2} दर्ज करना आवश्यक है। अन्यथा, स्टोर में थीम्स तक पहुँचने में आपको समस्याएँ आ सकती हैं। यदि {1} चयनित है, तो आपको स्टोर अनुभव में एक स्मूदर अनुभव होगा।"
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Duration,स्टोर रीन्यूअल
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Duration.Description,स्टोर पर दिखाए जाने वाले थीमों को कितनी समय के लिए नवीनीकरण किया जाएगा।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.StoreStart,स्वचालित प्रारंभ
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.StoreStart.Description,स्टोर से डाउनलोड किए गए थीम को स्वचालित वॉलपेपर के रूप में सेट किया जाएगा या नहीं।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Adult,असुरक्षित सामग्री
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Adult.Description,स्टोर में सुरक्षित नहीं (NSFW) माना गया सामग्री को दिखाने या न दिखाने की सेटिंग।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Confirm,हटाने की पुष्टि
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Confirm.Description,थीमों को हटाते समय पुष्टि की आवश्यकता है या नहीं।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Delete,दोषित थीम
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Delete.Description,पुस्तकालय में दोषित या अधूरी थीमों को स्वचालित रूप से हटाया जाएगा या नहीं।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,नोट: सावधानी से काम करें। अन्यथा डेटा हानि हो सकती है
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.LibraryStart,स्वचालित प्रारंभ
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.LibraryStart.Description,बनाए गए थीम को स्वचालित वॉलपेपर के रूप में सेट किया जाएगा या नहीं।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Preview,थीम पूर्वावलोकन
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Preview.Description,दिखाए जाने वाले थीम पर होने पर पूर्वावलोकन किया जाएगा या नहीं।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Preview.StorePreview,स्टोर पूर्वावलोकन:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,विवरण छिपाएं:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,लाइब्रेरी पूर्वावलोकन:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,विवरण छिपाएं:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Theme,थीम व्यक्तिकरण
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Theme.Description,दिखाए जाने वाले थीमों का नाम या विवरण व्यक्तिकरण करें।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Theme.TitleLength,शीर्षक लम्बाई (अक्षर):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,विवरण लम्बाई (अक्षर):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Adaptive,सामग्री अनुरूप अद्यतन
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Adaptive.Description,दिखाए जाने वाले थीम का अद्यतन अंदाज या दूरी करें।
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,रिक्त स्थान (पिक्सेल):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,लेआउट क्रम (संख्या):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Sort,पुस्तकालय क्रमबद्ध करें
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Sort.Description,"अपनी पुस्तकालय में विषयों को किस प्रकार और किस प्रारूप में क्रमबद्ध किया जाएगा, उसे निर्धारित करें।"
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Sort.SortMode,क्रमबद्ध करने का मोड:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Sort.SortKind,क्रमबद्ध करने का प्रकार:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Store,स्टोर पेजिनेशन
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Store.Description,"हर स्टोर पेज के लिए कितने थीम होंगे, यह निर्धारित करें।"
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Library,लाइब्रेरी पेजिनेशन
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.HI.xaml,Portal.PersonalSettingPage.Library.Description,"आपकी लाइब्रेरी के हर पेज के लिए कितने थीम होंगे, यह निर्धारित करें।"
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LogTemporary,लॉग फ़ाइलें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LogTemporary.Description,ऐप के द्वारा बनाई गई सभी लॉग फ़ाइलों का प्रबंधन करें।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LogTemporary.Create,बनाएँ
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LogTemporary.Delete,साफ करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LogTemporary.Hint,नोट: लॉग फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। केवल सफाई शुरू होने पर सभी ऐप्स बंद होंगे।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.CacheTemporary,कैश साफ करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.CacheTemporary.Description,ऐप द्वारा बनाई गई सभी कैश फ़ाइलों को साफ करें।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.CacheTemporary.Start,सफाई शुरू करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,नोट: कैश फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.StoreTemporary,स्टोर साफ करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.StoreTemporary.Description,ऐप द्वारा बनाई गई सभी स्टोर फ़ाइलों को साफ करें।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.StoreTemporary.Start,सफाई शुरू करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,नोट: स्टोर फ़ाइलों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LibraryTemporary,लाइब्रेरी साफ करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,आपकी लाइब्रेरी में मौजूद या बनाई गई सभी थीम फ़ाइलों को साफ करें।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,सफाई शुरू करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,नोट: आपकी लाइब्रेरी में थीमों द्वारा कवर किया जाने वाला कुल क्षेत्र {0} है। सफाई शुरू होने पर सभी ऐप्स बंद होंगे।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingBackup,सेटिंग फ़ाइलें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingBackup.Description,ऐप द्वारा बनाई गई सभी सेटिंग फ़ाइलों का प्रबंधन करें।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingBackup.Export,बैकअप करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingBackup.Import,पुनर्स्थापित करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingBackup.Hint,नोट: चयनित क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingReset,सेटिंग रीसेट करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingReset.Description,ऐप द्वारा बनाई गई सभी सेटिंग फ़ाइलों को रीसेट करें।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingReset.Start,रीसेट शुरू करें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.SettingReset.Hint,नोट: रीसेट क्रिया शुरू होने पर सभी ऐप्स बंद होंगे।
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,लॉग फ़ाइल सहेजें
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ScreenLayout,स्क्रीन लेआउट
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,अपने वॉलपेपर की स्क्रीन लेआउट को बदलता है।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.StretchMode,स्ट्रेच मोड
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.StretchMode.Description,समर्थित वॉलपेपरों की स्केलिंग मोड को बदलता है।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.LoopMode,लूप मोड
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.LoopMode.Description,समर्थित वॉलपेपरों की लूप मोड को बदलता है।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ShuffleMode,शफल मोड
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,समर्थित वॉलपेपरों की शफल मोड को बदलता है।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif प्लेयर
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,आपकी लाइब्रेरी में मौजूद Gif प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.VideoPlayer,Video प्लेयर
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,आपकी लाइब्रेरी में मौजूद Video प्रकार के थीमों को चलाने के लिए प्लगइन का चयन करें।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url प्लेयर
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,आपकी लाइब्रेरी में मौजूद Url प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.WebPlayer,Web मोटर
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,आपकी लाइब्रेरी में मौजूद Web प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube मोटर
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,आपकी लाइब्रेरी में मौजूद YouTube प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application मोटर
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,आपकी लाइब्रेरी में मौजूद Application प्रकार के थीमों को चलाने के लिए मोटर का चयन करें।
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,Portal.BrokenStorePage.TitleText,जब इंटरनेट बंद होता है
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.HI.xaml,Portal.BrokenStorePage.DescriptionText,"एक तारे की तरह तारों की कमी है, यहां इंटरनेट की चमक नहीं है"
+Portal\StorePage\FullStorePage\Portal.FullStorePage.HI.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,Portal.SearchStorePage.TitleText,आपके खोज के जवाब आकाश में छिपे हो सकते हैं
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.HI.xaml,Portal.SearchStorePage.DescriptionText,"अगर परिणाम आपकी उम्मीदों के मुताबिक नहीं हैं, तो आकाश आपको एक नई अनुभव प्रदान कर सकता है"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,Portal.UnknownStorePage.TitleText,अज्ञात स्टोर पेज में छिपे रहस्य को खोजें
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.HI.xaml,Portal.UnknownStorePage.DescriptionText,अज्ञात का पीछा करें और स्टोर पर हो रहे रहस्यमय स्थिति का पता लगाने के लिए एक यात्रा पर निकलें

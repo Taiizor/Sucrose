@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.DA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuREEueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.DA.xaml,Discord.BrowseButton,Gennemse
+Discord\Discord.DA.xaml,Discord.Details,Tapetmotor
+Discord\Discord.DA.xaml,Discord.DownloadButton,Hent
+Discord\Discord.DA.xaml,,
+Discord\Discord.DA.xaml,Discord.LargestText0,Banana Ice Cream Power
+Discord\Discord.DA.xaml,Discord.LargestText1,Smilende Hatemonster
+Discord\Discord.DA.xaml,Discord.LargestText2,"Farverige Spurve, der Måler Skyerne"
+Discord\Discord.DA.xaml,Discord.LargestText3,Løbende Pingvins Hemmelige Eventyr
+Discord\Discord.DA.xaml,Discord.LargestText4,"Kaniner, der Er Forsvundet på Marken af Tusindfryd"
+Discord\Discord.DA.xaml,Discord.LargestText5,Sangende Vindblomster
+Discord\Discord.DA.xaml,Discord.LargestText6,Mystiske Bier i den Hemmelige Skov
+Discord\Discord.DA.xaml,Discord.LargestText7,Drømme fyldt med Fiskestim
+Discord\Discord.DA.xaml,Discord.LargestText8,Krystaløjede Dragedans
+Discord\Discord.DA.xaml,Discord.LargestText9,Eventyrsti Dækket med Blomster
+Discord\Discord.DA.xaml,Discord.LargestText10,"Stjerner, der Drysser fra Himmelen"
+Discord\Discord.DA.xaml,Discord.LargestText11,Dans i Lyset af en Brækket Måne
+Discord\Discord.DA.xaml,Discord.LargestText12,Mystiske Regnbue Drager
+Discord\Discord.DA.xaml,Discord.LargestText13,Magisk Skovfortælling
+Discord\Discord.DA.xaml,Discord.LargestText14,Blomsterregn mod Himlen
+Discord\Discord.DA.xaml,Discord.LargestText15,Tidens Stille Berøring
+Discord\Discord.DA.xaml,Discord.LargestText16,Surrealistisk Drømmeland
+Discord\Discord.DA.xaml,Discord.LargestText17,Gyldne Vandfaldssange
+Discord\Discord.DA.xaml,Discord.LargestText18,Eventyrsfartøjer Svævende mod Himlen
+Discord\Discord.DA.xaml,Discord.LargestText19,Farverige Ballon-skove
+Discord\Discord.DA.xaml,Discord.LargestText20,Mystisk Undervandby
+Discord\Discord.DA.xaml,Discord.LargestText21,Stjernestøvet Himmel
+Discord\Discord.DA.xaml,Discord.LargestText22,"Vinde, der Forfølger det Ukendte"
+Discord\Discord.DA.xaml,Discord.LargestText23,Fængslende Historier i Måneskinnet
+Discord\Discord.DA.xaml,,
+Discord\Discord.DA.xaml,Discord.SmallestText0,Mystiske Fodspor
+Discord\Discord.DA.xaml,Discord.SmallestText1,Flyvende Ballonfisk
+Discord\Discord.DA.xaml,Discord.SmallestText2,Grinende Blomster
+Discord\Discord.DA.xaml,Discord.SmallestText3,Sukkersøde Bomuldsskyer
+Discord\Discord.DA.xaml,Discord.SmallestText4,Frosne Pizzadrager
+Discord\Discord.DA.xaml,Discord.SmallestText5,Lysende Svampepirater
+Discord\Discord.DA.xaml,Discord.SmallestText6,Usynlige Enhjørning Fodspor
+Discord\Discord.DA.xaml,Discord.SmallestText7,Farvede Støvskyer
+Discord\Discord.DA.xaml,Discord.SmallestText8,Gyldne Ballon-sommerfugle
+Discord\Discord.DA.xaml,Discord.SmallestText9,Rejse gennem Sukker-krateret
+Discord\Discord.DA.xaml,Discord.SmallestText10,Raketflyvende Pizza-skræller
+Discord\Discord.DA.xaml,Discord.SmallestText11,Dansende Havskaller med Solen
+Discord\Discord.DA.xaml,Discord.SmallestText12,Usynlige Stjernefingre
+Discord\Discord.DA.xaml,Discord.SmallestText13,Tåget Undervandsdans
+Discord\Discord.DA.xaml,Discord.SmallestText14,Regnbuefugletræk
+Discord\Discord.DA.xaml,Discord.SmallestText15,Sukkerstormens Vej
+Discord\Discord.DA.xaml,Discord.SmallestText16,Uendelig Pizza-galakse
+Discord\Discord.DA.xaml,Discord.SmallestText17,Solens Smil
+Discord\Discord.DA.xaml,Discord.SmallestText18,Den Skjulte Dam’s Tabte Smil
+Discord\Discord.DA.xaml,Discord.SmallestText19,Skyggerne af Drømmefugle
+Discord\Discord.DA.xaml,Discord.SmallestText20,"Sommerfugle, der Stiger mod Himmelen"
+Discord\Discord.DA.xaml,Discord.SmallestText21,Sange Skjult bag Stjernerne
+Discord\Discord.DA.xaml,Discord.SmallestText22,Eventyrets Tågede Bjerge
+Discord\Discord.DA.xaml,Discord.SmallestText23,Den Mystiske Skovs Fe
+Discord\Discord.DA.xaml,,
+Discord\Discord.DA.xaml,Discord.StatementText0,Et Univers Fyldt med Kaos
+Discord\Discord.DA.xaml,Discord.StatementText1,Midt i Uendelige Eventyr
+Discord\Discord.DA.xaml,Discord.StatementText2,En Mærkelig og Fortryllet Verden
+Discord\Discord.DA.xaml,Discord.StatementText3,At Udfordre Fantasiens Grænser
+Discord\Discord.DA.xaml,Discord.StatementText4,En Usædvanlig Virkelighed
+Discord\Discord.DA.xaml,Discord.StatementText5,Dybt Ind i Fantasiens Verden
+Discord\Discord.DA.xaml,Discord.StatementText6,En Magisk Opdagelsesrejse
+Discord\Discord.DA.xaml,Discord.StatementText7,Ved Porten til Ukendte Riger
+Discord\Discord.DA.xaml,Discord.StatementText8,En Kompleks Drømmeverden
+Discord\Discord.DA.xaml,Discord.StatementText9,"Et Eventyr, der Udfordrer Grænserne"
+Discord\Discord.DA.xaml,Discord.StatementText10,En Dynamisk og Overraskende Oplevelse
+Discord\Discord.DA.xaml,Discord.StatementText11,I en Fantastisk Eventyrfortælling
+Discord\Discord.DA.xaml,Discord.StatementText12,Mellem Magiske Portaler
+Discord\Discord.DA.xaml,Discord.StatementText13,Rejse til Nattehimlen
+Discord\Discord.DA.xaml,Discord.StatementText14,I Sporet af den Forsvundne Kontinent
+Discord\Discord.DA.xaml,Discord.StatementText15,Historien om Ukendte Planeter
+Discord\Discord.DA.xaml,Discord.StatementText16,Opdagelsen af Parallelle Universer
+Discord\Discord.DA.xaml,Discord.StatementText17,Indgangen til Legendariske Riger
+Discord\Discord.DA.xaml,Discord.StatementText18,Vævet Virkelighed med Drømmens Struktur
+Discord\Discord.DA.xaml,Discord.StatementText19,En Stjernedrøm
+Discord\Discord.DA.xaml,Discord.StatementText20,Bag Tidens Døre
+Discord\Discord.DA.xaml,Discord.StatementText21,Den Funklende Stjernehimmel
+Discord\Discord.DA.xaml,Discord.StatementText22,Det Ukendtes Stilhedens Skrig
+Discord\Discord.DA.xaml,Discord.StatementText23,En Dragende Verden
+Discord\Discord.DA.xaml,Discord.StatementText24,På Toppen af Mystiske Bjerge
+Discord\Discord.DA.xaml,Discord.StatementText25,I Sporet af Forsvundne Kongeriger
+Discord\Discord.DA.xaml,Discord.StatementText26,En Rejse gennem Stjernernes Drøm
+Discord\Discord.DA.xaml,Discord.StatementText27,Magiske Natvæsner
+Discord\Discord.DA.xaml,Discord.StatementText28,Begyndelsen på en Uendelig Fortælling
+Discord\Discord.DA.xaml,Discord.StatementText29,"Farverige Balloner, der Stiger til Himlen"
+Discord\Discord.DA.xaml,Discord.StatementText30,Mystisk Nattehimmel
+Discord\Discord.DA.xaml,Discord.StatementText31,Rejsen ad den Forsvundne Kongeriges Sti
+Discord\Discord.DA.xaml,Discord.StatementText32,"En Dør, der Åbner til Ukendte Verdener"
+Discord\Discord.DA.xaml,Discord.StatementText33,Dans i Tidens Favn
+Discord\Discord.DA.xaml,Discord.StatementText34,"Fortællinger, der Dykker ned i Natten"
+Discord\Discord.DA.xaml,Discord.StatementText35,En Verden af Magisk Spejl
+Discord\Discord.DA.xaml,Discord.StatementText36,Rejse ved Uendelighedens Døre
+Discord\Discord.DA.xaml,Discord.StatementText37,Drømmernes Natjæger
+Discord\Discord.DA.xaml,Discord.StatementText38,Drøm om et Krystalby
+Discord\Discord.DA.xaml,Discord.StatementText39,"Stjerner, der Lyser i Mørket"
+Discord\Discord.DA.xaml,Discord.StatementText40,Bag Stjernerne er der en Hemmelig Nat
+Discord\Discord.DA.xaml,Discord.StatementText41,Mystiske Måneskinshistorier
+Discord\Discord.DA.xaml,Discord.StatementText42,Foran den Gyldne Dør til Ukendte Verdener
+Discord\Discord.DA.xaml,Discord.StatementText43,Magiske Stier på en Esoterisk Nat
+Discord\Discord.DA.xaml,Discord.StatementText44,"Drømmeballoner, der Stiger til Himlen"
+Discord\Discord.DA.xaml,Discord.StatementText45,Rejsen ad Drømmestien under Stjernerne
+Discord\Discord.DA.xaml,Discord.StatementText46,Skjult By ved Stjernens Kyst
+Discord\Discord.DA.xaml,Discord.StatementText47,Eventyret bag den Tågede Bjerg
+Discord\Discord.DA.xaml,Discord.StatementText48,Stjernestrimler Glitrende i Mørket
+Launcher\Launcher.DA.xaml,Launcher.WallCustomizeText,Tilpas Baggrund
+Launcher\Launcher.DA.xaml,Launcher.CreateLogText,Opret Logfil
+Launcher\Launcher.DA.xaml,Launcher.ExitText,Afslut
+Launcher\Launcher.DA.xaml,Launcher.OpenReportText,Åbn en Fejlrapport
+Launcher\Launcher.DA.xaml,Launcher.OpenText,Åbn Sucrose
+Launcher\Launcher.DA.xaml,Launcher.ReportText,Fejlrapport
+Launcher\Launcher.DA.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostik
+Launcher\Launcher.DA.xaml,Launcher.SaveDialogFilter,ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
+Launcher\Launcher.DA.xaml,Launcher.SaveDialogTitle,Gem Logfil
+Launcher\Launcher.DA.xaml,Launcher.SettingText,Indstillinger
+Launcher\Launcher.DA.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.DA.xaml,Launcher.WallChangeText,Skift Baggrund
+Launcher\Launcher.DA.xaml,Launcher.WallCloseText,Luk Baggrund
+Launcher\Launcher.DA.xaml,Launcher.WallOpenText,Åbn Baggrund
+Launcher\Launcher.DA.xaml,Launcher.WallStartText,Start Baggrund
+Launcher\Launcher.DA.xaml,Launcher.WallStopText,Stop Baggrund
+Launcher\Launcher.DA.xaml,Launcher.UpdateText,Kontroller Opdateringer
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Done,Opdateringer Afventer
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Check,Kontrollerer Opdateringer
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Progress,Opdatering Fremgang {0}
+Portal\Portal.DA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5EQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.DA.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.DA.xaml,,
+Property\Property.DA.xaml,Property.DeleteTip,Slet kopi
+Property\Property.DA.xaml,Property.RefreshTip,Opdater grænseflade
+Property\Property.DA.xaml,Property.RestoreTip,Gendan standard
+Property\Property.DA.xaml,,
+Property\Property.DA.xaml,Property.Type.NotSupport,Kontroltype '{0}' understøttes ikke.
+Property\Property.DA.xaml,,
+Property\Property.DA.xaml,Property.ColorPicker.Color,Farve
+Property\Property.DA.xaml,Property.ColorPicker.Cancel,Annuller
+Property\Property.DA.xaml,Property.ColorPicker.Confirm,Bekræft
+Property\Property.DA.xaml,Property.ColorPicker.EyeDropper,Pipette
+Property\Property.DA.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.DA.xaml,,
+Property\Property.DA.xaml,Property.FileDropDown.Tip,Vælg en fil
+Property\Property.DA.xaml,Property.FileDropDown.Filter,Alle filer (*.*)|*.*
+Undo\Undo.DA.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.DA.xaml,,
+Undo\Undo.DA.xaml,Undo.QuestionMessage,Ønsker du virkelig at afinstallere Sucrose Wallpaper Engine?
+Update\Update.DA.xaml,Update.HelpText,Løs problemet
+Update\Update.DA.xaml,,
+Update\Update.DA.xaml,Update.UpdateBox.WindowTitle,Sucrose Opdatering
+Update\Update.DA.xaml,Update.UpdateBox.InstallText,Installer opdateringen
+Update\Update.DA.xaml,,
+Update\Update.DA.xaml,Update.InfoBox.WindowTitle,Sucrose Opdatering
+Update\Update.DA.xaml,Update.InfoBox.TextMessage,Besked
+Update\Update.DA.xaml,Update.InfoBox.CloseText,Luk
+Update\Update.DA.xaml,,
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Empty,"Vi befinder os i øjeblikket i øjeblikket, hvor opdateringsfiler er skjult som en tabt juvel. Du kan stadig nyde oplevelsen med den nuværende version."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Error,"Vi opdagede en revne i vejen, mens vi prøvede at downloade opdateringsfilen, og denne rejse er for øjeblikket afbrudt. Du kan fortsætte din rejse med den nuværende version, da disse revner vil blive repareret, og en stærkere opdatering venter på dig."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Update,"Programmet er allerede med dig i sin nyeste og mest innovative form, som de nyeste sider i en bog. Vi er her for at give dig den bedst mulige og mest opdaterede oplevelse til enhver tid."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Status,"Vi står på tærsklen til opdateringsfiler, der ikke kan nås som en drøm. Men du kan stadig fortsætte med at leve din drøm med den nuværende version."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Channel,"Den valgte opdateringskanal er stille som en skov. Der er i øjeblikket ingen nye opdateringsoplysninger tilgængelige her. Fortsæt din rejse med den nuværende version, for når stilheden brydes, vil vi give dig mere."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Extract,"Da vi forsøgte at udpakke opdateringsfilen, stødte vi på en forhindring fra dybhavet. Indtil havet er roligt igen, vil du kunne finde nye skatte, når du vender tilbage med den nuværende version."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Network,"Din forbindelses svaghed er som skyer, der dækker solen. Når skyerne er fordrevet, venter en lysere oplevelse på dig."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Updating,Opdateringen af programmet skrider snigende frem som nye skatte bragt til kysten af havets bølger. Disse værdifulde forbedringer indsamles i baggrunden for dig.
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Releases,"Vi oplever øjeblikket et tidspunkt, hvor opdateringsstjernen endnu ikke er steget. Der er i øjeblikket ingen opdateringsoplysninger tilgængelige, men du kan stadig fortsætte med at bruge den nuværende version."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Download,"Da vi forsøgte at downloade opdateringsfilen, opdagede vi, at stjernerne på himlen var i en forkert rækkefølge. Indtil stjernerne er på linje, kan du fortsætte med din nuværende version, for når de er korrekt justeret, vil vi give dig en bedre opdatering."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Cancelled,"Download af opdateringsfilen blev afbrudt, da vores veje pludselig skiltes. Fortsæt din rejse med den nuværende version og vær klar til fremtidige opdateringer, fordi en ny begyndelse altid er mulig."
+Update\Update.DA.xaml,Update.InfoBox.TextMessage.Condition,Betingelserne for opdateringsfilerne ser ud til at mangle nøglen til at låse op. Indtil videre kan du fortsætte din rejse med den nuværende version og være klar til fremtidige opdateringer.
+Watchdog\Watchdog.DA.xaml,Watchdog.HelpButton,Hjælp
+Watchdog\Watchdog.DA.xaml,Watchdog.CloseButton,Luk
+Watchdog\Watchdog.DA.xaml,Watchdog.ErrorMessage,Der opstod en uventet fejl:
+Watchdog\Watchdog.DA.xaml,Watchdog.ErrorTitle,Fejl
+Watchdog\Watchdog.DA.xaml,Watchdog.HideButton,Skjul
+Watchdog\Watchdog.DA.xaml,Watchdog.ShowButton,Vis
+Watchdog\Watchdog.DA.xaml,Watchdog.StackTrace,Stakspor:
+Watchdog\Watchdog.DA.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.DA.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.ReloadText,PRØV IGEN
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Preparing,FORBEREDER NØDVENDIGE FORBEREDELSER
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Temporary,CHECKER MIDLERTEMLIGE PLACERINGER
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Temporary.Error,MIDLERTEMLIGE PLACERINGER KUNNE IKKE KONTROLLERES
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Connection,CHECKER INTERNETFORBINDELSE
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Connection.None,INGEN INTERNETFORBINDELSE
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Connection.Error,INTERNETFORBINDELSE KUNNE IKKE KONTROLLERES
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Searching,SØGER EFTER NØDVENDIGE FILER
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Searching.Not,NØDVENDIGE FILER IKKE FUNDET
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Searching.Error,NØDVENDIGE FILER KUNNE IKKE SØGES
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Listing,FÅR DE NØDVENDIGE LISTE
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Listing.Empty,NØDVENDIGE LISTER ER TOMME
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Listing.Error,NØDVENDIGE LISTER KUNNE IKKE MODTAGES
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Filtering,LISTER BLIVER FILTRERET
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Filtering.Not,LISTER KAN IKKE FILTRERES
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Filtering.Error,LISTER KUNNE IKKE FILTRERES
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Downloading,DOWNLOADER NØDVENDIGE FILER
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Downloading.Error,NØDVENDIGE FILER KUNNE IKKE DOWNLOADES
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Downloading.Complete.Cancel,DOWNLOAD AF DEN NØDVENDIGE FIL BLEV ANNULLERET
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Downloading.Complete.Error,DER OPSTOD EN FEJL UNDER DOWNLOAD AF DEN NØDVENDIGE FIL
+Wizard\Wizard.DA.xaml,,
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting,EKSTRAHERER DEN DOWNLOADEDE FIL
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Executing,DEN EKSTRAHEREDE FIL BLIVER UDFØRT
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Executed,DEN EKSTRAHEREDE FIL ER BLEVET UDFØRT
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Failed,DEN DOWNLOADEDE FIL MISLYKKEDES
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Corrupt,DEN DOWNLOADEDE FIL ER KORRUPT
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Not,DEN DOWNLOADEDE FIL KAN IKKE BRUGES
+Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Error,DEN DOWNLOADEDE FIL KUNNE IKKE EKSTRAHERES
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Sound,Lyd
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Log,Log
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Hook,Hook
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Store,Butik
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Donate,Donér
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.System,System
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Cache,Cache
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Laptop,Bærbar computer
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Support,Support
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Reset,Nulstil
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Backup,Backup
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Priority,Prioritet
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Engines,Motorer
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Update,Opdatering
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Library,Bibliotek
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Developer,Udvikler
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Extensions,Udvidelser
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.SystemResources,Systemressourcer
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.AppearanceBehavior,Udseende og adfærd
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.All,Alle
+Portal\Category\Portal.Category.DA.xaml,,
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Abstract,Abstrakt
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Ambience,Atmosfære
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Animals,Dyr
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Animation,Animation
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Anime,Anime
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.ArchitectureandBuildings,Arkitektur og Bygninger
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.ArtandAbstract,Kunst og Abstrakt
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Artworks,Kunstværker
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Bard,Bard
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.BlackandWhite,Sort og Hvid
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.CartoonandComics,Tegnefilm og Tegneserier
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.CitiesandPlaces,Byer og Steder
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.CloudsandSkies,Skyer og Himle
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.ColorfulGradients,Farverige Gradients
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.ComicBooks,Tegneserier
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.DigitalArt,Digital Kunst
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Dynamic,Dynamisk
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.EnchantedForests,Fortryllede Skove
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Fantasy,Fantasi
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.FilmandTV,Film og TV
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.FoodandDrinks,Mad og Drikkevarer
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Galaxy,Galakse
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Game,Spil
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.GeometricPatterns,Geometriske Mønstre
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.HolidaysandSeasons,Ferier og Årstider
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.HorrorandHalloween,Gyser og Halloween
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.InspirationalQuotes,Inspirerende Citater
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.KidsandCartoon,Børn og Tegnefilm
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Landscape,Landskab
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Lifestyle,Livsstil
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.LineArt,Linje Kunst
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Medieval,Middelalder
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Minimalist,Minimalistisk
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Music,Musik
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Nature,Natur
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Nightscapes,Nataktig Udsigt
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.PatternsandTextures,Mønstre og Teksturer
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Retro,Retro
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Sky,Himmel
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Space,Rummet
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Sports,Sport
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Superheroes,Superhelte
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.System,System
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Tavern,Taverna
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Technology,Teknologi
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Temple,Tempel
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Time,Tid
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.UnderwaterandMarine,Undervands- og Marine
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Vehicles,Køretøjer
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Vintage,Vintage
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.War,Krig
+Portal\Controls\Portal.Controls.DA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5EQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.Stretch.Fill,Fyld
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.Stretch.None,Ingen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.Stretch.Uniform,Uniform
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.Stretch.UniformToFill,Uniform til fyld
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortModeType.None,Ingen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortModeType.Name,Navn
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortModeType.Creation,Oprettelse
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortModeType.Modification,Ændring
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StretchType.Fill,Fyld
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StretchType.None,Ingen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StretchType.Uniform,Uniform
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StretchType.UniformToFill,Uniform til fyld
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.PerformanceType.Close,Luk
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.PerformanceType.Pause,Pause
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.PerformanceType.Resume,Fortsæt
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.Mica,Mica
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.None,Ingen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.Auto,Auto
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.Tabbed,Faner
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akryl
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ChannelType.Release,Standard
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ChannelType.PreRelease,Udvikler
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.PausePerformanceType.Heavy,Tung
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.PausePerformanceType.Light,Let
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortKindType.Ascending,Stigende [A-Z]
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortKindType.Descending,Faldende [Z-A]
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ExpandScreenType.Default,Standard
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ExpandScreenType.Advanced,Avanceret
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateType.Compressed,Komprimeret
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.UpdateType.Executable,Kørbar
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ScreenType.WorkingArea,Arbejdsområde
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ScreenType.DisplayBound,Skærmbegrænsninger
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.DuplicateScreenType.Default,Standard
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avanceret
+Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Pass,Succesfuld
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' indeholder for mange værdier
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Type,Tema er oprettet til en ukendt typen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Title,'Title' er enten tomt eller for langt
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Author,'Author' er enten tomt eller for langt
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Source,Kunne ikke finde 'Source'-filen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' er enten tomt eller for langt
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Preview,Kunne ikke finde 'Preview'-filen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Encrypt,Den pågældende fil er krypteret
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.ZipType,Den pågældende fil er faktisk ikke en '.zip' fil
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InfoFile,Kunne ikke finde 'SucroseInfo.json'-filen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.NotFound,Den pågældende fil blev ikke fundet
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.LoopMode,Ugyldig 'LoopMode'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments' er for lang
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Extension,Den pågældende fil har ikke '.zip' filtypen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Thumbnail,Kunne ikke finde 'Thumbnail'-filen
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemCpu,Ugyldig 'SystemCpu'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json'-filen er tom
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.AppVersion,Temaet er oprettet til en nyere version af programmet
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' indeholder en ugyldig værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemBios,Ugyldig 'SystemBios'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemDate,Ugyldig 'SystemDate'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemAudio,Ugyldig 'SystemAudio'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Description,'Description' er enten tomt eller for langt
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json'-filen er ugyldig
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.TriggerTime,Ugyldig 'TriggerTime'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.StretchMode,Ugyldig 'StretchMode'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Ugyldig 'VolumeLevel'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Ugyldig 'ShuffleMode'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags' er enten for korte eller for lange
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidFile,Ugyldig fil
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList' er tomt
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemMemory,Ugyldig 'SystemMemory'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemBattery,Ugyldig 'SystemBattery'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Ugyldig 'SystemGraphic'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Ugyldig 'SystemNetwork'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidContact,'Contact' er hverken en URL eller en mailadresse
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Ugyldig filtype
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json'-filen er tom
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json'-filen er tom
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.PropertyListener,Ugyldig 'PropertyListener'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Ugyldig 'SystemMotherboard'-værdi
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json'-filen er ugyldig
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json'-filen er ugyldig
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Uforudsete Konsekvenser
+Portal\LibraryPage\Portal.LibraryPage.DA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5UUi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.DA.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.DA.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.DA.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.DA.xaml,Portal.LibraryPage.Import.Successful,Temabogen '{0}' blev succesfuldt tilføjet til biblioteket.
+Portal\LibraryPage\Portal.LibraryPage.DA.xaml,Portal.LibraryPage.Import.Unsuccessful,Temabogen '{0}' kunne ikke tilføjes til biblioteket. Årsag: '{1}'.
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuHelp,Hjælp
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuAbout,Om
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuHelpTip,Vis hjælp
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuAboutTip,Vis om
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuLibrary,Bibliotek
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuStore,Butik
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuLibraryTip,Tema bibliotek
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuStoreTip,Tema butik
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuGeneral,Generelt
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuPersonal,Personligt
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuPerformance,Ydeevne
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuWallpaper,Tapet
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuSystem,System
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuDonate,Donér
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuOther,Andet
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuBackTip,Gå tilbage
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuGeneralTip,Generelle indstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuPersonalTip,Personlige indstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuPerformanceTip,Ydeevneindstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuWallpaperTip,Tapetindstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuSystemTip,Systemindstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuDonateTip,Donationsindstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuOtherTip,Andre indstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuSettingTip,Indstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.SearchBoxHint,Søg efter en tapet
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.SearchBoxTip,"Har du svært ved at finde det, du har brug for?"
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuLightTip,Lyst tema
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuDarkTip,Mørkt tema
+Portal\MainWindow\Portal.MainWindow.DA.xaml,,
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Opret tapet
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Baggrundscyklus
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Skærmindstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuDonateOptionsTip,Donationsindstillinger
+Portal\MainWindow\Portal.MainWindow.DA.xaml,Portal.MainWindow.MenuOtherOptionsTip,Andre indstillinger
+Portal\SettingPage\Portal.SettingPage.DA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuREEueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.DA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkRBLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.DA.xaml,,
+Portal\StorePage\Portal.StorePage.DA.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Title,Skærm Præferencer
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Close,Luk
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Expander,Placeringstilstand
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Expander.Description,Hvordan baggrunde skal anvendes på aktive skærme.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Screen,Kun valgt skærm
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Expand,Udvid mellem skærme
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Expand.Monitor,Alle Skærme
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Expand.Hint,Vælg udvidelsestilstand mellem skærme
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Duplicate,Duplikér samme baggrund
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.DA.xaml,Portal.DisplayPreferences.Duplicate.Hint,Vælg tilstand for at duplikere samme baggrund
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.DA.xaml,Portal.ExpanderCard.TitleText,Overskrift
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.DA.xaml,Portal.ExpanderCard.DescriptionText,Beskrivelse
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.DA.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.DA.xaml,Portal.ExpanderCard.ExpandUpTip,Fold op
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.DA.xaml,Portal.ExpanderCard.ExpandDownTip,Fold ned
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.TitleText,Overskrift
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.DescriptionText,Beskrivelse
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MoreTip,Mere
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.VersionTip,Opdater Sucrose for at bruge dette tema
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuReview,Gennemse
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuUse,Brug
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuPreview,Forhåndsvisning
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuCustomize,Tilpas
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuFind,Find
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuShare,Del
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuDelete,Slet
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuEdit,Rediger
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Title,Om
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Close,Luk
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.About,"Hej, mit navn er Bayram Emekli, også kendt som Taiizor. Jeg er udvikleren af Sucrose Wallpaper Engine, en gratis og open source applikation. Tak for at bruge den app, jeg har udviklet."
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Update,Version: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Update.Description,Seneste kontrol: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Update.Notes,Opdateringsnoter
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Partners,Vores Partnere
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Contributors,Bidragsydere
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.TermsOfService,Servicevilkår
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.PrivacyPolicy,Fortrolighedspolitik
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.CodeOfConduct,Samfundsregler for brugeradfærd
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Title,Hjælp
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Close,Luk
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.WebPage,Hjemmeside
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine's officielle hjemmeside
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Documentation,Dokumentation
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine's officielle dokumentationsside
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Repository,Kildekode
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine's officielle kildekode side
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Discussions,Diskussioner
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine's officielle diskussionsside
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Report,Fejlrapport
+Portal\Controls\OtherHelp\Portal.OtherHelp.DA.xaml,Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine's officielle fejlrapporteringsside
+Portal\Controls\Pagination\Portal.Pagination.DA.xaml,Portal.Pagination.PageJump,Spring
+Portal\Controls\StoreCard\Portal.StoreCard.DA.xaml,Portal.StoreCard.TitleText,Overskrift
+Portal\Controls\StoreCard\Portal.StoreCard.DA.xaml,Portal.StoreCard.DescriptionText,Beskrivelse
+Portal\Controls\StoreCard\Portal.StoreCard.DA.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.DA.xaml,Portal.StoreCard.VersionTip,Opdater Sucrose for at bruge dette tema
+Portal\Controls\StoreCard\Portal.StoreCard.DA.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.DA.xaml,Portal.StoreCard.MenuInstall,Installer
+Portal\Controls\StoreCard\Portal.StoreCard.DA.xaml,Portal.StoreCard.MenuReport,Rapportér
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Title,Opret Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Create,Opret
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Close,Luk
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Gif,Gif Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Gif.Description,Opret dit eget tema i Gif-format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Url,Url Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Url.Description,Opret dit eget tema i Url-format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Web,Web Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Web.Description,Opret dit eget tema i Web-format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Video,Video Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Video.Description,Opret dit eget tema i Video-format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.YouTube,YouTube Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.YouTube.Description,Opret dit eget tema i YouTube-format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Application,Application Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Application.Description,Opret dit eget tema i Application-format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeThumbnail,Forsidebillede
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview,Forhåndsvisning
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeTitle,Titel
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeDescription,Beskrivelse
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeAuthor,Forfatter
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeContact,Kontakt
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeTags,Tags
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeArguments,Argumenter
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Indtast venligst en gyldig Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Vælg et forsidebillede
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview.Hint,Vælg en forhåndsvisningsfil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Indtast venligst en gyldig titel
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Indtast venligst en gyldig beskrivelse
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Indtast venligst et gyldigt forfatternavn
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeContact.Hint,Indtast venligst en gyldig kontaktadresse
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeTags.Hint,Indtast venligst gyldige tema-tags
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Indtast venligst gyldige applikationsargumenter
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Delete,Fortryd
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Gif,Træk og slip din Gif-fil her
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Video,Træk og slip din videofil her
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Vælg Forsidebillede
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Billedfiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview.Title,Vælg Forhåndsvisningsfil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Title,Slet Tema
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Delete,Slet
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Close,Luk
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeTitle,Titel
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeDescription,Beskrivelse
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeType,Type
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeAuthor,Forfatter
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeSize,Størrelse
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeVersion,Version
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeTags,Tags
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeTagsText,Ingen
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeCreate,Oprettet
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeCreateDate,Ukendt
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeModify,Ændret
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.ThemeModifyDate,Ukendt
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.Title,Rediger Tema
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.Close,Luk
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.Save,Gem
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeTitle,Titel
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeDescription,Beskrivelse
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeAuthor,Forfatter
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeContact,Kontakt
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeTags,Tags
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeArguments,Argumenter
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeTitle.Hint,Indtast venligst en gyldig titel
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeDescription.Hint,Indtast venligst en gyldig beskrivelse
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,Indtast venligst et gyldigt forfatternavn
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeContact.Hint,Indtast venligst en gyldig kontaktadresse
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeTags.Hint,Indtast venligst gyldige tema-tags
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.DA.xaml,Portal.ThemeEdit.ThemeArguments.Hint,Indtast venligst gyldige applikationsargumenter
+Portal\Controls\ThemeImport\Portal.ThemeImport.DA.xaml,Portal.ThemeImport.Title,Importer Tema
+Portal\Controls\ThemeImport\Portal.ThemeImport.DA.xaml,Portal.ThemeImport.Close,Luk
+Portal\Controls\ThemeImport\Portal.ThemeImport.DA.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.DA.xaml,Portal.ThemeImport.Info,Tema Information
+Portal\Controls\ThemeImport\Portal.ThemeImport.DA.xaml,Portal.ThemeImport.Type,Årsag og Beskrivelse
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.Title,Anmeld Tema
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.Close,Luk
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeTitle,Titel
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeDescription,Beskrivelse
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeType,Type
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeAuthor,Forfatter
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeSize,Størrelse
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeVersion,Version
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeTags,Tags
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeTagsText,Ingen
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeCreate,Oprettet
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeCreateDate,Ukendt
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeModify,Ændret
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeModifyDate,Ukendt
+Portal\Controls\ThemeReview\Portal.ThemeReview.DA.xaml,Portal.ThemeReview.ThemeContact,Tema Kontaktadresse
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.Title,Del Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.Close,Luk
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemeTitle,Titel
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemeDescription,Beskrivelse
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemeExport,Eksporter
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish,Udgiv i Butikken
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemeCopy,Kopier Link
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.SaveDialogTitle,Gem Tema Fil
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.DA.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.DA.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.DA.xaml,Portal.EmptyLibraryPage.TitleText,Dit bibliotek er blevet indhyllet i spindelvæv
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.DA.xaml,Portal.EmptyLibraryPage.DescriptionText,I stedet for tapet er der blevet skabt et fantastisk kunstværk med edderkoppevæv
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.DA.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.DA.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.DA.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.DA.xaml,Portal.SearchLibraryPage.TitleText,Dit Bibliotek Er Indhyllet i Spindelvæv
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.DA.xaml,Portal.SearchLibraryPage.DescriptionText,På grund af din vælgensomhed med tapet er der ikke mere plads til tapeter
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.DonateMenu,Donér Menu
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.DonateMenu.Description,Synligheden af donérmenuen i brugergrænsefladen.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Synlig
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Skjult
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.Advertising,Reklamestøtte
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.Advertising.Description,Bidrag til udviklingen af applikationen ved at se reklamer.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Reklametid (minutter):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.DA.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Tip: Reklamer vises med minimal forstyrrelse for dig.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Applikationssprog
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,"Vælg det sprog, du vil se applikationen på."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup,Opstart af applikation
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,For at kunne afspille tapeter skal Sucrose køre i baggrunden ved opstart.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Ingen
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritet
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planlagt
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.NotifyIcon,Meddelelsesområdesymbol
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Synligheden af ikonet i systembakken. Sucrose vil fortsætte med at køre skjult.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Synlig
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Skjult
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Luk alle Sucrose-programmer, når meddelelsesområdet lukkes"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop,Vinduebaggrund
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Bruges til at tilpasse baggrunden i applikationsvinduet.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Vælg baggrundsbillede
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Vælg et baggrundsbillede
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Billedfiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Baggrundsstørrelse:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Baggrundsgennemsigtighed (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.EngineVolume,Lydjustering
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Lydjustering gældende for alle tapeter.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,"Afspil kun lyd, når skrivebordet er i fokus"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplacering
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Stedet, hvor de tilføjede temaer i dit bibliotek vil blive gemt."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Vælg venligst en tom mappe
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Vent venligst, mens placeringen ændres"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Flyt din nuværende bibliotek til den nye placering
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose muliggør kommunikation med Discord.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Opdater forbindelse:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Opdateringsinterval (sekunder):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Agent,Internetagent
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Agent.Description,"Dit agent-id i situationer, der kræver internetforbindelse."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Key,Personlig adgangstoken
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Key.Description,Nødvendig for at bruge butikken og applikationsopdateringen problemfrit.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Key.HintKey,"Klik her, hvis du ikke ved, hvordan du får din personlige adgangstoken."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Key.PersonalKey,Indtast venligst din personlige adgangstoken
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Indtast venligst en gyldig personlig adgangstoken
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Channel,Opdateringskanal
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Channel.Description,Hvilken kanal opdateringsprocessen skal bruge.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Update,Opdateringsmetode
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Update.Description,Metoden til at udføre opdateringen eller ej.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Update.Limit,Downloadbåndbreddegrænse:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer,Udviklerværktøjer
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer.Description,Visning af udviklerværktøjer til WebView og CefSharp-motoren.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Counter,Ydelsesmålere
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Counter.Description,Om alle ydelsesmålere skal køre i baggrunden.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,"Bemærk: Nogle webbaserede temaer fungerer muligvis ikke korrekt, og ingen af de følgende ydelsesindstillinger vil fungere."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Pause,Pause Regel
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Pause.Description,Bestemmer reglen for at sætte tapetet på pause baseret på dine ydeevneindstillinger.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Communication,Kommunikationstype
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Communication.Description,Afgør metoden til at sende beskeder til temaer af typen Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Cpu,CPU-brug
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Cpu.Description,Hvad der skal ske med tapetet baseret på dine CPU-brugsindstillinger.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-brug (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Memory,Hukommelsesbrug
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Memory.Description,Hvad der skal ske med tapetet baseret på dine hukommelsesbrugsindstillinger.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Hukommelsesbrug (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network,Netværksbrug
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.Description,Hvad der skal ske med tapetet baseret på dine netværksbrugsindstillinger.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Netværksadapter:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Listen over netværksadaptere er ikke blevet oprettet endnu.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Upload-størrelse:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Download-størrelse:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping-værdi (ms):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Battery,Batteristrøm
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Battery.Description,"Hvad der skal ske med tapetet, når du bruger en bærbar computer på batteri."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Batteriniveau (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Saver,Batterisparetilstand
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Saver.Description,"Hvad der skal ske med tapetet, når du bruger en bærbar computer i batterisparetilstand."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Virtual,Virtualisering
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Virtual.Description,"Hvad der skal ske med tapetet, når virtualiseringsapplikationer kører."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Remote,Fjernskrivebord
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Remote.Description,"Hvad der skal ske med tapetet, når fjernskrivebordsapplikationer kører."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Fullscreen,Fuldskærmsmodus
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,"Hvad der skal ske med tapetet, når enhver anden applikation kører i fuldskærmstilstand."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Focus,Fokustilstand
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Focus.Description,"Hvad der skal ske med tapetet, når der er en anden applikation i fokus."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Server,Butiksserver
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Server.Description,"Angiver hvilken server der vil blive brugt til at vise de temaer, der er angivet i butikken."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Bemærk: Hvis {0} vælges som server, er det nødvendigt at indtaste en {2} for at undgå anmodningsbegrænsninger. Ellers kan du opleve problemer med at få adgang til temaer i butikken. Hvis {1} vælges, får du en mere problemfri butiksoplevelse."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Duration,Butik Genindlæsning
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Duration.Description,Hvor længe temalister i butikken skal genindlæses.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.StoreStart,Automatisk Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.StoreStart.Description,"Hvorvidt temaer, der er downloadet fra butikken, automatisk skal indstilles som tapet."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adult,Uegnet Indhold
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adult.Description,"Hvorvidt indhold, der er markeret som ikke-sikkert for arbejde (NSFW), skal vises eller ej i butikken."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Confirm,Sletningsbekræftelse
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Confirm.Description,Hvorvidt der skal anmodes om bekræftelse ved sletning af temaer i din bibliotek.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Delete,Defekte Temaer
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Delete.Description,Hvorvidt defekte eller manglende temaer i din bibliotek automatisk skal slettes.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,"Bemærk: Vær forsigtig, da det kan medføre datatab."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.LibraryStart,Automatisk Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Hvorvidt oprettede temaer automatisk skal indstilles som tapet.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview,Temaforhåndsvisning
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview.Description,Hvorvidt temaer skal forhåndsvises ved at sveje musen over dem.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Butikforhåndsvisning:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Skjul detaljer:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Biblioteksforhåndsvisning:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skjul detaljer:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme,Tema Tilpasning
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme.Description,Tilpas navnet eller beskrivelsen af de viste temaer.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Titellængde (tegn):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Beskrivelseslængde (tegn):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adaptive,Tilpasning
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adaptive.Description,Tilpas layoutet eller afstanden af de viste temaer.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margeafstand (pixels):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Layoutordning (antal):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Sort,Bibliotekssortering
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Sort.Description,"Bestem, hvordan emnerne i din bibliotek skal sorteres og i hvilket format."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Sort.SortMode,Sorteringsmetode:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Sort.SortKind,Sorteringsart:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Store,Butikssideinddeling
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Store.Description,Bestem antallet af temaer på hver side i butikken.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Library,Biblioteksinddeling
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Library.Description,Bestem antallet af temaer på hver side i din bibliotek.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LogTemporary,Logfiler
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LogTemporary.Description,"Administrer alle de logfiler, som applikationen har oprettet."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LogTemporary.Create,Opret
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Ryd
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LogTemporary.Hint,"Bemærk: Den samlede plads, som logfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.CacheTemporary,Cache Rydning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.CacheTemporary.Description,"Ryd alle de cache-filer, som applikationen har oprettet."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Start Rydning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,"Bemærk: Den samlede plads, som cache-filerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.StoreTemporary,Butik Rydning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.StoreTemporary.Description,"Ryd alle de butiksfiler, som applikationen har oprettet."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Start Rydning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,"Bemærk: Den samlede plads, som butiksfilerne optager, er {0}. Alle applikationer lukkes, når rydningen begynder."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LibraryTemporary,Bibliotek Rydning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,"Ryd alle de tema-filer, som findes i dit bibliotek, eller som du har oprettet."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Start Rydning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,"Bemærk: Den samlede plads, som temaerne i dit bibliotek optager, er {0}. Alle applikationer lukkes, når rydningen begynder."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingBackup,Indstillingsfiler
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingBackup.Description,"Administrer alle de indstillingsfiler, som applikationen har oprettet."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingBackup.Export,Eksporter
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingBackup.Import,Importér
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingBackup.Hint,"Bemærk: Alle applikationer lukkes, når handlingen er valgt."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingReset,Nulstil Indstillinger
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingReset.Description,"Nulstil alle de indstillingsfiler, som applikationen har oprettet."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingReset.Start,Start Nulstilling
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.SettingReset.Hint,"Bemærk: Alle applikationer lukkes, når nulstillingen begynder."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Gem Logfil
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ScreenLayout,Skærm Layout
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Ændrer dit tapet's skærm layout.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.StretchMode,Strækning Metode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Ændrer skaleringen af understøttede tapeter.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.LoopMode,Loop Tilstand
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Ændrer loop tilstanden af understøttede tapeter.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ShuffleMode,Blanding Tilstand
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Ændrer blanding tilstanden af understøttede tapeter.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif Afspiller
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Vælg plugin til at afspille Gif-temaer i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.VideoPlayer,Video Afspiller
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Vælg plugin til at afspille Video-temaer i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Vælg motor til at afspille Url-temaer i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.WebPlayer,Web Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Vælg motor til at afspille Web-temaer i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Vælg motor til at afspille YouTube-temaer i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Vælg motor til at afspille Application-temaer i din samling.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,Portal.BrokenStorePage.TitleText,"Et Øjeblik, Hvor Internettets Lys Dæmpes"
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.DA.xaml,Portal.BrokenStorePage.DescriptionText,Ligesom en stjernefri himmel mangler denne side internettets glans.
+Portal\StorePage\FullStorePage\Portal.FullStorePage.DA.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,Portal.SearchStorePage.TitleText,"Svaret på det, du leder efter, kan gemme sig på himlen"
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.DA.xaml,Portal.SearchStorePage.DescriptionText,"Hvis resultaterne ikke kommer som forventet, kan himlen give dig en ny oplevelse."
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,Portal.UnknownStorePage.TitleText,Opdag det Mystiske i Butikken
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.DA.xaml,Portal.UnknownStorePage.DescriptionText,"Gå på opdagelse i det ukendte og begiv dig ud på en rejse for at opklare det mysteriøse, der er sket i butikken."

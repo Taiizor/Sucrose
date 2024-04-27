@@ -111,6 +111,7 @@
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Wizard\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.WPF.CS\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundler\**" />
+        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Localizer\**" />
         
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.log" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.txt" />

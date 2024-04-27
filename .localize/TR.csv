@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuVFIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.TR.xaml,Discord.BrowseButton,Gözat
+Discord\Discord.TR.xaml,Discord.Details,Duvar Kağıdı Motoru
+Discord\Discord.TR.xaml,Discord.DownloadButton,İndir
+Discord\Discord.TR.xaml,,
+Discord\Discord.TR.xaml,Discord.LargestText0,Muzlu Dondurma Gücü
+Discord\Discord.TR.xaml,Discord.LargestText1,Gülümseyen Şapka Canavarı
+Discord\Discord.TR.xaml,Discord.LargestText2,Bulutları Renklendiren Serçeler
+Discord\Discord.TR.xaml,Discord.LargestText3,Koşan Penguenlerin Gizli Maceraları
+Discord\Discord.TR.xaml,Discord.LargestText4,Papatya Tarlasında Kaybolan Tavşanlar
+Discord\Discord.TR.xaml,Discord.LargestText5,Şarkı Söyleyen Rüzgar Gülleri
+Discord\Discord.TR.xaml,Discord.LargestText6,Gizemli Ormanın Sırlı Arıları
+Discord\Discord.TR.xaml,Discord.LargestText7,Rüya Dolu Balık Sürüsü
+Discord\Discord.TR.xaml,Discord.LargestText8,Kristal Gözlü Ejderha Dansı
+Discord\Discord.TR.xaml,Discord.LargestText9,Çiçeklerle Kaplı Masal Yolu
+Discord\Discord.TR.xaml,Discord.LargestText10,Gökyüzünden Dökülen Yıldızlar
+Discord\Discord.TR.xaml,Discord.LargestText11,Kırık Ay Işığında Dans
+Discord\Discord.TR.xaml,Discord.LargestText12,Gizemli Gökkuşağı Ejderhaları
+Discord\Discord.TR.xaml,Discord.LargestText13,Büyülü Orman Masalı
+Discord\Discord.TR.xaml,Discord.LargestText14,Gökyüzüne Çiçek Yağmuru
+Discord\Discord.TR.xaml,Discord.LargestText15,Zamanın Sessiz Dokunuşu
+Discord\Discord.TR.xaml,Discord.LargestText16,Sürreal Rüyalar Ülkesi
+Discord\Discord.TR.xaml,Discord.LargestText17,Altın Şelale Şarkıları
+Discord\Discord.TR.xaml,Discord.LargestText18,Gökyüzüne Yüzen Masal Gemileri
+Discord\Discord.TR.xaml,Discord.LargestText19,Rengarenk Balonlu Orman
+Discord\Discord.TR.xaml,Discord.LargestText20,Gizemli Denizaltı Şehri
+Discord\Discord.TR.xaml,Discord.LargestText21,Yıldız Tozlu Gökyüzü
+Discord\Discord.TR.xaml,Discord.LargestText22,Bilinmeyenin Peşinde Koşan Rüzgarlar
+Discord\Discord.TR.xaml,Discord.LargestText23,Ayışığı Altında Sürükleyici Hikayeler
+Discord\Discord.TR.xaml,,
+Discord\Discord.TR.xaml,Discord.SmallestText0,Gizemli Ayak İzleri
+Discord\Discord.TR.xaml,Discord.SmallestText1,Uçan Balon Balıkları
+Discord\Discord.TR.xaml,Discord.SmallestText2,Kahkaha Atan Çiçekler
+Discord\Discord.TR.xaml,Discord.SmallestText3,Şekerli Pamuk Bulutları
+Discord\Discord.TR.xaml,Discord.SmallestText4,Donmuş Pizza Ejderhaları
+Discord\Discord.TR.xaml,Discord.SmallestText5,Parlak Mantar Korsanları
+Discord\Discord.TR.xaml,Discord.SmallestText6,Görünmez Unicorn Ayak İzi
+Discord\Discord.TR.xaml,Discord.SmallestText7,Renkli Toz Bulutları
+Discord\Discord.TR.xaml,Discord.SmallestText8,Altın Balon Kelebekleri
+Discord\Discord.TR.xaml,Discord.SmallestText9,Şeker Krateri Yolculuğu
+Discord\Discord.TR.xaml,Discord.SmallestText10,Roketle Uçan Pizza Dilimleri
+Discord\Discord.TR.xaml,Discord.SmallestText11,Güneşle Dans Eden Deniz Kabukları
+Discord\Discord.TR.xaml,Discord.SmallestText12,Görünmez Yıldız Parmakları
+Discord\Discord.TR.xaml,Discord.SmallestText13,Sisli Denizaltı Dansı
+Discord\Discord.TR.xaml,Discord.SmallestText14,Gökkuşağı Kuş Göçleri
+Discord\Discord.TR.xaml,Discord.SmallestText15,Şeker Fırtınası Yolu
+Discord\Discord.TR.xaml,Discord.SmallestText16,Sonsuz Pizza Galaksisi
+Discord\Discord.TR.xaml,Discord.SmallestText17,Güneşin Gülüşü
+Discord\Discord.TR.xaml,Discord.SmallestText18,Gizli Göletin Kayıp Gülüşü
+Discord\Discord.TR.xaml,Discord.SmallestText19,Rüya Kuşlarının Gölgesi
+Discord\Discord.TR.xaml,Discord.SmallestText20,Gökyüzüne Doğru Yükselen Kelebekler
+Discord\Discord.TR.xaml,Discord.SmallestText21,Yıldızların Ardında Gizlenen Şarkılar
+Discord\Discord.TR.xaml,Discord.SmallestText22,Masalın Sisli Dağları
+Discord\Discord.TR.xaml,Discord.SmallestText23,Gizemli Ormanın Perisi
+Discord\Discord.TR.xaml,,
+Discord\Discord.TR.xaml,Discord.StatementText0,Kaos Dolu Bir Evren
+Discord\Discord.TR.xaml,Discord.StatementText1,Sonsuz Maceraların Ortasında
+Discord\Discord.TR.xaml,Discord.StatementText2,Garip ve Büyülü Bir Dünya
+Discord\Discord.TR.xaml,Discord.StatementText3,Hayal Gücünün Sınırlarını Zorlayan
+Discord\Discord.TR.xaml,Discord.StatementText4,Sıradışı Bir Gerçeklik
+Discord\Discord.TR.xaml,Discord.StatementText5,Hayal Gücünün Derinliklerinde
+Discord\Discord.TR.xaml,Discord.StatementText6,Büyülü Bir Keşif Yolculuğu
+Discord\Discord.TR.xaml,Discord.StatementText7,Bilinmeyen Diyarların Kapısında
+Discord\Discord.TR.xaml,Discord.StatementText8,Karmaşık Bir Rüya Dünyası
+Discord\Discord.TR.xaml,Discord.StatementText9,Sınırları Zorlayan Bir Macera
+Discord\Discord.TR.xaml,Discord.StatementText10,Dinamik ve Şaşırtıcı Bir Deneyim
+Discord\Discord.TR.xaml,Discord.StatementText11,Fantastik Bir Masalın İçinde
+Discord\Discord.TR.xaml,Discord.StatementText12,Sihirli Portallar Arasında
+Discord\Discord.TR.xaml,Discord.StatementText13,Gece Gökyüzüne Yolculuk
+Discord\Discord.TR.xaml,Discord.StatementText14,Kaybolmuş Kıtasının İzinde
+Discord\Discord.TR.xaml,Discord.StatementText15,Bilinmeyen Gezegenlerin Hikayesi
+Discord\Discord.TR.xaml,Discord.StatementText16,Paralel Evrenlerin Keşfi
+Discord\Discord.TR.xaml,Discord.StatementText17,Efsanevi Diyarların Girişi
+Discord\Discord.TR.xaml,Discord.StatementText18,Rüya Dokusuyla Örülü Gerçeklik
+Discord\Discord.TR.xaml,Discord.StatementText19,Yıldızlar Arası Bir Rüya
+Discord\Discord.TR.xaml,Discord.StatementText20,Zamanın Kapıları Ardında
+Discord\Discord.TR.xaml,Discord.StatementText21,Parıldayan Yıldızlar Takımı
+Discord\Discord.TR.xaml,Discord.StatementText22,Bilinmeyenin Sessiz Çığlığı
+Discord\Discord.TR.xaml,Discord.StatementText23,Sürükleyici Bir Dünya
+Discord\Discord.TR.xaml,Discord.StatementText24,Mistik Dağların Zirvesinde
+Discord\Discord.TR.xaml,Discord.StatementText25,Kaybolmuş Krallıkların İzinde
+Discord\Discord.TR.xaml,Discord.StatementText26,Yıldızlar Arası Rüya Yolculuğu
+Discord\Discord.TR.xaml,Discord.StatementText27,Büyülü Gece Yaratıkları
+Discord\Discord.TR.xaml,Discord.StatementText28,Sonsuz Masalın Başlangıcı
+Discord\Discord.TR.xaml,Discord.StatementText29,Gökyüzüne Yükselen Rengarenk Balonlar
+Discord\Discord.TR.xaml,Discord.StatementText30,Gizemli Gece Gökyüzü
+Discord\Discord.TR.xaml,Discord.StatementText31,Rüya Yolu Kaybolan Krallık
+Discord\Discord.TR.xaml,Discord.StatementText32,Bilinmeyen Diyarlara Açılan Kapı
+Discord\Discord.TR.xaml,Discord.StatementText33,Zamanın Kucağında Dans
+Discord\Discord.TR.xaml,Discord.StatementText34,Geceye Gömülen Hikayeler
+Discord\Discord.TR.xaml,Discord.StatementText35,Büyülü Ayna Dünyası
+Discord\Discord.TR.xaml,Discord.StatementText36,Sonsuzluğun Kapılarında Yolculuk
+Discord\Discord.TR.xaml,Discord.StatementText37,Rüya Avcısı Gece Yolculuğu
+Discord\Discord.TR.xaml,Discord.StatementText38,Kristal Şehir Rüyası
+Discord\Discord.TR.xaml,Discord.StatementText39,Karanlıkta Parlayan Yıldızlar
+Discord\Discord.TR.xaml,Discord.StatementText40,Yıldızların Ardında Sırlı Gece
+Discord\Discord.TR.xaml,Discord.StatementText41,Gizemli Ayışığı Hikayeleri
+Discord\Discord.TR.xaml,Discord.StatementText42,Altın Kapı Bilinmeyen Diyarların Eşiğinde
+Discord\Discord.TR.xaml,Discord.StatementText43,Sihirli Gecenin Esrarengiz Yolları
+Discord\Discord.TR.xaml,Discord.StatementText44,Gökyüzüne Yükselen Rüya Balonları
+Discord\Discord.TR.xaml,Discord.StatementText45,Rüya Yolu Yıldızların Altında
+Discord\Discord.TR.xaml,Discord.StatementText46,Gizli Dünya Yıldız Kıyısındaki Kasaba
+Discord\Discord.TR.xaml,Discord.StatementText47,Sisli Dağın Ardındaki Masal
+Discord\Discord.TR.xaml,Discord.StatementText48,Karanlıkta Parlayan Yıldızlı Gece
+Launcher\Launcher.TR.xaml,Launcher.WallCustomizeText,Duvar Kağıdını Özelleştir
+Launcher\Launcher.TR.xaml,Launcher.CreateLogText,Günlük Dosyası Oluştur
+Launcher\Launcher.TR.xaml,Launcher.ExitText,Çıkış
+Launcher\Launcher.TR.xaml,Launcher.OpenReportText,Bir Sorun Bildir
+Launcher\Launcher.TR.xaml,Launcher.OpenText,Sucrose'yi Aç
+Launcher\Launcher.TR.xaml,Launcher.ReportText,Hata Bildir
+Launcher\Launcher.TR.xaml,Launcher.ReportWindowTitle,Sucrose Tanılama
+Launcher\Launcher.TR.xaml,Launcher.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
+Launcher\Launcher.TR.xaml,Launcher.SaveDialogTitle,Günlük Dosyasını Kaydet
+Launcher\Launcher.TR.xaml,Launcher.SettingText,Ayarlar
+Launcher\Launcher.TR.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.TR.xaml,Launcher.WallChangeText,Duvar Kağıdını Değiştir
+Launcher\Launcher.TR.xaml,Launcher.WallCloseText,Duvar Kağıdını Kapat
+Launcher\Launcher.TR.xaml,Launcher.WallOpenText,Duvar Kağıdını Aç
+Launcher\Launcher.TR.xaml,Launcher.WallStartText,Duvar Kağıdını Başlat
+Launcher\Launcher.TR.xaml,Launcher.WallStopText,Duvar Kağıdını Durdur
+Launcher\Launcher.TR.xaml,Launcher.UpdateText,Güncellemeleri Denetle
+Launcher\Launcher.TR.xaml,,
+Launcher\Launcher.TR.xaml,Launcher.UpdateText.Done,Güncellemeler Bekliyor
+Launcher\Launcher.TR.xaml,Launcher.UpdateText.Check,Güncellemeler Denetleniyor
+Launcher\Launcher.TR.xaml,Launcher.UpdateText.Progress,Güncelleme İlerlemesi {0}
+Portal\Portal.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5UUi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.TR.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.TR.xaml,,
+Property\Property.TR.xaml,Property.DeleteTip,Kopyayı Sil
+Property\Property.TR.xaml,Property.RefreshTip,Arayüzü Yenile
+Property\Property.TR.xaml,Property.RestoreTip,Varsayılana Döndür
+Property\Property.TR.xaml,,
+Property\Property.TR.xaml,Property.Type.NotSupport,Kontrol tipi '{0}' desteklenmiyor.
+Property\Property.TR.xaml,,
+Property\Property.TR.xaml,Property.ColorPicker.Color,Renk
+Property\Property.TR.xaml,Property.ColorPicker.Cancel,İptal
+Property\Property.TR.xaml,Property.ColorPicker.Confirm,Onayla
+Property\Property.TR.xaml,Property.ColorPicker.EyeDropper,Damlalık
+Property\Property.TR.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.TR.xaml,,
+Property\Property.TR.xaml,Property.FileDropDown.Tip,Bir dosya seç
+Property\Property.TR.xaml,Property.FileDropDown.Filter,Tüm Dosyalar (*.*)|*.*
+Undo\Undo.TR.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.TR.xaml,,
+Undo\Undo.TR.xaml,Undo.QuestionMessage,Sucrose Wallpaper Engine'yi gerçekten kaldırmak istiyor musunuz?
+Update\Update.TR.xaml,Update.HelpText,Sorunu Çöz
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.UpdateBox.WindowTitle,Sucrose Güncelleme
+Update\Update.TR.xaml,Update.UpdateBox.InstallText,Güncellemeyi Yükle
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.InfoBox.WindowTitle,Sucrose Güncelleme
+Update\Update.TR.xaml,Update.InfoBox.TextMessage,Mesaj
+Update\Update.TR.xaml,Update.InfoBox.CloseText,Çıkış
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Empty,Güncelleme dosyalarının kayıp bir mücevher gibi gizlendiği anlardayız. Şu an mevcut sürümü kullanarak da deneyimden keyif alabilirsiniz.
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Error,"Güncelleme dosyasını indirirken, yolda bir çatlak oluştuğunu ve bu yolculuğun şimdilik sona erdiğini fark ettik. Mevcut sürümle yolculuğunuza devam edin, çünkü bu çatlaklar tamir edildiğinde daha güçlü bir güncelleme sizi bekliyor olacak."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Update,"Uygulama, bir kitabın en yeni sayfası gibi zaten en güncel ve yenilikçi haliyle sizinle. Her an en iyi ve en güncel deneyimi yaşatmak için burada."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Status,Güncelleme dosyalarına erişilemeyen bir rüyanın eşiğindeyiz. Ancak mevcut sürümle de rüyanızı yaşamaya devam edebilirsiniz.
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Channel,"Seçili güncelleme kanalı, bir sessizlik ormanı gibi. Şu an için yeni güncelleme bilgileri burada bulunmuyor. Mevcut sürümle yolculuğunuza devam edin, çünkü bu sessizlik bozulduğunda size daha fazlasını sunacağız."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Extract,"Güncelleme dosyasını çıkartmaya çalışırken, denizin derinliklerinden kaynaklanan bir engelle karşılaştık. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü denizler daha sakin olduğunda yeni hazineleri bulmak için geri döneceğiz."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Network,"Bağlantınızın zayıflığı, bulutların güneşi örtmesi gibi. Bulutlar dağıldığında daha aydınlık bir deneyim sizi bekliyor olacak."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Updating,"Uygulama güncellemesi, denizin dalgalarının kıyıya getirdiği yeni hazineler gibi sinsi bir şekilde ilerliyor. Bu değerli yenilikler, arkaplanda sizin için toplanıyor."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Releases,"Uygulamada güncelleme yıldızının henüz doğmadığı bir anı yaşıyoruz. Şu an için herhangi bir güncelleme bilgisi yok, ancak zaten mevcut olan sürümü kullanmaya devam edebilirsiniz."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Download,"Güncelleme dosyasını indirirken, gökyüzündeki yıldızların yanlış bir sıralamaya sahip olduğunu keşfettik. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü yıldızlar doğru hizaya geldiğinde size daha iyi bir güncelleme sunacağız."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Cancelled,"Güncelleme dosyasının indirilmesi iptal edildi, çünkü yollarımız aniden ayrıldı. Mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun, çünkü yeni bir başlangıç her zaman mümkündür."
+Update\Update.TR.xaml,Update.InfoBox.TextMessage.Condition,"Güncelleme dosyalarındaki şartlar, anahtarın kilidini açmak için eksik gibi görünüyor. Şimdilik mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun."
+Watchdog\Watchdog.TR.xaml,Watchdog.HelpButton,Yardım
+Watchdog\Watchdog.TR.xaml,Watchdog.CloseButton,Çıkış
+Watchdog\Watchdog.TR.xaml,Watchdog.ErrorMessage,Beklenmeyen bir hata oluştu:
+Watchdog\Watchdog.TR.xaml,Watchdog.ErrorTitle,Hata
+Watchdog\Watchdog.TR.xaml,Watchdog.HideButton,Sakla
+Watchdog\Watchdog.TR.xaml,Watchdog.ShowButton,Göster
+Watchdog\Watchdog.TR.xaml,Watchdog.StackTrace,Yığın İzleme:
+Watchdog\Watchdog.TR.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.TR.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.ReloadText,TEKRAR DENEYİN
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Preparing,GEREKLİ HAZIRLIKLAR YAPILIYOR
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Temporary,GEÇİCİ KONUMLARIN KONTROLÜ YAPILIYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Temporary.Error,GEÇİCİ KONUMLAR KONTROL EDİLEMEDİ
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Connection,İNTERNET BAĞLANTISI KONTROL EDİLİYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Connection.None,İNTERNET BAĞLANTISI YOK
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Connection.Error,İNTERNET BAĞLANTISI KONTROL EDİLEMEDİ
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Searching,GEREKLİ DOSYALAR ARANIYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Searching.Not,GEREKLİ DOSYALAR BULUNAMADI
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Searching.Error,GEREKLİ DOSYALAR ARANAMADI
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Listing,GEREKLİ LİSTELER ALINIYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Listing.Empty,GEREKLİ LİSTELER BOŞ
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Listing.Error,GEREKLİ LİSTELER ALINAMADI
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Filtering,LİSTELER AYIKLANIYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Filtering.Not,LİSTELER FİLTRELENEMİYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Filtering.Error,LİSTELER AYIKLANAMADI
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading,GEREKLİ DOSYALAR İNDİRİLİYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading.Error,GEREKLİ DOSYALAR İNDİRİLEMEDİ
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading.Complete.Cancel,GEREKLİ DOSYA İNDİRİLİRKEN İPTAL OLDU
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading.Complete.Error,GEREKLİ DOSYA İNDİRİLİRKEN HATA OLDU
+Wizard\Wizard.TR.xaml,,
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting,İNDİRİLEN DOSYA ÇIKARTILIYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Executing,ÇIKARTILAN DOSYA ÇALIŞTIRILIYOR
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Executed,ÇIKARTILAN DOSYA ÇALIŞTIRILDI
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Failed,İNDİRİLEN DOSYA BAŞARISIZ OLDU
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Corrupt,İNDİRİLEN DOSYA BOZUK
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Not,İNDİRİLEN DOSYA KULLANILAMAZ
+Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Error,İNDİRİLEN DOSYA ÇIKARILAMADI
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Sound,Ses
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Log,Günlük
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Hook,Kanca
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Store,Mağaza
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Donate,Bağış
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.System,Sistem
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Cache,Önbellek
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Laptop,Dizüstü
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Support,Destek
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Reset,Sıfırlama
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Backup,Yedekleme
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Priority,Öncelik
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Engines,Motorlar
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Update,Güncelleme
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Library,Kütüphane
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Developer,Geliştirici
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Extensions,Eklentiler
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.SystemResources,Sistem Kaynakları
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.AppearanceBehavior,Görünüş &amp; Davranış
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.All,Tümü
+Portal\Category\Portal.Category.TR.xaml,,
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Abstract,Soyut
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Ambience,Ortam
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Animals,Hayvanlar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Animation,Animasyon
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Anime,Anime
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.ArchitectureandBuildings,Mimarlık ve Binalar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.ArtandAbstract,Sanat ve Soyut
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Artworks,Sanat Eserleri
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Bard,Bard
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.BlackandWhite,Siyah ve Beyaz
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.CartoonandComics,Çizgi Film ve Çizgi Roman
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.CitiesandPlaces,Şehirler ve Yerler
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.CloudsandSkies,Bulutlar ve Gökyüzü
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.ColorfulGradients,Renkli Gradyanlar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.ComicBooks,Çizgi Romanlar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.DigitalArt,Dijital Sanat
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Dynamic,Dinamik
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.EnchantedForests,Büyülü Ormanlar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Fantasy,Fantazi
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.FilmandTV,Film ve Dizi
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.FoodandDrinks,Yiyecek ve İçecekler
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Galaxy,Galaksi
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Game,Oyun
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.GeometricPatterns,Geometrik Desenler
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.HolidaysandSeasons,Tatiller ve Mevsimler
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.HorrorandHalloween,Korku ve Cadılar Bayramı
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.InspirationalQuotes,İlham Verici Alıntılar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.KidsandCartoon,Çocuklar ve Çizgi Film
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Landscape,Manzara
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Lifestyle,Yaşam Tarzı
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.LineArt,Çizgi Sanatı
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Medieval,Ortaçağ
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Minimalist,Minimalist
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Music,Müzik
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Nature,Doğa
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Nightscapes,Gece Manzaraları
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.PatternsandTextures,Desenler ve Dokular
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Retro,Retro
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Sky,Gökyüzü
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Space,Uzay
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Sports,Spor
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Superheroes,Süper Kahramanlar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.System,Sistem
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Tavern,Taverna
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Technology,Teknoloji
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Temple,Tapınak
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Time,Zaman
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.UnderwaterandMarine,Sualtı ve Deniz
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Vehicles,Araçlar
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Vintage,Nostalji
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.War,Savaş
+Portal\Controls\Portal.Controls.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5UUi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.Stretch.Fill,Doldur
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.Stretch.None,Hiçbiri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.Stretch.Uniform,Orantılı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.Stretch.UniformToFill,Orantılı Doldur
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortModeType.None,Yok
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortModeType.Name,İsim
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortModeType.Creation,Oluşturma
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortModeType.Modification,Değiştirme
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StretchType.Fill,Doldur
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StretchType.None,Hiçbiri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StretchType.Uniform,Orantılı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StretchType.UniformToFill,Orantılı Doldur
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.PerformanceType.Close,Kapat
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.PerformanceType.Pause,Durdur
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.PerformanceType.Resume,Sürdür
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.Mica,Mika
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.None,Hiçbiri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.Auto,Otomatik
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.Tabbed,Sekmeli
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilik
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ChannelType.Release,Varsayılan
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ChannelType.PreRelease,Geliştirici
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.PausePerformanceType.Heavy,Ağır
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.PausePerformanceType.Light,Hafif
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortKindType.Ascending,Artan [A-Z]
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortKindType.Descending,Azalan [Z-A]
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ExpandScreenType.Default,Varsayılan
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ExpandScreenType.Advanced,Gelişmiş
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateType.Compressed,Sıkıştırılmış
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.UpdateType.Executable,Yürütülebilir
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ScreenType.WorkingArea,Çalışma Alanı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ScreenType.DisplayBound,Ekran Sınırları
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.DuplicateScreenType.Default,Varsayılan
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.DuplicateScreenType.Advanced,Gelişmiş
+Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Pass,Başarılı Sonuç
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' çok fazla değere sahip
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Type,"Tema, uygulamanın desteklemediği bir tür için oluşturulmuş"
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Title,'Title' değeri boş veya çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Author,'Author' değeri boş veya çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Source,'Source' dosyası bulunamadı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' değeri boş veya çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' dosyası bulunamadı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Encrypt,İlgili dosya şifreli
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.ZipType,İlgili dosya gerçekten bir '.zip' dosyası değil
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json' dosyası bulunamadı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.NotFound,İlgili dosya bulunamadı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.LoopMode,Geçersiz 'LoopMode' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments' değeri çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Extension,İlgili dosya '.zip' uzantılı değil
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail' dosyası bulunamadı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemCpu,Geçersiz 'SystemCpu' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json' dosyası boş
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.AppVersion,"Tema, uygulamanın daha yüksek bir sürümü için oluşturulmuş"
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' geçersiz bir değer içeriyor
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemBios,Geçersiz 'SystemBios' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemDate,Geçersiz 'SystemDate' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemAudio,Geçersiz 'SystemAudio' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Description,'Description' değeri boş veya çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json' dosyası geçersiz
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.TriggerTime,Geçersiz 'TriggerTime' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.StretchMode,Geçersiz 'StretchMode' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Geçersiz 'VolumeLevel' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Geçersiz 'ShuffleMode' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags' değerleri çok kısa veya çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidFile,Geçersiz dosya
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList' değeri boş
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemMemory,Geçersiz 'SystemMemory' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemBattery,Geçersiz 'SystemBattery' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Geçersiz 'SystemGraphic' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Geçersiz 'SystemNetwork' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidContact,'Contact' değeri 'Url' veya 'Mail Adresi' değil
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Geçersiz dosya uzantısı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json' dosyası boş
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json' dosyası boş
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.PropertyListener,Geçersiz 'PropertyListener' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Geçersiz 'SystemMotherboard' değeri
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' dosyası geçersiz
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' dosyası geçersiz
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Öngörülemeyen Sonuçlar
+Portal\LibraryPage\Portal.LibraryPage.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5UUi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.TR.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.TR.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.TR.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.TR.xaml,Portal.LibraryPage.Import.Successful,'{0}' adlı tema kütüphaneye başarıyla eklendi.
+Portal\LibraryPage\Portal.LibraryPage.TR.xaml,Portal.LibraryPage.Import.Unsuccessful,'{0}' adlı tema kütüphaneye eklenemedi. Sebep: '{1}'.
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuHelp,Yardım
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuAbout,Hakkında
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuHelpTip,Yardım Görüntüleme
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuAboutTip,Hakkında Görüntüleme
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuLibrary,Kütüphane
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuStore,Mağaza
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuLibraryTip,Tema Kütüphanesi
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuStoreTip,Tema Mağazası
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuGeneral,Genel
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuPersonal,Kişisel
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuPerformance,Performans
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuWallpaper,Duvar Kağıdı
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuSystem,Sistem
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuDonate,Bağış
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuOther,Diğer
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuBackTip,Geri Git
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuGeneralTip,Genel Ayarlar
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuPersonalTip,Kişisel Ayarlar
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuPerformanceTip,Performans Ayarları
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuWallpaperTip,Duvar Kağıdı Ayarları
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuSystemTip,Sistem Ayarları
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuDonateTip,Bağış Ayarları
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuOtherTip,Diğer Ayarlar
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuSettingTip,Ayarlar
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.SearchBoxHint,Bir Duvar Kağıdı Ara
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.SearchBoxTip,İhtiyacınız olanı bulmakta zorluk mu yaşıyorsunuz?
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuLightTip,Aydınlık Tema
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuDarkTip,Karanlık Tema
+Portal\MainWindow\Portal.MainWindow.TR.xaml,,
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Duvar Kağıdı Oluştur
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Duvar Kağıdı Döngüsü
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Ekran Tercihleri
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuDonateOptionsTip,Bağış Seçenekleri
+Portal\MainWindow\Portal.MainWindow.TR.xaml,Portal.MainWindow.MenuOtherOptionsTip,Diğer Seçenekler
+Portal\SettingPage\Portal.SettingPage.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuVFIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlRSLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.TR.xaml,,
+Portal\StorePage\Portal.StorePage.TR.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Title,Ekran Tercihleri
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Close,Kapat
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Expander,Yerleştirme Modu
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Expander.Description,Duvar kağıtlarının aktif ekranlara nasıl uygulanacağı.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Screen,Sadece seçili ekran
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Expand,Ekranlar arasında uzat
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Expand.Monitor,Tüm Monitörler
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Expand.Hint,Ekranlar arasında uzatma modunu seçin
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Duplicate,Aynı duvar kağıdını çoğalt
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.TR.xaml,Portal.DisplayPreferences.Duplicate.Hint,Aynı duvar kağıdını çoğaltma modunu seçin
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.TR.xaml,Portal.ExpanderCard.TitleText,Başlık
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.TR.xaml,Portal.ExpanderCard.DescriptionText,Açıklama
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.TR.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.TR.xaml,Portal.ExpanderCard.ExpandUpTip,Daralt
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.TR.xaml,Portal.ExpanderCard.ExpandDownTip,Genişlet
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.TitleText,Başlık
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.DescriptionText,Açıklama
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MoreTip,Daha
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.VersionTip,Bu temayı kullanabilmek için Sucrose güncelle
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuReview,İncele
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuUse,Kullan
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuPreview,Önizle
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuCustomize,Özelleştir
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuFind,Bul
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuShare,Paylaş
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuDelete,Sil
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuEdit,Düzenle
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Title,Hakkında
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Close,Kapat
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.About,"Merhaba, benim adım Bayram Emekli, Taiizor kullanıcı adıyla da tanınırım. Ücretsiz ve açık kaynaklı olan Sucrose Wallpaper Engine uygulamasının geliştiricisiyim. Geliştirdiğim uygulamayı kullandığınız için teşekkür ederim."
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Update,Sürüm: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Update.Description,Son Kontrol: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Update.Notes,Güncelleme Notları
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Partners,Partnerlerimiz
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Contributors,Katkıda Bulunanlar
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.TermsOfService,Hizmet Şartları
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.PrivacyPolicy,Gizlilik Politikası
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.CodeOfConduct,Katkıcı Ahdi Topluluk Sözleşmesi
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Title,Yardım
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Close,Kapat
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.WebPage,İnternet Sayfası
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine resmi internet sayfası
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Documentation,Dokümantasyon
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine resmi dökümantasyon sayfası
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Repository,Kaynak Kodu
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine resmi kaynak kodu sayfası
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Discussions,Tartışmalar
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine resmi tartışmalar sayfası
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Report,Hata Bildir
+Portal\Controls\OtherHelp\Portal.OtherHelp.TR.xaml,Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine resmi hata bildirme sayfası
+Portal\Controls\Pagination\Portal.Pagination.TR.xaml,Portal.Pagination.PageJump,Atla
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.TitleText,Başlık
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.DescriptionText,Açıklama
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.VersionTip,Bu temayı kullanabilmek için Sucrose güncelle
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.MenuInstall,Yükle
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.MenuReport,Rapor
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Title,Tema Oluşturma
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Create,Oluştur
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Close,Kapat
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Gif,Gif Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Gif.Description,Gif türündeki kendi temanızı oluşturun.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Url,Url Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Url.Description,Url türündeki kendi temanızı oluşturun.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Web,Web Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Web.Description,Web türündeki kendi temanızı oluşturun.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Video,Video Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Video.Description,Video türündeki kendi temanızı oluşturun.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.YouTube,YouTube Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.YouTube.Description,YouTube türündeki kendi temanızı oluşturun.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Application,Application Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Application.Description,Application türündeki kendi temanızı oluşturun.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeThumbnail,Kapak
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview,Önizleme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeTitle,Başlık
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeDescription,Açıklama
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeAuthor,Yazar
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeContact,İletişim
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeTags,Etiketler
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeArguments,Argümanlar
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Lütfen geçerli bir url adresi yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Bir kapak resmi seçin
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview.Hint,Bir önizleme dosyası seçin
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Lütfen geçerli bir başlık yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Lütfen geçerli bir açıklama yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Lütfen geçerli bir yazar adı yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeContact.Hint,Lütfen geçerli bir iletişim adresi yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeTags.Hint,Lütfen geçerli tema etiketleri yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Lütfen geçerli uygulama argümanları yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Delete,Geri Al
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Gif,Gif dosyanızı buraya sürükleyin ve bırakın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Video,Video dosyanızı buraya sürükleyin ve bırakın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Kapak Resmi Seç
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview.Title,Önizleme Dosyası Seç
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif Dosyaları (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Title,Tema Silme
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Delete,Sil
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Close,Kapat
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeTitle,Başlık
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeDescription,Açıklama
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeType,Tür
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeAuthor,Yazar
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeSize,Boyut
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeVersion,Sürüm
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeTags,Etiketler
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeTagsText,Yok
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeCreate,Oluşturulma
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeCreateDate,Bilinmiyor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeModify,Değiştirilme
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.ThemeModifyDate,Bilinmiyor
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.Title,Tema Düzenleme
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.Close,Kapat
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.Save,Kaydet
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeTitle,Başlık
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeDescription,Açıklama
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeAuthor,Yazar
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeContact,İletişim
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeTags,Etiketler
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeArguments,Argümanlar
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeTitle.Hint,Lütfen geçerli bir başlık yazın
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeDescription.Hint,Lütfen geçerli bir açıklama yazın
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,Lütfen geçerli bir yazar adı yazın
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeContact.Hint,Lütfen geçerli bir iletişim adresi yazın
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeTags.Hint,Lütfen geçerli tema etiketleri yazın
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.TR.xaml,Portal.ThemeEdit.ThemeArguments.Hint,Lütfen geçerli uygulama argümanları yazın
+Portal\Controls\ThemeImport\Portal.ThemeImport.TR.xaml,Portal.ThemeImport.Title,Tema İçeri Aktarma
+Portal\Controls\ThemeImport\Portal.ThemeImport.TR.xaml,Portal.ThemeImport.Close,Kapat
+Portal\Controls\ThemeImport\Portal.ThemeImport.TR.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.TR.xaml,Portal.ThemeImport.Info,Tema Bilgileri
+Portal\Controls\ThemeImport\Portal.ThemeImport.TR.xaml,Portal.ThemeImport.Type,Sebep Açıklamaları
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.Title,Tema İnceleme
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.Close,Kapat
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeTitle,Başlık
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeDescription,Açıklama
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeType,Tür
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeAuthor,Yazar
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeSize,Boyut
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeVersion,Sürüm
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeTags,Etiketler
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeTagsText,Yok
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeCreate,Oluşturulma
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeCreateDate,Bilinmiyor
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeModify,Değiştirilme
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeModifyDate,Bilinmiyor
+Portal\Controls\ThemeReview\Portal.ThemeReview.TR.xaml,Portal.ThemeReview.ThemeContact,Tema İletişim Adresi
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.Title,Tema Paylaşma
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.Close,Kapat
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemeTitle,Başlık
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemeDescription,Açıklama
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemeExport,Dışarı Aktar
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish,Mağazada Yayınla
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemeCopy,Bağlantıyı Kopyala
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.SaveDialogTitle,Tema Dosyasını Kaydet
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,Portal.EmptyLibraryPage.TitleText,Kütüphaneniz Örümcek Ağları Tarafından Örülmüş
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.TR.xaml,Portal.EmptyLibraryPage.DescriptionText,Duvar kağıtlarının yerine örümcek ağlarıyla muhteşem bir sanat eseri ortaya çıkmış
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.TR.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,Portal.SearchLibraryPage.TitleText,Kütüphaneniz Örümcek Ağlarıyla Büyülenmiş
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.TR.xaml,Portal.SearchLibraryPage.DescriptionText,Duvar kağıdı seçimindeki inceliğiniz yüzünden duvar kağıtlarına yer kalmadı
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.DonateMenu,Bağış Menüsü
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.DonateMenu.Description,Arayüzdeki bağış menüsünün görünürlüğü.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Görünür
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Görünmez
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.Advertising,Reklamlı Destek
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.Advertising.Description,Reklam izleyerek uygulamanın geliştirilmesine katkıda bulunun.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Reklam Süresi (Dakika):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.TR.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,İpucu: Reklamlar size en az seviyede rahatsızlık verecek şekilde gösterilecek.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Uygulama Dili
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,Uygulamayı görüntülemek istediğiniz dili seçin.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup,Başlangıçta Çalıştır
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,Duvar kağıdını oynatabilmek için başlangıçta Sucrose'nin arka planda çalışması gerekmekte.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Hiçbiri
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Öncelikli
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Zamanlayıcı
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.NotifyIcon,Bildirim Alanı Simgesi
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam edecek.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Görünür
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Görünmez
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Sistem tepsisi kapatıldığında tüm Sucrose uygulamaları da kapatılsın
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.WindowBackdrop,Pencere Arka Planı
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Uygulama penceresinin arka planını özelleştirmek için kullanılır.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Arkaplan Resmi Seç
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Bir arkaplan resmi seçin
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Arkaplan Boyutlandırma:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Arkaplan Opaklığı (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.EngineVolume,Ses Seviyesi
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Tüm duvar kağıtları için geçerli olan ses seviyesi.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Sesi yalnızca masaüstü odaklandığında oynat
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary,Kütüphane Konumu
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Kütüphanenize eklediğiniz temaların saklanacağı konum.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Lütfen boş bir klasör seçin
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Konum değiştirilirken lütfen biraz bekleyin
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Mevcut kütüphanenizi yeni konuma taşı
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.DiscordHook.Description,"Sucrose, Discord ile arasındaki haberleşmeyi sağlar."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Bağlantı Yenileme:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Yenileme Süresi (Saniye):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Agent,İnternet Temsilcisi
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Agent.Description,İnternet bağlantısı gerektiren durumlardaki temsilci kimliğiniz.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Key,Kişisel Erişim Belirteci
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Key.Description,Mağazayı ve uygulama güncellemeyi sorunsuz bir şekilde kullanmak için gerekli.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Key.HintKey,Kişisel erişim belirtecini nasıl elde edeceğinizi bilmiyorsanız buraya tıklayın.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Key.PersonalKey,Lütfen bir kişisel erişim belirteci girin
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Lütfen geçerli bir kişisel erişim belirteci girin
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Channel,Güncelleme Kanalı
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Channel.Description,Güncelleme işleminin hangi kanal üzerinden yapılıp yapılmayacağı.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Update,Güncelleme Yöntemi
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Update.Description,Güncelleme işleminin hangi yöntemle yapılıp yapılmayacağı.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Update.Limit,İndirme Bant Genişliği Sınırı:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer,Geliştirici Araçları
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer.Description,WebView ve CefSharp motoru için geliştirici araçlarının gösterilip gösterilmeyeceği.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Counter,Performans Sayaçları
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Counter.Description,Tüm performans sayaçlarının arkaplanda çalışıp çalışmayacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,Not: Bazı Web türündeki temalar düzgün çalışmayabilir ve aşağıdaki performans ayarlarının hiç birisi çalışmayacaktır.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Pause,Durdurma Kuralı
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Pause.Description,Performans ayarlarınıza bağlı olarak duvar kağıdını durdurma kuralını belirler.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Communication,İletişim Türü
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Communication.Description,Web türündeki temalara iletilecek olan mesajların yollanma türünü belirler.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Cpu,İşlemci Kullanımı
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Cpu.Description,İşlemci kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,İşlemci Kullanımı (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Memory,Bellek Kullanımı
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Memory.Description,Bellek kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Bellek Kullanımı (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Network,Ağ Kullanımı
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Network.Description,Ağ kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Ağ Adaptörü:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Ağ adaptörleri listesi henüz oluşturulmadı
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Yükleme Boyutu:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,İndirme Boyutu:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping Değeri (MS):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Battery,Pil Gücü
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Battery.Description,Dizüstü bilgisayar pil gücünde çalışırken duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Pil Durumu (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Saver,Pil Tasarrufu
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Saver.Description,Dizüstü bilgisayar pil tasarrufu modundayken duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Virtual,Sanallaştırma
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Virtual.Description,Sanallaştırma uygulamaları çalışırken duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Remote,Uzak Masaüstü
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Remote.Description,Uzak masaüstü uygulamaları çalışırken duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Fullscreen,Tam Ekran Modu
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,Tam ekranda her hangi bir uygulama çalışırken duvar kağıdına ne olacağı.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Focus,Odaklanma Modu
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Focus.Description,Odağınızda her hangi başka bir uygulama varken duvar kağıdına ne olacağı.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Server,Mağaza Sunucusu
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Server.Description,Mağazada listelenen temaların hangi sunucu üzerinden görüntüleneceği.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Server.ServerHint,Not: Sunucu olarak {0} seçilmişse istek limitlerine takılmamak için bir {2} girilmesi gerekiyor. Aksi taktirde mağazadaki temalara erişirken sorun yaşayabilirsiniz. Eğer ki {1} seçilmişse görece daha sorunsuz bir mağaza deneyimi yaşarsınız
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Duration,Mağaza Yenileme
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Duration.Description,Mağazada listelenen temaların ne kadar süreyle yenilenip yenilenmeyeceği.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.StoreStart,Otomatik Başlatma
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.StoreStart.Description,Mağazadan indirilen temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adult,Güvenli Olmayan İçerikler
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adult.Description,Mağazada güvenli değil (NSFW) olarak işaretlenmiş içeriklerin gösterilip gösterilmeyeceği.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Confirm,Silme Onayı
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Confirm.Description,Kütüphanedeki temaları silerken onay isteyip istemeyeceği.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Delete,Bozuk Temalar
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Delete.Description,Kütüphanedeki bozuk ya da eksik temaların otomatik silinip silinmeyeceği.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,Not: Dikkatli olunması gerekir. Aksi taktirde veri kayıplarına yol açabilir
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.LibraryStart,Otomatik Başlatma
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Oluşturulan temanın otomatik duvar kağıdı olarak ayarlanıp ayarlanmayacağı.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview,Tema Önizleme
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview.Description,Görüntülenen temaların üzerine gelince önizlenip önizlenmeyeceği.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Mağaza Önizlemesi:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Detayların Gizlenmesi:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Kütüphane Önizlemesi:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Detayların Gizlenmesi:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme,Tema Özelleştirme
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme.Description,Görüntülenen temaların ismini veya açıklamasını özelleştirin.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Başlık Uzunluğu (Karakter):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Açıklama Uzunluğu (Karakter):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adaptive,Uyarlanabilir Düzen
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adaptive.Description,Görüntülenen temaların düzenini veya mesafesini özelleştirin.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Boşluk Mesafesi (Piksel):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Düzen Sırası (Adet):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Sort,Kütüphane Sıralama
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Sort.Description,Kütüphanenizdeki temaların hangi biçimde ve nasıl sıralanacağını belirleyin.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Sort.SortMode,Sıralama Modu:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Sort.SortKind,Sıralama Türü:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Store,Mağaza Sayfalama
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Store.Description,Mağazadaki her bir sayfa için kaç tane tema olacağını belirleyin.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Library,Kütüphane Sayfalama
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Library.Description,Kütüphanenizdeki her bir sayfa için kaç tane tema olacağını belirleyin.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LogTemporary,Günlük Dosyaları
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LogTemporary.Description,Uygulamanın oluşturmuş olduğu tüm günlük dosyalarını yönetme.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LogTemporary.Create,Oluştur
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Temizle
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Not: Günlük dosyalarının kapladığı toplam alan {0}. Sadece temizliğe başlandığında tüm uygulamalar kapanacaktır.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.CacheTemporary,Önbellek Temizleme
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.CacheTemporary.Description,Uygulamanın oluşturmuş olduğu tüm önbellek dosyalarını temizleme.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Temizliğe Başla
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Not: Önbellek dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.StoreTemporary,Mağaza Temizleme
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.StoreTemporary.Description,Uygulamanın oluşturmuş olduğu tüm mağaza dosyalarını temizleme.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Temizliğe Başla
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Not: Mağaza dosyalarının kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LibraryTemporary,Kütüphane Temizleme
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,Kütüphanenizde bulunan veya oluşturmuş olduğunuz tüm tema dosyalarını temizleme.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Temizliğe Başla
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Not: Kütüphanenizdeki temaların kapladığı toplam alan {0}. Temizliğe başlandığında tüm uygulamalar kapanacaktır.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingBackup,Ayar Dosyaları
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingBackup.Description,Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını yönetme.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingBackup.Export,Yedekle
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingBackup.Import,Geri Yükle
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Not: Seçtiğiniz işlem başladığında tüm uygulamalar kapanacaktır.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingReset,Ayar Sıfırlama
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingReset.Description,Uygulamanın oluşturmuş olduğu tüm ayar dosyalarını sıfırlama.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingReset.Start,Sıfırlamaya Başla
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.SettingReset.Hint,Not: Sıfırlama işlemi başladığında tüm uygulamalar kapanacaktır.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Günlük Dosyasını Kaydet
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ScreenLayout,Ekran Yerleşimi
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.StretchMode,Sığdırma Metodu
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Desteklenen duvar kağıtlarında ölçeklendirmeyi değiştirir.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.LoopMode,Yineleme Durumu
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Desteklenen duvar kağıtlarında yineleme durumunu değiştirir.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ShuffleMode,Karıştırma Durumu
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Desteklenen duvar kağıtlarında karıştırma durumunu değiştirir.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif Eklentisi
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Kütüphanenizde bulunan Gif türündeki temaları oynatacak olan eklentiyi seçin.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.VideoPlayer,Video Eklentisi
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Kütüphanenizde bulunan Video türündeki temaları oynatacak olan eklentiyi seçin.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url Motoru
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Kütüphanenizde bulunan Url türündeki temaları çalıştıracak olan motoru seçin.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.WebPlayer,Web Motoru
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Kütüphanenizde bulunan Web türündeki temaları çalıştıracak olan motoru seçin.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motoru
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Kütüphanenizde bulunan YouTube türündeki temaları çalıştıracak olan motoru seçin.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application Motoru
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Kütüphanenizde bulunan Application türündeki temaları çalıştıracak olan motoru seçin.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,Portal.BrokenStorePage.TitleText,İnternet Işıklarının Sönük Kaldığı Bir An
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.TR.xaml,Portal.BrokenStorePage.DescriptionText,"Yıldızsız bir gökyüzü gibi, burada da internetin parıltısı yok"
+Portal\StorePage\FullStorePage\Portal.FullStorePage.TR.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,Portal.SearchStorePage.TitleText,Aradıklarınızın Yanıtı Gökyüzünde Saklı Olabilir
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.TR.xaml,Portal.SearchStorePage.DescriptionText,"Sonuçlar beklediğiniz gibi gelmiyorsa, gökyüzü size yeni bir deneyim sunabilir"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,Portal.UnknownStorePage.TitleText,Mağazada Ortaya Çıkan Gizemli Durumu Keşfedin
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.TR.xaml,Portal.UnknownStorePage.DescriptionText,Bilinmeyenin peşine düşün ve mağazada meydana gelen gizemli durumu aydınlatma yolculuğuna çıkın

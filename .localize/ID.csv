@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSUQueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.ID.xaml,Discord.BrowseButton,Jelajah
+Discord\Discord.ID.xaml,Discord.Details,Mesin Wallpaper
+Discord\Discord.ID.xaml,Discord.DownloadButton,Unduh
+Discord\Discord.ID.xaml,,
+Discord\Discord.ID.xaml,Discord.LargestText0,Kekuatan Es Krim Pisang
+Discord\Discord.ID.xaml,Discord.LargestText1,Monster Topi Tersenyum
+Discord\Discord.ID.xaml,Discord.LargestText2,Burung-Burung Penghias Awan
+Discord\Discord.ID.xaml,Discord.LargestText3,Petualangan Rahasia Pinguin Berlari
+Discord\Discord.ID.xaml,Discord.LargestText4,Kelinci Hilang di Ladang Bunga Matahari
+Discord\Discord.ID.xaml,Discord.LargestText5,Bunga Angin Bernyanyi
+Discord\Discord.ID.xaml,Discord.LargestText6,Lebah Misterius di Hutan Ajaib
+Discord\Discord.ID.xaml,Discord.LargestText7,Kawanan Ikan Penuh Mimpi
+Discord\Discord.ID.xaml,Discord.LargestText8,Tarian Naga dengan Mata Kristal
+Discord\Discord.ID.xaml,Discord.LargestText9,Jalur Dongeng yang Ditutupi Bunga
+Discord\Discord.ID.xaml,Discord.LargestText10,Bintang Jatuh dari Langit
+Discord\Discord.ID.xaml,Discord.LargestText11,Tarian di Cahaya Rembulan Patah
+Discord\Discord.ID.xaml,Discord.LargestText12,Naga Pelangi di Balik Rahasia
+Discord\Discord.ID.xaml,Discord.LargestText13,Cerita Hutan yang Ajaib
+Discord\Discord.ID.xaml,Discord.LargestText14,Hujan Bunga ke Langit
+Discord\Discord.ID.xaml,Discord.LargestText15,Sentuhan Sunyi Waktu
+Discord\Discord.ID.xaml,Discord.LargestText16,Negeri Mimpi yang Surrealis
+Discord\Discord.ID.xaml,Discord.LargestText17,Lagu Air Terjun Emas
+Discord\Discord.ID.xaml,Discord.LargestText18,Kapal Dongeng yang Mengambang ke Langit
+Discord\Discord.ID.xaml,Discord.LargestText19,Hutan dengan Balon yang Berwarna-warni
+Discord\Discord.ID.xaml,Discord.LargestText20,Kota Bawah Laut yang Misterius
+Discord\Discord.ID.xaml,Discord.LargestText21,Langit yang Diliputi Debu Bintang
+Discord\Discord.ID.xaml,Discord.LargestText22,Angin yang Berlari Mengejar Misteri
+Discord\Discord.ID.xaml,Discord.LargestText23,Cerita Menawan di Bawah Cahaya Bulan
+Discord\Discord.ID.xaml,,
+Discord\Discord.ID.xaml,Discord.SmallestText0,Jejak Misterius di Bulan
+Discord\Discord.ID.xaml,Discord.SmallestText1,Ikan Balon Terbang
+Discord\Discord.ID.xaml,Discord.SmallestText2,Bunga Tertawa
+Discord\Discord.ID.xaml,Discord.SmallestText3,Awan Gula-gula Kapas
+Discord\Discord.ID.xaml,Discord.SmallestText4,Naga Pizza Beku
+Discord\Discord.ID.xaml,Discord.SmallestText5,Bajak Laut Jamur yang Cerah
+Discord\Discord.ID.xaml,Discord.SmallestText6,Jejak Kaki Unicorn yang Tak Terlihat
+Discord\Discord.ID.xaml,Discord.SmallestText7,Awan Debu Warna-warni
+Discord\Discord.ID.xaml,Discord.SmallestText8,Kupu-kupu Balon Emas
+Discord\Discord.ID.xaml,Discord.SmallestText9,Perjalanan ke Krater Permen
+Discord\Discord.ID.xaml,Discord.SmallestText10,Potongan Pizza Terbang dengan Roket
+Discord\Discord.ID.xaml,Discord.SmallestText11,Kerang Laut Menari dengan Matahari
+Discord\Discord.ID.xaml,Discord.SmallestText12,Jari-jari Bintang yang Tak Terlihat
+Discord\Discord.ID.xaml,Discord.SmallestText13,Tarian di Bawah Laut Berkabut
+Discord\Discord.ID.xaml,Discord.SmallestText14,Migrasi Burung Pelangi di Awan
+Discord\Discord.ID.xaml,Discord.SmallestText15,Jejak Badai Permen
+Discord\Discord.ID.xaml,Discord.SmallestText16,Galaksi Pizza yang Tak Berujung
+Discord\Discord.ID.xaml,Discord.SmallestText17,Senyuman Matahari
+Discord\Discord.ID.xaml,Discord.SmallestText18,Senyum Hilang di Kolam Rahasia
+Discord\Discord.ID.xaml,Discord.SmallestText19,Bayangan Burung Impian
+Discord\Discord.ID.xaml,Discord.SmallestText20,Kupu-kupu Menuju Langit
+Discord\Discord.ID.xaml,Discord.SmallestText21,Lagu-lagu Tersembunyi di Balik Bintang
+Discord\Discord.ID.xaml,Discord.SmallestText22,Gunung Kabut Cerita
+Discord\Discord.ID.xaml,Discord.SmallestText23,Peri di Hutan Misteri
+Discord\Discord.ID.xaml,,
+Discord\Discord.ID.xaml,Discord.StatementText0,Sebuah Alam Semesta yang Penuh Kekacauan
+Discord\Discord.ID.xaml,Discord.StatementText1,Di Tengah Petualangan yang Tak Terbatas
+Discord\Discord.ID.xaml,Discord.StatementText2,Dunia Ajaib dan Mistis
+Discord\Discord.ID.xaml,Discord.StatementText3,Menguji Batas-batas Imajinasi
+Discord\Discord.ID.xaml,Discord.StatementText4,Realitas yang Tak Biasa
+Discord\Discord.ID.xaml,Discord.StatementText5,Di Dalam Kedalaman Imajinasi
+Discord\Discord.ID.xaml,Discord.StatementText6,Perjalanan Penemuan yang Ajaib
+Discord\Discord.ID.xaml,Discord.StatementText7,Di Ambang Dunia-dunia yang Tak Dikenal
+Discord\Discord.ID.xaml,Discord.StatementText8,Dunia Mimpi yang Rumit
+Discord\Discord.ID.xaml,Discord.StatementText9,Petualangan yang Mencoba Batas
+Discord\Discord.ID.xaml,Discord.StatementText10,Pengalaman yang Dinamis dan Mengejutkan
+Discord\Discord.ID.xaml,Discord.StatementText11,Di Dalam Dongeng Fantastis
+Discord\Discord.ID.xaml,Discord.StatementText12,Di Antara Portal-portal Ajaib
+Discord\Discord.ID.xaml,Discord.StatementText13,Perjalanan ke Langit Malam
+Discord\Discord.ID.xaml,Discord.StatementText14,Mengikuti Jejak Benua yang Hilang
+Discord\Discord.ID.xaml,Discord.StatementText15,Kisah Planet yang Tak Dikenal
+Discord\Discord.ID.xaml,Discord.StatementText16,Penemuan Alam Semesta Paralel
+Discord\Discord.ID.xaml,Discord.StatementText17,Pintu Masuk ke Dunia-dunia Legendaris
+Discord\Discord.ID.xaml,Discord.StatementText18,Realitas yang Dihiasi dengan Jalinan Mimpi
+Discord\Discord.ID.xaml,Discord.StatementText19,Sebuah Mimpi Antarbintang
+Discord\Discord.ID.xaml,Discord.StatementText20,Di Balik Pintu-pintu Waktu
+Discord\Discord.ID.xaml,Discord.StatementText21,Tim Bintang yang Bersinar
+Discord\Discord.ID.xaml,Discord.StatementText22,Jeritan Hening dari yang Tak Dikenal
+Discord\Discord.ID.xaml,Discord.StatementText23,Dunia yang Mengagumkan
+Discord\Discord.ID.xaml,Discord.StatementText24,Di Puncak Gunung Mistik
+Discord\Discord.ID.xaml,Discord.StatementText25,Mengikuti Jejak Kerajaan yang Hilang
+Discord\Discord.ID.xaml,Discord.StatementText26,Perjalanan Mimpi Antarbintang
+Discord\Discord.ID.xaml,Discord.StatementText27,Makhluk Malam yang Ajaib
+Discord\Discord.ID.xaml,Discord.StatementText28,Awal dari Sebuah Dongeng yang Tak Berujung
+Discord\Discord.ID.xaml,Discord.StatementText29,Balon Berwarna-warni yang Melayang ke Langit
+Discord\Discord.ID.xaml,Discord.StatementText30,Langit Malam yang Misterius
+Discord\Discord.ID.xaml,Discord.StatementText31,Jejak Kerajaan yang Hilang di Jalan Mimpi
+Discord\Discord.ID.xaml,Discord.StatementText32,Pintu yang Membuka ke Dunia-dunia Tak Dikenal
+Discord\Discord.ID.xaml,Discord.StatementText33,Menari di Pelukan Waktu
+Discord\Discord.ID.xaml,Discord.StatementText34,Kisah yang Tenggelam dalam Malam
+Discord\Discord.ID.xaml,Discord.StatementText35,Dunia Cermin yang Ajaib
+Discord\Discord.ID.xaml,Discord.StatementText36,Perjalanan di Ambang Keabadian
+Discord\Discord.ID.xaml,Discord.StatementText37,Perjalanan Malam Pemburu Mimpi
+Discord\Discord.ID.xaml,Discord.StatementText38,Mimpi Kota Kristal
+Discord\Discord.ID.xaml,Discord.StatementText39,Bintang Malam yang Bersinar dalam Gelap
+Discord\Discord.ID.xaml,Discord.StatementText40,Malam Ajaib di Balik Bintang
+Discord\Discord.ID.xaml,Discord.StatementText41,Kisah-kisah Misterius di Bawah Cahaya Rembulan
+Discord\Discord.ID.xaml,Discord.StatementText42,Pintu Emas di Ambang Dunia-dunia Tak Dikenal
+Discord\Discord.ID.xaml,Discord.StatementText43,Jejak Misterius Malam yang Ajaib
+Discord\Discord.ID.xaml,Discord.StatementText44,Balon Mimpi yang Melayang ke Langit
+Discord\Discord.ID.xaml,Discord.StatementText45,Jejak Mimpi di Bawah Bintang-bintang
+Discord\Discord.ID.xaml,Discord.StatementText46,Kota Kecil di Tepi Bintang yang Tersembunyi
+Discord\Discord.ID.xaml,Discord.StatementText47,Dongeng di Balik Gunung Kabut
+Discord\Discord.ID.xaml,Discord.StatementText48,Malam Berbintang yang Bersinar dalam Gelap
+Launcher\Launcher.ID.xaml,Launcher.WallCustomizeText,Sesuaikan Wallpaper
+Launcher\Launcher.ID.xaml,Launcher.CreateLogText,Buat Catatan
+Launcher\Launcher.ID.xaml,Launcher.ExitText,Keluar
+Launcher\Launcher.ID.xaml,Launcher.OpenReportText,Laporkan Masalah
+Launcher\Launcher.ID.xaml,Launcher.OpenText,Buka Sucrose
+Launcher\Launcher.ID.xaml,Launcher.ReportText,Laporkan Kesalahan
+Launcher\Launcher.ID.xaml,Launcher.ReportWindowTitle,Pemecahan Masalah Sucrose
+Launcher\Launcher.ID.xaml,Launcher.SaveDialogFilter,File ZIP (*.zip)|*.zip|Semua File (*.*)|*.*
+Launcher\Launcher.ID.xaml,Launcher.SaveDialogTitle,Simpan Catatan
+Launcher\Launcher.ID.xaml,Launcher.SettingText,Pengaturan
+Launcher\Launcher.ID.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.ID.xaml,Launcher.WallChangeText,Ubah Wallpaper
+Launcher\Launcher.ID.xaml,Launcher.WallCloseText,Tutup Wallpaper
+Launcher\Launcher.ID.xaml,Launcher.WallOpenText,Buka Wallpaper
+Launcher\Launcher.ID.xaml,Launcher.WallStartText,Mulai Wallpaper
+Launcher\Launcher.ID.xaml,Launcher.WallStopText,Hentikan Wallpaper
+Launcher\Launcher.ID.xaml,Launcher.UpdateText,Periksa Pembaruan
+Launcher\Launcher.ID.xaml,,
+Launcher\Launcher.ID.xaml,Launcher.UpdateText.Done,Menunggu Pembaruan
+Launcher\Launcher.ID.xaml,Launcher.UpdateText.Check,Memeriksa Pembaruan
+Launcher\Launcher.ID.xaml,Launcher.UpdateText.Progress,Kemajuan Pembaruan {0}
+Portal\Portal.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5JRC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.ID.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.ID.xaml,,
+Property\Property.ID.xaml,Property.DeleteTip,Hapus Salinan
+Property\Property.ID.xaml,Property.RefreshTip,Segarkan Antarmuka
+Property\Property.ID.xaml,Property.RestoreTip,Pulihkan Default
+Property\Property.ID.xaml,,
+Property\Property.ID.xaml,Property.Type.NotSupport,Tipe kontrol '{0}' tidak didukung.
+Property\Property.ID.xaml,,
+Property\Property.ID.xaml,Property.ColorPicker.Color,Warna
+Property\Property.ID.xaml,Property.ColorPicker.Cancel,Batal
+Property\Property.ID.xaml,Property.ColorPicker.Confirm,Konfirmasi
+Property\Property.ID.xaml,Property.ColorPicker.EyeDropper,Pipet
+Property\Property.ID.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.ID.xaml,,
+Property\Property.ID.xaml,Property.FileDropDown.Tip,Pilih sebuah file
+Property\Property.ID.xaml,Property.FileDropDown.Filter,Semua File (*.*)|*.*
+Undo\Undo.ID.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.ID.xaml,,
+Undo\Undo.ID.xaml,Undo.QuestionMessage,Apakah Anda benar-benar ingin menghapus Sucrose Wallpaper Engine?
+Update\Update.ID.xaml,Update.HelpText,Perbaiki Masalah
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.UpdateBox.WindowTitle,Pembaruan Sucrose
+Update\Update.ID.xaml,Update.UpdateBox.InstallText,Instal Pembaruan
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.InfoBox.WindowTitle,Pembaruan Sucrose
+Update\Update.ID.xaml,Update.InfoBox.TextMessage,Pesan
+Update\Update.ID.xaml,Update.InfoBox.CloseText,Tutup
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Empty,Kami berada di saat-saat ketika file pembaruan tersimpan seperti permata yang tersembunyi. Anda masih bisa menikmati pengalaman dengan menggunakan versi yang ada saat ini.
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Error,"Saat mengunduh file pembaruan, kami menemukan retak di jalan dan menyadari bahwa perjalanan ini untuk sementara berakhir. Tetap lanjutkan perjalanan Anda dengan versi saat ini karena pembaruan yang lebih kuat akan menanti Anda saat retakan ini diperbaiki."
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Update,Aplikasi sudah bersama Anda dengan versi paling baru dan inovatifnya seperti halaman terbaru dari sebuah buku. Kami selalu hadir untuk memberikan pengalaman terbaik dan terkini.
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Status,"Kami berada di ambang sebuah mimpi yang tak bisa diakses file pembaruannya. Namun, Anda masih bisa melanjutkan perjalanan Anda dengan versi saat ini."
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Channel,Saluran pembaruan yang dipilih seperti hutan yang sunyi. Saat ini tidak ada informasi pembaruan baru di sini. Lanjutkan perjalanan Anda dengan versi saat ini karena kami akan memberikan lebih banyak lagi saat sunyi ini terpecahkan.
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Extract,"Saat mencoba mengekstrak file pembaruan, kami menghadapi hambatan dari kedalaman lautan. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini karena kami akan kembali untuk menemukan harta baru saat lautan menjadi lebih tenang."
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Network,"Kekurangan koneksi Anda seperti awan yang menutupi matahari. Namun, saat awan berlalu, pengalaman yang lebih terang akan menunggu Anda."
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Updating,Pembaruan aplikasi sedang bergerak maju seperti harta baru yang dibawa ombak ke tepi pantai dengan diam-diam. Inovasi berharga ini sedang dikumpulkan untuk Anda di belakang layar.
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Releases,"Kami sedang mengalami saat di mana bintang pembaruan aplikasi belum terbit. Saat ini tidak ada informasi pembaruan apa pun, namun Anda masih bisa menggunakan versi yang sudah ada."
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Download,"Saat mengunduh file pembaruan, kami menemukan bahwa bintang di langit tidak teratur. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini karena kami akan memberikan pembaruan yang lebih baik saat bintang-bintang berada dalam urutan yang benar."
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Cancelled,Pengunduhan file pembaruan dibatalkan karena jalan kita tiba-tiba berpisah. Lanjutkan perjalanan Anda dengan versi saat ini dan bersiaplah untuk pembaruan di masa depan karena awal baru selalu mungkin.
+Update\Update.ID.xaml,Update.InfoBox.TextMessage.Condition,"Syarat-syarat dalam file pembaruan tampaknya kurang untuk membuka kunci. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini dan siapkan diri untuk pembaruan di masa depan."
+Watchdog\Watchdog.ID.xaml,Watchdog.HelpButton,Bantuan
+Watchdog\Watchdog.ID.xaml,Watchdog.CloseButton,Tutup
+Watchdog\Watchdog.ID.xaml,Watchdog.ErrorMessage,Tidak terduga terjadi kesalahan:
+Watchdog\Watchdog.ID.xaml,Watchdog.ErrorTitle,Kesalahan
+Watchdog\Watchdog.ID.xaml,Watchdog.HideButton,Sembunyikan
+Watchdog\Watchdog.ID.xaml,Watchdog.ShowButton,Tampilkan
+Watchdog\Watchdog.ID.xaml,Watchdog.StackTrace,Tumpukan Jejak:
+Watchdog\Watchdog.ID.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.ID.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.ReloadText,COBA LAGI
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Preparing,MENYIAPKAN PERSIAPAN YANG DIBUTUHKAN
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Temporary,MEMERIKSA LOKASI SEMENTARA
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Temporary.Error,LOKASI SEMENTARA TIDAK DAPAT DIPERIKSA
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Connection,MEMERIKSA KONEKSI INTERNET
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Connection.None,TIDAK ADA KONEKSI INTERNET
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Connection.Error,KONEKSI INTERNET TIDAK DAPAT DIPERIKSA
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Searching,MENCARI BERKAS YANG DIPERLUKAN
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Searching.Not,BERKAS YANG DIPERLUKAN TIDAK DITEMUKAN
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Searching.Error,BERKAS YANG DIPERLUKAN TIDAK DAPAT DICARI
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Listing,MENDAPATKAN DAFTAR YANG DIPERLUKAN
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Listing.Empty,DAFTAR YANG DIPERLUKAN KOSONG
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Listing.Error,DAFTAR YANG DIPERLUKAN TIDAK DAPAT DITERIMA
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Filtering,DAFTAR SEDANG DIFILTER
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Filtering.Not,DAFTAR TIDAK DAPAT DIFILTER
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Filtering.Error,DAFTAR TIDAK DAPAT DIFILTER
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading,MENGUNDUH BERKAS YANG DIPERLUKAN
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading.Error,BERKAS YANG DIPERLUKAN TIDAK DAPAT DIUNDUH
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading.Complete.Cancel,UNDUHAN BERKAS YANG DIPERLUKAN DIBATALKAN
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading.Complete.Error,TERDAPAT KESALAHAN SAAT MENGUNDUH BERKAS YANG DIPERLUKAN
+Wizard\Wizard.ID.xaml,,
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting,MENGEKSTRAK BERKAS YANG TELAH DIUNDUH
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Executing,BERKAS YANG DIEKSTRAK SEDANG DIEKSEKUSI
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Executed,BERKAS YANG DIEKSTRAK TELAH DIEKSEKUSI
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Failed,BERKAS YANG DIUNDUH GAGAL
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Corrupt,BERKAS YANG DIUNDUH RUSAK
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Not,BERKAS YANG DIUNDUH TIDAK DAPAT DIGUNAKAN
+Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Error,BERKAS YANG DIUNDUH TIDAK DAPAT DIEKSTRAK
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Sound,Suara
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Log,Log
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Hook,Gantungan
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Store,Toko
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Donate,Donasi
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.System,Sistem
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Cache,Cache
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Laptop,Laptop
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Support,Dukungan
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Reset,Reset
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Backup,Cadangan
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Priority,Prioritas
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Engines,Mesin
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Update,Pembaruan
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Library,Perpustakaan
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Developer,Pengembang
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Extensions,Ekstensi
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.SystemResources,Sumber Daya Sistem
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.AppearanceBehavior,Tampilan &amp; Perilaku
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.All,Semua
+Portal\Category\Portal.Category.ID.xaml,,
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Abstract,Abstrak
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Ambience,Suasana
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Animals,Hewan
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Animation,Animasi
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Anime,Anime
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.ArchitectureandBuildings,Arsitektur dan Bangunan
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.ArtandAbstract,Seni dan Abstrak
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Artworks,Karya Seni
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Bard,Bard
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.BlackandWhite,Hitam dan Putih
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.CartoonandComics,Kartun dan Komik
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.CitiesandPlaces,Kota dan Tempat
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.CloudsandSkies,Awan dan Langit
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.ColorfulGradients,Gradien Berwarna
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.ComicBooks,Komik
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.DigitalArt,Seni Digital
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Dynamic,Dinamis
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.EnchantedForests,Hutan Enchanting
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Fantasy,Fantasi
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.FilmandTV,Film dan TV
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.FoodandDrinks,Makanan dan Minuman
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Galaxy,Galaksi
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Game,Permainan
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.GeometricPatterns,Pola Geometri
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.HolidaysandSeasons,Liburan dan Musim
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.HorrorandHalloween,Horor dan Halloween
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.InspirationalQuotes,Kutipan Inspiratif
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.KidsandCartoon,Anak-anak dan Kartun
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Landscape,Lanskap
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Lifestyle,Gaya Hidup
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.LineArt,Seni Garis
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Medieval,Abad Pertengahan
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Minimalist,Minimalis
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Music,Musik
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Nature,Alam
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Nightscapes,Pemandangan Malam
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.PatternsandTextures,Pola dan Tekstur
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Retro,Retro
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Sky,Langit
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Space,Luas Angkasa
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Sports,Olahraga
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Superheroes,Pahlawan Super
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.System,Sistem
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Tavern,Taverna
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Technology,Teknologi
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Temple,Kuil
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Time,Waktu
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.UnderwaterandMarine,Di Bawah Air dan Laut
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Vehicles,Kendaraan
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Vintage,Vintage
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.War,Perang
+Portal\Controls\Portal.Controls.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5JRC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.Stretch.Fill,Isi
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.Stretch.None,Tidak Ada
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.Stretch.Uniform,Seragam
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.Stretch.UniformToFill,Seragam Untuk Isi
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.None,Tidak Ada
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Name,Nama
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Creation,Pembuatan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Modification,Modifikasi
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.Fill,Isi
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.None,Tidak Ada
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.Uniform,Seragam
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StretchType.UniformToFill,Seragam Untuk Isi
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.PerformanceType.Close,Tutup
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.PerformanceType.Pause,Berhenti
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.PerformanceType.Resume,Lanjutkan
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Mica,Mika
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.None,Tidak Ada
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Auto,Otomatis
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Tabbed,Berlapik
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilik
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ChannelType.Release,Standar
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ChannelType.PreRelease,Pengembang
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.PausePerformanceType.Heavy,Berat
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.PausePerformanceType.Light,Ringan
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortKindType.Ascending,Menaik [A-Z]
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortKindType.Descending,Menurun [Z-A]
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ExpandScreenType.Default,Standar
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ExpandScreenType.Advanced,Lanjutan
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.UpdateType.Compressed,Dikompresi
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.UpdateType.Executable,Ekseskusi
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ScreenType.WorkingArea,Area Kerja
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ScreenType.DisplayBound,Batasan Tampilan
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.DuplicateScreenType.Default,Standar
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.DuplicateScreenType.Advanced,Lanjutan
+Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Pass,Sukses
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' memiliki terlalu banyak nilai
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Type,Tema dibuat untuk jenis yang tidak didukung oleh aplikasi
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Title,Nilai 'Title' kosong atau terlalu panjang
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Author,Nilai 'Author' kosong atau terlalu panjang
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Source,Berkas 'Source' tidak ditemukan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Contact,Nilai 'Contact' kosong atau terlalu panjang
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Preview,Berkas 'Preview' tidak ditemukan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Encrypt,Berkas terkait dienkripsi
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.ZipType,Berkas terkait bukan file '.zip' yang sebenarnya
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InfoFile,Berkas 'SucroseInfo.json' tidak ditemukan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.NotFound,Berkas terkait tidak ditemukan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.LoopMode,Nilai 'LoopMode' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Arguments,Nilai 'Arguments' terlalu panjang
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Extension,Berkas terkait bukan berkas dengan ekstensi '.zip'
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Thumbnail,Berkas 'Thumbnail' tidak ditemukan
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemCpu,Nilai 'SystemCpu' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Berkas 'SucroseInfo.json' kosong
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.AppVersion,Tema dibuat untuk versi aplikasi yang lebih tinggi
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Nilai 'Source' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemBios,Nilai 'SystemBios' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemDate,Nilai 'SystemDate' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemAudio,Nilai 'SystemAudio' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Description,Nilai 'Description' kosong atau terlalu panjang
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Berkas 'SucroseInfo.json' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.TriggerTime,Nilai 'TriggerTime' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.StretchMode,Nilai 'StretchMode' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Nilai 'VolumeLevel' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Nilai 'ShuffleMode' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidTags,Nilai 'Tags' terlalu pendek atau terlalu panjang
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidFile,Berkas tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.PropertyList,Nilai 'PropertyList' kosong
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemMemory,Nilai 'SystemMemory' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemBattery,Nilai 'SystemBattery' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Nilai 'SystemGraphic' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Nilai 'SystemNetwork' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidContact,Nilai 'Contact' bukan URL atau alamat email
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Ekstensi berkas tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Berkas 'SucroseCompatible.json' kosong
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Berkas 'SucroseProperties.json' kosong
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.PropertyListener,Nilai 'PropertyListener' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Nilai 'SystemMotherboard' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Berkas 'SucroseCompatible.json' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Berkas 'SucroseProperties.json' tidak valid
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Konsekuensi Tak Terduga
+Portal\LibraryPage\Portal.LibraryPage.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5JRC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.ID.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.ID.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.ID.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.ID.xaml,Portal.LibraryPage.Import.Successful,Tema '{0}' berhasil ditambahkan ke perpustakaan.
+Portal\LibraryPage\Portal.LibraryPage.ID.xaml,Portal.LibraryPage.Import.Unsuccessful,Tema '{0}' tidak dapat ditambahkan ke perpustakaan. Alasan: '{1}'.
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuHelp,Bantuan
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuAbout,Tentang
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuHelpTip,Lihat Bantuan
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuAboutTip,Lihat Informasi
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuLibrary,Perpustakaan
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuStore,Toko
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuLibraryTip,Perpustakaan Tema
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuStoreTip,Toko Tema
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuGeneral,Umum
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuPersonal,Pribadi
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuPerformance,Kinerja
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuWallpaper,Wallpaper
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuSystem,Sistem
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuDonate,Donasi
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuOther,Lainnya
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuBackTip,Kembali
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuGeneralTip,Pengaturan Umum
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuPersonalTip,Pengaturan Pribadi
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuPerformanceTip,Pengaturan Kinerja
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuWallpaperTip,Pengaturan Wallpaper
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuSystemTip,Pengaturan Sistem
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuDonateTip,Pengaturan Donasi
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuOtherTip,Pengaturan Lainnya
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuSettingTip,Pengaturan
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.SearchBoxHint,Cari Wallpaper
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.SearchBoxTip,Sulit menemukan yang Anda butuhkan?
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuLightTip,Tema Terang
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuDarkTip,Tema Gelap
+Portal\MainWindow\Portal.MainWindow.ID.xaml,,
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Buat Wallpaper
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Siklus Wallpaper
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Preferensi Tampilan
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuDonateOptionsTip,Opsi Donasi
+Portal\MainWindow\Portal.MainWindow.ID.xaml,Portal.MainWindow.MenuOtherOptionsTip,Opsi Lainnya
+Portal\SettingPage\Portal.SettingPage.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuSUQueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLklELnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.ID.xaml,,
+Portal\StorePage\Portal.StorePage.ID.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Title,Preferensi Tampilan
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Close,Tutup
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Expander,Mode Penyebaran
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Expander.Description,Cara menerapkan wallpaper ke layar aktif.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Screen,Hanya Layar yang Dipilih
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Expand,Perpanjang di antara Layar
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Expand.Monitor,Semua Monitor
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Expand.Hint,Pilih mode perpanjangan di antara layar
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Duplicate,Duplikat Wallpaper yang Sama
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.ID.xaml,Portal.DisplayPreferences.Duplicate.Hint,Pilih mode duplikasi wallpaper yang sama
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.ID.xaml,Portal.ExpanderCard.TitleText,Judul
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.ID.xaml,Portal.ExpanderCard.DescriptionText,Deskripsi
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.ID.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.ID.xaml,Portal.ExpanderCard.ExpandUpTip,Persempit
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.ID.xaml,Portal.ExpanderCard.ExpandDownTip,Perluas
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.TitleText,Judul
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.DescriptionText,Deskripsi
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MoreTip,Lebih
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.VersionTip,"Untuk menggunakan tema ini, perbarui Sucrose"
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuReview,Tinjau
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuUse,Gunakan
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuPreview,Pratinjau
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuCustomize,Kostumisasi
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuFind,Temukan
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuShare,Bagikan
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuDelete,Hapus
+Portal\Controls\LibraryCard\Portal.LibraryCard.ID.xaml,Portal.LibraryCard.MenuEdit,Sunting
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.Title,Tentang
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.Close,Tutup
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.About,"Halo, nama saya Bayram Emekli, juga dikenal dengan nama pengguna Taiizor. Saya adalah pengembang dari aplikasi Sucrose Wallpaper Engine yang gratis dan sumber terbuka. Terima kasih telah menggunakan aplikasi yang saya kembangkan."
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.Update,Versi: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.Update.Description,Terakhir Diperiksa: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.Update.Notes,Catatan Pembaruan
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.Partners,Mitra Kami
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.Contributors,Kontributor
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.TermsOfService,Syarat Layanan
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.PrivacyPolicy,Kebijakan Privasi
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.ID.xaml,Portal.OtherAbout.CodeOfConduct,Kode Etik Kontributor
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Title,Bantuan
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Close,Tutup
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.WebPage,Halaman Web
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine rasmi halaman web
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Documentation,Dokumentasi
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine rasmi halaman dokumentasi
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Repository,Kode Repositori
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine rasmi kode repositori
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Discussions,Diskusi
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine rasmi halaman diskusi
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Report,Laporkan Masalah
+Portal\Controls\OtherHelp\Portal.OtherHelp.ID.xaml,Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine rasmi halaman pelaporan masalah
+Portal\Controls\Pagination\Portal.Pagination.ID.xaml,Portal.Pagination.PageJump,Langsung Ke
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.TitleText,Judul
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.DescriptionText,Deskripsi
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.VersionTip,"Untuk menggunakan tema ini, perbarui Sucrose"
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuInstall,Pasang
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuReport,Laporkan
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Title,Pembuatan Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Create,Buat
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Close,Tutup
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Gif,Tema Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Gif.Description,Kreasikan tema berjenis gif.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Url,Tema Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Url.Description,Kreasikan tema berjenis url.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Web,Tema Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Web.Description,Kreasikan tema berjenis web.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Video,Tema Video
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Video.Description,Kreasikan tema berjenis video.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.YouTube,Tema YouTube
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.YouTube.Description,Kreasikan tema berjenis YouTube.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Application,Tema Application
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Application.Description,Kreasikan tema berjenis Application.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeThumbnail,Thumbnail
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview,Pratinjau
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeTitle,Judul
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeDescription,Deskripsi
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeAuthor,Penulis
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeContact,Kontak
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeTags,Tag
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeArguments,Argumen
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Harap masukkan url yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Pilih gambar cover
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview.Hint,Pilih file pratinjau
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Harap masukkan judul yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Harap masukkan deskripsi yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Harap masukkan nama penulis yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeContact.Hint,Harap masukkan alamat kontak yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeTags.Hint,Harap masukkan tag tema yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Harap masukkan argumen aplikasi yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Delete,Batalkan
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Gif,Seret dan lepas file gif Anda di sini
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Video,Seret dan lepas file video Anda di sini
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Pilih Gambar Cover
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,File Gambar (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview.Title,Pilih File Pratinjau
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview.Filter,File Gif (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Title,Hapus Tema
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Delete,Hapus
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Close,Tutup
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeTitle,Judul
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeDescription,Deskripsi
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeType,Jenis
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeAuthor,Penulis
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeSize,Ukuran
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeVersion,Versi
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeTags,Tags
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeTagsText,Tidak Ada
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeCreate,Dibuat
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeCreateDate,Tidak Diketahui
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeModify,Dimodifikasi
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.ThemeModifyDate,Tidak Diketahui
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.Title,Edit Tema
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.Close,Tutup
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.Save,Simpan
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeTitle,Judul
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeDescription,Deskripsi
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeAuthor,Penulis
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeContact,Kontak
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeTags,Tags
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeArguments,Argumen
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeTitle.Hint,Silakan tulis judul yang valid
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeDescription.Hint,Silakan tulis deskripsi yang valid
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,Silakan tulis nama penulis yang valid
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeContact.Hint,Silakan tulis alamat kontak yang valid
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeTags.Hint,Silakan tulis tag tema yang valid
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.ID.xaml,Portal.ThemeEdit.ThemeArguments.Hint,Silakan tulis argumen aplikasi yang valid
+Portal\Controls\ThemeImport\Portal.ThemeImport.ID.xaml,Portal.ThemeImport.Title,Impor Tema
+Portal\Controls\ThemeImport\Portal.ThemeImport.ID.xaml,Portal.ThemeImport.Close,Tutup
+Portal\Controls\ThemeImport\Portal.ThemeImport.ID.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.ID.xaml,Portal.ThemeImport.Info,Informasi Tema
+Portal\Controls\ThemeImport\Portal.ThemeImport.ID.xaml,Portal.ThemeImport.Type,Alasan Keterangan
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.Title,Tema Tinjauan
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.Close,Tutup
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeTitle,Judul
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeDescription,Deskripsi
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeType,Jenis
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeAuthor,Penulis
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeSize,Ukuran
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeVersion,Versi
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeTags,Tags
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeTagsText,Tidak ada
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeCreate,Dibuat
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeCreateDate,Tidak diketahui
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeModify,Dimodifikasi
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeModifyDate,Tidak diketahui
+Portal\Controls\ThemeReview\Portal.ThemeReview.ID.xaml,Portal.ThemeReview.ThemeContact,Alamat Kontak Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.Title,Berbagi Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.Close,Tutup
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemeTitle,Judul
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemeDescription,Deskripsi
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemeExport,Ekspor
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish,Publikasikan di Toko
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemeCopy,Salin Tautan
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.SaveDialogTitle,Simpan Berkas Tema
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ID.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ID.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ID.xaml,Portal.EmptyLibraryPage.TitleText,Perpustakaan Anda Dihiasi Jaring Laba-laba
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.ID.xaml,Portal.EmptyLibraryPage.DescriptionText,"Sebagai pengganti wallpaper, sebuah karya seni megah dengan jaring laba-laba tercipta"
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.ID.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ID.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ID.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ID.xaml,Portal.SearchLibraryPage.TitleText,Perpustakaan Anda Dihiasi Jaring Laba-laba
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.ID.xaml,Portal.SearchLibraryPage.DescriptionText,Keterampilan Anda dalam memilih wallpaper telah membuat perpustakaan penuh
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.DonateMenu,Menu Donasi
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.DonateMenu.Description,Tampilan menu donasi pada antarmuka.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Tampilkan
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Sembunyikan
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.Advertising,Dukungan Beriklan
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.Advertising.Description,Bantu pengembangan aplikasi dengan menonton iklan.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Waktu Tunggu Iklan (Menit):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.ID.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Petunjuk: Iklan akan ditampilkan dengan mengganggu sebanyak mungkin.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Bahasa Aplikasi
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,Pilih bahasa untuk menampilkan aplikasi.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup,Mulai Aplikasi
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,Sucrose harus berjalan di latar belakang untuk dapat memutar wallpaper.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Tidak Ada
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritas
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Penjadwal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.NotifyIcon,Ikona Notifikasi
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Tampilkan ikon di tray sistem. Sucrose akan tetap berjalan secara tersembunyi.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Tampilkan
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Sembunyikan
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Tutup tray sistem juga menutup semua aplikasi Sucrose
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop,Latar Belakang Jendela
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Digunakan untuk menyesuaikan latar belakang jendela aplikasi.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Pilih Gambar Latar Belakang
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Pilih gambar latar belakang
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,File Gambar (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Perbesar Latar Belakang:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Opasitas Latar Belakang (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.EngineVolume,Volume Suara
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Volume yang berlaku untuk semua wallpaper.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Mainkan suara hanya saat fokus di desktop
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary,Lokasi Perpustakaan
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Lokasi tempat tema yang ditambahkan ke perpustakaan akan disimpan.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Harap pilih folder kosong
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Tunggu sebentar saat lokasi dipindahkan
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Pindahkan perpustakaan Anda ke lokasi baru
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose menyediakan komunikasi dengan Discord.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Pembaruan Koneksi:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Waktu Pembaruan (Detik):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Agent,Agen Internet
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Agent.Description,Identitas agen Anda dalam situasi yang memerlukan koneksi internet.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Key,Token Akses Pribadi
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Key.Description,Diperlukan untuk menggunakan toko dan pembaruan aplikasi tanpa masalah.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Key.HintKey,Klik di sini jika Anda tidak tahu cara mendapatkan token akses pribadi.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Key.PersonalKey,Silakan masukkan token akses pribadi
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Silakan masukkan token akses pribadi yang valid
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Channel,Saluran Pembaruan
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Channel.Description,Saluran yang digunakan untuk melakukan pembaruan.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Update,Metode Pembaruan
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Update.Description,Metode yang digunakan untuk melakukan pembaruan.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Update.Limit,Batas Lebar Pita Unduhan:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer,Alat Pengembang
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer.Description,Menampilkan atau menyembunyikan alat pengembang untuk mesin WebView dan CefSharp.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Counter,Hitung Kinerja
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Counter.Description,Apakah semua hitung kinerja akan berjalan di latar belakang atau tidak.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,"Catatan: Beberapa tema berjenis Web mungkin tidak berfungsi dengan baik, dan tidak satu pun dari pengaturan kinerja di bawah ini akan berfungsi."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Pause,Aturan Jeda
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Pause.Description,Menentukan aturan untuk memberhentikan wallpaper berdasarkan pengaturan kinerja Anda.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Communication,Jenis Komunikasi
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Communication.Description,Menentukan metode pengiriman pesan ke tema-tema tipe Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Cpu,Penggunaan CPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Cpu.Description,Hasil pengaturan penggunaan CPU akan memengaruhi apa yang terjadi pada wallpaper.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Penggunaan CPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Memory,Penggunaan Memori
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Memory.Description,Hasil pengaturan penggunaan memori akan memengaruhi apa yang terjadi pada wallpaper.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Penggunaan Memori (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Network,Penggunaan Jaringan
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Network.Description,Hasil pengaturan penggunaan jaringan akan memengaruhi apa yang terjadi pada wallpaper.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Adapter Jaringan:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Daftar adapter jaringan belum dibuat
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Ukuran Unggahan:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Ukuran Unduhan:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Nilai Ping (MS):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Battery,Daya Baterai
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Battery.Description,Apa yang terjadi pada wallpaper saat bekerja dengan daya baterai laptop.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Status Baterai (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Saver,Penghemat Baterai
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Saver.Description,Apa yang terjadi pada wallpaper saat laptop berada dalam mode penghematan baterai.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Virtual,Virtualisasi
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Virtual.Description,Apa yang terjadi pada wallpaper saat aplikasi virtualisasi berjalan.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Remote,Desktop Remote
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Remote.Description,Apa yang terjadi pada wallpaper saat aplikasi desktop remote berjalan.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Fullscreen,Mode Layar Penuh
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,Apa yang terjadi pada wallpaper saat aplikasi apa pun berjalan dalam mode layar penuh.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Focus,Mode Fokus
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Focus.Description,Apa yang terjadi pada wallpaper saat ada aplikasi lain yang sedang difokuskan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Server,Server Toko
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Server.Description,Menentukan server mana yang akan digunakan untuk menampilkan tema yang tercantum di toko.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Catatan: Jika {0} dipilih sebagai server, perlu untuk memasukkan {2} agar tidak terkena batas permintaan. Jika tidak, Anda mungkin mengalami masalah mengakses tema di toko. Jika {1} dipilih, Anda akan memiliki pengalaman toko yang lebih lancar."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Duration,Penyegaran Toko
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Duration.Description,Berapa lama tema yang terdaftar di toko akan disegarkan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.StoreStart,Mulai Otomatis
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.StoreStart.Description,Apakah tema yang diunduh dari toko akan secara otomatis diatur sebagai wallpaper.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adult,Konten Tidak Aman
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adult.Description,Apakah konten yang ditandai sebagai tidak aman (NSFW) di toko akan ditampilkan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Confirm,Konfirmasi Penghapusan
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Confirm.Description,Apakah perlu konfirmasi saat menghapus tema dari perpustakaan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Delete,Tema Rusak
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Delete.Description,Apakah tema yang rusak atau tidak lengkap di perpustakaan akan dihapus secara otomatis.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,"Catatan: Harus berhati-hati. Sebaliknya, dapat menyebabkan kehilangan data."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.LibraryStart,Mulai Otomatis
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Apakah tema yang dibuat akan secara otomatis diatur sebagai wallpaper.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview,Pratinjau Tema
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview.Description,Apakah tema akan ditampilkan sebagai pratinjau saat diarahkan ke atas.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Pratinjau Toko:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Sembunyikan Rincian:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Pratinjau Perpustakaan:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Sembunyikan Rincian:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme,Penyesuaian Tema
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme.Description,Sesuaikan nama atau deskripsi tema yang ditampilkan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Panjang Judul (Karakter):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Panjang Deskripsi (Karakter):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adaptive,Tata Letak Adaptif
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adaptive.Description,Sesuaikan tata letak atau jarak tema yang ditampilkan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Jarak Margin (Piksel):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Urutan Tata Letak (Jumlah):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Sort,Urutkan Perpustakaan
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Sort.Description,Tentukan bagaimana tema-tema di perpustakaan Anda akan diurutkan dan dalam format apa.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Sort.SortMode,Mode Pengurutan:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Sort.SortKind,Jenis Pengurutan:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Store,Penomoran Halaman Toko
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Store.Description,Tentukan jumlah tema yang akan ditampilkan untuk setiap halaman di toko.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Library,Penomoran Halaman Perpustakaan
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Library.Description,Tentukan jumlah tema yang akan ditampilkan untuk setiap halaman di perpustakaan Anda.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LogTemporary,File Harian
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LogTemporary.Description,Mengelola semua file harian yang dibuat oleh aplikasi.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LogTemporary.Create,Buat
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Hapus
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Catatan: Total ruang yang digunakan oleh file harian adalah {0}. Semua aplikasi akan ditutup saat pembersihan dimulai.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.CacheTemporary,Pembersihan Cache
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.CacheTemporary.Description,Menghapus semua file cache yang dibuat oleh aplikasi.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Mulai Pembersihan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Catatan: Total ruang yang digunakan oleh file cache adalah {0}. Semua aplikasi akan ditutup saat pembersihan dimulai.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.StoreTemporary,Pembersihan Toko
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.StoreTemporary.Description,Menghapus semua file toko yang dibuat oleh aplikasi.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Mulai Pembersihan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Catatan: Total ruang yang digunakan oleh file toko adalah {0}. Semua aplikasi akan ditutup saat pembersihan dimulai.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LibraryTemporary,Pembersihan Perpustakaan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,Menghapus semua file tema yang ada atau dibuat di perpustakaan Anda.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Mulai Pembersihan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Catatan: Total ruang yang digunakan oleh file tema di perpustakaan Anda adalah {0}. Semua aplikasi akan ditutup saat pembersihan dimulai.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingBackup,File Pengaturan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingBackup.Description,Mengelola semua file pengaturan yang dibuat oleh aplikasi.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingBackup.Export,Cadangkan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingBackup.Import,Impor Kembali
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Catatan: Semua aplikasi akan ditutup saat tindakan yang Anda pilih dimulai.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingReset,Reset Pengaturan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingReset.Description,Menyetel ulang semua file pengaturan yang dibuat oleh aplikasi.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingReset.Start,Mulai Reset
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.SettingReset.Hint,Catatan: Semua aplikasi akan ditutup saat proses reset dimulai.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Simpan File Harian
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,File ZIP (*.zip)|*.zip|Semua File (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ScreenLayout,Tata Letak Layar
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Mengubah tata letak dinding Anda di layar.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.StretchMode,Mode Perpanjangan
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Mengubah mode perpanjangan pada dinding yang didukung.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.LoopMode,Mode Pengulangan
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Mengubah mode pengulangan pada dinding yang didukung.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ShuffleMode,Mode Acak
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Mengubah mode acak pada dinding yang didukung.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.GifPlayer,Pemutar Gif
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Pilih plugin yang akan memainkan tema berjenis Gif dalam perpustakaan Anda.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.VideoPlayer,Pemutar Video
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Pilih plugin yang akan memainkan tema berjenis Video dalam perpustakaan Anda.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.UrlPlayer,Pemutar Url
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Pilih mesin yang akan menjalankan tema berjenis Url dalam perpustakaan Anda.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.WebPlayer,Pemutar Web
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Pilih mesin yang akan menjalankan tema berjenis Web dalam perpustakaan Anda.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.YouTubePlayer,Pemutar YouTube
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Pilih mesin yang akan menjalankan tema berjenis YouTube dalam perpustakaan Anda.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Pemutar Application
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Pilih mesin yang akan menjalankan tema berjenis Application dalam perpustakaan Anda.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ID.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ID.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ID.xaml,Portal.BrokenStorePage.TitleText,Saat Jaringan yang Padam
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.ID.xaml,Portal.BrokenStorePage.DescriptionText,"Seperti langit tanpa bintang, di sini juga tidak ada cahaya internet"
+Portal\StorePage\FullStorePage\Portal.FullStorePage.ID.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ID.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ID.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ID.xaml,Portal.SearchStorePage.TitleText,Jawaban Pencarianmu Mungkin Tersembunyi di Langit
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.ID.xaml,Portal.SearchStorePage.DescriptionText,"Jika hasilnya tidak sesuai harapan, langit mungkin menawarkan pengalaman baru bagi Anda"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ID.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ID.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ID.xaml,Portal.UnknownStorePage.TitleText,Temukan Misteri yang Muncul di Toko
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.ID.xaml,Portal.UnknownStorePage.DescriptionText,Ikuti jejak yang tidak dikenal dan mulailah petualangan menerangi misteri yang muncul di toko

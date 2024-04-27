@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuQ1MueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.CS.xaml,Discord.BrowseButton,Procházet
+Discord\Discord.CS.xaml,Discord.Details,Tapetový Motor
+Discord\Discord.CS.xaml,Discord.DownloadButton,Stáhnout
+Discord\Discord.CS.xaml,,
+Discord\Discord.CS.xaml,Discord.LargestText0,Síla Banánového Zmrzliny
+Discord\Discord.CS.xaml,Discord.LargestText1,Usmívající se Kloboučník Monstra
+Discord\Discord.CS.xaml,Discord.LargestText2,Ptáci Barvící Oblaka
+Discord\Discord.CS.xaml,Discord.LargestText3,Skrytá Dobrodružství Běžících Tučňáků
+Discord\Discord.CS.xaml,Discord.LargestText4,Zajíci Ztracení na Poli Pampelišek
+Discord\Discord.CS.xaml,Discord.LargestText5,Zpívající Větrné Růže
+Discord\Discord.CS.xaml,Discord.LargestText6,Záhadné Včely Tajemného Lesa
+Discord\Discord.CS.xaml,Discord.LargestText7,Senem Plná Škol Ryb
+Discord\Discord.CS.xaml,Discord.LargestText8,Tanec Krystalově Očkovaného Draka
+Discord\Discord.CS.xaml,Discord.LargestText9,Cesta Pohádkou Pokrytá Květinami
+Discord\Discord.CS.xaml,Discord.LargestText10,Padající Hvězdy z Neba
+Discord\Discord.CS.xaml,Discord.LargestText11,Tanec ve Světle Rozbitého Měsíce
+Discord\Discord.CS.xaml,Discord.LargestText12,Záhadní Duhy Draci
+Discord\Discord.CS.xaml,Discord.LargestText13,Magický Lesní Příběh
+Discord\Discord.CS.xaml,Discord.LargestText14,Déšť Květin do Nebe
+Discord\Discord.CS.xaml,Discord.LargestText15,Tichý Dotek Času
+Discord\Discord.CS.xaml,Discord.LargestText16,Surreální Země Snů
+Discord\Discord.CS.xaml,Discord.LargestText17,Zlaté Vodopády Písní
+Discord\Discord.CS.xaml,Discord.LargestText18,Pohádkové Lodě Plující do Nebe
+Discord\Discord.CS.xaml,Discord.LargestText19,Barevný Balonový Les
+Discord\Discord.CS.xaml,Discord.LargestText20,Záhadné Podmořské Město
+Discord\Discord.CS.xaml,Discord.LargestText21,Hvězdný Prach na Nebi
+Discord\Discord.CS.xaml,Discord.LargestText22,Větry Pronásledující Neznámo
+Discord\Discord.CS.xaml,Discord.LargestText23,Poutavé Příběhy pod Měsíčním Svitlem
+Discord\Discord.CS.xaml,,
+Discord\Discord.CS.xaml,Discord.SmallestText0,Záhadné Stopy
+Discord\Discord.CS.xaml,Discord.SmallestText1,Létající Balónekry
+Discord\Discord.CS.xaml,Discord.SmallestText2,Smějící se Květiny
+Discord\Discord.CS.xaml,Discord.SmallestText3,Cukrovaté Vatové Oblaky
+Discord\Discord.CS.xaml,Discord.SmallestText4,Zmrzlí Pizza Draci
+Discord\Discord.CS.xaml,Discord.SmallestText5,Lesknoucí se Houboví Piráti
+Discord\Discord.CS.xaml,Discord.SmallestText6,Neviditelné Stopy Jednorožce
+Discord\Discord.CS.xaml,Discord.SmallestText7,Barevné Prachové Mraky
+Discord\Discord.CS.xaml,Discord.SmallestText8,Zlaté Balónové Motýly
+Discord\Discord.CS.xaml,Discord.SmallestText9,Cesta Skrz Cukrový Kráter
+Discord\Discord.CS.xaml,Discord.SmallestText10,Raketou Létající Plátky Pizzy
+Discord\Discord.CS.xaml,Discord.SmallestText11,Mušle Tančící s Sluncem
+Discord\Discord.CS.xaml,Discord.SmallestText12,Neviditelné Hvězdné Prsty
+Discord\Discord.CS.xaml,Discord.SmallestText13,Mlžný Podmořský Tanec
+Discord\Discord.CS.xaml,Discord.SmallestText14,Migrace Duhy Ptáků
+Discord\Discord.CS.xaml,Discord.SmallestText15,Cesta Cukrovou Bouří
+Discord\Discord.CS.xaml,Discord.SmallestText16,Galaxie Neskončné Pizzy
+Discord\Discord.CS.xaml,Discord.SmallestText17,Úsměv Slunce
+Discord\Discord.CS.xaml,Discord.SmallestText18,Ztracený Smích Skrytého Rybníka
+Discord\Discord.CS.xaml,Discord.SmallestText19,Stíny Ptačích Snů
+Discord\Discord.CS.xaml,Discord.SmallestText20,Motýli Stoupající k Nebi
+Discord\Discord.CS.xaml,Discord.SmallestText21,Písně Skryté za Hvězdami
+Discord\Discord.CS.xaml,Discord.SmallestText22,Mlžné Hory Pohádky
+Discord\Discord.CS.xaml,Discord.SmallestText23,Víla Tajemného Lesa
+Discord\Discord.CS.xaml,,
+Discord\Discord.CS.xaml,Discord.StatementText0,Chaosem Naplněný Vesmír
+Discord\Discord.CS.xaml,Discord.StatementText1,Uprostřed Nekonečných Dobrodružství
+Discord\Discord.CS.xaml,Discord.StatementText2,Zvláštní a Kouzelný Svět
+Discord\Discord.CS.xaml,Discord.StatementText3,Tlačící Hranice Fantazie
+Discord\Discord.CS.xaml,Discord.StatementText4,Neobvyklá Realita
+Discord\Discord.CS.xaml,Discord.StatementText5,V Hlubinách Fantazie
+Discord\Discord.CS.xaml,Discord.StatementText6,Kouzelný Průzkumný Výlet
+Discord\Discord.CS.xaml,Discord.StatementText7,U Brány Neznámých Světů
+Discord\Discord.CS.xaml,Discord.StatementText8,Komplexní Svět Snů
+Discord\Discord.CS.xaml,Discord.StatementText9,"Dobrodružství, Které Tlačí na Hranice"
+Discord\Discord.CS.xaml,Discord.StatementText10,Dynamický a Překvapivý Zážitek
+Discord\Discord.CS.xaml,Discord.StatementText11,Ve Fantastické Pohádce
+Discord\Discord.CS.xaml,Discord.StatementText12,Mezi Magickými Portály
+Discord\Discord.CS.xaml,Discord.StatementText13,Cesta na Noční Oblohu
+Discord\Discord.CS.xaml,Discord.StatementText14,V Stopách Ztraceného Kontinentu
+Discord\Discord.CS.xaml,Discord.StatementText15,Příběh Neznámých Planet
+Discord\Discord.CS.xaml,Discord.StatementText16,Objev Paralelních Vesmírů
+Discord\Discord.CS.xaml,Discord.StatementText17,Vstup do Legendárních Rájů
+Discord\Discord.CS.xaml,Discord.StatementText18,Skutečnost Předená S Povahou Snu
+Discord\Discord.CS.xaml,Discord.StatementText19,Mezihvězdný Sen
+Discord\Discord.CS.xaml,Discord.StatementText20,Za Dveřmi Času
+Discord\Discord.CS.xaml,Discord.StatementText21,Svítící Tým Hvězd
+Discord\Discord.CS.xaml,Discord.StatementText22,Tichý Křik Neznáma
+Discord\Discord.CS.xaml,Discord.StatementText23,Poutavý Svět
+Discord\Discord.CS.xaml,Discord.StatementText24,Na Vrcholu Mystických Hor
+Discord\Discord.CS.xaml,Discord.StatementText25,Ve Stopách Ztracených Království
+Discord\Discord.CS.xaml,Discord.StatementText26,Mezihvězdní Sen o Cestě
+Discord\Discord.CS.xaml,Discord.StatementText27,Magická Noční Stvoření
+Discord\Discord.CS.xaml,Discord.StatementText28,Začátek Nesmírné Pohádky
+Discord\Discord.CS.xaml,Discord.StatementText29,Rozletující se Barevné Balony k Nebi
+Discord\Discord.CS.xaml,Discord.StatementText30,Záhadná Noční Obloha
+Discord\Discord.CS.xaml,Discord.StatementText31,Cesta Kolem Ztraceného Království
+Discord\Discord.CS.xaml,Discord.StatementText32,Dveře Otevírající se do Neznámých Světů
+Discord\Discord.CS.xaml,Discord.StatementText33,Tanec v Náručí Času
+Discord\Discord.CS.xaml,Discord.StatementText34,Příběhy Pohlcené Nocí
+Discord\Discord.CS.xaml,Discord.StatementText35,Magický Svět Zrcadel
+Discord\Discord.CS.xaml,Discord.StatementText36,Cesta na Dveře Věčnosti
+Discord\Discord.CS.xaml,Discord.StatementText37,Noční Cesta Lovce Snů
+Discord\Discord.CS.xaml,Discord.StatementText38,Sen o Křišťálovém Městě
+Discord\Discord.CS.xaml,Discord.StatementText39,Hvězdy Svítící v Tmě
+Discord\Discord.CS.xaml,Discord.StatementText40,Světlá Noc za Hvězdami
+Discord\Discord.CS.xaml,Discord.StatementText41,Tajemné Příběhy Měsíčního Svitku
+Discord\Discord.CS.xaml,Discord.StatementText42,Na Prahu Neznámých Světů s Zlatými Dveřmi
+Discord\Discord.CS.xaml,Discord.StatementText43,Tajemné Stezky Magické Noci
+Discord\Discord.CS.xaml,Discord.StatementText44,Rozletující se Roviny Snů k Nebi
+Discord\Discord.CS.xaml,Discord.StatementText45,Cesta Snů pod Hvězdami
+Discord\Discord.CS.xaml,Discord.StatementText46,Skrytý Svět Města na Břehu Hvězd
+Discord\Discord.CS.xaml,Discord.StatementText47,Pohádka za Mlžnou Horou
+Discord\Discord.CS.xaml,Discord.StatementText48,Hvězdná Noc Zářící ve Tmě
+Launcher\Launcher.CS.xaml,Launcher.WallCustomizeText,Přizpůsobení Pozadí
+Launcher\Launcher.CS.xaml,Launcher.CreateLogText,Vytvořit Záznam
+Launcher\Launcher.CS.xaml,Launcher.ExitText,Ukončit
+Launcher\Launcher.CS.xaml,Launcher.OpenReportText,Otevřít Zprávu
+Launcher\Launcher.CS.xaml,Launcher.OpenText,Otevřít Sucrose
+Launcher\Launcher.CS.xaml,Launcher.ReportText,Nahlásit Chybu
+Launcher\Launcher.CS.xaml,Launcher.ReportWindowTitle,Diagnostika Sucrose
+Launcher\Launcher.CS.xaml,Launcher.SaveDialogFilter,Soubory ZIP (*.zip)|*.zip|Všechny soubory (*.*)|*.*
+Launcher\Launcher.CS.xaml,Launcher.SaveDialogTitle,Uložit Záznam
+Launcher\Launcher.CS.xaml,Launcher.SettingText,Nastavení
+Launcher\Launcher.CS.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.CS.xaml,Launcher.WallChangeText,Změnit Pozadí
+Launcher\Launcher.CS.xaml,Launcher.WallCloseText,Zavřít Pozadí
+Launcher\Launcher.CS.xaml,Launcher.WallOpenText,Otevřít Pozadí
+Launcher\Launcher.CS.xaml,Launcher.WallStartText,Spustit Pozadí
+Launcher\Launcher.CS.xaml,Launcher.WallStopText,Zastavit Pozadí
+Launcher\Launcher.CS.xaml,Launcher.UpdateText,Zkontrolovat Aktualizace
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Done,Čekání na Aktualizace
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Check,Kontrola Aktualizací
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Progress,Průběh Aktualizace {0}
+Portal\Portal.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5DUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.CS.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.CS.xaml,,
+Property\Property.CS.xaml,Property.DeleteTip,Smazat kopii
+Property\Property.CS.xaml,Property.RefreshTip,Obnovit rozhraní
+Property\Property.CS.xaml,Property.RestoreTip,Obnovit výchozí
+Property\Property.CS.xaml,,
+Property\Property.CS.xaml,Property.Type.NotSupport,Typ ovládacího prvku '{0}' není podporován.
+Property\Property.CS.xaml,,
+Property\Property.CS.xaml,Property.ColorPicker.Color,Barva
+Property\Property.CS.xaml,Property.ColorPicker.Cancel,Storno
+Property\Property.CS.xaml,Property.ColorPicker.Confirm,Potvrdit
+Property\Property.CS.xaml,Property.ColorPicker.EyeDropper,Pipeta
+Property\Property.CS.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.CS.xaml,,
+Property\Property.CS.xaml,Property.FileDropDown.Tip,Vyberte soubor
+Property\Property.CS.xaml,Property.FileDropDown.Filter,Všechny soubory (*.*)|*.*
+Undo\Undo.CS.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.CS.xaml,,
+Undo\Undo.CS.xaml,Undo.QuestionMessage,Skutečně chcete odinstalovat program Sucrose Wallpaper Engine?
+Update\Update.CS.xaml,Update.HelpText,Vyřešit problém
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.UpdateBox.WindowTitle,Aktualizace Sucrose
+Update\Update.CS.xaml,Update.UpdateBox.InstallText,Nainstalovat aktualizaci
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.InfoBox.WindowTitle,Aktualizace Sucrose
+Update\Update.CS.xaml,Update.InfoBox.TextMessage,Zpráva
+Update\Update.CS.xaml,Update.InfoBox.CloseText,Zavřít
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Empty,"Jsme právě na místě, kde jsou aktualizační soubory skryty jako ztracený poklad. Můžete si stále užívat zážitek z používání aktuální verze."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Error,"Při stahování aktualizačního souboru jsme narazili na trhlinu na cestě a tato cesta zatím končí. Pokračujte v cestě s aktuální verzí, protože až budou tyto trhliny opraveny, čeká na vás silnější aktualizace."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Update,"Aplikace je již s vámi ve své nejnovější a nejinovativnější podobě, jako nejnovější stránka v knize. Jsme zde, abychom vám kdykoli zajistili nejlepší a nejaktuální zážitek."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Status,"Jsme na prahu snu, ke kterému nelze získat přístup ke souborům aktualizace. Nicméně můžete stále pokračovat ve svém snu s aktuální verzí."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Channel,"Vybraný kanál aktualizace je jako tichý les. Aktuálně zde nejsou k dispozici nové informace o aktualizacích. Pokračujte v cestě s aktuální verzí, protože až tento klid bude narušen, nabídneme vám více."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Extract,"Při pokusu o rozbalení aktualizačního souboru jsme narazili na překážku z hlubin moře. Zatím pokračujte v cestě s aktuální verzí, protože až se moře uklidní, vrátíme se hledat nové poklady."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Network,"Síla vašeho připojení je jako závoj zahalující slunce. Až se závoj rozplyne, čeká vás světlejší zážitek."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Updating,"Aktualizace aplikace pokračuje tiše jako nové poklady, které přináší mořské vlny na břeh. Tyto cenné novinky se pro vás sbírají v pozadí."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Releases,"Právě teď žijeme okamžik, kdy se ještě nerozsvítila hvězda aktualizace. Aktuálně nejsou k dispozici žádné informace o aktualizaci, ale můžete pokračovat v používání již dostupné verze."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Download,"Při stahování aktualizačního souboru jsme zjistili, že hvězdy na obloze jsou ve špatném pořadí. Zatím pokračujte v cestě s aktuální verzí, protože až se hvězdy správně seřadí, nabídneme vám lepší aktualizaci."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Cancelled,"Stahování aktualizačního souboru bylo zrušeno, protože jsme se najednou rozdělili. Pokračujte v cestě s aktuální verzí a buďte připraveni na budoucí aktualizace, protože nový začátek je vždy možný."
+Update\Update.CS.xaml,Update.InfoBox.TextMessage.Condition,"Podmínky v aktualizačních souborech vypadají, jako by chyběl klíč k odemčení. Zatím pokračujte v cestě s aktuální verzí a buďte připraveni na budoucí aktualizace."
+Watchdog\Watchdog.CS.xaml,Watchdog.HelpButton,Pomoc
+Watchdog\Watchdog.CS.xaml,Watchdog.CloseButton,Zavřít
+Watchdog\Watchdog.CS.xaml,Watchdog.ErrorMessage,Nastala neočekávaná chyba:
+Watchdog\Watchdog.CS.xaml,Watchdog.ErrorTitle,Chyba
+Watchdog\Watchdog.CS.xaml,Watchdog.HideButton,Skrýt
+Watchdog\Watchdog.CS.xaml,Watchdog.ShowButton,Zobrazit
+Watchdog\Watchdog.CS.xaml,Watchdog.StackTrace,Zásobníková stopa:
+Watchdog\Watchdog.CS.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.CS.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.ReloadText,ZKUSIT ZNOVU
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Preparing,PŘÍPRAVA NEZBYTNÝCH PŘÍPRAV
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Temporary,KONTROLA DOČASNÝCH UMÍSTĚNÍ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Temporary.Error,DOČASNÁ UMÍSTĚNÍ NELZE ZKONTROLOVAT
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Connection,KONTROLA INTERNETOVÉHO PŘIPOJENÍ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Connection.None,ŽÁDNÉ INTERNETOVÉ PŘIPOJENÍ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Connection.Error,INTERNETOVÉ PŘIPOJENÍ NELZE ZKONTROLOVAT
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Searching,HLEDÁNÍ POŽADOVANÝCH SOUBORŮ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Searching.Not,POŽADOVANÉ SOUBORY NEBYLY NALEZENY
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Searching.Error,POŽADOVANÉ SOUBORY NELZE HLEDAT
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Listing,ZÍSKÁVÁNÍ POŽADOVANÝCH SEZNAMŮ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Listing.Empty,POŽADOVANÉ SEZNAMY JSOU PRÁZDNÉ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Listing.Error,POŽADOVANÉ SEZNAMY NELZE PŘIJMOUT
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Filtering,SEZNAMY SE FILTRUJÍ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Filtering.Not,SEZNAMY NELZE FILTROVAT
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Filtering.Error,SEZNAMY NELZE FILTROVAT
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading,STAHUJÍ SE POŽADOVANÉ SOUBORY
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading.Error,POŽADOVANÉ SOUBORY NELZE STÁHNOUT
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading.Complete.Cancel,STAHOVÁNÍ POŽADOVANÉHO SOUBORU BYLO ZRUŠENO
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading.Complete.Error,BĚHEM STAHOVÁNÍ POŽADOVANÉHO SOUBORU DOŠLO K CHYBĚ
+Wizard\Wizard.CS.xaml,,
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting,ROZBALOVÁNÍ STÁHNUTÉHO SOUBORU
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Executing,PROVÁDÍ SE ROZBALOVANÝ SOUBOR
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Executed,ROZBALOVANÝ SOUBOR BYL PROVEDEN
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Failed,STÁHNUTÝ SOUBOR SELHAL
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Corrupt,STÁHNUTÝ SOUBOR JE POŠKOZENÝ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Not,STÁHNUTÝ SOUBOR NENÍ POUŽITELNÝ
+Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Error,STÁHNUTÝ SOUBOR NELZE ROZBALIT
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Sound,Zvuk
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Log,Záznam
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Hook,Hák
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Store,Obchod
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Donate,Darovat
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.System,Systém
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Cache,Mezipaměť
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Laptop,Notebook
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Support,Podpora
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Reset,Resetovat
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Backup,Zálohování
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Priority,Priorita
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Engines,Motory
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Update,Aktualizace
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Library,Knižnice
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Developer,Vývojář
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Extensions,Rozšíření
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.SystemResources,Systémové prostředky
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.AppearanceBehavior,Vzhled a Chování
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.All,Všechny
+Portal\Category\Portal.Category.CS.xaml,,
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Abstract,Abstraktní
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Ambience,Atmosféra
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Animals,Zvířata
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Animation,Animace
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Anime,Anime
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.ArchitectureandBuildings,Architektura a Budovy
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.ArtandAbstract,Umění a Abstrakce
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Artworks,Umělecká Díla
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Bard,Bard
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.BlackandWhite,Černobílá
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.CartoonandComics,Kreslený Film a Komiksy
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.CitiesandPlaces,Města a Místa
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.CloudsandSkies,Oblaka a Nebe
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.ColorfulGradients,Barevné Gradienty
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.ComicBooks,Komiksy
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.DigitalArt,Digitální Umění
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Dynamic,Dynamické
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.EnchantedForests,Zakouzlené Lesy
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Fantasy,Fantazie
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.FilmandTV,Film a Televize
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.FoodandDrinks,Jídlo a Nápoje
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Galaxy,Galaxie
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Game,Hra
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.GeometricPatterns,Geometrické Vzory
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.HolidaysandSeasons,Svátky a Roční Období
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.HorrorandHalloween,Horor a Halloween
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.InspirationalQuotes,Inspirující Citáty
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.KidsandCartoon,Děti a Kreslený Film
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Landscape,Krajina
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Lifestyle,Životní Styl
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.LineArt,Linková Grafika
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Medieval,Středověk
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Minimalist,Minimalistické
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Music,Hudba
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Nature,Příroda
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Nightscapes,Noční Krajiny
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.PatternsandTextures,Vzory a Textury
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Retro,Retro
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Sky,Obloha
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Space,Vesmír
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Sports,Sport
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Superheroes,Superhrdinové
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.System,Systém
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Tavern,Hostinec
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Technology,Technologie
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Temple,Chrámy
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Time,Čas
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.UnderwaterandMarine,Pod Vodou a Mořské
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Vehicles,Vozidla
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Vintage,Retro
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.War,Válka
+Portal\Controls\Portal.Controls.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5DUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.Stretch.Fill,Vyplnit
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.Stretch.None,Žádný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.Stretch.Uniform,Rovnoměrný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.Stretch.UniformToFill,Rovnoměrně vyplnit
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.None,Žádný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Name,Název
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Creation,Vytvoření
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Modification,Úprava
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.Fill,Vyplnit
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.None,Žádný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.Uniform,Rovnoměrný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StretchType.UniformToFill,Rovnoměrně vyplnit
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.PerformanceType.Close,Zavřít
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.PerformanceType.Pause,Pozastavit
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.PerformanceType.Resume,Pokračovat
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Mica,Mika
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.None,Žádný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Auto,Automatický
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Tabbed,Kartáčovaný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilový
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ChannelType.Release,Výchozí
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ChannelType.PreRelease,Předběžná verze
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.PausePerformanceType.Heavy,Těžký
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.PausePerformanceType.Light,Lehký
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortKindType.Ascending,Vzestupně [A-Z]
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortKindType.Descending,Sestupně [Z-A]
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ExpandScreenType.Default,Výchozí
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ExpandScreenType.Advanced,Pokročilý
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateType.Compressed,Kompresovaný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.UpdateType.Executable,Spustitelný
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ScreenType.WorkingArea,Pracovní plocha
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ScreenType.DisplayBound,Ohraničení obrazovky
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.DuplicateScreenType.Default,Výchozí
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.DuplicateScreenType.Advanced,Pokročilý
+Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Pass,Úspěšný výsledek
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Tags,Tagy obsahují příliš mnoho hodnot
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Type,"Téma vytvořeno pro typ, který aplikace nepodporuje"
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Title,Hodnota 'Title' je prázdná nebo příliš dlouhá
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Author,Hodnota 'Author' je prázdná nebo příliš dlouhá
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Source,Soubor 'Source' nebyl nalezen
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Contact,Hodnota 'Contact' je prázdná nebo příliš dlouhá
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Preview,Soubor 'Preview' nebyl nalezen
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Encrypt,Příslušný soubor je zašifrovaný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.ZipType,Příslušný soubor není skutečně soubor ZIP
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InfoFile,Soubor 'SucroseInfo.json' nebyl nalezen
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.NotFound,Příslušný soubor nebyl nalezen
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.LoopMode,Neplatný režim 'LoopMode'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Arguments,Hodnota 'Arguments' je příliš dlouhá
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Extension,Příslušný soubor není soubor s příponou '.zip'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Thumbnail,Soubor 'Thumbnail' nebyl nalezen
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemCpu,Neplatná hodnota 'SystemCpu'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Soubor 'SucroseInfo.json' je prázdný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.AppVersion,Téma vytvořeno pro vyšší verzi aplikace
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Hodnota 'Url' obsahuje neplatnou hodnotu
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemBios,Neplatná hodnota 'SystemBios'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemDate,Neplatná hodnota 'SystemDate'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemAudio,Neplatná hodnota 'SystemAudio'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Description,Hodnota 'Description' je prázdná nebo příliš dlouhá
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Soubor 'SucroseInfo.json' je neplatný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.TriggerTime,Neplatná hodnota 'TriggerTime'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.StretchMode,Neplatná hodnota 'StretchMode'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Neplatná hodnota 'VolumeLevel'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Neplatná hodnota 'ShuffleMode'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidTags,Hodnoty 'Tags' jsou příliš krátké nebo příliš dlouhé
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidFile,Neplatný soubor
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.PropertyList,Hodnota 'PropertyList' je prázdná
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemMemory,Neplatná hodnota 'SystemMemory'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemBattery,Neplatná hodnota 'SystemBattery'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Neplatná hodnota 'SystemGraphic'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Neplatná hodnota 'SystemNetwork'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidContact,Hodnota 'Contact' není platný URL nebo e-mailová adresa
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Neplatný typ souboru
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Soubor 'SucroseCompatible.json' je prázdný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Soubor 'SucroseProperties.json' je prázdný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.PropertyListener,Neplatná hodnota 'PropertyListener'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Neplatná hodnota 'SystemMotherboard'
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Soubor 'SucroseCompatible.json' je neplatný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Soubor 'SucroseProperties.json' je neplatný
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Nepředvídatelné následky
+Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5DUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.CS.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.CS.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Portal.LibraryPage.Import.Successful,Téma '{0}' bylo úspěšně přidáno do knihovny.
+Portal\LibraryPage\Portal.LibraryPage.CS.xaml,Portal.LibraryPage.Import.Unsuccessful,Téma '{0}' se nepodařilo přidat do knihovny. Důvod: '{1}'.
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuHelp,Pomoc
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuAbout,O programu
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuHelpTip,Zobrazit nápovědu
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuAboutTip,Zobrazit informace o programu
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuLibrary,Knihovna
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuStore,Obchod
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuLibraryTip,Témata v knihovně
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuStoreTip,Obchod s tématy
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuGeneral,Obecné
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuPersonal,Osobní
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuPerformance,Výkon
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuWallpaper,Tapeta
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuSystem,Systém
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuDonate,Přispět
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuOther,Ostatní
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuBackTip,Zpět
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuGeneralTip,Nastavení obecných parametrů
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuPersonalTip,Nastavení osobních preferencí
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuPerformanceTip,Nastavení výkonu
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuWallpaperTip,Nastavení tapety
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuSystemTip,Nastavení systému
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuDonateTip,Nastavení příspěvků
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuOtherTip,Ostatní nastavení
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuSettingTip,Nastavení
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.SearchBoxHint,Hledat tapetu
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.SearchBoxTip,"Máte potíže najít to, co hledáte?"
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuLightTip,Světlý režim
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuDarkTip,Tmavý režim
+Portal\MainWindow\Portal.MainWindow.CS.xaml,,
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Vytvořit tapetu
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Cyklování tapet
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Nastavení zobrazení
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuDonateOptionsTip,Možnosti příspěvků
+Portal\MainWindow\Portal.MainWindow.CS.xaml,Portal.MainWindow.MenuOtherOptionsTip,Další možnosti
+Portal\SettingPage\Portal.SettingPage.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuQ1MueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkNTLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.CS.xaml,,
+Portal\StorePage\Portal.StorePage.CS.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Title,Nastavení zobrazení
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Close,Zavřít
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Expander,Režim roztažení
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Expander.Description,"Způsob, jakým jsou tapety aplikovány na aktivní obrazovky."
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Screen,Pouze vybraný monitor
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Expand,Roztáhnout mezi monitory
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Expand.Monitor,Všechny monitory
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Expand.Hint,Vyberte režim roztažení mezi monitory
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Duplicate,Duplikovat stejný tapetový obraz na všech monitorech
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.CS.xaml,Portal.DisplayPreferences.Duplicate.Hint,Vyberte režim duplikace stejného tapetu na všech monitorech
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,Portal.ExpanderCard.TitleText,Nadpis
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,Portal.ExpanderCard.DescriptionText,Popis
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,Portal.ExpanderCard.ExpandUpTip,Sbalit
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.CS.xaml,Portal.ExpanderCard.ExpandDownTip,Rozbalit
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.TitleText,Název
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.DescriptionText,Popis
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MoreTip,Více
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.VersionTip,"Aktualizujte Sucrose, aby bylo možné tuto šablonu použít"
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuReview,Hodnocení
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuUse,Použít
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuPreview,Náhled
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuCustomize,Přizpůsobit
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuFind,Najít
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuShare,Sdílet
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuDelete,Smazat
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuEdit,Upravit
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Title,O aplikaci
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Close,Zavřít
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.About,"Ahoj, jsem Bayram Emekli, známý také pod uživatelským jménem Taiizor. Jsem vývojářem aplikace Sucrose Wallpaper Engine, která je zdarma a open source. Děkuji, že používáte mou vyvinutou aplikaci."
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Update,Verze: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Update.Description,Poslední kontrola: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Update.Notes,Poznámky k aktualizaci
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Partners,Partneři
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Contributors,Přispěvatelé
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.TermsOfService,Podmínky služby
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.PrivacyPolicy,Zásady ochrany osobních údajů
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.CodeOfConduct,Kodeks chování pro přispěvatele
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Title,Nápověda
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Close,Zavřít
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.WebPage,Webová stránka
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.WebPage.Description,Oficiální webová stránka Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Documentation,Dokumentace
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Documentation.Description,Oficiální dokumentace Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Repository,Zdrojový kód
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Repository.Description,Oficiální stránka se zdrojovým kódem Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Discussions,Diskuze
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Discussions.Description,Oficiální stránka pro diskuze ohledně Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Report,Nahlásit chybu
+Portal\Controls\OtherHelp\Portal.OtherHelp.CS.xaml,Portal.OtherHelp.Report.Description,Oficiální stránka pro hlášení chyb v Sucrose Wallpaper Engine
+Portal\Controls\Pagination\Portal.Pagination.CS.xaml,Portal.Pagination.PageJump,Přeskočit
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.TitleText,Název
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.DescriptionText,Popis
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.VersionTip,Pro použití této šablony aktualizujte Sucrose
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.MenuInstall,Instalovat
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.MenuReport,Nahlásit
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Title,Vytvoření šablony
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Create,Vytvořit
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Close,Zavřít
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Gif,Gif Šablona
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Gif.Description,Vytvořte svou vlastní šablonu typu Gif.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Url,Url Šablona
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Url.Description,Vytvořte svou vlastní šablonu typu Url.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Web,Web Šablona
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Web.Description,Vytvořte svou vlastní šablonu typu Web.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Video,Video Šablona
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Video.Description,Vytvořte svou vlastní šablonu typu Video.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.YouTube,YouTube Šablona
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.YouTube.Description,Vytvořte svou vlastní šablonu typu YouTube.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Application,Application Šablona
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Application.Description,Vytvořte svou vlastní šablonu typu Application.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail,Náhled
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview,Náhled
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeTitle,Název
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeDescription,Popis
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeAuthor,Autor
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeContact,Kontakt
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeTags,Štítky
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeArguments,Argumenty
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Zadejte platnou Url adresu
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Vyberte náhledový obrázek
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview.Hint,Vyberte soubor s náhledem
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Zadejte platný název
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Zadejte platný popis
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Zadejte platné jméno autora
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeContact.Hint,Zadejte platný kontakt
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeTags.Hint,Zadejte platné štítky pro šablonu
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Zadejte platné argumenty aplikace
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Delete,Odstranit
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Gif,Přetáhněte sem svůj Gif soubor
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Video,Přetáhněte sem svůj video soubor
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Vybrat náhled
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview.Title,Vybrat náhledový soubor
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif soubory (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Title,Smazání tématu
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Delete,Smazat
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Close,Zavřít
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeTitle,Název
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeDescription,Popis
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeType,Typ
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeAuthor,Autor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeSize,Velikost
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeVersion,Verze
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeTags,Štítky
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeTagsText,Žádné
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeCreate,Vytvořeno
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeCreateDate,Neznámo
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeModify,Upraveno
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.ThemeModifyDate,Neznámo
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.Title,Úprava šablony
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.Close,Zavřít
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.Save,Uložit
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeTitle,Název
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeDescription,Popis
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeAuthor,Autor
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeContact,Kontakt
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeTags,Štítky
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeArguments,Argumenty
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeTitle.Hint,"Prosím, zadejte platný název"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeDescription.Hint,"Prosím, zadejte platný popis"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,"Prosím, zadejte platné jméno autora"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeContact.Hint,"Prosím, zadejte platný kontaktní údaj"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeTags.Hint,"Prosím, zadejte platné štítky pro šablonu"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.CS.xaml,Portal.ThemeEdit.ThemeArguments.Hint,"Prosím, zadejte platné argumenty aplikace"
+Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,Portal.ThemeImport.Title,Import šablony
+Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,Portal.ThemeImport.Close,Zavřít
+Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,Portal.ThemeImport.Info,Informace o šabloně
+Portal\Controls\ThemeImport\Portal.ThemeImport.CS.xaml,Portal.ThemeImport.Type,Typy důvodu
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.Title,Hodnocení šablony
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.Close,Zavřít
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeTitle,Název
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeDescription,Popis
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeType,Typ
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeAuthor,Autor
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeSize,Velikost
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeVersion,Verze
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeTags,Štítky
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeTagsText,Žádné
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeCreate,Vytvořeno
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeCreateDate,Neznámo
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeModify,Upraveno
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeModifyDate,Neznámo
+Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeContact,Kontaktní údaj pro šablonu
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.Title,Sdílení šablony
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.Close,Zavřít
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeTitle,Název
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeDescription,Popis
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeExport,Exportovat
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish,Publikovat v obchodě
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeCopy,Kopírovat odkaz
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.SaveDialogTitle,Uložit soubor se šablonou
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,Portal.EmptyLibraryPage.TitleText,Vaše knihovna byla vytvořena pavučinami
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.CS.xaml,Portal.EmptyLibraryPage.DescriptionText,Místo tapet se v knihovně objevil nádherný umělecký kousek pavučin.
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.CS.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,Portal.SearchLibraryPage.TitleText,Vaše knihovna je zakletá pavoučí sítí
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.CS.xaml,Portal.SearchLibraryPage.DescriptionText,Vaše jemné vkusy ve výběru tapet zanechaly knihovnu bez prostoru.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.DonateMenu,Nastavení Dárcovského Menu
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.DonateMenu.Description,Viditelnost dárcovského menu v rozhraní.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Zobrazit
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Skrýt
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.Advertising,Podpora Reklamami
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.Advertising.Description,"Přispějte k rozvoji aplikace tím, že budete sledovat reklamy."
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Doba zpoždění reklam (minuty):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.CS.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,"Tip: Reklamy budou zobrazovány tak, aby vás co nejméně rušily."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Jazyk Aplikace
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,"Vyberte jazyk, ve kterém chcete zobrazit aplikaci."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup,Spouštění Aplikace
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,"Sucrose musí běžet na pozadí, aby mohl hrát tapety na ploše."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Žádné
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normální
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priorita
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Plánovač
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.NotifyIcon,Ikona V Oznámení
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Viditelnost ikony v systémovém oznamovacím prostoru. Sucrose bude nadále běžet v pozadí.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Zobrazit
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Skrýt
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Při uzavření ikony v oznámení zavřít všechny instance Sucrose
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop,Pozadí Okna
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Používá se k přizpůsobení pozadí okna aplikace.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Vybrat Obrázek Pozadí
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Vyberte obrázek pozadí
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Roztáhnout Pozadí:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Průhlednost Pozadí (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.EngineVolume,Hlasitost Zvuku
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Hlasitost zvuku pro všechny tapety na ploše.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Přehrávat zvuk pouze při zaměření na plochu
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary,Místo Knihovny
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Umístění, kde budou uloženy témata přidané do vaší knihovny."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Vyberte prázdný adresář, prosím"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Počkejte prosím, dokud se adresář přesune"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Přesunout vaši stávající knihovnu na nové místo
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose umožňuje komunikaci s Discordem.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Obnovit spojení:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Doba obnovení (v sekundách):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Agent,Internetová Zástupkyně
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Agent.Description,"Váš identifikátor zástupce v situacích, kdy je vyžadováno připojení k internetu."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Key,Osobní Přístupový Klíč
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Key.Description,Nutné pro bezproblémové použití obchodu a aktualizací aplikace.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Key.HintKey,"Pokud nevíte, jak získat osobní přístupový klíč, klikněte sem."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Key.PersonalKey,Prosím zadejte osobní přístupový klíč
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Prosím zadejte platný osobní přístupový klíč
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Channel,Kanál Aktualizace
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Channel.Description,"Kanál, kterým se provádí aktualizace."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Update,Metoda Aktualizace
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Update.Description,"Způsob, jakým se provádí aktualizace."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Update.Limit,Limit Šířky Pásma Stahování:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer,Vývojářské Nástroje
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer.Description,Zda se mají zobrazovat vývojářské nástroje pro WebView a CefSharp engine.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Counter,Výkonové Čítačky
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Counter.Description,"Určuje, zda budou všechny výkonové čítačky pracovat na pozadí."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,Poznámka: Některá témata typu Web nemusí fungovat správně a žádné z následujících nastavení výkonu nebude fungovat.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Pause,Pravidlo Pozastavení
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Pause.Description,Určuje pravidlo pro pozastavení tapety na základě vašich nastavení výkonu.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Communication,Typ Komunikace
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Communication.Description,Určuje způsob odesílání zpráv tématům typu Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Cpu,Využití CPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Cpu.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití CPU."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Využití CPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Memory,Využití Paměti
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Memory.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití paměti."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Využití Paměti (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Network,Využití Sítě
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Network.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití sítě."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Síťový Adaptér:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Seznam síťových adaptérů nebyl dosud vytvořen
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Velikost Nahrávání:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Velikost Stahování:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping (ms):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Battery,Baterie
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Battery.Description,"Určuje, jaký bude výsledek duhovky při použití na baterii v notebooku."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Stav Baterie (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Saver,Úsporný Režim
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Saver.Description,"Určuje, jaký bude výsledek duhovky v energeticky úsporném režimu notebooku."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Virtual,Virtualizace
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Virtual.Description,"Určuje, jaký bude výsledek duhovky při použití virtualizačních aplikací."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Remote,Vzdálená Plocha
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Remote.Description,"Určuje, jaký bude výsledek duhovky při použití aplikací pro vzdálenou plochu."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Fullscreen,Režim Celé Obrazovky
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,"Určuje, jaký bude výsledek duhovky v režimu celé obrazovky, když běží jakákoli jiná aplikace."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Focus,Režim Fókusu
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Focus.Description,"Určuje, jaký bude výsledek duhovky, když je aktivní jiná aplikace."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Server,Server Obchodu
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Server.Description,"Určuje, který server bude použit k zobrazení témat uvedených v obchodě."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Poznámka: Pokud je jako server vybrán {0}, je nutné zadat {2}, abyste se vyhnuli limitům žádostí. Jinak můžete mít problémy s přístupem k tématům v obchodě. Pokud je vybráno {1}, budete mít plynulejší zkušenost s obchodem."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Duration,Obchodní Aktualizace
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Duration.Description,"Určuje, jak často budou seznamy témat v obchodě aktualizovány."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.StoreStart,Automatický Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.StoreStart.Description,"Určuje, zda se stažené téma z obchodu automaticky nastaví jako tapeta."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adult,Nestandardní Obsah
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adult.Description,"Určuje, zda se má zobrazovat obsah označený jako NSFW v obchodě."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Confirm,Potvrzení Smazání
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Confirm.Description,"Určuje, zda se má zobrazit potvrzení při mazání témat z knihovny."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Delete,Chybná Témata
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Delete.Description,"Určuje, zda se mají chybná nebo neúplná témata automaticky mazat z knihovny."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,"Poznámka: Buďte opatrní, mazání může vést k ztrátě dat."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.LibraryStart,Automatický Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.LibraryStart.Description,"Určuje, zda se vytvořené téma automaticky nastaví jako tapeta."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview,Náhled Tématu
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview.Description,"Určuje, zda se mají témata zobrazovat jako náhled po najetí myší."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Náhled Obchodu:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Skrýt Detaily:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Náhled Knižnice:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skrýt Detaily:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme,Vlastní Názvy Tématu
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme.Description,Upřesněte názvy nebo popisky zobrazených témat.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Délka Názvu (Znaky):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Délka Popisku (Znaky):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adaptive,Přizpůsobivé Rozložení
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adaptive.Description,Upravte rozložení nebo vzdálenost mezi zobrazenými tématy.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Mezera (Pixely):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Pořadí Rozložení (Počet):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Sort,Řazení Knihovny
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Sort.Description,"Určete, jak budou témata ve vaší knihovně seřazena a v jakém formátu."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Sort.SortMode,Režim Řazení:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Sort.SortKind,Typ Řazení:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Store,Stránkování Obchodu
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Store.Description,"Nastavuje, kolik témat bude na každé stránce obchodu."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Library,Stránkování Knihovny
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Library.Description,"Nastavuje, kolik témat bude na každé stránce vaší knihovny."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LogTemporary,Soubory záznamu
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LogTemporary.Description,Spravujte všechny soubory záznamu vytvořené aplikací.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LogTemporary.Create,Vytvořit
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Vymazat
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Poznámka: Celková velikost souborů záznamu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.CacheTemporary,Vyprázdnit cache
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.CacheTemporary.Description,Vyčistěte všechny dočasné soubory cache vytvořené aplikací.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Začít čištění
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Poznámka: Celková velikost dočasných souborů cache je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.StoreTemporary,Vyprázdnit obchod
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.StoreTemporary.Description,Vyčistěte všechny soubory obchodu vytvořené aplikací.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Začít čištění
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Poznámka: Celková velikost souborů obchodu je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LibraryTemporary,Vyprázdnit knihovnu
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,"Vyčistěte všechny soubory témat v knihovně nebo ty, které jste vytvořili."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Začít čištění
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Poznámka: Celková velikost témat v knihovně je {0}. Při spuštění čištění budou všechny aplikace uzavřeny.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingBackup,Zálohování nastavení
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingBackup.Description,Spravujte všechny soubory nastavení vytvořené aplikací.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingBackup.Export,Exportovat
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingBackup.Import,Importovat
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Poznámka: Při zahájení vybrané akce budou uzavřeny všechny aplikace.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingReset,Obnovení nastavení
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingReset.Description,Obnovte všechny soubory nastavení vytvořené aplikací na výchozí hodnoty.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingReset.Start,Začít obnovu
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.SettingReset.Hint,Poznámka: Při zahájení obnovy budou uzavřeny všechny aplikace.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Uložit soubor záznamu
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ScreenLayout,Rozmístění na obrazovce
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Změní umístění vašich tapet na obrazovce.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.StretchMode,Režim protažení
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Změní režim měřítka na podporovaných tapetách.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.LoopMode,Režim smyčky
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Změní režim smyčky na podporovaných tapetách.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ShuffleMode,Režim zamíchání
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Změní režim zamíchání na podporovaných tapetách.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.GifPlayer,Přehrávač Gif
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,"Vyberte doplněk, který bude přehrávat témata ve formátu Gif uložená ve vaší knihovně."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.VideoPlayer,Přehrávač Video
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,"Vyberte doplněk, který bude přehrávat témata ve formátu Video uložená ve vaší knihovně."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Url."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.WebPlayer,Web Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Web."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu YouTube."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,"Vyberte motor, který bude spouštět témata uložená ve vaší knihovně ve formátu Application."
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,Portal.BrokenStorePage.TitleText,"Okamžik, kdy zhasly internetové světla"
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.CS.xaml,Portal.BrokenStorePage.DescriptionText,"Jako hvězdná obloha bez hvězd, zde nenajdete zář internetu."
+Portal\StorePage\FullStorePage\Portal.FullStorePage.CS.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,Portal.SearchStorePage.TitleText,Odpovědi na vaše hledání mohou být ukryty na obloze
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.CS.xaml,Portal.SearchStorePage.DescriptionText,"Pokud výsledky nepřicházejí tak, jak jste čekali, obloha vám může nabídnout nový zážitek."
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,Portal.UnknownStorePage.TitleText,"Objevte Tajemství, Které Se V Obchodě Událo"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.CS.xaml,Portal.UnknownStorePage.DescriptionText,"Vydejte se na cestu k odhalení tajemství, které se stalo v obchodě, a sledujte neznámý příběh."

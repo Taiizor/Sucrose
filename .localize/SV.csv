@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuU1YueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.SV.xaml,Discord.BrowseButton,Bläddra
+Discord\Discord.SV.xaml,Discord.Details,Tapetmotor
+Discord\Discord.SV.xaml,Discord.DownloadButton,Ladda Ner
+Discord\Discord.SV.xaml,,
+Discord\Discord.SV.xaml,Discord.LargestText0,Banan Glass Kraft
+Discord\Discord.SV.xaml,Discord.LargestText1,Skrattande Hattmonster
+Discord\Discord.SV.xaml,Discord.LargestText2,Färgglada Sparvar på Himmelens Skyar
+Discord\Discord.SV.xaml,Discord.LargestText3,De Hemliga Äventyren av Springande Pingviner
+Discord\Discord.SV.xaml,Discord.LargestText4,Kaniner som Försvinner i Maskrosängen
+Discord\Discord.SV.xaml,Discord.LargestText5,Vindrosor som Sjunger
+Discord\Discord.SV.xaml,Discord.LargestText6,Mystiska Bin i Den Hemliga Skogen
+Discord\Discord.SV.xaml,Discord.LargestText7,Drömmiga Fisksvärmar
+Discord\Discord.SV.xaml,Discord.LargestText8,Krisalliknande Drakdans
+Discord\Discord.SV.xaml,Discord.LargestText9,Sagoväg Täckt av Blommor
+Discord\Discord.SV.xaml,Discord.LargestText10,Stjärnor Fallande från Himmelen
+Discord\Discord.SV.xaml,Discord.LargestText11,Dans under Månljus av en Bruten Måne
+Discord\Discord.SV.xaml,Discord.LargestText12,Mystiska Regnbågsdrakar
+Discord\Discord.SV.xaml,Discord.LargestText13,En Förtrollad Skogssaga
+Discord\Discord.SV.xaml,Discord.LargestText14,Blomsterregn mot Himmelen
+Discord\Discord.SV.xaml,Discord.LargestText15,Tidens Tysta Beröring
+Discord\Discord.SV.xaml,Discord.LargestText16,Landet av Surrealistiska Drömmar
+Discord\Discord.SV.xaml,Discord.LargestText17,Sånger från Guldvattenfall
+Discord\Discord.SV.xaml,Discord.LargestText18,Sagobåtar som Flyter mot Himmelen
+Discord\Discord.SV.xaml,Discord.LargestText19,Färgglad Ballongskog
+Discord\Discord.SV.xaml,Discord.LargestText20,Mystisk Undervattensstad
+Discord\Discord.SV.xaml,Discord.LargestText21,Stjärnstoftig Himmel
+Discord\Discord.SV.xaml,Discord.LargestText22,Vindar som Följer det Okända
+Discord\Discord.SV.xaml,Discord.LargestText23,Fängslande Berättelser under Månskenet
+Discord\Discord.SV.xaml,,
+Discord\Discord.SV.xaml,Discord.SmallestText0,Mysteriösa Fotspår
+Discord\Discord.SV.xaml,Discord.SmallestText1,Flygande Ballongfiskar
+Discord\Discord.SV.xaml,Discord.SmallestText2,Skrattande Blomster
+Discord\Discord.SV.xaml,Discord.SmallestText3,Sockervaddsmoln
+Discord\Discord.SV.xaml,Discord.SmallestText4,Frostiga Pizzadrakar
+Discord\Discord.SV.xaml,Discord.SmallestText5,Lysande Svampkorsaren
+Discord\Discord.SV.xaml,Discord.SmallestText6,Osynliga Enhörningsspår
+Discord\Discord.SV.xaml,Discord.SmallestText7,Färgglada Pulvermoln
+Discord\Discord.SV.xaml,Discord.SmallestText8,Guldballonfjärilar
+Discord\Discord.SV.xaml,Discord.SmallestText9,Sockerskorpa till Kraterresan
+Discord\Discord.SV.xaml,Discord.SmallestText10,Pizzabitar som Flyger med Raketer
+Discord\Discord.SV.xaml,Discord.SmallestText11,Dans med Solen med Havssnäckskonst
+Discord\Discord.SV.xaml,Discord.SmallestText12,Osynliga Stjärnfingrar
+Discord\Discord.SV.xaml,Discord.SmallestText13,Dimmig Undervattendans
+Discord\Discord.SV.xaml,Discord.SmallestText14,Regnbågsfågelvandring
+Discord\Discord.SV.xaml,Discord.SmallestText15,Sockersnöstormens Väg
+Discord\Discord.SV.xaml,Discord.SmallestText16,Oändlig Pizza-Galax
+Discord\Discord.SV.xaml,Discord.SmallestText17,Solen Skrattar
+Discord\Discord.SV.xaml,Discord.SmallestText18,Försvunnen Skratt vid den Hemliga Dammens Kant
+Discord\Discord.SV.xaml,Discord.SmallestText19,Skugga av Drömfåglar
+Discord\Discord.SV.xaml,Discord.SmallestText20,Fjärilar som Stiger mot Himmelen
+Discord\Discord.SV.xaml,Discord.SmallestText21,Sånger Dolda Bakom Stjärnorna
+Discord\Discord.SV.xaml,Discord.SmallestText22,Dimmiga Berg i Sagans Land
+Discord\Discord.SV.xaml,Discord.SmallestText23,Mystiska Skogens Älva
+Discord\Discord.SV.xaml,,
+Discord\Discord.SV.xaml,Discord.StatementText0,Ett Universum Fyllt av Kaos
+Discord\Discord.SV.xaml,Discord.StatementText1,I Mitten av Oändliga Äventyr
+Discord\Discord.SV.xaml,Discord.StatementText2,En Konstig och Magisk Värld
+Discord\Discord.SV.xaml,Discord.StatementText3,Som Utmanar Gränserna för Fantasin
+Discord\Discord.SV.xaml,Discord.StatementText4,En Ovanlig Verklighet
+Discord\Discord.SV.xaml,Discord.StatementText5,I Djupen av Fantasin
+Discord\Discord.SV.xaml,Discord.StatementText6,En Magisk Upptäcktsresa
+Discord\Discord.SV.xaml,Discord.StatementText7,Vid Okända Världars Dörrar
+Discord\Discord.SV.xaml,Discord.StatementText8,En Komplex Drömvärld
+Discord\Discord.SV.xaml,Discord.StatementText9,Ett Äventyr som Utmanar Gränserna
+Discord\Discord.SV.xaml,Discord.StatementText10,En Dynamisk och Förvånande Upplevelse
+Discord\Discord.SV.xaml,Discord.StatementText11,I en Fantastisk Saga
+Discord\Discord.SV.xaml,Discord.StatementText12,Mellan Magiska Portaler
+Discord\Discord.SV.xaml,Discord.StatementText13,Resa till Nattens Himmel
+Discord\Discord.SV.xaml,Discord.StatementText14,I Jakten på den Försvunna Kontinenten
+Discord\Discord.SV.xaml,Discord.StatementText15,Berättelsen om Okända Planeter
+Discord\Discord.SV.xaml,Discord.StatementText16,Upptäckten av Parallella Universum
+Discord\Discord.SV.xaml,Discord.StatementText17,Ingången till Legendariska Riken
+Discord\Discord.SV.xaml,Discord.StatementText18,Verklighet Vävd med Drömmars Textur
+Discord\Discord.SV.xaml,Discord.StatementText19,En Dröm Bland Stjärnorna
+Discord\Discord.SV.xaml,Discord.StatementText20,Bakom Tidens Dörrar
+Discord\Discord.SV.xaml,Discord.StatementText21,Skimrande Stjärnor Team
+Discord\Discord.SV.xaml,Discord.StatementText22,Det Okändas Tysta Skrik
+Discord\Discord.SV.xaml,Discord.StatementText23,En Fängslande Värld
+Discord\Discord.SV.xaml,Discord.StatementText24,På Toppkanten av Mystiska Berg
+Discord\Discord.SV.xaml,Discord.StatementText25,I Jakten på Förlorade Kungariken
+Discord\Discord.SV.xaml,Discord.StatementText26,En Drömmars Resa Mellan Stjärnorna
+Discord\Discord.SV.xaml,Discord.StatementText27,Magiska Varelser under En Förtrollad Natt
+Discord\Discord.SV.xaml,Discord.StatementText28,Början av en Oändlig Saga
+Discord\Discord.SV.xaml,Discord.StatementText29,Färgglada Ballonger Stiger mot Himmelen
+Discord\Discord.SV.xaml,Discord.StatementText30,Mystisk Nattligt Himmel
+Discord\Discord.SV.xaml,Discord.StatementText31,Vägen till den Förlorade Kungarikets Drömmar
+Discord\Discord.SV.xaml,Discord.StatementText32,En Dörr som Öppnas till Okända Världar
+Discord\Discord.SV.xaml,Discord.StatementText33,Dans i Favnarna av Tiden
+Discord\Discord.SV.xaml,Discord.StatementText34,Berättelser Begravda i Natten
+Discord\Discord.SV.xaml,Discord.StatementText35,Förtrollad Spegelvärld
+Discord\Discord.SV.xaml,Discord.StatementText36,Resa vid Portarna av Oändlighet
+Discord\Discord.SV.xaml,Discord.StatementText37,Drömjägarens Nattliga Resa
+Discord\Discord.SV.xaml,Discord.StatementText38,Drömmen om en Kristallstad
+Discord\Discord.SV.xaml,Discord.StatementText39,Stjärnor som Lyser i Mörkret
+Discord\Discord.SV.xaml,Discord.StatementText40,En Mysteriös Natt bakom Stjärnorna
+Discord\Discord.SV.xaml,Discord.StatementText41,Mystiska Berättelser om Månsken
+Discord\Discord.SV.xaml,Discord.StatementText42,Guldporten vid Tröskeln till Okända Riken
+Discord\Discord.SV.xaml,Discord.StatementText43,Magiska Vägar under en Gåtfull Natt
+Discord\Discord.SV.xaml,Discord.StatementText44,Drömballonger som Stiger mot Himmelen
+Discord\Discord.SV.xaml,Discord.StatementText45,Resan till Drömmarnas Värld under Stjärnorna
+Discord\Discord.SV.xaml,Discord.StatementText46,Den Hemliga Stadens Kustnära Stad vid Stjärnkanten
+Discord\Discord.SV.xaml,Discord.StatementText47,En Saga bakom Dimberget
+Discord\Discord.SV.xaml,Discord.StatementText48,Stjärnklar Natt bakom Mörkret
+Launcher\Launcher.SV.xaml,Launcher.WallCustomizeText,Anpassa Bakgrund
+Launcher\Launcher.SV.xaml,Launcher.CreateLogText,Skapa Loggfil
+Launcher\Launcher.SV.xaml,Launcher.ExitText,Avsluta
+Launcher\Launcher.SV.xaml,Launcher.OpenReportText,Rapportera Ett Problem
+Launcher\Launcher.SV.xaml,Launcher.OpenText,Öppna Sucrose
+Launcher\Launcher.SV.xaml,Launcher.ReportText,Rapportera Fel
+Launcher\Launcher.SV.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostik
+Launcher\Launcher.SV.xaml,Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
+Launcher\Launcher.SV.xaml,Launcher.SaveDialogTitle,Spara Loggfil
+Launcher\Launcher.SV.xaml,Launcher.SettingText,Inställningar
+Launcher\Launcher.SV.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.SV.xaml,Launcher.WallChangeText,Byt Bakgrund
+Launcher\Launcher.SV.xaml,Launcher.WallCloseText,Stäng Bakgrund
+Launcher\Launcher.SV.xaml,Launcher.WallOpenText,Öppna Bakgrund
+Launcher\Launcher.SV.xaml,Launcher.WallStartText,Starta Bakgrund
+Launcher\Launcher.SV.xaml,Launcher.WallStopText,Stoppa Bakgrund
+Launcher\Launcher.SV.xaml,Launcher.UpdateText,Kontrollera Uppdateringar
+Launcher\Launcher.SV.xaml,,
+Launcher\Launcher.SV.xaml,Launcher.UpdateText.Done,Uppdateringar Väntar
+Launcher\Launcher.SV.xaml,Launcher.UpdateText.Check,Kontrollerar Uppdateringar
+Launcher\Launcher.SV.xaml,Launcher.UpdateText.Progress,Uppdateringsframsteg {0}
+Portal\Portal.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5TVi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.SV.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.SV.xaml,,
+Property\Property.SV.xaml,Property.DeleteTip,Ta bort kopia
+Property\Property.SV.xaml,Property.RefreshTip,Uppdatera gränssnitt
+Property\Property.SV.xaml,Property.RestoreTip,Återställ standard
+Property\Property.SV.xaml,,
+Property\Property.SV.xaml,Property.Type.NotSupport,Kontrolltypen '{0}' stöds inte.
+Property\Property.SV.xaml,,
+Property\Property.SV.xaml,Property.ColorPicker.Color,Färg
+Property\Property.SV.xaml,Property.ColorPicker.Cancel,Avbryt
+Property\Property.SV.xaml,Property.ColorPicker.Confirm,Bekräfta
+Property\Property.SV.xaml,Property.ColorPicker.EyeDropper,Pipett
+Property\Property.SV.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.SV.xaml,,
+Property\Property.SV.xaml,Property.FileDropDown.Tip,Välj en fil
+Property\Property.SV.xaml,Property.FileDropDown.Filter,Alla filer (*.*)|*.*
+Undo\Undo.SV.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.SV.xaml,,
+Undo\Undo.SV.xaml,Undo.QuestionMessage,Vill du verkligen avinstallera Sucrose Wallpaper Engine?
+Update\Update.SV.xaml,Update.HelpText,Lös problemet
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.UpdateBox.WindowTitle,Sucrose Uppdatering
+Update\Update.SV.xaml,Update.UpdateBox.InstallText,Installera uppdateringen
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.InfoBox.WindowTitle,Sucrose Uppdatering
+Update\Update.SV.xaml,Update.InfoBox.TextMessage,Meddelande
+Update\Update.SV.xaml,Update.InfoBox.CloseText,Stäng
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Empty,Vi är i ögonblick då uppdateringsfiler är gömda som en förlorad skatt. Du kan fortfarande njuta av din upplevelse med den nuvarande versionen.
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Error,"När vi försökte hämta uppdateringsfilen uppstod en spricka på vägen, och resan är för närvarande över. Fortsätt din resa med den nuvarande versionen, för när dessa sprickor är lagade kommer en kraftfullare uppdatering att vänta på dig."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Update,"Programmet är redan med dig i sin mest aktuella och innovativa form, som de senaste sidorna i en bok. Vi är här för att ge dig den bästa och mest aktuella upplevelsen när som helst."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Status,Vi är vid tröskeln till drömmar som vi för närvarande inte kan nå uppdateringsfiler för. Men du kan fortsätta att leva din dröm med den nuvarande versionen.
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Channel,"Den valda uppdateringskanalen är tyst som en skog. Det finns för närvarande ingen ny uppdateringsinformation här. Fortsätt din resa med den nuvarande versionen, för när tystnaden bryts kommer vi att ge dig mer."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Extract,"När vi försökte extrahera uppdateringsfilen mötte vi ett hinder från djupen av havet. Fortsätt din resa med den nuvarande versionen, för när haven lugnar sig kommer vi tillbaka för att hitta nya skatter."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Network,"Din anslutning är svag, som om molnen skymmer solen. När molnen skingras väntar en ljusare upplevelse på dig."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Updating,Uppdateringen av programmet fortskrider smygande som nya skatter som vågorna för med sig till stranden. Dessa värdefulla förbättringar samlas för dig i bakgrunden.
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Releases,"Vi upplever en stund då stjärnan på uppdateringens himmel ännu inte har fötts. Just nu finns det ingen uppdateringsinformation, men du kan fortsätta att använda den nuvarande versionen."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Download,"När vi försökte hämta uppdateringsfilen upptäckte vi att stjärnorna på himlen var felplacerade. Fortsätt din resa med den nuvarande versionen, för när stjärnorna hamnar rätt kommer vi att erbjuda dig en bättre uppdatering."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Cancelled,"Hämtningen av uppdateringsfilen avbröts eftersom våra vägar plötsligt skiljdes åt. Fortsätt din resa med den nuvarande versionen och var beredd på framtida uppdateringar, för en ny början är alltid möjlig."
+Update\Update.SV.xaml,Update.InfoBox.TextMessage.Condition,Det verkar som om villkoren för uppdateringsfilerna saknas för att öppna nyckeln. Fortsätt din resa med den nuvarande versionen och var redo för framtida uppdateringar.
+Watchdog\Watchdog.SV.xaml,Watchdog.HelpButton,Hjälp
+Watchdog\Watchdog.SV.xaml,Watchdog.CloseButton,Stäng
+Watchdog\Watchdog.SV.xaml,Watchdog.ErrorMessage,Ett oväntat fel uppstod:
+Watchdog\Watchdog.SV.xaml,Watchdog.ErrorTitle,Fel
+Watchdog\Watchdog.SV.xaml,Watchdog.HideButton,Dölj
+Watchdog\Watchdog.SV.xaml,Watchdog.ShowButton,Visa
+Watchdog\Watchdog.SV.xaml,Watchdog.StackTrace,Stackspårning:
+Watchdog\Watchdog.SV.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.SV.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.ReloadText,FÖRSÖK IGEN
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Preparing,FÖRBEREDER NÖDVÄNDIGA FÖRBEREDELSER
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Temporary,KONTROLLERAR TEMPORÄRA PLATSER
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Temporary.Error,TEMPORÄRA PLATSER KUNDE INTE KONTROLLERAS
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Connection,KONTROLLERAR INTERNETANSUTNING
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Connection.None,INGEN INTERNETANSUTNING
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Connection.Error,INTERNETANSUTNING KUNDE INTE KONTROLLERAS
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Searching,SÖKER EFTER OBLIGATORISKA FILER
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Searching.Not,OBLIGATORISKA FILER HITTADES INTE
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Searching.Error,OBLIGATORISKA FILER KUNDE INTE SÖKAS
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Listing,HÄMTAR DE OBLIGATORISKA LISTORNA
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Listing.Empty,OBLIGATORISKA LISTOR ÄR TOMMA
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Listing.Error,OBLIGATORISKA LISTOR KUNDE INTE HÄMTAS
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Filtering,LISTORNA FILTRERAS
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Filtering.Not,LISTOR KAN INTE FILTRERAS
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Filtering.Error,LISTORNA KUNDE INTE FILTRERAS
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading,LADDAR NER OBLIGATORISKA FILER
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading.Error,OBLIGATORISKA FILER KUNDE INTE LADDAS NER
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading.Complete.Cancel,NERLADDNINGEN AV DEN OBLIGATORISKA FILN AVBRÖTS
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading.Complete.Error,DET UPPSTOD ETT FEL UNDER NERLADDNINGEN AV DEN OBLIGATORISKA FILN
+Wizard\Wizard.SV.xaml,,
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting,EXTRAHAR DEN NERLADDATA FILN
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Executing,DEN EXTRAKTERADE FILN UTFÖRS
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Executed,DEN EXTRAKTERADE FILN HAR UTFÖRATS
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Failed,DEN NERLADDATA FILN MISSLYCKADES
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Corrupt,DEN NERLADDATA FILN ÄR KORRUMPERAD
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Not,DEN NERLADDATA FILN ÄR INTE ANVÄNDBAR
+Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Error,DEN NERLADDATA FILN KUNDE INTE EXTRAHAR
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Sound,Ljud
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Log,Logg
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Hook,Krok
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Store,Butik
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Donate,Donera
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.System,System
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Cache,Cache
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Laptop,Laptop
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Support,Support
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Reset,Återställning
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Backup,Säkerhetskopiering
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Priority,Prioritet
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Engines,Motorer
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Update,Uppdatering
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Library,Bibliotek
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Developer,Utvecklare
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Extensions,Tillägg
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.SystemResources,Systemresurser
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.AppearanceBehavior,Utseende &amp; Beteende
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.All,Alla
+Portal\Category\Portal.Category.SV.xaml,,
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Abstract,Abstrakt
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Ambience,Miljö
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Animals,Djur
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Animation,Animering
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Anime,Anime
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.ArchitectureandBuildings,Arkitektur och Byggnader
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.ArtandAbstract,Konst och Abstrakt
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Artworks,Konstverk
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Bard,Bard
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.BlackandWhite,Svart och Vitt
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.CartoonandComics,Tecknat och Serier
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.CitiesandPlaces,Städer och Platser
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.CloudsandSkies,Moln och Himmel
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.ColorfulGradients,Färgglada Gradienter
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.ComicBooks,Serieböcker
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.DigitalArt,Digital Konst
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Dynamic,Dynamisk
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.EnchantedForests,Förtrollade Skogar
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Fantasy,Fantasy
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.FilmandTV,Film och TV
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.FoodandDrinks,Mat och Drycker
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Galaxy,Galax
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Game,Spel
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.GeometricPatterns,Geometriska Mönster
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.HolidaysandSeasons,Semester och Säsonger
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.HorrorandHalloween,Skräck och Halloween
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.InspirationalQuotes,Inspirerande Citat
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.KidsandCartoon,Barn och Tecknat
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Landscape,Landskap
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Lifestyle,Livsstil
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.LineArt,Linjekonst
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Medieval,Medeltid
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Minimalist,Minimalistisk
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Music,Musik
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Nature,Natur
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Nightscapes,Nattlandskap
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.PatternsandTextures,Mönster och Texturer
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Retro,Retro
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Sky,Himmel
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Space,Rymd
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Sports,Sport
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Superheroes,Superhjältar
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.System,System
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Tavern,Taverna
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Technology,Teknologi
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Temple,Tempel
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Time,Tid
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.UnderwaterandMarine,Undervattens- och Marin
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Vehicles,Fordon
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Vintage,Vintage
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.War,Krig
+Portal\Controls\Portal.Controls.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5TVi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.Fill,Fyll
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.None,Ingen
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.Uniform,Uniform
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.UniformToFill,Uniform att fylla
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.None,Ingen
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.Name,Namn
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.Creation,Skapande
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.Modification,Modifiering
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.Fill,Fyll
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.None,Ingen
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.Uniform,Uniform
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.UniformToFill,Uniform att fylla
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.PerformanceType.Close,Stäng
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.PerformanceType.Pause,Pausa
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.PerformanceType.Resume,Återuppta
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.Mica,Mica
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.None,Ingen
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.Auto,Auto
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.Tabbed,Flikad
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akryl
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ChannelType.Release,Standard
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ChannelType.PreRelease,Utvecklare
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.PausePerformanceType.Heavy,Tung
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.PausePerformanceType.Light,Lätt
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortKindType.Ascending,Stigande [A-Z]
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortKindType.Descending,Fallande [Z-A]
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ExpandScreenType.Default,Standard
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ExpandScreenType.Advanced,Avancerad
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateType.Compressed,Komprimerad
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.UpdateType.Executable,Körbar
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ScreenType.WorkingArea,Arbetsområde
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ScreenType.DisplayBound,Skärmgräns
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.DuplicateScreenType.Default,Standard
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.DuplicateScreenType.Advanced,Avancerad
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Pass,Lyckat resultat
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Tags,För många 'Tags'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Type,Temat är skapat för en typ som inte stöds av applikationen
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Title,'Title' är tomt eller för långt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Author,'Author' är tomt eller för långt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Source,Filen 'Source' kunde inte hittas
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' är tomt eller för långt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Preview,Filen 'Preview' kunde inte hittas
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Encrypt,Den relaterade filen är krypterad
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.ZipType,Den relaterade filen är inte faktiskt en '.zip'-fil
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InfoFile,Filen 'SucroseInfo.json' kunde inte hittas
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.NotFound,Den relaterade filen kunde inte hittas
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.LoopMode,Ogiltigt värde för 'LoopMode'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments' är för långt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Extension,Den relaterade filen har inte '.zip'-tillägget
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Thumbnail,Filen 'Thumbnail' kunde inte hittas
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemCpu,Ogiltigt värde för 'SystemCpu'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Filen 'SucroseInfo.json' är tom
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.AppVersion,Temat är skapat för en högre version av applikationen
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Fältet 'Source' innehåller ogiltigt värde
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemBios,Ogiltigt värde för 'SystemBios'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemDate,Ogiltigt värde för 'SystemDate'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemAudio,Ogiltigt värde för 'SystemAudio'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Description,'Description' är tomt eller för långt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Filen 'SucroseInfo.json' är ogiltig
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.TriggerTime,Ogiltigt värde för 'TriggerTime'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.StretchMode,Ogiltigt värde för 'StretchMode'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Ogiltigt värde för 'VolumeLevel'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Ogiltigt värde för 'ShuffleMode'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags' värden är antingen för korta eller för långa
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidFile,Ogiltig fil
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList' är tomt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemMemory,Ogiltigt värde för 'SystemMemory'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemBattery,Ogiltigt värde för 'SystemBattery'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Ogiltigt värde för 'SystemGraphic'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Ogiltigt värde för 'SystemNetwork'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidContact,Fältet 'Contact' innehåller varken en giltig URL eller e-postadress
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Ogiltigt filtillägg
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Filen 'SucroseCompatible.json' är tom
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Filen 'SucroseProperties.json' är tom
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.PropertyListener,Ogiltigt värde för 'PropertyListener'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Ogiltigt värde för 'SystemMotherboard'
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Filen 'SucroseCompatible.json' är ogiltig
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Filen 'SucroseProperties.json' är ogiltig
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Oväntade Konsekvenser
+Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5TVi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.SV.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.SV.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Portal.LibraryPage.Import.Successful,Temat med namnet '{0}' har framgångsrikt importerats till biblioteket.
+Portal\LibraryPage\Portal.LibraryPage.SV.xaml,Portal.LibraryPage.Import.Unsuccessful,Det gick inte att importera temat med namnet '{0}' till biblioteket. Orsak: '{1}'.
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuHelp,Hjälp
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuAbout,Om
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuHelpTip,Visa hjälp
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuAboutTip,Visa om
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuLibrary,Bibliotek
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuStore,Butik
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuLibraryTip,Temabibliotek
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuStoreTip,Temabutik
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuGeneral,Allmänt
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuPersonal,Personlig
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuPerformance,Prestanda
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuWallpaper,Bakgrund
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuSystem,System
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuDonate,Donera
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuOther,Annat
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuBackTip,Gå tillbaka
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuGeneralTip,Allmänna inställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuPersonalTip,Personliga inställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuPerformanceTip,Prestanda inställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuWallpaperTip,Bakgrund inställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuSystemTip,Systeminställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuDonateTip,Donationsinställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuOtherTip,Andra inställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuSettingTip,Inställningar
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.SearchBoxHint,Sök efter en bakgrund
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.SearchBoxTip,Har du svårt att hitta vad du behöver?
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuLightTip,Ljust tema
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuDarkTip,Mörkt tema
+Portal\MainWindow\Portal.MainWindow.SV.xaml,,
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Skapa bakgrund
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Bakgrundsbilder Cykling
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Visningspreferenser
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuDonateOptionsTip,Donationsalternativ
+Portal\MainWindow\Portal.MainWindow.SV.xaml,Portal.MainWindow.MenuOtherOptionsTip,Andra alternativ
+Portal\SettingPage\Portal.SettingPage.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuU1YueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlNWLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.SV.xaml,,
+Portal\StorePage\Portal.StorePage.SV.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Title,Visningspreferenser
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Close,Stäng
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Expander,Placeringsläge
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Expander.Description,Hur bakgrundsbilder tillämpas på aktiva skärmar.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Screen,Endast vald skärm
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Expand,Förläng över skärmar
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Expand.Monitor,Alla bildskärmar
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Expand.Hint,Välj läget för att förlänga över skärmar
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Duplicate,Duplicera samma bakgrundsbild
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.SV.xaml,Portal.DisplayPreferences.Duplicate.Hint,Välj läget för att duplicera samma bakgrundsbild
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,Portal.ExpanderCard.TitleText,Rubrik
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,Portal.ExpanderCard.DescriptionText,Beskrivning
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,Portal.ExpanderCard.ExpandUpTip,Förminska
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.SV.xaml,Portal.ExpanderCard.ExpandDownTip,Förstora
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.TitleText,Rubrik
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.DescriptionText,Beskrivning
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MoreTip,Mer
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.VersionTip,Uppdatera Sucrose för att använda detta tema
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuReview,Granska
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuUse,Använd
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuPreview,Förhandsgranska
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuCustomize,Anpassa
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuFind,Hitta
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuShare,Dela
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuDelete,Ta bort
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuEdit,Redigera
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Title,Om oss
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Close,Stäng
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.About,"Hej, mitt namn är Bayram Emekli, även känd som användarnamnet Taiizor. Jag är utvecklaren av Sucrose Wallpaper Engine, en gratis och öppen källkodsapplikation. Tack för att du använder den utvecklade applikationen."
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Update,Version: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Update.Description,Senast kontrollerad: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Update.Notes,Versionsanteckningar
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Partners,Våra partners
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Contributors,Bidragsgivare
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.TermsOfService,Användarvillkor
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.PrivacyPolicy,Integritetspolicy
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.CodeOfConduct,Beteendekod
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Title,Hjälp
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Close,Stäng
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.WebPage,Webbsida
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.WebPage.Description,Officiell webbsida för Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Documentation,Dokumentation
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Documentation.Description,Officiell dokumentationssida för Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Repository,Källkod
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Repository.Description,Officiell sida för källkoden till Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Discussions,Diskussioner
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Discussions.Description,Officiell sida för diskussioner om Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Report,Rapportera fel
+Portal\Controls\OtherHelp\Portal.OtherHelp.SV.xaml,Portal.OtherHelp.Report.Description,Officiell sida för att rapportera fel i Sucrose Wallpaper Engine
+Portal\Controls\Pagination\Portal.Pagination.SV.xaml,Portal.Pagination.PageJump,Gå Till Sida
+Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Portal.StoreCard.TitleText,Rubrik
+Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Portal.StoreCard.DescriptionText,Beskrivning
+Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Portal.StoreCard.VersionTip,Uppdatera Sucrose för att använda det här temat
+Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Portal.StoreCard.MenuInstall,Installera
+Portal\Controls\StoreCard\Portal.StoreCard.SV.xaml,Portal.StoreCard.MenuReport,Rapportera
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Title,Skapa Tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Create,Skapa
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Close,Stäng
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Gif,Gif-tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Gif.Description,Skapa ditt eget tema av typen Gif.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Url,Url-tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Url.Description,Skapa ditt eget tema av typen Url.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Web,Web-tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Web.Description,Skapa ditt eget tema av typen Web.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Video,Video-tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Video.Description,Skapa ditt eget tema av typen Video.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.YouTube,YouTube-tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.YouTube.Description,Skapa ditt eget tema av typen YouTube.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Application,Application-tema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Application.Description,Skapa ditt eget tema av typen Application.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeThumbnail,Minitiatyrbild
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview,Förhandsgranskning
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeTitle,Rubrik
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeDescription,Beskrivning
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeAuthor,Författare
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeContact,Kontakt
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeTags,Taggar
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeArguments,Argument
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Ange en giltig Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Välj en miniatyrbild
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview.Hint,Välj en förhandsgranskningsfil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Ange en giltig rubrik
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Ange en giltig beskrivning
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Ange en giltig författarnamn
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeContact.Hint,Ange en giltig kontaktinformation
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeTags.Hint,Ange giltiga temataggar
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Ange giltiga applikationsargument
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Delete,Ångra
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Gif,Dra och släpp din gif-fil här
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Video,Dra och släpp din video-fil här
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Välj miniatyrbild
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Bildfiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview.Title,Välj förhandsgranskningsfil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Title,Ta bort Tema
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Delete,Ta bort
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Close,Stäng
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeTitle,Rubrik
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeDescription,Beskrivning
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeType,Typ
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeAuthor,Författare
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeSize,Storlek
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeVersion,Version
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeTags,Taggar
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeTagsText,Inga
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeCreate,Skapades
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeCreateDate,Okänt
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeModify,Ändrades
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.ThemeModifyDate,Okänt
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.Title,Redigera Tema
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.Close,Stäng
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.Save,Spara
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeTitle,Rubrik
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeDescription,Beskrivning
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeAuthor,Författare
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeContact,Kontakt
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeTags,Taggar
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeArguments,Argument
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeTitle.Hint,Ange en giltig rubrik
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeDescription.Hint,Ange en giltig beskrivning
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,Ange ett giltigt författarnamn
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeContact.Hint,Ange en giltig kontaktadress
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeTags.Hint,Ange giltiga temataggar
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.SV.xaml,Portal.ThemeEdit.ThemeArguments.Hint,Ange giltiga programargument
+Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Portal.ThemeImport.Title,Importera Tema
+Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Portal.ThemeImport.Close,Stäng
+Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Portal.ThemeImport.Info,Tema Information
+Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Portal.ThemeImport.Type,Anledning för Import
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.Title,Recensera Tema
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.Close,Stäng
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeTitle,Titel
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeDescription,Beskrivning
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeType,Typ
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeAuthor,Författare
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeSize,Storlek
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeVersion,Version
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeTags,Taggar
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeTagsText,Inga
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeCreate,Skapad
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeCreateDate,Okänt
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeModify,Ändrad
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeModifyDate,Okänt
+Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.ThemeContact,Kontakt för Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.Title,Dela Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.Close,Stäng
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemeTitle,Titel
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemeDescription,Beskrivning
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemeExport,Exportera Tema
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish,Publicera i Butiken
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemeCopy,Kopiera Länken
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.SaveDialogTitle,Spara Temafil
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,Portal.EmptyLibraryPage.TitleText,Ditt bibliotek har vävts av spindelnät
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.SV.xaml,Portal.EmptyLibraryPage.DescriptionText,Istället för tapeter har en praktfull konstverk skapats med spindelnät
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.SV.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,Portal.SearchLibraryPage.TitleText,Ditt bibliotek har förlovats med spindelnät
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.SV.xaml,Portal.SearchLibraryPage.DescriptionText,På grund av din finess vid val av tapet har det inte blivit plats för fler tapeter
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.DonateMenu,Donera Meny
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.DonateMenu.Description,Synligheten av donationsmenyn på gränssnittet.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Visa
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Dölj
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.Advertising,Annonsstöd
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.Advertising.Description,Bidra till appens utveckling genom att titta på annonser.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Annonsvaraktighet (minuter):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.SV.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Tips: Annonser visas för dig med så lite störning som möjligt.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Applikationsspråk
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,Välj det språk du vill se programmet på.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup,Starta vid uppstart
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,För att kunna spela en tapet måste Sucrose köra i bakgrunden vid uppstart.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Ingen
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioriterad
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planerad
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.NotifyIcon,Meddelandefältssymbol
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Synlighet för systemfältet. Sucrose kommer att fortsätta köra i bakgrunden.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Visa
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Dölj
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Stäng alla Sucrose-program när meddelandefältet stängs
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop,Fönsterbakgrund
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Används för att anpassa bakgrunden i programfönstret.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Välj bakgrundsbild
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Välj en bakgrundsbild
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Bilddokument (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Bakgrundsanpassning:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Bakgrundsnedsänkning (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.EngineVolume,Ljudvolym
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Ljudnivån som gäller för alla tapeter.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Spela ljudet endast när skrivbordet är i fokus
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplats
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Plats där teman som läggs till i ditt bibliotek lagras.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Vänligen välj en tom mapp
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Vänta en stund när platsen flyttas
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Flytta ditt nuvarande bibliotek till den nya platsen
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose möjliggör kommunikation med Discord.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Uppdateringsfrekvens:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Uppdateringsintervall (sekunder):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Agent,Internetagent
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Agent.Description,Din representantidentitet i situationer som kräver internetanslutning.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Key,Personlig åtkomsttoken
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Key.Description,Nödvändig för att använda butiken och uppdatera programmet smidigt.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Key.HintKey,Klicka här om du inte vet hur du får din personliga åtkomsttoken.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Key.PersonalKey,Ange din personliga åtkomsttoken
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Ange en giltig personlig åtkomsttoken
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Channel,Uppdateringskanal
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Channel.Description,Vilken kanal uppdateringsprocessen kommer att använda.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Update,Uppdateringsmetod
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Update.Description,Vilken metod som kommer att användas för uppdateringsprocessen.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Update.Limit,Nedladdningsbandbreddsbegränsning:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer,Utvecklarverktyg
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer.Description,Visa eller dölj utvecklarverktygen för WebView och CefSharp-motorn.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Counter,Prestandamätare
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Counter.Description,Om alla prestandamätare ska köra i bakgrunden.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,"Obs: Vissa Webbaserade teman kan fungera dåligt, och ingen av följande prestandainställningar kommer att användas."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Pause,Pausregel
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Pause.Description,Bestämmer regeln för att pausa bakgrundsbilden baserat på dina prestandainställningar.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Communication,Kommunikationstyp
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Communication.Description,Bestämmer metod för att skicka meddelanden till teman av typen Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Cpu,CPU-användning
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Cpu.Description,Din CPU-användningsinställning kommer att påverka vad som händer med bakgrundsbilden.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-användning (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Memory,Minnesanvändning
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Memory.Description,Dina minnesanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Minnesanvändning (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Network,Nätverksanvändning
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Network.Description,Dina nätverksanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Nätverksadapter:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Nätverksadapterlista har ännu inte skapats
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Uppladdningsstorlek:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Nedladdningsstorlek:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping-värde (ms):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Battery,Batteriström
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Battery.Description,Dina inställningar för batteriström kommer att påverka vad som händer med bakgrundsbilden när du använder en bärbar dator.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Batteristatus (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Saver,Strömsparläge
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Saver.Description,Dina inställningar för strömsparläge kommer att påverka vad som händer med bakgrundsbilden när du använder en bärbar dator i strömsparläge.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Virtual,Virtualisering
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Virtual.Description,Vad som händer med bakgrundsbilden när du använder virtualiseringsprogram.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Remote,Fjärrskrivbord
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Remote.Description,Vad som händer med bakgrundsbilden när du använder fjärrskrivbordsprogram.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Fullscreen,Helskärmsläge
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,Vad som händer med bakgrundsbilden när du använder vilken som helst applikation i helskärmsläge.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Focus,Fokusläge
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Focus.Description,Vad som händer med bakgrundsbilden när du har någon annan applikation i fokus.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Server,Butiksserver
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Server.Description,Anger vilken server som kommer att användas för att visa de teman som listas i butiken.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Server.ServerHint,Observera: Om {0} väljs som server måste en {2} anges för att undvika begänsningar för förfrågningar. Annars kan du uppleva problem med att komma åt teman i butiken. Om {1} väljs får du en smidigare butiksupplevelse.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Duration,Butik Uppdatering
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Duration.Description,Hur länge de listade temana i butiken ska uppdateras.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.StoreStart,Automatisk Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.StoreStart.Description,Om teman som laddas ner från butiken automatiskt ska ställas in som bakgrundsbild.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adult,Ocensurerat Innehåll
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adult.Description,Om innehåll som inte är säkert för arbete (NSFW) i butiken ska visas eller döljas.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Confirm,Bekräftelse vid Radering
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Confirm.Description,Om bekräftelse ska begäras när du tar bort teman från din bibliotek.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Delete,Radera Dåliga Teman
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Delete.Description,Om dåliga eller bristfälliga teman i ditt bibliotek ska raderas automatiskt.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,OBS: Var försiktig med detta. Det kan leda till datamissförluster om du inte är försiktig.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.LibraryStart,Automatisk Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Om teman som du skapar automatiskt ska ställas in som bakgrundsbild.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview,Temaförhandsgranskning
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview.Description,Om teman ska förhandsgranskas när du hovrar över dem.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Butiksförhandsvisning:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Dölj detaljer:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Biblioteksförhandsvisning:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Dölj detaljer:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme,Teman Anpassning
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme.Description,Anpassa namnet eller beskrivningen för de visade temana.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Rubrik Längd (tecken):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Beskrivning Längd (tecken):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adaptive,Anpassningsbar Layout
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adaptive.Description,Anpassa layouten eller avståndet för de visade temana.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Avstånd (pixlar):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Layout Ordning (antal):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Sort,Sortering av Bibliotek
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Sort.Description,Ange hur teman i din bibliotek ska sorteras och i vilket format.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Sort.SortMode,Sorteringsläge:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Sort.SortKind,Sorterings Typ:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Store,Butikssidor
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Store.Description,Bestäm antalet teman per sida i butiken.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Library,Bibliotekssidor
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Library.Description,Bestäm antalet teman per sida i ditt bibliotek.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LogTemporary,Loggfiler
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LogTemporary.Description,Hantera alla loggfiler som programmet skapar.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LogTemporary.Create,Skapa
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Rensa
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Obs: Den totala storleken av loggfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.CacheTemporary,Rensa Cache
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.CacheTemporary.Description,Rensa alla cache-filer som programmet skapar.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Börja Rengöring
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Obs: Den totala storleken av cache-filer är {0}. Alla program kommer att stängas när rengöringen påbörjas.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.StoreTemporary,Rensa Butik
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.StoreTemporary.Description,Rensa alla butiksfiler som programmet skapar.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Börja Rengöring
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Obs: Den totala storleken av butiksfiler är {0}. Alla program kommer att stängas när rengöringen påbörjas.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LibraryTemporary,Rensa Bibliotek
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,"Rensa alla tema-filer i ditt bibliotek, oavsett om de är nedladdade eller skapade."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Börja Rengöring
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Obs: Den totala storleken av teman i ditt bibliotek är {0}. Alla program kommer att stängas när rengöringen påbörjas.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingBackup,Inställningsfiler
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingBackup.Description,Hantera alla inställningsfiler som programmet skapar.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingBackup.Export,Säkerhetskopiera
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingBackup.Import,Återställ
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Obs: Alla program kommer att stängas när du påbörjar den valda åtgärden.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingReset,Återställ Inställningar
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingReset.Description,Återställ alla inställningsfiler som programmet skapar.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingReset.Start,Börja Återställning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.SettingReset.Hint,Obs: Alla program kommer att stängas när återställningen påbörjas.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Spara Loggfil
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ScreenLayout,Skärm Layout
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Ändrar hur dina tapeter är placerade på skärmen.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.StretchMode,Storlägesmetod
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Ändrar skalningsmetoden för stödda tapeter.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.LoopMode,Loopläge
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Ändrar upprepningssättet för stödda tapeter.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ShuffleMode,Blandningsläge
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Ändrar blandningsläge för stödda tapeter.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif-spelare
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Välj en plugin som kommer att spela Gif-teman i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.VideoPlayer,Videospelare
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Välj en plugin som kommer att spela Video-teman i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Välj en motor som kommer att spela Url-teman i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.WebPlayer,Webbmotor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Välj en motor som kommer att spela Web-teman i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Välj en motor som kommer att spela YouTube-teman i din samling.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Välj en motor som kommer att spela Application-teman i din samling.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,Portal.BrokenStorePage.TitleText,En Stund Där Internetljuset Slocknade
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.SV.xaml,Portal.BrokenStorePage.DescriptionText,Precis som en stjärnlös himmel saknar även internetets glans här
+Portal\StorePage\FullStorePage\Portal.FullStorePage.SV.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,Portal.SearchStorePage.TitleText,Svaren på vad du letar efter kan finnas i himlen
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.SV.xaml,Portal.SearchStorePage.DescriptionText,Om resultaten inte är som du förväntar dig kan himlen erbjuda dig en ny upplevelse
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,Portal.UnknownStorePage.TitleText,Upptäck Mysteriet som Uppstod i Butiken
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.SV.xaml,Portal.UnknownStorePage.DescriptionText,Följ det okända och ge dig ut på en resa för att klargöra det mysterium som har uppstått i butiken

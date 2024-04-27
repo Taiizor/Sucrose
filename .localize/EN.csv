@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuRU4ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.EN.xaml,Discord.BrowseButton,Browse
+Discord\Discord.EN.xaml,Discord.Details,Wallpaper Engine
+Discord\Discord.EN.xaml,Discord.DownloadButton,Download
+Discord\Discord.EN.xaml,,
+Discord\Discord.EN.xaml,Discord.LargestText0,The Power of Banana Ice Cream
+Discord\Discord.EN.xaml,Discord.LargestText1,The Smiling Hat Monster
+Discord\Discord.EN.xaml,Discord.LargestText2,Sparrows Coloring the Clouds
+Discord\Discord.EN.xaml,Discord.LargestText3,The Secret Adventures of Running Penguins
+Discord\Discord.EN.xaml,Discord.LargestText4,Rabbits Lost in a Daisy Field
+Discord\Discord.EN.xaml,Discord.LargestText5,Singing Windmills
+Discord\Discord.EN.xaml,Discord.LargestText6,Enigmatic Bees of the Mysterious Forest
+Discord\Discord.EN.xaml,Discord.LargestText7,Dreamy School of Fish
+Discord\Discord.EN.xaml,Discord.LargestText8,Crystal Eyed Dragon Dance
+Discord\Discord.EN.xaml,Discord.LargestText9,Fairy Tale Path Covered in Flowers
+Discord\Discord.EN.xaml,Discord.LargestText10,Stars Falling from the Sky
+Discord\Discord.EN.xaml,Discord.LargestText11,Dance in the Moonlight of the Broken Moon
+Discord\Discord.EN.xaml,Discord.LargestText12,Mysterious Rainbow Dragons
+Discord\Discord.EN.xaml,Discord.LargestText13,Magical Forest Tale
+Discord\Discord.EN.xaml,Discord.LargestText14,Flower Shower to the Sky
+Discord\Discord.EN.xaml,Discord.LargestText15,Silent Touch of Time
+Discord\Discord.EN.xaml,Discord.LargestText16,Surreal Dreamscape
+Discord\Discord.EN.xaml,Discord.LargestText17,Golden Waterfall Songs
+Discord\Discord.EN.xaml,Discord.LargestText18,Fairy Tale Ships Floating to the Sky
+Discord\Discord.EN.xaml,Discord.LargestText19,Colorful Balloon Forest
+Discord\Discord.EN.xaml,Discord.LargestText20,Mysterious Underwater City
+Discord\Discord.EN.xaml,Discord.LargestText21,Stardust Filled Sky
+Discord\Discord.EN.xaml,Discord.LargestText22,Winds Chasing the Unknown
+Discord\Discord.EN.xaml,Discord.LargestText23,Captivating Stories Under Moonlight
+Discord\Discord.EN.xaml,,
+Discord\Discord.EN.xaml,Discord.SmallestText0,Mysterious Footprints
+Discord\Discord.EN.xaml,Discord.SmallestText1,Flying Balloon Fish
+Discord\Discord.EN.xaml,Discord.SmallestText2,Laughing Flowers
+Discord\Discord.EN.xaml,Discord.SmallestText3,Cotton Candy Clouds
+Discord\Discord.EN.xaml,Discord.SmallestText4,Frozen Pizza Dragons
+Discord\Discord.EN.xaml,Discord.SmallestText5,Glowing Mushroom Pirates
+Discord\Discord.EN.xaml,Discord.SmallestText6,Invisible Unicorn Footprints
+Discord\Discord.EN.xaml,Discord.SmallestText7,Colorful Dust Clouds
+Discord\Discord.EN.xaml,Discord.SmallestText8,Golden Balloon Butterflies
+Discord\Discord.EN.xaml,Discord.SmallestText9,Journey through the Sugar Crater
+Discord\Discord.EN.xaml,Discord.SmallestText10,Rocketing Pizza Slices
+Discord\Discord.EN.xaml,Discord.SmallestText11,Seashells Dancing with the Sun
+Discord\Discord.EN.xaml,Discord.SmallestText12,Invisible Star Fingers
+Discord\Discord.EN.xaml,Discord.SmallestText13,Misty Underwater Dance
+Discord\Discord.EN.xaml,Discord.SmallestText14,Rainbow Bird Migrations
+Discord\Discord.EN.xaml,Discord.SmallestText15,Path of the Sugar Storm
+Discord\Discord.EN.xaml,Discord.SmallestText16,Galaxy of Endless Pizza
+Discord\Discord.EN.xaml,Discord.SmallestText17,Smile of the Sun
+Discord\Discord.EN.xaml,Discord.SmallestText18,Lost Laughter of the Hidden Pond
+Discord\Discord.EN.xaml,Discord.SmallestText19,Shadow of Dream Birds
+Discord\Discord.EN.xaml,Discord.SmallestText20,Butterflies Rising to the Sky
+Discord\Discord.EN.xaml,Discord.SmallestText21,Songs Hidden Behind the Stars
+Discord\Discord.EN.xaml,Discord.SmallestText22,Misty Mountains of the Tale
+Discord\Discord.EN.xaml,Discord.SmallestText23,Fairy of the Enchanted Forest
+Discord\Discord.EN.xaml,,
+Discord\Discord.EN.xaml,Discord.StatementText0,A Universe Filled with Chaos
+Discord\Discord.EN.xaml,Discord.StatementText1,In the Midst of Endless Adventures
+Discord\Discord.EN.xaml,Discord.StatementText2,A Strange and Enchanting World
+Discord\Discord.EN.xaml,Discord.StatementText3,Challenging the Limits of Imagination
+Discord\Discord.EN.xaml,Discord.StatementText4,An Extraordinary Reality
+Discord\Discord.EN.xaml,Discord.StatementText5,In the Depths of Imagination
+Discord\Discord.EN.xaml,Discord.StatementText6,A Magical Journey of Discovery
+Discord\Discord.EN.xaml,Discord.StatementText7,At the Doorstep of Unknown Realms
+Discord\Discord.EN.xaml,Discord.StatementText8,In a Complex Dream World
+Discord\Discord.EN.xaml,Discord.StatementText9,An Adventure Pushing Boundaries
+Discord\Discord.EN.xaml,Discord.StatementText10,Dynamic and Surprising Experience
+Discord\Discord.EN.xaml,Discord.StatementText11,Within a Fantastic Tale
+Discord\Discord.EN.xaml,Discord.StatementText12,Among Magical Portals
+Discord\Discord.EN.xaml,Discord.StatementText13,Journey to the Night Sky
+Discord\Discord.EN.xaml,Discord.StatementText14,In the Footsteps of the Lost Continent
+Discord\Discord.EN.xaml,Discord.StatementText15,Story of Unknown Planets
+Discord\Discord.EN.xaml,Discord.StatementText16,Discovery of Parallel Universes
+Discord\Discord.EN.xaml,Discord.StatementText17,Entrance to Legendary Realms
+Discord\Discord.EN.xaml,Discord.StatementText18,Reality Woven with Dream Texture
+Discord\Discord.EN.xaml,Discord.StatementText19,Interstellar Dream
+Discord\Discord.EN.xaml,Discord.StatementText20,Behind the Doors of Time
+Discord\Discord.EN.xaml,Discord.StatementText21,Shimmering Team of Stars
+Discord\Discord.EN.xaml,Discord.StatementText22,Silent Cry of the Unknown
+Discord\Discord.EN.xaml,Discord.StatementText23,A Captivating World
+Discord\Discord.EN.xaml,Discord.StatementText24,At the Summit of Mystic Mountains
+Discord\Discord.EN.xaml,Discord.StatementText25,In the Footsteps of Lost Kingdoms
+Discord\Discord.EN.xaml,Discord.StatementText26,Interstellar Dream Journey
+Discord\Discord.EN.xaml,Discord.StatementText27,Magical Night Creatures
+Discord\Discord.EN.xaml,Discord.StatementText28,Beginning of an Endless Tale
+Discord\Discord.EN.xaml,Discord.StatementText29,Colorful Balloons Rising to the Sky
+Discord\Discord.EN.xaml,Discord.StatementText30,Mysterious Night Sky
+Discord\Discord.EN.xaml,Discord.StatementText31,Lost Kingdom on the Dream Road
+Discord\Discord.EN.xaml,Discord.StatementText32,Gateway to Unknown Realms
+Discord\Discord.EN.xaml,Discord.StatementText33,Dance in the Lap of Time
+Discord\Discord.EN.xaml,Discord.StatementText34,Stories Buried in the Night
+Discord\Discord.EN.xaml,Discord.StatementText35,Magical Mirror World
+Discord\Discord.EN.xaml,Discord.StatementText36,Journey at the Gates of Infinity
+Discord\Discord.EN.xaml,Discord.StatementText37,Night Journey of the Dream Hunter
+Discord\Discord.EN.xaml,Discord.StatementText38,Crystal City Dream
+Discord\Discord.EN.xaml,Discord.StatementText39,Stars Shining in the Dark
+Discord\Discord.EN.xaml,Discord.StatementText40,Magical Night Behind the Stars
+Discord\Discord.EN.xaml,Discord.StatementText41,Mysterious Moonlight Stories
+Discord\Discord.EN.xaml,Discord.StatementText42,On the Threshold of Unknown Realms with the Golden Door
+Discord\Discord.EN.xaml,Discord.StatementText43,Mysterious Paths of the Magical Night
+Discord\Discord.EN.xaml,Discord.StatementText44,Dream Balloons Rising to the Sky
+Discord\Discord.EN.xaml,Discord.StatementText45,Dream Road Under the Stars
+Discord\Discord.EN.xaml,Discord.StatementText46,Hidden World in the Town by the Star Coast
+Discord\Discord.EN.xaml,Discord.StatementText47,Tale Behind the Misty Mountain
+Discord\Discord.EN.xaml,Discord.StatementText48,Starry Night Shining in the Dark
+Launcher\Launcher.EN.xaml,Launcher.WallCustomizeText,Customize Wallpaper
+Launcher\Launcher.EN.xaml,Launcher.CreateLogText,Create Log File
+Launcher\Launcher.EN.xaml,Launcher.ExitText,Close
+Launcher\Launcher.EN.xaml,Launcher.OpenReportText,Report a Problem
+Launcher\Launcher.EN.xaml,Launcher.OpenText,Open Sucrose
+Launcher\Launcher.EN.xaml,Launcher.ReportText,Report Error
+Launcher\Launcher.EN.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostics
+Launcher\Launcher.EN.xaml,Launcher.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
+Launcher\Launcher.EN.xaml,Launcher.SaveDialogTitle,Save Log File
+Launcher\Launcher.EN.xaml,Launcher.SettingText,Settings
+Launcher\Launcher.EN.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.EN.xaml,Launcher.WallChangeText,Change Wallpaper
+Launcher\Launcher.EN.xaml,Launcher.WallCloseText,Close Wallpaper
+Launcher\Launcher.EN.xaml,Launcher.WallOpenText,Open Wallpaper
+Launcher\Launcher.EN.xaml,Launcher.WallStartText,Start Wallpaper
+Launcher\Launcher.EN.xaml,Launcher.WallStopText,Stop Wallpaper
+Launcher\Launcher.EN.xaml,Launcher.UpdateText,Check for Updates
+Launcher\Launcher.EN.xaml,,
+Launcher\Launcher.EN.xaml,Launcher.UpdateText.Done,Updates Pending
+Launcher\Launcher.EN.xaml,Launcher.UpdateText.Check,Checking for Updates
+Launcher\Launcher.EN.xaml,Launcher.UpdateText.Progress,Update Progress {0}
+Portal\Portal.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5FTi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.EN.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.EN.xaml,,
+Property\Property.EN.xaml,Property.DeleteTip,Delete Copy
+Property\Property.EN.xaml,Property.RefreshTip,Refresh Interface
+Property\Property.EN.xaml,Property.RestoreTip,Restore Default
+Property\Property.EN.xaml,,
+Property\Property.EN.xaml,Property.Type.NotSupport,Control type '{0}' is not supported.
+Property\Property.EN.xaml,,
+Property\Property.EN.xaml,Property.ColorPicker.Color,Color
+Property\Property.EN.xaml,Property.ColorPicker.Cancel,Cancel
+Property\Property.EN.xaml,Property.ColorPicker.Confirm,Confirm
+Property\Property.EN.xaml,Property.ColorPicker.EyeDropper,Eye Dropper
+Property\Property.EN.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.EN.xaml,,
+Property\Property.EN.xaml,Property.FileDropDown.Tip,Select a file
+Property\Property.EN.xaml,Property.FileDropDown.Filter,All Files (*.*)|*.*
+Undo\Undo.EN.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.EN.xaml,,
+Undo\Undo.EN.xaml,Undo.QuestionMessage,Do you really want to uninstall Sucrose Wallpaper Engine?
+Update\Update.EN.xaml,Update.HelpText,Solve Problem
+Update\Update.EN.xaml,,
+Update\Update.EN.xaml,Update.UpdateBox.WindowTitle,Sucrose Update
+Update\Update.EN.xaml,Update.UpdateBox.InstallText,Install Update
+Update\Update.EN.xaml,,
+Update\Update.EN.xaml,Update.InfoBox.WindowTitle,Sucrose Update
+Update\Update.EN.xaml,Update.InfoBox.TextMessage,Message
+Update\Update.EN.xaml,Update.InfoBox.CloseText,Close
+Update\Update.EN.xaml,,
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Empty,We are in moments when update files are hidden like a lost gem. You can still enjoy the experience using the current version.
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Error,"While downloading the update file, we discovered a crack in the path, and this journey has come to an end for now. Continue your journey with the current version because a stronger update awaits when these cracks are repaired."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Update,"The application is already with you, like the latest page of a book, in its most up-to-date and innovative form. Here to provide you with the best and most current experience at all times."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Status,We are on the threshold of a dream where update files cannot be accessed. But you can continue to live your dream using the current version.
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Channel,"The selected update channel is like a silent forest. There are currently no new update information here. Continue your journey with the current version because when this silence is broken, we will offer you more."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Extract,"While attempting to extract the update file, we encountered an obstacle from the depths of the sea. For now, continue your journey with the current version, as we will return to find new treasures when the seas are calmer."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Network,"Weakness in your connection, like clouds obscuring the sun. A brighter experience awaits you when the clouds clear."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Updating,"Application update is progressing stealthily, like new treasures brought by the waves of the sea to the shore. These valuable innovations are being gathered for you in the background."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Releases,"We are experiencing a moment when the update star in the application has not yet risen. Currently, there is no update information available, but you can continue to use the existing version."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Download,"While downloading the update file, we discovered that the stars in the sky are in the wrong alignment. For now, continue your journey with the current version, as we will provide you with a better update when the stars align correctly."
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Cancelled,The download of the update file has been canceled because our paths diverged suddenly. Continue your journey with the current version and be prepared for future updates because a new beginning is always possible.
+Update\Update.EN.xaml,Update.InfoBox.TextMessage.Condition,"The conditions in the update files seem to be missing to unlock the key. For now, continue your journey with the current version and be prepared for future updates."
+Watchdog\Watchdog.EN.xaml,Watchdog.HelpButton,Help
+Watchdog\Watchdog.EN.xaml,Watchdog.CloseButton,Close
+Watchdog\Watchdog.EN.xaml,Watchdog.ErrorMessage,An unexpected error occurred:
+Watchdog\Watchdog.EN.xaml,Watchdog.ErrorTitle,Error
+Watchdog\Watchdog.EN.xaml,Watchdog.HideButton,Hide
+Watchdog\Watchdog.EN.xaml,Watchdog.ShowButton,Show
+Watchdog\Watchdog.EN.xaml,Watchdog.StackTrace,Stack Trace:
+Watchdog\Watchdog.EN.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.EN.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.ReloadText,TRY AGAIN
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Preparing,PREPARING NECESSARY PREPARATIONS
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Temporary,CHECKING TEMPORARY LOCATIONS
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Temporary.Error,TEMPORARY LOCATIONS COULD NOT BE CHECKED
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Connection,CHECKING INTERNET CONNECTION
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Connection.None,NO INTERNET CONNECTION
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Connection.Error,INTERNET CONNECTION COULD NOT BE CHECKED
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Searching,SEARCHING FOR REQUIRED FILES
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Searching.Not,REQUIRED FILES NOT FOUND
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Searching.Error,REQUIRED FILES COULD NOT BE SEARCHED
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Listing,GETTING THE REQUIRED LISTS
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Listing.Empty,REQUIRED LISTS ARE EMPTY
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Listing.Error,REQUIRED LISTS COULD NOT BE RECEIVED
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Filtering,LISTS ARE BEING FILTERING
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Filtering.Not,LISTS CANNOT BE FILTERED
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Filtering.Error,LISTS COULD NOT BE FILTERED
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Downloading,DOWNLOADING REQUIRED FILES
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Downloading.Error,REQUIRED FILES COULD NOT BE DOWNLOADED
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Downloading.Complete.Cancel,THE DOWNLOAD OF THE REQUIRED FILE WAS CANCELLED
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Downloading.Complete.Error,THERE WAS AN ERROR WHILE DOWNLOADING THE REQUIRED FILE
+Wizard\Wizard.EN.xaml,,
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Extracting,EXTRACTING THE DOWNLOADED FILE
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Extracting.Executing,THE EXTRACTED FILE IS BEING EXECUTED
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Extracting.Executed,THE EXTRACTED FILE HAS BEEN EXECUTED
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Extracting.Failed,THE DOWNLOADED FILE FAILED
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Extracting.Corrupt,THE DOWNLOADED FILE IS CORRUPT
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Extracting.Not,THE DOWNLOADED FILE IS NOT USABLE
+Wizard\Wizard.EN.xaml,Wizard.MessageText.Extracting.Error,THE DOWNLOADED FILE COULD NOT BE EXTRACTED
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Sound,Sound
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Log,Log
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Hook,Hook
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Store,Store
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Donate,Donate
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.System,System
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Cache,Cache
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Laptop,Laptop
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Support,Support
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Reset,Resetting
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Backup,Backup
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Priority,Priority
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Engines,Engines
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Update,Update
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Library,Library
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Developer,Developer
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.Extensions,Extensions
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.SystemResources,System Resources
+Portal\Area\Portal.Area.EN.xaml,Portal.Area.AppearanceBehavior,Appearance &amp; Behavior
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.All,All
+Portal\Category\Portal.Category.EN.xaml,,
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Abstract,Abstract
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Ambience,Ambience
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Animals,Animals
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Animation,Animation
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Anime,Anime
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.ArchitectureandBuildings,Architecture &amp; Buildings
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.ArtandAbstract,Art &amp; Abstract
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Artworks,Artworks
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Bard,Bard
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.BlackandWhite,Black &amp; White
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.CartoonandComics,Cartoon &amp; Comics
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.CitiesandPlaces,Cities &amp; Places
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.CloudsandSkies,Clouds &amp; Skies
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.ColorfulGradients,Colorful Gradients
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.ComicBooks,Comic Books
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.DigitalArt,Digital Art
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Dynamic,Dynamic
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.EnchantedForests,Enchanted Forests
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Fantasy,Fantasy
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.FilmandTV,Film &amp; TV
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.FoodandDrinks,Food &amp; Drinks
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Galaxy,Galaxy
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Game,Game
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.GeometricPatterns,Geometric Patterns
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.HolidaysandSeasons,Holidays &amp; Seasons
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.HorrorandHalloween,Horror &amp; Halloween
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.InspirationalQuotes,Inspirational Quotes
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.KidsandCartoon,Kids &amp; Cartoon
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Landscape,Landscape
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Lifestyle,Lifestyle
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.LineArt,Line Art
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Medieval,Medieval
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Minimalist,Minimalist
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Music,Music
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Nature,Nature
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Nightscapes,Nightscapes
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.PatternsandTextures,Patterns &amp; Textures
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Retro,Retro
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Sky,Sky
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Space,Space
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Sports,Sports
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Superheroes,Superheroes
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.System,System
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Tavern,Tavern
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Technology,Technology
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Temple,Temple
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Time,Time
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.UnderwaterandMarine,Underwater &amp; Marine
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Vehicles,Vehicles
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.Vintage,Vintage
+Portal\Category\Portal.Category.EN.xaml,Portal.Category.War,War
+Portal\Controls\Portal.Controls.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5FTi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.Stretch.Fill,Fill
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.Stretch.None,None
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.Stretch.Uniform,Uniform
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.Stretch.UniformToFill,Uniform to Fill
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.SortModeType.None,None
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.SortModeType.Name,Name
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.SortModeType.Creation,Creation
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.SortModeType.Modification,Modification
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.StretchType.Fill,Fill
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.StretchType.None,None
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.StretchType.Uniform,Uniform
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.StretchType.UniformToFill,Uniform to Fill
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.PerformanceType.Close,Close
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.PerformanceType.Pause,Pause
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.PerformanceType.Resume,Resume
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.WindowBackdropType.Mica,Mica
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.WindowBackdropType.None,None
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.WindowBackdropType.Auto,Auto
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.WindowBackdropType.Tabbed,Tabbed
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acrylic
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ChannelType.Release,Default
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ChannelType.PreRelease,Developer
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.PausePerformanceType.Heavy,Heavy
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.PausePerformanceType.Light,Light
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.SortKindType.Ascending,Ascending [A-Z]
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.SortKindType.Descending,Descending [Z-A]
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ExpandScreenType.Default,Default
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ExpandScreenType.Advanced,Advanced
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateType.Compressed,Compressed
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.UpdateType.Executable,Executable
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ScreenType.WorkingArea,Working Area
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.ScreenType.DisplayBound,Display Bound
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.DuplicateScreenType.Default,Default
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.DuplicateScreenType.Advanced,Advanced
+Portal\Enum\Portal.Enum.EN.xaml,,
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Pass,Successful Result
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' has too many values
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Type,The theme is created for an unsupported type
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Title,'Title' value is empty or too long
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Author,'Author' value is empty or too long
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Source,'Source' file not found
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' value is empty or too long
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' file not found
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Encrypt,The related file is encrypted
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.ZipType,The related file is not a real '.zip' file
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json' file not found
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.NotFound,The related file not found
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.LoopMode,Invalid 'LoopMode' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments' value is too long
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Extension,The related file is not '.zip' extension
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail' file not found
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemCpu,Invalid 'SystemCpu' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json' file is empty
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.AppVersion,The theme is created for a higher version of the application
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' contains an invalid value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemBios,Invalid 'SystemBios' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemDate,Invalid 'SystemDate' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemAudio,Invalid 'SystemAudio' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Description,'Description' value is empty or too long
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json' file is invalid
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.TriggerTime,Invalid 'TriggerTime' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.StretchMode,Invalid 'StretchMode' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Invalid 'VolumeLevel' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Invalid 'ShuffleMode' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags' values are too short or too long
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidFile,Invalid file
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList' value is empty
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemMemory,Invalid 'SystemMemory' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemBattery,Invalid 'SystemBattery' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Invalid 'SystemGraphic' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Invalid 'SystemNetwork' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidContact,The 'Contact' value is not 'URL' or 'Email Address'
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Invalid file extension
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json' file is empty
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json' file is empty
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.PropertyListener,Invalid 'PropertyListener' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Invalid 'SystemMotherboard' value
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' file is invalid
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' file is invalid
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Unforeseen Consequences
+Portal\LibraryPage\Portal.LibraryPage.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5FTi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.EN.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.EN.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.EN.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.EN.xaml,Portal.LibraryPage.Import.Successful,The theme '{0}' has been successfully added to the library.
+Portal\LibraryPage\Portal.LibraryPage.EN.xaml,Portal.LibraryPage.Import.Unsuccessful,The theme '{0}' couldn't be added to the library. Reason: '{1}'.
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuHelp,Help
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuAbout,About
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuHelpTip,View Help
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuAboutTip,View About
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuLibrary,Library
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuStore,Store
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuLibraryTip,Theme Library
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuStoreTip,Theme Store
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuGeneral,General
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuPersonal,Personal
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuPerformance,Performance
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuWallpaper,Wallpaper
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuSystem,System
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuDonate,Donate
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuOther,Other
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuBackTip,Go Back
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuGeneralTip,General Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuPersonalTip,Personal Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuPerformanceTip,Performance Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuWallpaperTip,Wallpaper Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuSystemTip,System Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuDonateTip,Donate Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuOtherTip,Other Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuSettingTip,Settings
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.SearchBoxHint,Search for a Wallpaper
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.SearchBoxTip,Having trouble finding what you need?
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuLightTip,Light Theme
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuDarkTip,Dark Theme
+Portal\MainWindow\Portal.MainWindow.EN.xaml,,
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Create Wallpaper
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Wallpaper Cycling
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Display Preferences
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuDonateOptionsTip,Donation Options
+Portal\MainWindow\Portal.MainWindow.EN.xaml,Portal.MainWindow.MenuOtherOptionsTip,Other Options
+Portal\SettingPage\Portal.SettingPage.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuRU4ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkVOLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.EN.xaml,,
+Portal\StorePage\Portal.StorePage.EN.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Title,Display Preferences
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Close,Close
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Expander,Placement Mode
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Expander.Description,How wallpapers will be applied to active screens.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Screen,Selected Screen Only
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Expand,Expand Across Screens
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Expand.Monitor,All Monitors
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Expand.Hint,Select the expand across screens mode
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Duplicate,Duplicate Same Wallpaper
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.EN.xaml,Portal.DisplayPreferences.Duplicate.Hint,Select the duplicate same wallpaper mode
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EN.xaml,Portal.ExpanderCard.TitleText,Title
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EN.xaml,Portal.ExpanderCard.DescriptionText,Description
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EN.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EN.xaml,Portal.ExpanderCard.ExpandUpTip,Collapse
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.EN.xaml,Portal.ExpanderCard.ExpandDownTip,Expand
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.TitleText,Title
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.DescriptionText,Description
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MoreTip,More
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.VersionTip,Update Sucrose to use this theme
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuReview,Review
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuUse,Use
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuPreview,Preview
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuCustomize,Customize
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuFind,Find
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuShare,Share
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuDelete,Delete
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuEdit,Edit
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Title,About
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Close,Close
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.About,"Hello, my name is Bayram Emekli, also known by the username Taiizor. I am the developer of the free and open-source Sucrose Wallpaper Engine application. Thank you for using my application."
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Update,Version: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Update.Description,Last Checked: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Update.Notes,Release Notes
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Partners,Our Partners
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Contributors,Contributors
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.TermsOfService,Terms of Service
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.PrivacyPolicy,Privacy Policy
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.CodeOfConduct,Contributor Covenant Code of Conduct
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Title,Help
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Close,Close
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.WebPage,Web Page
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.WebPage.Description,Official Sucrose Wallpaper Engine web page
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Documentation,Documentation
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Documentation.Description,Official Sucrose Wallpaper Engine documentation page
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Repository,Source Code
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Repository.Description,Official Sucrose Wallpaper Engine source code page
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Discussions,Discussions
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Discussions.Description,Official Sucrose Wallpaper Engine discussions page
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Report,Report Issue
+Portal\Controls\OtherHelp\Portal.OtherHelp.EN.xaml,Portal.OtherHelp.Report.Description,Official Sucrose Wallpaper Engine issue reporting page
+Portal\Controls\Pagination\Portal.Pagination.EN.xaml,Portal.Pagination.PageJump,Jump
+Portal\Controls\StoreCard\Portal.StoreCard.EN.xaml,Portal.StoreCard.TitleText,Title
+Portal\Controls\StoreCard\Portal.StoreCard.EN.xaml,Portal.StoreCard.DescriptionText,Description
+Portal\Controls\StoreCard\Portal.StoreCard.EN.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.EN.xaml,Portal.StoreCard.VersionTip,Update Sucrose to use this theme
+Portal\Controls\StoreCard\Portal.StoreCard.EN.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.EN.xaml,Portal.StoreCard.MenuInstall,Install
+Portal\Controls\StoreCard\Portal.StoreCard.EN.xaml,Portal.StoreCard.MenuReport,Report
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Title,Create Theme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Create,Create
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Close,Close
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Gif,Gif Theme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Gif.Description,Create your own theme in Gif format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Url,Url Theme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Url.Description,Create your own theme in Url format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Web,Web Theme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Web.Description,Create your own theme in Web format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Video,Video Theme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Video.Description,Create your own theme in Video format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.YouTube,YouTube Theme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.YouTube.Description,Create your own theme in YouTube format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Application,Application Theme
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Application.Description,Create your own theme in Application format.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeThumbnail,Thumbnail
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview,Preview
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeTitle,Title
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeDescription,Description
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeAuthor,Author
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeContact,Contact
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeTags,Tags
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeArguments,Arguments
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Please enter a valid url address
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Select a cover image
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview.Hint,Select a preview file
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Please enter a valid title
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Please enter a valid description
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Please enter a valid author name
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeContact.Hint,Please enter a valid contact address
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeTags.Hint,Please enter valid theme tags
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Please enter valid application arguments
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.DragDrop.Delete,Undo
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.DragDrop.Gif,Drag and drop your gif file here
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.DragDrop.Video,Drag and drop your video file here
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Select Cover Image
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Image Files (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview.Title,Select Preview File
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif Files (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.Title,Delete Theme
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.Delete,Delete
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.Close,Close
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeTitle,Title
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeDescription,Description
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeType,Type
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeAuthor,Author
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeSize,Size
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeVersion,Version
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeTags,Tags
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeTagsText,None
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeCreate,Creation
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeCreateDate,Unknown
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeModify,Modification
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.ThemeModifyDate,Unknown
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.Title,Edit Theme
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.Close,Close
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.Save,Save
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeTitle,Title
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeDescription,Description
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeAuthor,Author
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeContact,Contact
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeTags,Tags
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeArguments,Arguments
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeTitle.Hint,Please enter a valid title
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeDescription.Hint,Please enter a valid description
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,Please enter a valid author name
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeContact.Hint,Please enter a valid contact address
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeTags.Hint,Please enter valid theme tags
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.EN.xaml,Portal.ThemeEdit.ThemeArguments.Hint,Please enter valid application arguments
+Portal\Controls\ThemeImport\Portal.ThemeImport.EN.xaml,Portal.ThemeImport.Title,Theme Import
+Portal\Controls\ThemeImport\Portal.ThemeImport.EN.xaml,Portal.ThemeImport.Close,Close
+Portal\Controls\ThemeImport\Portal.ThemeImport.EN.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.EN.xaml,Portal.ThemeImport.Info,Theme Information
+Portal\Controls\ThemeImport\Portal.ThemeImport.EN.xaml,Portal.ThemeImport.Type,Reason Descriptions
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.Title,Theme Review
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.Close,Close
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeTitle,Title
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeDescription,Description
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeType,Type
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeAuthor,Author
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeSize,Size
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeVersion,Version
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeTags,Tags
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeTagsText,None
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeCreate,Creation
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeCreateDate,Unknown
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeModify,Modification
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeModifyDate,Unknown
+Portal\Controls\ThemeReview\Portal.ThemeReview.EN.xaml,Portal.ThemeReview.ThemeContact,Theme Contact Address
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.Title,Theme Sharing
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.Close,Close
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.ThemeTitle,Title
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.ThemeDescription,Description
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.ThemeExport,Export
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.ThemePublish,Publish in Store
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.ThemeCopy,Copy Link
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.EN.xaml,Portal.ThemeShare.SaveDialogTitle,Save Theme File
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EN.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EN.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EN.xaml,Portal.EmptyLibraryPage.TitleText,Your Library is Woven by Spider Webs
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EN.xaml,Portal.EmptyLibraryPage.DescriptionText,"Instead of wallpapers, a magnificent work of art has emerged with spider webs"
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.EN.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EN.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EN.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EN.xaml,Portal.SearchLibraryPage.TitleText,Your Library Enchanted with Spider Webs
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.EN.xaml,Portal.SearchLibraryPage.DescriptionText,"Due to your wallpaper selection finesse, there's no space left for wallpapers"
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.DonateMenu,Donate Menu
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.DonateMenu.Description,Visibility of the donation menu in the interface.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Visible
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Invisible
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.Advertising,Advertising Support
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.Advertising.Description,Contribute to the development of the application by watching ads.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Ad Delay (Minutes):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.EN.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Tip: Ads will be displayed to you in a way that minimizes inconvenience.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Application Language
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,Select the language in which you want to view the application.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup,Startup at Application Launch
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,Sucrose needs to run in the background at startup to play the wallpaper.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,None
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priority
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Scheduler
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.NotifyIcon,Notification Area Icon
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Visibility in the system tray. Sucrose will continue to run discreetly.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Visible
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Invisible
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Close all Sucrose applications when the system tray is closed
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop,Window Backdrop
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Used to customize the background of the application window.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Select Background Image
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Select a background image
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Image Files (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Background Stretch:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Background Opacity (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.EngineVolume,Engine Volume
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Volume that applies to all wallpapers.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Play sound only when focused on the desktop
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary,Library Location
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Location where themes you add to your library are stored.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Please select an empty folder
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Please wait while the location is being changed
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Move your current library to the new location
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose facilitates communication with Discord.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Connection Refresh:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Refresh Interval (Seconds):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Agent,Internet Agent
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Agent.Description,Your identity in situations requiring an internet connection.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Key,Personal Access Token
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Key.Description,Required for smooth use of the store and application updates.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Key.HintKey,Click here if you don't know how to obtain a personal access token.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Key.PersonalKey,Please enter a personal access token
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Please enter a valid personal access token
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Channel,Update Channel
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Channel.Description,The channel through which updates will or will not be performed.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Update,Update Method
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Update.Description,The method used for the update process.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Update.Limit,Download Bandwidth Limit:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer,Developer Tools
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer.Description,Whether developer tools for WebView and CefSharp engine should be displayed or not.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Counter,Performance Counters
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Counter.Description,Whether all performance counters should run in the background.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,"Note: Some Web themed wallpapers may not work properly, and none of the performance settings below will work."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Pause,Pause Rule
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Pause.Description,Determines the rule for pausing the wallpaper based on your performance settings.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Communication,Communication Type
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Communication.Description,Determines the method of sending messages to themes of type Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Cpu,Processor Usage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Cpu.Description,What happens to the wallpaper based on your processor usage settings.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Processor Usage (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Memory,Memory Usage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Memory.Description,What happens to the wallpaper based on your memory usage settings.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Memory Usage (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network,Network Usage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.Description,What happens to the wallpaper based on your network usage settings.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Network Adapter:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,No network adapters list created yet
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Upload Size:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Download Size:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping Value (MS):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Battery,Battery Power
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Battery.Description,What happens to the wallpaper when running on laptop battery power.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Battery Status (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Saver,Battery Saver
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Saver.Description,What happens to the wallpaper when in laptop battery saver mode.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Virtual,Virtualization
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Virtual.Description,What happens to the wallpaper when virtualization applications are running.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Remote,Remote Desktop
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Remote.Description,What happens to the wallpaper when remote desktop applications are running.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Fullscreen,Full Screen Mode
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,What happens to the wallpaper when any application is running in full screen mode.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Focus,Focus Mode
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Focus.Description,What happens to the wallpaper when another application has focus.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Server,Store Server
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Server.Description,Specifies which server will be used to display the themes listed in the store.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Note: If {0} is selected as the server, it is necessary to enter a {2} to avoid request limits. Otherwise, you may experience issues accessing themes in the store. If {1} is selected, you will have a smoother store experience."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Duration,Store Refresh
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Duration.Description,How often themes listed in the store will be refreshed.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.StoreStart,Auto Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.StoreStart.Description,Whether themes downloaded from the store should be set as wallpapers automatically.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Adult,Unsafe Content
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Adult.Description,Whether to display content marked as not safe for work (NSFW) in the store.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Confirm,Deletion Confirmation
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Confirm.Description,Whether to ask for confirmation when deleting themes from the library.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Delete,Corrupt Themes
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Delete.Description,Whether to automatically delete corrupt or missing themes from the library.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,"Note: Caution is advised, as this may result in data loss."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.LibraryStart,Auto Start
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Whether the created theme should be set as wallpaper automatically.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Preview,Theme Preview
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Preview.Description,Whether themes should be previewed on hover.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Store Preview:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Hide Details:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Library Preview:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Hide Details:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Theme,Theme Customization
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Theme.Description,Customize the name or description of displayed themes.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Title Length (Characters):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Description Length (Characters):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Adaptive,Adaptive Layout
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Adaptive.Description,Customize the layout or spacing of displayed themes.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Spacing Distance (Pixels):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Layout Order (Count):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Sort,Library Sorting
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Sort.Description,Specify how and in what order themes in your library will be sorted.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Sort.SortMode,Sort Mode:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Sort.SortKind,Sort Type:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Store,Store Pagination
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Store.Description,Determine how many themes there will be for each page in the store.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Library,Library Pagination
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EN.xaml,Portal.PersonalSettingPage.Library.Description,Determine how many themes there will be for each page in your library.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LogTemporary,Log Files
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LogTemporary.Description,Manage all log files generated by the application.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LogTemporary.Create,Create
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Clear
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Note: Total space occupied by log files is {0}. All applications will be closed only when cleaning starts.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.CacheTemporary,Clear Cache
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.CacheTemporary.Description,Clear all cache files created by the application.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Start Cleaning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Note: Total space occupied by cache files is {0}. All applications will be closed only when cleaning starts.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.StoreTemporary,Clear Store
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.StoreTemporary.Description,Clear all store files created by the application.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Start Cleaning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Note: Total space occupied by store files is {0}. All applications will be closed only when cleaning starts.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LibraryTemporary,Clear Library
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,"Clear all theme files in your library, whether in your library or created by you."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Start Cleaning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Note: Total space occupied by themes in your library is {0}. All applications will be closed only when cleaning starts.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingBackup,Backup Settings
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingBackup.Description,Manage all setting files generated by the application.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingBackup.Export,Backup
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingBackup.Import,Restore
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Note: All applications will be closed when the selected operation starts.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingReset,Reset Settings
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingReset.Description,Reset all setting files generated by the application.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingReset.Start,Start Reset
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.SettingReset.Hint,Note: All applications will be closed when the reset process starts.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Save Log File
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.ScreenLayout,Screen Layout
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Change the layout of your wallpapers on the screen.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.StretchMode,Stretch Mode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Change the scaling mode for supported wallpapers.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.LoopMode,Loop Mode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Change the looping behavior for supported wallpapers.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.ShuffleMode,Shuffle Mode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Change the shuffle behavior for supported wallpapers.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif Player
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Select the plugin that will play Gif-themed wallpapers in your library.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.VideoPlayer,Video Player
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Select the plugin that will play Video-themed wallpapers in your library.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Select the engine that will run Url-themed wallpapers in your library.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.WebPlayer,Web Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Select the engine that will run Web-themed wallpapers in your library.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Select the engine that will run YouTube-themed wallpapers in your library.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application Engine
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Select the engine that will run Application-themed wallpapers in your library.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EN.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EN.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EN.xaml,Portal.BrokenStorePage.TitleText,A Moment When Internet Lights Dimmed
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.EN.xaml,Portal.BrokenStorePage.DescriptionText,"Like a starless sky, there's no sparkle of the internet here"
+Portal\StorePage\FullStorePage\Portal.FullStorePage.EN.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EN.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EN.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EN.xaml,Portal.SearchStorePage.TitleText,The Answer to What You're Looking For May Be Hidden in the Sky
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.EN.xaml,Portal.SearchStorePage.DescriptionText,"If the results aren't coming as expected, the sky can offer you a new experience"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EN.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EN.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EN.xaml,Portal.UnknownStorePage.TitleText,Uncover the Mysterious State Unveiled in the Store
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.EN.xaml,Portal.UnknownStorePage.DescriptionText,Embark on a journey to uncover the unknown and shed light on the mysterious state that has emerged in the store

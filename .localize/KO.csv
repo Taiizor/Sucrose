@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuS08ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.KO.xaml,Discord.BrowseButton,찾아보기
+Discord\Discord.KO.xaml,Discord.Details,벽지 엔진
+Discord\Discord.KO.xaml,Discord.DownloadButton,다운로드
+Discord\Discord.KO.xaml,,
+Discord\Discord.KO.xaml,Discord.LargestText0,바나나 아이스크림 강력
+Discord\Discord.KO.xaml,Discord.LargestText1,미소 지은 모자 괴물
+Discord\Discord.KO.xaml,Discord.LargestText2,구름 물들이는 참새들
+Discord\Discord.KO.xaml,Discord.LargestText3,달리는 펭귄의 비밀 모험
+Discord\Discord.KO.xaml,Discord.LargestText4,민들레 밭에서 길 잃은 토끼들
+Discord\Discord.KO.xaml,Discord.LargestText5,노래하는 바람 꽃
+Discord\Discord.KO.xaml,Discord.LargestText6,신비로운 숲의 비밀스러운 벌
+Discord\Discord.KO.xaml,Discord.LargestText7,꿈 가득한 물고기 떼
+Discord\Discord.KO.xaml,Discord.LargestText8,수정 눈의 용 춤
+Discord\Discord.KO.xaml,Discord.LargestText9,꽃으로 뒤덮인 동화 길
+Discord\Discord.KO.xaml,Discord.LargestText10,하늘에서 쏟아지는 별들
+Discord\Discord.KO.xaml,Discord.LargestText11,깨진 달 빛 속의 춤
+Discord\Discord.KO.xaml,Discord.LargestText12,신비로운 무지개 용
+Discord\Discord.KO.xaml,Discord.LargestText13,마법의 숲 이야기
+Discord\Discord.KO.xaml,Discord.LargestText14,하늘에 내리는 꽃비
+Discord\Discord.KO.xaml,Discord.LargestText15,시간의 조용한 손길
+Discord\Discord.KO.xaml,Discord.LargestText16,초현실적인 꿈 나라
+Discord\Discord.KO.xaml,Discord.LargestText17,황금 폭포 노래
+Discord\Discord.KO.xaml,Discord.LargestText18,하늘을 떠다니는 동화 선박
+Discord\Discord.KO.xaml,Discord.LargestText19,다채로운 풍선 숲
+Discord\Discord.KO.xaml,Discord.LargestText20,신비로운 해저 도시
+Discord\Discord.KO.xaml,Discord.LargestText21,별가루 흙뿌리는 하늘
+Discord\Discord.KO.xaml,Discord.LargestText22,알려지지 않은 바람들을 쫓다
+Discord\Discord.KO.xaml,Discord.LargestText23,달빛 아래 매혹적인 이야기들
+Discord\Discord.KO.xaml,,
+Discord\Discord.KO.xaml,Discord.SmallestText0,신비로운 발자국
+Discord\Discord.KO.xaml,Discord.SmallestText1,날아다니는 풍선 물고기
+Discord\Discord.KO.xaml,Discord.SmallestText2,웃음 터뜨리는 꽃들
+Discord\Discord.KO.xaml,Discord.SmallestText3,달콤한 솜사탕 구름들
+Discord\Discord.KO.xaml,Discord.SmallestText4,얼어붙은 피자 용
+Discord\Discord.KO.xaml,Discord.SmallestText5,빛나는 버섯 해적들
+Discord\Discord.KO.xaml,Discord.SmallestText6,보이지 않는 유니콘 발자국
+Discord\Discord.KO.xaml,Discord.SmallestText7,색상 분말 구름
+Discord\Discord.KO.xaml,Discord.SmallestText8,금색 풍선 나비
+Discord\Discord.KO.xaml,Discord.SmallestText9,설탕 분화구 여행
+Discord\Discord.KO.xaml,Discord.SmallestText10,로켓으로 날아가는 피자 조각
+Discord\Discord.KO.xaml,Discord.SmallestText11,태양과 춤추는 바다 속 조개
+Discord\Discord.KO.xaml,Discord.SmallestText12,보이지 않는 별 손가락
+Discord\Discord.KO.xaml,Discord.SmallestText13,안개 속 해저 댄스
+Discord\Discord.KO.xaml,Discord.SmallestText14,무지개 새 이동
+Discord\Discord.KO.xaml,Discord.SmallestText15,설탕 폭풍 길
+Discord\Discord.KO.xaml,Discord.SmallestText16,무한한 피자 은하수
+Discord\Discord.KO.xaml,Discord.SmallestText17,태양의 미소
+Discord\Discord.KO.xaml,Discord.SmallestText18,숨은 연못의 잃어버린 미소
+Discord\Discord.KO.xaml,Discord.SmallestText19,꿈새의 그림자
+Discord\Discord.KO.xaml,Discord.SmallestText20,하늘로 상승하는 나비
+Discord\Discord.KO.xaml,Discord.SmallestText21,별 뒤에 감춰진 노래
+Discord\Discord.KO.xaml,Discord.SmallestText22,동화의 안개 산
+Discord\Discord.KO.xaml,Discord.SmallestText23,신비로운 숲의 요정
+Discord\Discord.KO.xaml,,
+Discord\Discord.KO.xaml,Discord.StatementText0,혼돈 가득한 우주
+Discord\Discord.KO.xaml,Discord.StatementText1,끝없는 모험 중
+Discord\Discord.KO.xaml,Discord.StatementText2,이상하고 마법의 세계
+Discord\Discord.KO.xaml,Discord.StatementText3,상상의 한계 도전
+Discord\Discord.KO.xaml,Discord.StatementText4,보통이 아닌 현실
+Discord\Discord.KO.xaml,Discord.StatementText5,상상의 깊은 곳에서
+Discord\Discord.KO.xaml,Discord.StatementText6,마법의 탐험 여행
+Discord\Discord.KO.xaml,Discord.StatementText7,알려지지 않은 세계의 문 앞에서
+Discord\Discord.KO.xaml,Discord.StatementText8,복잡한 꿈의 세계
+Discord\Discord.KO.xaml,Discord.StatementText9,한계를 도전하는 모험
+Discord\Discord.KO.xaml,Discord.StatementText10,동적이고 놀라운 경험
+Discord\Discord.KO.xaml,Discord.StatementText11,환상적인 동화 안에서
+Discord\Discord.KO.xaml,Discord.StatementText12,마법의 문 사이에서
+Discord\Discord.KO.xaml,Discord.StatementText13,밤 하늘로 여행
+Discord\Discord.KO.xaml,Discord.StatementText14,잃어버린 대륙의 자취
+Discord\Discord.KO.xaml,Discord.StatementText15,알려지지 않은 행성 이야기
+Discord\Discord.KO.xaml,Discord.StatementText16,평행 우주의 발견
+Discord\Discord.KO.xaml,Discord.StatementText17,전설적인 나라의 입구
+Discord\Discord.KO.xaml,Discord.StatementText18,꿈으로 엮인 현실
+Discord\Discord.KO.xaml,Discord.StatementText19,별 사이의 꿈
+Discord\Discord.KO.xaml,Discord.StatementText20,시간의 문 뒤에
+Discord\Discord.KO.xaml,Discord.StatementText21,빛나는 별들 팀
+Discord\Discord.KO.xaml,Discord.StatementText22,알려지지 않은 침묵의 외침
+Discord\Discord.KO.xaml,Discord.StatementText23,매혹적인 세계
+Discord\Discord.KO.xaml,Discord.StatementText24,안개 속 산 정상에서
+Discord\Discord.KO.xaml,Discord.StatementText25,잃어버린 왕국의 자취
+Discord\Discord.KO.xaml,Discord.StatementText26,별 사이의 꿈 여행
+Discord\Discord.KO.xaml,Discord.StatementText27,마법의 밤 생물
+Discord\Discord.KO.xaml,Discord.StatementText28,끝없는 동화의 시작
+Discord\Discord.KO.xaml,Discord.StatementText29,하늘로 솟아오르는 다채로운 풍선
+Discord\Discord.KO.xaml,Discord.StatementText30,신비로운 밤 하늘
+Discord\Discord.KO.xaml,Discord.StatementText31,꿈 길 잃은 왕국
+Discord\Discord.KO.xaml,Discord.StatementText32,알려지지 않은 대지로 향하는 문
+Discord\Discord.KO.xaml,Discord.StatementText33,시간의 품에서 춤
+Discord\Discord.KO.xaml,Discord.StatementText34,밤에 잠겨 있는 이야기들
+Discord\Discord.KO.xaml,Discord.StatementText35,마법 거울의 세계
+Discord\Discord.KO.xaml,Discord.StatementText36,무한의 문에서 여행
+Discord\Discord.KO.xaml,Discord.StatementText37,꿈 사냥꾼의 밤 여행
+Discord\Discord.KO.xaml,Discord.StatementText38,수정 도시 꿈
+Discord\Discord.KO.xaml,Discord.StatementText39,어둠에 빛나는 별들
+Discord\Discord.KO.xaml,Discord.StatementText40,별 뒤의 비밀스러운 밤
+Discord\Discord.KO.xaml,Discord.StatementText41,신비로운 달빛 이야기
+Discord\Discord.KO.xaml,Discord.StatementText42,알려지지 않은 대지의 문턱에서
+Discord\Discord.KO.xaml,Discord.StatementText43,마법의 밤의 신비로운 길
+Discord\Discord.KO.xaml,Discord.StatementText44,하늘로 솟아오르는 꿈 풍선
+Discord\Discord.KO.xaml,Discord.StatementText45,별들 아래의 꿈 길
+Discord\Discord.KO.xaml,Discord.StatementText46,숨겨진 세계 별 둔치 마을
+Discord\Discord.KO.xaml,Discord.StatementText47,안개 속 산 뒤 이야기
+Discord\Discord.KO.xaml,Discord.StatementText48,어둠에 빛나는 별빛 밤
+Launcher\Launcher.KO.xaml,Launcher.WallCustomizeText,바탕화면 사용자 정의
+Launcher\Launcher.KO.xaml,Launcher.CreateLogText,로그 파일 생성
+Launcher\Launcher.KO.xaml,Launcher.ExitText,종료
+Launcher\Launcher.KO.xaml,Launcher.OpenReportText,문제 신고
+Launcher\Launcher.KO.xaml,Launcher.OpenText,Sucrose 열기
+Launcher\Launcher.KO.xaml,Launcher.ReportText,오류 신고
+Launcher\Launcher.KO.xaml,Launcher.ReportWindowTitle,Sucrose 진단
+Launcher\Launcher.KO.xaml,Launcher.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
+Launcher\Launcher.KO.xaml,Launcher.SaveDialogTitle,로그 파일 저장
+Launcher\Launcher.KO.xaml,Launcher.SettingText,설정
+Launcher\Launcher.KO.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.KO.xaml,Launcher.WallChangeText,바탕화면 변경
+Launcher\Launcher.KO.xaml,Launcher.WallCloseText,바탕화면 닫기
+Launcher\Launcher.KO.xaml,Launcher.WallOpenText,바탕화면 열기
+Launcher\Launcher.KO.xaml,Launcher.WallStartText,바탕화면 시작
+Launcher\Launcher.KO.xaml,Launcher.WallStopText,바탕화면 정지
+Launcher\Launcher.KO.xaml,Launcher.UpdateText,업데이트 확인
+Launcher\Launcher.KO.xaml,,
+Launcher\Launcher.KO.xaml,Launcher.UpdateText.Done,업데이트 대기 중
+Launcher\Launcher.KO.xaml,Launcher.UpdateText.Check,업데이트 확인 중
+Launcher\Launcher.KO.xaml,Launcher.UpdateText.Progress,업데이트 진행 중 {0}
+Portal\Portal.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.KO.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.KO.xaml,,
+Property\Property.KO.xaml,Property.DeleteTip,복사본 삭제
+Property\Property.KO.xaml,Property.RefreshTip,인터페이스 새로 고침
+Property\Property.KO.xaml,Property.RestoreTip,기본값 복원
+Property\Property.KO.xaml,,
+Property\Property.KO.xaml,Property.Type.NotSupport,컨트롤 유형 '{0}'은(는) 지원되지 않습니다.
+Property\Property.KO.xaml,,
+Property\Property.KO.xaml,Property.ColorPicker.Color,색상
+Property\Property.KO.xaml,Property.ColorPicker.Cancel,취소
+Property\Property.KO.xaml,Property.ColorPicker.Confirm,확인
+Property\Property.KO.xaml,Property.ColorPicker.EyeDropper,색상 선택기
+Property\Property.KO.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.KO.xaml,,
+Property\Property.KO.xaml,Property.FileDropDown.Tip,파일 선택
+Property\Property.KO.xaml,Property.FileDropDown.Filter,모든 파일 (*.*)|*.*
+Undo\Undo.KO.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.KO.xaml,,
+Undo\Undo.KO.xaml,Undo.QuestionMessage,정말로 Sucrose Wallpaper Engine을(를) 제거하시겠습니까?
+Update\Update.KO.xaml,Update.HelpText,문제 해결
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.UpdateBox.WindowTitle,Sucrose 업데이트
+Update\Update.KO.xaml,Update.UpdateBox.InstallText,업데이트 설치
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.InfoBox.WindowTitle,Sucrose 업데이트
+Update\Update.KO.xaml,Update.InfoBox.TextMessage,메시지
+Update\Update.KO.xaml,Update.InfoBox.CloseText,닫기
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Empty,업데이트 파일이 숨겨진 보석처럼 없어져 버렸던 순간입니다. 현재 버전을 사용하면 여전히 즐길 수 있습니다.
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Error,"업데이트 파일을 다운로드하는 동안 길에 갈라짐이 생겼다는 것을 발견했고, 이 여정은 일단 여기서 끝이라고 알게 되었습니다. 현재 버전으로 여정을 계속하세요, 이 길이 고쳐질 때 더 강력한 업데이트가 여러분을 기다리고 있을 것입니다."
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Update,앱은 이미 최신 및 혁신적인 형태로 여러분과 함께합니다. 언제든지 최고의 최신 경험을 제공하기 위해 여기에 있습니다.
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Status,업데이트 파일에 액세스할 수 없는 꿈의 문턱에 서 있습니다. 그러나 현재 버전을 사용하여 꿈을 계속 즐길 수 있습니다.
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Channel,"선택한 업데이트 채널은 정적인 숲과 같습니다. 현재 새로운 업데이트 정보가 여기에 없습니다. 현재 버전으로 여정을 계속하세요, 이 고요함이 깨지면 여러분에게 더 많은 것을 제공할 것입니다."
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Extract,"업데이트 파일을 추출하려고 할 때, 심연에서 비롯된 장애물과 마주쳤습니다. 현재 버전으로 여정을 계속하세요, 바다가 더 잔잔해지면 새로운 보물을 찾아 돌아올 것입니다."
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Network,"귀하의 연결이 약해져, 구름이 태양을 가리는 것과 유사합니다. 구름이 걷히면 더 밝은 경험이 여러분을 기다리고 있을 것입니다."
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Updating,앱 업데이트는 바다 파도가 새로운 보물을 해변으로 가져오는 것과 같이 은밀하게 진행 중입니다. 이 값진 혁신은 백그라운드에서 여러분을 위해 모아지고 있습니다.
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Releases,"아직 앱 업데이트 별이 떠오르지 않은 순간을 즐기고 있습니다. 현재 어떠한 업데이트 정보도 없지만, 이미 사용 가능한 버전을 계속 사용할 수 있습니다."
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Download,"업데이트 파일을 다운로드하는 동안, 하늘의 별들이 잘못된 배열을 가지고 있음을 발견했습니다. 현재 버전으로 여정을 계속하세요, 별들이 올바른 위치에 있을 때 더 나은 업데이트를 제공할 것입니다."
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Cancelled,"업데이트 파일 다운로드가 중지되었으며 이는 우리의 길이 갑자기 분기한 결과입니다. 현재 버전으로 여정을 계속하고 미래의 업데이트에 대비하세요, 새로운 시작은 언제나 가능합니다."
+Update\Update.KO.xaml,Update.InfoBox.TextMessage.Condition,업데이트 파일의 조건이 열쇠를 열기에 부적합한 것처럼 보입니다. 현재 버전으로 여정을 계속하고 미래의 업데이트를 기대하세요.
+Watchdog\Watchdog.KO.xaml,Watchdog.HelpButton,도움말
+Watchdog\Watchdog.KO.xaml,Watchdog.CloseButton,닫기
+Watchdog\Watchdog.KO.xaml,Watchdog.ErrorMessage,예기치 않은 오류가 발생했습니다:
+Watchdog\Watchdog.KO.xaml,Watchdog.ErrorTitle,오류
+Watchdog\Watchdog.KO.xaml,Watchdog.HideButton,숨기기
+Watchdog\Watchdog.KO.xaml,Watchdog.ShowButton,보이기
+Watchdog\Watchdog.KO.xaml,Watchdog.StackTrace,스택 추적:
+Watchdog\Watchdog.KO.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.KO.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.ReloadText,다시 시도
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Preparing,필요한 준비를 진행 중입니다
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Temporary,임시 위치를 확인 중입니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Temporary.Error,임시 위치를 확인할 수 없습니다
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Connection,인터넷 연결을 확인 중입니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Connection.None,인터넷에 연결되어 있지 않습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Connection.Error,인터넷 연결을 확인할 수 없습니다
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Searching,필요한 파일을 검색 중입니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Searching.Not,필요한 파일을 찾을 수 없습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Searching.Error,필요한 파일을 검색할 수 없습니다
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Listing,필요한 목록을 가져오고 있습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Listing.Empty,필요한 목록이 비어 있습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Listing.Error,필요한 목록을 받을 수 없습니다
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Filtering,목록을 필터링 중입니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Filtering.Not,목록을 필터링할 수 없습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Filtering.Error,목록을 필터링할 수 없습니다
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading,필요한 파일을 다운로드 중입니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading.Error,필요한 파일을 다운로드할 수 없습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading.Complete.Cancel,필요한 파일의 다운로드가 취소되었습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading.Complete.Error,필요한 파일을 다운로드하는 동안 오류가 발생했습니다
+Wizard\Wizard.KO.xaml,,
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting,다운로드한 파일을 추출 중입니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Executing,추출된 파일이 실행 중입니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Executed,추출된 파일이 실행되었습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Failed,다운로드한 파일이 실패했습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Corrupt,다운로드한 파일이 손상되었습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Not,다운로드한 파일을 사용할 수 없습니다
+Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Error,다운로드한 파일을 추출할 수 없습니다
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Sound,소리
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Log,로그
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Hook,훅
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Store,상점
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Donate,기부
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.System,시스템
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Cache,캐시
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Laptop,노트북
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Support,지원
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Reset,재설정
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Backup,백업
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Priority,우선 순위
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Engines,엔진
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Update,업데이트
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Library,라이브러리
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Developer,개발자
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Extensions,확장 기능
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.SystemResources,시스템 자원
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.AppearanceBehavior,외관 및 동작
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.All,전체
+Portal\Category\Portal.Category.KO.xaml,,
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Abstract,추상
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Ambience,환경
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Animals,동물
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Animation,애니메이션
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Anime,애니메이션
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.ArchitectureandBuildings,건축 및 건물
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.ArtandAbstract,미술 및 추상
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Artworks,미술 작품
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Bard,바드
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.BlackandWhite,흑백
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.CartoonandComics,만화 및 만화책
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.CitiesandPlaces,도시 및 장소
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.CloudsandSkies,구름 및 하늘
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.ColorfulGradients,다채로운 그라데이션
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.ComicBooks,만화책
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.DigitalArt,디지털 아트
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Dynamic,동적
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.EnchantedForests,마법의 숲
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Fantasy,판타지
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.FilmandTV,영화 및 TV
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.FoodandDrinks,음식 및 음료
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Galaxy,은하
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Game,게임
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.GeometricPatterns,기하학적 패턴
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.HolidaysandSeasons,휴일 및 계절
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.HorrorandHalloween,공포 및 할로윈
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.InspirationalQuotes,영감을 주는 인용구
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.KidsandCartoon,어린이 및 만화
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Landscape,풍경
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Lifestyle,라이프스타일
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.LineArt,선 그림
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Medieval,중세
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Minimalist,미니멀리스트
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Music,음악
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Nature,자연
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Nightscapes,야경
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.PatternsandTextures,패턴 및 질감
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Retro,레트로
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Sky,하늘
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Space,우주
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Sports,스포츠
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Superheroes,슈퍼히어로
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.System,시스템
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Tavern,주점
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Technology,기술
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Temple,신전
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Time,시간
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.UnderwaterandMarine,수중 및 해양
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Vehicles,차량
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.Vintage,빈티지
+Portal\Category\Portal.Category.KO.xaml,Portal.Category.War,전쟁
+Portal\Controls\Portal.Controls.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.Fill,채우기
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.None,없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.Uniform,균일하게
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.UniformToFill,균일하게 채우기
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.None,없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.Name,이름
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.Creation,생성
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.Modification,수정
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StretchType.Fill,채우기
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StretchType.None,없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StretchType.Uniform,균일하게
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StretchType.UniformToFill,균일하게 채우기
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PerformanceType.Close,닫기
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PerformanceType.Pause,일시 정지
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PerformanceType.Resume,재개
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Mica,미카
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.None,없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Auto,자동
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Tabbed,탭식
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Acrylic,아크릴
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.Release,기본
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.PreRelease,개발자
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PausePerformanceType.Heavy,무거운
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PausePerformanceType.Light,가벼운
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortKindType.Ascending,오름차순 [A-Z]
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortKindType.Descending,내림차순 [Z-A]
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ExpandScreenType.Default,기본
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ExpandScreenType.Advanced,고급
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateType.Compressed,압축
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.UpdateType.Executable,실행 가능
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ScreenType.WorkingArea,작업 영역
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ScreenType.DisplayBound,화면 경계
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.DuplicateScreenType.Default,기본
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.DuplicateScreenType.Advanced,고급
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Pass,성공
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' 값이 너무 많음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Type,테마가 지원하지 않는 유형용으로 만들어짐
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Title,'Title' 값이 비어 있거나 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Author,'Author' 값이 비어 있거나 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Source,'Source' 파일을 찾을 수 없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' 값이 비어 있거나 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' 파일을 찾을 수 없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Encrypt,관련 파일이 암호화됨
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.ZipType,관련 파일이 실제로 '.zip' 파일이 아님
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json' 파일을 찾을 수 없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.NotFound,관련 파일을 찾을 수 없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.LoopMode,잘못된 'LoopMode' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments' 값이 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Extension,관련 파일이 '.zip' 확장자가 아님
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail' 파일을 찾을 수 없음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemCpu,잘못된 'SystemCpu' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json' 파일이 비어 있음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.AppVersion,테마가 더 높은 앱 버전용으로 만들어짐
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' 값이 잘못됨
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemBios,잘못된 'SystemBios' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemDate,잘못된 'SystemDate' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemAudio,잘못된 'SystemAudio' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Description,'Description' 값이 비어 있거나 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json' 파일이 잘못됨
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.TriggerTime,잘못된 'TriggerTime' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.StretchMode,잘못된 'StretchMode' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.VolumeLevel,잘못된 'VolumeLevel' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.ShuffleMode,잘못된 'ShuffleMode' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags' 값이 너무 짧거나 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidFile,잘못된 파일
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList' 값이 비어 있음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemMemory,잘못된 'SystemMemory' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemBattery,잘못된 'SystemBattery' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemGraphic,잘못된 'SystemGraphic' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemNetwork,잘못된 'SystemNetwork' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidContact,'Contact' 값이 'URL' 또는 '이메일 주소'가 아님
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidExtension,잘못된 파일 확장자
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json' 파일이 비어 있음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json' 파일이 비어 있음
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.PropertyListener,잘못된 'PropertyListener' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,잘못된 'SystemMotherboard' 값
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' 파일이 잘못됨
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' 파일이 잘못됨
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,예상하지 못한 결과
+Portal\LibraryPage\Portal.LibraryPage.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.KO.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.KO.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.KO.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.KO.xaml,Portal.LibraryPage.Import.Successful,'{0}' 테마가 성공적으로 라이브러리에 추가되었습니다.
+Portal\LibraryPage\Portal.LibraryPage.KO.xaml,Portal.LibraryPage.Import.Unsuccessful,'{0}' 테마를 라이브러리에 추가할 수 없었습니다. 이유: '{1}'.
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuHelp,도움말
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuAbout,정보
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuHelpTip,도움말 보기
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuAboutTip,정보 보기
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuLibrary,라이브러리
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuStore,상점
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuLibraryTip,테마 라이브러리
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuStoreTip,테마 상점
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuGeneral,일반
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuPersonal,개인
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuPerformance,성능
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuWallpaper,배경화면
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuSystem,시스템
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuDonate,기부
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuOther,기타
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuBackTip,뒤로 가기
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuGeneralTip,일반 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuPersonalTip,개인 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuPerformanceTip,성능 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuWallpaperTip,배경화면 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuSystemTip,시스템 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuDonateTip,기부 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuOtherTip,기타 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuSettingTip,설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.SearchBoxHint,배경화면 검색
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.SearchBoxTip,원하는 항목을 찾기 어려우십니까?
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuLightTip,밝은 테마
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuDarkTip,어두운 테마
+Portal\MainWindow\Portal.MainWindow.KO.xaml,,
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuCreateWallpaperTip,배경화면 생성
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,배경 화면 순환
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,화면 설정
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuDonateOptionsTip,기부 옵션
+Portal\MainWindow\Portal.MainWindow.KO.xaml,Portal.MainWindow.MenuOtherOptionsTip,기타 옵션
+Portal\SettingPage\Portal.SettingPage.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuS08ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLktPLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.KO.xaml,,
+Portal\StorePage\Portal.StorePage.KO.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Title,디스플레이 환경 설정
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Close,닫기
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Expander,배치 모드
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Expander.Description,배경화면이 활성화된 화면에 적용되는 방법.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Screen,선택한 화면만
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Expand,화면 확장
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Expand.Monitor,모든 모니터
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Expand.Hint,화면 확장 모드를 선택하세요
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Duplicate,동일한 배경 화면 복제
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.KO.xaml,Portal.DisplayPreferences.Duplicate.Hint,동일한 배경 화면 복제 모드를 선택하세요
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.KO.xaml,Portal.ExpanderCard.TitleText,제목
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.KO.xaml,Portal.ExpanderCard.DescriptionText,설명
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.KO.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.KO.xaml,Portal.ExpanderCard.ExpandUpTip,축소
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.KO.xaml,Portal.ExpanderCard.ExpandDownTip,확장
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.TitleText,제목
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.DescriptionText,설명
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MoreTip,더 보기
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.VersionTip,이 테마를 사용하려면 Sucrose를 업데이트하세요
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuReview,검토
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuUse,사용
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuPreview,미리보기
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuCustomize,사용자 정의
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuFind,찾기
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuShare,공유
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuDelete,삭제
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuEdit,편집
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Title,소개
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Close,닫기
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.About,"안녕하세요, 제 이름은 Bayram Emekli이며 Taiizor 사용자 이름으로도 알려져 있습니다. 무료 및 오픈 소스인 Sucrose Wallpaper Engine 응용 프로그램 개발자입니다. 제작한 응용 프로그램을 사용해 주셔서 감사합니다."
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Update,버전: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Update.Description,최근 업데이트 날짜: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Update.Notes,업데이트 노트
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Partners,파트너
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Contributors,기여자
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.TermsOfService,서비스 약관
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.PrivacyPolicy,개인 정보 보호 정책
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.CodeOfConduct,공동체 행동 강령
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Title,도움말
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Close,닫기
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.WebPage,웹 페이지
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engine 공식 웹 페이지
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Documentation,문서
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engine 공식 문서 페이지
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Repository,소스 코드
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engine 공식 소스 코드 페이지
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Discussions,토론
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engine 공식 토론 페이지
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Report,버그 신고
+Portal\Controls\OtherHelp\Portal.OtherHelp.KO.xaml,Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engine 공식 버그 신고 페이지
+Portal\Controls\Pagination\Portal.Pagination.KO.xaml,Portal.Pagination.PageJump,건너뛰기
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.TitleText,제목
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.DescriptionText,설명
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.VersionTip,이 테마를 사용하려면 Sucrose를 업데이트하세요
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.MenuInstall,설치
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.MenuReport,신고
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Title,테마 생성
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Create,생성
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Close,닫기
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Gif,Gif 테마
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Gif.Description,Gif 형식의 테마를 만드세요.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Url,Url 테마
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Url.Description,Url 형식의 테마를 만드세요.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Web,Web 테마
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Web.Description,Web 형식의 테마를 만드세요.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Video,Video 테마
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Video.Description,Video 형식의 테마를 만드세요.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.YouTube,YouTube 테마
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.YouTube.Description,YouTube 형식의 테마를 만드세요.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Application,Application 테마
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Application.Description,Application 형식의 테마를 만드세요.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeThumbnail,썸네일
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview,미리보기
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeTitle,제목
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeDescription,설명
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeAuthor,저자
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeContact,연락처
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeTags,태그
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeArguments,인수
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeUrl.Hint,유효한 Url 주소를 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,썸네일 이미지를 선택하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview.Hint,미리보기 파일을 선택하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeTitle.Hint,유효한 제목을 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeDescription.Hint,유효한 설명을 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,유효한 저자 이름을 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeContact.Hint,유효한 연락처 주소를 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeTags.Hint,유효한 테마 태그를 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeArguments.Hint,유효한 애플리케이션 인수를 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Delete,되돌리기
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Gif,Gif 파일을 이곳으로 끌어다 놓고 놓으세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Video,비디오 파일을 이곳으로 끌어다 놓고 놓으세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,썸네일 선택
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,이미지 파일 (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview.Title,미리보기 파일 선택
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif 파일 (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Title,테마 삭제
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Delete,삭제
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Close,닫기
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeTitle,제목
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeDescription,설명
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeType,유형
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeAuthor,저자
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeSize,크기
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeVersion,버전
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeTags,태그
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeTagsText,없음
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeCreate,만든 날짜
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeCreateDate,알 수 없음
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeModify,수정한 날짜
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.ThemeModifyDate,알 수 없음
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.Title,테마 편집
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.Close,닫기
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.Save,저장
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeTitle,제목
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeDescription,설명
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeAuthor,작성자
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeContact,연락처
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeTags,태그
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeArguments,인수
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeTitle.Hint,유효한 제목을 입력하세요
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeDescription.Hint,유효한 설명을 입력하세요
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,유효한 작성자 이름을 입력하세요
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeContact.Hint,유효한 연락처 주소를 입력하세요
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeTags.Hint,유효한 테마 태그를 입력하세요
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.KO.xaml,Portal.ThemeEdit.ThemeArguments.Hint,유효한 응용 프로그램 인수를 입력하세요
+Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,Portal.ThemeImport.Title,테마 가져오기
+Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,Portal.ThemeImport.Close,닫기
+Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,Portal.ThemeImport.Info,테마 정보
+Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,Portal.ThemeImport.Type,유형
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.Title,테마 검토
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.Close,닫기
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeTitle,제목
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeDescription,설명
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeType,유형
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeAuthor,저자
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeSize,크기
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeVersion,버전
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeTags,태그
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeTagsText,없음
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeCreate,만든 날짜
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeCreateDate,알 수 없음
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeModify,수정한 날짜
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeModifyDate,알 수 없음
+Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.ThemeContact,테마 연락 주소
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.Title,테마 공유
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.Close,닫기
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemeTitle,제목
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemeDescription,설명
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemeExport,내보내기
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish,스토어에 게시
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemeCopy,링크 복사
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogTitle,테마 파일 저장
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.KO.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.KO.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.KO.xaml,Portal.EmptyLibraryPage.TitleText,당신의 라이브러리는 거미줄로 뒤덮여 있습니다
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.KO.xaml,Portal.EmptyLibraryPage.DescriptionText,배경 화면 대신 거미줄로 멋진 예술 작품이 만들어졌습니다
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.KO.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.KO.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.KO.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.KO.xaml,Portal.SearchLibraryPage.TitleText,당신의 라이브러리가 거미줄에 감겨 있습니다
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.KO.xaml,Portal.SearchLibraryPage.DescriptionText,벽지 선택의 꼼꼼함으로 벽지 공간이 부족해졌습니다
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.DonateMenu,기부 메뉴
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.DonateMenu.Description,인터페이스에 표시되는 기부 메뉴의 가시성.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,표시
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,숨기기
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.Advertising,광고 지원
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.Advertising.Description,앱 개발을 지원하기 위해 광고를 시청하세요.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,광고 지연 시간 (분):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.KO.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,팁: 광고는 최소한의 불편함을 유발하지 않도록 표시됩니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationLanguage,애플리케이션 언어
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,표시 언어를 선택합니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup,시작 시 실행
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,벽지를 재생하려면 시작시 Sucrose가 백그라운드에서 실행되어야 합니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,없음
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,일반
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,우선 순위
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,스케줄러
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.NotifyIcon,알림 아이콘
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,시스템 트레이 가시성. Sucrose가 은밀하게 계속 실행됩니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,표시
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,숨기기
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,시스템 트레이 닫힐 때 모든 Sucrose 앱을 종료합니다
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.WindowBackdrop,창 배경
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,앱 창 배경을 사용자 정의하는 데 사용됩니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,배경 이미지 선택
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,배경 이미지 선택
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,이미지 파일 (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,배경 크기 조정:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,배경 불투명도 (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.EngineVolume,음량
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.EngineVolume.Description,모든 벽지에 적용되는 음량 설정입니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,바탕 화면에만 포커스를 맞춘 경우에만 소리를 재생합니다
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.PrivateLibrary,라이브러리 위치
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,추가한 테마가 저장될 위치입니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,빈 폴더를 선택하세요
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,위치를 변경하는 동안 잠시 기다려 주십시오
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,현재 라이브러리를 새 위치로 이동
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose는 Discord와의 통신을 담당합니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,연결 갱신:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,갱신 주기 (초):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Agent,인터넷 대리인
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Agent.Description,인터넷 연결이 필요한 상황에서의 대리인 신원입니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Key,개인 액세스 토큰
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Key.Description,상점 및 앱 업데이트를 원할하게 이용하기 위해 필요합니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Key.HintKey,개인 액세스 토큰을 어떻게 얻을 수 있는지 모르겠다면 여기를 클릭하세요.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Key.PersonalKey,유효한 개인 액세스 토큰을 입력하십시오
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,유효한 개인 액세스 토큰을 입력하십시오
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Channel,업데이트 채널
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Channel.Description,업데이트 작업이 어느 채널을 통해 수행될지 선택합니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Update,업데이트 방법
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Update.Description,업데이트 작업이 어떤 방법으로 수행될지 선택합니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Update.Limit,다운로드 대역폭 제한:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Developer,개발자 도구
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Developer.Description,WebView 및 CefSharp 엔진을 위한 개발자 도구를 표시할지 여부를 선택합니다.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Counter,성능 카운터
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Counter.Description,모든 성능 카운터가 백그라운드에서 작동할지 여부.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,참고: 일부 Web 기반 테마는 제대로 작동하지 않을 수 있으며 다음 성능 설정 중 어느 하나도 작동하지 않을 것입니다.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Pause,일시 정지 규칙
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Pause.Description,성능 설정을 기반으로 배경화면을 일시 중지하는 규칙을 결정합니다.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Communication,통신 유형
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Communication.Description,Web 타입의 테마에 메시지를 보내는 방법을 결정합니다.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Cpu,CPU 사용률
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Cpu.Description,CPU 사용률 설정에 따라 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU 사용률 (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Memory,메모리 사용량
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Memory.Description,메모리 사용 설정에 따라 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,메모리 사용률 (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Network,네트워크 사용량
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Network.Description,네트워크 사용 설정에 따라 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,네트워크 어댑터:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,네트워크 어댑터 목록이 아직 생성되지 않았습니다.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,업로드 크기:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,다운로드 크기:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping 값 (밀리초):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Battery,배터리 전원
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Battery.Description,노트북 배터리 전원을 사용하는 동안 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,배터리 상태 (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Saver,배터리 절약 모드
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Saver.Description,노트북 배터리 절약 모드에서 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Virtual,가상화
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Virtual.Description,가상화 응용 프로그램이 실행되는 동안 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Remote,원격 데스크톱
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Remote.Description,원격 데스크톱 응용 프로그램이 실행되는 동안 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Fullscreen,전체 화면 모드
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,전체 화면에서 다른 어떤 애플리케이션이 실행 중일 때 배경화면이 어떻게 작동할지.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Focus,포커스 모드
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.KO.xaml,Portal.PerformanceSettingPage.Focus.Description,다른 어플리케이션이 활성화되어 있는 동안 배경화면 행동에 대한 설정입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Server,스토어 서버
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Server.Description,상점에 나열된 테마를 표시하는 데 사용될 서버를 지정합니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Server.ServerHint,"참고: 서버로 {0}이 선택된 경우, 요청 제한을 피하기 위해 {2}을(를) 입력해야 합니다. 그렇지 않으면 상점의 테마에 액세스하는 데 문제가 발생할 수 있습니다. {1}이(가) 선택된 경우, 더 원활한 상점 경험을 얻을 수 있습니다."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Duration,스토어 갱신
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Duration.Description,스토어에 표시되는 테마가 갱신되는 데 걸리는 시간입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.StoreStart,자동 시작
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.StoreStart.Description,스토어에서 다운로드한 테마를 자동으로 배경화면으로 설정할지 여부입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adult,성인 콘텐츠
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adult.Description,스토어에서 안전하지 않다고 표시된 (NSFW) 콘텐츠를 표시할지 여부입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Confirm,삭제 확인
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Confirm.Description,라이브러리에서 테마를 삭제할 때 확인을 요청할지 여부입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Delete,손상된 테마
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Delete.Description,라이브러리에서 손상된 또는 누락된 테마를 자동으로 삭제할지 여부입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,참고: 조심스럽게 다룰 필요가 있습니다. 그렇지 않으면 데이터 손실이 발생할 수 있습니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.LibraryStart,자동 시작
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.LibraryStart.Description,생성된 테마를 자동으로 배경화면으로 설정할지 여부입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview,테마 미리 보기
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview.Description,테마 위로 마우스를 가져갈 때 미리 보여질지 여부입니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview.StorePreview,스토어 미리 보기:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,세부 정보 숨김:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,라이브러리 미리 보기:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,세부 정보 숨김:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme,테마 사용자 정의
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme.Description,표시된 테마의 이름 또는 설명을 사용자 정의합니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme.TitleLength,제목 길이 (문자):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,설명 길이 (문자):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adaptive,적응형 레이아웃
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adaptive.Description,표시된 테마의 레이아웃이나 간격을 사용자 정의합니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,여백 간격 (픽셀):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,레이아웃 순서 (개수):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Sort,라이브러리 정렬
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Sort.Description,라이브러리에 있는 테마를 어떤 형식으로 어떻게 정렬할지 지정합니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Sort.SortMode,정렬 모드:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Sort.SortKind,정렬 종류:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Store,스토어 페이지
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Store.Description,각 스토어 페이지에 표시될 테마 수를 설정합니다.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Library,라이브러리 페이지
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Library.Description,라이브러리의 각 페이지에 표시될 테마 수를 설정합니다.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LogTemporary,로그 파일
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LogTemporary.Description,앱에서 생성한 모든 로그 파일 관리.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LogTemporary.Create,생성
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LogTemporary.Delete,지우기
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LogTemporary.Hint,참고: 로그 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.CacheTemporary,캐시 지우기
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.CacheTemporary.Description,앱에서 생성한 모든 캐시 파일 지우기.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.CacheTemporary.Start,지우기 시작
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,참고: 캐시 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.StoreTemporary,스토어 지우기
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.StoreTemporary.Description,앱에서 생성한 모든 스토어 파일 지우기.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.StoreTemporary.Start,지우기 시작
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,참고: 스토어 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LibraryTemporary,라이브러리 지우기
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,라이브러리에서 찾거나 생성한 모든 테마 파일 지우기.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,지우기 시작
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,참고: 라이브러리의 테마 파일의 총 크기는 {0}입니다. 삭제를 시작하면 모든 앱이 닫힙니다.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingBackup,설정 파일
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingBackup.Description,앱에서 생성한 모든 설정 파일 관리.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingBackup.Export,백업
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingBackup.Import,복원
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingBackup.Hint,참고: 선택한 작업을 시작하면 모든 앱이 닫힙니다.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingReset,설정 초기화
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingReset.Description,앱에서 생성한 모든 설정 파일 초기화.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingReset.Start,초기화 시작
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.SettingReset.Hint,참고: 초기화 작업을 시작하면 모든 앱이 닫힙니다.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,로그 파일 저장
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ScreenLayout,화면 레이아웃
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,바탕 화면 배치를 변경합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.StretchMode,크기 맞추기 모드
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.StretchMode.Description,지원되는 바탕 화면에서 크기 맞추기를 변경합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.LoopMode,반복 모드
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.LoopMode.Description,지원되는 바탕 화면에서 반복 모드를 변경합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ShuffleMode,섞기 모드
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,지원되는 바탕 화면에서 섞기 모드를 변경합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif 플레이어
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,라이브러리에서 사용할 Gif 테마 플레이어를 선택합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.VideoPlayer,Video 플레이어
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,라이브러리에서 사용할 Video 테마 플레이어를 선택합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url 엔진
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,라이브러리에서 사용할 Url 테마 엔진을 선택합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.WebPlayer,Web 엔진
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,라이브러리에서 사용할 Web 테마 엔진을 선택합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube 엔진
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,라이브러리에서 사용할 YouTube 테마 엔진을 선택합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application 엔진
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,라이브러리에서 사용할 Application 테마 엔진을 선택합니다.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,Portal.BrokenStorePage.TitleText,인터넷 불빛이 꺼진 한 순간
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.KO.xaml,Portal.BrokenStorePage.DescriptionText,별이 없는 하늘처럼 여기에도 인터넷의 빛이 없습니다
+Portal\StorePage\FullStorePage\Portal.FullStorePage.KO.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,Portal.SearchStorePage.TitleText,찾는 것의 답은 하늘에 있을지도 모릅니다
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.KO.xaml,Portal.SearchStorePage.DescriptionText,결과가 기대와 다르다면 하늘은 새로운 경험을 제공할 수 있습니다
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,Portal.UnknownStorePage.TitleText,스토어에서 발생한 미지의 사태를 발견하세요
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.KO.xaml,Portal.UnknownStorePage.DescriptionText,알려지지 않은 것을 추적하고 스토어에서 발생한 미지의 사태를 밝히는 여정에 나서세요

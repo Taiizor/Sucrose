@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSkEueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.JA.xaml,Discord.BrowseButton,閲覧
+Discord\Discord.JA.xaml,Discord.Details,壁紙エンジン
+Discord\Discord.JA.xaml,Discord.DownloadButton,ダウンロード
+Discord\Discord.JA.xaml,,
+Discord\Discord.JA.xaml,Discord.LargestText0,バナナアイスクリームの力
+Discord\Discord.JA.xaml,Discord.LargestText1,微笑む帽子のモンスター
+Discord\Discord.JA.xaml,Discord.LargestText2,空を彩る雀たち
+Discord\Discord.JA.xaml,Discord.LargestText3,走るペンギンの秘密の冒険
+Discord\Discord.JA.xaml,Discord.LargestText4,デイジーの畑で迷子のウサギ
+Discord\Discord.JA.xaml,Discord.LargestText5,歌う風薫る花
+Discord\Discord.JA.xaml,Discord.LargestText6,不思議な森の秘密の蜂
+Discord\Discord.JA.xaml,Discord.LargestText7,夢に満ちた魚の群れ
+Discord\Discord.JA.xaml,Discord.LargestText8,クリスタルアイのドラゴンダンス
+Discord\Discord.JA.xaml,Discord.LargestText9,花で覆われたおとぎ話の道
+Discord\Discord.JA.xaml,Discord.LargestText10,空から降り注ぐ星々
+Discord\Discord.JA.xaml,Discord.LargestText11,折れた月の光の中での舞踏
+Discord\Discord.JA.xaml,Discord.LargestText12,不思議な虹のドラゴン
+Discord\Discord.JA.xaml,Discord.LargestText13,魔法の森の物語
+Discord\Discord.JA.xaml,Discord.LargestText14,空に降る花の雨
+Discord\Discord.JA.xaml,Discord.LargestText15,時間の静かな触れ
+Discord\Discord.JA.xaml,Discord.LargestText16,シュールな夢の国
+Discord\Discord.JA.xaml,Discord.LargestText17,金色の滝の歌
+Discord\Discord.JA.xaml,Discord.LargestText18,空を浮遊するおとぎ話の船
+Discord\Discord.JA.xaml,Discord.LargestText19,色とりどりのバルーンの森
+Discord\Discord.JA.xaml,Discord.LargestText20,不思議な海底の街
+Discord\Discord.JA.xaml,Discord.LargestText21,星屑の空
+Discord\Discord.JA.xaml,Discord.LargestText22,未知を追いかける風
+Discord\Discord.JA.xaml,Discord.LargestText23,月明かりの下での引き込まれる物語
+Discord\Discord.JA.xaml,,
+Discord\Discord.JA.xaml,Discord.SmallestText0,謎の足跡
+Discord\Discord.JA.xaml,Discord.SmallestText1,飛ぶ風船の魚
+Discord\Discord.JA.xaml,Discord.SmallestText2,笑う花々
+Discord\Discord.JA.xaml,Discord.SmallestText3,綿菓子の雲
+Discord\Discord.JA.xaml,Discord.SmallestText4,凍ったピザドラゴン
+Discord\Discord.JA.xaml,Discord.SmallestText5,輝くキノコの海賊
+Discord\Discord.JA.xaml,Discord.SmallestText6,見えないユニコーンの足跡
+Discord\Discord.JA.xaml,Discord.SmallestText7,カラフルな粉雲
+Discord\Discord.JA.xaml,Discord.SmallestText8,金のバルーン蝶々
+Discord\Discord.JA.xaml,Discord.SmallestText9,シュガークレーターの旅
+Discord\Discord.JA.xaml,Discord.SmallestText10,ロケットで飛ぶピザのスライス
+Discord\Discord.JA.xaml,Discord.SmallestText11,太陽と踊る海の貝殻
+Discord\Discord.JA.xaml,Discord.SmallestText12,見えない星の指
+Discord\Discord.JA.xaml,Discord.SmallestText13,霧の中の海底ダンス
+Discord\Discord.JA.xaml,Discord.SmallestText14,虹色の鳥の移動
+Discord\Discord.JA.xaml,Discord.SmallestText15,シュガーストームの道
+Discord\Discord.JA.xaml,Discord.SmallestText16,無限のピザ銀河
+Discord\Discord.JA.xaml,Discord.SmallestText17,太陽の微笑み
+Discord\Discord.JA.xaml,Discord.SmallestText18,秘密の池の失われた笑顔
+Discord\Discord.JA.xaml,Discord.SmallestText19,夢の鳥の影
+Discord\Discord.JA.xaml,Discord.SmallestText20,空に向かって舞う蝶々
+Discord\Discord.JA.xaml,Discord.SmallestText21,星の後ろに隠れた歌
+Discord\Discord.JA.xaml,Discord.SmallestText22,おとぎ話の霧の山
+Discord\Discord.JA.xaml,Discord.SmallestText23,不思議の森の妖精
+Discord\Discord.JA.xaml,,
+Discord\Discord.JA.xaml,Discord.StatementText0,カオスに満ちた宇宙
+Discord\Discord.JA.xaml,Discord.StatementText1,無限の冒険の中で
+Discord\Discord.JA.xaml,Discord.StatementText2,奇妙で魔法のような世界
+Discord\Discord.JA.xaml,Discord.StatementText3,想像力の限界を挑む
+Discord\Discord.JA.xaml,Discord.StatementText4,非凡な現実
+Discord\Discord.JA.xaml,Discord.StatementText5,想像力の深奥に
+Discord\Discord.JA.xaml,Discord.StatementText6,魔法の発見の冒険
+Discord\Discord.JA.xaml,Discord.StatementText7,未知の領域の扉
+Discord\Discord.JA.xaml,Discord.StatementText8,複雑な夢の世界
+Discord\Discord.JA.xaml,Discord.StatementText9,限界に挑む冒険
+Discord\Discord.JA.xaml,Discord.StatementText10,ダイナミックで驚くべき体験
+Discord\Discord.JA.xaml,Discord.StatementText11,ファンタジックな童話の中で
+Discord\Discord.JA.xaml,Discord.StatementText12,魔法のポータルの間で
+Discord\Discord.JA.xaml,Discord.StatementText13,夜の空への旅
+Discord\Discord.JA.xaml,Discord.StatementText14,失われた大陸の足跡
+Discord\Discord.JA.xaml,Discord.StatementText15,未知の惑星の物語
+Discord\Discord.JA.xaml,Discord.StatementText16,平行宇宙の発見
+Discord\Discord.JA.xaml,Discord.StatementText17,伝説の国々への入り口
+Discord\Discord.JA.xaml,Discord.StatementText18,夢に織り交ぜられた現実
+Discord\Discord.JA.xaml,Discord.StatementText19,星の間の夢
+Discord\Discord.JA.xaml,Discord.StatementText20,時間の扉の向こう
+Discord\Discord.JA.xaml,Discord.StatementText21,輝く星のチーム
+Discord\Discord.JA.xaml,Discord.StatementText22,未知の静かな叫び
+Discord\Discord.JA.xaml,Discord.StatementText23,魅力的な世界
+Discord\Discord.JA.xaml,Discord.StatementText24,霧の山の頂上で
+Discord\Discord.JA.xaml,Discord.StatementText25,失われた王国の足跡
+Discord\Discord.JA.xaml,Discord.StatementText26,星の間の夢の旅
+Discord\Discord.JA.xaml,Discord.StatementText27,魔法の夜の生き物
+Discord\Discord.JA.xaml,Discord.StatementText28,無限の物語の始まり
+Discord\Discord.JA.xaml,Discord.StatementText29,空に昇るカラフルなバルーン
+Discord\Discord.JA.xaml,Discord.StatementText30,不思議な夜空
+Discord\Discord.JA.xaml,Discord.StatementText31,夢の道、失われた王国
+Discord\Discord.JA.xaml,Discord.StatementText32,未知の地へ続く扉
+Discord\Discord.JA.xaml,Discord.StatementText33,時間の腕の中で踊る
+Discord\Discord.JA.xaml,Discord.StatementText34,夜に埋もれた物語
+Discord\Discord.JA.xaml,Discord.StatementText35,魔法の鏡の世界
+Discord\Discord.JA.xaml,Discord.StatementText36,無限の扉での旅
+Discord\Discord.JA.xaml,Discord.StatementText37,夢狩りの夜の旅
+Discord\Discord.JA.xaml,Discord.StatementText38,クリスタルシティの夢
+Discord\Discord.JA.xaml,Discord.StatementText39,暗闇に輝く星
+Discord\Discord.JA.xaml,Discord.StatementText40,星の後ろにある秘密の夜
+Discord\Discord.JA.xaml,Discord.StatementText41,不思議な月明かりの物語
+Discord\Discord.JA.xaml,Discord.StatementText42,未知の国の扉の前で
+Discord\Discord.JA.xaml,Discord.StatementText43,魔法の夜の神秘的な道
+Discord\Discord.JA.xaml,Discord.StatementText44,空に昇る夢のバルーン
+Discord\Discord.JA.xaml,Discord.StatementText45,夜空の星の下の夢の道
+Discord\Discord.JA.xaml,Discord.StatementText46,星の岸辺の隠れた町
+Discord\Discord.JA.xaml,Discord.StatementText47,霧の山の向こうの物語
+Discord\Discord.JA.xaml,Discord.StatementText48,暗闇に輝く星の夜
+Launcher\Launcher.JA.xaml,Launcher.WallCustomizeText,壁紙のカスタマイズ
+Launcher\Launcher.JA.xaml,Launcher.CreateLogText,ログファイルを作成
+Launcher\Launcher.JA.xaml,Launcher.ExitText,終了
+Launcher\Launcher.JA.xaml,Launcher.OpenReportText,問題を報告する
+Launcher\Launcher.JA.xaml,Launcher.OpenText,Sucroseを開く
+Launcher\Launcher.JA.xaml,Launcher.ReportText,エラーを報告
+Launcher\Launcher.JA.xaml,Launcher.ReportWindowTitle,Sucrose 診断
+Launcher\Launcher.JA.xaml,Launcher.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
+Launcher\Launcher.JA.xaml,Launcher.SaveDialogTitle,ログファイルを保存
+Launcher\Launcher.JA.xaml,Launcher.SettingText,設定
+Launcher\Launcher.JA.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.JA.xaml,Launcher.WallChangeText,壁紙を変更
+Launcher\Launcher.JA.xaml,Launcher.WallCloseText,壁紙を閉じる
+Launcher\Launcher.JA.xaml,Launcher.WallOpenText,壁紙を開く
+Launcher\Launcher.JA.xaml,Launcher.WallStartText,壁紙を開始
+Launcher\Launcher.JA.xaml,Launcher.WallStopText,壁紙を停止
+Launcher\Launcher.JA.xaml,Launcher.UpdateText,更新を確認
+Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.UpdateText.Done,更新が待機中
+Launcher\Launcher.JA.xaml,Launcher.UpdateText.Check,更新を確認中
+Launcher\Launcher.JA.xaml,Launcher.UpdateText.Progress,更新進行中 {0}
+Portal\Portal.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.JA.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.JA.xaml,,
+Property\Property.JA.xaml,Property.DeleteTip,コピーを削除
+Property\Property.JA.xaml,Property.RefreshTip,インターフェイスを更新
+Property\Property.JA.xaml,Property.RestoreTip,デフォルトに戻す
+Property\Property.JA.xaml,,
+Property\Property.JA.xaml,Property.Type.NotSupport,コントロール タイプ '{0}' はサポートされていません。
+Property\Property.JA.xaml,,
+Property\Property.JA.xaml,Property.ColorPicker.Color,色
+Property\Property.JA.xaml,Property.ColorPicker.Cancel,キャンセル
+Property\Property.JA.xaml,Property.ColorPicker.Confirm,確認
+Property\Property.JA.xaml,Property.ColorPicker.EyeDropper,目詰め管
+Property\Property.JA.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.JA.xaml,,
+Property\Property.JA.xaml,Property.FileDropDown.Tip,ファイルを選択
+Property\Property.JA.xaml,Property.FileDropDown.Filter,すべてのファイル (*.*)|*.*
+Undo\Undo.JA.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.JA.xaml,,
+Undo\Undo.JA.xaml,Undo.QuestionMessage,本当に Sucrose Wallpaper Engine をアンインストールしますか？
+Update\Update.JA.xaml,Update.HelpText,問題を解決する
+Update\Update.JA.xaml,,
+Update\Update.JA.xaml,Update.UpdateBox.WindowTitle,Sucrose 更新
+Update\Update.JA.xaml,Update.UpdateBox.InstallText,アップデートをインストール
+Update\Update.JA.xaml,,
+Update\Update.JA.xaml,Update.InfoBox.WindowTitle,Sucrose 更新
+Update\Update.JA.xaml,Update.InfoBox.TextMessage,メッセージ
+Update\Update.JA.xaml,Update.InfoBox.CloseText,閉じる
+Update\Update.JA.xaml,,
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Empty,アップデートファイルが宝石のように隠されている瞬間です。現在のバージョンを使用して、楽しい経験をお楽しみいただけます。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Error,アップデートファイルをダウンロード中に、道に亀裂が入り、この旅行が一時的に終了したことに気付きました。現在のバージョンで旅行を続けて、これらの亀裂が修復されたときにはより強力なアップデートがお待ちしています。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Update,アプリケーションは、最新のページのようにすでに最新かつ革新的な状態であなたと一緒にいます。いつでも最高で最新のエクスペリエンスを提供するためにここにいます。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Status,アップデートファイルにアクセスできない夢の扉の前に立っています。ただし、現在のバージョンを使用して夢を楽しむことができます。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Channel,選択したアップデートチャネルは、静かな森のようです。現時点では新しいアップデート情報はここにはありません。静寂が破られると、さらなるものが提供されるでしょう。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Extract,アップデートファイルを抽出しようとする際、深海からの障害に遭遇しました。現在のバージョンで旅行を続けて、海がより穏やかになったときに新しい宝物を見つけるために戻ってきます。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Network,あなたの接続の弱さは、雲が太陽を隠すようです。雲が晴れたときには、より明るい体験が待っています。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Updating,アプリケーションのアップデートは、海の波が新しい宝物を岸に運ぶかのように、こっそりと進行中です。これらの貴重な新機能は、バックグラウンドであなたのために収集されています。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Releases,アプリのアップデートの星がまだ昇っていない瞬間です。現時点ではアップデート情報はありませんが、すでに存在するバージョンを続けてご利用いただけます。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Download,アップデートファイルをダウンロード中、空の星が誤った順序で並んでいることがわかりました。現在のバージョンで旅行を続けて、星が正しい位置になったときには、より良いアップデートが提供されるでしょう。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Cancelled,アップデートファイルのダウンロードがキャンセルされました。道が突然分かれたためです。現在のバージョンで旅行を続け、将来のアップデートに備えてください。新たな始まりはいつでも可能です。
+Update\Update.JA.xaml,Update.InfoBox.TextMessage.Condition,アップデートファイルの条件は、鍵を開けるには足りないようです。現在のバージョンで旅行を続け、将来のアップデートに備えてください。
+Watchdog\Watchdog.JA.xaml,Watchdog.HelpButton,ヘルプ
+Watchdog\Watchdog.JA.xaml,Watchdog.CloseButton,閉じる
+Watchdog\Watchdog.JA.xaml,Watchdog.ErrorMessage,予期しないエラーが発生しました:
+Watchdog\Watchdog.JA.xaml,Watchdog.ErrorTitle,エラー
+Watchdog\Watchdog.JA.xaml,Watchdog.HideButton,非表示
+Watchdog\Watchdog.JA.xaml,Watchdog.ShowButton,表示
+Watchdog\Watchdog.JA.xaml,Watchdog.StackTrace,スタックトレース:
+Watchdog\Watchdog.JA.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.JA.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.ReloadText,再試行
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Preparing,必要な準備をしています
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Temporary,一時的な場所をチェックしています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Temporary.Error,一時的な場所をチェックできませんでした
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Connection,インターネット接続をチェックしています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Connection.None,インターネットに接続されていません
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Connection.Error,インターネット接続をチェックできませんでした
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Searching,必要なファイルを検索しています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Searching.Not,必要なファイルが見つかりません
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Searching.Error,必要なファイルを検索できませんでした
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Listing,必要なリストを取得しています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Listing.Empty,必要なリストは空です
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Listing.Error,必要なリストを受信できませんでした
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Filtering,リストをフィルタリングしています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Filtering.Not,リストをフィルタリングできません
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Filtering.Error,リストをフィルタリングできませんでした
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Downloading,必要なファイルをダウンロードしています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Downloading.Error,必要なファイルをダウンロードできませんでした
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Downloading.Complete.Cancel,必要なファイルのダウンロードがキャンセルされました
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Downloading.Complete.Error,必要なファイルのダウンロード中にエラーが発生しました
+Wizard\Wizard.JA.xaml,,
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting,ダウンロードしたファイルを展開しています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Executing,展開されたファイルが実行されています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Executed,展開されたファイルが実行されました
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Failed,ダウンロードしたファイルが失敗しました
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Corrupt,ダウンロードしたファイルが壊れています
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Not,ダウンロードしたファイルは使用できません
+Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Error,ダウンロードしたファイルを展開できませんでした
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Sound,サウンド
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Log,ログ
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Hook,フック
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Store,ストア
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Donate,寄付
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.System,システム
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Cache,キャッシュ
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Laptop,ラップトップ
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Support,サポート
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Reset,リセット
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Backup,バックアップ
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Priority,優先度
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Engines,エンジン
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Update,更新
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Library,ライブラリ
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Developer,開発者
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Extensions,拡張
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.SystemResources,システムリソース
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.AppearanceBehavior,外観と動作
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.All,すべて
+Portal\Category\Portal.Category.JA.xaml,,
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Abstract,抽象
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Ambience,環境
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Animals,動物
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Animation,アニメーション
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Anime,アニメ
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.ArchitectureandBuildings,建築と建物
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.ArtandAbstract,アートと抽象
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Artworks,アートワーク
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Bard,吟遊詩人
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.BlackandWhite,白黒
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.CartoonandComics,アニメとコミック
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.CitiesandPlaces,都市と場所
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.CloudsandSkies,雲と空
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.ColorfulGradients,カラフルなグラデーション
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.ComicBooks,コミックブック
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.DigitalArt,デジタルアート
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Dynamic,ダイナミック
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.EnchantedForests,魔法の森
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Fantasy,ファンタジー
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.FilmandTV,映画とテレビ
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.FoodandDrinks,食べ物と飲み物
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Galaxy,銀河
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Game,ゲーム
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.GeometricPatterns,幾何学的なパターン
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.HolidaysandSeasons,休暇と季節
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.HorrorandHalloween,ホラーとハロウィン
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.InspirationalQuotes,インスピレーション引用
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.KidsandCartoon,子供とカートゥーン
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Landscape,風景
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Lifestyle,ライフスタイル
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.LineArt,線画
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Medieval,中世
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Minimalist,ミニマリスト
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Music,音楽
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Nature,自然
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Nightscapes,夜景
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.PatternsandTextures,パターンとテクスチャ
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Retro,レトロ
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Sky,空
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Space,宇宙
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Sports,スポーツ
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Superheroes,スーパーヒーロー
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.System,システム
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Tavern,酒場
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Technology,技術
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Temple,寺院
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Time,時間
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.UnderwaterandMarine,水中と海洋
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Vehicles,乗り物
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Vintage,ヴィンテージ
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.War,戦争
+Portal\Controls\Portal.Controls.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.Fill,フィル
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.None,なし
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.Uniform,均等
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.UniformToFill,均等にフィル
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.None,なし
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.Name,名前
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.Creation,作成
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.Modification,変更
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.Fill,フィル
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.None,なし
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.Uniform,均等
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.StretchType.UniformToFill,均等にフィル
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PerformanceType.Close,閉じる
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PerformanceType.Pause,一時停止
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PerformanceType.Resume,再開
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.WindowBackdropType.Mica,マイカ
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.WindowBackdropType.None,なし
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.WindowBackdropType.Auto,自動
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.WindowBackdropType.Tabbed,タブ
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.WindowBackdropType.Acrylic,アクリル
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ChannelType.Release,デフォルト
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ChannelType.PreRelease,開発者
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PausePerformanceType.Heavy,重い
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PausePerformanceType.Light,軽い
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortKindType.Ascending,昇順 [A-Z]
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortKindType.Descending,降順 [Z-A]
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ExpandScreenType.Default,デフォルト
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ExpandScreenType.Advanced,高度な
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateType.Compressed,圧縮
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.UpdateType.Executable,実行可能
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ScreenType.WorkingArea,作業領域
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ScreenType.DisplayBound,ディスプレイ境界
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.DuplicateScreenType.Default,デフォルト
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.DuplicateScreenType.Advanced,高度な
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Pass,成功
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Tags,'Tags'は多すぎる値を持っています
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Type,テーマはアプリケーションでサポートされていないタイプのために作成されました
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Title,'Title'の値は空または非常に長いです
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Author,'Author'の値は空または非常に長いです
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Source,'Source'ファイルが見つかりませんでした
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Contact,'Contact'の値は空または非常に長いです
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Preview,'Preview'ファイルが見つかりませんでした
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Encrypt,関連ファイルは暗号化されています
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.ZipType,関連ファイルは実際には '.zip' ファイルではありません
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InfoFile,'SucroseInfo.json'ファイルが見つかりませんでした
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.NotFound,関連ファイルが見つかりませんでした
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.LoopMode,'LoopMode'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments'の値が非常に長いです
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Extension,関連ファイルは '.zip' 拡張子ではありません
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Thumbnail,'Thumbnail'ファイルが見つかりませんでした
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemCpu,'SystemCpu'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.EmptyInfo,'SucroseInfo.json'ファイルは空です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.AppVersion,テーマはより高いアプリケーションバージョンのために作成されました
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source'が無効な値を含んでいます
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemBios,'SystemBios'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemDate,'SystemDate'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemAudio,'SystemAudio'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Description,'Description'の値は空または非常に長いです
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidInfo,'SucroseInfo.json'ファイルが無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.TriggerTime,'TriggerTime'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.StretchMode,'StretchMode'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.VolumeLevel,'VolumeLevel'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.ShuffleMode,'ShuffleMode'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags'値は非常に短いか非常に長いです
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidFile,無効なファイル
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList'の値は空です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemMemory,'SystemMemory'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemBattery,'SystemBattery'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemGraphic,'SystemGraphic'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemNetwork,'SystemNetwork'値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidContact,'Contact'の値は 'Url' または 'メールアドレス' ではありません
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidExtension,無効なファイル拡張子
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,'SucroseCompatible.json'ファイルは空です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.EmptyProperties,'SucroseProperties.json'ファイルは空です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.PropertyListener,'PropertyListener'の値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,'SystemMotherboard'の値が無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json'ファイルが無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json'ファイルが無効です
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,予測不可能な結果
+Portal\LibraryPage\Portal.LibraryPage.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.JA.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.JA.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.JA.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.JA.xaml,Portal.LibraryPage.Import.Successful,'{0}' というテーマがライブラリに正常に追加されました。
+Portal\LibraryPage\Portal.LibraryPage.JA.xaml,Portal.LibraryPage.Import.Unsuccessful,'{0}' というテーマはライブラリに追加できませんでした。理由: '{1}'。
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuHelp,ヘルプ
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuAbout,約
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuHelpTip,ヘルプを表示
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuAboutTip,アバウトを表示
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuLibrary,ライブラリ
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuStore,ストア
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuLibraryTip,テーマライブラリ
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuStoreTip,テーマストア
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuGeneral,一般
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuPersonal,個人的な
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuPerformance,パフォーマンス
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuWallpaper,壁紙
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuSystem,システム
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuDonate,寄付
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuOther,その他
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuBackTip,戻る
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuGeneralTip,一般設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuPersonalTip,個人設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuPerformanceTip,パフォーマンス設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuWallpaperTip,壁紙設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuSystemTip,システム設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuDonateTip,寄付設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuOtherTip,その他の設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuSettingTip,設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.SearchBoxHint,壁紙を検索
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.SearchBoxTip,お探しのものが見つからないですか？
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuLightTip,ライト テーマ
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuDarkTip,ダーク テーマ
+Portal\MainWindow\Portal.MainWindow.JA.xaml,,
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuCreateWallpaperTip,壁紙を作成
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,壁紙のサイクリング
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,ディスプレイ設定
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuDonateOptionsTip,寄付オプション
+Portal\MainWindow\Portal.MainWindow.JA.xaml,Portal.MainWindow.MenuOtherOptionsTip,その他のオプション
+Portal\SettingPage\Portal.SettingPage.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuSkEueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLkpBLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.JA.xaml,,
+Portal\StorePage\Portal.StorePage.JA.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Title,ディスプレイ設定
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Close,閉じる
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Expander,拡張モード
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Expander.Description,壁紙をアクティブなディスプレイにどのように適用するか。
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Screen,選択したディスプレイのみ
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Expand,ディスプレイ間で拡張
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Expand.Monitor,すべてのモニター
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Expand.Hint,拡張モードを選択します
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Duplicate,同じ壁紙を複製
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.JA.xaml,Portal.DisplayPreferences.Duplicate.Hint,同じ壁紙を複製モードを選択します
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,Portal.ExpanderCard.TitleText,タイトル
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,Portal.ExpanderCard.DescriptionText,説明
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,Portal.ExpanderCard.ExpandUpTip,縮小
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.JA.xaml,Portal.ExpanderCard.ExpandDownTip,拡大
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.TitleText,タイトル
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.DescriptionText,説明
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MoreTip,詳細
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.VersionTip,このテーマを使用するには、Sucroseを更新してください
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuReview,レビュー
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuUse,使用
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuPreview,プレビュー
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuCustomize,カスタマイズ
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuFind,検索
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuShare,共有
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuDelete,削除
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuEdit,編集
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Title,について
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Close,閉じる
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.About,こんにちは、私の名前はBayram Emekliで、Taiizorとしても知られています。無料でオープンソースのSucrose Wallpaper Engineアプリの開発者です。私の開発したアプリをご利用いただきありがとうございます。
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Update,バージョン：v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Update.Description,最終チェック：{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Update.Notes,更新ノート
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Partners,パートナー
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Contributors,貢献者
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.TermsOfService,利用規約
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.PrivacyPolicy,プライバシーポリシー
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.CodeOfConduct,貢献行動規範
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Title,ヘルプ
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Close,閉じる
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.WebPage,ウェブサイト
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.WebPage.Description,Sucrose Wallpaper Engineの公式ウェブサイト
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Documentation,ドキュメンテーション
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Documentation.Description,Sucrose Wallpaper Engineの公式ドキュメンテーションページ
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Repository,ソースコード
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Repository.Description,Sucrose Wallpaper Engineの公式ソースコードページ
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Discussions,ディスカッション
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Discussions.Description,Sucrose Wallpaper Engineの公式ディスカッションページ
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Report,バグ報告
+Portal\Controls\OtherHelp\Portal.OtherHelp.JA.xaml,Portal.OtherHelp.Report.Description,Sucrose Wallpaper Engineの公式バグ報告ページ
+Portal\Controls\Pagination\Portal.Pagination.JA.xaml,Portal.Pagination.PageJump,ジャンプ
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.TitleText,タイトル
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.DescriptionText,説明
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.VersionTip,このテーマを使用するには、Sucroseを更新してください
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.MenuInstall,インストール
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.MenuReport,レポート
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Title,テーマの作成
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Create,作成
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Close,閉じる
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Gif,Gif テーマ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Gif.Description,Gif形式のテーマを作成します。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Url,Url テーマ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Url.Description,Url形式のテーマを作成します。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Web,Web テーマ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Web.Description,Web形式のテーマを作成します。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Video,Video テーマ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Video.Description,Video形式のテーマを作成します。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.YouTube,YouTube テーマ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.YouTube.Description,YouTube形式のテーマを作成します。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Application,Application テーマ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Application.Description,Application形式のテーマを作成します。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeThumbnail,サムネイル
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview,プレビュー
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeTitle,タイトル
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeDescription,説明
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeAuthor,著者
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeContact,お問い合わせ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeTags,タグ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeArguments,引数
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeUrl.Hint,有効なUrlを入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,サムネイル画像を選択してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview.Hint,プレビューファイルを選択してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeTitle.Hint,有効なタイトルを入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeDescription.Hint,有効な説明を入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,有効な著者名を入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeContact.Hint,有効な連絡先情報を入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeTags.Hint,有効なテーマタグを入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeArguments.Hint,有効なアプリケーション引数を入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Delete,元に戻す
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Gif,Gifファイルをここにドラッグアンドドロップ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Video,ビデオファイルをここにドラッグアンドドロップ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,サムネイル画像を選択
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,画像ファイル (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview.Title,プレビューファイルを選択
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif ファイル (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Title,テーマの削除
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Delete,削除
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Close,閉じる
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeTitle,タイトル
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeDescription,説明
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeType,種類
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeAuthor,著者
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeSize,サイズ
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeVersion,バージョン
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeTags,タグ
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeTagsText,なし
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeCreate,作成日
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeCreateDate,不明
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeModify,変更日
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.ThemeModifyDate,不明
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.Title,テーマの編集
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.Close,閉じる
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.Save,保存
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeTitle,タイトル
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeDescription,説明
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeAuthor,著者
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeContact,お問い合わせ
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeTags,タグ
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeArguments,引数
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeTitle.Hint,有効なタイトルを入力してください
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeDescription.Hint,有効な説明を入力してください
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,有効な著者名を入力してください
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeContact.Hint,有効な連絡先情報を入力してください
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeTags.Hint,有効なテーマタグを入力してください
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.JA.xaml,Portal.ThemeEdit.ThemeArguments.Hint,有効なアプリケーション引数を入力してください
+Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Portal.ThemeImport.Title,テーマのインポート
+Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Portal.ThemeImport.Close,閉じる
+Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Portal.ThemeImport.Info,テーマ情報
+Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Portal.ThemeImport.Type,理由の説明
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.Title,テーマのレビュー
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.Close,閉じる
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeTitle,タイトル
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeDescription,説明
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeType,種類
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeAuthor,著者
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeSize,サイズ
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeVersion,バージョン
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeTags,タグ
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeTagsText,なし
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeCreate,作成日
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeCreateDate,不明
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeModify,変更日
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeModifyDate,不明
+Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.ThemeContact,テーマのお問い合わせ先
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.Title,テーマの共有
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.Close,閉じる
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemeTitle,タイトル
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemeDescription,説明
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemeExport,エクスポート
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish,ストアで公開
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemeCopy,リンクをコピー
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogTitle,テーマファイルを保存
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,Portal.EmptyLibraryPage.TitleText,あなたのライブラリはクモの巣で覆われています
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,Portal.EmptyLibraryPage.DescriptionText,壁紙の代わりに素晴らしいアートワークがクモの巣で作成されました
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.JA.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,Portal.SearchLibraryPage.TitleText,あなたのライブラリはクモの巣で魔法にかけられています
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.JA.xaml,Portal.SearchLibraryPage.DescriptionText,壁紙の選択の精巧さのため、壁紙のスペースがなくなりました
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.DonateMenu,寄付メニュー
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.DonateMenu.Description,インターフェース内の寄付メニューの表示設定。
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,表示
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,非表示
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.Advertising,広告サポート
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.Advertising.Description,アプリの開発に寄与するために広告を視聴してください。
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,広告間隔（分）：
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.JA.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,ヒント：広告はできるだけあなたに最小限の不便をかけないように表示されます。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationLanguage,アプリケーション言語
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,表示言語を選択してください。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup,起動
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,壁紙を再生するには、Sucroseがバックグラウンドで実行されている必要があります。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,なし
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,通常
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,優先
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,スケジューラ
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.NotifyIcon,通知アイコン
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,システムトレイの表示設定。Sucroseは非表示のままで動作します。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,表示
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,非表示
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,システムトレイを閉じたとき、すべてのSucroseアプリを終了する
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop,ウィンドウ背景
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,アプリウィンドウの背景をカスタマイズします。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,背景画像を選択
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,背景画像を選択
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,画像ファイル (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,背景の拡大縮小:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,背景の透明度 (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.EngineVolume,音量
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.EngineVolume.Description,すべての壁紙に適用される音量設定。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,デスクトップにフォーカスがあるときのみ音を再生
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary,ライブラリの場所
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,追加したテーマが保存される場所。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,空のフォルダを選択してください
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,場所を移動する際、お待ちください
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,現在のライブラリを新しい場所に移動する
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.DiscordHook.Description,SucroseはDiscordとの通信を担当します。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,接続の更新:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,更新間隔 (秒):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Agent,代理人
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Agent.Description,インターネット接続が必要な場合の代理人識別子。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Key,個人アクセスキー
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Key.Description,ストアおよびアプリのアップデートをスムーズに使用するために必要です。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Key.HintKey,個人アクセスキーを取得方法がわからない場合は、ここをクリックしてください。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Key.PersonalKey,有効な個人アクセスキーを入力してください
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,有効な個人アクセスキーを入力してください
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Channel,更新チャンネル
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Channel.Description,更新プロセスがどのチャンネルを使用して実行されるか。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Update,更新方法
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Update.Description,更新プロセスがどの方法で実行されるか。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Update.Limit,ダウンロード帯域幅制限:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Developer,開発者ツール
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Developer.Description,WebViewとCefSharpエンジンの開発者ツールの表示または非表示。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Counter,パフォーマンス カウンター
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Counter.Description,すべてのパフォーマンス カウンターがバックグラウンドで実行されるかどうか。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,注意: 一部のWebベースのテーマは正しく動作しない場合があり、以下のパフォーマンス設定は機能しない場合があります。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Pause,一時停止ルール
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Pause.Description,パフォーマンス設定に基づいて壁紙の一時停止ルールを決定します。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Communication,通信タイプ
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Communication.Description,Web タイプのテーマにメッセージを送信する方法を決定します。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Cpu,CPU 使用率
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Cpu.Description,CPU 使用率の設定による壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU 使用率 (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Memory,メモリ 使用率
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Memory.Description,メモリ 使用率の設定による壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,メモリ 使用率 (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Network,ネットワーク使用
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Network.Description,ネットワーク使用の設定による壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,ネットワーク アダプタ:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,ネットワーク アダプタのリストはまだ作成されていません
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,アップロード サイズ:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,ダウンロード サイズ:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping 値 (ミリ秒):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Battery,バッテリー
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Battery.Description,ノートパソコンのバッテリー使用中に壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,バッテリー残量 (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Saver,バッテリー節約モード
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Saver.Description,ノートパソコンのバッテリー節約モード中に壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Virtual,仮想化
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Virtual.Description,仮想化アプリケーションが実行中の場合の壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Remote,リモート デスクトップ
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Remote.Description,リモート デスクトップ アプリケーションが実行中の場合の壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Fullscreen,フルスクリーン モード
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,フルスクリーン モードで他のアプリケーションが実行中の場合の壁紙の動作。
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Focus,フォーカス モード
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Focus.Description,他のアプリケーションがフォーカスされている場合の壁紙の動作。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Server,ストアサーバー
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Server.Description,ストアにリストされているテーマを表示するために使用されるサーバーを指定します。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Server.ServerHint,注意：{0} をサーバーとして選択した場合、リクエスト制限を回避するために {2} を入力する必要があります。そうしないと、ストアのテーマへのアクセスに問題が発生する可能性があります。{1} を選択すると、ストアの体験がスムーズになります。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Duration,ストア更新
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Duration.Description,表示されるテーマが更新されるまでの期間。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.StoreStart,自動起動
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.StoreStart.Description,ストアからダウンロードしたテーマが自動的に壁紙に設定されるかどうか。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adult,成人向けコンテンツ
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adult.Description,ストアでNSFW（安全でないコンテンツ）としてマークされたコンテンツを表示するかどうか。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Confirm,削除の確認
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Confirm.Description,ライブラリ内のテーマを削除する際に確認を求めるかどうか。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Delete,壊れたテーマ
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Delete.Description,ライブラリ内の壊れたまたは欠落しているテーマを自動的に削除するかどうか。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,注意: 慎重に操作する必要があります。それ以外の場合、データ損失を引き起こす可能性があります。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.LibraryStart,自動起動
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.LibraryStart.Description,作成されたテーマが自動的に壁紙に設定されるかどうか。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview,テーマプレビュー
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview.Description,テーマをポイントするとプレビューが表示されるかどうか。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview.StorePreview,ストア プレビュー:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,詳細を非表示にする:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,ライブラリ プレビュー:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,詳細を非表示にする:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme,テーマのカスタマイズ
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme.Description,表示されるテーマの名前や説明をカスタマイズします。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme.TitleLength,タイトルの長さ（文字）:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,説明の長さ（文字）:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adaptive,適応型レイアウト
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adaptive.Description,表示されるテーマのレイアウトや間隔をカスタマイズします。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,余白のサイズ（ピクセル）:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,レイアウトの順序（個）:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Sort,ライブラリの並べ替え
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Sort.Description,ライブラリ内のテーマをどのようにどの形式で並べ替えるかを指定します。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Sort.SortMode,並べ替えモード:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Sort.SortKind,並べ替え種類:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Store,ストア ページング
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Store.Description,各ストアのページに表示されるテーマの数を設定します。
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Library,ライブラリ ページング
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Library.Description,各ライブラリのページに表示されるテーマの数を設定します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LogTemporary,ログ ファイル
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LogTemporary.Description,アプリケーションが作成したすべてのログ ファイルを管理します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LogTemporary.Create,作成
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LogTemporary.Delete,クリア
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LogTemporary.Hint,注意: ログ ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.CacheTemporary,キャッシュのクリア
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.CacheTemporary.Description,アプリケーションが作成したすべてのキャッシュ ファイルを削除します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.CacheTemporary.Start,クリアを開始
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,注意: キャッシュ ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.StoreTemporary,ストアのクリア
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.StoreTemporary.Description,アプリケーションが作成したすべてのストア ファイルを削除します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.StoreTemporary.Start,クリアを開始
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,注意: ストア ファイル全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LibraryTemporary,ライブラリのクリア
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,ライブラリにある、またはアプリケーションが作成したすべてのテーマ ファイルを削除します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,クリアを開始
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,注意: ライブラリ内のテーマ全体のサイズは {0} です。クリア操作を開始すると、すべてのアプリケーションが終了します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingBackup,設定ファイル
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingBackup.Description,アプリケーションが作成したすべての設定ファイルを管理します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingBackup.Export,バックアップ
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingBackup.Import,リストア
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingBackup.Hint,注意: 選択した操作を開始すると、すべてのアプリケーションが終了します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingReset,設定のリセット
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingReset.Description,アプリケーションが作成したすべての設定ファイルをリセットします。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingReset.Start,リセットを開始
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.SettingReset.Hint,注意: リセット操作を開始すると、すべてのアプリケーションが終了します。
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,ログ ファイルの保存
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.ScreenLayout,画面の配置
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,壁紙の画面上での配置を変更します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.StretchMode,拡大モード
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.StretchMode.Description,サポートされる壁紙の拡大モードを変更します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.LoopMode,ループモード
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.LoopMode.Description,サポートされる壁紙のループモードを変更します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.ShuffleMode,シャッフルモード
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,サポートされる壁紙のシャッフルモードを変更します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif プレイヤー
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,ライブラリ内の Gif 形式のテーマを再生するプラグインを選択します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.VideoPlayer,Video プレイヤー
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,ライブラリ内の Video 形式のテーマを再生するプラグインを選択します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url プレーヤー
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,ライブラリ内の Url 形式のテーマを実行するエンジンを選択します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.WebPlayer,Web エンジン
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,ライブラリ内の Web 形式のテーマを実行するエンジンを選択します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube エンジン
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,ライブラリ内の YouTube 形式のテーマを実行するエンジンを選択します。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Application エンジン
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,ライブラリ内の Application 形式のテーマを実行するエンジンを選択します。
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,Portal.BrokenStorePage.TitleText,インターネットの光が消えた瞬間
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.JA.xaml,Portal.BrokenStorePage.DescriptionText,星のない夜空のように、ここにもインターネットの輝きはありません
+Portal\StorePage\FullStorePage\Portal.FullStorePage.JA.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,Portal.SearchStorePage.TitleText,あなたの探しているものの答えは空に隠れているかもしれません
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.JA.xaml,Portal.SearchStorePage.DescriptionText,結果が期待通りにならない場合、空は新しい体験を提供できるかもしれません
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,Portal.UnknownStorePage.TitleText,ストアでの謎の状況を発見
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.JA.xaml,Portal.UnknownStorePage.DescriptionText,未知のものを探求し、ストアで起こった謎の状況を解明する旅に出ましょう

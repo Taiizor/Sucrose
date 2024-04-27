@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuTkwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.NL.xaml,Discord.BrowseButton,Bladeren
+Discord\Discord.NL.xaml,Discord.Details,Achtergrond Engine
+Discord\Discord.NL.xaml,Discord.DownloadButton,Downloaden
+Discord\Discord.NL.xaml,,
+Discord\Discord.NL.xaml,Discord.LargestText0,De Kracht van Bananenroomijs
+Discord\Discord.NL.xaml,Discord.LargestText1,De Glimlachende Hoedmonster
+Discord\Discord.NL.xaml,Discord.LargestText2,De Vogels Die de Wolken Kleuren
+Discord\Discord.NL.xaml,Discord.LargestText3,Het Geheime Avontuur van Rennende Pinguïns
+Discord\Discord.NL.xaml,Discord.LargestText4,Konijnen Die Verdwalen in een Veld van Madeliefjes
+Discord\Discord.NL.xaml,Discord.LargestText5,Zingende Windbloemen
+Discord\Discord.NL.xaml,Discord.LargestText6,Geheimzinnige Bijen van het Betoverde Bos
+Discord\Discord.NL.xaml,Discord.LargestText7,Droomachtige School Vissen
+Discord\Discord.NL.xaml,Discord.LargestText8,Dans van de Kristalogen Draak
+Discord\Discord.NL.xaml,Discord.LargestText9,Sprookjesachtig Pad Bedekt met Bloemen
+Discord\Discord.NL.xaml,Discord.LargestText10,Sterren Die Vallen uit de Hemel
+Discord\Discord.NL.xaml,Discord.LargestText11,Dansen in het Licht van de Gebroken Maan
+Discord\Discord.NL.xaml,Discord.LargestText12,Mysterieuze Regenboog Draken
+Discord\Discord.NL.xaml,Discord.LargestText13,Magisch Bosverhaal
+Discord\Discord.NL.xaml,Discord.LargestText14,Bloemenregen naar de Hemel
+Discord\Discord.NL.xaml,Discord.LargestText15,De Stille Aanraking van de Tijd
+Discord\Discord.NL.xaml,Discord.LargestText16,Surreëel Dromenland
+Discord\Discord.NL.xaml,Discord.LargestText17,Gouden Watervalliederen
+Discord\Discord.NL.xaml,Discord.LargestText18,Sprookjesschepen Zwevend naar de Hemel
+Discord\Discord.NL.xaml,Discord.LargestText19,Kleurrijk Ballonnenbos
+Discord\Discord.NL.xaml,Discord.LargestText20,Geheimzinnige Onderwaterstad
+Discord\Discord.NL.xaml,Discord.LargestText21,Sterrenstofhemel
+Discord\Discord.NL.xaml,Discord.LargestText22,Winden Die Achter het Onbekende Aanrennen
+Discord\Discord.NL.xaml,Discord.LargestText23,Meeslepende Verhalen bij het Maanlicht
+Discord\Discord.NL.xaml,,
+Discord\Discord.NL.xaml,Discord.SmallestText0,Mysterieuze Voetafdrukken
+Discord\Discord.NL.xaml,Discord.SmallestText1,Vliegende Ballonvissen
+Discord\Discord.NL.xaml,Discord.SmallestText2,Lachende Bloemen
+Discord\Discord.NL.xaml,Discord.SmallestText3,Suikerspinwolken
+Discord\Discord.NL.xaml,Discord.SmallestText4,Bevroren Pizzadraak
+Discord\Discord.NL.xaml,Discord.SmallestText5,Glanzende Paddenstoel Piraten
+Discord\Discord.NL.xaml,Discord.SmallestText6,Onzichtbare Eenhoorn Voetafdrukken
+Discord\Discord.NL.xaml,Discord.SmallestText7,Gekleurde Stofwolken
+Discord\Discord.NL.xaml,Discord.SmallestText8,Gouden Ballonvlinders
+Discord\Discord.NL.xaml,Discord.SmallestText9,Suikerkretenreis
+Discord\Discord.NL.xaml,Discord.SmallestText10,Raketvliegende Pizzapunten
+Discord\Discord.NL.xaml,Discord.SmallestText11,Schelpen Die Dansen met de Zon
+Discord\Discord.NL.xaml,Discord.SmallestText12,Onzichtbare Sterrenvingers
+Discord\Discord.NL.xaml,Discord.SmallestText13,Mistige Onderwaterdans
+Discord\Discord.NL.xaml,Discord.SmallestText14,Regenboogvogeltreks
+Discord\Discord.NL.xaml,Discord.SmallestText15,Suikerstormpad
+Discord\Discord.NL.xaml,Discord.SmallestText16,Oneindige Pizzagalaxie
+Discord\Discord.NL.xaml,Discord.SmallestText17,De Glimlach van de Zon
+Discord\Discord.NL.xaml,Discord.SmallestText18,De Verloren Glimlach van het Geheime Meer
+Discord\Discord.NL.xaml,Discord.SmallestText19,De Schaduw van Droomvogels
+Discord\Discord.NL.xaml,Discord.SmallestText20,Vlinders Die omhoog Zweven naar de Hemel
+Discord\Discord.NL.xaml,Discord.SmallestText21,Liedjes Die Verborgen Zijn Achter de Sterren
+Discord\Discord.NL.xaml,Discord.SmallestText22,Mistige Bergen in het Sprookje
+Discord\Discord.NL.xaml,Discord.SmallestText23,De Fee van het Geheimzinnige Bos
+Discord\Discord.NL.xaml,,
+Discord\Discord.NL.xaml,Discord.StatementText0,Een Universum Vol Chaos
+Discord\Discord.NL.xaml,Discord.StatementText1,Midden in Oneindige Avonturen
+Discord\Discord.NL.xaml,Discord.StatementText2,Een Vreemde en Magische Wereld
+Discord\Discord.NL.xaml,Discord.StatementText3,De Grenzen van de Verbeelding Verleggend
+Discord\Discord.NL.xaml,Discord.StatementText4,Een Buitengewone Realiteit
+Discord\Discord.NL.xaml,Discord.StatementText5,In de Diepten van de Verbeelding
+Discord\Discord.NL.xaml,Discord.StatementText6,Een Betoverende Ontdekkingsreis
+Discord\Discord.NL.xaml,Discord.StatementText7,Aan de Poorten van Onbekende Rijken
+Discord\Discord.NL.xaml,Discord.StatementText8,Een Complex Droomland
+Discord\Discord.NL.xaml,Discord.StatementText9,Een Avontuur dat Grenzen Verlegt
+Discord\Discord.NL.xaml,Discord.StatementText10,Een Dynamische en Verbazingwekkende Ervaring
+Discord\Discord.NL.xaml,Discord.StatementText11,In een Fantastisch Sprookje
+Discord\Discord.NL.xaml,Discord.StatementText12,Tussen Magische Poorten
+Discord\Discord.NL.xaml,Discord.StatementText13,Reis naar de Nachtelijke Hemel
+Discord\Discord.NL.xaml,Discord.StatementText14,Op Zoek naar het Spoor van het Verloren Continent
+Discord\Discord.NL.xaml,Discord.StatementText15,Het Verhaal van Onbekende Planeten
+Discord\Discord.NL.xaml,Discord.StatementText16,Verkenning van Parallelle Universums
+Discord\Discord.NL.xaml,Discord.StatementText17,De Ingang naar Legendarische Rijken
+Discord\Discord.NL.xaml,Discord.StatementText18,Geweven Realiteit met de Textuur van Dromen
+Discord\Discord.NL.xaml,Discord.StatementText19,Een Droom tussen de Sterren
+Discord\Discord.NL.xaml,Discord.StatementText20,Achter de Deuren van de Tijd
+Discord\Discord.NL.xaml,Discord.StatementText21,Het Twinkelende Sterrenteam
+Discord\Discord.NL.xaml,Discord.StatementText22,De Stille Schreeuw van het Onbekende
+Discord\Discord.NL.xaml,Discord.StatementText23,Een Meeslepende Wereld
+Discord\Discord.NL.xaml,Discord.StatementText24,Op de Top van de Mysterieuze Bergen
+Discord\Discord.NL.xaml,Discord.StatementText25,Op Zoek naar de Sporen van Verloren Koninkrijken
+Discord\Discord.NL.xaml,Discord.StatementText26,Sterrenreis tussen de Sterren
+Discord\Discord.NL.xaml,Discord.StatementText27,Magische Nachtwezens
+Discord\Discord.NL.xaml,Discord.StatementText28,Het Begin van een Oneindig Verhaal
+Discord\Discord.NL.xaml,Discord.StatementText29,Kleurrijke Ballonnen die naar de Hemel Stijgen
+Discord\Discord.NL.xaml,Discord.StatementText30,Mysterieuze Nachtelijke Hemel
+Discord\Discord.NL.xaml,Discord.StatementText31,Droompad naar het Verloren Koninkrijk
+Discord\Discord.NL.xaml,Discord.StatementText32,De Deur naar Onbekende Landen
+Discord\Discord.NL.xaml,Discord.StatementText33,Dans in de Armen van de Tijd
+Discord\Discord.NL.xaml,Discord.StatementText34,Verhalen begraven in de Nacht
+Discord\Discord.NL.xaml,Discord.StatementText35,Magische Spiegelwereld
+Discord\Discord.NL.xaml,Discord.StatementText36,Reis bij de Poorten van Oneindigheid
+Discord\Discord.NL.xaml,Discord.StatementText37,Nachtreis van de Dromenjager
+Discord\Discord.NL.xaml,Discord.StatementText38,Droom van een Kristallen Stad
+Discord\Discord.NL.xaml,Discord.StatementText39,Sterren die Schitteren in het Donker
+Discord\Discord.NL.xaml,Discord.StatementText40,Geheime Nacht achter de Sterren
+Discord\Discord.NL.xaml,Discord.StatementText41,Mysterieuze Maanlichtverhalen
+Discord\Discord.NL.xaml,Discord.StatementText42,Bij de Drempel van Onbekende Werelden
+Discord\Discord.NL.xaml,Discord.StatementText43,Magische Wegen op een Betoverde Nacht
+Discord\Discord.NL.xaml,Discord.StatementText44,Dromerige Ballonnen die naar de Hemel Stijgen
+Discord\Discord.NL.xaml,Discord.StatementText45,Droompad onder de Sterren
+Discord\Discord.NL.xaml,Discord.StatementText46,Verborgen Stad aan de Sterrenkust
+Discord\Discord.NL.xaml,Discord.StatementText47,Het Avontuur achter de Mistige Berg
+Discord\Discord.NL.xaml,Discord.StatementText48,Sterrennacht die Schittert in het Donker
+Launcher\Launcher.NL.xaml,Launcher.WallCustomizeText,Achtergrond Aanpassen
+Launcher\Launcher.NL.xaml,Launcher.CreateLogText,Logbestand Maken
+Launcher\Launcher.NL.xaml,Launcher.ExitText,Afsluiten
+Launcher\Launcher.NL.xaml,Launcher.OpenReportText,Een Probleem Melden
+Launcher\Launcher.NL.xaml,Launcher.OpenText,Sucrose Openen
+Launcher\Launcher.NL.xaml,Launcher.ReportText,Probleem Rapporteren
+Launcher\Launcher.NL.xaml,Launcher.ReportWindowTitle,Sucrose Diagnose
+Launcher\Launcher.NL.xaml,Launcher.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle Bestanden (*.*)|*.*
+Launcher\Launcher.NL.xaml,Launcher.SaveDialogTitle,Logbestand Opslaan
+Launcher\Launcher.NL.xaml,Launcher.SettingText,Instellingen
+Launcher\Launcher.NL.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.NL.xaml,Launcher.WallChangeText,Achtergrond Wijzigen
+Launcher\Launcher.NL.xaml,Launcher.WallCloseText,Achtergrond Sluiten
+Launcher\Launcher.NL.xaml,Launcher.WallOpenText,Achtergrond Openen
+Launcher\Launcher.NL.xaml,Launcher.WallStartText,Achtergrond Starten
+Launcher\Launcher.NL.xaml,Launcher.WallStopText,Achtergrond Stoppen
+Launcher\Launcher.NL.xaml,Launcher.UpdateText,Updates Controleren
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.UpdateText.Done,Updates in Afwachting
+Launcher\Launcher.NL.xaml,Launcher.UpdateText.Check,Updates Worden Gecontroleerd
+Launcher\Launcher.NL.xaml,Launcher.UpdateText.Progress,Updatevoortgang {0}
+Portal\Portal.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5OTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.NL.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.NL.xaml,,
+Property\Property.NL.xaml,Property.DeleteTip,Kopie verwijderen
+Property\Property.NL.xaml,Property.RefreshTip,Interface vernieuwen
+Property\Property.NL.xaml,Property.RestoreTip,Standaard herstellen
+Property\Property.NL.xaml,,
+Property\Property.NL.xaml,Property.Type.NotSupport,Het besturingselementtype '{0}' wordt niet ondersteund.
+Property\Property.NL.xaml,,
+Property\Property.NL.xaml,Property.ColorPicker.Color,Kleur
+Property\Property.NL.xaml,Property.ColorPicker.Cancel,Annuleren
+Property\Property.NL.xaml,Property.ColorPicker.Confirm,Bevestigen
+Property\Property.NL.xaml,Property.ColorPicker.EyeDropper,Pipet
+Property\Property.NL.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.NL.xaml,,
+Property\Property.NL.xaml,Property.FileDropDown.Tip,Selecteer een bestand
+Property\Property.NL.xaml,Property.FileDropDown.Filter,Alle bestanden (*.*)|*.*
+Undo\Undo.NL.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.NL.xaml,,
+Undo\Undo.NL.xaml,Undo.QuestionMessage,Wil je Sucrose Wallpaper Engine echt verwijderen?
+Update\Update.NL.xaml,Update.HelpText,Probleem Oplossen
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.UpdateBox.WindowTitle,Sucrose Bijwerken
+Update\Update.NL.xaml,Update.UpdateBox.InstallText,Update Installeren
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.InfoBox.WindowTitle,Sucrose Bijwerken
+Update\Update.NL.xaml,Update.InfoBox.TextMessage,Bericht
+Update\Update.NL.xaml,Update.InfoBox.CloseText,Sluiten
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Empty,We bevinden ons in momenten waarin de updatebestanden zich als een verloren juweel verbergen. Je kunt nog steeds genieten van de huidige versie van de ervaring.
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Error,"Terwijl we het updatebestand aan het downloaden waren, merkten we dat er een scheur in de weg is ontstaan en dat deze reis voorlopig tot een einde is gekomen. Ga verder met je reis met de huidige versie, want wanneer deze scheuren zijn gerepareerd, wacht er een krachtigere update op je."
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Update,De app is al bijgewerkt en is altijd bij je in de meest actuele en innovatieve vorm. We zijn hier om je op elk moment de beste en meest actuele ervaring te bieden.
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Status,We staan aan de drempel van een droom waarin we geen toegang hebben tot de updatebestanden. Maar je kunt nog steeds je droom beleven met de huidige versie.
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Channel,"Het geselecteerde updatekanaal is als een stille bos. Op dit moment zijn er geen nieuwe updategegevens beschikbaar. Ga verder met je reis met de huidige versie, want wanneer deze stilte wordt verbroken, zullen we je meer bieden."
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Extract,"Toen we probeerden het updatebestand uit te pakken, stonden we tegenover een obstakel dat uit de diepten van de zee kwam. Ga voor nu verder met je reis met de huidige versie, want wanneer de zeeën kalmer zijn, keren we terug om nieuwe schatten te vinden."
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Network,"De zwakte van je verbinding is als wolken die de zon bedekken. Wanneer de wolken verdwijnen, wacht er een helderdere ervaring op je."
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Updating,De app-update vordert stilletjes als nieuwe schatten die de golven naar de kust brengen. Deze waardevolle vernieuwingen worden in de achtergrond voor je verzameld.
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Releases,"We beleven een moment waarop de update-ster nog niet is opgekomen. Op dit moment zijn er geen update-informatie, maar je kunt blijven genieten van de huidige versie."
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Download,"Terwijl we het updatebestand aan het downloaden waren, ontdekten we dat de sterren aan de hemel in de verkeerde volgorde staan. Ga voor nu verder met je reis met de huidige versie, want wanneer de sterren op de juiste manier uitlijnen, zullen we je een betere update bieden."
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Cancelled,"De download van het updatebestand is geannuleerd omdat onze wegen plotseling uiteengingen. Ga verder met je reis met de huidige versie en wees klaar voor toekomstige updates, want een nieuwe start is altijd mogelijk."
+Update\Update.NL.xaml,Update.InfoBox.TextMessage.Condition,De voorwaarden in de updatebestanden lijken nog steeds ontbrekend om de sleutel te ontgrendelen. Ga voor nu verder met je reis met de huidige versie en wees klaar voor toekomstige updates.
+Watchdog\Watchdog.NL.xaml,Watchdog.HelpButton,Help
+Watchdog\Watchdog.NL.xaml,Watchdog.CloseButton,Afsluiten
+Watchdog\Watchdog.NL.xaml,Watchdog.ErrorMessage,Er is een onverwachte fout opgetreden:
+Watchdog\Watchdog.NL.xaml,Watchdog.ErrorTitle,Fout
+Watchdog\Watchdog.NL.xaml,Watchdog.HideButton,Verbergen
+Watchdog\Watchdog.NL.xaml,Watchdog.ShowButton,Tonen
+Watchdog\Watchdog.NL.xaml,Watchdog.StackTrace,Stapeltracering:
+Watchdog\Watchdog.NL.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.NL.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.ReloadText,PROBEER OPNIEUW
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Preparing,VOORBEREIDING VAN NOODZAKELIJKE VOORBEREIDINGEN
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Temporary,CONTROLEREN VAN TIJDELIJKE LOCATIES
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Temporary.Error,TIJDELIJKE LOCATIES KONDEN NIET WORDEN GECONTROLEERD
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Connection,CONTROLEREN VAN INTERNETVERBINDING
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Connection.None,GEEN INTERNETVERBINDING
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Connection.Error,INTERNETVERBINDING KON NIET WORDEN GECONTROLEERD
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Searching,ZOEKEN NAAR VEREISTE BESTANDEN
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Searching.Not,VEREISTE BESTANDEN NIET GEVONDEN
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Searching.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEZOCHT
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Listing,OPHALEN VAN DE VEREISTE LIJSTEN
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Listing.Empty,VEREISTE LIJSTEN ZIJN LEEG
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Listing.Error,VEREISTE LIJSTEN KONDEN NIET WORDEN ONTVANGEN
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Filtering,LIJSTEN WORDEN GEFILTERD
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Filtering.Not,LIJSTEN KUNNEN NIET WORDEN GEFILTERD
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Filtering.Error,LIJSTEN KONDEN NIET WORDEN GEFILTERD
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading,DOWNLOADEN VAN VEREISTE BESTANDEN
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEDOWNLOAD
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading.Complete.Cancel,HET DOWNLOADEN VAN HET VEREISTE BESTAND WERD GEANNULEERD
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading.Complete.Error,ER IS EEN FOUT OPGETREDEN TIJDENS HET DOWNLOADEN VAN HET VEREISTE BESTAND
+Wizard\Wizard.NL.xaml,,
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting,HET EXTRACTEREN VAN HET GEDOWNLOADE BESTAND
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Executing,HET UITGEPAKTE BESTAND WORDT UITGEVOERD
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Executed,HET UITGEPAKTE BESTAND IS UITGEVOERD
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Failed,HET GEDOWNLOADE BESTAND IS MISLUKT
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Corrupt,HET GEDOWNLOADE BESTAND IS BESCHADIGD
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Not,HET GEDOWNLOADE BESTAND IS NIET GEBRUIKBAAR
+Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Error,HET GEDOWNLOADE BESTAND KON NIET WORDEN GEËXTRAHEERD
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Sound,Geluid
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Log,Logboek
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Hook,Haak
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Store,Winkel
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Donate,Doneren
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.System,Systeem
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Cache,Cache
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Laptop,Laptop
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Support,Ondersteuning
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Reset,Resetten
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Backup,Back-up
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Priority,Prioriteit
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Engines,Motoren
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Update,Update
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Library,Bibliotheek
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Developer,Ontwikkelaar
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Extensions,Uitbreidingen
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.SystemResources,Systeembronnen
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.AppearanceBehavior,Uiterlijk en Gedrag
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.All,Alle
+Portal\Category\Portal.Category.NL.xaml,,
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Abstract,Abstract
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Ambience,Omgeving
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Animals,Dieren
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Animation,Animatie
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Anime,Anime
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.ArchitectureandBuildings,Architectuur en Gebouwen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.ArtandAbstract,Kunst en Abstract
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Artworks,Kunstwerken
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Bard,Bard
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.BlackandWhite,Zwart en Wit
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.CartoonandComics,Cartoon en Strips
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.CitiesandPlaces,Steden en Plaatsen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.CloudsandSkies,Wolken en Luchten
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.ColorfulGradients,Kleurrijke Gradiënten
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.ComicBooks,Stripboeken
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.DigitalArt,Digitale Kunst
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Dynamic,Dynamisch
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.EnchantedForests,Betoverde Bossen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Fantasy,Fantasie
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.FilmandTV,Film en TV
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.FoodandDrinks,Eten en Drinken
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Galaxy,Melkweg
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Game,Spel
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.GeometricPatterns,Geometrische Patronen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.HolidaysandSeasons,Feestdagen en Seizoenen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.HorrorandHalloween,Horror en Halloween
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.InspirationalQuotes,Inspirerende Citaten
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.KidsandCartoon,Kinderen en Cartoons
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Landscape,Landschap
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Lifestyle,Levensstijl
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.LineArt,Lijnkunst
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Medieval,Middeleeuws
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Minimalist,Minimalistisch
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Music,Muziek
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Nature,Natuur
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Nightscapes,Nachtlandschappen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.PatternsandTextures,Patronen en Texturen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Retro,Retro
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Sky,Lucht
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Space,Ruimte
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Sports,Sport
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Superheroes,Superhelden
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.System,Systeem
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Tavern,Taverne
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Technology,Technologie
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Temple,Tempel
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Time,Tijd
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.UnderwaterandMarine,Onderwater en Zee
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Vehicles,Voertuigen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Vintage,Vintage
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.War,Oorlog
+Portal\Controls\Portal.Controls.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5OTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.Stretch.Fill,Vullen
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.Stretch.None,Geen
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.Stretch.Uniform,Uniform
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.Stretch.UniformToFill,Uniform Vullen
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.None,Geen
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Name,Naam
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Creation,Creatie
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Modification,Aanpassing
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.Fill,Vullen
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.None,Geen
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.Uniform,Uniform
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StretchType.UniformToFill,Uniform Vullen
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.PerformanceType.Close,Sluiten
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.PerformanceType.Pause,Pauzeren
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.PerformanceType.Resume,Hervatten
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Mica,Mica
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.None,Geen
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Auto,Automatisch
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Tabbed,In Tabbladen
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acryl
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ChannelType.Release,Standaard
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ChannelType.PreRelease,Ontwikkelaar
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.PausePerformanceType.Heavy,Zwaar
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.PausePerformanceType.Light,Licht
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortKindType.Ascending,Oplopend [A-Z]
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortKindType.Descending,Aflopend [Z-A]
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ExpandScreenType.Default,Standaard
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ExpandScreenType.Advanced,Geavanceerd
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateType.Compressed,Gecomprimeerd
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.UpdateType.Executable,Uitvoerbaar
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ScreenType.WorkingArea,Werkruimte
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ScreenType.DisplayBound,Schermgrenzen
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.DuplicateScreenType.Default,Standaard
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.DuplicateScreenType.Advanced,Geavanceerd
+Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Pass,Succesvol
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' bevat te veel waarden
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Type,Thema is gemaakt voor een niet-ondersteund type
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Title,'Title' is leeg of te lang
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Author,'Author' is leeg of te lang
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Source,Bestand 'Source' niet gevonden
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' is leeg of te lang
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Preview,Bestand 'Preview' niet gevonden
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Encrypt,Het relevante bestand is versleuteld
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.ZipType,Het relevante bestand is geen echt '.zip' bestand
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InfoFile,Bestand 'SucroseInfo.json' niet gevonden
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.NotFound,Het relevante bestand is niet gevonden
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.LoopMode,Ongeldige 'LoopMode' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Arguments,'Arguments' is te lang
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Extension,Het relevante bestand heeft geen '.zip' extensie
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Thumbnail,Bestand 'Thumbnail' niet gevonden
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemCpu,Ongeldige 'SystemCpu' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Bestand 'SucroseInfo.json' is leeg
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.AppVersion,Thema is gemaakt voor een hogere versie van de toepassing
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidUrl,'Source' bevat een ongeldige waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemBios,Ongeldige 'SystemBios' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemDate,Ongeldige 'SystemDate' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemAudio,Ongeldige 'SystemAudio' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Description,'Description' is leeg of te lang
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Bestand 'SucroseInfo.json' is ongeldig
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.TriggerTime,Ongeldige 'TriggerTime' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.StretchMode,Ongeldige 'StretchMode' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Ongeldige 'VolumeLevel' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Ongeldige 'ShuffleMode' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidTags,'Tags' waarden zijn te kort of te lang
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidFile,Ongeldig bestand
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.PropertyList,'PropertyList' is leeg
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemMemory,Ongeldige 'SystemMemory' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemBattery,Ongeldige 'SystemBattery' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Ongeldige 'SystemGraphic' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Ongeldige 'SystemNetwork' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidContact,'Contact' is geen 'URL' of 'E-mailadres'
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Ongeldige bestandsextensie
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Bestand 'SucroseCompatible.json' is leeg
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Bestand 'SucroseProperties.json' is leeg
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.PropertyListener,Ongeldige 'PropertyListener' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Ongeldige 'SystemMotherboard' waarde
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Bestand 'SucroseCompatible.json' is ongeldig
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Bestand 'SucroseProperties.json' is ongeldig
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Onvoorziene Gevolgen
+Portal\LibraryPage\Portal.LibraryPage.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5OTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.NL.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.NL.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.NL.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.NL.xaml,Portal.LibraryPage.Import.Successful,Het thema genaamd '{0}' is succesvol toegevoegd aan de bibliotheek.
+Portal\LibraryPage\Portal.LibraryPage.NL.xaml,Portal.LibraryPage.Import.Unsuccessful,Het thema genaamd '{0}' kon niet aan de bibliotheek worden toegevoegd. Reden: '{1}'.
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuHelp,Help
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuAbout,Over
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuHelpTip,Help bekijken
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuAboutTip,Over bekijken
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuLibrary,Bibliotheek
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuStore,Winkel
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuLibraryTip,Themabibliotheek
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuStoreTip,Themawinkel
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuGeneral,Algemeen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuPersonal,Persoonlijk
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuPerformance,Prestaties
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuWallpaper,Achtergrond
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuSystem,Systeem
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuDonate,Doneren
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuOther,Overige
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuBackTip,Terug
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuGeneralTip,Algemene instellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuPersonalTip,Persoonlijke instellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuPerformanceTip,Prestatie-instellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuWallpaperTip,Achtergrondinstellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuSystemTip,Systeeminstellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuDonateTip,Donatie-instellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuOtherTip,Overige instellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuSettingTip,Instellingen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.SearchBoxHint,Zoek een achtergrond
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.SearchBoxTip,Heeft u moeite met vinden wat u nodig heeft?
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuLightTip,Lichte modus
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuDarkTip,Donkere modus
+Portal\MainWindow\Portal.MainWindow.NL.xaml,,
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Achtergrond maken
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Achtergrondafbeeldingen Fietsen
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Schermvoorkeuren
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuDonateOptionsTip,Donatieopties
+Portal\MainWindow\Portal.MainWindow.NL.xaml,Portal.MainWindow.MenuOtherOptionsTip,Andere opties
+Portal\SettingPage\Portal.SettingPage.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuTkwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLk5MLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.NL.xaml,,
+Portal\StorePage\Portal.StorePage.NL.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Title,Schermvoorkeuren
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Close,Sluiten
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Expander,Uitvouwen
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Expander.Description,Hoe behang op actieve schermen toegepast wordt.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Screen,Alleen geselecteerd scherm
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Expand,Uitbreiden over schermen
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Expand.Monitor,Alle monitoren
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Expand.Hint,Selecteer de uitbreidingsmodus tussen schermen
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Duplicate,Dupliceer dezelfde achtergrond
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.NL.xaml,Portal.DisplayPreferences.Duplicate.Hint,Selecteer de modus voor het dupliceren van dezelfde achtergrond
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,Portal.ExpanderCard.TitleText,Titel
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,Portal.ExpanderCard.DescriptionText,Beschrijving
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,Portal.ExpanderCard.ExpandUpTip,Vouw samen
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.NL.xaml,Portal.ExpanderCard.ExpandDownTip,Uitvouwen
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.TitleText,Titel
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.DescriptionText,Beschrijving
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MoreTip,Meer
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.VersionTip,"Om dit thema te gebruiken, update Sucrose"
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuReview,Beoordelen
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuUse,Gebruiken
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuPreview,Voorbeeld
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuCustomize,Aanpassen
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuFind,Vinden
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuShare,Delen
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuDelete,Verwijderen
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuEdit,Bewerken
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.Title,Over
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.Close,Sluiten
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.About,"Hallo, mijn naam is Bayram Emekli, ook wel bekend als Taiizor. Ik ben de ontwikkelaar van Sucrose Wallpaper Engine, een gratis en open-source applicatie. Bedankt voor het gebruik van de door mij ontwikkelde app."
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.Update,Versie: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.Update.Description,Laatste controle: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.Update.Notes,Update Notities
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.Partners,Partners
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.Contributors,Bijdragers
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.TermsOfService,Servicevoorwaarden
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.PrivacyPolicy,Privacybeleid
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.NL.xaml,Portal.OtherAbout.CodeOfConduct,Gedragscode
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Title,Hulp
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Close,Sluiten
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.WebPage,Website
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.WebPage.Description,Officiële Sucrose Wallpaper Engine-website
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Documentation,Documentatie
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Documentation.Description,Officiële documentatiepagina van Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Repository,Broncode
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Repository.Description,Officiële pagina voor de broncode van Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Discussions,Discussies
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Discussions.Description,Officiële pagina voor discussies over Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Report,Foutmelding
+Portal\Controls\OtherHelp\Portal.OtherHelp.NL.xaml,Portal.OtherHelp.Report.Description,Officiële pagina voor het melden van fouten in Sucrose Wallpaper Engine
+Portal\Controls\Pagination\Portal.Pagination.NL.xaml,Portal.Pagination.PageJump,Overslaan
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.TitleText,Titel
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.DescriptionText,Beschrijving
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.VersionTip,"Om dit thema te gebruiken, update Sucrose"
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuInstall,Installeren
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuReport,Melden
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Title,Thema Maken
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Create,Aanmaken
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Close,Sluiten
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Gif,Gif Thema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Gif.Description,Maak je eigen thema van het type Gif.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Url,Url Thema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Url.Description,Maak je eigen thema van het type Url.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Web,Web Thema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Web.Description,Maak je eigen thema van het type Web.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Video,Video Thema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Video.Description,Maak je eigen thema van het type Video.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.YouTube,YouTube Thema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.YouTube.Description,Maak je eigen thema van het type YouTube.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Application,Application Thema
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Application.Description,Maak je eigen thema van het type Application.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeThumbnail,Afbeelding
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview,Voorbeeld
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeTitle,Titel
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeDescription,Beschrijving
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeAuthor,Auteur
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeContact,Contact
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeTags,Tags
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeArguments,Argumenten
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Voer een geldige Url in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Selecteer een omslagafbeelding
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview.Hint,Selecteer een voorbeeldbestand
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Voer een geldige titel in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeDescription.Hint,Voer een geldige beschrijving in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,Voer een geldige auteursnaam in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeContact.Hint,Voer een geldig contactadres in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeTags.Hint,Voer geldige thema-tags in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Voer geldige applicatie-argumenten in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Delete,Ongedaan maken
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Gif,Sleep en zet hier je gif-bestand
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Video,Sleep en zet hier je videobestand
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Selecteer een Omslagafbeelding
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview.Title,Selecteer een Voorbeeldbestand
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif-bestanden (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Title,Thema Verwijderen
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Delete,Verwijderen
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Close,Sluiten
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeTitle,Titel
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeDescription,Beschrijving
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeType,Type
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeAuthor,Auteur
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeSize,Grootte
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeVersion,Versie
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeTags,Tags
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeTagsText,Geen
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeCreate,Gemaakt
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeCreateDate,Onbekend
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeModify,Bewerkt
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.ThemeModifyDate,Onbekend
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.Title,Thema Bewerken
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.Close,Sluiten
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.Save,Opslaan
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeTitle,Titel
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeDescription,Beschrijving
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeAuthor,Auteur
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeContact,Contact
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeTags,Tags
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeArguments,Argumenten
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeTitle.Hint,Voer een geldige titel in
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeDescription.Hint,Voer een geldige beschrijving in
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,Voer een geldige auteursnaam in
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeContact.Hint,Voer een geldig contactadres in
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeTags.Hint,Voer geldige thema-tags in
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.NL.xaml,Portal.ThemeEdit.ThemeArguments.Hint,Voer geldige applicatie-argumenten in
+Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,Portal.ThemeImport.Title,Thema Importeren
+Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,Portal.ThemeImport.Close,Sluiten
+Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,Portal.ThemeImport.Info,Thema Informatie
+Portal\Controls\ThemeImport\Portal.ThemeImport.NL.xaml,Portal.ThemeImport.Type,Redenomschrijvingen
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.Title,Thema Beoordelen
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.Close,Sluiten
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeTitle,Titel
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeDescription,Beschrijving
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeType,Type
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeAuthor,Auteur
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeSize,Grootte
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeVersion,Versie
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeTags,Tags
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeTagsText,Geen
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeCreate,Aangemaakt
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeCreateDate,Onbekend
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeModify,Aangepast
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeModifyDate,Onbekend
+Portal\Controls\ThemeReview\Portal.ThemeReview.NL.xaml,Portal.ThemeReview.ThemeContact,Thema Contactadres
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.Title,Thema Delen
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.Close,Sluiten
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemeTitle,Titel
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemeDescription,Beschrijving
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemeExport,Exporteren
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish,Publiceren in de Winkel
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemeCopy,Koppeling Kopiëren
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.SaveDialogTitle,Thema Opslaan als Bestand
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,Portal.EmptyLibraryPage.TitleText,Uw bibliotheek is geweven door spinnenwebben
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.NL.xaml,Portal.EmptyLibraryPage.DescriptionText,In plaats van wallpapers is er een prachtig kunstwerk ontstaan door spinnenwebben
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.NL.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,Portal.SearchLibraryPage.TitleText,Uw bibliotheek is betoverd met spinnenwebben
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.NL.xaml,Portal.SearchLibraryPage.DescriptionText,Er is geen ruimte meer voor wallpapers vanwege uw fijne keuze in wallpapers
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.DonateMenu,Donatiemenu
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.DonateMenu.Description,De zichtbaarheid van het donatiemenu in de interface.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Zichtbaar
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Onzichtbaar
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.Advertising,Gesponsorde Ondersteuning
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.Advertising.Description,Draag bij aan de ontwikkeling van de app door advertenties te bekijken.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Advertentieduur (minuten):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.NL.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Tip: Advertenties worden zo min mogelijk storend voor u weergegeven.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Toepassingstaal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,Kies de taal waarin u de toepassing wilt bekijken.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup,Opstarten bij opstarten
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,Sucrose moet op de achtergrond draaien om wallpapers te kunnen afspelen.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Geen
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Normaal
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioriteit
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planner
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.NotifyIcon,Systeemvakpictogram
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Zichtbaarheid van het systeemvak. Sucrose blijft op de achtergrond actief.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Zichtbaar
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Onzichtbaar
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Sluiten van het systeemvak betekent afsluiten van alle Sucrose-toepassingen
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop,Vensterachtergrond
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Gebruikt om de achtergrond van de toepassingsvensters aan te passen.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Achtergrondafbeelding Selecteren
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Selecteer een achtergrondafbeelding
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Achtergrond Passend maken:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Achtergrond Ondoorzichtigheid (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.EngineVolume,Geluidsvolume
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Geluidsvolume dat geldt voor alle wallpapers.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Speel geluid alleen af wanneer gefocust op het bureaublad
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary,Bibliotheeklocatie
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Locatie waar toegevoegde thema's in uw bibliotheek worden opgeslagen.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Selecteer alstublieft een lege map
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Even geduld, locatie wordt gewijzigd"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Verplaats uw huidige bibliotheek naar een nieuwe locatie
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose maakt communicatie met Discord mogelijk.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Verbinding Vernieuwen:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Vernieuwingsinterval (seconden):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Agent,Internetvertegenwoordiger
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Agent.Description,Uw vertegenwoordigers-ID in situaties waar internetverbinding vereist is.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Key,Persoonlijke Toegangssleutel
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Key.Description,Noodzakelijk voor een naadloos gebruik van de winkel en app-updates.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Key.HintKey,"Als u niet weet hoe u een persoonlijke toegangssleutel kunt verkrijgen, klik dan hier."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Key.PersonalKey,Voer alstublieft een persoonlijke toegangssleutel in
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,Voer een geldige persoonlijke toegangssleutel in
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Channel,Updatekanaal
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Channel.Description,Het kanaal waar de updatebewerking plaatsvindt.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Update,Update Methode
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Update.Description,De methode waarmee de updatebewerking wordt uitgevoerd.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Update.Limit,Downloadbandbreedtelimiet:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer,Ontwikkelaarshulpmiddelen
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer.Description,Weergeven of verbergen van ontwikkelaarshulpmiddelen voor WebView en CefSharp-engine.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Counter,Prestatie Tellers
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Counter.Description,Of alle prestatietellers op de achtergrond werken.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,Opmerking: Sommige Web-gebaseerde thema's werken mogelijk niet correct en geen van de onderstaande prestatie-instellingen zal van toepassing zijn.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Pause,Pauze Regels
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Pause.Description,Bepaalt de regel voor het pauzeren van de achtergrond op basis van uw prestatie-instellingen.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Communication,Communicatietype
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Communication.Description,Bepaalt de methode om berichten te verzenden naar thema's van het type Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Cpu,CPU-gebruik
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Cpu.Description,Het effect van uw CPU-gebruiksinstellingen op de achtergrondafbeelding.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-gebruik (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Memory,Geheugengebruik
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Memory.Description,Het effect van uw geheugengebruiksinstellingen op de achtergrondafbeelding.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Geheugengebruik (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Network,Netwerkgebruik
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Network.Description,Het effect van uw netwerkgebruiksinstellingen op de achtergrondafbeelding.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Netwerkadapter:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,De lijst van netwerkadapters is nog niet aangemaakt
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Uploadgrootte:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Downloadgrootte:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Ping-waarde (ms):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Battery,Batterijstatus
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Battery.Description,Het effect van uw batterijgebruiksinstellingen op de achtergrondafbeelding wanneer u werkt op batterijstroom.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Batterijstatus (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Saver,Energiespaarstand
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Saver.Description,Het effect van uw instellingen voor energiespaarstand op de achtergrondafbeelding wanneer uw laptop in de spaarstand staat.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Virtual,Virtualisatie
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Virtual.Description,Het effect van virtualisatietoepassingen op de achtergrondafbeelding.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Remote,Extern bureaublad
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Remote.Description,Het effect van externe bureaubladtoepassingen op de achtergrondafbeelding.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Fullscreen,Volledig schermmodus
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,Het effect van het uitvoeren van elke toepassing in volledig scherm op de achtergrondafbeelding.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Focus,Focusmodus
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Focus.Description,Het effect van het hebben van een andere actieve toepassing in de focusmodus op de achtergrondafbeelding.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Server,Winkelserver
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Server.Description,Geeft aan welke server zal worden gebruikt om de in de winkel vermelde thema's weer te geven.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Opmerking: Als {0} is geselecteerd als de server, is het noodzakelijk om een {2} in te voeren om verzoeklimieten te vermijden. Anders kunt u problemen ondervinden bij het openen van thema's in de winkel. Als {1} is geselecteerd, hebt u een soepelere winkelervaring."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Duration,Winkel Vernieuwen
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Duration.Description,Hoe vaak de thema's in de winkellijst vernieuwd moeten worden.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.StoreStart,Automatisch Starten
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.StoreStart.Description,Of een gedownload thema automatisch als achtergrond moet worden ingesteld.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Adult,Onveilige Inhoud
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Adult.Description,Of inhoud die als niet veilig voor werk (NSFW) is gemarkeerd in de winkel getoond moet worden.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Confirm,Verwijderingsbevestiging
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Confirm.Description,Of er een bevestiging moet worden gevraagd bij het verwijderen van thema's uit de bibliotheek.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Delete,Beschadigde Themata
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Delete.Description,Of beschadigde of ontbrekende thema's in de bibliotheek automatisch verwijderd moeten worden.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,"Let op: Wees voorzichtig, want dit kan gegevensverlies veroorzaken."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.LibraryStart,Automatisch Starten
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Of een gemaakt thema automatisch als achtergrond moet worden ingesteld.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Preview,Themavoorbeeld
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Preview.Description,Of thema's moeten worden gepreviewd wanneer u eroverheen gaat met de muisaanwijzer.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Winkelvoorbeeld:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Details Verbergen:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Bibliotheekvoorbeeld:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Details Verbergen:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Theme,Themaaanpassing
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Theme.Description,Pas de naam of beschrijving van weergegeven thema's aan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Titellengte (karakters):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Beschrijvingslengte (karakters):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Adaptive,Aanpasbaar Lay-out
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Adaptive.Description,Pas de lay-out of afstand van weergegeven thema's aan.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Margeafstand (pixels):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Lay-outvolgorde (aantal):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Sort,Bibliotheek Sorteren
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Sort.Description,Bepaal hoe thema's in uw bibliotheek worden gesorteerd en in welk formaat.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Sort.SortMode,Sorteermode:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Sort.SortKind,Sorteertype:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Store,Winkel Paginering
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Store.Description,Bepaal hoeveel thema's er op elke pagina in de winkel worden weergegeven.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Library,Bibliotheek Paginering
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NL.xaml,Portal.PersonalSettingPage.Library.Description,Bepaal hoeveel thema's er op elke pagina in uw bibliotheek worden weergegeven.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LogTemporary,Logbestanden
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LogTemporary.Description,Beheer alle logbestanden die de toepassing heeft aangemaakt.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LogTemporary.Create,Aanmaken
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Opschonen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Opmerking: Totale ruimte ingenomen door logbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.CacheTemporary,Cache Opruimen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.CacheTemporary.Description,Ruim alle cachebestanden op die de toepassing heeft aangemaakt.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Begin met Opruimen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Opmerking: Totale ruimte ingenomen door cachebestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.StoreTemporary,Winkel Opruimen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.StoreTemporary.Description,Ruim alle winkelbestanden op die de toepassing heeft aangemaakt.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Begin met Opruimen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Opmerking: Totale ruimte ingenomen door winkelbestanden is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LibraryTemporary,Bibliotheek Opruimen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,Ruim alle themabestanden op die in uw bibliotheek staan of die de toepassing heeft aangemaakt.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Begin met Opruimen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Opmerking: Totale ruimte ingenomen door themabestanden in uw bibliotheek is {0}. Alle toepassingen worden afgesloten wanneer het opruimen begint.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingBackup,Instellingsbestanden
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingBackup.Description,Beheer alle instellingsbestanden die de toepassing heeft aangemaakt.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingBackup.Export,Back-up maken
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingBackup.Import,Herstellen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer de geselecteerde bewerking begint.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingReset,Instellingen Herstellen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingReset.Description,Herstel alle instellingenbestanden die de toepassing heeft aangemaakt.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingReset.Start,Begin met Herstellen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.SettingReset.Hint,Opmerking: Alle toepassingen worden afgesloten wanneer het herstellen begint.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Logbestand Opslaan
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ScreenLayout,Schermindeling
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Wijzigt de schikking van uw achtergronden op het scherm.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.StretchMode,Rekmodus
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Verandert de schaalmethode voor ondersteunde achtergronden.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.LoopMode,Herhalingsmodus
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Verandert de herhalingsinstelling voor ondersteunde achtergronden.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ShuffleMode,Schudmodus
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Verandert de schudinstelling voor ondersteunde achtergronden.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif Speler
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Selecteer de plug-in die Gif-thema's in uw bibliotheek zal afspelen.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.VideoPlayer,Video Speler
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Selecteer de plug-in die Video-thema's in uw bibliotheek zal afspelen.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.UrlPlayer,Url Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Selecteer de motor die Url-thema's in uw bibliotheek zal uitvoeren.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.WebPlayer,Web Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Selecteer de motor die Web-thema's in uw bibliotheek zal uitvoeren.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.YouTubePlayer,YouTube Motor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Selecteer de motor die YouTube-thema's in uw bibliotheek zal uitvoeren.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Toepassingsmotor
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Selecteer de motor die Toepassings-thema's in uw bibliotheek zal uitvoeren.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Portal.BrokenStorePage.TitleText,Een Moment van Gedoofde Internetlichten
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.NL.xaml,Portal.BrokenStorePage.DescriptionText,"Zoals een sterrenloze hemel, hier ontbreekt de glans van het internet"
+Portal\StorePage\FullStorePage\Portal.FullStorePage.NL.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Portal.SearchStorePage.TitleText,Het Antwoord op wat je zoekt kan in de lucht verborgen zijn
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.NL.xaml,Portal.SearchStorePage.DescriptionText,"Als de resultaten niet zijn wat je verwachtte, kan de lucht je een nieuwe ervaring bieden"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Portal.UnknownStorePage.TitleText,Ontdek het mysterieuze geval in de winkel
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.NL.xaml,Portal.UnknownStorePage.DescriptionText,Ga op zoek naar het onbekende en begin aan een reis om het mysterieuze geval in de winkel op te helderen

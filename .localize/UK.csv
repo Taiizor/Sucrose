@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuVUsueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.UK.xaml,Discord.BrowseButton,Переглянути
+Discord\Discord.UK.xaml,Discord.Details,Двигун Обоїв
+Discord\Discord.UK.xaml,Discord.DownloadButton,Завантажити
+Discord\Discord.UK.xaml,,
+Discord\Discord.UK.xaml,Discord.LargestText0,Сила Бананового Морозива
+Discord\Discord.UK.xaml,Discord.LargestText1,Посміхаючийся Монстр у Капелюсі
+Discord\Discord.UK.xaml,Discord.LargestText2,"Спарви, які Розфарбовують Хмари"
+Discord\Discord.UK.xaml,Discord.LargestText3,Секретні Пригоди Бігучих Пінгвінів
+Discord\Discord.UK.xaml,Discord.LargestText4,Загублені Зайці на Полі Маргариток
+Discord\Discord.UK.xaml,Discord.LargestText5,"Вітерця, що Співають Пісні"
+Discord\Discord.UK.xaml,Discord.LargestText6,Таємничі Пильні Бджоли Лісу
+Discord\Discord.UK.xaml,Discord.LargestText7,Сонні Рибні Зграї
+Discord\Discord.UK.xaml,Discord.LargestText8,Танець З Кришталевими Очима Дракона
+Discord\Discord.UK.xaml,Discord.LargestText9,"Сказкова Доріжка, Вкрита Квітами"
+Discord\Discord.UK.xaml,Discord.LargestText10,"Зірки, Що Сиплються з Небес"
+Discord\Discord.UK.xaml,Discord.LargestText11,Танець Під Світлом Розбитого Місяця
+Discord\Discord.UK.xaml,Discord.LargestText12,Таємничі Дракони Веселки
+Discord\Discord.UK.xaml,Discord.LargestText13,Чарівна Сказка Лісу
+Discord\Discord.UK.xaml,Discord.LargestText14,Цветені Імла на Небі
+Discord\Discord.UK.xaml,Discord.LargestText15,Тихе Доторкання Часу
+Discord\Discord.UK.xaml,Discord.LargestText16,Країна Сюрреалістичних Сновидінь
+Discord\Discord.UK.xaml,Discord.LargestText17,Пісні Золотого Водоспаду
+Discord\Discord.UK.xaml,Discord.LargestText18,Чарівні Казкові Кораблі в Небі
+Discord\Discord.UK.xaml,Discord.LargestText19,Різнокольоровий Ліс З Повітряними Кульками
+Discord\Discord.UK.xaml,Discord.LargestText20,Таємниче Місто Під Водою
+Discord\Discord.UK.xaml,Discord.LargestText21,Зірковий Пил На Небі
+Discord\Discord.UK.xaml,Discord.LargestText22,"Вітри, що Переслідують Невідоме"
+Discord\Discord.UK.xaml,Discord.LargestText23,Захоплюючі Історії Під Світлом Місяця
+Discord\Discord.UK.xaml,,
+Discord\Discord.UK.xaml,Discord.SmallestText0,Таємничі Сліди Ніг
+Discord\Discord.UK.xaml,Discord.SmallestText1,Летючі Кульки Риби
+Discord\Discord.UK.xaml,Discord.SmallestText2,Сміючіся Квіти
+Discord\Discord.UK.xaml,Discord.SmallestText3,Цукрова Ватра в Хмарках
+Discord\Discord.UK.xaml,Discord.SmallestText4,Заморожені Піца-Дракони
+Discord\Discord.UK.xaml,Discord.SmallestText5,Сяючі Грибні Пірати
+Discord\Discord.UK.xaml,Discord.SmallestText6,Невидимі Сліди Копита Єднорога
+Discord\Discord.UK.xaml,Discord.SmallestText7,Кольорові Пилові Хмари
+Discord\Discord.UK.xaml,Discord.SmallestText8,Золоті Метелики-Балони
+Discord\Discord.UK.xaml,Discord.SmallestText9,Цукровий Шлях до Кратера
+Discord\Discord.UK.xaml,Discord.SmallestText10,"Піци-Ракети, Що Летять"
+Discord\Discord.UK.xaml,Discord.SmallestText11,Танець З Сонцем Раковин Моря
+Discord\Discord.UK.xaml,Discord.SmallestText12,Невидимі Зоряні Пальці
+Discord\Discord.UK.xaml,Discord.SmallestText13,Туманний Танець Під Водою
+Discord\Discord.UK.xaml,Discord.SmallestText14,Переліт Райдужих Птахів
+Discord\Discord.UK.xaml,Discord.SmallestText15,Шлях Цукрового Шторму
+Discord\Discord.UK.xaml,Discord.SmallestText16,Безкрайня Галактика Піци
+Discord\Discord.UK.xaml,Discord.SmallestText17,Сміх Сонця
+Discord\Discord.UK.xaml,Discord.SmallestText18,Зниклий Сміх біля Таємного Ставка
+Discord\Discord.UK.xaml,Discord.SmallestText19,Тінь Сновидінь Птахів
+Discord\Discord.UK.xaml,Discord.SmallestText20,"Метелики, Що Піднімаються до Неба"
+Discord\Discord.UK.xaml,Discord.SmallestText21,"Пісні, Приховані за Зірками"
+Discord\Discord.UK.xaml,Discord.SmallestText22,Туманні Гори в Країні Казки
+Discord\Discord.UK.xaml,Discord.SmallestText23,Фея Таємного Лісу
+Discord\Discord.UK.xaml,,
+Discord\Discord.UK.xaml,Discord.StatementText0,"Всесвіт, наповнений Хаосом"
+Discord\Discord.UK.xaml,Discord.StatementText1,Серед Нескінченних Пригод
+Discord\Discord.UK.xaml,Discord.StatementText2,Дивний і Магічний Світ
+Discord\Discord.UK.xaml,Discord.StatementText3,Що Випробуває Межі Уяви
+Discord\Discord.UK.xaml,Discord.StatementText4,Надзвичайна Реальність
+Discord\Discord.UK.xaml,Discord.StatementText5,У Глибоках Уяви
+Discord\Discord.UK.xaml,Discord.StatementText6,Магічний Відкриття
+Discord\Discord.UK.xaml,Discord.StatementText7,Порог Невідомих Світів
+Discord\Discord.UK.xaml,Discord.StatementText8,Складний Світ Мрій
+Discord\Discord.UK.xaml,Discord.StatementText9,"Пригода, що Випробовує Межі"
+Discord\Discord.UK.xaml,Discord.StatementText10,Динамічний і Дивовижний Досвід
+Discord\Discord.UK.xaml,Discord.StatementText11,У Фантастичній Казці
+Discord\Discord.UK.xaml,Discord.StatementText12,Серед Магічних Порталів
+Discord\Discord.UK.xaml,Discord.StatementText13,Подорож до Нічного Неба
+Discord\Discord.UK.xaml,Discord.StatementText14,Слідами Загубленого Континенту
+Discord\Discord.UK.xaml,Discord.StatementText15,Історія Невідомих Планет
+Discord\Discord.UK.xaml,Discord.StatementText16,Відкриття Паралельних Всесвітів
+Discord\Discord.UK.xaml,Discord.StatementText17,Вхід в Легендарні Країни
+Discord\Discord.UK.xaml,Discord.StatementText18,"Реальність, Плетена Текстурою Снів"
+Discord\Discord.UK.xaml,Discord.StatementText19,Сон Між Зірок
+Discord\Discord.UK.xaml,Discord.StatementText20,За Дверима Часу
+Discord\Discord.UK.xaml,Discord.StatementText21,Світлячий Візерунок Зірок
+Discord\Discord.UK.xaml,Discord.StatementText22,Тихий Крик Невідомого
+Discord\Discord.UK.xaml,Discord.StatementText23,Поглиблюючийся у Світ
+Discord\Discord.UK.xaml,Discord.StatementText24,На Вершині Містичних Гір
+Discord\Discord.UK.xaml,Discord.StatementText25,В Слідах Загублених Королівств
+Discord\Discord.UK.xaml,Discord.StatementText26,Подорож Сновидінь між Зірками
+Discord\Discord.UK.xaml,Discord.StatementText27,Чарівні Створіння під Чарівною Ноччю
+Discord\Discord.UK.xaml,Discord.StatementText28,Початок Безкінечної Саги
+Discord\Discord.UK.xaml,Discord.StatementText29,"Кольорові Балони, що Летять до Неба"
+Discord\Discord.UK.xaml,Discord.StatementText30,Таємниче Нічне Небо
+Discord\Discord.UK.xaml,Discord.StatementText31,Шлях Сновидінь Загубленого Королівства
+Discord\Discord.UK.xaml,Discord.StatementText32,Відчиняється Двере до Невідомих Світів
+Discord\Discord.UK.xaml,Discord.StatementText33,Танець в Обіймах Часу
+Discord\Discord.UK.xaml,Discord.StatementText34,"Історії, Закопані в Нічі"
+Discord\Discord.UK.xaml,Discord.StatementText35,Чарівний Світ Дзеркал
+Discord\Discord.UK.xaml,Discord.StatementText36,Подорож Ворітами Безкінечності
+Discord\Discord.UK.xaml,Discord.StatementText37,Нічна Подорож Ловця Сновидінь
+Discord\Discord.UK.xaml,Discord.StatementText38,Сон Кришталевого Міста
+Discord\Discord.UK.xaml,Discord.StatementText39,"Темні Зірки, Що Сяють"
+Discord\Discord.UK.xaml,Discord.StatementText40,Таємнича Ніч за Зірками
+Discord\Discord.UK.xaml,Discord.StatementText41,Таємничі Історії Під Місячним Світлом
+Discord\Discord.UK.xaml,Discord.StatementText42,Золоті Двері на Порозі Невідомих Країн
+Discord\Discord.UK.xaml,Discord.StatementText43,Чарівні Шляхи в Таємничу Ніч
+Discord\Discord.UK.xaml,Discord.StatementText44,"Сновидінські Повітряні Кульки, що Стремляться до Неба"
+Discord\Discord.UK.xaml,Discord.StatementText45,Подорож Шляхом Сновидінь Під Зірками
+Discord\Discord.UK.xaml,Discord.StatementText46,Секретне Місто біля Берега Зірок
+Discord\Discord.UK.xaml,Discord.StatementText47,Сага За Туманом Гори
+Discord\Discord.UK.xaml,Discord.StatementText48,Зіркова Ніч за Темрявою
+Launcher\Launcher.UK.xaml,Launcher.WallCustomizeText,Налаштувати шпалери
+Launcher\Launcher.UK.xaml,Launcher.CreateLogText,Створити журнал
+Launcher\Launcher.UK.xaml,Launcher.ExitText,Вихід
+Launcher\Launcher.UK.xaml,Launcher.OpenReportText,Повідомити про проблему
+Launcher\Launcher.UK.xaml,Launcher.OpenText,Відкрити Sucrose
+Launcher\Launcher.UK.xaml,Launcher.ReportText,Повідомлення про помилку
+Launcher\Launcher.UK.xaml,Launcher.ReportWindowTitle,Діагностика Sucrose
+Launcher\Launcher.UK.xaml,Launcher.SaveDialogFilter,ZIP-файли (*.zip)|*.zip|Усі файли (*.*)|*.*
+Launcher\Launcher.UK.xaml,Launcher.SaveDialogTitle,Зберегти журнал
+Launcher\Launcher.UK.xaml,Launcher.SettingText,Налаштування
+Launcher\Launcher.UK.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.UK.xaml,Launcher.WallChangeText,Змінити шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallCloseText,Закрити шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallOpenText,Відкрити шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallStartText,Запустити шпалери
+Launcher\Launcher.UK.xaml,Launcher.WallStopText,Зупинити шпалери
+Launcher\Launcher.UK.xaml,Launcher.UpdateText,Перевірити оновлення
+Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Done,Оновлення готове
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Check,Перевірка оновлень
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Progress,Процес оновлення {0}
+Portal\Portal.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.UK.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.UK.xaml,,
+Property\Property.UK.xaml,Property.DeleteTip,Видалити копію
+Property\Property.UK.xaml,Property.RefreshTip,Оновити інтерфейс
+Property\Property.UK.xaml,Property.RestoreTip,Відновити налаштування за замовчуванням
+Property\Property.UK.xaml,,
+Property\Property.UK.xaml,Property.Type.NotSupport,Тип елементу керування '{0}' не підтримується.
+Property\Property.UK.xaml,,
+Property\Property.UK.xaml,Property.ColorPicker.Color,Колір
+Property\Property.UK.xaml,Property.ColorPicker.Cancel,Скасувати
+Property\Property.UK.xaml,Property.ColorPicker.Confirm,Підтвердити
+Property\Property.UK.xaml,Property.ColorPicker.EyeDropper,Піпетка
+Property\Property.UK.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.UK.xaml,,
+Property\Property.UK.xaml,Property.FileDropDown.Tip,Виберіть файл
+Property\Property.UK.xaml,Property.FileDropDown.Filter,Усі файли (*.*)|*.*
+Undo\Undo.UK.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.UK.xaml,,
+Undo\Undo.UK.xaml,Undo.QuestionMessage,Ви дійсно хочете видалити Sucrose Wallpaper Engine?
+Update\Update.UK.xaml,Update.HelpText,Вирішити проблему
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.UpdateBox.WindowTitle,Оновлення Sucrose
+Update\Update.UK.xaml,Update.UpdateBox.InstallText,Встановити оновлення
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.InfoBox.WindowTitle,Оновлення Sucrose
+Update\Update.UK.xaml,Update.InfoBox.TextMessage,Повідомлення
+Update\Update.UK.xaml,Update.InfoBox.CloseText,Закрити
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Empty,"Ми переживаємо моменти, коли оновлення файлів зараз заховані, як втрачений скарб. Ви можете продовжувати насолоджуватися досвідом, використовуючи поточну версію."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Error,"Під час завантаження файлу оновлення ми помітили тріщину на шляху, і ця подорож наразі завершилася. Продовжуйте подорожувати зараз з поточною версією, оскільки, коли ці тріщини виправляться, вас очікує більш потужне оновлення."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Update,"Додаток вже з вами в його останній і найновіший версії, схожий на останню сторінку у книзі. Ми тут, щоб завжди надавати вам найкращий і найновіший досвід."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Status,"Ми на межі, де неможливо отримати доступ до файлів оновлення. Але ви можете продовжувати насолоджуватися своєю мрією зараз з поточною версією."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Channel,"Обраний канал оновлення схожий на ліс мовчазності. Зараз тут немає нової інформації про оновлення. Продовжуйте свою подорож з поточною версією, оскільки коли ця мовчазність порушиться, вас чекатимуть нові можливості."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Extract,"Під час спроби витягти файл оновлення, ми зіткнулися з перешкодою, яка походить з глибини моря. Зараз просто продовжуйте подорож з поточною версією, оскільки коли моря стануть спокійніше, ми повернемося, щоб знайти нові скарби."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Network,"Слабкий сигнал вашого з'єднання, схоже на те, як хмари перекривають сонце. Якщо хмари розсиплються, вас чекає світліший досвід."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Updating,"Оновлення додатку рухаються ледь помітно, схоже на нові скарби, які приносять хвилі на берег. Ці цінні покращення збираються для вас в фоновому режимі."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Releases,"Ми живемо у момент, коли зірка оновлення ще не сходить. Зараз немає жодних відомостей про оновлення, але ви можете продовжувати використовувати поточну версію."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Download,"Під час завантаження файлу оновлення ми виявили, що зорі на небі розташовані в неправильному порядку. Зараз продовжуйте подорож з поточною версією, оскільки коли зорі розташуються в правильному порядку, вас чекатиме краще оновлення."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Cancelled,"Завантаження файлу оновлення скасовано через раптове розходження шляхів. Продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень, оскільки новий початок завжди можливий."
+Update\Update.UK.xaml,Update.InfoBox.TextMessage.Condition,"Здається, що умови в файлах оновлення виглядають, як відсутність ключа для розблокування. Зараз продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень."
+Watchdog\Watchdog.UK.xaml,Watchdog.HelpButton,Допомога
+Watchdog\Watchdog.UK.xaml,Watchdog.CloseButton,Вихід
+Watchdog\Watchdog.UK.xaml,Watchdog.ErrorMessage,Сталася непередбачена помилка:
+Watchdog\Watchdog.UK.xaml,Watchdog.ErrorTitle,Помилка
+Watchdog\Watchdog.UK.xaml,Watchdog.HideButton,Приховати
+Watchdog\Watchdog.UK.xaml,Watchdog.ShowButton,Показати
+Watchdog\Watchdog.UK.xaml,Watchdog.StackTrace,Стек викликів:
+Watchdog\Watchdog.UK.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.UK.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.ReloadText,СПРОБУВАТИ ЗНОВУ
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Preparing,ПІДГОТОВКА НЕОБХІДНИХ ПІДГОТОВК
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Temporary,ПЕРЕВІРКА ТИМЧАСОВИХ МІСЦЬ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Temporary.Error,ТИМЧАСОВІ МІСЦЯ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Connection,ПЕРЕВІРКА ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Connection.None,НЕМАЄ ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Connection.Error,ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Searching,ПОШУК НЕОБХІДНИХ ФАЙЛІВ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Searching.Not,НЕ ЗНАЙДЕНО НЕОБХІДНІ ФАЙЛИ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Searching.Error,НЕ ВДАЛОСЯ ВИКОНАТИ ПОШУК НЕОБХІДНИХ ФАЙЛІВ
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Listing,ОТРИМАННЯ НЕОБХІДНИХ СПИСКІВ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Listing.Empty,НЕОБХІДНІ СПИСКИ ПОРОЖНІ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Listing.Error,НЕ ВДАЛОСЯ ОТРИМАТИ НЕОБХІДНІ СПИСКИ
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Filtering,СПИСКИ ФІЛЬТРУЮТЬСЯ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Filtering.Not,СПИСКИ НЕ МОЖНА ФІЛЬТРУВАТИ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Filtering.Error,СПИСКИ НЕ ВДАЛОСЯ ФІЛЬТРУВАТИ
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading,ЗАВАНТАЖЕННЯ НЕОБХІДНИХ ФАЙЛІВ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading.Error,НЕ ВДАЛОСЯ ЗАВАНТАЖИТИ НЕОБХІДНІ ФАЙЛИ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading.Complete.Cancel,ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ СКАСОВАНО
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading.Complete.Error,ПІД ЧАС ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ ВИНИКЛА ПОМИЛКА
+Wizard\Wizard.UK.xaml,,
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting,РОЗПАКОВКА ЗАВАНТАЖЕНОГО ФАЙЛУ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Executing,ВИКОНАННЯ РОЗПАКОВАНОГО ФАЙЛУ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Executed,РОЗПАКОВАНИЙ ФАЙЛ ВИКОНАНО
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Failed,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Corrupt,ЗАВАНТАЖЕНИЙ ФАЙЛ ПОШКОДЖЕНИЙ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Not,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕПРИДАТНИЙ ДЛЯ ВИКОРИСТАННЯ
+Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Error,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ РОЗПАКУВАТИ
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Sound,Звук
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Log,Журнал
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Hook,Гачок
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Store,Магазин
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Donate,Пожертвування
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.System,Система
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Cache,Кеш
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Laptop,Ноутбук
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Support,Підтримка
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Reset,Скидання
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Backup,Резервне копіювання
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Priority,Пріоритет
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Engines,Двигуни
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Update,Оновлення
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Library,Бібліотека
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Developer,Розробник
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Extensions,Розширення
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.SystemResources,Системні ресурси
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.AppearanceBehavior,Вигляд та Поведінка
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.All,Всі
+Portal\Category\Portal.Category.UK.xaml,,
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Abstract,Абстракція
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Ambience,Спокій
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Animals,Тварини
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Animation,Анімація
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Anime,Аніме
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.ArchitectureandBuildings,Архітектура та Будівлі
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.ArtandAbstract,Мистецтво та Абстракція
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Artworks,Художні Твори
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Bard,Барди
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.BlackandWhite,Чорно-біле
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.CartoonandComics,Мультфільми та Комікси
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.CitiesandPlaces,Міста та Місця
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.CloudsandSkies,Хмари та Небо
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.ColorfulGradients,Барвисті Градієнти
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.ComicBooks,Комікси
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.DigitalArt,Цифрове Мистецтво
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Dynamic,Динамічне
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.EnchantedForests,Зачаровані Ліси
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Fantasy,Фентезі
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.FilmandTV,Фільми та Телебачення
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.FoodandDrinks,Їжа та Напої
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Galaxy,Галактика
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Game,Гра
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.GeometricPatterns,Геометричні Візерунки
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.HolidaysandSeasons,Свята та Пори року
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.HorrorandHalloween,Жахи та Хелловін
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.InspirationalQuotes,Вдохновлюючі Цитати
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.KidsandCartoon,Діти та Мультфільми
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Landscape,Пейзаж
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Lifestyle,Стиль Життя
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.LineArt,Лінійне Мистецтво
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Medieval,Середньовіччя
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Minimalist,Мінімалізм
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Music,Музика
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Nature,Природа
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Nightscapes,Нічні Пейзажі
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.PatternsandTextures,Візерунки та Текстури
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Retro,Ретро
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Sky,Небо
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Space,Космос
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Sports,Спорт
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Superheroes,Супергерої
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.System,Система
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Tavern,Таверна
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Technology,Технологія
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Temple,Храм
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Time,Час
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.UnderwaterandMarine,Підводний і Морський
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Vehicles,Транспорт
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Vintage,Вінтаж
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.War,Війна
+Portal\Controls\Portal.Controls.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.Fill,Заповнити
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.None,Ні
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.Uniform,Пропорційно
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.UniformToFill,Пропорційно заповнити
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.None,Жоден
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Name,Назва
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Creation,Створення
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Modification,Зміна
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.Fill,Заповнити
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.None,Ні
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.Uniform,Пропорційно
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StretchType.UniformToFill,Пропорційно заповнити
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.PerformanceType.Close,Закрити
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.PerformanceType.Pause,Пауза
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.PerformanceType.Resume,Продовжити
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Mica,Міка
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.None,Ні
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Auto,Автоматично
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Tabbed,Закладки
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Acrylic,Акрил
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.Release,За замовчуванням
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.PreRelease,Розробник
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.PausePerformanceType.Heavy,Важкий
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.PausePerformanceType.Light,Легкий
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortKindType.Ascending,Зростання [A-Z]
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortKindType.Descending,Спадання [Z-A]
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ExpandScreenType.Default,За замовчуванням
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ExpandScreenType.Advanced,Розширений
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateType.Compressed,Стиснутий
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.UpdateType.Executable,Виконуваний
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ScreenType.WorkingArea,Робоча область
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ScreenType.DisplayBound,Межі дисплея
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.DuplicateScreenType.Default,За замовчуванням
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.DuplicateScreenType.Advanced,Розширений
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Pass,Успішний результат
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Tags,Занадто багато значень у 'Tags'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Type,"Тема призначена для типу, який програма не підтримує"
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Title,Значення 'Title' порожнє або занадто довге
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Author,Значення 'Author' порожнє або занадто довге
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Source,Файл 'Source' не знайдено
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Contact,Значення 'Contact' порожнє або занадто довге
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Preview,Файл 'Preview' не знайдено
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Encrypt,Відповідний файл зашифрований
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.ZipType,Відповідний файл насправді не '.zip' файл
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InfoFile,Файл 'SucroseInfo.json' не знайдено
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.NotFound,Відповідний файл не знайдено
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.LoopMode,Недійсне значення 'LoopMode'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Arguments,Значення 'Arguments' занадто довге
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Extension,Відповідний файл не має розширення '.zip'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Thumbnail,Файл 'Thumbnail' не знайдено
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemCpu,Недійсне значення 'SystemCpu'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Файл 'SucroseInfo.json' порожній
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.AppVersion,Тема призначена для вищої версії програми
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Значення 'Source' недійсне
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemBios,Недійсне значення 'SystemBios'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemDate,Недійсне значення 'SystemDate'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemAudio,Недійсне значення 'SystemAudio'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Description,Значення 'Description' порожнє або занадто довге
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Файл 'SucroseInfo.json' недійсний
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.TriggerTime,Недійсне значення 'TriggerTime'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.StretchMode,Недійсне значення 'StretchMode'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Недійсне значення 'VolumeLevel'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Недійсне значення 'ShuffleMode'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidTags,Значення 'Tags' занадто короткі або занадто довгі
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidFile,Недійсний файл
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.PropertyList,Значення 'PropertyList' порожнє
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemMemory,Недійсне значення 'SystemMemory'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemBattery,Недійсне значення 'SystemBattery'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Недійсне значення 'SystemGraphic'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Недійсне значення 'SystemNetwork'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidContact,Значення 'Contact' не є 'Url' або 'Email'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Недійсний розширення файлу
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Файл 'SucroseCompatible.json' порожній
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Файл 'SucroseProperties.json' порожній
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.PropertyListener,Недійсне значення 'PropertyListener'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Недійсне значення 'SystemMotherboard'
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Файл 'SucroseCompatible.json' недійсний
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Файл 'SucroseProperties.json' недійсний
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Непередбачені Наслідки
+Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.UK.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.UK.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Portal.LibraryPage.Import.Successful,Тему з назвою '{0}' успішно імпортовано до бібліотеки.
+Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Portal.LibraryPage.Import.Unsuccessful,Тему з назвою '{0}' не вдалося імпортувати до бібліотеки. Причина: '{1}'.
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuHelp,Довідка
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuAbout,Про програму
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuHelpTip,Переглянути довідку
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuAboutTip,Переглянути інформацію про програму
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuLibrary,Бібліотека
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuStore,Магазин
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuLibraryTip,Бібліотека тем
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuStoreTip,Магазин тем
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuGeneral,Загальні
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuPersonal,Особисті
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuPerformance,Продуктивність
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuWallpaper,Шпалери
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuSystem,Система
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuDonate,Пожертвування
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuOther,Інше
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuBackTip,Повернутися
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuGeneralTip,Загальні налаштування
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuPersonalTip,Особисті налаштування
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuPerformanceTip,Налаштування продуктивності
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuWallpaperTip,Налаштування шпалер
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuSystemTip,Налаштування системи
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuDonateTip,Налаштування пожертвувань
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuOtherTip,Інші налаштування
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuSettingTip,Налаштування
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.SearchBoxHint,Пошук шпалери
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.SearchBoxTip,Маєте труднощі у пошуку необхідного?
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuLightTip,Світла тема
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuDarkTip,Темна тема
+Portal\MainWindow\Portal.MainWindow.UK.xaml,,
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Створити шпалери
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Цикління шпалер
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Налаштування екрану
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuDonateOptionsTip,Параметри пожертвувань
+Portal\MainWindow\Portal.MainWindow.UK.xaml,Portal.MainWindow.MenuOtherOptionsTip,Інші параметри
+Portal\SettingPage\Portal.SettingPage.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuVUsueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlVLLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.UK.xaml,,
+Portal\StorePage\Portal.StorePage.UK.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Title,Налаштування екрану
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Close,Закрити
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Expander,Режим розміщення
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Expander.Description,Як ви бажаєте застосовувати шпалери на активні екрани.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Screen,Тільки обраний екран
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Expand,Розширити між екранами
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Expand.Monitor,На всі монітори
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Expand.Hint,Виберіть режим розширення між екранами.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Duplicate,Повторити однаковий шпалер
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.UK.xaml,Portal.DisplayPreferences.Duplicate.Hint,Виберіть режим повторення однакового шпалеру.
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,Portal.ExpanderCard.TitleText,Заголовок
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,Portal.ExpanderCard.DescriptionText,Опис
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,Portal.ExpanderCard.ExpandUpTip,Згорнути
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.UK.xaml,Portal.ExpanderCard.ExpandDownTip,Розгорнути
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.TitleText,Заголовок
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.DescriptionText,Опис
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MoreTip,Більше
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.VersionTip,"Щоб використовувати цю тему, оновіть Sucrose"
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuReview,Оглянути
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuUse,Використовувати
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuPreview,Попередній перегляд
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuCustomize,Налаштувати
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuFind,Знайти
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuShare,Поділитися
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuDelete,Видалити
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuEdit,Редагувати
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Title,Про програму
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Close,Закрити
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.About,"Привіт, мене звуть Bayram Emekli, я також відомий під ім'ям користувача Taiizor. Я є розробником Sucrose Wallpaper Engine - безкоштовного та відкритого для розробки програмного забезпечення. Дякую, що ви використовуєте мою розробку."
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Update,Версія: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Update.Description,Останнє оновлення: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Update.Notes,Примітки до оновлення
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Partners,Партнери
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Contributors,Учасники
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.TermsOfService,Умови надання послуг
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.PrivacyPolicy,Політика конфіденційності
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.CodeOfConduct,Кодекс поведінки учасника спільноти
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Title,Довідка
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Close,Закрити
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.WebPage,Веб-сайт
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.WebPage.Description,Офіційний веб-сайт Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Documentation,Документація
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Documentation.Description,Офіційна сторінка документації Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Repository,Вихідний код
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Repository.Description,Офіційна сторінка вихідного коду Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Discussions,Обговорення
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Discussions.Description,Офіційна сторінка обговорення Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Report,Повідомити про помилку
+Portal\Controls\OtherHelp\Portal.OtherHelp.UK.xaml,Portal.OtherHelp.Report.Description,Офіційна сторінка звітування про помилки в Sucrose Wallpaper Engine
+Portal\Controls\Pagination\Portal.Pagination.UK.xaml,Portal.Pagination.PageJump,Перейти
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.TitleText,Заголовок
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.DescriptionText,Опис
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.VersionTip,"Для встановлення цієї теми, оновіть Sucrose"
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.MenuInstall,Встановити
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.MenuReport,Повідомити
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Title,Створення Теми
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Create,Створити
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Close,Закрити
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Gif,Тема Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Gif.Description,Створити власну тему у форматі Gif.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Url,Тема за Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Url.Description,Створити власну тему у форматі Url.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Web,Тема Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Web.Description,Створити власну тему у форматі Web.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Video,Тема Video
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Video.Description,Створити власну тему у форматі Video.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.YouTube,Тема YouTube
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.YouTube.Description,Створити власну тему у форматі YouTube.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Application,Тема Application
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Application.Description,Створити власну тему у форматі Application.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeThumbnail,Зображення
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview,Попередній перегляд
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeTitle,Заголовок
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeDescription,Опис
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeAuthor,Автор
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeContact,Контакт
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeTags,Теги
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeArguments,Аргументи
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeUrl.Hint,"Будь ласка, введіть дійсну Url-адресу"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Виберіть обкладинку
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview.Hint,Виберіть файл попереднього перегляду
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeTitle.Hint,"Будь ласка, введіть дійсний заголовок"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeDescription.Hint,"Будь ласка, введіть дійсний опис"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,"Будь ласка, введіть дійсне ім'я автора"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeContact.Hint,"Будь ласка, введіть дійсну контактну інформацію"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeTags.Hint,"Будь ласка, введіть дійсні теги теми"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeArguments.Hint,"Будь ласка, введіть дійсні аргументи додатку"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Delete,Скасувати
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Gif,Перетягніть тут свій файл GIF і відпустіть
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Video,Перетягніть сюди свій файл відео і відпустіть
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Виберіть обкладинку
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Зображення (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview.Title,Виберіть файл попереднього перегляду
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview.Filter,Файли GIF (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Title,Видалення Теми
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Delete,Видалити
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Close,Закрити
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeTitle,Заголовок
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeDescription,Опис
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeType,Тип
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeAuthor,Автор
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeSize,Розмір
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeVersion,Версія
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeTags,Мітки
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeTagsText,Відсутні
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeCreate,Створено
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeCreateDate,Невідомо
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeModify,Змінено
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.ThemeModifyDate,Невідомо
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.Title,Редагування Теми
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.Close,Закрити
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.Save,Зберегти
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeTitle,Заголовок
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeDescription,Опис
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeAuthor,Автор
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeContact,Контакт
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeTags,Мітки
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeArguments,Аргументи
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeTitle.Hint,"Будь ласка, введіть дійсний заголовок"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeDescription.Hint,"Будь ласка, введіть дійсний опис"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,"Будь ласка, введіть дійсне ім'я автора"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeContact.Hint,"Будь ласка, введіть дійсну контактну інформацію"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeTags.Hint,"Будь ласка, введіть дійсні теги теми"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.UK.xaml,Portal.ThemeEdit.ThemeArguments.Hint,"Будь ласка, введіть дійсні аргументи додатка"
+Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,Portal.ThemeImport.Title,Імпорт Теми
+Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,Portal.ThemeImport.Close,Закрити
+Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,Portal.ThemeImport.Info,Інформація про Тему
+Portal\Controls\ThemeImport\Portal.ThemeImport.UK.xaml,Portal.ThemeImport.Type,Причини та пояснення
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.Title,Огляд Теми
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.Close,Закрити
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeTitle,Заголовок
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeDescription,Опис
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeType,Тип
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeAuthor,Автор
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeSize,Розмір
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeVersion,Версія
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeTags,Мітки
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeTagsText,Відсутні
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeCreate,Створено
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeCreateDate,Невідомо
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeModify,Змінено
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeModifyDate,Невідомо
+Portal\Controls\ThemeReview\Portal.ThemeReview.UK.xaml,Portal.ThemeReview.ThemeContact,Контактна інформація теми
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.Title,Поділитися Темою
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.Close,Закрити
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemeTitle,Заголовок
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemeDescription,Опис
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemeExport,Експортувати
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish,Опублікувати в магазині
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemeCopy,Скопіювати посилання
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файли (*.zip)|*.zip|Всі файли (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogTitle,Зберегти файл теми
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,Portal.EmptyLibraryPage.TitleText,Ваша бібліотека обплетена павутинням
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,Portal.EmptyLibraryPage.DescriptionText,"Замість шпалер ви побачите шедевр, який створено павутинням"
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.UK.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,Portal.SearchLibraryPage.TitleText,Ваша бібліотека заворожена павутинням
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.UK.xaml,Portal.SearchLibraryPage.DescriptionText,"Ваша обережність у виборі шпалер призвела до того, що місця для них не залишилося"
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.DonateMenu,Меню Пожертв
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.DonateMenu.Description,Видимість меню пожертв в інтерфейсі.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Показати
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Приховати
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.Advertising,Підтримка рекламою
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.Advertising.Description,"Допоможіть у розвитку додатка, переглядаючи рекламу."
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Тривалість реклами (хвилини):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.UK.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Підказка: Реклами будуть показані вам з мінімальними незручностями.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Мова програми
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,Виберіть мову для відображення програми.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup,Запуск програми при старті
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,Для відтворення шпалеру програмі Sucrose необхідно запускатися при старті системи в фоновому режимі.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Вимкнути
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Звичайний
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,З високим пріоритетом
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,За розкладом
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.NotifyIcon,Піктограма в області сповіщень
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Видимість піктограми в системному треї. Програма Sucrose буде працювати в фоновому режимі.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Показати
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Сховати
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,"Закриваючи піктограму в області сповіщень, закривати всі програми Sucrose"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop,Фон вікна
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Використовується для налаштування фону вікна програми.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Обрати фонове зображення
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Вибрати фонове зображення
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Зображення (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Розтягнути фон:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Прозорість фону (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.EngineVolume,Рівень звуку
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.EngineVolume.Description,"Рівень звуку, який застосовується до всіх шпалер."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Звук відтворюється лише при фокусуванні на робочому столі
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary,Місце розташування бібліотеки
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Місце, де зберігатимуться теми, які ви додали до бібліотеки."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Будь ласка, оберіть порожню папку"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Зачекайте трохи, поки папку переміщується"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Перемістити вашу поточну бібліотеку в нове місце
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose забезпечує зв'язок з Discord.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Оновлення зв'язку:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Частота оновлення (секунди):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Agent,Представник інтернету
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Agent.Description,"Ваш ідентифікатор представника для випадків, коли потрібне підключення до інтернету."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key,Особистий ключ доступу
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.Description,Необхідно для безпроблемного користування магазином та оновленням програми.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.HintKey,"Як отримати особистий ключ доступу, дізнайтеся тут, якщо ви цього не знаєте."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.PersonalKey,"Будь ласка, введіть особистий ключ доступу"
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,"Будь ласка, введіть дійсний особистий ключ доступу"
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel,Канал оновлення
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel.Description,"Визначте канал, через який здійснювати оновлення."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update,Спосіб оновлення
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update.Description,Визначте спосіб оновлення програми.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update.Limit,Обмеження ширина смуги для завантаження:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer,Інструменти розробника
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer.Description,"Визначте, чи показувати інструменти розробника для WebView та мотора CefSharp."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Counter,Показники продуктивності
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Counter.Description,Чи працюватимуть всі показники продуктивності у фоновому режимі.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,"Примітка: Деякі теми Web-сайтів можуть працювати не належним чином, і жоден із наступних параметрів продуктивності не буде працювати."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Pause,Правило паузи
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Pause.Description,Визначає правило для призупинення робочого столу згідно з вашими налаштуваннями продуктивності.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Communication,Тип комунікації
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Communication.Description,Визначає метод надсилання повідомлень темам типу Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Cpu,Використання процесора
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Cpu.Description,Як використання процесора впливає на робочий стіл.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Використання процесора (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Memory,Використання пам'яті
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Memory.Description,Як використання пам'яті впливає на робочий стіл.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Використання пам'яті (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Network,Використання мережі
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Network.Description,Як використання мережі впливає на робочий стіл.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Мережевий адаптер:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Список мережевих адаптерів ще не створено
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Розмір відвантаження:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Розмір завантаження:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Значення Ping (мс):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Battery,Заряд батареї
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Battery.Description,Як використання батареї впливає на робочий стіл.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Стан заряду батареї (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Saver,Економія енергії батареї
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Saver.Description,Як економія енергії батареї впливає на робочий стіл під час роботи з ноутбука.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Virtual,Віртуалізація
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Virtual.Description,Як віртуалізація впливає на робочий стіл під час роботи з віртуальними програмами.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Remote,Віддалений робочий стіл
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Remote.Description,Як робочий стіл віддаленої системи впливає на робочий стіл.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Fullscreen,Повноекранний режим
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,Як робочий стіл повноекранної програми впливає на робочий стіл.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Focus,Режим фокусування
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Focus.Description,Як робочий стіл відображається під час наявності активної програми.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Server,Сервер магазину
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Server.Description,"Вказує, який сервер буде використовуватися для відображення тем, перерахованих у магазині."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Примітка: Якщо вибрано {0} як сервер, необхідно ввести {2}, щоб уникнути обмежень запитів. В іншому випадку можуть виникнути проблеми з доступом до тем у магазині. Якщо вибрано {1}, ви отримаєте більш плавний досвід в магазині."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Duration,Оновлення магазину
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Duration.Description,Тривалість оновлення списку тем у магазині.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.StoreStart,Автозапуск
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.StoreStart.Description,Автоматично встановлювати завантажену тему з магазину як шпалери.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Adult,Вміст для дорослих
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Adult.Description,"Відображати вміст, який відзначений як не безпечний для роботи (NSFW), чи ні."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Confirm,Підтвердження видалення
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Confirm.Description,Чи вимагати підтвердження при видаленні тем з бібліотеки.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Delete,Пошкоджені теми
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Delete.Description,Автоматично видаляти пошкоджені або відсутні теми з бібліотеки.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,Примітка: Будьте обережні. Некоректна робота може призвести до втрати даних.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.LibraryStart,Автозапуск
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Автоматично встановлювати створену тему як шпалери.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Preview,Попередній перегляд тем
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Preview.Description,Показувати попередній перегляд тем при наведенні курсору.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Попередній перегляд магазину:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Приховати деталі:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Попередній перегляд бібліотеки:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Приховати деталі:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Theme,Налаштування тем
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Theme.Description,Налаштуйте ім'я або опис відображених тем.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Довжина заголовка (символи):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Довжина опису (символи):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Adaptive,Адаптивний макет
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Adaptive.Description,Налаштуйте розмір або розташування відображених тем.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Відстань відступу (пікселі):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Порядок макету (шт.):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Sort,Сортування бібліотеки
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Sort.Description,"Визначте, як теми у вашій бібліотеці будуть сортуватися та в якому форматі."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Sort.SortMode,Режим сортування:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Sort.SortKind,Тип сортування:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Store,Сторінки магазину
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Store.Description,"Визначте, скільки тем буде на кожній сторінці магазину."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Library,Сторінки бібліотеки
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.UK.xaml,Portal.PersonalSettingPage.Library.Description,"Визначте, скільки тем буде на кожній сторінці вашої бібліотеки."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LogTemporary,Файли журналу
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LogTemporary.Description,"Управління всіма файлами журналу, створеними програмою."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LogTemporary.Create,Створити
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Очистити
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Примітка: Загальний обсяг файлів журналу становить {0}. При початку очищення всі програми будуть закриті.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.CacheTemporary,Очищення кешу
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.CacheTemporary.Description,"Очищення всіх файлів кешу, створених програмою."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Почати очищення
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Примітка: Загальний обсяг файлів кешу становить {0}. При початку очищення всі програми будуть закриті.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.StoreTemporary,Очищення магазину
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.StoreTemporary.Description,"Очищення всіх файлів магазину, створених програмою."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Почати очищення
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Примітка: Загальний обсяг файлів магазину становить {0}. При початку очищення всі програми будуть закриті.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LibraryTemporary,Очищення бібліотеки
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,"Очищення всіх файлів тем у вашій бібліотеці, включаючи завантажені та створені теми."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Почати очищення
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Примітка: Загальний обсяг файлів тем в вашій бібліотеці становить {0}. При початку очищення всі програми будуть закриті.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingBackup,Резервні копії налаштувань
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingBackup.Description,"Управління всіма файлами налаштувань, створеними програмою."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingBackup.Export,Зробити резервну копію
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingBackup.Import,Відновити
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Примітка: При початку обраної дії всі програми будуть закриті.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingReset,Скидання налаштувань
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingReset.Description,Скидання всіх налаштувань програми до значень за замовчуванням.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingReset.Start,Почати скидання
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.SettingReset.Hint,Примітка: При початку дії зкидання всі програми будуть закриті.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Зберегти файл журналу
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ScreenLayout,Розміщення на екрані
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Змінює розміщення вашого шпалеру на екрані.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.StretchMode,Метод розтягнення
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Змінює метод розтягнення для підтримуваних шпалерів.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.LoopMode,Режим повторення
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Змінює режим повторення для підтримуваних шпалерів.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ShuffleMode,Режим перемішування
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Змінює режим перемішування для підтримуваних шпалерів.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.GifPlayer,Модуль Gif
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,"Виберіть модуль для відтворення шпалерів у форматі Gif, які знаходяться в вашій бібліотеці."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.VideoPlayer,Модуль Video
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,"Виберіть модуль для відтворення шпалерів у форматі Video, які знаходяться в вашій бібліотеці."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.UrlPlayer,Двигун Url
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,"Виберіть двигун для відтворення Url-шпалерів, які знаходяться в вашій бібліотеці."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.WebPlayer,Двигун Web
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,"Виберіть двигун для відтворення Web-шпалерів, які знаходяться в вашій бібліотеці."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.YouTubePlayer,Двигун YouTube
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,"Виберіть двигун для відтворення YouTube-шпалерів, які знаходяться в вашій бібліотеці."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Двигун Application
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,"Виберіть двигун для відтворення Application-шпалерів, які знаходяться в вашій бібліотеці."
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,Portal.BrokenStorePage.TitleText,"Мить, коли світло інтернету вигасає"
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.UK.xaml,Portal.BrokenStorePage.DescriptionText,Схоже на зірковий небесний світ без інтернету
+Portal\StorePage\FullStorePage\Portal.FullStorePage.UK.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,Portal.SearchStorePage.TitleText,Відповідь на ваші запити може бути прихована на небі
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.UK.xaml,Portal.SearchStorePage.DescriptionText,"Якщо результати не задовольняють ваші очікування, небо може запропонувати вам новий досвід"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,Portal.UnknownStorePage.TitleText,Дізнайтеся Таємничий Стан в Магазині
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.UK.xaml,Portal.UnknownStorePage.DescriptionText,"Переслідуйте невідоме і вирушайте в подорож по розкриттю таємничого стану, який стався в магазині"

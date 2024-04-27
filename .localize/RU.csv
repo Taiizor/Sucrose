@@ -1,0 +1,949 @@
+File,Key,Value
+Locale.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUlUueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Discord\Discord.RU.xaml,Discord.BrowseButton,Просмотр
+Discord\Discord.RU.xaml,Discord.Details,Движок Обоев
+Discord\Discord.RU.xaml,Discord.DownloadButton,Скачать
+Discord\Discord.RU.xaml,,
+Discord\Discord.RU.xaml,Discord.LargestText0,Сила бананового мороженого
+Discord\Discord.RU.xaml,Discord.LargestText1,Улыбающийся шляпный монстр
+Discord\Discord.RU.xaml,Discord.LargestText2,"Птицы, раскрашивающие облака"
+Discord\Discord.RU.xaml,Discord.LargestText3,Скрытые приключения бегущих пингвинов
+Discord\Discord.RU.xaml,Discord.LargestText4,"Зайцы, заблудшие в поле маргариток"
+Discord\Discord.RU.xaml,Discord.LargestText5,Поющие ветряные ромашки
+Discord\Discord.RU.xaml,Discord.LargestText6,Тайные Пчелы Загадочного Леса
+Discord\Discord.RU.xaml,Discord.LargestText7,Стая Мечтательных Рыб
+Discord\Discord.RU.xaml,Discord.LargestText8,Танец Кристального Дракона с Кристальными Глазами
+Discord\Discord.RU.xaml,Discord.LargestText9,"Сказочный Путь, Усыпанный Цветами"
+Discord\Discord.RU.xaml,Discord.LargestText10,"Звезды, Капающие с Небес"
+Discord\Discord.RU.xaml,Discord.LargestText11,Танец в Лучах Разбитой Луны
+Discord\Discord.RU.xaml,Discord.LargestText12,Загадочные Драконы Радуги
+Discord\Discord.RU.xaml,Discord.LargestText13,Волшебный Лесной Рассказ
+Discord\Discord.RU.xaml,Discord.LargestText14,Дождь Цветов в Небеса
+Discord\Discord.RU.xaml,Discord.LargestText15,Безмолвное Касание Времени
+Discord\Discord.RU.xaml,Discord.LargestText16,Страна Сюрреалистических Снов
+Discord\Discord.RU.xaml,Discord.LargestText17,Песни Золотистых Водопадов
+Discord\Discord.RU.xaml,Discord.LargestText18,"Сказочные Суда, Плывущие в Небесах"
+Discord\Discord.RU.xaml,Discord.LargestText19,Лес с Цветными Воздушными Шарами
+Discord\Discord.RU.xaml,Discord.LargestText20,Таинственный Подводный Город
+Discord\Discord.RU.xaml,Discord.LargestText21,Звездная Пыль в Небесах
+Discord\Discord.RU.xaml,Discord.LargestText22,"Ветры, Гонимые Неизвестностью"
+Discord\Discord.RU.xaml,Discord.LargestText23,Захватывающие Истории под Лунным Светом
+Discord\Discord.RU.xaml,,
+Discord\Discord.RU.xaml,Discord.SmallestText0,Загадочные следы ног
+Discord\Discord.RU.xaml,Discord.SmallestText1,Летающие воздушные шары-рыбы
+Discord\Discord.RU.xaml,Discord.SmallestText2,Смеющиеся цветы
+Discord\Discord.RU.xaml,Discord.SmallestText3,Сладкие облака из сахарной ваты
+Discord\Discord.RU.xaml,Discord.SmallestText4,Замороженные пиццы-драконы
+Discord\Discord.RU.xaml,Discord.SmallestText5,Светящиеся грибные пираты
+Discord\Discord.RU.xaml,Discord.SmallestText6,Невидимый След Единорога
+Discord\Discord.RU.xaml,Discord.SmallestText7,Цветные Облака Пыли
+Discord\Discord.RU.xaml,Discord.SmallestText8,Золотые Бабочки в Воздушных Шарах
+Discord\Discord.RU.xaml,Discord.SmallestText9,Путешествие к Сахарному Кратеру
+Discord\Discord.RU.xaml,Discord.SmallestText10,Летящие на Ракетах Ломти Пиццы
+Discord\Discord.RU.xaml,Discord.SmallestText11,Танец Солнца с Морскими Раковинами
+Discord\Discord.RU.xaml,Discord.SmallestText12,Невидимые Звездные Пальцы
+Discord\Discord.RU.xaml,Discord.SmallestText13,Танец под Водой в Тумане
+Discord\Discord.RU.xaml,Discord.SmallestText14,Путешествие Радуги Птиц
+Discord\Discord.RU.xaml,Discord.SmallestText15,Дорога Шторма Сахара
+Discord\Discord.RU.xaml,Discord.SmallestText16,Бескрайняя Галактика Пиццы
+Discord\Discord.RU.xaml,Discord.SmallestText17,Улыбка Солнца
+Discord\Discord.RU.xaml,Discord.SmallestText18,Утраченная Улыбка Тайного Озера
+Discord\Discord.RU.xaml,Discord.SmallestText19,Тень Мечтательных Птиц
+Discord\Discord.RU.xaml,Discord.SmallestText20,"Бабочки, Поднимающиеся в Небо"
+Discord\Discord.RU.xaml,Discord.SmallestText21,"Песни, Спрятанные за Звездами"
+Discord\Discord.RU.xaml,Discord.SmallestText22,Туманные Горы Сказки
+Discord\Discord.RU.xaml,Discord.SmallestText23,Фея Таинственного Леса
+Discord\Discord.RU.xaml,,
+Discord\Discord.RU.xaml,Discord.StatementText0,Вселенная полная хаоса
+Discord\Discord.RU.xaml,Discord.StatementText1,Среди бескрайних приключений
+Discord\Discord.RU.xaml,Discord.StatementText2,Странная и волшебная вселенная
+Discord\Discord.RU.xaml,Discord.StatementText3,Вызывающая пределы воображения
+Discord\Discord.RU.xaml,Discord.StatementText4,Необычная реальность
+Discord\Discord.RU.xaml,Discord.StatementText5,В глубинах воображения
+Discord\Discord.RU.xaml,Discord.StatementText6,Волшебное исследование
+Discord\Discord.RU.xaml,Discord.StatementText7,У врат неизведанных миров
+Discord\Discord.RU.xaml,Discord.StatementText8,Сложный мир снов
+Discord\Discord.RU.xaml,Discord.StatementText9,"Приключение, выходящее за грани"
+Discord\Discord.RU.xaml,Discord.StatementText10,Динамичный и удивительный опыт
+Discord\Discord.RU.xaml,Discord.StatementText11,Внутри фантастической сказки
+Discord\Discord.RU.xaml,Discord.StatementText12,Среди Волшебных Порталов
+Discord\Discord.RU.xaml,Discord.StatementText13,Путешествие в Ночное Небо
+Discord\Discord.RU.xaml,Discord.StatementText14,В Погоне за Исчезнувшим Континентом
+Discord\Discord.RU.xaml,Discord.StatementText15,История Неизвестных Планет
+Discord\Discord.RU.xaml,Discord.StatementText16,Открытие Параллельных Вселенных
+Discord\Discord.RU.xaml,Discord.StatementText17,Вход в Легендарные Земли
+Discord\Discord.RU.xaml,Discord.StatementText18,"Реальность, Тканая Текстурой Снов"
+Discord\Discord.RU.xaml,Discord.StatementText19,Сон Среди Звезд
+Discord\Discord.RU.xaml,Discord.StatementText20,За Дверьми Времени
+Discord\Discord.RU.xaml,Discord.StatementText21,Блеск Звездного Созвездия
+Discord\Discord.RU.xaml,Discord.StatementText22,Тихий Крик Неизведанного
+Discord\Discord.RU.xaml,Discord.StatementText23,Увлекательный Мир
+Discord\Discord.RU.xaml,Discord.StatementText24,На Вершине Мистических Гор
+Discord\Discord.RU.xaml,Discord.StatementText25,В Погоне за Потерянными Королевствами
+Discord\Discord.RU.xaml,Discord.StatementText26,Путешествие в Мир Межзвездных Снов
+Discord\Discord.RU.xaml,Discord.StatementText27,Магические Сущности Ночи
+Discord\Discord.RU.xaml,Discord.StatementText28,Бесконечное Начало Сказки
+Discord\Discord.RU.xaml,Discord.StatementText29,"Цветные Воздушные Шары, Поднимающиеся в Небо"
+Discord\Discord.RU.xaml,Discord.StatementText30,Таинственное Ночное Небо
+Discord\Discord.RU.xaml,Discord.StatementText31,Путь Сна Потерянного Королевства
+Discord\Discord.RU.xaml,Discord.StatementText32,"Дверь, Ведущая в Неизведанные Края"
+Discord\Discord.RU.xaml,Discord.StatementText33,Танец в Объятиях Времени
+Discord\Discord.RU.xaml,Discord.StatementText34,"Истории, Погребенные в Ночь"
+Discord\Discord.RU.xaml,Discord.StatementText35,Волшебный Мир Зеркал
+Discord\Discord.RU.xaml,Discord.StatementText36,Путешествие у Врат Бескрайности
+Discord\Discord.RU.xaml,Discord.StatementText37,Ночное Путешествие Охотника за Снами
+Discord\Discord.RU.xaml,Discord.StatementText38,Сон о Кристальном Городе
+Discord\Discord.RU.xaml,Discord.StatementText39,Темнеющие Звезды во Тьме
+Discord\Discord.RU.xaml,Discord.StatementText40,Тайная Ночь за Звездами
+Discord\Discord.RU.xaml,Discord.StatementText41,Таинственные Истории Лунного Света
+Discord\Discord.RU.xaml,Discord.StatementText42,Золотая Дверь на Пороге Неизведанных Земель
+Discord\Discord.RU.xaml,Discord.StatementText43,Волшебные Тропы Таинственной Ночи
+Discord\Discord.RU.xaml,Discord.StatementText44,Снова в Небо - Мечтательные Воздушные Шары
+Discord\Discord.RU.xaml,Discord.StatementText45,Путь Сна Под Звездами
+Discord\Discord.RU.xaml,Discord.StatementText46,Тайный Мир - Город у Берега Звезд
+Discord\Discord.RU.xaml,Discord.StatementText47,Сказка за Туманным Горным Хребтом
+Discord\Discord.RU.xaml,Discord.StatementText48,Темная Ночь с Блеском Звезд
+Launcher\Launcher.RU.xaml,Launcher.WallCustomizeText,Настроить Обои
+Launcher\Launcher.RU.xaml,Launcher.CreateLogText,Создать Журнал
+Launcher\Launcher.RU.xaml,Launcher.ExitText,Выход
+Launcher\Launcher.RU.xaml,Launcher.OpenReportText,Сообщить о Проблеме
+Launcher\Launcher.RU.xaml,Launcher.OpenText,Открыть Sucrose
+Launcher\Launcher.RU.xaml,Launcher.ReportText,Сообщение об Ошибке
+Launcher\Launcher.RU.xaml,Launcher.ReportWindowTitle,Sucrose Диагностика
+Launcher\Launcher.RU.xaml,Launcher.SaveDialogFilter,ZIP Файлы (*.zip)|*.zip|Все Файлы (*.*)|*.*
+Launcher\Launcher.RU.xaml,Launcher.SaveDialogTitle,Сохранить Журнал
+Launcher\Launcher.RU.xaml,Launcher.SettingText,Настройки
+Launcher\Launcher.RU.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.RU.xaml,Launcher.WallChangeText,Изменить Обои
+Launcher\Launcher.RU.xaml,Launcher.WallCloseText,Закрыть Обои
+Launcher\Launcher.RU.xaml,Launcher.WallOpenText,Открыть Обои
+Launcher\Launcher.RU.xaml,Launcher.WallStartText,Запустить Обои
+Launcher\Launcher.RU.xaml,Launcher.WallStopText,Остановить Обои
+Launcher\Launcher.RU.xaml,Launcher.UpdateText,Проверить Обновления
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Done,Ожидание Обновлений
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Check,Проверка Обновлений
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Progress,Прогресс Обновления {0}
+Portal\Portal.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5SVS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Property\Property.RU.xaml,Property.WindowTitle,Sucrose Property
+Property\Property.RU.xaml,,
+Property\Property.RU.xaml,Property.DeleteTip,Удалить копию
+Property\Property.RU.xaml,Property.RefreshTip,Обновить интерфейс
+Property\Property.RU.xaml,Property.RestoreTip,Восстановить по умолчанию
+Property\Property.RU.xaml,,
+Property\Property.RU.xaml,Property.Type.NotSupport,Тип элемента управления '{0}' не поддерживается.
+Property\Property.RU.xaml,,
+Property\Property.RU.xaml,Property.ColorPicker.Color,Цвет
+Property\Property.RU.xaml,Property.ColorPicker.Cancel,Отмена
+Property\Property.RU.xaml,Property.ColorPicker.Confirm,Подтвердить
+Property\Property.RU.xaml,Property.ColorPicker.EyeDropper,Пипетка
+Property\Property.RU.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Color Picker
+Property\Property.RU.xaml,,
+Property\Property.RU.xaml,Property.FileDropDown.Tip,Выберите файл
+Property\Property.RU.xaml,Property.FileDropDown.Filter,Все файлы (*.*)|*.*
+Undo\Undo.RU.xaml,Undo.QuestionTitle,Sucrose Undo
+Undo\Undo.RU.xaml,,
+Undo\Undo.RU.xaml,Undo.QuestionMessage,Вы действительно хотите удалить Sucrose Wallpaper Engine?
+Update\Update.RU.xaml,Update.HelpText,Решить проблему
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.UpdateBox.WindowTitle,Обновление Sucrose
+Update\Update.RU.xaml,Update.UpdateBox.InstallText,Установить обновление
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.InfoBox.WindowTitle,Обновление Sucrose
+Update\Update.RU.xaml,Update.InfoBox.TextMessage,Сообщение
+Update\Update.RU.xaml,Update.InfoBox.CloseText,Закрыть
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Empty,"Мы находимся в моменты, когда обновления спрятаны как утерянные драгоценности. Вы можете продолжать использовать текущую версию и наслаждаться ею."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Error,"Мы обнаружили трещину на пути скачивания обновления, и этот путь пока завершен. Продолжайте использовать текущую версию, потому что когда трещины будут залатаны, вас ждет более мощное обновление."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Update,"Приложение уже с вами в самой свежей и инновационной версии, как последняя страница в книге. Мы здесь, чтобы предоставить вам лучший и самый актуальный опыт в любое время."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Status,Мы на пороге недоступной мечты об обновлениях. Но вы все равно можете продолжать свою мечту с текущей версией.
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Channel,"Выбранный канал обновления похож на лес тишины. В настоящее время здесь нет новой информации об обновлениях. Продолжайте свой путь с текущей версией, потому что, когда тишина нарушится, мы предложим вам больше."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Extract,"Мы столкнулись с препятствием, возникшим из глубин моря, когда пытались извлечь файл обновления. Пока что продолжайте свой путь с текущей версией, потому что, когда моря успокоятся, мы вернемся, чтобы найти новые сокровища."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Network,"Слабое соединение, словно облака закрывают солнце. Когда облака разойдутся, вас ждет более яркий опыт."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Updating,"Обновление приложения продвигается незаметно, как новые сокровища, которые приносят волны к берегу. Эти ценные нововведения собираются для вас в фоновом режиме."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Releases,"Мы находимся в момент, когда звезда обновления еще не взошла. На данный момент нет информации об обновлениях, но вы все равно можете продолжать использовать текущую версию."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Download,"Мы обнаружили, что звезды на небе стоят не в правильной последовательности при скачивании файла обновления. Пока что продолжайте свой путь с текущей версией, потому что, когда звезды выстроятся, мы предложим вам лучшее обновление."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Cancelled,"Загрузка файла обновления отменена из-за неожиданного разветвления путей. Продолжайте свой путь с текущей версией и будьте готовы к будущим обновлениям, потому что новое начало всегда возможно."
+Update\Update.RU.xaml,Update.InfoBox.TextMessage.Condition,"Похоже, условия для разблокировки ключа в файлах обновления пока не выполнены. Пока что продолжайте свой путь с текущей версией и будьте готовы к будущим обновлениям."
+Watchdog\Watchdog.RU.xaml,Watchdog.HelpButton,Помощь
+Watchdog\Watchdog.RU.xaml,Watchdog.CloseButton,Закрыть
+Watchdog\Watchdog.RU.xaml,Watchdog.ErrorMessage,Произошла непредвиденная ошибка:
+Watchdog\Watchdog.RU.xaml,Watchdog.ErrorTitle,Ошибка
+Watchdog\Watchdog.RU.xaml,Watchdog.HideButton,Скрыть
+Watchdog\Watchdog.RU.xaml,Watchdog.ShowButton,Показать
+Watchdog\Watchdog.RU.xaml,Watchdog.StackTrace,Трассировка стека:
+Watchdog\Watchdog.RU.xaml,Watchdog.WindowTitle,Sucrose Watchdog
+Wizard\Wizard.RU.xaml,Wizard.WindowTitle,Sucrose Wizard
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.ReloadText,ПОВТОРИТЬ ПОПЫТКУ
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Preparing,ПОДГОТОВКА НЕОБХОДИМЫХ ПРИГОТОВЛЕНИЙ
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Temporary,ПРОВЕРКА ВРЕМЕННЫХ МЕСТОПОЛОЖЕНИЙ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Temporary.Error,ВРЕМЕННЫЕ МЕСТОПОЛОЖЕНИЯ НЕ МОГУТ БЫТЬ ПРОВЕРЕНЫ
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Connection,ПРОВЕРКА ИНТЕРНЕТ-СОЕДИНЕНИЯ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Connection.None,НЕТ ИНТЕРНЕТ-СОЕДИНЕНИЯ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Connection.Error,ИНТЕРНЕТ-СОЕДИНЕНИЕ НЕ МОЖЕТ БЫТЬ ПРОВЕРЕНО
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Searching,ПОИСК НЕОБХОДИМЫХ ФАЙЛОВ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Searching.Not,НЕ НАЙДЕНЫ НЕОБХОДИМЫЕ ФАЙЛЫ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Searching.Error,НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ НАЙДЕНЫ
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Listing,ПОЛУЧЕНИЕ НЕОБХОДИМЫХ СПИСКОВ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Listing.Empty,НЕОБХОДИМЫЕ СПИСКИ ПУСТЫ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Listing.Error,НЕОБХОДИМЫЕ СПИСКИ НЕ МОГУТ БЫТЬ ПОЛУЧЕНЫ
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Filtering,СПИСКИ ФИЛЬТРУЮТСЯ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Filtering.Not,СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Filtering.Error,СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading,ЗАГРУЗКА НЕОБХОДИМЫХ ФАЙЛОВ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading.Error,НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ ЗАГРУЖЕНЫ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading.Complete.Cancel,ЗАГРУЗКА НЕОБХОДИМОГО ФАЙЛА БЫЛА ОТМЕНЕНА
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading.Complete.Error,ПРИ ЗАГРУЗКЕ НЕОБХОДИМОГО ФАЙЛА ПРОИЗОШЛА ОШИБКА
+Wizard\Wizard.RU.xaml,,
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting,ИЗВЛЕЧЕНИЕ ЗАГРУЖЕННОГО ФАЙЛА
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Executing,ИЗВЛЕЧЕННЫЙ ФАЙЛ ВЫПОЛНЯЕТСЯ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Executed,ИЗВЛЕЧЕННЫЙ ФАЙЛ БЫЛ ВЫПОЛНЕН
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Failed,ЗАГРУЖЕННЫЙ ФАЙЛ НЕ УДАЛОСЬ ИЗВЛЕЧЬ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Corrupt,ЗАГРУЖЕННЫЙ ФАЙЛ ПОВРЕЖДЁН
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Not,ЗАГРУЖЕННЫЙ ФАЙЛ НЕПРИГОДЕН ДЛЯ ИСПОЛЬЗОВАНИЯ
+Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Error,НЕ УДАЛОСЬ ИЗВЛЕЧЬ ЗАГРУЖЕННЫЙ ФАЙЛ
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Sound,Звук
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Log,Лог
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Hook,Крюк
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Store,Магазин
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Donate,Пожертвование
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.System,Система
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Cache,Кэш
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Laptop,Ноутбук
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Support,Поддержка
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Reset,Сброс
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Backup,Резервное копирование
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Priority,Приоритет
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Engines,Двигатели
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Update,Обновление
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Library,Библиотека
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Developer,Разработчик
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Extensions,Расширения
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.SystemResources,Системные ресурсы
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.AppearanceBehavior,Внешний вид и Поведение
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.All,Все
+Portal\Category\Portal.Category.RU.xaml,,
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Abstract,Абстракция
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Ambience,Атмосфера
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Animals,Животные
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Animation,Анимация
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Anime,Аниме
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.ArchitectureandBuildings,Архитектура и Здания
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.ArtandAbstract,Искусство и Абстракция
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Artworks,произведения искусства
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Bard,Бард
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.BlackandWhite,Черно-белые
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.CartoonandComics,Мультфильмы и Комиксы
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.CitiesandPlaces,Города и Места
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.CloudsandSkies,Облака и Небеса
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.ColorfulGradients,Цветные Градиенты
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.ComicBooks,Комиксы
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.DigitalArt,Цифровое Искусство
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Dynamic,Динамичные
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.EnchantedForests,Волшебные Леса
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Fantasy,Фэнтези
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.FilmandTV,Фильм и ТВ
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.FoodandDrinks,Еда и Напитки
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Galaxy,Галактика
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Game,Игры
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.GeometricPatterns,Геометрические Узоры
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.HolidaysandSeasons,Праздники и Сезоны
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.HorrorandHalloween,Ужасы и Хэллоуин
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.InspirationalQuotes,Вдохновляющие Цитаты
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.KidsandCartoon,Дети и Мультфильм
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Landscape,Пейзаж
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Lifestyle,Образ Жизни
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.LineArt,Линейное Искусство
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Medieval,Средневековье
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Minimalist,Минимализм
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Music,Музыка
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Nature,Природа
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Nightscapes,Ночные Пейзажи
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.PatternsandTextures,Узоры и Текстуры
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Retro,Ретро
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Sky,Небо
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Space,Космос
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Sports,Спорт
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Superheroes,Супергерои
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.System,Система
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Tavern,Таверна
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Technology,Технологии
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Temple,Храм
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Time,Время
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.UnderwaterandMarine,Подводный мир и Море
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Vehicles,Транспорт
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Vintage,Винтаж
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.War,Война
+Portal\Controls\Portal.Controls.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5SVS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.Fill,Заполнить
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.None,Нет
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.Uniform,Пропорционально
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.UniformToFill,Заполнить с сохранением пропорций
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.None,Нет
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Name,Имя
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Creation,Создание
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Modification,Изменение
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreType.GitHub,GitHub
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreType.Soferity,Soferity
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.Fill,Заполнить
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.None,Нет
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.Uniform,Пропорционально
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StretchType.UniformToFill,Заполнить с сохранением пропорций
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CommunicationType.Signal,Signal
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.PerformanceType.Close,Закрыть
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.PerformanceType.Pause,Пауза
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.PerformanceType.Resume,Возобновить
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.WindowBackdropType.Mica,Мика
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.WindowBackdropType.None,Нет
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.WindowBackdropType.Auto,Авто
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.WindowBackdropType.Tabbed,Вкладки
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.WindowBackdropType.Acrylic,Акрил
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ChannelType.Release,По умолчанию
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ChannelType.PreRelease,Для разработчиков
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.PausePerformanceType.Heavy,Сильный
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.PausePerformanceType.Light,Легкий
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortKindType.Ascending,По возрастанию [A-Z]
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortKindType.Descending,По убыванию [Z-A]
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ExpandScreenType.Default,По умолчанию
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ExpandScreenType.Advanced,Продвинутый
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateType.Compressed,Сжатый
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.UpdateType.Executable,Исполняемый
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ScreenType.WorkingArea,Рабочая область
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ScreenType.DisplayBound,Границы экрана
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.DuplicateScreenType.Default,По умолчанию
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.DuplicateScreenType.Advanced,Продвинутый
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Pass,Успешно
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Tags,Слишком много значений в 'Tags'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Type,"Тема создана для типа, который не поддерживается этим приложением"
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Title,Значение 'Title' отсутствует или слишком длинное
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Author,Значение 'Author' отсутствует или слишком длинное
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Source,Файл 'Source' не найден
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Contact,Значение 'Contact' отсутствует или слишком длинное
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Preview,Файл 'Preview' не найден
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Encrypt,Соответствующий файл зашифрован
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.ZipType,Соответствующий файл не является действительным файлом '.zip'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InfoFile,Файл 'SucroseInfo.json' не найден
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.NotFound,Соответствующий файл не найден
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.LoopMode,Недопустимое значение 'LoopMode'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Arguments,Значение 'Arguments' слишком длинное
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Extension,Соответствующий файл не имеет расширение '.zip'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Thumbnail,Файл 'Thumbnail' не найден
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemCpu,Недопустимое значение 'SystemCpu'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.EmptyInfo,Файл 'SucroseInfo.json' пуст
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.AppVersion,Тема создана для более высокой версии приложения
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidUrl,Значение 'Source' недействительно
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemBios,Недопустимое значение 'SystemBios'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemDate,Недопустимое значение 'SystemDate'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemAudio,Недопустимое значение 'SystemAudio'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Description,Значение 'Description' отсутствует или слишком длинное
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidInfo,Файл 'SucroseInfo.json' недействителен
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.TriggerTime,Недопустимое значение 'TriggerTime'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.StretchMode,Недопустимое значение 'StretchMode'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.VolumeLevel,Недопустимое значение 'VolumeLevel'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.ShuffleMode,Недопустимое значение 'ShuffleMode'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidTags,Значения 'Tags' слишком короткие или слишком длинные
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidFile,Недействительный файл
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.PropertyList,Значение 'PropertyList' отсутствует
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemMemory,Недопустимое значение 'SystemMemory'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemBattery,Недопустимое значение 'SystemBattery'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Недопустимое значение 'SystemGraphic'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Недопустимое значение 'SystemNetwork'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidContact,Значение 'Контакта' не является 'URL' или 'Адресом электронной почты'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Недействительное расширение файла
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Файл 'SucroseCompatible.json' пуст
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Файл 'SucroseProperties.json' пуст
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.PropertyListener,Недопустимое значение 'PropertyListener'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Недопустимое значение 'SystemMotherboard'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Файл 'SucroseCompatible.json' недействителен
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Файл 'SucroseProperties.json' недействителен
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Непредвиденные последствия
+Portal\LibraryPage\Portal.LibraryPage.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5SVS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\LibraryPage\Portal.LibraryPage.RU.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.RU.xaml,Portal.LibraryPage.Title,LibraryPage
+Portal\LibraryPage\Portal.LibraryPage.RU.xaml,,
+Portal\LibraryPage\Portal.LibraryPage.RU.xaml,Portal.LibraryPage.Import.Successful,Тема с именем '{0}' успешно добавлена в библиотеку.
+Portal\LibraryPage\Portal.LibraryPage.RU.xaml,Portal.LibraryPage.Import.Unsuccessful,Тему с именем '{0}' не удалось добавить в библиотеку. Причина: '{1}'.
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.Title,Sucrose Wallpaper Engine
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuHelp,Помощь
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuAbout,О программе
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuHelpTip,Просмотр справки
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuAboutTip,Информация о программе
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuLibrary,Библиотека
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuStore,Магазин
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuLibraryTip,Библиотека тем
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuStoreTip,Магазин тем
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuGeneral,Общие
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuPersonal,Личные
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuPerformance,Производительность
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuWallpaper,Обои
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuSystem,Система
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuDonate,Пожертвование
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuOther,Прочее
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuBackTip,Назад
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuGeneralTip,Общие настройки
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuPersonalTip,Личные настройки
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuPerformanceTip,Настройки производительности
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuWallpaperTip,Настройки обоев
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuSystemTip,Настройки системы
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuDonateTip,Настройки пожертвования
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuOtherTip,Другие настройки
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuSettingTip,Настройки
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.SearchBoxHint,Искать Обои
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.SearchBoxTip,"Ищете то, что вам нужно?"
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuLightTip,Светлая тема
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuDarkTip,Тёмная тема
+Portal\MainWindow\Portal.MainWindow.RU.xaml,,
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuCreateWallpaperTip,Создать обои
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuWallpaperCyclingTip,Циклическая смена обоев
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuDisplayPreferencesTip,Параметры отображения
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuDonateOptionsTip,Параметры пожертвования
+Portal\MainWindow\Portal.MainWindow.RU.xaml,Portal.MainWindow.MenuOtherOptionsTip,Другие параметры
+Portal\SettingPage\Portal.SettingPage.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJTZXR0aW5nUGFnZS9Qb3J0YWwuT3RoZXJTZXR0aW5nUGFnZS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRG9uYXRlU2V0dGluZ1BhZ2UvUG9ydGFsLkRvbmF0ZVNldHRpbmdQYWdlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTeXN0ZW1TZXR0aW5nUGFnZS9Qb3J0YWwuU3lzdGVtU2V0dGluZ1BhZ2UuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkdlbmVyYWxTZXR0aW5nUGFnZS9Qb3J0YWwuR2VuZXJhbFNldHRpbmdQYWdlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQZXJzb25hbFNldHRpbmdQYWdlL1BvcnRhbC5QZXJzb25hbFNldHRpbmdQYWdlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJTZXR0aW5nUGFnZS9Qb3J0YWwuV2FsbHBhcGVyU2V0dGluZ1BhZ2UuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UvUG9ydGFsLlBlcmZvcm1hbmNlU2V0dGluZ1BhZ2UuUlUueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Portal\StorePage\Portal.StorePage.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbFN0b3JlUGFnZS9Qb3J0YWwuRnVsbFN0b3JlUGFnZS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQnJva2VuU3RvcmVQYWdlL1BvcnRhbC5Ccm9rZW5TdG9yZVBhZ2UuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaFN0b3JlUGFnZS9Qb3J0YWwuU2VhcmNoU3RvcmVQYWdlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmtub3duU3RvcmVQYWdlL1BvcnRhbC5Vbmtub3duU3RvcmVQYWdlLlJVLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
+Portal\StorePage\Portal.StorePage.RU.xaml,,
+Portal\StorePage\Portal.StorePage.RU.xaml,Portal.StorePage.Title,StorePage
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Title,Параметры отображения
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Close,Закрыть
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Expander,Режим размещения
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Expander.Description,Способ применения обоев к активным экранам.
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Screen,Только выбранный экран
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Expand,Растянуть между экранами
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Expand.Monitor,На всех мониторах
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Expand.Hint,Выберите режим растяжения между экранами
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Duplicate,Дублировать одинаковые обои
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,,
+Portal\Controls\DisplayPreferences\Portal.DisplayPreferences.RU.xaml,Portal.DisplayPreferences.Duplicate.Hint,Выберите режим дублирования одинаковых обоев
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.RU.xaml,Portal.ExpanderCard.TitleText,Заголовок
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.RU.xaml,Portal.ExpanderCard.DescriptionText,Описание
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.RU.xaml,,
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.RU.xaml,Portal.ExpanderCard.ExpandUpTip,Свернуть
+Portal\Controls\ExpanderCard\Portal.ExpanderCard.RU.xaml,Portal.ExpanderCard.ExpandDownTip,Развернуть
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.TitleText,Заголовок
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.DescriptionText,Описание
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MoreTip,Еще
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.VersionTip,Для использования этой темы обновите Sucrose
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuReview,Обзор
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuUse,Использовать
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuPreview,Предпросмотр
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuCustomize,Настроить
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuFind,Поиск
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuShare,Поделиться
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuDelete,Удалить
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuEdit,Изменить
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Title,О нас
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Close,Закрыть
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.About,"Привет, меня зовут Bayram Emekli, также известного под именем Taiizor. Я разработчик приложения Sucrose Wallpaper Engine, которое является бесплатным и с открытым исходным кодом. Спасибо за использование моего приложения."
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Update,Версия: v{0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Update.Description,Последняя проверка: {0}
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Update.Notes,Примечания к обновлению
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Partners,Партнеры
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Contributors,Участники
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.TermsOfService,Условия использования
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.PrivacyPolicy,Политика конфиденциальности
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,
+Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.CodeOfConduct,Правила поведения
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Title,Помощь
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Close,Закрыть
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.WebPage,Веб-сайт
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.WebPage.Description,Официальный веб-сайт Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Documentation,Документация
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Documentation.Description,Официальная страница документации Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Repository,Исходный код
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Repository.Description,Официальная страница исходного кода Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Discussions,Обсуждения
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Discussions.Description,Официальная страница обсуждений Sucrose Wallpaper Engine
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,,
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Report,Сообщить об ошибке
+Portal\Controls\OtherHelp\Portal.OtherHelp.RU.xaml,Portal.OtherHelp.Report.Description,Официальная страница сообщения об ошибке Sucrose Wallpaper Engine
+Portal\Controls\Pagination\Portal.Pagination.RU.xaml,Portal.Pagination.PageJump,Перейти
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.TitleText,Заголовок
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.DescriptionText,Описание
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.VersionTip,Для использования этой темы обновите Sucrose
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.MenuInstall,Установить
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.MenuReport,Сообщить о проблеме
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Title,Создание темы
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Create,Создать
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Close,Закрыть
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Gif,Тема Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Gif.Description,Создайте свою собственную тему Gif.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Url,Тема Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Url.Description,Создайте свою собственную тему с Url.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Web,Тема Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Web.Description,Создайте свою собственную тему Web.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Video,Тема Video
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Video.Description,Создайте свою собственную тему Video.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.YouTube,Тема YouTube
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.YouTube.Description,Создайте свою собственную тему YouTube.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Application,Тема Application
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Application.Description,Создайте свою собственную тему Application.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeThumbnail,Обложка
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview,Предварительный просмотр
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeTitle,Название
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeDescription,Описание
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeAuthor,Автор
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeContact,Контакт
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeTags,Теги
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeArguments,Аргументы
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeUrl.Hint,"Пожалуйста, введите действительный Url-адрес"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Выберите обложку
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview.Hint,Выберите файл предварительного просмотра
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeTitle.Hint,"Пожалуйста, введите действительное название"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeDescription.Hint,"Пожалуйста, введите действительное описание"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeAuthor.Hint,"Пожалуйста, введите действительное имя автора"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeContact.Hint,"Пожалуйста, введите действительный контакт"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeTags.Hint,"Пожалуйста, введите действительные теги темы"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeArguments.Hint,"Пожалуйста, введите действительные аргументы приложения"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Delete,Удалить
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Gif,Перетащите и отпустите ваш файл Gif сюда
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Video,Перетащите и отпустите ваш видеофайл сюда
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Выберите обложку
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Графические файлы (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview.Title,Выберите файл предварительного просмотра
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview.Filter,Файлы Gif (*.gif)|*.gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Title,Удаление темы
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Delete,Удалить
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Close,Закрыть
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,,
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeTitle,Заголовок
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeDescription,Описание
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeType,Тип
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeTypeName,Gif
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeAuthor,Автор
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeSize,Размер
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeSizeTotal,0 b
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeVersion,Версия
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeTags,Теги
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeTagsText,Отсутствуют
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeCreate,Создано
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeCreateDate,Неизвестно
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeModify,Изменено
+Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.ThemeModifyDate,Неизвестно
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.Title,Редактирование темы
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.Close,Закрыть
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.Save,Сохранить
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeTitle,Заголовок
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeDescription,Описание
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeAuthor,Автор
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeContact,Контакт
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeTags,Теги
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeArguments,Аргументы
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,,
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeTitle.Hint,"Пожалуйста, введите действительное название"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeDescription.Hint,"Пожалуйста, введите действительное описание"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeAuthor.Hint,"Пожалуйста, введите действительное имя автора"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeContact.Hint,"Пожалуйста, введите действительный контакт"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeTags.Hint,"Пожалуйста, введите действительные теги темы"
+Portal\Controls\ThemeEdit\Portal.ThemeEdit.RU.xaml,Portal.ThemeEdit.ThemeArguments.Hint,"Пожалуйста, введите действительные аргументы приложения"
+Portal\Controls\ThemeImport\Portal.ThemeImport.RU.xaml,Portal.ThemeImport.Title,Импорт темы
+Portal\Controls\ThemeImport\Portal.ThemeImport.RU.xaml,Portal.ThemeImport.Close,Закрыть
+Portal\Controls\ThemeImport\Portal.ThemeImport.RU.xaml,,
+Portal\Controls\ThemeImport\Portal.ThemeImport.RU.xaml,Portal.ThemeImport.Info,Информация о теме
+Portal\Controls\ThemeImport\Portal.ThemeImport.RU.xaml,Portal.ThemeImport.Type,Причины
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.Title,Обзор темы
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.Close,Закрыть
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,,
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeTitle,Заголовок
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeDescription,Описание
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeType,Тип
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeTypeName,Gif
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeAuthor,Автор
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeAuthorName,Taiizor
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeSize,Размер
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeSizeTotal,0 b
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeVersion,Версия
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeVersionText,0.0.0.0 (0.0.0.0)
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeTags,Теги
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeTagsText,Отсутствуют
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeCreate,Создано
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeCreateDate,Неизвестно
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeModify,Изменено
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeModifyDate,Неизвестно
+Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeContact,Контактная информация по теме
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.Title,Поделиться темой
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.Close,Закрыть
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeTitle,Заголовок
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeDescription,Описание
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeExport,Экспорт
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish,Опубликовать в магазине
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeCopy,Копировать ссылку
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файлы (*.zip)|*.zip|Все файлы (*.*)|*.*
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogTitle,Сохранить файл темы
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RU.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RU.xaml,,
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RU.xaml,Portal.EmptyLibraryPage.TitleText,Ваша библиотека запутана паутинами
+Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RU.xaml,Portal.EmptyLibraryPage.DescriptionText,Вместо обоев здесь создано великолепное произведение искусства из паутины
+Portal\LibraryPage\FullLibraryPage\Portal.FullLibraryPage.RU.xaml,Portal.FullLibraryPage.Title,FullLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RU.xaml,Portal.SearchLibraryPage.Title,SearchLibraryPage
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RU.xaml,,
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RU.xaml,Portal.SearchLibraryPage.TitleText,Ваша библиотека очарована паутиной
+Portal\LibraryPage\SearchLibraryPage\Portal.SearchLibraryPage.RU.xaml,Portal.SearchLibraryPage.DescriptionText,Из-за вашей тщательности в выборе обоев в библиотеке не осталось места
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.Title,DonateSettingPage
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.DonateMenu,Меню пожертвований
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.DonateMenu.Description,Видимость меню пожертвований в интерфейсе.
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Show,Показать
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.DonateMenu.DonateVisible.Hide,Скрыть
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.Advertising,Рекламная поддержка
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.Advertising.Description,"Поддержите разработку приложения, просматривая рекламу."
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,,
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.Advertising.AdvertisingDelay,Время рекламы (минуты):
+Portal\SettingPage\DonateSettingPage\Portal.DonateSettingPage.RU.xaml,Portal.DonateSettingPage.Advertising.AdvertisingHint,Совет: Реклама будет отображаться с минимальным беспокойством для вас.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.Title,GeneralSettingPage
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationLanguage,Язык приложения
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationLanguage.Description,"Выберите язык, на котором вы хотите видеть приложение."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup,Запуск приложения
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Description,Для воспроизведения обоев приложение Sucrose должно работать на заднем плане при запуске.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.None,Никакие
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Normal,Обычные
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Приоритетные
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Планировщик
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon,Значок уведомления
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Видимость значка в системном лотке. Приложение Sucrose будет работать скрыто.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Показать
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Hide,Скрыть
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon.NotifyExit,Закрыть все приложения Sucrose при закрытии значка в системном лотке
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop,Фон окна
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.Description,Используется для настройки фона окна приложения.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Выбрать фоновое изображение
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Выберите фоновое изображение
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Изображения (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Размер фона:
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropOpacity,Прозрачность фона (%):
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.EngineVolume,Громкость звука
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.EngineVolume.Description,"Громкость, применяемая ко всем обоям."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Проигрывать звук только при активном рабочем столе
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary,Местоположение библиотеки
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Местоположение, где будут сохраняться добавленные вами обои."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Пожалуйста, выберите пустую папку"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Подождите, пока местоположение изменится"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Переместить текущую библиотеку в новое местоположение
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.DiscordHook,Discord
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose обеспечивает связь с Discord.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.DiscordHook.DiscordRefresh,Обновление связи:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.DiscordHook.DiscordDelay,Интервал обновления (секунды):
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Agent,Интернет-представитель
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Agent.Description,"Ваш идентификатор представителя для случаев, требующих интернет-соединение."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Key,Персональный ключ доступа
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Key.Description,Необходим для бесперебойного использования магазина и обновления приложения.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Key.HintKey,"Если вы не знаете, как получить персональный ключ доступа, нажмите здесь."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Key.PersonalKey,"Пожалуйста, введите персональный ключ доступа"
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,"Пожалуйста, введите действительный персональный ключ доступа"
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Channel,Канал обновлений
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Channel.Description,"Канал, через который будет выполняться процесс обновления."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Update,Метод обновления
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Update.Description,"Способ, которым будет выполняться процесс обновления."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Update.Limit,Лимит полосы пропускания загрузки:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer,Инструменты разработчика
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer.Description,Показывать ли инструменты разработчика для WebView и CefSharp движка.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Counter,Счетчики производительности
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Counter.Description,"Определяет, будут ли счетчики производительности работать в фоновом режиме."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Counter.CounterHint,"Примечание: Некоторые темы типа Web могут не работать корректно, и ни один из нижеприведенных параметров производительности не будет работать."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Pause,Правило приостановки
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Pause.Description,Определяет правило для приостановки обоев на основе ваших настроек производительности.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Communication,Тип коммуникации
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Communication.Description,Определяет метод отправки сообщений темам типа Web.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Cpu,Использование ЦП
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Cpu.Description,Определяет влияние ваших настроек использования процессора на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Использование ЦП (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Memory,Использование памяти
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Memory.Description,Определяет влияние ваших настроек использования памяти на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Memory.MemoryUsage,Использование памяти (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Network,Использование сети
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Network.Description,Определяет влияние ваших настроек использования сети на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Сетевой адаптер:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Список сетевых адаптеров пока не создан
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Размер загрузки:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Network.NetworkDownload,Размер загрузки:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Network.NetworkPing,Задержка (мс):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Battery,Заряд батареи
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Battery.Description,Определяет влияние состояния заряда батареи ноутбука на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Battery.BatteryUsage,Уровень заряда батареи (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Saver,Экономия батареи
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Saver.Description,Определяет влияние режима экономии батареи на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Virtual,Виртуализация
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Virtual.Description,Определяет влияние запущенных виртуальных машин на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Remote,Удаленный рабочий стол
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Remote.Description,Определяет влияние работы с удаленными рабочими столами на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Fullscreen,Полноэкранный режим
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Fullscreen.Description,Определяет влияние запуска приложений в полноэкранном режиме на обои.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Focus,Режим активности
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Focus.Description,Определяет влияние активности других приложений в фоне на обои.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Title,PersonalSettingPage
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Server,Сервер магазина
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Server.Description,"Указывает, какой сервер будет использоваться для отображения тем, перечисленных в магазине."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Server.ServerHint,"Примечание: Если выбран сервер {0}, необходимо ввести {2}, чтобы избежать ограничений запросов. В противном случае возможны проблемы с доступом к темам в магазине. Если выбран {1}, вы получите более плавный опыт в магазине."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Duration,Обновление магазина
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Duration.Description,"Продолжительность обновления тем, отображаемых в магазине."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.StoreStart,Автоматический запуск
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.StoreStart.Description,Автоматически ли установленные темы из магазина будут использоваться как обои.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adult,Нецензурный контент
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adult.Description,"Показывать или скрывать содержание, отмеченное как ненадежное (NSFW) в магазине."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Confirm,Запрос подтверждения удаления
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Confirm.Description,Запрашивать подтверждение при удалении тем из вашей библиотеки.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Delete,Удаление битых тем
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Delete.Description,Удалять автоматически битые или отсутствующие темы из вашей библиотеки.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Delete.DeleteHint,"Примечание: Пожалуйста, будьте осторожны. В противном случае, это может привести к потере данных."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.LibraryStart,Автоматический запуск
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.LibraryStart.Description,Автоматически ли созданные темы будут использоваться как обои в вашей библиотеке.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview,Предварительный просмотр тем
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview.Description,"Отображать предварительный просмотр тем, когда курсор наводится на них."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview.StorePreview,Предварительный просмотр в магазине:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview.StorePreviewHide,Скрывать детали:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Предварительный просмотр в библиотеке:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Скрывать детали:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme,Настройка тем
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme.Description,Настройте название или описание отображаемых тем.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Длина заголовка (символов):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Длина описания (символов):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adaptive,Адаптивный макет
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adaptive.Description,Настройте макет или расстояние отображаемых тем.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveMargin,Отступ (пиксели):
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adaptive.AdaptiveLayout,Количество столбцов:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Sort,Сортировка библиотеки
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Sort.Description,"Определите, как темы в вашей библиотеке будут сортироваться и в каком формате."
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Sort.SortMode,Режим сортировки:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Sort.SortKind,Тип сортировки:
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Store,Пагинация в магазине
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Store.Description,Настройте количество тем на каждой странице магазина.
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Library,Пагинация в библиотеке
+Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Library.Description,Настройте количество тем на каждой странице вашей библиотеки.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Title,SystemSettingPage
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LogTemporary,Файлы журнала
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LogTemporary.Description,"Управление всеми файлами журнала, созданными приложением."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LogTemporary.Create,Создать
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LogTemporary.Delete,Очистить
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LogTemporary.Hint,Примечание: Общий размер файлов журнала составляет {0}. При начале очистки все приложения будут закрыты.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.CacheTemporary,Очистка кэша
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.CacheTemporary.Description,"Удаление всех файлов кэша, созданных приложением."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.CacheTemporary.Start,Начать очистку
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.CacheTemporary.Hint,Примечание: Общий размер файлов кэша составляет {0}. При начале очистки все приложения будут закрыты.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.StoreTemporary,Очистка магазина
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.StoreTemporary.Description,"Удаление всех файлов магазина, созданных приложением."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.StoreTemporary.Start,Начать очистку
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.StoreTemporary.Hint,Примечание: Общий размер файлов магазина составляет {0}. При начале очистки все приложения будут закрыты.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LibraryTemporary,Очистка библиотеки
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LibraryTemporary.Description,"Удаление всех файлов тем, находящихся в вашей библиотеке или созданных вами."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LibraryTemporary.Start,Начать очистку
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.LibraryTemporary.Hint,Примечание: Общий размер файлов тем в вашей библиотеке составляет {0}. При начале очистки все приложения будут закрыты.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingBackup,Файлы настроек
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingBackup.Description,"Управление всеми файлами настроек, созданными приложением."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingBackup.Export,Создать резервную копию
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingBackup.Import,Восстановить
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingBackup.Hint,Примечание: При начале выбранной операции все приложения будут закрыты.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingReset,Сброс настроек
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingReset.Description,"Сброс всех файлов настроек, созданных приложением."
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingReset.Start,Начать сброс
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.SettingReset.Hint,Примечание: При начале сброса все приложения будут закрыты.
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Сохранить файл журнала
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ScreenLayout,Раскладка экрана
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Измените расположение ваших обоев на экране.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.StretchMode,Режим растяжения
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Измените метод изменения масштаба для поддерживаемых обоев.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.LoopMode,Режим повтора
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Измените режим повтора для поддерживаемых обоев.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ShuffleMode,Режим перемешивания
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Измените режим перемешивания для поддерживаемых обоев.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.GifPlayer,Плеер для Gif
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Выберите плеер для воспроизведения обоев в формате Gif из вашей библиотеки.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.VideoPlayer,Плеер для Video
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.VideoPlayer.Description,Выберите плеер для воспроизведения обоев в формате Video из вашей библиотеки.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.UrlPlayer,Мотор для Url
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.UrlPlayer.Description,Выберите мотор для запуска обоев в формате Url из вашей библиотеки.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.WebPlayer,Мотор для Web
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.WebPlayer.Description,Выберите мотор для запуска обоев в формате Web из вашей библиотеки.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.YouTubePlayer,Мотор для YouTube
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.YouTubePlayer.Description,Выберите мотор для запуска обоев из YouTube из вашей библиотеки.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ApplicationPlayer,Мотор для Application
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ApplicationPlayer.Description,Выберите мотор для запуска обоев в формате Application из вашей библиотеки.
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RU.xaml,Portal.BrokenStorePage.Title,BrokenStorePage
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RU.xaml,,
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RU.xaml,Portal.BrokenStorePage.TitleText,"Момент, когда затух свет интернета"
+Portal\StorePage\BrokenStorePage\Portal.BrokenStorePage.RU.xaml,Portal.BrokenStorePage.DescriptionText,"Как небо без звёзд, здесь нет блеска интернета"
+Portal\StorePage\FullStorePage\Portal.FullStorePage.RU.xaml,Portal.FullStorePage.Title,FullStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RU.xaml,Portal.SearchStorePage.Title,SearchStorePage
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RU.xaml,,
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RU.xaml,Portal.SearchStorePage.TitleText,Ответ на ваш поиск может скрываться на небесах
+Portal\StorePage\SearchStorePage\Portal.SearchStorePage.RU.xaml,Portal.SearchStorePage.DescriptionText,"Если результаты не соответствуют вашим ожиданиям, небо может предложить вам новый опыт"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RU.xaml,Portal.UnknownStorePage.Title,UnknownStorePage
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RU.xaml,,
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RU.xaml,Portal.UnknownStorePage.TitleText,"Раскройте тайну, случившуюся в магазине"
+Portal\StorePage\UnknownStorePage\Portal.UnknownStorePage.RU.xaml,Portal.UnknownStorePage.DescriptionText,"Исследуйте неизведанное и отправьтесь в путешествие по раскрытию тайны, произошедшей в магазине"
