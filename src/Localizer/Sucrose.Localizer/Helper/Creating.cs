@@ -1,7 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
-using System.Text;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 
 namespace Sucrose.Localizer.Helper
@@ -27,9 +26,9 @@ namespace Sucrose.Localizer.Helper
                 return;
             }
 
-            using (StreamWriter writer = new(outputFile, false, Encoding.UTF8))
+            using (StreamWriter writer = new(outputFile))
             using (CsvWriter csvWriter = new(writer, CultureInfo.InvariantCulture))
-            using (StreamReader reader = new(sourceFile, Encoding.UTF8))
+            using (StreamReader reader = new(sourceFile))
             using (CsvReader csvReader = new(reader, CultureInfo.InvariantCulture))
             {
                 csvWriter.WriteField("File");
@@ -67,7 +66,7 @@ namespace Sucrose.Localizer.Helper
 
             List<string[]> data = new();
 
-            using (StreamReader reader = new(localeFile, Encoding.UTF8))
+            using (StreamReader reader = new(localeFile))
             using (CsvReader csv = new(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
             {
                 IEnumerable<dynamic> records = csv.GetRecords<dynamic>();
@@ -84,27 +83,25 @@ namespace Sucrose.Localizer.Helper
                 }
             }
 
-            string[] newLanguageData = new string[] { $"{fileName}.xaml", $"{fileName}.{outputLang}", outputLangName };
+            string[] newLanguageData = new string[] { $"{fileName}.xaml", $"{fileName}.{outputLang}", $"{outputLangName} (v0.1)" };
 
             data.Add(newLanguageData);
 
             data = data.OrderBy(d => d[1]).ToList();
 
-            using (StreamWriter writer = new(localeFile, false, Encoding.UTF8))
-            using (CsvWriter csvWriter = new(writer, CultureInfo.InvariantCulture))
+            using StreamWriter writer = new(localeFile);
+            using CsvWriter csvWriter = new(writer, CultureInfo.InvariantCulture);
+            csvWriter.WriteField("File");
+            csvWriter.WriteField("Key");
+            csvWriter.WriteField("Value");
+
+            foreach (string[] fields in data)
             {
-                csvWriter.WriteField("File");
-                csvWriter.WriteField("Key");
-                csvWriter.WriteField("Value");
+                csvWriter.NextRecord();
 
-                foreach (string[] fields in data)
-                {
-                    csvWriter.NextRecord();
-
-                    csvWriter.WriteField(fields[0]);
-                    csvWriter.WriteField(fields[1]);
-                    csvWriter.WriteField(fields[2]);
-                }
+                csvWriter.WriteField(fields[0]);
+                csvWriter.WriteField(fields[1]);
+                csvWriter.WriteField(fields[2]);
             }
         }
     }

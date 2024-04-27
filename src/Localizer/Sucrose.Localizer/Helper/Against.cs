@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Sucrose.Localizer.Helper
+﻿namespace Sucrose.Localizer.Helper
 {
     internal static class Against
     {
@@ -27,8 +25,8 @@ namespace Sucrose.Localizer.Helper
 
         private static void CompareCsvFiles(string filePath1, string filePath2)
         {
-            string[] lines1 = File.ReadAllLines(filePath1, Encoding.UTF8);
-            string[] lines2 = File.ReadAllLines(filePath2, Encoding.UTF8);
+            string[] lines1 = File.ReadAllLines(filePath1);
+            string[] lines2 = File.ReadAllLines(filePath2);
 
             int minLineCount = Math.Min(lines1.Length, lines2.Length);
 

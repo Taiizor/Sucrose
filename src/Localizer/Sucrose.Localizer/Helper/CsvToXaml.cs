@@ -29,7 +29,7 @@ namespace Sucrose.Localizer.Helper
         {
             foreach (string csvFilePath in Directory.GetFiles(csvDirectory, "*.csv"))
             {
-                using StreamReader reader = new(csvFilePath, Encoding.UTF8);
+                using StreamReader reader = new(csvFilePath);
                 using CsvReader csv = new(reader, CultureInfo.InvariantCulture);
                 IEnumerable<dynamic> records = csv.GetRecords<dynamic>();
 
@@ -57,6 +57,7 @@ namespace Sucrose.Localizer.Helper
         private static void EnsureDirectoryExists(string filePath)
         {
             string directoryPath = Path.GetDirectoryName(filePath);
+
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
@@ -87,7 +88,7 @@ namespace Sucrose.Localizer.Helper
 
                 kvp.Value.AppendLine("</ResourceDictionary>");
 
-                using (StreamWriter writer = new(xamlFilePath, false, Encoding.UTF8))
+                using (StreamWriter writer = new(xamlFilePath))
                 {
                     string value = kvp.Value.ToString();
 
