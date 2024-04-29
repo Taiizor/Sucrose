@@ -92,6 +92,8 @@ namespace Sucrose.Shared.Engine.Manage
 
             "--disable-surfaces",
 
+            "--autoplay-policy=no-user-gesture-required",
+
             "--enable-media-stream",
             "--enable-accelerated-video-decode",
 

@@ -70,7 +70,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Skylark.Wing" Version="3.1.4.2" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.4.4" />
         <PackageReference Include="Skylark.Standard" Version="3.1.5.2" />
     </ItemGroup>
 
