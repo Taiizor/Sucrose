@@ -22,7 +22,7 @@
     <system:String x:Key="Portal.Category.DigitalArt">Dijital Sanat</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dinamik</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Büyülü Ormanlar</system:String>
-    <system:String x:Key="Portal.Category.Fantasy">Fantazi</system:String>
+    <system:String x:Key="Portal.Category.Fantasy">Fantezi</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film ve Dizi</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Yiyecek ve İçecekler</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Galaksi</system:String>

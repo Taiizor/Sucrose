@@ -59,7 +59,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 IsExpand = true
             };
 
-            InputMode.LeftIcon.Symbol = SymbolRegular.KeyboardMouse16;
+            InputMode.LeftIcon.Symbol = SymbolRegular.HandDraw24;
             InputMode.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode");
             InputMode.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "Description");
 
