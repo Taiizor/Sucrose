@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
+using SEIT = Skylark.Enum.InputType;
 using SEST = Skylark.Enum.ScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -19,6 +20,7 @@ using SSDEVET = Sucrose.Shared.Dependency.Enum.VideoEngineType;
 using SSDEWET = Sucrose.Shared.Dependency.Enum.WebEngineType;
 using SSDEYTET = Sucrose.Shared.Dependency.Enum.YouTubeEngineType;
 using SSLMM = Sucrose.Shared.Live.Manage.Manager;
+using SWUD = Skylark.Wing.Utility.Desktop;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -49,6 +51,64 @@ namespace Sucrose.Portal.ViewModels.Pages
             };
 
             Contents.Add(AppearanceBehaviorArea);
+
+            SPVCEC InputMode = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = true,
+                IsExpand = true
+            };
+
+            InputMode.LeftIcon.Symbol = SymbolRegular.KeyboardMouse16;
+            InputMode.Title.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode");
+            InputMode.Description.Text = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "Description");
+
+            ComboBox InputType = new();
+
+            InputType.SelectionChanged += (s, e) => InputTypeSelected(InputMode, InputType.SelectedIndex);
+
+            foreach (SEIT Type in Enum.GetValues(typeof(SEIT)))
+            {
+                InputType.Items.Add(new ComboBoxItem()
+                {
+                    Content = SRER.GetValue("Portal", "Enum", "InputType", $"{Type}")
+                });
+            }
+
+            InputType.SelectedIndex = (int)SMMM.InputType;
+
+            InputMode.HeaderFrame = InputType;
+
+            StackPanel InputContent = new()
+            {
+                Orientation = Orientation.Vertical
+            };
+
+            CheckBox InputDesktop = new()
+            {
+                Content = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "InputDesktop"),
+                IsChecked = SMMM.InputDesktop
+            };
+
+            InputDesktop.Checked += (s, e) => InputDesktopChecked(true);
+            InputDesktop.Unchecked += (s, e) => InputDesktopChecked(false);
+
+            CheckBox DesktopIcon = new()
+            {
+                Content = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "DesktopIcon"),
+                IsChecked = !SWUD.GetDesktopIconVisibility(),
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            DesktopIcon.Checked += (s, e) => DesktopIconChecked(false);
+            DesktopIcon.Unchecked += (s, e) => DesktopIconChecked(true);
+
+            InputContent.Children.Add(InputDesktop);
+            InputContent.Children.Add(DesktopIcon);
+
+            InputMode.FooterCard = InputContent;
+
+            Contents.Add(InputMode);
 
             SPVCEC ScreenLayout = new()
             {
@@ -370,6 +430,28 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void DesktopIconChecked(bool State)
+        {
+            SWUD.SetDesktopIconVisibility(State);
+        }
+
+        private void InputDesktopChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.InputDesktop, State);
+        }
+
+        private SymbolRegular InputSymbol(SEIT Type)
+        {
+            return Type switch
+            {
+                SEIT.Close => SymbolRegular.HandDraw24,
+                SEIT.OnlyMouse => SymbolRegular.DesktopCursor24,
+                SEIT.OnlyKeyboard => SymbolRegular.DesktopKeyboard24,
+                SEIT.MouseKeyboard => SymbolRegular.KeyboardMouse16,
+                _ => SymbolRegular.Desktop24,
+            };
+        }
+
         private void ShuffleStateChecked(bool State)
         {
             SMMI.EngineSettingManager.SetSetting(SMC.Shuffle, State);
@@ -412,6 +494,17 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (Enum.TryParse($"{Item.Content}", out SSDEYTET Type) && (SSDEET)Type != SSLMM.YApp)
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.YApp, Type);
+            }
+        }
+
+        private void InputTypeSelected(SPVCEC Input, int Index)
+        {
+            SEIT NewInput = (SEIT)Index;
+
+            if (NewInput != SMMM.InputType)
+            {
+                Input.LeftIcon.Symbol = InputSymbol(NewInput);
+                SMMI.EngineSettingManager.SetSetting(SMC.InputType, NewInput);
             }
         }
 

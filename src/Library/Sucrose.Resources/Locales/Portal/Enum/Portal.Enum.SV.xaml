@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Skapande</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Modifiering</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Stängd</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Endast Mus</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Endast Tangentbord</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mus och Tangentbord</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

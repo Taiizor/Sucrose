@@ -1,4 +1,5 @@
-﻿using SEST = Skylark.Enum.StorageType;
+﻿using SEIT = Skylark.Enum.InputType;
+using SEST = Skylark.Enum.StorageType;
 using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
@@ -105,6 +106,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool LibraryDelete => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryDelete, false);
 
+        public static SEIT InputType => SMMI.EngineSettingManager.GetSetting(SMC.InputType, SEIT.OnlyMouse);
+
         public static bool DeveloperMode => SMMI.EngineSettingManager.GetSetting(SMC.DeveloperMode, false);
 
         public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMC.VolumeDesktop, false);
@@ -117,13 +120,15 @@ namespace Sucrose.Manager.Manage
 
         public static bool StorePreview => SMMI.PortalSettingManager.GetSetting(SMC.StorePreview, false);
 
-        public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
-
         public static bool LibraryStart => SMMI.EngineSettingManager.GetSetting(SMC.LibraryStart, false);
 
-        public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
+        public static bool InputDesktop => SMMI.EngineSettingManager.GetSetting(SMC.InputDesktop, false);
+
+        public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
 
         public static bool UpdateState => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateState, false);
+
+        public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
 
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
 

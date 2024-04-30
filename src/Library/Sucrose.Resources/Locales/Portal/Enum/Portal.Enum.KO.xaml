@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">생성</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">수정</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">닫기</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">마우스만</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">키보드만</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">마우스 &amp; 키보드</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

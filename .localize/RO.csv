@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.SortModeType.Name,Nume
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.SortModeType.Creation,Creare
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.SortModeType.Modification,Modificare
 Portal\Enum\Portal.Enum.RO.xaml,,
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputType.Close,Închis
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputType.OnlyMouse,Doar Mouse
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputType.OnlyKeyboard,Doar Tastatură
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputType.MouseKeyboard,Mouse și Tastatură
+Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.RO.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Salvează Fișierul Jurnal
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode,Metoda de Interacțiune
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode.Description,Stabilește metodele prin care poate avea loc interacțiunea cu tapetele acceptate.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Procesează interacțiunea doar când desktop-ul este în focus
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ascundeți pentru a evita selectarea accidentală a pictogramelor de pe desktop
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.ScreenLayout,Aranjament Ecran
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Schimbă aranjamentul imaginilor tale de fundal pe ecran.

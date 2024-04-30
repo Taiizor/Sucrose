@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Etkileşim Yöntemi</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Desteklenen duvar kağıtlarında etkileşime girilebilecek yöntemleri belirler.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Etkileşimi yalnızca masaüstü odaklandığında işleme al</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Masaüstü simgelerini yanlışlıkla seçmemek adına gizle</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Ekran Yerleşimi</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.</system:String>
 

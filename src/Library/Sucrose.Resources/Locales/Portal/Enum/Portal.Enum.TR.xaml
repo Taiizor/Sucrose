@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Oluşturma</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Değiştirme</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Kapalı</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Yalnızca Fare</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Yalnızca Klavye</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Fare ve Klavye</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

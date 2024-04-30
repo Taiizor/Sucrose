@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.SortModeType.Name,Nom
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.SortModeType.Creation,Création
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.SortModeType.Modification,Modification
 Portal\Enum\Portal.Enum.FR.xaml,,
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputType.Close,Fermé
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputType.OnlyMouse,Souris Uniquement
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputType.OnlyKeyboard,Clavier Uniquement
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputType.MouseKeyboard,Souris et Clavier
+Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.FR.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.FR.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.FR.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Enregistrer le Fichier Journal
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.FR.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode,Méthode d'interaction
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode.Description,Détermine les méthodes par lesquelles l'interaction peut se produire avec les fonds d'écran pris en charge.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Traiter l'interaction uniquement lorsque le bureau est au premier plan
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Masquer pour éviter de sélectionner accidentellement des icônes du bureau
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.ScreenLayout,Disposition de l'écran
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Modifiez la disposition de vos fonds d'écran sur l'écran.

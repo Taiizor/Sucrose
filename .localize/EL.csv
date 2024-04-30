@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Name,Όνομα
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Creation,Δημιουργία
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.SortModeType.Modification,Τροποποίηση
 Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputType.Close,Κλειστό
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputType.OnlyMouse,Μόνο Ποντίκι
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputType.OnlyKeyboard,Μόνο Πληκτρολόγιο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputType.MouseKeyboard,Ποντίκι &amp; Πληκτρολόγιο
+Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.EL.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Αποθήκευση Αρχείου Καταγραφής
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλοι οι Τύποι Αρχείων (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode,Μέθοδος αλληλεπίδρασης
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode.Description,Καθορίζει τις μεθόδους με τις οποίες μπορεί να γίνει αλληλεπίδραση με τις υποστηριζόμενες ταπετσαρίες.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Επεξεργασία αλληλεπίδρασης μόνο όταν ο επιφάνεια εργασίας είναι εστιασμένη
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Απόκρυψη για να αποφευχθεί η ακούσια επιλογή εικονιδίων επιφάνειας εργασίας
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ScreenLayout,Διάταξη Οθόνης
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Αλλάζει τη διάταξη των ταπετσαριών στην οθόνη σας.

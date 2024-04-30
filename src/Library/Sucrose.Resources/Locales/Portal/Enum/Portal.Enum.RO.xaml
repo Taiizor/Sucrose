@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Creare</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Modificare</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Închis</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Doar Mouse</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Doar Tastatură</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mouse și Tastatură</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

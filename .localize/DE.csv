@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.SortModeType.Name,Name
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.SortModeType.Creation,Erstellung
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.SortModeType.Modification,Änderung
 Portal\Enum\Portal.Enum.DE.xaml,,
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.InputType.Close,Geschlossen
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.InputType.OnlyMouse,Nur Maus
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.InputType.OnlyKeyboard,Nur Tastatur
+Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.InputType.MouseKeyboard,Maus und Tastatur
+Portal\Enum\Portal.Enum.DE.xaml,,
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.DE.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.DE.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DE.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DE.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Protokolldatei Speichern
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DE.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,Portal.WallpaperSettingPage.InputMode,Interaktionsmethode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Bestimmt die Methoden, mit denen Interaktion mit unterstützten Hintergründen erfolgen kann."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,"Interaktion nur verarbeiten, wenn der Desktop im Fokus ist"
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Verstecken, um eine versehentliche Auswahl von Desktopsymbolen zu vermeiden"
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,Portal.WallpaperSettingPage.ScreenLayout,Bildschirmlayout
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DE.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Ändern Sie das Layout Ihrer Hintergrundbilder auf dem Bildschirm.

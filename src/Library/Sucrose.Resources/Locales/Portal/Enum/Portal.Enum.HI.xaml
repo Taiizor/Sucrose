@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">सृजन</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">संशोधन</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">बंद</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">केवल माउस</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">केवल कीबोर्ड</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">माउस और कीबोर्ड</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

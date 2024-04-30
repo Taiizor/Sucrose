@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.SortModeType.Name,Navn
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.SortModeType.Creation,Opprettelse
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.SortModeType.Modification,Endring
 Portal\Enum\Portal.Enum.NB.xaml,,
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.InputType.Close,Lukket
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.InputType.OnlyMouse,Bare Mus
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.InputType.OnlyKeyboard,Bare Tastatur
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.InputType.MouseKeyboard,Mus og Tastatur
+Portal\Enum\Portal.Enum.NB.xaml,,
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.NB.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Lagre Loggfil
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.InputMode,Interaksjonsmetode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.InputMode.Description,Bestemmer metodene der interaksjon kan forekomme med støttede bakgrunnsbilder.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Behandle interaksjon kun når skrivebordet er i fokus
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Skjul for å unngå utilsiktet valg av skrivebordsikoner
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.ScreenLayout,Skjermoppsett
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Endrer plasseringen av bakgrunnsbilder på skjermen din.

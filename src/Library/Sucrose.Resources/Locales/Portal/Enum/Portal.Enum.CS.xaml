@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Vytvoření</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Úprava</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Zavřeno</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Pouze Myš</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Pouze Klávesnice</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Myš a Klávesnice</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

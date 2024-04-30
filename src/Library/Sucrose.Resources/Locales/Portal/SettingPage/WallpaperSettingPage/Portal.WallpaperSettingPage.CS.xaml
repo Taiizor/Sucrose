@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Metoda interakce</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Určuje metody, pomocí kterých může interakce probíhat se podporovanými tapetami.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Zpracovat interakci pouze při zaměření na pracovní plochu</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Skrýt, aby se zabránilo náhodnému výběru ikon pracovní plochy</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Rozmístění na obrazovce</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Změní umístění vašich tapet na obrazovce.</system:String>
 

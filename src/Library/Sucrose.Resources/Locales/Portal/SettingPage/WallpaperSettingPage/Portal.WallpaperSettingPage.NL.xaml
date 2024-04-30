@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Interactiemethode</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Bepaalt de methoden waarmee interactie kan plaatsvinden met ondersteunde achtergronden.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Interactie alleen verwerken wanneer het bureaublad is gefocust</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Verbergen om per ongeluk selecteren van bureaubladpictogrammen te voorkomen</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Schermindeling</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Wijzigt de schikking van uw achtergronden op het scherm.</system:String>
 

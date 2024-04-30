@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Создание</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Изменение</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Закрыто</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Только Мышь</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Только Клавиатура</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Мышь и Клавиатура</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 
@@ -90,7 +95,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemBattery">Недопустимое значение 'SystemBattery'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemGraphic">Недопустимое значение 'SystemGraphic'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemNetwork">Недопустимое значение 'SystemNetwork'</system:String>
-    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Значение 'Контакта' не является 'URL' или 'Адресом электронной почты'</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.InvalidContact">Значение 'Контакта' не является 'Url' или 'Адресом электронной почты'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidExtension">Недействительное расширение файла</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyCompatible">Файл 'SucroseCompatible.json' пуст</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.EmptyProperties">Файл 'SucroseProperties.json' пуст</system:String>

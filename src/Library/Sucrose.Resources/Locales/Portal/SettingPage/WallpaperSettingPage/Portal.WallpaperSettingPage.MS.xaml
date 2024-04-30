@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Kaedah Interaksi</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Menentukan kaedah melalui mana interaksi boleh berlaku dengan wallpaper yang disokong.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Proses interaksi hanya apabila desktop difokuskan</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Sembunyi untuk mengelakkan pemilihan ikon desktop secara tidak sengaja</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Susunan Skrin</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Susunan skrin untuk ubah susunan wallpaper anda.</system:String>
 

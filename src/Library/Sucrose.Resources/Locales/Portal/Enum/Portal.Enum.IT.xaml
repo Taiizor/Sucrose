@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Creazione</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Modifica</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Chiuso</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Solo Mouse</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Solo Tastiera</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mouse e Tastiera</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

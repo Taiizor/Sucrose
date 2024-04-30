@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.SortModeType.Name,Nazwa
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.SortModeType.Creation,Tworzenie
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.SortModeType.Modification,Modyfikacja
 Portal\Enum\Portal.Enum.PL.xaml,,
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputType.Close,Zamknięte
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputType.OnlyMouse,Tylko Mysz
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputType.OnlyKeyboard,Tylko Klawiatura
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputType.MouseKeyboard,Mysz i Klawiatura
+Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.PL.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PL.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PL.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Zapisz Plik Dziennika
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode,Metoda Interakcji
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Określa metody, za pomocą których może występować interakcja z obsługiwanymi tapetami."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,"Przetwarzaj interakcję tylko wtedy, gdy pulpit jest skoncentrowany"
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Ukryj, aby uniknąć przypadkowego wybierania ikon pulpitu"
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.ScreenLayout,Układ Ekranu
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Zmień układ swoich tapet na ekranie.

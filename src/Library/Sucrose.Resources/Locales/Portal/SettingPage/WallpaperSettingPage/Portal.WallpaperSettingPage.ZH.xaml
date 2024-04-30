@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">交互方法</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">确定与支持的壁纸进行交互的方法。</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">只有在桌面聚焦时处理交互</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">隐藏以避免意外选择桌面图标</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">屏幕布局</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">更改壁纸在屏幕上的布局。</system:String>
 

@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Name,Naam
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Creation,Creatie
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.SortModeType.Modification,Aanpassing
 Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputType.Close,Gesloten
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputType.OnlyMouse,Alleen Muis
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputType.OnlyKeyboard,Alleen Toetsenbord
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputType.MouseKeyboard,Muis en Toetsenbord
+Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.NL.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Logbestand Opslaan
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode,Interactiemethode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode.Description,Bepaalt de methoden waarmee interactie kan plaatsvinden met ondersteunde achtergronden.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Interactie alleen verwerken wanneer het bureaublad is gefocust
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Verbergen om per ongeluk selecteren van bureaubladpictogrammen te voorkomen
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ScreenLayout,Schermindeling
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Wijzigt de schikking van uw achtergronden op het scherm.

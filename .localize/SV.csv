@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.Name,Namn
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.Creation,Skapande
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.Modification,Modifiering
 Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputType.Close,Stängd
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputType.OnlyMouse,Endast Mus
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputType.OnlyKeyboard,Endast Tangentbord
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputType.MouseKeyboard,Mus och Tangentbord
+Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.SV.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Spara Loggfil
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.SV.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode,Interaktionsmetod
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode.Description,Bestämmer metoderna genom vilka interaktion kan ske med stödda bakgrundsbilder.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Bearbeta interaktion endast när skrivbordet är i fokus
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Göm för att undvika oavsiktlig val av skrivbordsikoner
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ScreenLayout,Skärm Layout
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Ändrar hur dina tapeter är placerade på skärmen.

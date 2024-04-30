@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.SortModeType.Name,Nombre
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.SortModeType.Creation,Creación
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.SortModeType.Modification,Modificación
 Portal\Enum\Portal.Enum.ES.xaml,,
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputType.Close,Cerrado
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputType.OnlyMouse,Solo Ratón
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputType.OnlyKeyboard,Solo Teclado
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputType.MouseKeyboard,Ratón y Teclado
+Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ES.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ES.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ES.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Guardar Archivo de Registro
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ES.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode,Método de interacción
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode.Description,Determina los métodos a través de los cuales puede ocurrir la interacción con los fondos de pantalla admitidos.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Procesar la interacción solo cuando el escritorio esté enfocado
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ocultar para evitar seleccionar accidentalmente iconos del escritorio
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.ScreenLayout,Diseño de Pantalla
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Cambie la disposición de sus fondos de pantalla en la pantalla.

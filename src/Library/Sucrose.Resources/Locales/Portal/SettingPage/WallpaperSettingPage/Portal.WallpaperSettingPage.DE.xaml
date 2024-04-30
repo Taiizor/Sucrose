@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Interaktionsmethode</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Bestimmt die Methoden, mit denen Interaktion mit unterstützten Hintergründen erfolgen kann.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Interaktion nur verarbeiten, wenn der Desktop im Fokus ist</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Verstecken, um eine versehentliche Auswahl von Desktopsymbolen zu vermeiden</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Bildschirmlayout</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Ändern Sie das Layout Ihrer Hintergrundbilder auf dem Bildschirm.</system:String>
 

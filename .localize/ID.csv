@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Name,Nama
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Creation,Pembuatan
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.SortModeType.Modification,Modifikasi
 Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputType.Close,Tutup
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputType.OnlyMouse,Hanya Mouse
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputType.OnlyKeyboard,Hanya Keyboard
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputType.MouseKeyboard,Mouse &amp; Keyboard
+Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ID.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Simpan File Harian
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ID.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,File ZIP (*.zip)|*.zip|Semua File (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode,Metode Interaksi
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode.Description,Menentukan metode melalui mana interaksi dapat terjadi dengan wallpaper yang didukung.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Proses interaksi hanya ketika desktop difokuskan
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Sembunyikan untuk menghindari memilih ikon desktop secara tidak sengaja
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ScreenLayout,Tata Letak Layar
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Mengubah tata letak dinding Anda di layar.

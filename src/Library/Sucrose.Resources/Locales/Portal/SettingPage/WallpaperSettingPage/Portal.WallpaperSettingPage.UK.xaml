@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Метод Взаємодії</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Визначає методи, за допомогою яких може відбуватися взаємодія з підтримуваними шпалерами.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Обробляти взаємодію лише при активному робочому столі</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Приховати, щоб уникнути випадкового вибору значків на робочому столі</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Розміщення на екрані</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Змінює розміщення вашого шпалеру на екрані.</system:String>
 

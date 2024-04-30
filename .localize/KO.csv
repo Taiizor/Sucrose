@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.Name,이름
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.Creation,생성
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.Modification,수정
 Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputType.Close,닫기
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputType.OnlyMouse,마우스만
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputType.OnlyKeyboard,키보드만
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputType.MouseKeyboard,마우스 &amp; 키보드
+Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.KO.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,로그 파일 저장
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode,상호 작용 방법
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode.Description,지원되는 배경 화면과의 상호 작용 방법을 결정합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,바탕 화면이 초점을 맞춘 경우에만 상호 작용 처리
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,의도하지 않은 바탕 화면 아이콘 선택을 피하기 위해 숨기기
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ScreenLayout,화면 레이아웃
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,바탕 화면 배치를 변경합니다.

@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Name,नाम
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Creation,सृजन
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Modification,संशोधन
 Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputType.Close,बंद
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputType.OnlyMouse,केवल माउस
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputType.OnlyKeyboard,केवल कीबोर्ड
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputType.MouseKeyboard,माउस और कीबोर्ड
+Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.HI.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,लॉग फ़ाइल सहेजें
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode,अंतराक्रिया विधि
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode.Description,समर्थित वॉलपेपर के साथ अंतराक्रिया हो सकने के तरीकों का निर्धारण करता है।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,केवल जब डेस्कटॉप पर ध्यान केंद्रित हो तो अंतराक्रिया को प्रक्रियित करें
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,अनजाने में डेस्कटॉप आइकन का चयन न करने के लिए छिपाएं
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ScreenLayout,स्क्रीन लेआउट
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,अपने वॉलपेपर की स्क्रीन लेआउट को बदलता है।

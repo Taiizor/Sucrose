@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Método de Interação</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Determina os métodos pelos quais a interação pode ocorrer com os papéis de parede suportados.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Processar interação apenas quando o ambiente de trabalho estiver focado</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Ocultar para evitar a seleção acidental de ícones de área de trabalho</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Layout da Tela</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Altera o layout dos seus papéis de parede na tela.</system:String>
 

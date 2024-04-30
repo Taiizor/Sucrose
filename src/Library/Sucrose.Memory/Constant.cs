@@ -40,6 +40,8 @@
 
         public const string PingType = "PingType";
 
+        public const string InputType = "InputType";
+
         public const string PingValue = "PingValue";
 
         public const string StoreType = "StoreType";
@@ -62,23 +64,23 @@
 
         public const string ChannelType = "ChannelType";
 
-        public const string MemoryUsage = "MemoryUsage";
+        public const string CultureName = "CultureName";
+
+        public const string Information = "Information";
 
         public const string LibraryMove = "LibraryMove";
+
+        public const string MemoryUsage = "MemoryUsage";
 
         public const string ScreenIndex = "ScreenIndex";
 
         public const string StretchType = "StretchType";
 
-        public const string CultureName = "CultureName";
-
         public const string TitleLength = "TitleLength";
 
-        public const string Information = "Information";
+        public const string UpdateState = "UpdateState";
 
         public const string UploadValue = "UploadValue";
-
-        public const string UpdateState = "UpdateState";
 
         public const string LibraryStart = "LibraryStart";
 
@@ -97,6 +99,8 @@
         public const string DiscordState = "DiscordState";
 
         public const string DownloadType = "DownloadType";
+
+        public const string InputDesktop = "InputDesktop";
 
         public const string PipeRequired = "PipeRequired";
 

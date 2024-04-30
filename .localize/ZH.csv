@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.SortModeType.Name,名称
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.SortModeType.Creation,创建
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.SortModeType.Modification,修改
 Portal\Enum\Portal.Enum.ZH.xaml,,
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.InputType.Close,关闭
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.InputType.OnlyMouse,仅鼠标
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.InputType.OnlyKeyboard,仅键盘
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.InputType.MouseKeyboard,鼠标和键盘
+Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.ZH.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,保存日志文件
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode,交互方法
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode.Description,确定与支持的壁纸进行交互的方法。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,只有在桌面聚焦时处理交互
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,隐藏以避免意外选择桌面图标
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.ScreenLayout,屏幕布局
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,更改壁纸在屏幕上的布局。

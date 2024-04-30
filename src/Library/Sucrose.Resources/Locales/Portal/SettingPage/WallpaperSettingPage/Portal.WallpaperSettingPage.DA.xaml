@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Interaktionsmetode</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Afgør de metoder, hvormed interaktion kan forekomme med understøttede tapeter.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Behandle interaktion kun når skrivebordet er i fokus</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Skjul for at undgå utilsigtet valg af skrivebordsikoner</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Skærm Layout</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Ændrer dit tapet's skærm layout.</system:String>
 

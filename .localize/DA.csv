@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortModeType.Name,Navn
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortModeType.Creation,Oprettelse
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.SortModeType.Modification,Ændring
 Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputType.Close,Lukket
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputType.OnlyMouse,Kun Mus
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputType.OnlyKeyboard,Kun Tastatur
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputType.MouseKeyboard,Mus og Tastatur
+Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.DA.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Gem Logfil
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode,Interaktionsmetode
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Afgør de metoder, hvormed interaktion kan forekomme med understøttede tapeter."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Behandle interaktion kun når skrivebordet er i fokus
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Skjul for at undgå utilsigtet valg af skrivebordsikoner
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ScreenLayout,Skærm Layout
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Ændrer dit tapet's skærm layout.

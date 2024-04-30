@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Name,Назва
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Creation,Створення
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.SortModeType.Modification,Зміна
 Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputType.Close,Закрито
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputType.OnlyMouse,Тільки миша
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputType.OnlyKeyboard,Тільки клавіатура
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputType.MouseKeyboard,Миша та клавіатура
+Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.UK.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Зберегти файл журналу
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode,Метод Взаємодії
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Визначає методи, за допомогою яких може відбуватися взаємодія з підтримуваними шпалерами."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Обробляти взаємодію лише при активному робочому столі
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Приховати, щоб уникнути випадкового вибору значків на робочому столі"
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ScreenLayout,Розміщення на екрані
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Змінює розміщення вашого шпалеру на екрані.

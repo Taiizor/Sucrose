@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Δημιουργία</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Τροποποίηση</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Κλειστό</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Μόνο Ποντίκι</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Μόνο Πληκτρολόγιο</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Ποντίκι &amp; Πληκτρολόγιο</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Interaktionsmetod</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Bestämmer metoderna genom vilka interaktion kan ske med stödda bakgrundsbilder.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Bearbeta interaktion endast när skrivbordet är i fokus</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Göm för att undvika oavsiktlig val av skrivbordsikoner</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Skärm Layout</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Ändrar hur dina tapeter är placerade på skärmen.</system:String>
 

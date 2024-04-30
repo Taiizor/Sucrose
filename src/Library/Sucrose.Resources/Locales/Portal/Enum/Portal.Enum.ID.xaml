@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Pembuatan</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">Modifikasi</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">Tutup</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">Hanya Mouse</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">Hanya Keyboard</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">Mouse &amp; Keyboard</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

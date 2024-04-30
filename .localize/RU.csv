@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Name,Имя
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Creation,Создание
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.SortModeType.Modification,Изменение
 Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputType.Close,Закрыто
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputType.OnlyMouse,Только Мышь
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputType.OnlyKeyboard,Только Клавиатура
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.InputType.MouseKeyboard,Мышь и Клавиатура
+Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.RU.xaml,,
@@ -372,7 +377,7 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemMemory,Не�
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemBattery,Недопустимое значение 'SystemBattery'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemGraphic,Недопустимое значение 'SystemGraphic'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.SystemNetwork,Недопустимое значение 'SystemNetwork'
-Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidContact,Значение 'Контакта' не является 'URL' или 'Адресом электронной почты'
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidContact,Значение 'Контакта' не является 'Url' или 'Адресом электронной почты'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.InvalidExtension,Недействительное расширение файла
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.EmptyCompatible,Файл 'SucroseCompatible.json' пуст
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.EmptyProperties,Файл 'SucroseProperties.json' пуст
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Сохранить файл журнала
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.InputMode,Метод взаимодействия
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Определяет методы, с помощью которых может взаимодействовать с поддерживаемыми обоями."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Обрабатывать взаимодействие только при фокусировке на рабочем столе
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Скрыть, чтобы избежать случайного выбора значков рабочего стола"
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ScreenLayout,Раскладка экрана
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Измените расположение ваших обоев на экране.

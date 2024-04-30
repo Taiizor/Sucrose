@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortModeType.Name,İsim
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortModeType.Creation,Oluşturma
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.SortModeType.Modification,Değiştirme
 Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputType.Close,Kapalı
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputType.OnlyMouse,Yalnızca Fare
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputType.OnlyKeyboard,Yalnızca Klavye
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputType.MouseKeyboard,Fare ve Klavye
+Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.TR.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Günlük Dosyasını Kaydet
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode,Etkileşim Yöntemi
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode.Description,Desteklenen duvar kağıtlarında etkileşime girilebilecek yöntemleri belirler.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Etkileşimi yalnızca masaüstü odaklandığında işleme al
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Masaüstü simgelerini yanlışlıkla seçmemek adına gizle
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ScreenLayout,Ekran Yerleşimi
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Duvar kağıtlarınızın ekrandaki yerleşimini değiştirir.

@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.SortModeType.Name,Nome
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.SortModeType.Creation,Criação
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.SortModeType.Modification,Modificação
 Portal\Enum\Portal.Enum.PT.xaml,,
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.InputType.Close,Fechado
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.InputType.OnlyMouse,Apenas Rato
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.InputType.OnlyKeyboard,Apenas Teclado
+Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.InputType.MouseKeyboard,Rato e Teclado
+Portal\Enum\Portal.Enum.PT.xaml,,
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.PT.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.PT.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Salvar Arquivo de Registro
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.PT.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Portal.WallpaperSettingPage.InputMode,Método de Interação
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Portal.WallpaperSettingPage.InputMode.Description,Determina os métodos pelos quais a interação pode ocorrer com os papéis de parede suportados.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Processar interação apenas quando o ambiente de trabalho estiver focado
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Ocultar para evitar a seleção acidental de ícones de área de trabalho
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Portal.WallpaperSettingPage.ScreenLayout,Layout da Tela
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PT.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Altera o layout dos seus papéis de parede na tela.

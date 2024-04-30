@@ -294,6 +294,11 @@ Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Name,Název
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Creation,Vytvoření
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.SortModeType.Modification,Úprava
 Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputType.Close,Zavřeno
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputType.OnlyMouse,Pouze Myš
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputType.OnlyKeyboard,Pouze Klávesnice
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputType.MouseKeyboard,Myš a Klávesnice
+Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreType.GitHub,GitHub
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.StoreType.Soferity,Soferity
 Portal\Enum\Portal.Enum.CS.xaml,,
@@ -904,6 +909,13 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Uložit soubor záznamu
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode,Metoda interakce
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Určuje metody, pomocí kterých může interakce probíhat se podporovanými tapetami."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Zpracovat interakci pouze při zaměření na pracovní plochu
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,"Skrýt, aby se zabránilo náhodnému výběru ikon pracovní plochy"
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ScreenLayout,Rozmístění na obrazovce
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Změní umístění vašich tapet na obrazovce.

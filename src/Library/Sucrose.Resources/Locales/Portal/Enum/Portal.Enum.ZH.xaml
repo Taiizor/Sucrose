@@ -12,6 +12,11 @@
     <system:String x:Key="Portal.Enum.SortModeType.Creation">创建</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Modification">修改</system:String>
 
+    <system:String x:Key="Portal.Enum.InputType.Close">关闭</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyMouse">仅鼠标</system:String>
+    <system:String x:Key="Portal.Enum.InputType.OnlyKeyboard">仅键盘</system:String>
+    <system:String x:Key="Portal.Enum.InputType.MouseKeyboard">鼠标和键盘</system:String>
+
     <system:String x:Key="Portal.Enum.StoreType.GitHub">GitHub</system:String>
     <system:String x:Key="Portal.Enum.StoreType.Soferity">Soferity</system:String>
 

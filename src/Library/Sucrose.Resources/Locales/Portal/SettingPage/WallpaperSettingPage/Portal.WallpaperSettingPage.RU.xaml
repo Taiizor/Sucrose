@@ -4,6 +4,13 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Метод взаимодействия</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Определяет методы, с помощью которых может взаимодействовать с поддерживаемыми обоями.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Обрабатывать взаимодействие только при фокусировке на рабочем столе</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Скрыть, чтобы избежать случайного выбора значков рабочего стола</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Раскладка экрана</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Измените расположение ваших обоев на экране.</system:String>
 
