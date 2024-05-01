@@ -3,13 +3,13 @@ using System.Windows;
 using Wpf.Ui.Controls;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;
 using SPVPSBSP = Sucrose.Portal.Views.Pages.Store.BrokenStorePage;
 using SPVPSFSP = Sucrose.Portal.Views.Pages.Store.FullStorePage;
 using SPVPSUSP = Sucrose.Portal.Views.Pages.Store.UnknownStorePage;
 using SSDESST = Sucrose.Shared.Dependency.Enum.StoreStageType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
@@ -49,7 +49,7 @@ namespace Sucrose.Portal.Views.Pages
             {
                 string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
-                bool Result = SPMM.StoreType switch
+                bool Result = SSDMM.StoreType switch
                 {
                     SSDEST.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
                     _ => SSSHSD.Store(StoreFile, SMMM.UserAgent),

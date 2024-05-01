@@ -2,10 +2,10 @@
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
-using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSEWVES = Sucrose.Shared.Engine.WebView.Extension.Screenshot;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
@@ -49,7 +49,7 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             {
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
 
-                switch (SSEMM.CommunicationType)
+                switch (SSDMM.CommunicationType)
                 {
                     case SSDECT.Pipe:
                         SMMI.BackgroundogSettingManager.SetSetting(SMC.PipeRequired, true);

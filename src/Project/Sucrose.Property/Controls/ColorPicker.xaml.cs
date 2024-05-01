@@ -11,6 +11,7 @@ using SEWTT = Skylark.Enum.WindowsThemeType;
 using SPHP = Sucrose.Property.Helper.Properties;
 using SPMM = Sucrose.Property.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECCE = Skylark.Standard.Extension.Color.ColorExtension;
 using SSTMCPM = Sucrose.Shared.Theme.Model.ColorPickerModel;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
@@ -47,7 +48,7 @@ namespace Sucrose.Property.Controls
             }
             else
             {
-                if (SPMM.ThemeType == SEWTT.Dark)
+                if (SSDMM.ThemeType == SEWTT.Dark)
                 {
                     ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
                 }

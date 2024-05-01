@@ -25,6 +25,7 @@ using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -42,7 +43,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         private WindowBackdropType _WindowBackdropType = GetWindowBackdropType();
 
         [ObservableProperty]
-        private Stretch _Stretch = SPMM.DefaultBackgroundStretch;
+        private Stretch _Stretch = SSDMM.DefaultBackgroundStretch;
 
         private readonly DispatcherTimer Timer = new();
 
@@ -157,7 +158,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private Stretch GetStretch()
         {
-            Stretch Type = SPMM.BackgroundStretch;
+            Stretch Type = SSDMM.BackgroundStretch;
 
             if ((int)Type < Enum.GetValues(typeof(Stretch)).Length)
             {
@@ -165,7 +166,7 @@ namespace Sucrose.Portal.ViewModels.Windows
             }
             else
             {
-                return SPMM.DefaultBackgroundStretch;
+                return SSDMM.DefaultBackgroundStretch;
             }
         }
 
@@ -213,7 +214,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private void OnChangeTheme()
         {
-            if (SPMM.ThemeType == SEWTT.Dark)
+            if (SSDMM.ThemeType == SEWTT.Dark)
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Light);
                 WUAT.Apply(WUAAT.Light, GetWindowBackdropType(), true, true);

@@ -25,6 +25,7 @@ using SRHR = Sucrose.Resources.Helper.Resources;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSIL = Sucrose.Signal.Interface.Launcher;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
@@ -247,7 +248,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 });
             }
 
-            BackdropStretch.SelectedIndex = (int)SPMM.BackgroundStretch;
+            BackdropStretch.SelectedIndex = (int)SSDMM.BackgroundStretch;
 
             TextBlock BackdropOpacityText = new()
             {
@@ -481,7 +482,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ApplicationTheme Theme = ApplicationTheme.Dark;
                 WindowBackdropType Type = (WindowBackdropType)Index;
 
-                if (SPMM.ThemeType == SEWTT.Light)
+                if (SSDMM.ThemeType == SEWTT.Light)
                 {
                     Theme = ApplicationTheme.Light;
                 }
@@ -535,7 +536,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             Stretch NewStretch = (Stretch)Index;
 
-            if (NewStretch != SPMM.BackgroundStretch)
+            if (NewStretch != SSDMM.BackgroundStretch)
             {
                 SMMI.PortalSettingManager.SetSetting(SMC.BackgroundStretch, NewStretch);
 

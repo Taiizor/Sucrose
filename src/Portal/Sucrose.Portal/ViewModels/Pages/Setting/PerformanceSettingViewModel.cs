@@ -8,13 +8,13 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECNT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSDECST = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HostStruct;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -105,7 +105,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 PausePerformanceType.Items.Add(SRER.GetValue("Portal", "Enum", "PausePerformanceType", $"{Type}"));
             }
 
-            PausePerformanceType.SelectedIndex = (int)SPMM.PausePerformanceType;
+            PausePerformanceType.SelectedIndex = (int)SSDMM.PausePerformanceType;
 
             Pause.HeaderFrame = PausePerformanceType;
 
@@ -130,7 +130,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 CommunicationType.Items.Add(SRER.GetValue("Portal", "Enum", "CommunicationType", $"{Type}"));
             }
 
-            CommunicationType.SelectedIndex = (int)SPMM.CommunicationType;
+            CommunicationType.SelectedIndex = (int)SSDMM.CommunicationType;
 
             Communication.HeaderFrame = CommunicationType;
 
@@ -164,7 +164,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 CpuPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            CpuPerformance.SelectedIndex = (int)SPMM.CpuPerformance;
+            CpuPerformance.SelectedIndex = (int)SSDMM.CpuPerformance;
 
             Cpu.HeaderFrame = CpuPerformance;
 
@@ -222,7 +222,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MemoryPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            MemoryPerformance.SelectedIndex = (int)SPMM.MemoryPerformance;
+            MemoryPerformance.SelectedIndex = (int)SSDMM.MemoryPerformance;
 
             Memory.HeaderFrame = MemoryPerformance;
 
@@ -280,7 +280,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 NetworkPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            NetworkPerformance.SelectedIndex = (int)SPMM.NetworkPerformance;
+            NetworkPerformance.SelectedIndex = (int)SSDMM.NetworkPerformance;
 
             Network.HeaderFrame = NetworkPerformance;
 
@@ -524,7 +524,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 BatteryPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            BatteryPerformance.SelectedIndex = (int)SPMM.BatteryPerformance;
+            BatteryPerformance.SelectedIndex = (int)SSDMM.BatteryPerformance;
 
             Battery.HeaderFrame = BatteryPerformance;
 
@@ -583,7 +583,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SaverPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            SaverPerformance.SelectedIndex = (int)SPMM.SaverPerformance;
+            SaverPerformance.SelectedIndex = (int)SSDMM.SaverPerformance;
 
             Saver.HeaderFrame = SaverPerformance;
 
@@ -618,7 +618,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 VirtualPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            VirtualPerformance.SelectedIndex = (int)SPMM.VirtualPerformance;
+            VirtualPerformance.SelectedIndex = (int)SSDMM.VirtualPerformance;
 
             Virtual.HeaderFrame = VirtualPerformance;
 
@@ -643,7 +643,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 RemotePerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            RemotePerformance.SelectedIndex = (int)SPMM.RemotePerformance;
+            RemotePerformance.SelectedIndex = (int)SSDMM.RemotePerformance;
 
             Remote.HeaderFrame = RemotePerformance;
 
@@ -668,7 +668,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 FullscreenPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            FullscreenPerformance.SelectedIndex = (int)SPMM.FullscreenPerformance;
+            FullscreenPerformance.SelectedIndex = (int)SSDMM.FullscreenPerformance;
 
             Fullscreen.HeaderFrame = FullscreenPerformance;
 
@@ -693,7 +693,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 FocusPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
             }
 
-            FocusPerformance.SelectedIndex = (int)SPMM.FocusPerformance;
+            FocusPerformance.SelectedIndex = (int)SSDMM.FocusPerformance;
 
             Focus.HeaderFrame = FocusPerformance;
 
@@ -772,7 +772,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void CpuPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.CpuPerformance)
+            if (Index != (int)SSDMM.CpuPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -812,7 +812,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void SaverPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.SaverPerformance)
+            if (Index != (int)SSDMM.SaverPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -822,7 +822,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void FocusPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.FocusPerformance)
+            if (Index != (int)SSDMM.FocusPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -832,7 +832,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void CommunicationTypeSelected(int Index)
         {
-            if (Index != (int)SPMM.CommunicationType)
+            if (Index != (int)SSDMM.CommunicationType)
             {
                 SSDECNT Type = (SSDECNT)Index;
 
@@ -842,7 +842,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void RemotePerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.RemotePerformance)
+            if (Index != (int)SSDMM.RemotePerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -870,7 +870,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void MemoryPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.MemoryPerformance)
+            if (Index != (int)SSDMM.MemoryPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -880,7 +880,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void VirtualPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.VirtualPerformance)
+            if (Index != (int)SSDMM.VirtualPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -898,7 +898,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void NetworkPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.NetworkPerformance)
+            if (Index != (int)SSDMM.NetworkPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -908,7 +908,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void BatteryPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.BatteryPerformance)
+            if (Index != (int)SSDMM.BatteryPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 
@@ -938,7 +938,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void PausePerformanceTypeSelected(int Index)
         {
-            if (Index != (int)SPMM.PausePerformanceType)
+            if (Index != (int)SSDMM.PausePerformanceType)
             {
                 SSDEPPT Type = (SSDEPPT)Index;
 
@@ -948,7 +948,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void FullscreenPerformanceSelected(int Index)
         {
-            if (Index != (int)SPMM.FullscreenPerformance)
+            if (Index != (int)SSDMM.FullscreenPerformance)
             {
                 SSDEPT Type = (SSDEPT)Index;
 

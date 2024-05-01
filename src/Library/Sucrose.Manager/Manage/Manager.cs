@@ -1,5 +1,9 @@
-﻿using SEIT = Skylark.Enum.InputType;
-using SEST = Skylark.Enum.StorageType;
+﻿using SEDEST = Skylark.Enum.DuplicateScreenType;
+using SEDYST = Skylark.Enum.DisplayScreenType;
+using SEEST = Skylark.Enum.ExpandScreenType;
+using SEIT = Skylark.Enum.InputType;
+using SESET = Skylark.Enum.StorageType;
+using SESNT = Skylark.Enum.ScreenType;
 using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
 using SMC = Sucrose.Memory.Constant;
@@ -16,7 +20,7 @@ namespace Sucrose.Manager.Manage
 
         public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
 
-        public static int UpdateLimitValue => SHS.Clamp(SMMI.UpdateSettingManager.GetSettingStable(SMC.UpdateLimitValue, 100), 0, 99999999);
+        public static int UpdateLimitValue => SHS.Clamp(SMMI.UpdateSettingManager.GetSettingStable(SMC.UpdateLimitValue, 500), 0, 99999999);
 
         public static int DownloadValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.DownloadValue, 10), 0, 99999999);
 
@@ -39,6 +43,10 @@ namespace Sucrose.Manager.Manage
         public static int BatteryUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.BatteryUsage, 50), 0, 100);
 
         public static int MemoryUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.MemoryUsage, 80), 0, 100);
+
+        public static SEDEST DuplicateScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DuplicateScreenType, SEDEST.Default);
+
+        public static SEDYST DisplayScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayScreenType, SEDYST.PerDisplay);
 
         public static int AdaptiveLayout => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0), 0, 100);
 
@@ -66,27 +74,31 @@ namespace Sucrose.Manager.Manage
 
         public static bool PerformanceCounter => SMMI.BackgroundogSettingManager.GetSetting(SMC.PerformanceCounter, true);
 
+        public static SEEST ExpandScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ExpandScreenType, SEEST.Default);
+
+        public static SESET UpdateLimitType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateLimitType, SESET.Megabyte);
+
         public static string LibrarySelected => SMMI.LibrarySettingManager.GetSetting(SMC.LibrarySelected, string.Empty);
 
+        public static SESET DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SESET.Megabyte);
+
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
-
-        public static SEST UpdateLimitType => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateLimitType, SEST.Megabyte);
-
-        public static SEST DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SEST.Megabyte);
 
         public static bool PausePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformance, false);
 
         public static bool ClosePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.ClosePerformance, false);
 
+        public static SESET UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SESET.Kilobyte);
+
         public static bool LibraryPreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreviewHide, false);
 
-        public static bool SignalRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.SignalRequired, false);
+        public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
         public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0), 0, 10);
 
-        public static SEST UploadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.UploadType, SEST.Kilobyte);
+        public static bool SignalRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.SignalRequired, false);
 
-        public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
+        public static SESNT ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SESNT.DisplayBound);
 
         public static DateTime UpdateTime => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateTime, new DateTime());
 

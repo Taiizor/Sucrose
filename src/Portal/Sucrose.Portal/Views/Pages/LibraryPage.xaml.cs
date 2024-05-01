@@ -7,7 +7,6 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
@@ -16,6 +15,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
@@ -128,21 +128,21 @@ namespace Sucrose.Portal.Views.Pages
             {
                 string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
 
-                if (SPMM.LibrarySortMode == SSDESMT.Name)
+                if (SSDMM.LibrarySortMode == SSDESMT.Name)
                 {
                     SortThemes.Add(Theme, SSTHI.ReadJson(InfoPath).Title);
                 }
-                else if (SPMM.LibrarySortMode == SSDESMT.Creation)
+                else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
                 {
                     SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
                 }
-                else if (SPMM.LibrarySortMode == SSDESMT.Modification)
+                else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
                 {
                     SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
                 }
             }
 
-            if (SPMM.LibrarySortKind == SSDESKT.Ascending)
+            if (SSDMM.LibrarySortKind == SSDESKT.Ascending)
             {
                 SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
             }

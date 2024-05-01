@@ -20,6 +20,7 @@ using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
 using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
 namespace Sucrose.Portal.Views.Windows
@@ -55,7 +56,7 @@ namespace Sucrose.Portal.Views.Windows
             }
             else
             {
-                if (SPMM.ThemeType == SEWTT.Dark)
+                if (SSDMM.ThemeType == SEWTT.Dark)
                 {
                     ApplicationThemeManager.Apply(ApplicationTheme.Dark);
                     Light.Visibility = Visibility.Collapsed;

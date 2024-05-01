@@ -2,7 +2,6 @@
 using Skylark.Standard.Extension.Storage;
 using System.Diagnostics;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
-using SBMM = Sucrose.Backgroundog.Manage.Manager;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -11,6 +10,7 @@ using SSDECPT = Sucrose.Shared.Dependency.Enum.CategoryPerformanceType;
 using SSDENPT = Sucrose.Shared.Dependency.Enum.NetworkPerformanceType;
 using SSDEPPT = Sucrose.Shared.Dependency.Enum.PausePerformanceType;
 using SSDEPT = Sucrose.Shared.Dependency.Enum.PerformanceType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSEL = Sucrose.Shared.Space.Extension.Lifecycle;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -82,7 +82,7 @@ namespace Sucrose.Backgroundog.Helper
             else
             {
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.PausePerformance, true);
-                SBMI.PausePerformance = SBMM.PausePerformanceType;
+                SBMI.PausePerformance = SSDMM.PausePerformanceType;
                 SBMI.Live = SSSHL.Get();
 
                 if (SBMI.Live != null && !SBMI.Live.HasExited)
@@ -147,7 +147,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> CpuPerformance()
         {
-            if (SBMM.CpuPerformance != SSDEPT.Resume)
+            if (SSDMM.CpuPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -156,7 +156,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.CpuPerformance;
+                        SBMI.Performance = SSDMM.CpuPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Cpu;
                         SBMI.Condition = true;
                         Lifecycle();
@@ -177,7 +177,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> FocusPerformance()
         {
-            if (SBMM.FocusPerformance != SSDEPT.Resume)
+            if (SSDMM.FocusPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -186,7 +186,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.FocusPerformance;
+                        SBMI.Performance = SSDMM.FocusPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Focus;
                         SBMI.Condition = true;
                         Lifecycle();
@@ -207,7 +207,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> SaverPerformance()
         {
-            if (SBMM.SaverPerformance != SSDEPT.Resume)
+            if (SSDMM.SaverPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -216,7 +216,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.SaverPerformance;
+                        SBMI.Performance = SSDMM.SaverPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Saver;
                         SBMI.Condition = true;
                         Lifecycle();
@@ -237,7 +237,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> MemoryPerformance()
         {
-            if (SBMM.MemoryPerformance != SSDEPT.Resume)
+            if (SSDMM.MemoryPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -246,7 +246,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.MemoryPerformance;
+                        SBMI.Performance = SSDMM.MemoryPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Memory;
                         SBMI.Condition = true;
                         Lifecycle();
@@ -267,7 +267,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> RemotePerformance()
         {
-            if (SBMM.RemotePerformance != SSDEPT.Resume)
+            if (SSDMM.RemotePerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -276,7 +276,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.RemotePerformance;
+                        SBMI.Performance = SSDMM.RemotePerformance;
                         SBMI.CategoryPerformance = SSDECPT.Remote;
                         SBMI.Condition = true;
                         Lifecycle();
@@ -297,7 +297,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> NetworkPerformance()
         {
-            if (SBMM.NetworkPerformance != SSDEPT.Resume)
+            if (SSDMM.NetworkPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -308,7 +308,7 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         if (Count >= MaxCount)
                         {
-                            SBMI.Performance = SBMM.NetworkPerformance;
+                            SBMI.Performance = SSDMM.NetworkPerformance;
                             SBMI.CategoryPerformance = SSDECPT.Network;
                             SBMI.NetworkPerformance = SSDENPT.Ping;
                             SBMI.Condition = true;
@@ -325,7 +325,7 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         if (Count >= MaxCount)
                         {
-                            SBMI.Performance = SBMM.NetworkPerformance;
+                            SBMI.Performance = SSDMM.NetworkPerformance;
                             SBMI.CategoryPerformance = SSDECPT.Network;
                             SBMI.NetworkPerformance = SSDENPT.Upload;
                             SBMI.Condition = true;
@@ -342,7 +342,7 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         if (Count >= MaxCount)
                         {
-                            SBMI.Performance = SBMM.NetworkPerformance;
+                            SBMI.Performance = SSDMM.NetworkPerformance;
                             SBMI.CategoryPerformance = SSDECPT.Network;
                             SBMI.NetworkPerformance = SSDENPT.Download;
                             SBMI.Condition = true;
@@ -369,7 +369,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> BatteryPerformance()
         {
-            if (SBMM.BatteryPerformance != SSDEPT.Resume)
+            if (SSDMM.BatteryPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -378,7 +378,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.BatteryPerformance;
+                        SBMI.Performance = SSDMM.BatteryPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Battery;
                         SBMI.Condition = true;
                         Lifecycle();
@@ -399,7 +399,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> VirtualPerformance()
         {
-            if (SBMM.VirtualPerformance != SSDEPT.Resume)
+            if (SSDMM.VirtualPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -408,7 +408,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.VirtualPerformance;
+                        SBMI.Performance = SSDMM.VirtualPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Virtual;
                         SBMI.Condition = true;
                         Lifecycle();
@@ -429,7 +429,7 @@ namespace Sucrose.Backgroundog.Helper
 
         private static async Task<bool> FullscreenPerformance()
         {
-            if (SBMM.FullscreenPerformance != SSDEPT.Resume)
+            if (SSDMM.FullscreenPerformance != SSDEPT.Resume)
             {
                 int Count = 0;
                 int MaxCount = 5;
@@ -438,7 +438,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     if (Count >= MaxCount)
                     {
-                        SBMI.Performance = SBMM.FullscreenPerformance;
+                        SBMI.Performance = SSDMM.FullscreenPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Fullscreen;
                         SBMI.Condition = true;
                         Lifecycle();

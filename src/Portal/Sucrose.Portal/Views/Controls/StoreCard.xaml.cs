@@ -14,10 +14,10 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
@@ -125,7 +125,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 SPMI.StoreDownloader[Theme] = false;
 
-                SPMI.StoreDownloader[Theme] = SPMM.StoreType switch
+                SPMI.StoreDownloader[Theme] = SSDMM.StoreType switch
                 {
                     SSDEST.GitHub => SSSHGHD.Cache(Wallpaper, Theme, Agent, Key),
                     _ => SSSHSD.Cache(Wallpaper, Theme, Agent),
@@ -161,7 +161,7 @@ namespace Sucrose.Portal.Views.Controls
             string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
             string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
 
-            switch (SPMM.StoreType)
+            switch (SSDMM.StoreType)
             {
                 case SSDEST.GitHub:
                     await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key);
@@ -283,7 +283,7 @@ namespace Sucrose.Portal.Views.Controls
         {
             if (Info != null && SMMM.StorePreview)
             {
-                string GifPath = $"{SSSHS.Source(SPMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
+                string GifPath = $"{SSSHS.Source(SSDMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
 
                 AnimationBehavior.SetSourceUri(Imaginer, new(GifPath));
                 AnimationBehavior.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);

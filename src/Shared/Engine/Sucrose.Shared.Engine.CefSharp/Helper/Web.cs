@@ -3,13 +3,13 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECSES = Sucrose.Shared.Engine.CefSharp.Extension.Screenshot;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
-using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSPSBSS = Sucrose.Shared.Pipe.Services.BackgroundogPipeService;
 using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
@@ -50,7 +50,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.AudioRequired, !string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio));
 
-                switch (SSEMM.CommunicationType)
+                switch (SSDMM.CommunicationType)
                 {
                     case SSDECT.Pipe:
                         SMMI.BackgroundogSettingManager.SetSetting(SMC.PipeRequired, true);

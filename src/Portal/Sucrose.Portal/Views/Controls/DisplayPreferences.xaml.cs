@@ -10,7 +10,6 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCDD = Sucrose.Portal.Views.Controls.Display.Duplicate;
 using SPVCDE = Sucrose.Portal.Views.Controls.Display.Expand;
 using SPVCDS = Sucrose.Portal.Views.Controls.Display.Screen;
@@ -154,7 +153,7 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
 
-            if (SPMM.DisplayScreenType != SEDYST.PerDisplay)
+            if (SMMM.DisplayScreenType != SEDYST.PerDisplay)
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.PerDisplay);
 
@@ -170,7 +169,7 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Visible;
             ExpanderDuplicateContent.Visibility = Visibility.Collapsed;
 
-            if (SPMM.DisplayScreenType != SEDYST.SpanAcross)
+            if (SMMM.DisplayScreenType != SEDYST.SpanAcross)
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.SpanAcross);
 
@@ -186,7 +185,7 @@ namespace Sucrose.Portal.Views.Controls
             ExpanderExpandContent.Visibility = Visibility.Collapsed;
             ExpanderDuplicateContent.Visibility = Visibility.Visible;
 
-            if (SPMM.DisplayScreenType != SEDYST.SameDuplicate)
+            if (SMMM.DisplayScreenType != SEDYST.SameDuplicate)
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.DisplayScreenType, SEDYST.SameDuplicate);
 
@@ -196,7 +195,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ExpandScreenTypeChecked(SEEST Type)
         {
-            if (SPMM.ExpandScreenType != Type)
+            if (SMMM.ExpandScreenType != Type)
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.ExpandScreenType, Type);
 
@@ -206,7 +205,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void DuplicateScreenTypeChecked(SEDEST Type)
         {
-            if (SPMM.DuplicateScreenType != Type)
+            if (SMMM.DuplicateScreenType != Type)
             {
                 SMMI.EngineSettingManager.SetSetting(SMC.DuplicateScreenType, Type);
 
@@ -275,7 +274,7 @@ namespace Sucrose.Portal.Views.Controls
                 RadioButton Radio = new()
                 {
                     Content = SRER.GetValue("Portal", "Enum", "ExpandScreenType", $"{Type}"),
-                    IsChecked = SPMM.ExpandScreenType == Type,
+                    IsChecked = SMMM.ExpandScreenType == Type,
                     GroupName = "ExpandScreenType"
                 };
 
@@ -302,7 +301,7 @@ namespace Sucrose.Portal.Views.Controls
                 RadioButton Radio = new()
                 {
                     Content = SRER.GetValue("Portal", "Enum", "DuplicateScreenType", $"{Type}"),
-                    IsChecked = SPMM.DuplicateScreenType == Type,
+                    IsChecked = SMMM.DuplicateScreenType == Type,
                     GroupName = "DuplicateScreenType"
                 };
 
@@ -311,7 +310,7 @@ namespace Sucrose.Portal.Views.Controls
                 ExpanderDuplicateContent.Children.Add(Radio);
             }
 
-            switch (SPMM.DisplayScreenType)
+            switch (SMMM.DisplayScreenType)
             {
                 case SEDYST.SpanAcross:
                     Expand.IsChecked = true;

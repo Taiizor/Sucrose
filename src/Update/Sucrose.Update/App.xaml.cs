@@ -23,8 +23,10 @@ using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHU = Sucrose.Shared.Core.Helper.Update;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEUT = Sucrose.Shared.Dependency.Enum.UpdateType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
@@ -129,7 +131,7 @@ namespace Sucrose.Update
                     HasInfo = true;
                 }
 
-                switch (SUMM.ThemeType)
+                switch (SSDMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SUVDIB DarkInfoBox = new(Type);
@@ -205,7 +207,7 @@ namespace Sucrose.Update
                 {
                     SSIIR Release = Releases.FirstOrDefault();
 
-                    if (SUMM.ChannelType == SSCECT.Release)
+                    if (SSCMM.ChannelType == SSCECT.Release)
                     {
                         Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
                     }
@@ -317,7 +319,7 @@ namespace Sucrose.Update
 
                     if (Result == SSDECT.Pass)
                     {
-                        switch (SUMM.ThemeType)
+                        switch (SSDMM.ThemeType)
                         {
                             case SEWTT.Dark:
                                 SUVDUB DarkUpdateBox = new(Bundle);

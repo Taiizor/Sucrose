@@ -9,11 +9,11 @@ using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
+using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSSMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
@@ -241,7 +241,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 ChannelType.Items.Add(SRER.GetValue("Portal", "Enum", "ChannelType", $"{Type}"));
             }
 
-            ChannelType.SelectedIndex = (int)SPMM.ChannelType;
+            ChannelType.SelectedIndex = (int)SSCMM.ChannelType;
 
             Channel.HeaderFrame = ChannelType;
 
@@ -266,7 +266,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 UpdateType.Items.Add(SRER.GetValue("Portal", "Enum", "UpdateType", $"{Type}"));
             }
 
-            UpdateType.SelectedIndex = (int)SPMM.UpdateType;
+            UpdateType.SelectedIndex = (int)SSCMM.UpdateType;
 
             Update.HeaderFrame = UpdateType;
 
@@ -385,7 +385,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void UpdateTypeSelected(int Index)
         {
-            if (Index != (int)SPMM.UpdateType)
+            if (Index != (int)SSCMM.UpdateType)
             {
                 SSCEUT Type = (SSCEUT)Index;
 
@@ -395,7 +395,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void ChannelTypeSelected(int Index)
         {
-            if (Index != (int)SPMM.ChannelType)
+            if (Index != (int)SSCMM.ChannelType)
             {
                 SSCECT Type = (SSCECT)Index;
 

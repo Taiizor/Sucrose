@@ -7,9 +7,9 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SWMM = Sucrose.Watchdog.Manage.Manager;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
 
@@ -86,7 +86,7 @@ namespace Sucrose.Watchdog
 
                 string Path = SMMI.WatchdogLogManager.LogFile();
 
-                switch (SWMM.ThemeType)
+                switch (SSDMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SWVDEMB DarkMessageBox = new(Message, Path);
@@ -116,7 +116,7 @@ namespace Sucrose.Watchdog
                     string Source = Arguments.Count() == 4 ? Arguments[2] : string.Empty;
                     string Text = Arguments.Count() == 4 ? Arguments[3] : string.Empty;
 
-                    switch (SWMM.ThemeType)
+                    switch (SSDMM.ThemeType)
                     {
                         case SEWTT.Dark:
                             SWVDEMB DarkMessageBox = new(Message, Path, Source, Text);

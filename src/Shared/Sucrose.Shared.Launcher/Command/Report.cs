@@ -1,6 +1,6 @@
 ﻿using SEWTT = Skylark.Enum.WindowsThemeType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
-using SSLMM = Sucrose.Shared.Launcher.Manage.Manager;
 using SSLVDRB = Sucrose.Shared.Launcher.View.DarkReportBox;
 using SSLVLRB = Sucrose.Shared.Launcher.View.LightReportBox;
 
@@ -14,7 +14,7 @@ namespace Sucrose.Shared.Launcher.Command
             {
                 SSLMI.ReportBox = false;
 
-                switch (SSLMM.ThemeType)
+                switch (SSDMM.ThemeType)
                 {
                     case SEWTT.Dark:
                         SSLVDRB DarkReportBox = new();

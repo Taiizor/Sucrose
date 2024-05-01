@@ -4,7 +4,7 @@ using SEEST = Skylark.Enum.ExpandScreenType;
 using SEST = Skylark.Enum.ScreenType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
-using SSEMM = Sucrose.Shared.Engine.Manage.Manager;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SWUD = Skylark.Wing.Utility.Desktop;
 
 namespace Sucrose.Shared.Engine.Helper
@@ -40,7 +40,7 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static SSDEST GetStretch()
         {
-            SSDEST Stretch = SSEMM.StretchType;
+            SSDEST Stretch = SSDMM.StretchType;
 
             if ((int)Stretch < Enum.GetValues(typeof(SSDEST)).Length)
             {
@@ -48,13 +48,13 @@ namespace Sucrose.Shared.Engine.Helper
             }
             else
             {
-                return SSEMM.DefaultStretchType;
+                return SSDMM.DefaultStretchType;
             }
         }
 
         public static SEST GetScreenType()
         {
-            return SSEMM.ScreenType;
+            return SMMM.ScreenType;
         }
 
         public static int GetScreenIndex()
@@ -64,17 +64,17 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static SEEST GetExpandScreenType()
         {
-            return SSEMM.ExpandScreenType;
+            return SMMM.ExpandScreenType;
         }
 
         public static SEDYST GetDisplayScreenType()
         {
-            return SSEMM.DisplayScreenType;
+            return SMMM.DisplayScreenType;
         }
 
         public static SEDEST GetDuplicateScreenType()
         {
-            return SSEMM.DuplicateScreenType;
+            return SMMM.DuplicateScreenType;
         }
     }
 }

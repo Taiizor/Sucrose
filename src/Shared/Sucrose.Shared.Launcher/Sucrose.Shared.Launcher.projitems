@@ -20,7 +20,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Create.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Calculate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\TrayIconManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Manage\Manager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Renderer\DarkRenderer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Renderer\LightRenderer.cs" />
