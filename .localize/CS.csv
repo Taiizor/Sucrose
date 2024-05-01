@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuShare,Sdílet
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuDelete,Smazat
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuEdit,Upravit
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.Closed,Zavřeno
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.Paused,Pozastaveno
 Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Title,O aplikaci
 Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Close,Zavřít
 Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,

@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">Condividi</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Elimina</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Modifica</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">Chiuso</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">In Pausa</system:String>
 </ResourceDictionary>

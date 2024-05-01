@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuShare,Поделиться
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuDelete,Удалить
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuEdit,Изменить
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.Closed,Закрыто
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.Paused,Приостановлено
 Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Title,О нас
 Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Close,Закрыть
 Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,

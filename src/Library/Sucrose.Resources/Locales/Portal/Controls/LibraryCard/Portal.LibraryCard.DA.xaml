@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">Del</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Slet</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Rediger</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">Lukket</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">På Pause</system:String>
 </ResourceDictionary>

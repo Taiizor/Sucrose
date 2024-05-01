@@ -131,7 +131,7 @@ Launcher\Launcher.IT.xaml,Launcher.WallStartText,Avvia Sfondo
 Launcher\Launcher.IT.xaml,Launcher.WallStopText,Arresta Sfondo
 Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.ClosedText,Chiuso
-Launcher\Launcher.IT.xaml,Launcher.PausedText,In pausa
+Launcher\Launcher.IT.xaml,Launcher.PausedText,In Pausa
 Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.UpdateText,Verifica Aggiornamenti
 Launcher\Launcher.IT.xaml,,
@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.IT.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.IT.xaml,Portal.LibraryCard.MenuShare,Condividi
 Portal\Controls\LibraryCard\Portal.LibraryCard.IT.xaml,Portal.LibraryCard.MenuDelete,Elimina
 Portal\Controls\LibraryCard\Portal.LibraryCard.IT.xaml,Portal.LibraryCard.MenuEdit,Modifica
+Portal\Controls\LibraryCard\Portal.LibraryCard.IT.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.IT.xaml,Portal.LibraryCard.Closed,Chiuso
+Portal\Controls\LibraryCard\Portal.LibraryCard.IT.xaml,Portal.LibraryCard.Paused,In Pausa
 Portal\Controls\OtherAbout\Portal.OtherAbout.IT.xaml,Portal.OtherAbout.Title,Informazioni
 Portal\Controls\OtherAbout\Portal.OtherAbout.IT.xaml,Portal.OtherAbout.Close,Chiudi
 Portal\Controls\OtherAbout\Portal.OtherAbout.IT.xaml,,

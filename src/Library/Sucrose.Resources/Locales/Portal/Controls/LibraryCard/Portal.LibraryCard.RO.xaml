@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">Partajează</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Șterge</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Editează</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">Închis</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">Pus pe Pauză</system:String>
 </ResourceDictionary>

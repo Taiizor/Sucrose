@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">Sdílet</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Smazat</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Upravit</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">Zavřeno</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">Pozastaveno</system:String>
 </ResourceDictionary>

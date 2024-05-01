@@ -91,6 +91,10 @@ namespace Sucrose.Shared.Launcher.Manager
                     Wallpaper = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
                 }
 
+                ContextMenu.Items.Add(Separator1.Strip);
+
+                ContextMenu.Items.Add(Wallpaper);
+
                 string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
 
                 if (File.Exists(PropertiesPath))
@@ -114,14 +118,11 @@ namespace Sucrose.Shared.Launcher.Manager
                             {
                                 Customize = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCustomizeText"), null, CommandProperty);
                             }
+
+                            ContextMenu.Items.Add(Customize);
                         }
                     }
                 }
-
-                ContextMenu.Items.Add(Separator1.Strip);
-
-                ContextMenu.Items.Add(Wallpaper);
-                ContextMenu.Items.Add(Customize);
             }
             else if (SMMI.LibrarySettingManager.CheckFile())
             {

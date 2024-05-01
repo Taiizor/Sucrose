@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuShare,Поділитися
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuDelete,Видалити
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuEdit,Редагувати
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.Closed,Закрито
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.Paused,Призупинено
 Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Title,Про програму
 Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Close,Закрити
 Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,

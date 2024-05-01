@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuShare,Paylaş
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuDelete,Sil
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuEdit,Düzenle
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.Closed,Kapatıldı
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.Paused,Durduruldu
 Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Title,Hakkında
 Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Close,Kapat
 Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,

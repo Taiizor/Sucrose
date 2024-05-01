@@ -15,6 +15,7 @@ using SPVCTD = Sucrose.Portal.Views.Controls.ThemeDelete;
 using SPVCTE = Sucrose.Portal.Views.Controls.ThemeEdit;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReview;
 using SPVCTS = Sucrose.Portal.Views.Controls.ThemeShare;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -190,6 +191,10 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
+            MenuUse.Header = SRER.GetValue("Portal", "LibraryCard", "MenuUse");
+            MenuDelete.Header = SRER.GetValue("Portal", "LibraryCard", "MenuDelete");
+            MenuCustomize.Header = SRER.GetValue("Portal", "LibraryCard", "MenuCustomize");
+
             string PropertiesPath = Path.Combine(Theme, SMR.SucroseProperties);
 
             if (Info.Type == SSDEWT.Web && File.Exists(PropertiesPath))
@@ -222,6 +227,21 @@ namespace Sucrose.Portal.Views.Controls
             {
                 MenuUse.IsEnabled = false;
                 MenuDelete.IsEnabled = false;
+                MenuCustomize.IsEnabled = false;
+
+                if (SMMM.ClosePerformance)
+                {
+                    MenuUse.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Closed")})";
+                    MenuDelete.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Closed")})";
+                    MenuCustomize.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Closed")})";
+                }
+                else if (SMMM.PausePerformance)
+                {
+                    MenuUse.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Paused")})";
+                    MenuDelete.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Paused")})";
+                    MenuCustomize.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Paused")})";
+
+                }
             }
         }
 

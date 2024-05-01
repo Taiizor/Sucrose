@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuShare,साझा करें
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuDelete,मिटाएं
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuEdit,संपादित करें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.Closed,बंद
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.Paused,रुका हुआ
 Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Title,हमारे बारे में
 Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Close,बंद करें
 Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,

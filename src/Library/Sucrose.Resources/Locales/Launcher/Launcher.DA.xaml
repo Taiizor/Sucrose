@@ -30,7 +30,7 @@
     <system:String x:Key="Launcher.WallStopText">Stop tapet</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Lukket</system:String>
-    <system:String x:Key="Launcher.PausedText">På pause</system:String>
+    <system:String x:Key="Launcher.PausedText">På Pause</system:String>
 
     <system:String x:Key="Launcher.UpdateText">Tjek efter opdateringer</system:String>
 

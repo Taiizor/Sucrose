@@ -492,6 +492,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuShare,Share
 Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuDelete,Delete
 Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.MenuEdit,Edit
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.Closed,Closed
+Portal\Controls\LibraryCard\Portal.LibraryCard.EN.xaml,Portal.LibraryCard.Paused,Paused
 Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Title,About
 Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,Portal.OtherAbout.Close,Close
 Portal\Controls\OtherAbout\Portal.OtherAbout.EN.xaml,,

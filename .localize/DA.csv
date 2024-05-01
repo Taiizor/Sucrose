@@ -131,7 +131,7 @@ Launcher\Launcher.DA.xaml,Launcher.WallStartText,Start tapet
 Launcher\Launcher.DA.xaml,Launcher.WallStopText,Stop tapet
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.ClosedText,Lukket
-Launcher\Launcher.DA.xaml,Launcher.PausedText,På pause
+Launcher\Launcher.DA.xaml,Launcher.PausedText,På Pause
 Launcher\Launcher.DA.xaml,,
 Launcher\Launcher.DA.xaml,Launcher.UpdateText,Tjek efter opdateringer
 Launcher\Launcher.DA.xaml,,
@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuShare,Del
 Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuDelete,Slet
 Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.MenuEdit,Rediger
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.Closed,Lukket
+Portal\Controls\LibraryCard\Portal.LibraryCard.DA.xaml,Portal.LibraryCard.Paused,På Pause
 Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Title,Om
 Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,Portal.OtherAbout.Close,Luk
 Portal\Controls\OtherAbout\Portal.OtherAbout.DA.xaml,,

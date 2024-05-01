@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuShare,Dela
 Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuDelete,Ta bort
 Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.MenuEdit,Redigera
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.Closed,Stängd
+Portal\Controls\LibraryCard\Portal.LibraryCard.SV.xaml,Portal.LibraryCard.Paused,Pausad
 Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Title,Om oss
 Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,Portal.OtherAbout.Close,Stäng
 Portal\Controls\OtherAbout\Portal.OtherAbout.SV.xaml,,

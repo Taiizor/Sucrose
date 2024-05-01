@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">共有</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">削除</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">編集</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">閉じられました</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">一時停止中</system:String>
 </ResourceDictionary>

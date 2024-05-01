@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuShare,共有
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuDelete,削除
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuEdit,編集
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.Closed,閉じられました
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.Paused,一時停止中
 Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Title,について
 Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Close,閉じる
 Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,

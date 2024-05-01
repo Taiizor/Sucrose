@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuShare,공유
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuDelete,삭제
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuEdit,편집
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.Closed,닫힘
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.Paused,일시 중지됨
 Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Title,소개
 Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Close,닫기
 Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,

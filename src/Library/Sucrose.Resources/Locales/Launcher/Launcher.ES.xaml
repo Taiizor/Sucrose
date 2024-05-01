@@ -30,7 +30,7 @@
     <system:String x:Key="Launcher.WallStopText">Detener fondo de pantalla</system:String>
 
     <system:String x:Key="Launcher.ClosedText">Cerrado</system:String>
-    <system:String x:Key="Launcher.PausedText">En pausa</system:String>
+    <system:String x:Key="Launcher.PausedText">En Pausa</system:String>
 
     <system:String x:Key="Launcher.UpdateText">Buscar actualizaciones</system:String>
 

@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">साझा करें</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">मिटाएं</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">संपादित करें</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">बंद</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">रुका हुआ</system:String>
 </ResourceDictionary>

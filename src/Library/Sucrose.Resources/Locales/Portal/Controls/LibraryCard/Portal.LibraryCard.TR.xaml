@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">Paylaş</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Sil</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Düzenle</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">Kapatıldı</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">Durduruldu</system:String>
 </ResourceDictionary>

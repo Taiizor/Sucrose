@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuShare,分享
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuDelete,删除
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuEdit,编辑
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.Closed,已关闭
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.Paused,已暂停
 Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Portal.OtherAbout.Title,关于
 Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Portal.OtherAbout.Close,关闭
 Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,,

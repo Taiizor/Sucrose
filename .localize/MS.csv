@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuShare,Kongsi
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuDelete,Padam
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuEdit,Sunting
+Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.Closed,Ditutup
+Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.Paused,Dijeda
 Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Portal.OtherAbout.Title,Tentang
 Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,Portal.OtherAbout.Close,Tutup
 Portal\Controls\OtherAbout\Portal.OtherAbout.MS.xaml,,

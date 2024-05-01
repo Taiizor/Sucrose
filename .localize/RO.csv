@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuShare,Partajează
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuDelete,Șterge
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuEdit,Editează
+Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.Closed,Închis
+Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.Paused,Pus pe Pauză
 Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Portal.OtherAbout.Title,Despre
 Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,Portal.OtherAbout.Close,Închide
 Portal\Controls\OtherAbout\Portal.OtherAbout.RO.xaml,,

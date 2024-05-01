@@ -491,6 +491,9 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuFi
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuShare,Κοινοποίηση
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuDelete,Διαγραφή
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuEdit,Επεξεργασία
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.Closed,Κλειστό
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.Paused,Σε παύση
 Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Title,Σχετικά
 Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Close,Κλείσιμο
 Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,

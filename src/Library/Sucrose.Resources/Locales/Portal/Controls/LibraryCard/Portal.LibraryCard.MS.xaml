@@ -16,4 +16,7 @@
     <system:String x:Key="Portal.LibraryCard.MenuShare">Kongsi</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Padam</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuEdit">Sunting</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Closed">Ditutup</system:String>
+    <system:String x:Key="Portal.LibraryCard.Paused">Dijeda</system:String>
 </ResourceDictionary>
