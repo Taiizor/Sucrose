@@ -19,4 +19,8 @@
 
     <system:String x:Key="Portal.LibraryCard.Closed">Закрито</system:String>
     <system:String x:Key="Portal.LibraryCard.Paused">Призупинено</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Selected">Вибрано</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Incompatible">Несумісний</system:String>
 </ResourceDictionary>

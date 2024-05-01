@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.Closed,닫힘
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.Paused,일시 중지됨
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.Selected,선택됨
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.Incompatible,호환되지 않음
 Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Title,소개
 Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,Portal.OtherAbout.Close,닫기
 Portal\Controls\OtherAbout\Portal.OtherAbout.KO.xaml,,

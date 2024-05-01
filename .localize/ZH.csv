@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.Closed,已关闭
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.Paused,已暂停
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.Selected,已选择
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.Incompatible,不兼容
 Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Portal.OtherAbout.Title,关于
 Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,Portal.OtherAbout.Close,关闭
 Portal\Controls\OtherAbout\Portal.OtherAbout.ZH.xaml,,

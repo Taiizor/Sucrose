@@ -19,4 +19,8 @@
 
     <system:String x:Key="Portal.LibraryCard.Closed">Cerrado</system:String>
     <system:String x:Key="Portal.LibraryCard.Paused">En Pausa</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Selected">Seleccionado</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Incompatible">Incompatible</system:String>
 </ResourceDictionary>

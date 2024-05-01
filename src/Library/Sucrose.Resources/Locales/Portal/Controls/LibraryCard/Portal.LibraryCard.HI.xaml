@@ -19,4 +19,8 @@
 
     <system:String x:Key="Portal.LibraryCard.Closed">बंद</system:String>
     <system:String x:Key="Portal.LibraryCard.Paused">रुका हुआ</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Selected">चयनित</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Incompatible">असंगत</system:String>
 </ResourceDictionary>

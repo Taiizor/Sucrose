@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.Closed,बंद
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.Paused,रुका हुआ
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.Selected,चयनित
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.Incompatible,असंगत
 Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Title,हमारे बारे में
 Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,Portal.OtherAbout.Close,बंद करें
 Portal\Controls\OtherAbout\Portal.OtherAbout.HI.xaml,,

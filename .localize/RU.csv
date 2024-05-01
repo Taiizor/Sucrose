@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.Closed,Закрыто
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.Paused,Приостановлено
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.Selected,Выбрано
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.Incompatible,Несовместимый
 Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Title,О нас
 Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,Portal.OtherAbout.Close,Закрыть
 Portal\Controls\OtherAbout\Portal.OtherAbout.RU.xaml,,

@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.Closed,Geschlossen
 Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.Paused,Angehalten
+Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.Selected,Ausgewählt
+Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.DE.xaml,Portal.LibraryCard.Incompatible,Inkompatibel
 Portal\Controls\OtherAbout\Portal.OtherAbout.DE.xaml,Portal.OtherAbout.Title,Über
 Portal\Controls\OtherAbout\Portal.OtherAbout.DE.xaml,Portal.OtherAbout.Close,Schließen
 Portal\Controls\OtherAbout\Portal.OtherAbout.DE.xaml,,

@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.Closed,Lukket
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.Paused,Pauset
+Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.Selected,Valgt
+Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.Incompatible,Inkompatibel
 Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Portal.OtherAbout.Title,Om
 Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,Portal.OtherAbout.Close,Lukk
 Portal\Controls\OtherAbout\Portal.OtherAbout.NB.xaml,,

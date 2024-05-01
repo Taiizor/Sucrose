@@ -19,4 +19,8 @@
 
     <system:String x:Key="Portal.LibraryCard.Closed">Lukket</system:String>
     <system:String x:Key="Portal.LibraryCard.Paused">Pauset</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Selected">Valgt</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Incompatible">Inkompatibel</system:String>
 </ResourceDictionary>

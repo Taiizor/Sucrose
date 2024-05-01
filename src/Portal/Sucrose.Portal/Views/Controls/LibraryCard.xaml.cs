@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
 using XamlAnimatedGif;
@@ -208,6 +209,9 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     MenuUse.IsEnabled = false;
                     MenuDelete.IsEnabled = false;
+
+                    MenuUse.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Selected")})";
+                    MenuDelete.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Selected")})";
                 }
                 else
                 {
@@ -218,6 +222,8 @@ namespace Sucrose.Portal.Views.Controls
                     else
                     {
                         MenuUse.IsEnabled = false;
+
+                        MenuUse.Header += $" ({SRER.GetValue("Portal", "LibraryCard", "Incompatible")})";
                     }
 
                     MenuDelete.IsEnabled = true;

@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.Closed,閉じられました
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.Paused,一時停止中
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.Selected,選択された
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.Incompatible,非互換
 Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Title,について
 Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,Portal.OtherAbout.Close,閉じる
 Portal\Controls\OtherAbout\Portal.OtherAbout.JA.xaml,,

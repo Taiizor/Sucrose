@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.Closed,Закрито
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.Paused,Призупинено
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.Selected,Вибрано
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.Incompatible,Несумісний
 Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Title,Про програму
 Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,Portal.OtherAbout.Close,Закрити
 Portal\Controls\OtherAbout\Portal.OtherAbout.UK.xaml,,

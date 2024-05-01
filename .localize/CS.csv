@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.Closed,Zavřeno
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.Paused,Pozastaveno
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.Selected,Vybráno
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.Incompatible,Nekompatibilní
 Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Title,O aplikaci
 Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,Portal.OtherAbout.Close,Zavřít
 Portal\Controls\OtherAbout\Portal.OtherAbout.CS.xaml,,

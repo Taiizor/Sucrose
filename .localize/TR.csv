@@ -494,6 +494,10 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuEd
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.Closed,Kapatıldı
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.Paused,Durduruldu
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.Selected,Seçildi
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,,
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.Incompatible,Uyumsuz
 Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Title,Hakkında
 Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,Portal.OtherAbout.Close,Kapat
 Portal\Controls\OtherAbout\Portal.OtherAbout.TR.xaml,,

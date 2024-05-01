@@ -19,4 +19,8 @@
 
     <system:String x:Key="Portal.LibraryCard.Closed">Κλειστό</system:String>
     <system:String x:Key="Portal.LibraryCard.Paused">Σε παύση</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Selected">Επιλέγεται</system:String>
+
+    <system:String x:Key="Portal.LibraryCard.Incompatible">Μη συμβατό</system:String>
 </ResourceDictionary>
