@@ -54,7 +54,7 @@ namespace Sucrose.Manager.Manage
 
         public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateManager.GetSettingStable(SMC.AdvertisingDelay, 30), 30, 720);
 
-        public static int AdaptiveMargin => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 8), 5, 25);
+        public static int AdaptiveMargin => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5), 5, 25);
 
         public static int StoreDuration => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.StoreDuration, 12), 1, 24);
 
