@@ -104,24 +104,38 @@ Discord\Discord.PT.xaml,Discord.StatementText46,Cidade à Beira do Mar de Estrel
 Discord\Discord.PT.xaml,Discord.StatementText47,Conto de Fadas por Trás da Montanha Nevoenta
 Discord\Discord.PT.xaml,Discord.StatementText48,Noite Estrelada Brilhando na Escuridão
 Launcher\Launcher.PT.xaml,Launcher.WallCustomizeText,Personalizar Papel de Parede
-Launcher\Launcher.PT.xaml,Launcher.CreateLogText,Criar Log
+Launcher\Launcher.PT.xaml,,
+Launcher\Launcher.PT.xaml,Launcher.CreateLogText,Criar Arquivo de Log
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.ExitText,Sair
-Launcher\Launcher.PT.xaml,Launcher.OpenReportText,Reportar Problema
+Launcher\Launcher.PT.xaml,,
+Launcher\Launcher.PT.xaml,Launcher.OpenReportText,Reportar um Problema
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.OpenText,Abrir Sucrose
-Launcher\Launcher.PT.xaml,Launcher.ReportText,Relatar Erro
-Launcher\Launcher.PT.xaml,Launcher.ReportWindowTitle,Diagnóstico Sucrose
+Launcher\Launcher.PT.xaml,,
+Launcher\Launcher.PT.xaml,Launcher.ReportText,Reportar um Problema
+Launcher\Launcher.PT.xaml,,
+Launcher\Launcher.PT.xaml,Launcher.ReportWindowTitle,Diagnóstico do Sucrose
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*
-Launcher\Launcher.PT.xaml,Launcher.SaveDialogTitle,Salvar Log
+Launcher\Launcher.PT.xaml,Launcher.SaveDialogTitle,Salvar Arquivo de Log
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.SettingText,Configurações
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.WallChangeText,Alterar Papel de Parede
 Launcher\Launcher.PT.xaml,Launcher.WallCloseText,Fechar Papel de Parede
 Launcher\Launcher.PT.xaml,Launcher.WallOpenText,Abrir Papel de Parede
 Launcher\Launcher.PT.xaml,Launcher.WallStartText,Iniciar Papel de Parede
 Launcher\Launcher.PT.xaml,Launcher.WallStopText,Parar Papel de Parede
+Launcher\Launcher.PT.xaml,,
+Launcher\Launcher.PT.xaml,Launcher.ClosedText,Fechado
+Launcher\Launcher.PT.xaml,Launcher.PausedText,Pausado
+Launcher\Launcher.PT.xaml,,
 Launcher\Launcher.PT.xaml,Launcher.UpdateText,Verificar Atualizações
 Launcher\Launcher.PT.xaml,,
-Launcher\Launcher.PT.xaml,Launcher.UpdateText.Done,Atualizações Concluídas
+Launcher\Launcher.PT.xaml,Launcher.UpdateText.Done,Preparando Atualização
 Launcher\Launcher.PT.xaml,Launcher.UpdateText.Check,Verificando Atualizações
 Launcher\Launcher.PT.xaml,Launcher.UpdateText.Progress,Progresso da Atualização {0}
 Portal\Portal.PT.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5QVC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5QVC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuUFQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuUFQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5QVC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=

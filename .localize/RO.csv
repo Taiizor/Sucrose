@@ -103,25 +103,39 @@ Discord\Discord.RO.xaml,Discord.StatementText45,Calea Visului Sub Stele
 Discord\Discord.RO.xaml,Discord.StatementText46,O Lume Secretă în Orașul de pe Malul Stelelor
 Discord\Discord.RO.xaml,Discord.StatementText47,Povestea din Spatele Munților Învolburați în Ceață
 Discord\Discord.RO.xaml,Discord.StatementText48,Noaptea Stelelor Strălucitoare în Întuneric
-Launcher\Launcher.RO.xaml,Launcher.WallCustomizeText,Personalizează Fundalul
-Launcher\Launcher.RO.xaml,Launcher.CreateLogText,Creează Jurnal
-Launcher\Launcher.RO.xaml,Launcher.ExitText,Ieșire
-Launcher\Launcher.RO.xaml,Launcher.OpenReportText,Raportează o Problemă
-Launcher\Launcher.RO.xaml,Launcher.OpenText,Deschide Sucrose
-Launcher\Launcher.RO.xaml,Launcher.ReportText,Raportează o Eroare
-Launcher\Launcher.RO.xaml,Launcher.ReportWindowTitle,Diagnosticare Sucrose
-Launcher\Launcher.RO.xaml,Launcher.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*
-Launcher\Launcher.RO.xaml,Launcher.SaveDialogTitle,Salvează Jurnalul
-Launcher\Launcher.RO.xaml,Launcher.SettingText,Setări
-Launcher\Launcher.RO.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.RO.xaml,Launcher.WallChangeText,Schimbă Fundalul
-Launcher\Launcher.RO.xaml,Launcher.WallCloseText,Închide Fundalul
-Launcher\Launcher.RO.xaml,Launcher.WallOpenText,Deschide Fundalul
-Launcher\Launcher.RO.xaml,Launcher.WallStartText,Începe Fundalul
-Launcher\Launcher.RO.xaml,Launcher.WallStopText,Oprește Fundalul
-Launcher\Launcher.RO.xaml,Launcher.UpdateText,Verifică Actualizările
+Launcher\Launcher.RO.xaml,Launcher.WallCustomizeText,Personalizare Tapet
 Launcher\Launcher.RO.xaml,,
-Launcher\Launcher.RO.xaml,Launcher.UpdateText.Done,Actualizări Disponibile
+Launcher\Launcher.RO.xaml,Launcher.CreateLogText,Creare Fișier Jurnal
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.ExitText,Ieșire
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.OpenReportText,Raportați o Problemă
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.OpenText,Deschideți Sucrose
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.ReportText,Raportați o Problemă
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.ReportWindowTitle,Diagnosticare Sucrose
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*
+Launcher\Launcher.RO.xaml,Launcher.SaveDialogTitle,Salvare Fișier Jurnal
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.SettingText,Setări
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.WallChangeText,Schimbați Tapetul
+Launcher\Launcher.RO.xaml,Launcher.WallCloseText,Închideți Tapetul
+Launcher\Launcher.RO.xaml,Launcher.WallOpenText,Deschideți Tapetul
+Launcher\Launcher.RO.xaml,Launcher.WallStartText,Porniți Tapetul
+Launcher\Launcher.RO.xaml,Launcher.WallStopText,Opriți Tapetul
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.ClosedText,Închis
+Launcher\Launcher.RO.xaml,Launcher.PausedText,Pus pe Pauză
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.UpdateText,Verificați Actualizări
+Launcher\Launcher.RO.xaml,,
+Launcher\Launcher.RO.xaml,Launcher.UpdateText.Done,Pregătire Actualizare
 Launcher\Launcher.RO.xaml,Launcher.UpdateText.Check,Verificare Actualizări
 Launcher\Launcher.RO.xaml,Launcher.UpdateText.Progress,Progres Actualizare {0}
 Portal\Portal.RO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5STy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=

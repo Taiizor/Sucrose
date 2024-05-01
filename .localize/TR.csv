@@ -104,24 +104,38 @@ Discord\Discord.TR.xaml,Discord.StatementText46,Gizli Dünya Yıldız Kıyısın
 Discord\Discord.TR.xaml,Discord.StatementText47,Sisli Dağın Ardındaki Masal
 Discord\Discord.TR.xaml,Discord.StatementText48,Karanlıkta Parlayan Yıldızlı Gece
 Launcher\Launcher.TR.xaml,Launcher.WallCustomizeText,Duvar Kağıdını Özelleştir
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.CreateLogText,Günlük Dosyası Oluştur
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.ExitText,Çıkış
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.OpenReportText,Bir Sorun Bildir
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.OpenText,Sucrose'yi Aç
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.ReportText,Hata Bildir
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.ReportWindowTitle,Sucrose Tanılama
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
 Launcher\Launcher.TR.xaml,Launcher.SaveDialogTitle,Günlük Dosyasını Kaydet
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.SettingText,Ayarlar
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.WallChangeText,Duvar Kağıdını Değiştir
 Launcher\Launcher.TR.xaml,Launcher.WallCloseText,Duvar Kağıdını Kapat
 Launcher\Launcher.TR.xaml,Launcher.WallOpenText,Duvar Kağıdını Aç
 Launcher\Launcher.TR.xaml,Launcher.WallStartText,Duvar Kağıdını Başlat
 Launcher\Launcher.TR.xaml,Launcher.WallStopText,Duvar Kağıdını Durdur
+Launcher\Launcher.TR.xaml,,
+Launcher\Launcher.TR.xaml,Launcher.ClosedText,Kapatıldı
+Launcher\Launcher.TR.xaml,Launcher.PausedText,Durduruldu
+Launcher\Launcher.TR.xaml,,
 Launcher\Launcher.TR.xaml,Launcher.UpdateText,Güncellemeleri Denetle
 Launcher\Launcher.TR.xaml,,
-Launcher\Launcher.TR.xaml,Launcher.UpdateText.Done,Güncellemeler Bekliyor
+Launcher\Launcher.TR.xaml,Launcher.UpdateText.Done,Güncelleme Hazırlanıyor
 Launcher\Launcher.TR.xaml,Launcher.UpdateText.Check,Güncellemeler Denetleniyor
 Launcher\Launcher.TR.xaml,Launcher.UpdateText.Progress,Güncelleme İlerlemesi {0}
 Portal\Portal.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5UUi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=

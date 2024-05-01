@@ -103,27 +103,41 @@ Discord\Discord.PL.xaml,Discord.StatementText45,Ścieżka Marzeń pod Gwiazdami
 Discord\Discord.PL.xaml,Discord.StatementText46,Tajemnicze Miasto na Wybrzeżu Gwiazd
 Discord\Discord.PL.xaml,Discord.StatementText47,Opowieść za Mgłą Góry
 Discord\Discord.PL.xaml,Discord.StatementText48,Ciemna Noc Gwieździstego Światła
-Launcher\Launcher.PL.xaml,Launcher.WallCustomizeText,Dostosuj Tapetę
-Launcher\Launcher.PL.xaml,Launcher.CreateLogText,Utwórz Plik Dziennika
-Launcher\Launcher.PL.xaml,Launcher.ExitText,Zamknąć
-Launcher\Launcher.PL.xaml,Launcher.OpenReportText,Zgłoś Problem
-Launcher\Launcher.PL.xaml,Launcher.OpenText,Otwórz Sucrose
-Launcher\Launcher.PL.xaml,Launcher.ReportText,Zgłoś Błąd
-Launcher\Launcher.PL.xaml,Launcher.ReportWindowTitle,Diagnostyka Sucrose
-Launcher\Launcher.PL.xaml,Launcher.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*
-Launcher\Launcher.PL.xaml,Launcher.SaveDialogTitle,Zapisz Plik Dziennika
-Launcher\Launcher.PL.xaml,Launcher.SettingText,Ustawienia
-Launcher\Launcher.PL.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.PL.xaml,Launcher.WallChangeText,Zmień Tapetę
-Launcher\Launcher.PL.xaml,Launcher.WallCloseText,Zamknij Tapetę
-Launcher\Launcher.PL.xaml,Launcher.WallOpenText,Otwórz Tapetę
-Launcher\Launcher.PL.xaml,Launcher.WallStartText,Uruchom Tapetę
-Launcher\Launcher.PL.xaml,Launcher.WallStopText,Zatrzymaj Tapetę
-Launcher\Launcher.PL.xaml,Launcher.UpdateText,Sprawdź Aktualizacje
+Launcher\Launcher.PL.xaml,Launcher.WallCustomizeText,Dostosuj tapetę
 Launcher\Launcher.PL.xaml,,
-Launcher\Launcher.PL.xaml,Launcher.UpdateText.Done,Oczekujące Aktualizacje
-Launcher\Launcher.PL.xaml,Launcher.UpdateText.Check,Sprawdzanie Aktualizacji
-Launcher\Launcher.PL.xaml,Launcher.UpdateText.Progress,Postęp Aktualizacji {0}
+Launcher\Launcher.PL.xaml,Launcher.CreateLogText,Utwórz plik dziennika
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.ExitText,Wyjdź
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.OpenReportText,Zgłoś problem
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.OpenText,Otwórz Sucrose
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.ReportText,Zgłoś problem
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.ReportWindowTitle,Diagnostyka Sucrose
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszystkie pliki (*.*)|*.*
+Launcher\Launcher.PL.xaml,Launcher.SaveDialogTitle,Zapisz plik dziennika
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.SettingText,Ustawienia
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.WallChangeText,Zmień tapetę
+Launcher\Launcher.PL.xaml,Launcher.WallCloseText,Zamknij tapetę
+Launcher\Launcher.PL.xaml,Launcher.WallOpenText,Otwórz tapetę
+Launcher\Launcher.PL.xaml,Launcher.WallStartText,Uruchom tapetę
+Launcher\Launcher.PL.xaml,Launcher.WallStopText,Zatrzymaj tapetę
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.ClosedText,Zamknięte
+Launcher\Launcher.PL.xaml,Launcher.PausedText,Wstrzymane
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.UpdateText,Sprawdź aktualizacje
+Launcher\Launcher.PL.xaml,,
+Launcher\Launcher.PL.xaml,Launcher.UpdateText.Done,Przygotowanie aktualizacji
+Launcher\Launcher.PL.xaml,Launcher.UpdateText.Check,Sprawdzanie aktualizacji
+Launcher\Launcher.PL.xaml,Launcher.UpdateText.Progress,Postęp aktualizacji {0}
 Portal\Portal.PL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5QTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5QTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuUEwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuUEwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5QTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.PL.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.PL.xaml,,

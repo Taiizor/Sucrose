@@ -104,25 +104,39 @@ Discord\Discord.MS.xaml,Discord.StatementText46,Kota di Pinggir Bintang yang Ter
 Discord\Discord.MS.xaml,Discord.StatementText47,Kisah di Balik Kabut di Balik Gunung
 Discord\Discord.MS.xaml,Discord.StatementText48,Malam yang Dipenuhi dengan Bintang yang Bersinar
 Launcher\Launcher.MS.xaml,Launcher.WallCustomizeText,Sesuaikan Wallpaper
-Launcher\Launcher.MS.xaml,Launcher.CreateLogText,Log Cipta
+Launcher\Launcher.MS.xaml,,
+Launcher\Launcher.MS.xaml,Launcher.CreateLogText,Cipta Fail Log
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.ExitText,Keluar
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.OpenReportText,Laporkan Masalah
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.OpenText,Buka Sucrose
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.ReportText,Laporkan Masalah
-Launcher\Launcher.MS.xaml,Launcher.ReportWindowTitle,Sucrose Diagnosis
+Launcher\Launcher.MS.xaml,,
+Launcher\Launcher.MS.xaml,Launcher.ReportWindowTitle,Diagnostik Sucrose
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*
 Launcher\Launcher.MS.xaml,Launcher.SaveDialogTitle,Simpan Fail Log
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.SettingText,Tetapan
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.MS.xaml,Launcher.WallChangeText,Ubah Wallpaper
+Launcher\Launcher.MS.xaml,,
+Launcher\Launcher.MS.xaml,Launcher.WallChangeText,Tukar Wallpaper
 Launcher\Launcher.MS.xaml,Launcher.WallCloseText,Tutup Wallpaper
 Launcher\Launcher.MS.xaml,Launcher.WallOpenText,Buka Wallpaper
 Launcher\Launcher.MS.xaml,Launcher.WallStartText,Mulakan Wallpaper
 Launcher\Launcher.MS.xaml,Launcher.WallStopText,Hentikan Wallpaper
+Launcher\Launcher.MS.xaml,,
+Launcher\Launcher.MS.xaml,Launcher.ClosedText,Ditutup
+Launcher\Launcher.MS.xaml,Launcher.PausedText,Dijeda
+Launcher\Launcher.MS.xaml,,
 Launcher\Launcher.MS.xaml,Launcher.UpdateText,Semak Kemas Kini
 Launcher\Launcher.MS.xaml,,
-Launcher\Launcher.MS.xaml,Launcher.UpdateText.Done,Kemas Kini Tersedia
-Launcher\Launcher.MS.xaml,Launcher.UpdateText.Check,Sedang Mengecek Kemas Kini
+Launcher\Launcher.MS.xaml,Launcher.UpdateText.Done,Sedang Menyediakan Kemas Kini
+Launcher\Launcher.MS.xaml,Launcher.UpdateText.Check,Memeriksa Kemas Kini
 Launcher\Launcher.MS.xaml,Launcher.UpdateText.Progress,Kemajuan Kemas Kini {0}
 Portal\Portal.MS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5Lk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93Lk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5NUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.MS.xaml,Property.WindowTitle,Sucrose Property

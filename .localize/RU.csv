@@ -103,27 +103,41 @@ Discord\Discord.RU.xaml,Discord.StatementText45,Путь Сна Под Звез�
 Discord\Discord.RU.xaml,Discord.StatementText46,Тайный Мир - Город у Берега Звезд
 Discord\Discord.RU.xaml,Discord.StatementText47,Сказка за Туманным Горным Хребтом
 Discord\Discord.RU.xaml,Discord.StatementText48,Темная Ночь с Блеском Звезд
-Launcher\Launcher.RU.xaml,Launcher.WallCustomizeText,Настроить Обои
-Launcher\Launcher.RU.xaml,Launcher.CreateLogText,Создать Журнал
-Launcher\Launcher.RU.xaml,Launcher.ExitText,Выход
-Launcher\Launcher.RU.xaml,Launcher.OpenReportText,Сообщить о Проблеме
-Launcher\Launcher.RU.xaml,Launcher.OpenText,Открыть Sucrose
-Launcher\Launcher.RU.xaml,Launcher.ReportText,Сообщение об Ошибке
-Launcher\Launcher.RU.xaml,Launcher.ReportWindowTitle,Sucrose Диагностика
-Launcher\Launcher.RU.xaml,Launcher.SaveDialogFilter,ZIP Файлы (*.zip)|*.zip|Все Файлы (*.*)|*.*
-Launcher\Launcher.RU.xaml,Launcher.SaveDialogTitle,Сохранить Журнал
-Launcher\Launcher.RU.xaml,Launcher.SettingText,Настройки
-Launcher\Launcher.RU.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.RU.xaml,Launcher.WallChangeText,Изменить Обои
-Launcher\Launcher.RU.xaml,Launcher.WallCloseText,Закрыть Обои
-Launcher\Launcher.RU.xaml,Launcher.WallOpenText,Открыть Обои
-Launcher\Launcher.RU.xaml,Launcher.WallStartText,Запустить Обои
-Launcher\Launcher.RU.xaml,Launcher.WallStopText,Остановить Обои
-Launcher\Launcher.RU.xaml,Launcher.UpdateText,Проверить Обновления
+Launcher\Launcher.RU.xaml,Launcher.WallCustomizeText,Настройка Обоев
 Launcher\Launcher.RU.xaml,,
-Launcher\Launcher.RU.xaml,Launcher.UpdateText.Done,Ожидание Обновлений
-Launcher\Launcher.RU.xaml,Launcher.UpdateText.Check,Проверка Обновлений
-Launcher\Launcher.RU.xaml,Launcher.UpdateText.Progress,Прогресс Обновления {0}
+Launcher\Launcher.RU.xaml,Launcher.CreateLogText,Создать файл журнала
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.ExitText,Выход
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.OpenReportText,Сообщить о проблеме
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.OpenText,Открыть Sucrose
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.ReportText,Сообщить о проблеме
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.ReportWindowTitle,Диагностика Sucrose
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.SaveDialogFilter,Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*
+Launcher\Launcher.RU.xaml,Launcher.SaveDialogTitle,Сохранить файл журнала
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.SettingText,Настройки
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.WallChangeText,Изменить обои
+Launcher\Launcher.RU.xaml,Launcher.WallCloseText,Закрыть обои
+Launcher\Launcher.RU.xaml,Launcher.WallOpenText,Открыть обои
+Launcher\Launcher.RU.xaml,Launcher.WallStartText,Запустить обои
+Launcher\Launcher.RU.xaml,Launcher.WallStopText,Остановить обои
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.ClosedText,Закрыто
+Launcher\Launcher.RU.xaml,Launcher.PausedText,Приостановлено
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.UpdateText,Проверить обновления
+Launcher\Launcher.RU.xaml,,
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Done,Подготовка к обновлению
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Check,Проверка обновлений
+Launcher\Launcher.RU.xaml,Launcher.UpdateText.Progress,Прогресс обновления {0}
 Portal\Portal.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5SVS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.RU.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.RU.xaml,,

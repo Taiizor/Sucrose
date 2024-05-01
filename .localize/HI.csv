@@ -103,27 +103,41 @@ Discord\Discord.HI.xaml,Discord.StatementText45,सितारों के न
 Discord\Discord.HI.xaml,Discord.StatementText46,गुप्त दुनिया सितारों के किनारे का गाँव
 Discord\Discord.HI.xaml,Discord.StatementText47,मिस्टी पहाड़ के पीछे की कहानी
 Discord\Discord.HI.xaml,Discord.StatementText48,अंधकार में चमकती सितारों वाली रात
-Launcher\Launcher.HI.xaml,Launcher.WallCustomizeText,वॉलपेपर कस्टमाइज़ करें
-Launcher\Launcher.HI.xaml,Launcher.CreateLogText,डेली लॉग बनाएँ
+Launcher\Launcher.HI.xaml,Launcher.WallCustomizeText,वॉलपेपर को अनुकूलित करें
+Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.CreateLogText,लॉग फ़ाइल बनाएँ
+Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.ExitText,निकास
-Launcher\Launcher.HI.xaml,Launcher.OpenReportText,समस्या रिपोर्ट करें
+Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.OpenReportText,समस्या की रिपोर्ट करें
+Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.OpenText,Sucrose खोलें
-Launcher\Launcher.HI.xaml,Launcher.ReportText,समस्या रिपोर्ट करें
-Launcher\Launcher.HI.xaml,Launcher.ReportWindowTitle,Sucrose डायग्नोस्टिक्स
+Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.ReportText,समस्या की रिपोर्ट करें
+Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.ReportWindowTitle,Sucrose निदान
+Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
-Launcher\Launcher.HI.xaml,Launcher.SaveDialogTitle,डेली लॉग फ़ाइल सहेजें
+Launcher\Launcher.HI.xaml,Launcher.SaveDialogTitle,लॉग फ़ाइल सहेजें
+Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.SettingText,सेटिंग्स
+Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.WallChangeText,वॉलपेपर बदलें
 Launcher\Launcher.HI.xaml,Launcher.WallCloseText,वॉलपेपर बंद करें
 Launcher\Launcher.HI.xaml,Launcher.WallOpenText,वॉलपेपर खोलें
 Launcher\Launcher.HI.xaml,Launcher.WallStartText,वॉलपेपर शुरू करें
 Launcher\Launcher.HI.xaml,Launcher.WallStopText,वॉलपेपर रोकें
-Launcher\Launcher.HI.xaml,Launcher.UpdateText,अद्यतनों की जांच करें
 Launcher\Launcher.HI.xaml,,
-Launcher\Launcher.HI.xaml,Launcher.UpdateText.Done,अद्यतन बाकी हैं
-Launcher\Launcher.HI.xaml,Launcher.UpdateText.Check,अद्यतनों की जांच हो रही है
-Launcher\Launcher.HI.xaml,Launcher.UpdateText.Progress,अद्यतन प्रगति {0}
+Launcher\Launcher.HI.xaml,Launcher.ClosedText,बंद
+Launcher\Launcher.HI.xaml,Launcher.PausedText,रुका हुआ
+Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.UpdateText,अपडेट देखें
+Launcher\Launcher.HI.xaml,,
+Launcher\Launcher.HI.xaml,Launcher.UpdateText.Done,अपडेट तैयार हो रहा है
+Launcher\Launcher.HI.xaml,Launcher.UpdateText.Check,अपडेट देख रहे हैं
+Launcher\Launcher.HI.xaml,Launcher.UpdateText.Progress,अपडेट प्रगति {0}
 Portal\Portal.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.HI.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.HI.xaml,,

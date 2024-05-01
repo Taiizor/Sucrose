@@ -104,26 +104,41 @@ Discord\Discord.EN.xaml,Discord.StatementText46,Hidden World in the Town by the 
 Discord\Discord.EN.xaml,Discord.StatementText47,Tale Behind the Misty Mountain
 Discord\Discord.EN.xaml,Discord.StatementText48,Starry Night Shining in the Dark
 Launcher\Launcher.EN.xaml,Launcher.WallCustomizeText,Customize Wallpaper
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.CreateLogText,Create Log File
-Launcher\Launcher.EN.xaml,Launcher.ExitText,Close
-Launcher\Launcher.EN.xaml,Launcher.OpenReportText,Report a Problem
+Launcher\Launcher.EN.xaml,,
+Launcher\Launcher.EN.xaml,Launcher.ExitText,Exit
+Launcher\Launcher.EN.xaml,,
+Launcher\Launcher.EN.xaml,Launcher.OpenReportText,Report an Issue
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.OpenText,Open Sucrose
-Launcher\Launcher.EN.xaml,Launcher.ReportText,Report Error
+Launcher\Launcher.EN.xaml,,
+Launcher\Launcher.EN.xaml,Launcher.ReportText,Report Issue
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostics
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
 Launcher\Launcher.EN.xaml,Launcher.SaveDialogTitle,Save Log File
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.SettingText,Settings
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.WallChangeText,Change Wallpaper
 Launcher\Launcher.EN.xaml,Launcher.WallCloseText,Close Wallpaper
 Launcher\Launcher.EN.xaml,Launcher.WallOpenText,Open Wallpaper
 Launcher\Launcher.EN.xaml,Launcher.WallStartText,Start Wallpaper
 Launcher\Launcher.EN.xaml,Launcher.WallStopText,Stop Wallpaper
+Launcher\Launcher.EN.xaml,,
+Launcher\Launcher.EN.xaml,Launcher.ClosedText,Closed
+Launcher\Launcher.EN.xaml,Launcher.PausedText,Paused
+Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.UpdateText,Check for Updates
 Launcher\Launcher.EN.xaml,,
-Launcher\Launcher.EN.xaml,Launcher.UpdateText.Done,Updates Pending
+Launcher\Launcher.EN.xaml,Launcher.UpdateText.Done,Preparing Update
 Launcher\Launcher.EN.xaml,Launcher.UpdateText.Check,Checking for Updates
 Launcher\Launcher.EN.xaml,Launcher.UpdateText.Progress,Update Progress {0}
+Launcher\Launcher.EN.xaml,,
 Portal\Portal.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5FTi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.EN.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.EN.xaml,,

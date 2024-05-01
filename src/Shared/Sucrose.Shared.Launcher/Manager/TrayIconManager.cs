@@ -74,14 +74,22 @@ namespace Sucrose.Shared.Launcher.Manager
 
             SSLSSS Separator1 = new(SSLMM.ThemeType);
 
-            if (SSSHL.Run() && (!SMMM.PausePerformance || !SSSHP.Work(SSSMI.Backgroundog)))
+            if (SSSHL.Run())
             {
-                ContextMenu.Items.Add(Separator1.Strip);
+                ToolStripItem Customize = new ToolStripMenuItem();
+                ToolStripItem Wallpaper = new ToolStripMenuItem();
 
-                ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
-                //ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallStartText"), null, null); //WallStopText
-
-                //ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallChangeText"), null, null);
+                if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                {
+                    Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCloseText")} ({SRER.GetValue("Launcher", "PausedText")})")
+                    {
+                        Enabled = false
+                    };
+                }
+                else
+                {
+                    Wallpaper = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCloseText"), null, CommandEngine);
+                }
 
                 string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
 
@@ -95,12 +103,27 @@ namespace Sucrose.Shared.Launcher.Manager
 
                         if (Info.Type == SSDEWT.Web)
                         {
-                            ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallCustomizeText"), null, CommandProperty);
+                            if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                            {
+                                Customize = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallCustomizeText")} ({SRER.GetValue("Launcher", "PausedText")})")
+                                {
+                                    Enabled = false
+                                };
+                            }
+                            else
+                            {
+                                Customize = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallCustomizeText"), null, CommandProperty);
+                            }
                         }
                     }
                 }
+
+                ContextMenu.Items.Add(Separator1.Strip);
+
+                ContextMenu.Items.Add(Wallpaper);
+                ContextMenu.Items.Add(Customize);
             }
-            else if (SMMI.LibrarySettingManager.CheckFile() && ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog)))
+            else if (SMMI.LibrarySettingManager.CheckFile())
             {
                 string InfoPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseInfo);
 
@@ -110,9 +133,23 @@ namespace Sucrose.Shared.Launcher.Manager
 
                     if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
                     {
+                        ToolStripItem Wallpaper = new ToolStripMenuItem();
+
+                        if (SMMM.ClosePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                        {
+                            Wallpaper = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallOpenText")} ({SRER.GetValue("Launcher", "ClosedText")})")
+                            {
+                                Enabled = false
+                            };
+                        }
+                        else
+                        {
+                            Wallpaper = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                        }
+
                         ContextMenu.Items.Add(Separator1.Strip);
 
-                        ContextMenu.Items.Add(SRER.GetValue("Launcher", "WallOpenText"), null, CommandEngine);
+                        ContextMenu.Items.Add(Wallpaper);
                     }
                 }
             }

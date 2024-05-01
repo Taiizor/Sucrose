@@ -103,27 +103,41 @@ Discord\Discord.CS.xaml,Discord.StatementText45,Cesta Snů pod Hvězdami
 Discord\Discord.CS.xaml,Discord.StatementText46,Skrytý Svět Města na Břehu Hvězd
 Discord\Discord.CS.xaml,Discord.StatementText47,Pohádka za Mlžnou Horou
 Discord\Discord.CS.xaml,Discord.StatementText48,Hvězdná Noc Zářící ve Tmě
-Launcher\Launcher.CS.xaml,Launcher.WallCustomizeText,Přizpůsobení Pozadí
-Launcher\Launcher.CS.xaml,Launcher.CreateLogText,Vytvořit Záznam
-Launcher\Launcher.CS.xaml,Launcher.ExitText,Ukončit
-Launcher\Launcher.CS.xaml,Launcher.OpenReportText,Otevřít Zprávu
-Launcher\Launcher.CS.xaml,Launcher.OpenText,Otevřít Sucrose
-Launcher\Launcher.CS.xaml,Launcher.ReportText,Nahlásit Chybu
-Launcher\Launcher.CS.xaml,Launcher.ReportWindowTitle,Diagnostika Sucrose
-Launcher\Launcher.CS.xaml,Launcher.SaveDialogFilter,Soubory ZIP (*.zip)|*.zip|Všechny soubory (*.*)|*.*
-Launcher\Launcher.CS.xaml,Launcher.SaveDialogTitle,Uložit Záznam
-Launcher\Launcher.CS.xaml,Launcher.SettingText,Nastavení
-Launcher\Launcher.CS.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.CS.xaml,Launcher.WallChangeText,Změnit Pozadí
-Launcher\Launcher.CS.xaml,Launcher.WallCloseText,Zavřít Pozadí
-Launcher\Launcher.CS.xaml,Launcher.WallOpenText,Otevřít Pozadí
-Launcher\Launcher.CS.xaml,Launcher.WallStartText,Spustit Pozadí
-Launcher\Launcher.CS.xaml,Launcher.WallStopText,Zastavit Pozadí
-Launcher\Launcher.CS.xaml,Launcher.UpdateText,Zkontrolovat Aktualizace
+Launcher\Launcher.CS.xaml,Launcher.WallCustomizeText,Přizpůsobit tapetu
 Launcher\Launcher.CS.xaml,,
-Launcher\Launcher.CS.xaml,Launcher.UpdateText.Done,Čekání na Aktualizace
-Launcher\Launcher.CS.xaml,Launcher.UpdateText.Check,Kontrola Aktualizací
-Launcher\Launcher.CS.xaml,Launcher.UpdateText.Progress,Průběh Aktualizace {0}
+Launcher\Launcher.CS.xaml,Launcher.CreateLogText,Vytvořit záznam souboru
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.ExitText,Ukončit
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.OpenReportText,Nahlásit problém
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.OpenText,Otevřít Sucrose
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.ReportText,Nahlásit problém
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.ReportWindowTitle,Diagnostika Sucrose
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
+Launcher\Launcher.CS.xaml,Launcher.SaveDialogTitle,Uložit záznam souboru
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.SettingText,Nastavení
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.WallChangeText,Změnit tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallCloseText,Zavřít tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallOpenText,Otevřít tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallStartText,Spustit tapetu
+Launcher\Launcher.CS.xaml,Launcher.WallStopText,Zastavit tapetu
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.ClosedText,Zavřeno
+Launcher\Launcher.CS.xaml,Launcher.PausedText,Pozastaveno
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.UpdateText,Kontrolovat aktualizace
+Launcher\Launcher.CS.xaml,,
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Done,Příprava aktualizace
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Check,Kontrola aktualizací
+Launcher\Launcher.CS.xaml,Launcher.UpdateText.Progress,Průběh aktualizace {0}
 Portal\Portal.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5DUy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.CS.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.CS.xaml,,

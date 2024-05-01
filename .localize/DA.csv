@@ -103,27 +103,41 @@ Discord\Discord.DA.xaml,Discord.StatementText45,Rejsen ad Drømmestien under Stj
 Discord\Discord.DA.xaml,Discord.StatementText46,Skjult By ved Stjernens Kyst
 Discord\Discord.DA.xaml,Discord.StatementText47,Eventyret bag den Tågede Bjerg
 Discord\Discord.DA.xaml,Discord.StatementText48,Stjernestrimler Glitrende i Mørket
-Launcher\Launcher.DA.xaml,Launcher.WallCustomizeText,Tilpas Baggrund
-Launcher\Launcher.DA.xaml,Launcher.CreateLogText,Opret Logfil
-Launcher\Launcher.DA.xaml,Launcher.ExitText,Afslut
-Launcher\Launcher.DA.xaml,Launcher.OpenReportText,Åbn en Fejlrapport
-Launcher\Launcher.DA.xaml,Launcher.OpenText,Åbn Sucrose
-Launcher\Launcher.DA.xaml,Launcher.ReportText,Fejlrapport
-Launcher\Launcher.DA.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostik
-Launcher\Launcher.DA.xaml,Launcher.SaveDialogFilter,ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
-Launcher\Launcher.DA.xaml,Launcher.SaveDialogTitle,Gem Logfil
-Launcher\Launcher.DA.xaml,Launcher.SettingText,Indstillinger
-Launcher\Launcher.DA.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.DA.xaml,Launcher.WallChangeText,Skift Baggrund
-Launcher\Launcher.DA.xaml,Launcher.WallCloseText,Luk Baggrund
-Launcher\Launcher.DA.xaml,Launcher.WallOpenText,Åbn Baggrund
-Launcher\Launcher.DA.xaml,Launcher.WallStartText,Start Baggrund
-Launcher\Launcher.DA.xaml,Launcher.WallStopText,Stop Baggrund
-Launcher\Launcher.DA.xaml,Launcher.UpdateText,Kontroller Opdateringer
+Launcher\Launcher.DA.xaml,Launcher.WallCustomizeText,Tilpas tapet
 Launcher\Launcher.DA.xaml,,
-Launcher\Launcher.DA.xaml,Launcher.UpdateText.Done,Opdateringer Afventer
-Launcher\Launcher.DA.xaml,Launcher.UpdateText.Check,Kontrollerer Opdateringer
-Launcher\Launcher.DA.xaml,Launcher.UpdateText.Progress,Opdatering Fremgang {0}
+Launcher\Launcher.DA.xaml,Launcher.CreateLogText,Opret logfil
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.ExitText,Afslut
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.OpenReportText,Rapporter et problem
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.OpenText,Åbn Sucrose
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.ReportText,Rapporter problem
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostik
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
+Launcher\Launcher.DA.xaml,Launcher.SaveDialogTitle,Gem logfil
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.SettingText,Indstillinger
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.WallChangeText,Skift tapet
+Launcher\Launcher.DA.xaml,Launcher.WallCloseText,Luk tapet
+Launcher\Launcher.DA.xaml,Launcher.WallOpenText,Åbn tapet
+Launcher\Launcher.DA.xaml,Launcher.WallStartText,Start tapet
+Launcher\Launcher.DA.xaml,Launcher.WallStopText,Stop tapet
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.ClosedText,Lukket
+Launcher\Launcher.DA.xaml,Launcher.PausedText,På pause
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.UpdateText,Tjek efter opdateringer
+Launcher\Launcher.DA.xaml,,
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Done,Forbereder opdatering
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Check,Søger efter opdateringer
+Launcher\Launcher.DA.xaml,Launcher.UpdateText.Progress,Opdateringsfremskridt {0}
 Portal\Portal.DA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5EQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkRBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuREEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5EQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.DA.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.DA.xaml,,

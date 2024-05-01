@@ -2,25 +2,39 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Personalizează Fundalul</system:String>
-    <system:String x:Key="Launcher.CreateLogText">Creează Jurnal</system:String>
-    <system:String x:Key="Launcher.ExitText">Ieșire</system:String>
-    <system:String x:Key="Launcher.OpenReportText">Raportează o Problemă</system:String>
-    <system:String x:Key="Launcher.OpenText">Deschide Sucrose</system:String>
-    <system:String x:Key="Launcher.ReportText">Raportează o Eroare</system:String>
-    <system:String x:Key="Launcher.ReportWindowTitle">Diagnosticare Sucrose</system:String>
-    <system:String x:Key="Launcher.SaveDialogFilter">Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Salvează Jurnalul</system:String>
-    <system:String x:Key="Launcher.SettingText">Setări</system:String>
-    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
-    <system:String x:Key="Launcher.WallChangeText">Schimbă Fundalul</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Închide Fundalul</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Deschide Fundalul</system:String>
-    <system:String x:Key="Launcher.WallStartText">Începe Fundalul</system:String>
-    <system:String x:Key="Launcher.WallStopText">Oprește Fundalul</system:String>
-    <system:String x:Key="Launcher.UpdateText">Verifică Actualizările</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Personalizare Tapet</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Actualizări Disponibile</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Creare Fișier Jurnal</system:String>
+
+    <system:String x:Key="Launcher.ExitText">Ieșire</system:String>
+
+    <system:String x:Key="Launcher.OpenReportText">Raportați o Problemă</system:String>
+
+    <system:String x:Key="Launcher.OpenText">Deschideți Sucrose</system:String>
+
+    <system:String x:Key="Launcher.ReportText">Raportați o Problemă</system:String>
+
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnosticare Sucrose</system:String>
+
+    <system:String x:Key="Launcher.SaveDialogFilter">Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Salvare Fișier Jurnal</system:String>
+
+    <system:String x:Key="Launcher.SettingText">Setări</system:String>
+
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Launcher.WallChangeText">Schimbați Tapetul</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Închideți Tapetul</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Deschideți Tapetul</system:String>
+    <system:String x:Key="Launcher.WallStartText">Porniți Tapetul</system:String>
+    <system:String x:Key="Launcher.WallStopText">Opriți Tapetul</system:String>
+
+    <system:String x:Key="Launcher.ClosedText">Închis</system:String>
+    <system:String x:Key="Launcher.PausedText">Pus pe Pauză</system:String>
+
+    <system:String x:Key="Launcher.UpdateText">Verificați Actualizări</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Pregătire Actualizare</system:String>
     <system:String x:Key="Launcher.UpdateText.Check">Verificare Actualizări</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Progres Actualizare {0}</system:String>
 </ResourceDictionary>

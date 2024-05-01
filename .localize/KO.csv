@@ -103,27 +103,41 @@ Discord\Discord.KO.xaml,Discord.StatementText45,별들 아래의 꿈 길
 Discord\Discord.KO.xaml,Discord.StatementText46,숨겨진 세계 별 둔치 마을
 Discord\Discord.KO.xaml,Discord.StatementText47,안개 속 산 뒤 이야기
 Discord\Discord.KO.xaml,Discord.StatementText48,어둠에 빛나는 별빛 밤
-Launcher\Launcher.KO.xaml,Launcher.WallCustomizeText,바탕화면 사용자 정의
-Launcher\Launcher.KO.xaml,Launcher.CreateLogText,로그 파일 생성
+Launcher\Launcher.KO.xaml,Launcher.WallCustomizeText,배경화면 사용자 정의
+Launcher\Launcher.KO.xaml,,
+Launcher\Launcher.KO.xaml,Launcher.CreateLogText,로그 파일 만들기
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.ExitText,종료
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.OpenReportText,문제 신고
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.OpenText,Sucrose 열기
-Launcher\Launcher.KO.xaml,Launcher.ReportText,오류 신고
+Launcher\Launcher.KO.xaml,,
+Launcher\Launcher.KO.xaml,Launcher.ReportText,문제 신고
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.ReportWindowTitle,Sucrose 진단
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
 Launcher\Launcher.KO.xaml,Launcher.SaveDialogTitle,로그 파일 저장
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.SettingText,설정
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.KO.xaml,Launcher.WallChangeText,바탕화면 변경
-Launcher\Launcher.KO.xaml,Launcher.WallCloseText,바탕화면 닫기
-Launcher\Launcher.KO.xaml,Launcher.WallOpenText,바탕화면 열기
-Launcher\Launcher.KO.xaml,Launcher.WallStartText,바탕화면 시작
-Launcher\Launcher.KO.xaml,Launcher.WallStopText,바탕화면 정지
+Launcher\Launcher.KO.xaml,,
+Launcher\Launcher.KO.xaml,Launcher.WallChangeText,배경화면 변경
+Launcher\Launcher.KO.xaml,Launcher.WallCloseText,배경화면 닫기
+Launcher\Launcher.KO.xaml,Launcher.WallOpenText,배경화면 열기
+Launcher\Launcher.KO.xaml,Launcher.WallStartText,배경화면 시작
+Launcher\Launcher.KO.xaml,Launcher.WallStopText,배경화면 중지
+Launcher\Launcher.KO.xaml,,
+Launcher\Launcher.KO.xaml,Launcher.ClosedText,닫힘
+Launcher\Launcher.KO.xaml,Launcher.PausedText,일시 중지됨
+Launcher\Launcher.KO.xaml,,
 Launcher\Launcher.KO.xaml,Launcher.UpdateText,업데이트 확인
 Launcher\Launcher.KO.xaml,,
-Launcher\Launcher.KO.xaml,Launcher.UpdateText.Done,업데이트 대기 중
+Launcher\Launcher.KO.xaml,Launcher.UpdateText.Done,업데이트 준비 중
 Launcher\Launcher.KO.xaml,Launcher.UpdateText.Check,업데이트 확인 중
-Launcher\Launcher.KO.xaml,Launcher.UpdateText.Progress,업데이트 진행 중 {0}
+Launcher\Launcher.KO.xaml,Launcher.UpdateText.Progress,업데이트 진행률 {0}
 Portal\Portal.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.KO.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.KO.xaml,,

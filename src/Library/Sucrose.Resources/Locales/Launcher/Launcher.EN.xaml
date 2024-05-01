@@ -3,24 +3,39 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.WallCustomizeText">Customize Wallpaper</system:String>
+
     <system:String x:Key="Launcher.CreateLogText">Create Log File</system:String>
-    <system:String x:Key="Launcher.ExitText">Close</system:String>
-    <system:String x:Key="Launcher.OpenReportText">Report a Problem</system:String>
+
+    <system:String x:Key="Launcher.ExitText">Exit</system:String>
+
+    <system:String x:Key="Launcher.OpenReportText">Report an Issue</system:String>
+
     <system:String x:Key="Launcher.OpenText">Open Sucrose</system:String>
-    <system:String x:Key="Launcher.ReportText">Report Error</system:String>
+
+    <system:String x:Key="Launcher.ReportText">Report Issue</system:String>
+
     <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Diagnostics</system:String>
+
     <system:String x:Key="Launcher.SaveDialogFilter">ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Save Log File</system:String>
+
     <system:String x:Key="Launcher.SettingText">Settings</system:String>
+
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+
     <system:String x:Key="Launcher.WallChangeText">Change Wallpaper</system:String>
     <system:String x:Key="Launcher.WallCloseText">Close Wallpaper</system:String>
     <system:String x:Key="Launcher.WallOpenText">Open Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStartText">Start Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStopText">Stop Wallpaper</system:String>
+
+    <system:String x:Key="Launcher.ClosedText">Closed</system:String>
+    <system:String x:Key="Launcher.PausedText">Paused</system:String>
+
     <system:String x:Key="Launcher.UpdateText">Check for Updates</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Updates Pending</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Preparing Update</system:String>
     <system:String x:Key="Launcher.UpdateText.Check">Checking for Updates</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Update Progress {0}</system:String>
+
 </ResourceDictionary>

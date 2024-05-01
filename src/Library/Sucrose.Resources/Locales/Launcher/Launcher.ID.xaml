@@ -2,25 +2,39 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Sesuaikan Wallpaper</system:String>
-    <system:String x:Key="Launcher.CreateLogText">Buat Catatan</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Kustomisasi Wallpaper</system:String>
+
+    <system:String x:Key="Launcher.CreateLogText">Buat File Log</system:String>
+
     <system:String x:Key="Launcher.ExitText">Keluar</system:String>
+
     <system:String x:Key="Launcher.OpenReportText">Laporkan Masalah</system:String>
+
     <system:String x:Key="Launcher.OpenText">Buka Sucrose</system:String>
-    <system:String x:Key="Launcher.ReportText">Laporkan Kesalahan</system:String>
-    <system:String x:Key="Launcher.ReportWindowTitle">Pemecahan Masalah Sucrose</system:String>
+
+    <system:String x:Key="Launcher.ReportText">Laporkan Masalah</system:String>
+
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnostik Sucrose</system:String>
+
     <system:String x:Key="Launcher.SaveDialogFilter">File ZIP (*.zip)|*.zip|Semua File (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Simpan Catatan</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Simpan File Log</system:String>
+
     <system:String x:Key="Launcher.SettingText">Pengaturan</system:String>
+
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+
     <system:String x:Key="Launcher.WallChangeText">Ubah Wallpaper</system:String>
     <system:String x:Key="Launcher.WallCloseText">Tutup Wallpaper</system:String>
     <system:String x:Key="Launcher.WallOpenText">Buka Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStartText">Mulai Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStopText">Hentikan Wallpaper</system:String>
+
+    <system:String x:Key="Launcher.ClosedText">Ditutup</system:String>
+    <system:String x:Key="Launcher.PausedText">Dijeda</system:String>
+
     <system:String x:Key="Launcher.UpdateText">Periksa Pembaruan</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Menunggu Pembaruan</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Persiapan Pembaruan</system:String>
     <system:String x:Key="Launcher.UpdateText.Check">Memeriksa Pembaruan</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Kemajuan Pembaruan {0}</system:String>
 </ResourceDictionary>

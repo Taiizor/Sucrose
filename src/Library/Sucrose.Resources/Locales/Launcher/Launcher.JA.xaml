@@ -2,25 +2,39 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">壁紙のカスタマイズ</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">壁紙をカスタマイズ</system:String>
+
     <system:String x:Key="Launcher.CreateLogText">ログファイルを作成</system:String>
+
     <system:String x:Key="Launcher.ExitText">終了</system:String>
-    <system:String x:Key="Launcher.OpenReportText">問題を報告する</system:String>
+
+    <system:String x:Key="Launcher.OpenReportText">問題を報告</system:String>
+
     <system:String x:Key="Launcher.OpenText">Sucroseを開く</system:String>
-    <system:String x:Key="Launcher.ReportText">エラーを報告</system:String>
-    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose 診断</system:String>
-    <system:String x:Key="Launcher.SaveDialogFilter">ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
+
+    <system:String x:Key="Launcher.ReportText">問題を報告</system:String>
+
+    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose診断</system:String>
+
+    <system:String x:Key="Launcher.SaveDialogFilter">ZIPファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">ログファイルを保存</system:String>
+
     <system:String x:Key="Launcher.SettingText">設定</system:String>
+
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+
     <system:String x:Key="Launcher.WallChangeText">壁紙を変更</system:String>
     <system:String x:Key="Launcher.WallCloseText">壁紙を閉じる</system:String>
     <system:String x:Key="Launcher.WallOpenText">壁紙を開く</system:String>
     <system:String x:Key="Launcher.WallStartText">壁紙を開始</system:String>
     <system:String x:Key="Launcher.WallStopText">壁紙を停止</system:String>
+
+    <system:String x:Key="Launcher.ClosedText">閉じられました</system:String>
+    <system:String x:Key="Launcher.PausedText">一時停止中</system:String>
+
     <system:String x:Key="Launcher.UpdateText">更新を確認</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">更新が待機中</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">更新の準備中</system:String>
     <system:String x:Key="Launcher.UpdateText.Check">更新を確認中</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">更新進行中 {0}</system:String>
 </ResourceDictionary>

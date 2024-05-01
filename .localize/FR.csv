@@ -103,27 +103,41 @@ Discord\Discord.FR.xaml,Discord.StatementText45,Chemin des Rêves Sous les Étoi
 Discord\Discord.FR.xaml,Discord.StatementText46,Village Secret au Bord des Étoiles
 Discord\Discord.FR.xaml,Discord.StatementText47,Conte Derrière la Montagne Brumeuse
 Discord\Discord.FR.xaml,Discord.StatementText48,Nuit Étoilée qui Brille dans l'Obscurité
-Launcher\Launcher.FR.xaml,Launcher.WallCustomizeText,Personnaliser le Papier Peint
-Launcher\Launcher.FR.xaml,Launcher.CreateLogText,Créer un Fichier Journal
-Launcher\Launcher.FR.xaml,Launcher.ExitText,Fermer
-Launcher\Launcher.FR.xaml,Launcher.OpenReportText,Signaler un Problème
-Launcher\Launcher.FR.xaml,Launcher.OpenText,Ouvrir Sucrose
-Launcher\Launcher.FR.xaml,Launcher.ReportText,Signaler Une Erreur
-Launcher\Launcher.FR.xaml,Launcher.ReportWindowTitle,Diagnostic de Sucrose
-Launcher\Launcher.FR.xaml,Launcher.SaveDialogFilter,Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*
-Launcher\Launcher.FR.xaml,Launcher.SaveDialogTitle,Enregistrer le Fichier Journal
-Launcher\Launcher.FR.xaml,Launcher.SettingText,Paramètres
-Launcher\Launcher.FR.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.FR.xaml,Launcher.WallChangeText,Changer le Papier Peint
-Launcher\Launcher.FR.xaml,Launcher.WallCloseText,Fermer les Fonds d'Écran
-Launcher\Launcher.FR.xaml,Launcher.WallOpenText,Ouvrir le Papier Peint
-Launcher\Launcher.FR.xaml,Launcher.WallStartText,Démarrer le Papier Peint
-Launcher\Launcher.FR.xaml,Launcher.WallStopText,Arrêter le Papier Peint
-Launcher\Launcher.FR.xaml,Launcher.UpdateText,Vérifier les Mises à Jour
+Launcher\Launcher.FR.xaml,Launcher.WallCustomizeText,Personnaliser le fond d'écran
 Launcher\Launcher.FR.xaml,,
-Launcher\Launcher.FR.xaml,Launcher.UpdateText.Done,Mises à Jour en Attente
-Launcher\Launcher.FR.xaml,Launcher.UpdateText.Check,Vérification des Mises à Jour
-Launcher\Launcher.FR.xaml,Launcher.UpdateText.Progress,Avancement de la Mise à Jour {0}
+Launcher\Launcher.FR.xaml,Launcher.CreateLogText,Créer un fichier journal
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.ExitText,Quitter
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.OpenReportText,Signaler un problème
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.OpenText,Ouvrir Sucrose
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.ReportText,Signaler un problème
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.ReportWindowTitle,Diagnostic de Sucrose
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.SaveDialogFilter,Fichiers ZIP (*.zip)|*.zip|Tous les fichiers (*.*)|*.*
+Launcher\Launcher.FR.xaml,Launcher.SaveDialogTitle,Enregistrer le fichier journal
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.SettingText,Paramètres
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.WallChangeText,Changer le fond d'écran
+Launcher\Launcher.FR.xaml,Launcher.WallCloseText,Fermer le fond d'écran
+Launcher\Launcher.FR.xaml,Launcher.WallOpenText,Ouvrir le fond d'écran
+Launcher\Launcher.FR.xaml,Launcher.WallStartText,Démarrer le fond d'écran
+Launcher\Launcher.FR.xaml,Launcher.WallStopText,Arrêter le fond d'écran
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.ClosedText,Fermé
+Launcher\Launcher.FR.xaml,Launcher.PausedText,En Pause
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.UpdateText,Vérifier les mises à jour
+Launcher\Launcher.FR.xaml,,
+Launcher\Launcher.FR.xaml,Launcher.UpdateText.Done,Préparation de la mise à jour
+Launcher\Launcher.FR.xaml,Launcher.UpdateText.Check,Vérification des mises à jour
+Launcher\Launcher.FR.xaml,Launcher.UpdateText.Progress,Progression de la mise à jour {0}
 Portal\Portal.FR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5GUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5GUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuRlIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuRlIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5GUi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.FR.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.FR.xaml,,

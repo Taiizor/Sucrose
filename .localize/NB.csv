@@ -103,27 +103,41 @@ Discord\Discord.NB.xaml,Discord.StatementText45,Drømmestien under stjernene
 Discord\Discord.NB.xaml,Discord.StatementText46,Den skjulte byen ved stjernebredden
 Discord\Discord.NB.xaml,Discord.StatementText47,Eventyret bak tåkefjellet
 Discord\Discord.NB.xaml,Discord.StatementText48,Stjernespekket natt i mørket
-Launcher\Launcher.NB.xaml,Launcher.WallCustomizeText,Tilpass Bakgrunnen
-Launcher\Launcher.NB.xaml,Launcher.CreateLogText,Opprett Loggfiler
+Launcher\Launcher.NB.xaml,Launcher.WallCustomizeText,Tilpass Bakgrunn
+Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.CreateLogText,Opprett Loggfil
+Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.ExitText,Avslutt
-Launcher\Launcher.NB.xaml,Launcher.OpenReportText,Rapporter et Problem
+Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.OpenReportText,Rapporter et problem
+Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.OpenText,Åpne Sucrose
-Launcher\Launcher.NB.xaml,Launcher.ReportText,Feilmelding
-Launcher\Launcher.NB.xaml,Launcher.ReportWindowTitle,Sucrose Diagnose
+Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.ReportText,Rapporter et problem
+Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostikk
+Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
 Launcher\Launcher.NB.xaml,Launcher.SaveDialogTitle,Lagre Loggfil
+Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.SettingText,Innstillinger
+Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.NB.xaml,,
 Launcher\Launcher.NB.xaml,Launcher.WallChangeText,Endre Bakgrunn
 Launcher\Launcher.NB.xaml,Launcher.WallCloseText,Lukk Bakgrunn
 Launcher\Launcher.NB.xaml,Launcher.WallOpenText,Åpne Bakgrunn
 Launcher\Launcher.NB.xaml,Launcher.WallStartText,Start Bakgrunn
 Launcher\Launcher.NB.xaml,Launcher.WallStopText,Stopp Bakgrunn
-Launcher\Launcher.NB.xaml,Launcher.UpdateText,Sjekk for Oppdateringer
 Launcher\Launcher.NB.xaml,,
-Launcher\Launcher.NB.xaml,Launcher.UpdateText.Done,Oppdateringer er klare
-Launcher\Launcher.NB.xaml,Launcher.UpdateText.Check,Sjekker Oppdateringer
-Launcher\Launcher.NB.xaml,Launcher.UpdateText.Progress,Oppdateringsframgang {0}
+Launcher\Launcher.NB.xaml,Launcher.ClosedText,Lukket
+Launcher\Launcher.NB.xaml,Launcher.PausedText,Pauset
+Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.UpdateText,Sjekk etter Oppdateringer
+Launcher\Launcher.NB.xaml,,
+Launcher\Launcher.NB.xaml,Launcher.UpdateText.Done,Forbereder Oppdatering
+Launcher\Launcher.NB.xaml,Launcher.UpdateText.Check,Sjekker etter Oppdateringer
+Launcher\Launcher.NB.xaml,Launcher.UpdateText.Progress,Oppdateringsprogresjon {0}
 Portal\Portal.NB.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93Lk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5OQi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.NB.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.NB.xaml,,

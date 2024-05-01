@@ -103,25 +103,39 @@ Discord\Discord.ID.xaml,Discord.StatementText45,Jejak Mimpi di Bawah Bintang-bin
 Discord\Discord.ID.xaml,Discord.StatementText46,Kota Kecil di Tepi Bintang yang Tersembunyi
 Discord\Discord.ID.xaml,Discord.StatementText47,Dongeng di Balik Gunung Kabut
 Discord\Discord.ID.xaml,Discord.StatementText48,Malam Berbintang yang Bersinar dalam Gelap
-Launcher\Launcher.ID.xaml,Launcher.WallCustomizeText,Sesuaikan Wallpaper
-Launcher\Launcher.ID.xaml,Launcher.CreateLogText,Buat Catatan
+Launcher\Launcher.ID.xaml,Launcher.WallCustomizeText,Kustomisasi Wallpaper
+Launcher\Launcher.ID.xaml,,
+Launcher\Launcher.ID.xaml,Launcher.CreateLogText,Buat File Log
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.ExitText,Keluar
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.OpenReportText,Laporkan Masalah
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.OpenText,Buka Sucrose
-Launcher\Launcher.ID.xaml,Launcher.ReportText,Laporkan Kesalahan
-Launcher\Launcher.ID.xaml,Launcher.ReportWindowTitle,Pemecahan Masalah Sucrose
+Launcher\Launcher.ID.xaml,,
+Launcher\Launcher.ID.xaml,Launcher.ReportText,Laporkan Masalah
+Launcher\Launcher.ID.xaml,,
+Launcher\Launcher.ID.xaml,Launcher.ReportWindowTitle,Diagnostik Sucrose
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.SaveDialogFilter,File ZIP (*.zip)|*.zip|Semua File (*.*)|*.*
-Launcher\Launcher.ID.xaml,Launcher.SaveDialogTitle,Simpan Catatan
+Launcher\Launcher.ID.xaml,Launcher.SaveDialogTitle,Simpan File Log
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.SettingText,Pengaturan
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.WallChangeText,Ubah Wallpaper
 Launcher\Launcher.ID.xaml,Launcher.WallCloseText,Tutup Wallpaper
 Launcher\Launcher.ID.xaml,Launcher.WallOpenText,Buka Wallpaper
 Launcher\Launcher.ID.xaml,Launcher.WallStartText,Mulai Wallpaper
 Launcher\Launcher.ID.xaml,Launcher.WallStopText,Hentikan Wallpaper
+Launcher\Launcher.ID.xaml,,
+Launcher\Launcher.ID.xaml,Launcher.ClosedText,Ditutup
+Launcher\Launcher.ID.xaml,Launcher.PausedText,Dijeda
+Launcher\Launcher.ID.xaml,,
 Launcher\Launcher.ID.xaml,Launcher.UpdateText,Periksa Pembaruan
 Launcher\Launcher.ID.xaml,,
-Launcher\Launcher.ID.xaml,Launcher.UpdateText.Done,Menunggu Pembaruan
+Launcher\Launcher.ID.xaml,Launcher.UpdateText.Done,Persiapan Pembaruan
 Launcher\Launcher.ID.xaml,Launcher.UpdateText.Check,Memeriksa Pembaruan
 Launcher\Launcher.ID.xaml,Launcher.UpdateText.Progress,Kemajuan Pembaruan {0}
 Portal\Portal.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5JRC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=

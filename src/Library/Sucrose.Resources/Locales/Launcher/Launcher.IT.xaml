@@ -3,24 +3,38 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.WallCustomizeText">Personalizza Sfondo</system:String>
-    <system:String x:Key="Launcher.CreateLogText">Crea un Log</system:String>
+
+    <system:String x:Key="Launcher.CreateLogText">Crea File di Registro</system:String>
+
     <system:String x:Key="Launcher.ExitText">Esci</system:String>
+
     <system:String x:Key="Launcher.OpenReportText">Segnala un Problema</system:String>
+
     <system:String x:Key="Launcher.OpenText">Apri Sucrose</system:String>
-    <system:String x:Key="Launcher.ReportText">Segnala un Errore</system:String>
-    <system:String x:Key="Launcher.ReportWindowTitle">Diagnostica Sucrose</system:String>
+
+    <system:String x:Key="Launcher.ReportText">Segnala un Problema</system:String>
+
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnostica di Sucrose</system:String>
+
     <system:String x:Key="Launcher.SaveDialogFilter">File ZIP (*.zip)|*.zip|Tutti i File (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Salva il Log</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Salva File di Registro</system:String>
+
     <system:String x:Key="Launcher.SettingText">Impostazioni</system:String>
+
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+
     <system:String x:Key="Launcher.WallChangeText">Cambia Sfondo</system:String>
     <system:String x:Key="Launcher.WallCloseText">Chiudi Sfondo</system:String>
     <system:String x:Key="Launcher.WallOpenText">Apri Sfondo</system:String>
     <system:String x:Key="Launcher.WallStartText">Avvia Sfondo</system:String>
-    <system:String x:Key="Launcher.WallStopText">Ferma Sfondo</system:String>
-    <system:String x:Key="Launcher.UpdateText">Controlla Aggiornamenti</system:String>
+    <system:String x:Key="Launcher.WallStopText">Arresta Sfondo</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Aggiornamenti in Sospeso</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Verifica Aggiornamenti</system:String>
-    <system:String x:Key="Launcher.UpdateText.Progress">Progresso Aggiornamento {0}</system:String>
+    <system:String x:Key="Launcher.ClosedText">Chiuso</system:String>
+    <system:String x:Key="Launcher.PausedText">In pausa</system:String>
+
+    <system:String x:Key="Launcher.UpdateText">Verifica Aggiornamenti</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Preparazione Aggiornamento</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Controllo Aggiornamenti</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Avanzamento Aggiornamento {0}</system:String>
 </ResourceDictionary>

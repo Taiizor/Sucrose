@@ -104,25 +104,39 @@ Discord\Discord.ZH.xaml,Discord.StatementText46,星边小镇的秘密世界
 Discord\Discord.ZH.xaml,Discord.StatementText47,雾山背后的童话
 Discord\Discord.ZH.xaml,Discord.StatementText48,黑夜中闪烁的星星之夜
 Launcher\Launcher.ZH.xaml,Launcher.WallCustomizeText,自定义壁纸
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.CreateLogText,创建日志文件
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.ExitText,退出
-Launcher\Launcher.ZH.xaml,Launcher.OpenReportText,打开报告
-Launcher\Launcher.ZH.xaml,Launcher.OpenText,打开 Sucrose
+Launcher\Launcher.ZH.xaml,,
+Launcher\Launcher.ZH.xaml,Launcher.OpenReportText,报告问题
+Launcher\Launcher.ZH.xaml,,
+Launcher\Launcher.ZH.xaml,Launcher.OpenText,打开Sucrose
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.ReportText,报告问题
-Launcher\Launcher.ZH.xaml,Launcher.ReportWindowTitle,Sucrose 诊断
-Launcher\Launcher.ZH.xaml,Launcher.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*
+Launcher\Launcher.ZH.xaml,,
+Launcher\Launcher.ZH.xaml,Launcher.ReportWindowTitle,Sucrose诊断
+Launcher\Launcher.ZH.xaml,,
+Launcher\Launcher.ZH.xaml,Launcher.SaveDialogFilter,ZIP文件 (*.zip)|*.zip|所有文件 (*.*)|*.*
 Launcher\Launcher.ZH.xaml,Launcher.SaveDialogTitle,保存日志文件
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.SettingText,设置
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.WallChangeText,更改壁纸
 Launcher\Launcher.ZH.xaml,Launcher.WallCloseText,关闭壁纸
 Launcher\Launcher.ZH.xaml,Launcher.WallOpenText,打开壁纸
 Launcher\Launcher.ZH.xaml,Launcher.WallStartText,启动壁纸
 Launcher\Launcher.ZH.xaml,Launcher.WallStopText,停止壁纸
+Launcher\Launcher.ZH.xaml,,
+Launcher\Launcher.ZH.xaml,Launcher.ClosedText,已关闭
+Launcher\Launcher.ZH.xaml,Launcher.PausedText,已暂停
+Launcher\Launcher.ZH.xaml,,
 Launcher\Launcher.ZH.xaml,Launcher.UpdateText,检查更新
 Launcher\Launcher.ZH.xaml,,
-Launcher\Launcher.ZH.xaml,Launcher.UpdateText.Done,等待更新
-Launcher\Launcher.ZH.xaml,Launcher.UpdateText.Check,检查更新中
+Launcher\Launcher.ZH.xaml,Launcher.UpdateText.Done,准备更新
+Launcher\Launcher.ZH.xaml,Launcher.UpdateText.Check,检查更新
 Launcher\Launcher.ZH.xaml,Launcher.UpdateText.Progress,更新进度 {0}
 Portal\Portal.ZH.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5aSC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.ZH.xaml,Property.WindowTitle,Sucrose Property

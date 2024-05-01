@@ -104,24 +104,38 @@ Discord\Discord.SV.xaml,Discord.StatementText46,Den Hemliga Stadens Kustnära St
 Discord\Discord.SV.xaml,Discord.StatementText47,En Saga bakom Dimberget
 Discord\Discord.SV.xaml,Discord.StatementText48,Stjärnklar Natt bakom Mörkret
 Launcher\Launcher.SV.xaml,Launcher.WallCustomizeText,Anpassa Bakgrund
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.CreateLogText,Skapa Loggfil
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.ExitText,Avsluta
-Launcher\Launcher.SV.xaml,Launcher.OpenReportText,Rapportera Ett Problem
+Launcher\Launcher.SV.xaml,,
+Launcher\Launcher.SV.xaml,Launcher.OpenReportText,Rapportera ett Problem
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.OpenText,Öppna Sucrose
-Launcher\Launcher.SV.xaml,Launcher.ReportText,Rapportera Fel
+Launcher\Launcher.SV.xaml,,
+Launcher\Launcher.SV.xaml,Launcher.ReportText,Rapportera ett Problem
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.ReportWindowTitle,Sucrose Diagnostik
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
 Launcher\Launcher.SV.xaml,Launcher.SaveDialogTitle,Spara Loggfil
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.SettingText,Inställningar
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.SV.xaml,Launcher.WallChangeText,Byt Bakgrund
+Launcher\Launcher.SV.xaml,,
+Launcher\Launcher.SV.xaml,Launcher.WallChangeText,Ändra Bakgrund
 Launcher\Launcher.SV.xaml,Launcher.WallCloseText,Stäng Bakgrund
 Launcher\Launcher.SV.xaml,Launcher.WallOpenText,Öppna Bakgrund
 Launcher\Launcher.SV.xaml,Launcher.WallStartText,Starta Bakgrund
 Launcher\Launcher.SV.xaml,Launcher.WallStopText,Stoppa Bakgrund
+Launcher\Launcher.SV.xaml,,
+Launcher\Launcher.SV.xaml,Launcher.ClosedText,Stängd
+Launcher\Launcher.SV.xaml,Launcher.PausedText,Pausad
+Launcher\Launcher.SV.xaml,,
 Launcher\Launcher.SV.xaml,Launcher.UpdateText,Kontrollera Uppdateringar
 Launcher\Launcher.SV.xaml,,
-Launcher\Launcher.SV.xaml,Launcher.UpdateText.Done,Uppdateringar Väntar
+Launcher\Launcher.SV.xaml,Launcher.UpdateText.Done,Förbereder Uppdatering
 Launcher\Launcher.SV.xaml,Launcher.UpdateText.Check,Kontrollerar Uppdateringar
 Launcher\Launcher.SV.xaml,Launcher.UpdateText.Progress,Uppdateringsframsteg {0}
 Portal\Portal.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5TVi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=

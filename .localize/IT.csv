@@ -104,26 +104,40 @@ Discord\Discord.IT.xaml,Discord.StatementText46,Villaggio Nascosto lungo la Riva
 Discord\Discord.IT.xaml,Discord.StatementText47,Favola dietro la Montagna Nebbiosa
 Discord\Discord.IT.xaml,Discord.StatementText48,Notte Stellata che Brilla nel Buio
 Launcher\Launcher.IT.xaml,Launcher.WallCustomizeText,Personalizza Sfondo
-Launcher\Launcher.IT.xaml,Launcher.CreateLogText,Crea un Log
+Launcher\Launcher.IT.xaml,,
+Launcher\Launcher.IT.xaml,Launcher.CreateLogText,Crea File di Registro
+Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.ExitText,Esci
+Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.OpenReportText,Segnala un Problema
+Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.OpenText,Apri Sucrose
-Launcher\Launcher.IT.xaml,Launcher.ReportText,Segnala un Errore
-Launcher\Launcher.IT.xaml,Launcher.ReportWindowTitle,Diagnostica Sucrose
+Launcher\Launcher.IT.xaml,,
+Launcher\Launcher.IT.xaml,Launcher.ReportText,Segnala un Problema
+Launcher\Launcher.IT.xaml,,
+Launcher\Launcher.IT.xaml,Launcher.ReportWindowTitle,Diagnostica di Sucrose
+Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.SaveDialogFilter,File ZIP (*.zip)|*.zip|Tutti i File (*.*)|*.*
-Launcher\Launcher.IT.xaml,Launcher.SaveDialogTitle,Salva il Log
+Launcher\Launcher.IT.xaml,Launcher.SaveDialogTitle,Salva File di Registro
+Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.SettingText,Impostazioni
+Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.IT.xaml,,
 Launcher\Launcher.IT.xaml,Launcher.WallChangeText,Cambia Sfondo
 Launcher\Launcher.IT.xaml,Launcher.WallCloseText,Chiudi Sfondo
 Launcher\Launcher.IT.xaml,Launcher.WallOpenText,Apri Sfondo
 Launcher\Launcher.IT.xaml,Launcher.WallStartText,Avvia Sfondo
-Launcher\Launcher.IT.xaml,Launcher.WallStopText,Ferma Sfondo
-Launcher\Launcher.IT.xaml,Launcher.UpdateText,Controlla Aggiornamenti
+Launcher\Launcher.IT.xaml,Launcher.WallStopText,Arresta Sfondo
 Launcher\Launcher.IT.xaml,,
-Launcher\Launcher.IT.xaml,Launcher.UpdateText.Done,Aggiornamenti in Sospeso
-Launcher\Launcher.IT.xaml,Launcher.UpdateText.Check,Verifica Aggiornamenti
-Launcher\Launcher.IT.xaml,Launcher.UpdateText.Progress,Progresso Aggiornamento {0}
+Launcher\Launcher.IT.xaml,Launcher.ClosedText,Chiuso
+Launcher\Launcher.IT.xaml,Launcher.PausedText,In pausa
+Launcher\Launcher.IT.xaml,,
+Launcher\Launcher.IT.xaml,Launcher.UpdateText,Verifica Aggiornamenti
+Launcher\Launcher.IT.xaml,,
+Launcher\Launcher.IT.xaml,Launcher.UpdateText.Done,Preparazione Aggiornamento
+Launcher\Launcher.IT.xaml,Launcher.UpdateText.Check,Controllo Aggiornamenti
+Launcher\Launcher.IT.xaml,Launcher.UpdateText.Progress,Avanzamento Aggiornamento {0}
 Portal\Portal.IT.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5JVC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5JVC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LklULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSVQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLklULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LklULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSVQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5JVC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.IT.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.IT.xaml,,

@@ -103,25 +103,39 @@ Discord\Discord.JA.xaml,Discord.StatementText45,夜空の星の下の夢の道
 Discord\Discord.JA.xaml,Discord.StatementText46,星の岸辺の隠れた町
 Discord\Discord.JA.xaml,Discord.StatementText47,霧の山の向こうの物語
 Discord\Discord.JA.xaml,Discord.StatementText48,暗闇に輝く星の夜
-Launcher\Launcher.JA.xaml,Launcher.WallCustomizeText,壁紙のカスタマイズ
+Launcher\Launcher.JA.xaml,Launcher.WallCustomizeText,壁紙をカスタマイズ
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.CreateLogText,ログファイルを作成
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.ExitText,終了
-Launcher\Launcher.JA.xaml,Launcher.OpenReportText,問題を報告する
+Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.OpenReportText,問題を報告
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.OpenText,Sucroseを開く
-Launcher\Launcher.JA.xaml,Launcher.ReportText,エラーを報告
-Launcher\Launcher.JA.xaml,Launcher.ReportWindowTitle,Sucrose 診断
-Launcher\Launcher.JA.xaml,Launcher.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
+Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.ReportText,問題を報告
+Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.ReportWindowTitle,Sucrose診断
+Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.SaveDialogFilter,ZIPファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
 Launcher\Launcher.JA.xaml,Launcher.SaveDialogTitle,ログファイルを保存
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.SettingText,設定
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.WallChangeText,壁紙を変更
 Launcher\Launcher.JA.xaml,Launcher.WallCloseText,壁紙を閉じる
 Launcher\Launcher.JA.xaml,Launcher.WallOpenText,壁紙を開く
 Launcher\Launcher.JA.xaml,Launcher.WallStartText,壁紙を開始
 Launcher\Launcher.JA.xaml,Launcher.WallStopText,壁紙を停止
+Launcher\Launcher.JA.xaml,,
+Launcher\Launcher.JA.xaml,Launcher.ClosedText,閉じられました
+Launcher\Launcher.JA.xaml,Launcher.PausedText,一時停止中
+Launcher\Launcher.JA.xaml,,
 Launcher\Launcher.JA.xaml,Launcher.UpdateText,更新を確認
 Launcher\Launcher.JA.xaml,,
-Launcher\Launcher.JA.xaml,Launcher.UpdateText.Done,更新が待機中
+Launcher\Launcher.JA.xaml,Launcher.UpdateText.Done,更新の準備中
 Launcher\Launcher.JA.xaml,Launcher.UpdateText.Check,更新を確認中
 Launcher\Launcher.JA.xaml,Launcher.UpdateText.Progress,更新進行中 {0}
 Portal\Portal.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=

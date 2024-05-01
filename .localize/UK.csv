@@ -104,26 +104,40 @@ Discord\Discord.UK.xaml,Discord.StatementText46,Секретне Місто бі
 Discord\Discord.UK.xaml,Discord.StatementText47,Сага За Туманом Гори
 Discord\Discord.UK.xaml,Discord.StatementText48,Зіркова Ніч за Темрявою
 Launcher\Launcher.UK.xaml,Launcher.WallCustomizeText,Налаштувати шпалери
-Launcher\Launcher.UK.xaml,Launcher.CreateLogText,Створити журнал
-Launcher\Launcher.UK.xaml,Launcher.ExitText,Вихід
+Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.CreateLogText,Створити файл журналу
+Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.ExitText,Вийти
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.OpenReportText,Повідомити про проблему
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.OpenText,Відкрити Sucrose
-Launcher\Launcher.UK.xaml,Launcher.ReportText,Повідомлення про помилку
+Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.ReportText,Повідомити про проблему
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.ReportWindowTitle,Діагностика Sucrose
-Launcher\Launcher.UK.xaml,Launcher.SaveDialogFilter,ZIP-файли (*.zip)|*.zip|Усі файли (*.*)|*.*
-Launcher\Launcher.UK.xaml,Launcher.SaveDialogTitle,Зберегти журнал
+Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*
+Launcher\Launcher.UK.xaml,Launcher.SaveDialogTitle,Зберегти файл журналу
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.SettingText,Налаштування
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.WallChangeText,Змінити шпалери
 Launcher\Launcher.UK.xaml,Launcher.WallCloseText,Закрити шпалери
 Launcher\Launcher.UK.xaml,Launcher.WallOpenText,Відкрити шпалери
 Launcher\Launcher.UK.xaml,Launcher.WallStartText,Запустити шпалери
 Launcher\Launcher.UK.xaml,Launcher.WallStopText,Зупинити шпалери
+Launcher\Launcher.UK.xaml,,
+Launcher\Launcher.UK.xaml,Launcher.ClosedText,Закрито
+Launcher\Launcher.UK.xaml,Launcher.PausedText,Призупинено
+Launcher\Launcher.UK.xaml,,
 Launcher\Launcher.UK.xaml,Launcher.UpdateText,Перевірити оновлення
 Launcher\Launcher.UK.xaml,,
-Launcher\Launcher.UK.xaml,Launcher.UpdateText.Done,Оновлення готове
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Done,Підготовка оновлення
 Launcher\Launcher.UK.xaml,Launcher.UpdateText.Check,Перевірка оновлень
-Launcher\Launcher.UK.xaml,Launcher.UpdateText.Progress,Процес оновлення {0}
+Launcher\Launcher.UK.xaml,Launcher.UpdateText.Progress,Прогрес оновлення {0}
 Portal\Portal.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.UK.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.UK.xaml,,

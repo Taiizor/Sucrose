@@ -3,24 +3,38 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Launcher.WallCustomizeText">Sesuaikan Wallpaper</system:String>
-    <system:String x:Key="Launcher.CreateLogText">Log Cipta</system:String>
+
+    <system:String x:Key="Launcher.CreateLogText">Cipta Fail Log</system:String>
+
     <system:String x:Key="Launcher.ExitText">Keluar</system:String>
+
     <system:String x:Key="Launcher.OpenReportText">Laporkan Masalah</system:String>
+
     <system:String x:Key="Launcher.OpenText">Buka Sucrose</system:String>
+
     <system:String x:Key="Launcher.ReportText">Laporkan Masalah</system:String>
-    <system:String x:Key="Launcher.ReportWindowTitle">Sucrose Diagnosis</system:String>
+
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnostik Sucrose</system:String>
+
     <system:String x:Key="Launcher.SaveDialogFilter">Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*</system:String>
     <system:String x:Key="Launcher.SaveDialogTitle">Simpan Fail Log</system:String>
+
     <system:String x:Key="Launcher.SettingText">Tetapan</system:String>
+
     <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
-    <system:String x:Key="Launcher.WallChangeText">Ubah Wallpaper</system:String>
+
+    <system:String x:Key="Launcher.WallChangeText">Tukar Wallpaper</system:String>
     <system:String x:Key="Launcher.WallCloseText">Tutup Wallpaper</system:String>
     <system:String x:Key="Launcher.WallOpenText">Buka Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStartText">Mulakan Wallpaper</system:String>
     <system:String x:Key="Launcher.WallStopText">Hentikan Wallpaper</system:String>
+
+    <system:String x:Key="Launcher.ClosedText">Ditutup</system:String>
+    <system:String x:Key="Launcher.PausedText">Dijeda</system:String>
+
     <system:String x:Key="Launcher.UpdateText">Semak Kemas Kini</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Kemas Kini Tersedia</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Sedang Mengecek Kemas Kini</system:String>
+    <system:String x:Key="Launcher.UpdateText.Done">Sedang Menyediakan Kemas Kini</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Memeriksa Kemas Kini</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Kemajuan Kemas Kini {0}</system:String>
 </ResourceDictionary>

@@ -2,25 +2,39 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Launcher.WallCustomizeText">Personnaliser le Papier Peint</system:String>
-    <system:String x:Key="Launcher.CreateLogText">Créer un Fichier Journal</system:String>
-    <system:String x:Key="Launcher.ExitText">Fermer</system:String>
-    <system:String x:Key="Launcher.OpenReportText">Signaler un Problème</system:String>
-    <system:String x:Key="Launcher.OpenText">Ouvrir Sucrose</system:String>
-    <system:String x:Key="Launcher.ReportText">Signaler Une Erreur</system:String>
-    <system:String x:Key="Launcher.ReportWindowTitle">Diagnostic de Sucrose</system:String>
-    <system:String x:Key="Launcher.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
-    <system:String x:Key="Launcher.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
-    <system:String x:Key="Launcher.SettingText">Paramètres</system:String>
-    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
-    <system:String x:Key="Launcher.WallChangeText">Changer le Papier Peint</system:String>
-    <system:String x:Key="Launcher.WallCloseText">Fermer les Fonds d'Écran</system:String>
-    <system:String x:Key="Launcher.WallOpenText">Ouvrir le Papier Peint</system:String>
-    <system:String x:Key="Launcher.WallStartText">Démarrer le Papier Peint</system:String>
-    <system:String x:Key="Launcher.WallStopText">Arrêter le Papier Peint</system:String>
-    <system:String x:Key="Launcher.UpdateText">Vérifier les Mises à Jour</system:String>
+    <system:String x:Key="Launcher.WallCustomizeText">Personnaliser le fond d'écran</system:String>
 
-    <system:String x:Key="Launcher.UpdateText.Done">Mises à Jour en Attente</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Vérification des Mises à Jour</system:String>
-    <system:String x:Key="Launcher.UpdateText.Progress">Avancement de la Mise à Jour {0}</system:String>
+    <system:String x:Key="Launcher.CreateLogText">Créer un fichier journal</system:String>
+
+    <system:String x:Key="Launcher.ExitText">Quitter</system:String>
+
+    <system:String x:Key="Launcher.OpenReportText">Signaler un problème</system:String>
+
+    <system:String x:Key="Launcher.OpenText">Ouvrir Sucrose</system:String>
+
+    <system:String x:Key="Launcher.ReportText">Signaler un problème</system:String>
+
+    <system:String x:Key="Launcher.ReportWindowTitle">Diagnostic de Sucrose</system:String>
+
+    <system:String x:Key="Launcher.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les fichiers (*.*)|*.*</system:String>
+    <system:String x:Key="Launcher.SaveDialogTitle">Enregistrer le fichier journal</system:String>
+
+    <system:String x:Key="Launcher.SettingText">Paramètres</system:String>
+
+    <system:String x:Key="Launcher.TrayText">Sucrose Wallpaper Engine</system:String>
+
+    <system:String x:Key="Launcher.WallChangeText">Changer le fond d'écran</system:String>
+    <system:String x:Key="Launcher.WallCloseText">Fermer le fond d'écran</system:String>
+    <system:String x:Key="Launcher.WallOpenText">Ouvrir le fond d'écran</system:String>
+    <system:String x:Key="Launcher.WallStartText">Démarrer le fond d'écran</system:String>
+    <system:String x:Key="Launcher.WallStopText">Arrêter le fond d'écran</system:String>
+
+    <system:String x:Key="Launcher.ClosedText">Fermé</system:String>
+    <system:String x:Key="Launcher.PausedText">En Pause</system:String>
+
+    <system:String x:Key="Launcher.UpdateText">Vérifier les mises à jour</system:String>
+
+    <system:String x:Key="Launcher.UpdateText.Done">Préparation de la mise à jour</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Vérification des mises à jour</system:String>
+    <system:String x:Key="Launcher.UpdateText.Progress">Progression de la mise à jour {0}</system:String>
 </ResourceDictionary>

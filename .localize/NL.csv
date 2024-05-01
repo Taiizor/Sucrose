@@ -103,26 +103,40 @@ Discord\Discord.NL.xaml,Discord.StatementText45,Droompad onder de Sterren
 Discord\Discord.NL.xaml,Discord.StatementText46,Verborgen Stad aan de Sterrenkust
 Discord\Discord.NL.xaml,Discord.StatementText47,Het Avontuur achter de Mistige Berg
 Discord\Discord.NL.xaml,Discord.StatementText48,Sterrennacht die Schittert in het Donker
-Launcher\Launcher.NL.xaml,Launcher.WallCustomizeText,Achtergrond Aanpassen
-Launcher\Launcher.NL.xaml,Launcher.CreateLogText,Logbestand Maken
-Launcher\Launcher.NL.xaml,Launcher.ExitText,Afsluiten
-Launcher\Launcher.NL.xaml,Launcher.OpenReportText,Een Probleem Melden
-Launcher\Launcher.NL.xaml,Launcher.OpenText,Sucrose Openen
-Launcher\Launcher.NL.xaml,Launcher.ReportText,Probleem Rapporteren
-Launcher\Launcher.NL.xaml,Launcher.ReportWindowTitle,Sucrose Diagnose
-Launcher\Launcher.NL.xaml,Launcher.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle Bestanden (*.*)|*.*
-Launcher\Launcher.NL.xaml,Launcher.SaveDialogTitle,Logbestand Opslaan
-Launcher\Launcher.NL.xaml,Launcher.SettingText,Instellingen
-Launcher\Launcher.NL.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
-Launcher\Launcher.NL.xaml,Launcher.WallChangeText,Achtergrond Wijzigen
-Launcher\Launcher.NL.xaml,Launcher.WallCloseText,Achtergrond Sluiten
-Launcher\Launcher.NL.xaml,Launcher.WallOpenText,Achtergrond Openen
-Launcher\Launcher.NL.xaml,Launcher.WallStartText,Achtergrond Starten
-Launcher\Launcher.NL.xaml,Launcher.WallStopText,Achtergrond Stoppen
-Launcher\Launcher.NL.xaml,Launcher.UpdateText,Updates Controleren
+Launcher\Launcher.NL.xaml,Launcher.WallCustomizeText,Achtergrond aanpassen
 Launcher\Launcher.NL.xaml,,
-Launcher\Launcher.NL.xaml,Launcher.UpdateText.Done,Updates in Afwachting
-Launcher\Launcher.NL.xaml,Launcher.UpdateText.Check,Updates Worden Gecontroleerd
+Launcher\Launcher.NL.xaml,Launcher.CreateLogText,Logbestand maken
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.ExitText,Afsluiten
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.OpenReportText,Probleem melden
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.OpenText,Sucrose openen
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.ReportText,Probleem melden
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.ReportWindowTitle,Sucrose Diagnose
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*
+Launcher\Launcher.NL.xaml,Launcher.SaveDialogTitle,Logbestand opslaan
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.SettingText,Instellingen
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.TrayText,Sucrose Wallpaper Engine
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.WallChangeText,Achtergrond wijzigen
+Launcher\Launcher.NL.xaml,Launcher.WallCloseText,Achtergrond sluiten
+Launcher\Launcher.NL.xaml,Launcher.WallOpenText,Achtergrond openen
+Launcher\Launcher.NL.xaml,Launcher.WallStartText,Achtergrond starten
+Launcher\Launcher.NL.xaml,Launcher.WallStopText,Achtergrond stoppen
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.ClosedText,Gesloten
+Launcher\Launcher.NL.xaml,Launcher.PausedText,Gepauzeerd
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.UpdateText,Controleren op updates
+Launcher\Launcher.NL.xaml,,
+Launcher\Launcher.NL.xaml,Launcher.UpdateText.Done,Update voorbereiden
+Launcher\Launcher.NL.xaml,Launcher.UpdateText.Check,Controleren op updates
 Launcher\Launcher.NL.xaml,Launcher.UpdateText.Progress,Updatevoortgang {0}
 Portal\Portal.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93Lk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5OTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.NL.xaml,Property.WindowTitle,Sucrose Property
