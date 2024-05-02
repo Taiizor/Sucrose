@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">漫画书</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">数字艺术</system:String>
     <system:String x:Key="Portal.Category.Dynamic">动态</system:String>
+    <system:String x:Key="Portal.Category.Education">教育</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">仙境森林</system:String>
     <system:String x:Key="Portal.Category.Fantasy">幻想</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">电影和电视</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">图案和纹理</system:String>
     <system:String x:Key="Portal.Category.Retro">复古</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">科学</system:String>
     <system:String x:Key="Portal.Category.Sky">天空</system:String>
     <system:String x:Key="Portal.Category.Space">太空</system:String>
     <system:String x:Key="Portal.Category.Sports">体育</system:String>

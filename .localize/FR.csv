@@ -262,6 +262,7 @@ Portal\Category\Portal.Category.FR.xaml,Portal.Category.ColorfulGradients,Dégra
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.ComicBooks,Bandes Dessinées
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.DigitalArt,Art Numérique
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.Dynamic,Dynamique
+Portal\Category\Portal.Category.FR.xaml,Portal.Category.Education,Éducation
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.EnchantedForests,Forêts Enchantées
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.Fantasy,Fantaisie
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.FilmandTV,Film &amp; Télévision
@@ -283,7 +284,8 @@ Portal\Category\Portal.Category.FR.xaml,Portal.Category.Nature,Nature
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.Nightscapes,Paysages Nocturnes
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.PatternsandTextures,Motifs &amp; Textures
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.Retro,Rétro
-Portal\Category\Portal.Category.FR.xaml,Portal.Category.RGB,RVB
+Portal\Category\Portal.Category.FR.xaml,Portal.Category.RGB,RGB
+Portal\Category\Portal.Category.FR.xaml,Portal.Category.Science,Science
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.Sky,Ciel
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.Space,Espace
 Portal\Category\Portal.Category.FR.xaml,Portal.Category.Sports,Sports

@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Çizgi Romanlar</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Dijital Sanat</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dinamik</system:String>
+    <system:String x:Key="Portal.Category.Education">Eğitim</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Büyülü Ormanlar</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantezi</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film ve Dizi</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Desenler ve Dokular</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Bilim</system:String>
     <system:String x:Key="Portal.Category.Sky">Gökyüzü</system:String>
     <system:String x:Key="Portal.Category.Space">Uzay</system:String>
     <system:String x:Key="Portal.Category.Sports">Spor</system:String>

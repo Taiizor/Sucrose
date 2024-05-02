@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Tegneserier</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digital Kunst</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamisk</system:String>
+    <system:String x:Key="Portal.Category.Education">Uddannelse</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Fortryllede Skove</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasi</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film og TV</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Mønstre og Teksturer</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Videnskab</system:String>
     <system:String x:Key="Portal.Category.Sky">Himmel</system:String>
     <system:String x:Key="Portal.Category.Space">Rummet</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>

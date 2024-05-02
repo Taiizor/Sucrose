@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Stripboeken</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digitale Kunst</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamisch</system:String>
+    <system:String x:Key="Portal.Category.Education">Onderwijs</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Betoverde Bossen</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasie</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film en TV</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Patronen en Texturen</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Wetenschap</system:String>
     <system:String x:Key="Portal.Category.Sky">Lucht</system:String>
     <system:String x:Key="Portal.Category.Space">Ruimte</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>

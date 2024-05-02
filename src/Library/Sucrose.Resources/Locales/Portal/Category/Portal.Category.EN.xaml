@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Comic Books</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digital Art</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamic</system:String>
+    <system:String x:Key="Portal.Category.Education">Education</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Enchanted Forests</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasy</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film &amp; TV</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Patterns &amp; Textures</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Science</system:String>
     <system:String x:Key="Portal.Category.Sky">Sky</system:String>
     <system:String x:Key="Portal.Category.Space">Space</system:String>
     <system:String x:Key="Portal.Category.Sports">Sports</system:String>

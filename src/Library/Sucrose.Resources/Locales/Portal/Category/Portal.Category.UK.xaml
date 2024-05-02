@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Комікси</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Цифрове Мистецтво</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Динамічне</system:String>
+    <system:String x:Key="Portal.Category.Education">Освіта</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Зачаровані Ліси</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Фентезі</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Фільми та Телебачення</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Візерунки та Текстури</system:String>
     <system:String x:Key="Portal.Category.Retro">Ретро</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Наука</system:String>
     <system:String x:Key="Portal.Category.Sky">Небо</system:String>
     <system:String x:Key="Portal.Category.Space">Космос</system:String>
     <system:String x:Key="Portal.Category.Sports">Спорт</system:String>

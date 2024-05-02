@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">コミックブック</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">デジタルアート</system:String>
     <system:String x:Key="Portal.Category.Dynamic">ダイナミック</system:String>
+    <system:String x:Key="Portal.Category.Education">教育</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">魔法の森</system:String>
     <system:String x:Key="Portal.Category.Fantasy">ファンタジー</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">映画とテレビ</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">パターンとテクスチャ</system:String>
     <system:String x:Key="Portal.Category.Retro">レトロ</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">科学</system:String>
     <system:String x:Key="Portal.Category.Sky">空</system:String>
     <system:String x:Key="Portal.Category.Space">宇宙</system:String>
     <system:String x:Key="Portal.Category.Sports">スポーツ</system:String>

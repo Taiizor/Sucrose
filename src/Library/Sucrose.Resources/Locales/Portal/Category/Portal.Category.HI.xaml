@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">कॉमिक बुक्स</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">डिजिटल कला</system:String>
     <system:String x:Key="Portal.Category.Dynamic">गतिशील</system:String>
+    <system:String x:Key="Portal.Category.Education">शिक्षा</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">मोहक जंगल</system:String>
     <system:String x:Key="Portal.Category.Fantasy">काल्पनिक</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">फिल्म और टीवी</system:String>
@@ -42,7 +43,8 @@
     <system:String x:Key="Portal.Category.Nightscapes">रात्रि दृश्य</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">पैटर्न और टेक्सचर्स</system:String>
     <system:String x:Key="Portal.Category.Retro">रेट्रो</system:String>
-    <system:String x:Key="Portal.Category.RGB">रेड-ग्रीन-ब्लू</system:String>
+    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">विज्ञान</system:String>
     <system:String x:Key="Portal.Category.Sky">आकाश</system:String>
     <system:String x:Key="Portal.Category.Space">अंतरिक्ष</system:String>
     <system:String x:Key="Portal.Category.Sports">खेल</system:String>

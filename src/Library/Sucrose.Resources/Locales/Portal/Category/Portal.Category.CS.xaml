@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Komiksy</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digitální Umění</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dynamické</system:String>
+    <system:String x:Key="Portal.Category.Education">Vzdělání</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Zakouzlené Lesy</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantazie</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film a Televize</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Vzory a Textury</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Věda</system:String>
     <system:String x:Key="Portal.Category.Sky">Obloha</system:String>
     <system:String x:Key="Portal.Category.Space">Vesmír</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>

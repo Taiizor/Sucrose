@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Buku Komik</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Seni Digital</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dinamik</system:String>
+    <system:String x:Key="Portal.Category.Education">Pendidikan</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Hutan yang Dikecapi</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasi</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Filem dan TV</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Corak dan Tekstur</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Sains</system:String>
     <system:String x:Key="Portal.Category.Sky">Langit</system:String>
     <system:String x:Key="Portal.Category.Space">Angkasa</system:String>
     <system:String x:Key="Portal.Category.Sports">Sukan</system:String>

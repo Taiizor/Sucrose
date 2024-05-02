@@ -21,6 +21,7 @@
     <system:String x:Key="Portal.Category.ComicBooks">Benzi desenate</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Artă Digitală</system:String>
     <system:String x:Key="Portal.Category.Dynamic">Dinamic</system:String>
+    <system:String x:Key="Portal.Category.Education">Educație</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Păduri Fermecate</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantezie</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film și TV</system:String>
@@ -43,6 +44,7 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Modele și Texturi</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
+    <system:String x:Key="Portal.Category.Science">Știință</system:String>
     <system:String x:Key="Portal.Category.Sky">Cer</system:String>
     <system:String x:Key="Portal.Category.Space">Spațiu</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>
