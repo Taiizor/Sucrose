@@ -10,8 +10,10 @@ using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSEAVA = Sucrose.Shared.Engine.Aurora.View.Application;
+using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -145,6 +147,8 @@ namespace Sucrose.Live.Aurora
                         {
                             SSSHS.Apply();
 
+                            SSEHC.Start();
+
                             switch (SSEMI.Info.Type)
                             {
                                 case SSDEWT.Application:
@@ -192,7 +196,14 @@ namespace Sucrose.Live.Aurora
 
             if (SSSHI.Basic(SMR.LiveMutex, SMR.AuroraLive) && SSEHR.Check())
             {
-                Configure();
+                if (SSSHC.Check())
+                {
+                    SSSHC.Change();
+                }
+                else
+                {
+                    Configure();
+                }
             }
             else
             {

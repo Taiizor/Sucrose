@@ -10,6 +10,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
@@ -20,6 +21,7 @@ using SSEWVVV = Sucrose.Shared.Engine.WebView.View.Video;
 using SSEWVVW = Sucrose.Shared.Engine.WebView.View.Web;
 using SSEWVVYT = Sucrose.Shared.Engine.WebView.View.YouTube;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
+using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -176,6 +178,8 @@ namespace Sucrose.Live.WebView
                     {
                         SSSHS.Apply();
 
+                        SSEHC.Start();
+
                         if (File.Exists(SSEMI.PropertiesPath))
                         {
                             SSEMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
@@ -282,7 +286,14 @@ namespace Sucrose.Live.WebView
 
             if (SSSHI.Basic(SMR.LiveMutex, SMR.WebViewLive) && SSEHR.Check())
             {
-                Configure();
+                if (SSSHC.Check())
+                {
+                    SSSHC.Change();
+                }
+                else
+                {
+                    Configure();
+                }
             }
             else
             {

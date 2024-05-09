@@ -4,8 +4,11 @@ using SCHS = Sucrose.Commandog.Helper.Scheduler;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
+using SSLHK = Sucrose.Shared.Live.Helper.Kill;
+using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSSHE = Sucrose.Shared.Space.Helper.Export;
 using SSSHI = Sucrose.Shared.Space.Helper.Import;
+using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHR = Sucrose.Shared.Space.Helper.Reset;
 using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
@@ -113,6 +116,14 @@ namespace Sucrose.Commandog.Helper
                                     break;
                                 case SSDECT.Startup:
                                     SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
+                                    break;
+                                case SSDECT.Cycyling:
+                                    if (SSSHL.Run())
+                                    {
+                                        SSLHK.Stop();
+                                    }
+
+                                    SSLHR.Start();
                                     break;
                                 case SSDECT.Property:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));

@@ -9,9 +9,11 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEVVG = Sucrose.Shared.Engine.Vexana.View.Gif;
+using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -142,6 +144,8 @@ namespace Sucrose.Live.Vexana
                     {
                         SSSHS.Apply();
 
+                        SSEHC.Start();
+
                         switch (SSEMI.Info.Type)
                         {
                             case SSDEWT.Gif:
@@ -188,7 +192,14 @@ namespace Sucrose.Live.Vexana
 
             if (SSSHI.Basic(SMR.LiveMutex, SMR.VexanaLive) && SSEHR.Check())
             {
-                Configure();
+                if (SSSHC.Check())
+                {
+                    SSSHC.Change();
+                }
+                else
+                {
+                    Configure();
+                }
             }
             else
             {

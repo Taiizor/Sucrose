@@ -142,9 +142,9 @@
 
         public const string TransitionType = "TransitionType";
 
-        public const string DisableCycyling = "DisableCycyling";
+        public const string BackgroundImage = "BackgroundImage";
 
-        public const string StorePagination = "StorePagination";
+        public const string DisableCycyling = "DisableCycyling";
 
         public const string LibraryLocation = "LibraryLocation";
 
@@ -154,7 +154,9 @@
 
         public const string LibrarySortMode = "LibrarySortMode";
 
-        public const string BackgroundImage = "BackgroundImage";
+        public const string PassingCycyling = "PassingCycyling";
+
+        public const string StorePagination = "StorePagination";
 
         public const string UpdateLimitType = "UpdateLimitType";
 

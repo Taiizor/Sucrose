@@ -56,6 +56,8 @@ namespace Sucrose.Manager.Manage
 
         public static int AdaptiveMargin => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5), 5, 25);
 
+        public static int PassingCycyling => SHS.Clamp(SMMI.CyclingManager.GetSettingStable(SMC.PassingCycyling, 0), 0, 99999);
+
         public static int StoreDuration => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.StoreDuration, 12), 1, 24);
 
         public static List<string> WebArguments => SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());

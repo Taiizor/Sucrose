@@ -21,6 +21,7 @@ using SSLRDR = Sucrose.Shared.Launcher.Renderer.DarkRenderer;
 using SSLRLR = Sucrose.Shared.Launcher.Renderer.LightRenderer;
 using SSLSSS = Sucrose.Shared.Launcher.Separator.StripSeparator;
 using SSSHA = Sucrose.Shared.Space.Helper.Assets;
+using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -76,6 +77,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             if (SSSHL.Run())
             {
+                ToolStripItem Change = new ToolStripMenuItem();
                 ToolStripItem Customize = new ToolStripMenuItem();
                 ToolStripItem Wallpaper = new ToolStripMenuItem();
 
@@ -94,6 +96,27 @@ namespace Sucrose.Shared.Launcher.Manager
                 ContextMenu.Items.Add(Separator1.Strip);
 
                 ContextMenu.Items.Add(Wallpaper);
+
+                List<string> Themes = SMMM.Themes;
+
+                Themes = Themes.Except(SMMM.DisableCycyling).ToList();
+
+                if (SMMM.Cycyling && Themes.Count > 1)
+                {
+                    if (SMMM.PausePerformance && SSSHP.Work(SSSMI.Backgroundog))
+                    {
+                        Change = new ToolStripMenuItem($"{SRER.GetValue("Launcher", "WallChangeText")} ({SRER.GetValue("Launcher", "PausedText")})")
+                        {
+                            Enabled = false
+                        };
+                    }
+                    else
+                    {
+                        Change = new ToolStripMenuItem(SRER.GetValue("Launcher", "WallChangeText"), null, CommandChange);
+                    }
+
+                    ContextMenu.Items.Add(Change);
+                }
 
                 string PropertiesPath = Path.Combine(SMMM.LibraryLocation, SMMM.LibrarySelected, SMR.SucroseProperties);
 
@@ -256,6 +279,11 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLCS.Command();
         }
 
+        private void CommandReport(object sender, EventArgs e)
+        {
+            SSLCR.Command();
+        }
+
         private void CommandUpdate(object sender, EventArgs e)
         {
             SSLCU.Command();
@@ -266,9 +294,9 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLCE.Command();
         }
 
-        private void CommandReport(object sender, EventArgs e)
+        private void CommandChange(object sender, EventArgs e)
         {
-            SSLCR.Command();
+            SSSHC.Change();
         }
 
         private void CommandClose(object sender, EventArgs e)

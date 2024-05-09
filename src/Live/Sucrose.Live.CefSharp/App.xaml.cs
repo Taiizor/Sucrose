@@ -16,10 +16,12 @@ using SSECSVU = Sucrose.Shared.Engine.CefSharp.View.Url;
 using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
 using SSECSVW = Sucrose.Shared.Engine.CefSharp.View.Web;
 using SSECSVYT = Sucrose.Shared.Engine.CefSharp.View.YouTube;
+using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
+using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -189,6 +191,8 @@ namespace Sucrose.Live.CefSharp
                     {
                         SSSHS.Apply();
 
+                        SSEHC.Start();
+
                         if (File.Exists(SSEMI.PropertiesPath))
                         {
                             SSEMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
@@ -295,7 +299,14 @@ namespace Sucrose.Live.CefSharp
 
             if (SSSHI.Basic(SMR.LiveMutex, SMR.CefSharpLive) && SSEHR.Check())
             {
-                Configure();
+                if (SSSHC.Check())
+                {
+                    SSSHC.Change();
+                }
+                else
+                {
+                    Configure();
+                }
             }
             else
             {

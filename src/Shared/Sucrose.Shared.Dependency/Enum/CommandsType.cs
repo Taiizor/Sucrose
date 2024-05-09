@@ -17,6 +17,7 @@
         Wizard,
         Publish,
         Startup,
+        Cycyling,
         Property,
         StartupM,
         StartupP,

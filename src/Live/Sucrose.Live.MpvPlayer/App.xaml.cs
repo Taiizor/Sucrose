@@ -9,10 +9,12 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMPVG = Sucrose.Shared.Engine.MpvPlayer.View.Gif;
 using SSEMPVV = Sucrose.Shared.Engine.MpvPlayer.View.Video;
+using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
@@ -143,6 +145,8 @@ namespace Sucrose.Live.MpvPlayer
                     {
                         SSSHS.Apply();
 
+                        SSEHC.Start();
+
                         switch (SSEMI.Info.Type)
                         {
                             case SSDEWT.Gif:
@@ -193,7 +197,14 @@ namespace Sucrose.Live.MpvPlayer
 
             if (SSSHI.Basic(SMR.LiveMutex, SMR.MpvPlayerLive) && SSEHR.Check())
             {
-                Configure();
+                if (SSSHC.Check())
+                {
+                    SSSHC.Change();
+                }
+                else
+                {
+                    Configure();
+                }
             }
             else
             {
