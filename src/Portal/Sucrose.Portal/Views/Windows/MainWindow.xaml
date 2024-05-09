@@ -205,8 +205,8 @@
                         BorderBrush="Transparent"
                         Command="{Binding ViewModel.WallpaperCyclingCommand, Mode=OneWay}"
                         Cursor="Hand"
-                        Icon="{ui:SymbolIcon VehicleBicycle16}"
-                        IsEnabled="False"
+                        Icon="{ui:SymbolIcon PlayCircle48}"
+                        IsEnabled="True"
                         ToolTipService.ToolTip="{DynamicResource Portal.MainWindow.MenuWallpaperCyclingTip}" />
                     <ui:Button
                         x:Name="Display"
