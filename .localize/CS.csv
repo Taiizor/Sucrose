@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuUse,Použít
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuPreview,Náhled
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuCustomize,Přizpůsobit
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuCyclingAdd,Přidat do Cyklu
+Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuCyclingRemove,Odebrat z Cyklu
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuFind,Najít
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuShare,Sdílet
 Portal\Controls\LibraryCard\Portal.LibraryCard.CS.xaml,Portal.LibraryCard.MenuDelete,Smazat

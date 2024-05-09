@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuUse,Kullan
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuPreview,Önizle
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuCustomize,Özelleştir
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuCyclingAdd,Döngüye Ekle
+Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuCyclingRemove,Döngüden Çıkar
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuFind,Bul
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuShare,Paylaş
 Portal\Controls\LibraryCard\Portal.LibraryCard.TR.xaml,Portal.LibraryCard.MenuDelete,Sil

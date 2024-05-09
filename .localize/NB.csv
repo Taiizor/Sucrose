@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuUse,Bruk
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuPreview,Forhåndsvisning
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuCustomize,Tilpass
+Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuCyclingAdd,Legg til i Syklus
+Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuCyclingRemove,Fjern fra Syklus
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuFind,Finn
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuShare,Del
 Portal\Controls\LibraryCard\Portal.LibraryCard.NB.xaml,Portal.LibraryCard.MenuDelete,Slett

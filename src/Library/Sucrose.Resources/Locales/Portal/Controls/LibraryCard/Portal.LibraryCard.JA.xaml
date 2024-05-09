@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">使用</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">プレビュー</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">カスタマイズ</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">サイクルに追加</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">サイクルから削除</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">検索</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">共有</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">削除</system:String>

@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuUse,사용
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuPreview,미리보기
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuCustomize,사용자 정의
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuCyclingAdd,사이클에 추가
+Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuCyclingRemove,사이클에서 제거
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuFind,찾기
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuShare,공유
 Portal\Controls\LibraryCard\Portal.LibraryCard.KO.xaml,Portal.LibraryCard.MenuDelete,삭제

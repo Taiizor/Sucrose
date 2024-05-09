@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuUse,Використовувати
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuPreview,Попередній перегляд
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuCustomize,Налаштувати
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuCyclingAdd,Додати до Циклу
+Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuCyclingRemove,Видалити з Циклу
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuFind,Знайти
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuShare,Поділитися
 Portal\Controls\LibraryCard\Portal.LibraryCard.UK.xaml,Portal.LibraryCard.MenuDelete,Видалити

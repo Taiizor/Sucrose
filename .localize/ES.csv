@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuUse,Usar
 Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuPreview,Vista previa
 Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuCustomize,Personalizar
+Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuCyclingAdd,Agregar al Ciclo
+Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuCyclingRemove,Eliminar del Ciclo
 Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuFind,Buscar
 Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuShare,Compartir
 Portal\Controls\LibraryCard\Portal.LibraryCard.ES.xaml,Portal.LibraryCard.MenuDelete,Eliminar

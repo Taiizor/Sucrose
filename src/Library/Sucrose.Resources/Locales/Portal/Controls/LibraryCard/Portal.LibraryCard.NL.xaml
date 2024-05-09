@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">Gebruiken</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">Voorbeeld</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">Aanpassen</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Toevoegen aan Cyclus</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Verwijderen uit Cyclus</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Vinden</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Delen</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Verwijderen</system:String>

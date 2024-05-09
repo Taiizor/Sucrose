@@ -62,6 +62,8 @@ namespace Sucrose.Manager.Manage
 
         public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMC.DiscordDelay, 60), 60, 3600);
 
+        public static List<string> DisableCycyling => SMMI.CyclingManager.GetSetting(SMC.DisableCycyling, new List<string>());
+
         public static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 20), 10, 100);
 
         public static int CpuUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.CpuUsage, 70), 0, 100);

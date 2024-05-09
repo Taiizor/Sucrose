@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">Kullan</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">Önizle</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">Özelleştir</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Döngüye Ekle</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Döngüden Çıkar</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Bul</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Paylaş</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Sil</system:String>

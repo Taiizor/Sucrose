@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuUse,Gebruiken
 Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuPreview,Voorbeeld
 Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuCustomize,Aanpassen
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuCyclingAdd,Toevoegen aan Cyclus
+Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuCyclingRemove,Verwijderen uit Cyclus
 Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuFind,Vinden
 Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuShare,Delen
 Portal\Controls\LibraryCard\Portal.LibraryCard.NL.xaml,Portal.LibraryCard.MenuDelete,Verwijderen

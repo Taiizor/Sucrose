@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuUse,Χρησιμοποίησε
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuPreview,Προεπισκόπηση
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuCustomize,Προσαρμογή
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuCyclingAdd,Προσθήκη στον Κύκλο
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuCyclingRemove,Αφαίρεση από τον Κύκλο
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuFind,Εύρεση
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuShare,Κοινοποίηση
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.MenuDelete,Διαγραφή

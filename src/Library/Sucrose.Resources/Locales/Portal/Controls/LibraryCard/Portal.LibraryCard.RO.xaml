@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">Utilizează</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">Previzualizare</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">Personalizare</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Adăugați în Ciclu</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Eliminați din Ciclu</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Găsește</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Partajează</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Șterge</system:String>

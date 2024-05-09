@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuUse,Использовать
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuPreview,Предпросмотр
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuCustomize,Настроить
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuCyclingAdd,Добавить в Цикл
+Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuCyclingRemove,Удалить из Цикла
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuFind,Поиск
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuShare,Поделиться
 Portal\Controls\LibraryCard\Portal.LibraryCard.RU.xaml,Portal.LibraryCard.MenuDelete,Удалить

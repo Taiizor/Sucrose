@@ -136,6 +136,8 @@
 
         public const string SignalRequired = "SignalRequired";
 
+        public const string DisableCycyling = "DisableCycyling";
+
         public const string StorePagination = "StorePagination";
 
         public const string LibraryLocation = "LibraryLocation";

@@ -43,12 +43,24 @@
                 Icon="{ui:SymbolIcon Eye24}"
                 IsEnabled="False" />
             <ui:MenuItem
+                x:Name="MenuCustomize"
                 Click="MenuCustomize_Click"
                 Cursor="Hand"
-                x:Name="MenuCustomize"
                 Header="{DynamicResource Portal.LibraryCard.MenuCustomize}"
                 Icon="{ui:SymbolIcon Color24}"
                 IsEnabled="False" />
+            <ui:MenuItem
+                x:Name="MenuCyclingAdd"
+                Click="MenuCyclingAdd_Click"
+                Cursor="Hand"
+                Header="{DynamicResource Portal.LibraryCard.MenuCyclingAdd}"
+                Icon="{ui:SymbolIcon AddCircle24}" />
+            <ui:MenuItem
+                x:Name="MenuCyclingRemove"
+                Click="MenuCyclingRemove_Click"
+                Cursor="Hand"
+                Header="{DynamicResource Portal.LibraryCard.MenuCyclingRemove}"
+                Icon="{ui:SymbolIcon SubtractCircle24}" />
             <ui:MenuItem
                 Click="MenuFind_Click"
                 Cursor="Hand"

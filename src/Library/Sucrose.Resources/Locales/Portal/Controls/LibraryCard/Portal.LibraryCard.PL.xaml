@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">Użyj</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">Podgląd</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">Dostosuj</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Dodaj do Cyklu</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Usuń z Cyklu</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Znajdź</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Udostępnij</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Usuń</system:String>

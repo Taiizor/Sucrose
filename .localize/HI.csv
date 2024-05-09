@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuUse,उपयोग करें
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuPreview,पूर्वावलोकन
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuCustomize,अनुकूलित करें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuCyclingAdd,साइकिल में जोड़ें
+Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuCyclingRemove,साइकिल से हटाएं
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuFind,खोजें
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuShare,साझा करें
 Portal\Controls\LibraryCard\Portal.LibraryCard.HI.xaml,Portal.LibraryCard.MenuDelete,मिटाएं

@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">Brug</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">Forhåndsvisning</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">Tilpas</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Tilføj til Cyklus</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Fjern fra Cyklus</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Find</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Del</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Slet</system:String>

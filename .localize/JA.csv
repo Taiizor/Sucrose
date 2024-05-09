@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuUse,使用
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuPreview,プレビュー
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuCustomize,カスタマイズ
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuCyclingAdd,サイクルに追加
+Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuCyclingRemove,サイクルから削除
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuFind,検索
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuShare,共有
 Portal\Controls\LibraryCard\Portal.LibraryCard.JA.xaml,Portal.LibraryCard.MenuDelete,削除

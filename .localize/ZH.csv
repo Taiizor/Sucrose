@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuUse,使用
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuPreview,预览
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuCustomize,自定义
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuCyclingAdd,添加到周期
+Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuCyclingRemove,从周期中移除
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuFind,查找
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuShare,分享
 Portal\Controls\LibraryCard\Portal.LibraryCard.ZH.xaml,Portal.LibraryCard.MenuDelete,删除

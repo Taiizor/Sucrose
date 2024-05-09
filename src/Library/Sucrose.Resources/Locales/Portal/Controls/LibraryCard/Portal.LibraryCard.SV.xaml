@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">Använd</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">Förhandsgranska</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">Anpassa</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Lägg till i Cykel</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Ta bort från Cykel</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Hitta</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Dela</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Ta bort</system:String>

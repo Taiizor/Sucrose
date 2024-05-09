@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuUse,Guna
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuPreview,Pratonton
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuCustomize,Sesuaikan
+Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuCyclingAdd,Tambah ke Pusingan
+Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuCyclingRemove,Buang dari Pusingan
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuFind,Cari
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuShare,Kongsi
 Portal\Controls\LibraryCard\Portal.LibraryCard.MS.xaml,Portal.LibraryCard.MenuDelete,Padam

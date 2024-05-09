@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">사용</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">미리보기</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">사용자 정의</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">사이클에 추가</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">사이클에서 제거</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">찾기</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">공유</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">삭제</system:String>

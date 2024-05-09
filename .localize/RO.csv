@@ -489,6 +489,8 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuRe
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuUse,Utilizează
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuPreview,Previzualizare
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuCustomize,Personalizare
+Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuCyclingAdd,Adăugați în Ciclu
+Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuCyclingRemove,Eliminați din Ciclu
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuFind,Găsește
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuShare,Partajează
 Portal\Controls\LibraryCard\Portal.LibraryCard.RO.xaml,Portal.LibraryCard.MenuDelete,Șterge

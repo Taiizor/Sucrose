@@ -102,6 +102,18 @@ namespace Sucrose.Portal.Views.Controls
             SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.PropertyA}{SMR.ValueSeparator}{SSSMI.Property}{SMR.ValueSeparator}{Path.GetFileName(Theme)}");
         }
 
+        private void MenuCyclingAdd_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> DisableCycyling = SMMM.DisableCycyling;
+
+            if (DisableCycyling.Contains(Path.GetFileName(Theme)))
+            {
+                DisableCycyling.Remove(Path.GetFileName(Theme));
+
+                SMMI.CyclingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
+            }
+        }
+
         private async void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
             SPVCTE ThemeEdit = new()
@@ -184,6 +196,18 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private void MenuCyclingRemove_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> DisableCycyling = SMMM.DisableCycyling;
+
+            if (!DisableCycyling.Contains(Path.GetFileName(Theme)))
+            {
+                DisableCycyling.Add(Path.GetFileName(Theme));
+
+                SMMI.CyclingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
+            }
+        }
+
         private void ThemeMore_Click(object sender, RoutedEventArgs e)
         {
             ContextMenu.IsOpen = true;
@@ -200,6 +224,17 @@ namespace Sucrose.Portal.Views.Controls
             if (Info.Type == SSDEWT.Web && File.Exists(PropertiesPath))
             {
                 MenuCustomize.IsEnabled = true;
+            }
+
+            if (SMMM.DisableCycyling.Contains(Path.GetFileName(Theme)))
+            {
+                MenuCyclingAdd.Visibility = Visibility.Visible;
+                MenuCyclingRemove.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                MenuCyclingAdd.Visibility = Visibility.Collapsed;
+                MenuCyclingRemove.Visibility = Visibility.Visible;
             }
 
             if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))

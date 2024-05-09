@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">使用</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">预览</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">自定义</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">添加到周期</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">从周期中移除</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">查找</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">分享</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">删除</system:String>

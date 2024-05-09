@@ -12,6 +12,8 @@
     <system:String x:Key="Portal.LibraryCard.MenuUse">Χρησιμοποίησε</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuPreview">Προεπισκόπηση</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuCustomize">Προσαρμογή</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingAdd">Προσθήκη στον Κύκλο</system:String>
+    <system:String x:Key="Portal.LibraryCard.MenuCyclingRemove">Αφαίρεση από τον Κύκλο</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuFind">Εύρεση</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuShare">Κοινοποίηση</system:String>
     <system:String x:Key="Portal.LibraryCard.MenuDelete">Διαγραφή</system:String>
