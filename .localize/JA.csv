@@ -299,7 +299,7 @@ Portal\Category\Portal.Category.JA.xaml,Portal.Category.UnderwaterandMarine,水�
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Vehicles,乗り物
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Vintage,ヴィンテージ
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.War,戦争
-Portal\Controls\Portal.Controls.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.Fill,フィル
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.None,なし
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.Uniform,均等
@@ -338,6 +338,9 @@ Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.WindowBackdropType.Acrylic,アクリ
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ChannelType.Release,デフォルト
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ChannelType.PreRelease,開発者
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionType.Random,ランダム
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.TransitionType.Sequential,順次
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PausePerformanceType.Heavy,重い
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.PausePerformanceType.Light,軽い
@@ -672,6 +675,22 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemeCopy
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogTitle,テーマファイルを保存
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Title,壁紙サイクリング
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Close,閉じる
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Cycling,自動壁紙サイクリング
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Cycling.Description,壁紙が自動的に変わるかどうか。
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Time,時間間隔
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Time.Description,壁紙が変わる時間間隔。
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Transition,トランジションモード
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Transition.Description,壁紙間のトランジションモードを設定します。
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.List,サイクルリスト
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.List.Description,サイクルリストをデフォルトにリセットします。
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.List.Reset,リセット
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,,
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.JA.xaml,Portal.EmptyLibraryPage.TitleText,あなたのライブラリはクモの巣で覆われています

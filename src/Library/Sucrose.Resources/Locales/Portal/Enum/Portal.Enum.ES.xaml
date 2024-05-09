@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Por Defecto</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Desarrollador</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">Aleatorio</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">Secuencial</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Pesado</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Ligero</system:String>
 

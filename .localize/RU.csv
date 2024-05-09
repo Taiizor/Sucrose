@@ -299,7 +299,7 @@ Portal\Category\Portal.Category.RU.xaml,Portal.Category.UnderwaterandMarine,По
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Vehicles,Транспорт
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Vintage,Винтаж
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.War,Война
-Portal\Controls\Portal.Controls.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5SVS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5SVS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.Fill,Заполнить
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.None,Нет
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.Stretch.Uniform,Пропорционально
@@ -338,6 +338,9 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.WindowBackdropType.Acrylic,Акри�
 Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ChannelType.Release,По умолчанию
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.ChannelType.PreRelease,Для разработчиков
+Portal\Enum\Portal.Enum.RU.xaml,,
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.TransitionType.Random,Случайный
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.TransitionType.Sequential,Последовательный
 Portal\Enum\Portal.Enum.RU.xaml,,
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.PausePerformanceType.Heavy,Сильный
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.PausePerformanceType.Light,Легкий
@@ -672,6 +675,22 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeCopy
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файлы (*.zip)|*.zip|Все файлы (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogTitle,Сохранить файл темы
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Title,Циклическая Смена Обоев
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Close,Закрыть
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Cycling,Автоматическая Циклическая Смена Обоев
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Cycling.Description,Изменяются ли обои автоматически или нет.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Time,Интервал Времени
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Time.Description,"Интервал времени, после которого меняются обои."
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Transition,Режим Перехода
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.Transition.Description,Устанавливает режим перехода между обоями.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.List,Список Циклов
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.List.Description,Сбросить список циклов к значениям по умолчанию.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RU.xaml,Portal.WallpaperCycling.List.Reset,Сброс
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RU.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RU.xaml,,
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.RU.xaml,Portal.EmptyLibraryPage.TitleText,Ваша библиотека запутана паутинами

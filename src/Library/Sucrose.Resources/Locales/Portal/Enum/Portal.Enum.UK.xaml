@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">За замовчуванням</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Розробник</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">Випадковий</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">Послідовний</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Важкий</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Легкий</system:String>
 

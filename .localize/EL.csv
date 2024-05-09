@@ -299,7 +299,7 @@ Portal\Category\Portal.Category.EL.xaml,Portal.Category.UnderwaterandMarine,Υπ
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Vehicles,Οχήματα
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Vintage,Εποχή
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.War,Πόλεμος
-Portal\Controls\Portal.Controls.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.Fill,Γέμισμα
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.None,Καμία
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.Stretch.Uniform,Ομοιόμορφη
@@ -338,6 +338,9 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Ακρυ�
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.Release,Προεπιλεγμένο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.PreRelease,Προ-Κυκλοφορία
+Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Random,Τυχαίο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.TransitionType.Sequential,Σειριακό
 Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PausePerformanceType.Heavy,Βαρύ
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.PausePerformanceType.Light,Ελαφρύ
@@ -672,6 +675,22 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemeCopy
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogTitle,Αποθήκευση αρχείου θέματος
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Title,Κύκλος Ταπετσαριών
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Close,Κλείσιμο
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Cycling,Αυτόματος Κύκλος Ταπετσαριών
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Cycling.Description,Εάν η ταπετσαρία αλλάζει αυτόματα ή όχι.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Time,Χρονικό διάστημα
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Time.Description,Το χρονικό διάστημα μετά το οποίο αλλάζει η ταπετσαρία.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Transition,Λειτουργία Μετάβασης
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Transition.Description,Ορίζει τη λειτουργία μετάβασης μεταξύ ταπετσαριών.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.List,Λίστα Κύκλου
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.List.Description,Επαναφέρει τη λίστα κύκλου στις προεπιλεγμένες τιμές.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.List.Reset,Επαναφορά
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,,
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.EL.xaml,Portal.EmptyLibraryPage.TitleText,Η βιβλιοθήκη σας έχει καλυφθεί από αραχνοσημάδια

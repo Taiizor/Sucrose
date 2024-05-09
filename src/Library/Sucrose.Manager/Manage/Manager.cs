@@ -84,6 +84,8 @@ namespace Sucrose.Manager.Manage
 
         public static SESET DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SESET.Megabyte);
 
+        public static int CycylingTime => SHS.Clamp(SMMI.CyclingManager.GetSettingStable(SMC.CycylingTime, 30), 1, 999);
+
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
 
         public static bool PausePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformance, false);
@@ -161,6 +163,8 @@ namespace Sucrose.Manager.Manage
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
         public static bool Exit => SMMI.LauncherSettingManager.GetSetting(SMC.Exit, false);
+
+        public static bool Cycyling => SMMI.CyclingManager.GetSetting(SMC.Cycyling, true);
 
         public static bool Loop => SMMI.EngineSettingManager.GetSetting(SMC.Loop, true);
     }

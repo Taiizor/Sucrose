@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">배경화면 순환</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">닫기</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">자동 배경화면 순환</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">배경화면이 자동으로 변경되는지 여부.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">시간 간격</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">배경화면이 변경되는 시간 간격.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">전환 모드</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">배경화면 간 전환 모드를 설정합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">순환 목록</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">순환 목록을 기본값으로 재설정합니다.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">재설정</system:String>
+</ResourceDictionary>

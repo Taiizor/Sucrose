@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Cycle de Fonds d'Écran</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Fermer</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Cycle Automatique de Fonds d'Écran</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Si le fond d'écran change automatiquement ou non.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Intervalle de Temps</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">L'intervalle de temps après lequel le fond d'écran change.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Mode de Transition</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Définit le mode de transition entre les fonds d'écran.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Liste de Cycles</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Réinitialise la liste de cycles aux valeurs par défaut.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Réinitialiser</system:String>
+</ResourceDictionary>

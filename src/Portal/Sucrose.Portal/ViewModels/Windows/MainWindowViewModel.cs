@@ -19,6 +19,7 @@ using SPVCDP = Sucrose.Portal.Views.Controls.DisplayPreferences;
 using SPVCOA = Sucrose.Portal.Views.Controls.OtherAbout;
 using SPVCOH = Sucrose.Portal.Views.Controls.OtherHelp;
 using SPVCTC = Sucrose.Portal.Views.Controls.ThemeCreate;
+using SPVCWC = Sucrose.Portal.Views.Controls.WallpaperCycling;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -284,7 +285,11 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private async Task OnWallpaperCycling()
         {
-            //
+            SPVCWC WallpaperCycling = new();
+
+            await WallpaperCycling.ShowAsync();
+
+            WallpaperCycling.Dispose();
         }
 
         [RelayCommand]

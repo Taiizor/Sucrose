@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Achtergrondafbeeldingcyclus</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Sluiten</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Automatische Achtergrondafbeeldingcyclus</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Of de achtergrondafbeelding automatisch verandert of niet.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Tijdsinterval</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Het tijdsinterval nadat de achtergrondafbeelding verandert.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Overgangsmodus</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Stelt de overgangsmodus tussen achtergrondafbeeldingen in.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Cycluslijst</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Stelt de cycluslijst opnieuw in op standaard.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Opnieuw instellen</system:String>
+</ResourceDictionary>

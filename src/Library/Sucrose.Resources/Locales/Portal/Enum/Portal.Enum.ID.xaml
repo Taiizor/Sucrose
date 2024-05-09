@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standar</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pengembang</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">Acak</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">Berturut-turut</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Berat</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Ringan</system:String>
 

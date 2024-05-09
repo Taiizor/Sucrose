@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">डिफ़ॉल्ट</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">डेवलपर</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">यादृच्छिक</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">क्रमिक</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">भारी</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">हल्का</system:String>
 

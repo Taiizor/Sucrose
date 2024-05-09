@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standard</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Entwickler</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">Zufällig</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">Sequentiell</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Schwer</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Leicht</system:String>
 

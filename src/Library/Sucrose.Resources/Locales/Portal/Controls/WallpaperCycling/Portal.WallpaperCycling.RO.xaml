@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Ciclare Tapet</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Închide</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Ciclare Automată a Tapetului</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Dacă tapetul se schimbă automat sau nu.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Interval de Timp</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Intervalul de timp după care se schimbă tapetul.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Mod Tranzitie</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Stabilește modul de tranziție între tapete.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Listă Cicluri</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Resetează lista de cicluri la valorile implicite.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Resetare</system:String>
+</ResourceDictionary>

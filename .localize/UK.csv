@@ -299,7 +299,7 @@ Portal\Category\Portal.Category.UK.xaml,Portal.Category.UnderwaterandMarine,Пі
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Vehicles,Транспорт
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Vintage,Вінтаж
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.War,Війна
-Portal\Controls\Portal.Controls.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.Fill,Заповнити
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.None,Ні
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.Stretch.Uniform,Пропорційно
@@ -338,6 +338,9 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Acrylic,Акри�
 Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.Release,За замовчуванням
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.PreRelease,Розробник
+Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.TransitionType.Random,Випадковий
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.TransitionType.Sequential,Послідовний
 Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.PausePerformanceType.Heavy,Важкий
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.PausePerformanceType.Light,Легкий
@@ -672,6 +675,22 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemeCopy
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файли (*.zip)|*.zip|Всі файли (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogTitle,Зберегти файл теми
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Title,Циклінг Шпалер
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Close,Закрити
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Cycling,Автоматичний Циклінг Шпалер
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Cycling.Description,Чи змінюється шпалери автоматично чи ні.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Time,Інтервал Часу
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Time.Description,"Часовий інтервал, після якого змінюється шпалер."
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Transition,Режим Переходу
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Transition.Description,Встановлює режим переходу між шпалерами.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.List,Список Циклу
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.List.Description,Скидає список циклу до значень за замовчуванням.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.List.Reset,Скинути
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,,
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.UK.xaml,Portal.EmptyLibraryPage.TitleText,Ваша бібліотека обплетена павутинням

@@ -38,6 +38,8 @@
 
         public const string CpuUsage = "CpuUsage";
 
+        public const string Cycyling = "Cycyling";
+
         public const string PingType = "PingType";
 
         public const string InputType = "InputType";
@@ -81,6 +83,8 @@
         public const string UpdateState = "UpdateState";
 
         public const string UploadValue = "UploadValue";
+
+        public const string CycylingTime = "CycylingTime";
 
         public const string LibraryStart = "LibraryStart";
 
@@ -135,6 +139,8 @@
         public const string CpuPerformance = "CpuPerformance";
 
         public const string SignalRequired = "SignalRequired";
+
+        public const string TransitionType = "TransitionType";
 
         public const string DisableCycyling = "DisableCycyling";
 

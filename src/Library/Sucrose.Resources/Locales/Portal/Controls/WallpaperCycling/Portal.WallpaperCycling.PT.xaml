@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Ciclagem de Papel de Parede</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Fechar</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Ciclagem Automática de Papel de Parede</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Se o papel de parede muda automaticamente ou não.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Intervalo de Tempo</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">O intervalo de tempo após o qual o papel de parede muda.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Modo de Transição</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Define o modo de transição entre papéis de parede.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Lista de Ciclos</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Redefine a lista de ciclos para o padrão.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Redefinir</system:String>
+</ResourceDictionary>

@@ -12,6 +12,7 @@
         <ResourceDictionary Source="ThemeImport/Portal.ThemeImport.RO.xaml" />
         <ResourceDictionary Source="ThemeCreate/Portal.ThemeCreate.RO.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.RO.xaml" />
+        <ResourceDictionary Source="WallpaperCycling/Portal.WallpaperCycling.RO.xaml" />
         <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.RO.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

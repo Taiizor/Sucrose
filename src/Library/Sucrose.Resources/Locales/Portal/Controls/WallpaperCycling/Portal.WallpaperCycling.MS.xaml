@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Pemutaran Wallpaper</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Tutup</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Pemutaran Wallpaper Automatik</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Sama ada wallpaper berubah secara automatik atau tidak.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Sela Masa</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Sela masa selepas wallpaper berubah.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Mod Transisi</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Mengatur mod transisi antara wallpaper.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Senarai Kitar</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Menetapkan semula senarai kitar ke nilai lalai.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Set semula</system:String>
+</ResourceDictionary>

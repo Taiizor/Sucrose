@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">壁纸循环</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">关闭</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">自动壁纸循环</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">壁纸是否自动更换。</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">时间间隔</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">壁纸更换后的时间间隔。</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">过渡模式</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">设置壁纸之间的过渡模式。</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">循环列表</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">将循环列表重置为默认值。</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">重置</system:String>
+</ResourceDictionary>

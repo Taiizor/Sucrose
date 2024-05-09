@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Κύκλος Ταπετσαριών</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Αυτόματος Κύκλος Ταπετσαριών</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Εάν η ταπετσαρία αλλάζει αυτόματα ή όχι.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Χρονικό διάστημα</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Το χρονικό διάστημα μετά το οποίο αλλάζει η ταπετσαρία.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Λειτουργία Μετάβασης</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Ορίζει τη λειτουργία μετάβασης μεταξύ ταπετσαριών.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Λίστα Κύκλου</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Επαναφέρει τη λίστα κύκλου στις προεπιλεγμένες τιμές.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Επαναφορά</system:String>
+</ResourceDictionary>

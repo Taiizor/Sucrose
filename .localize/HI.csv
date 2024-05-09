@@ -299,7 +299,7 @@ Portal\Category\Portal.Category.HI.xaml,Portal.Category.UnderwaterandMarine,प�
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Vehicles,वाहन
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Vintage,पुराना
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.War,युद्ध
-Portal\Controls\Portal.Controls.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.Fill,भरना
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.None,कोई नहीं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.Uniform,समानानुपातिक
@@ -338,6 +338,9 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Acrylic,ऐक्
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ChannelType.Release,डिफ़ॉल्ट
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ChannelType.PreRelease,डेवलपर
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionType.Random,यादृच्छिक
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.TransitionType.Sequential,क्रमिक
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PausePerformanceType.Heavy,भारी
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.PausePerformanceType.Light,हल्का
@@ -672,6 +675,22 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemeCopy
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogTitle,थीम फ़ाइल सहेजें
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Title,वॉलपेपर साइकिलिंग
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Close,बंद करें
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Cycling,स्वचालित वॉलपेपर साइकिलिंग
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Cycling.Description,क्या वॉलपेपर स्वचालित रूप से बदलता है या नहीं।
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Time,समय अंतराल
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Time.Description,वॉलपेपर परिवर्तन के बाद समय अंतराल।
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Transition,संचार मोड
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Transition.Description,वॉलपेपर के बीच संचार मोड सेट करता है।
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.List,साइकिल सूची
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.List.Description,साइकिल सूची को डिफ़ॉल्ट मान में रीसेट करता है।
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.List.Reset,रीसेट
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,,
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.HI.xaml,Portal.EmptyLibraryPage.TitleText,आपकी पुस्तकालय को मकड़ी जाल से बुना गया है

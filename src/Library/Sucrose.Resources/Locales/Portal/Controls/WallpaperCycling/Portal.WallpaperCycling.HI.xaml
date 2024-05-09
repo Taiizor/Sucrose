@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">वॉलपेपर साइकिलिंग</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">बंद करें</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">स्वचालित वॉलपेपर साइकिलिंग</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">क्या वॉलपेपर स्वचालित रूप से बदलता है या नहीं।</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">समय अंतराल</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">वॉलपेपर परिवर्तन के बाद समय अंतराल।</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">संचार मोड</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">वॉलपेपर के बीच संचार मोड सेट करता है।</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">साइकिल सूची</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">साइकिल सूची को डिफ़ॉल्ट मान में रीसेट करता है।</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">रीसेट</system:String>
+</ResourceDictionary>

@@ -299,7 +299,7 @@ Portal\Category\Portal.Category.KO.xaml,Portal.Category.UnderwaterandMarine,수�
 Portal\Category\Portal.Category.KO.xaml,Portal.Category.Vehicles,차량
 Portal\Category\Portal.Category.KO.xaml,Portal.Category.Vintage,빈티지
 Portal\Category\Portal.Category.KO.xaml,Portal.Category.War,전쟁
-Portal\Controls\Portal.Controls.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.Fill,채우기
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.None,없음
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.Uniform,균일하게
@@ -338,6 +338,9 @@ Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Acrylic,아크릴
 Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.Release,기본
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.PreRelease,개발자
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionType.Random,랜덤
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.TransitionType.Sequential,순차적
 Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PausePerformanceType.Heavy,무거운
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.PausePerformanceType.Light,가벼운
@@ -672,6 +675,22 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemeCopy
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogTitle,테마 파일 저장
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Title,배경화면 순환
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Close,닫기
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Cycling,자동 배경화면 순환
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Cycling.Description,배경화면이 자동으로 변경되는지 여부.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Time,시간 간격
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Time.Description,배경화면이 변경되는 시간 간격.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Transition,전환 모드
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Transition.Description,배경화면 간 전환 모드를 설정합니다.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.List,순환 목록
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.List.Description,순환 목록을 기본값으로 재설정합니다.
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,,
+Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.List.Reset,재설정
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.KO.xaml,Portal.EmptyLibraryPage.Title,EmptyLibraryPage
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.KO.xaml,,
 Portal\LibraryPage\EmptyLibraryPage\Portal.EmptyLibraryPage.KO.xaml,Portal.EmptyLibraryPage.TitleText,당신의 라이브러리는 거미줄로 뒤덮여 있습니다

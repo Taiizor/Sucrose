@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">기본</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">개발자</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">랜덤</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">순차적</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">무거운</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">가벼운</system:String>
 

@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Циклическая Смена Обоев</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Закрыть</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Автоматическая Циклическая Смена Обоев</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Изменяются ли обои автоматически или нет.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Интервал Времени</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Интервал времени, после которого меняются обои.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Режим Перехода</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Устанавливает режим перехода между обоями.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Список Циклов</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Сбросить список циклов к значениям по умолчанию.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Сброс</system:String>
+</ResourceDictionary>

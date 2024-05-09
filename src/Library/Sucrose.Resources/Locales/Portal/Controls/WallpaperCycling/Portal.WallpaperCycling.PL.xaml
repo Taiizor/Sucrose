@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Cykliczne Tapety</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Zamknij</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Automatyczne Cykliczne Tapety</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Czy tapeta zmienia się automatycznie, czy nie.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Interwał Czasu</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Interwał czasowy po którym następuje zmiana tapety.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Tryb Przejścia</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Ustawia tryb przejścia między tapetami.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Lista Cyklu</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Resetuje listę cyklu do wartości domyślnych.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Resetuj</system:String>
+</ResourceDictionary>

@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.WallpaperCycling.Title">Hintergrundbildwechsel</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Close">Schließen</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Cycling">Automatischer Hintergrundbildwechsel</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Cycling.Description">Ob sich das Hintergrundbild automatisch ändert oder nicht.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Time">Zeitintervall</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Time.Description">Das Zeitintervall, nach dem das Hintergrundbild wechselt.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.Transition">Übergangsmodus</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.Transition.Description">Legt den Übergangsmodus zwischen Hintergrundbildern fest.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List">Zyklusliste</system:String>
+    <system:String x:Key="Portal.WallpaperCycling.List.Description">Setzt die Zyklusliste auf Standardwerte zurück.</system:String>
+
+    <system:String x:Key="Portal.WallpaperCycling.List.Reset">Zurücksetzen</system:String>
+</ResourceDictionary>

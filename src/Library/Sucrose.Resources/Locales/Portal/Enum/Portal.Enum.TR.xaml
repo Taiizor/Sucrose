@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Varsayılan</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Geliştirici</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">Rastgele</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">Ardışık</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Ağır</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Hafif</system:String>
 

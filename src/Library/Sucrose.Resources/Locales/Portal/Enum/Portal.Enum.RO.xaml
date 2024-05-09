@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">Implicit</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Dezvoltator</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">Aleator</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">Secvențial</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">Greu</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">Ușor</system:String>
 

@@ -41,6 +41,9 @@
     <system:String x:Key="Portal.Enum.ChannelType.Release">默认</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">开发版</system:String>
 
+    <system:String x:Key="Portal.Enum.TransitionType.Random">随机</system:String>
+    <system:String x:Key="Portal.Enum.TransitionType.Sequential">顺序</system:String>
+
     <system:String x:Key="Portal.Enum.PausePerformanceType.Heavy">重型</system:String>
     <system:String x:Key="Portal.Enum.PausePerformanceType.Light">轻型</system:String>
 
