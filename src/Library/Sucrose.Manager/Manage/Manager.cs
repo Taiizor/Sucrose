@@ -162,11 +162,11 @@ namespace Sucrose.Manager.Manage
 
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
-        public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
-
         public static bool Exit => SMMI.LauncherSettingManager.GetSetting(SMC.Exit, false);
 
-        public static bool Cycyling => SMMI.CyclingManager.GetSetting(SMC.Cycyling, true);
+        public static bool Cycyling => SMMI.CyclingManager.GetSetting(SMC.Cycyling, false);
+
+        public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 
         public static bool Loop => SMMI.EngineSettingManager.GetSetting(SMC.Loop, true);
     }

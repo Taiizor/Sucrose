@@ -226,15 +226,23 @@ namespace Sucrose.Portal.Views.Controls
                 MenuCustomize.IsEnabled = true;
             }
 
-            if (SMMM.DisableCycyling.Contains(Path.GetFileName(Theme)))
+            if (SMMM.Cycyling)
             {
-                MenuCyclingAdd.Visibility = Visibility.Visible;
-                MenuCyclingRemove.Visibility = Visibility.Collapsed;
+                if (SMMM.DisableCycyling.Contains(Path.GetFileName(Theme)))
+                {
+                    MenuCyclingAdd.Visibility = Visibility.Visible;
+                    MenuCyclingRemove.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    MenuCyclingAdd.Visibility = Visibility.Collapsed;
+                    MenuCyclingRemove.Visibility = Visibility.Visible;
+                }
             }
             else
             {
                 MenuCyclingAdd.Visibility = Visibility.Collapsed;
-                MenuCyclingRemove.Visibility = Visibility.Visible;
+                MenuCyclingRemove.Visibility = Visibility.Collapsed;
             }
 
             if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
