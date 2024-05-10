@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">复古</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">科幻小说</system:String>
     <system:String x:Key="Portal.Category.Sky">天空</system:String>
     <system:String x:Key="Portal.Category.Space">太空</system:String>
     <system:String x:Key="Portal.Category.Sports">体育</system:String>

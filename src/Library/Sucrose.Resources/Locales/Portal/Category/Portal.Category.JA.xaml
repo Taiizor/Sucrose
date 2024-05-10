@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">レトロ</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">サイエンスフィクション</system:String>
     <system:String x:Key="Portal.Category.Sky">空</system:String>
     <system:String x:Key="Portal.Category.Space">宇宙</system:String>
     <system:String x:Key="Portal.Category.Sports">スポーツ</system:String>

@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Věda</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">Vědeckofantastický</system:String>
     <system:String x:Key="Portal.Category.Sky">Obloha</system:String>
     <system:String x:Key="Portal.Category.Space">Vesmír</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>

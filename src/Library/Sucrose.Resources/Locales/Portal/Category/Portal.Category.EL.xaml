@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">Ρετρό</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Επιστήμη</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">Επιστημονική Φαντασία</system:String>
     <system:String x:Key="Portal.Category.Sky">Ουρανός</system:String>
     <system:String x:Key="Portal.Category.Space">Διάστημα</system:String>
     <system:String x:Key="Portal.Category.Sports">Αθλητισμός</system:String>

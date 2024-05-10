@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">Ретро</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Наука</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">Научная Фантастика</system:String>
     <system:String x:Key="Portal.Category.Sky">Небо</system:String>
     <system:String x:Key="Portal.Category.Space">Космос</system:String>
     <system:String x:Key="Portal.Category.Sports">Спорт</system:String>

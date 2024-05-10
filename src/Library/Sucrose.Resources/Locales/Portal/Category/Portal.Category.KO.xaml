@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">레트로</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">과학</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">과학 소설</system:String>
     <system:String x:Key="Portal.Category.Sky">하늘</system:String>
     <system:String x:Key="Portal.Category.Space">우주</system:String>
     <system:String x:Key="Portal.Category.Sports">스포츠</system:String>

@@ -55,12 +55,14 @@ namespace Sucrose.Portal.Manage
             { "Line Art", SymbolRegular.Line24 },
             { "Galaxy", SymbolRegular.Rocket24 },
             { "RGB", SymbolRegular.Lightbulb24 },
+            { "Anime", SymbolRegular.Filmstrip24 },
             { "Science", SymbolRegular.Syringe24 },
             { "Nature", SymbolRegular.EarthLeaf24 },
             { "Music", SymbolRegular.MusicNote224 },
             { "Abstract", SymbolRegular.HandDraw24 },
             { "Animals", SymbolRegular.AnimalCat24 },
             { "Digital Art", SymbolRegular.Tablet24 },
+            { "Medieval", SymbolRegular.Hourglass24 },
             { "Vehicles", SymbolRegular.VehicleCar24 },
             { "Lifestyle", SymbolRegular.StyleGuide24 },
             { "Comic Books", SymbolRegular.BookOpen24 },
@@ -72,17 +74,19 @@ namespace Sucrose.Portal.Manage
             { "Education", SymbolRegular.HatGraduation24 },
             { "Film and TV", SymbolRegular.MoviesAndTv24 },
             { "Technology", SymbolRegular.PhoneDesktop24 },
+            { "Science Fiction", SymbolRegular.Thinking24 },
             { "Black and White", SymbolRegular.DarkTheme24 },
             { "Sky", SymbolRegular.WeatherPartlyCloudyDay24 },
             { "Geometric Patterns", SymbolRegular.Triangle20 },
             { "Underwater and Marine", SymbolRegular.Water24 },
             { "Ambience", SymbolRegular.HeadphonesSoundWave24 },
-            { "Landscape", SymbolRegular.RectangleLandscape24 },
             { "Colorful Gradients", SymbolRegular.ColorFill24 },
+            { "Landscape", SymbolRegular.RectangleLandscape24 },
             { "Clouds and Skies", SymbolRegular.WeatherCloudy24 },
             { "Enchanted Forests", SymbolRegular.TreeEvergreen20 },
             { "Minimalist", SymbolRegular.ArrowMinimizeVertical24 },
-            { "Holidays and Seasons", SymbolRegular.SwimmingPool24 }
+            { "Holidays and Seasons", SymbolRegular.SwimmingPool24 },
+            { "Kids and Cartoon", SymbolRegular.VideoPersonSparkle48 }
         };
     }
 }

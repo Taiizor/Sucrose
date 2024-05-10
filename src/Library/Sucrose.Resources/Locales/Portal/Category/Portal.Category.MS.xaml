@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Sains</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">Fiksyen Sains</system:String>
     <system:String x:Key="Portal.Category.Sky">Langit</system:String>
     <system:String x:Key="Portal.Category.Space">Angkasa</system:String>
     <system:String x:Key="Portal.Category.Sports">Sukan</system:String>

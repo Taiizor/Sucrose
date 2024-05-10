@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Bilim</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">Bilim Kurgu</system:String>
     <system:String x:Key="Portal.Category.Sky">Gökyüzü</system:String>
     <system:String x:Key="Portal.Category.Space">Uzay</system:String>
     <system:String x:Key="Portal.Category.Sports">Spor</system:String>

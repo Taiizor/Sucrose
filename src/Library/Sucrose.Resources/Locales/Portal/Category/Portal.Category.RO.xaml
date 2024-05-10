@@ -45,6 +45,7 @@
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Știință</system:String>
+    <system:String x:Key="Portal.Category.ScienceFiction">Științifico-Fantastic</system:String>
     <system:String x:Key="Portal.Category.Sky">Cer</system:String>
     <system:String x:Key="Portal.Category.Space">Spațiu</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>
