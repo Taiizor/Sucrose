@@ -1,4 +1,5 @@
-﻿using SPHP = Sucrose.Property.Helper.Properties;
+﻿using System.Windows.Controls.Primitives;
+using SPHP = Sucrose.Property.Helper.Properties;
 using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
@@ -23,7 +24,12 @@ namespace Sucrose.Property.Controls
             Component.Maximum = Data.Max;
             Component.Minimum = Data.Min;
             Component.Value = Data.Value;
+            Component.UseLayoutRounding = true;
             Component.TickFrequency = Data.Step;
+            Component.IsSelectionRangeEnabled = true;
+            Component.TickPlacement = TickPlacement.Both;
+            Component.AutoToolTipPlacement = AutoToolTipPlacement.TopLeft;
+            Component.Orientation = System.Windows.Controls.Orientation.Horizontal;
 
             Component.ValueChanged += (s, e) => Component_Changed(Key, Data, e.NewValue);
 

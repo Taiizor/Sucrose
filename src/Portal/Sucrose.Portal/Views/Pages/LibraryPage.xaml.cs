@@ -80,6 +80,8 @@ namespace Sucrose.Portal.Views.Pages
                 {
                     foreach (string Theme in Themes.ToList())
                     {
+                        string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                        string PropertiesFile = Path.Combine(PropertiesCache, $"{Theme}.json");
                         string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
@@ -90,6 +92,11 @@ namespace Sucrose.Portal.Views.Pages
                             if (Directory.Exists(ThemePath) && SMMM.LibraryDelete)
                             {
                                 Directory.Delete(ThemePath, true);
+
+                                if (File.Exists(PropertiesFile))
+                                {
+                                    File.Delete(PropertiesFile);
+                                }
                             }
                         }
                     }
@@ -101,6 +108,8 @@ namespace Sucrose.Portal.Views.Pages
                 {
                     foreach (string Folder in Folders)
                     {
+                        string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                        string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Folder)}.json");
                         string InfoPath = Path.Combine(Folder, SMR.SucroseInfo);
 
                         if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
@@ -113,6 +122,11 @@ namespace Sucrose.Portal.Views.Pages
                         else if (SMMM.LibraryDelete)
                         {
                             Directory.Delete(Folder, true);
+
+                            if (File.Exists(PropertiesFile))
+                            {
+                                File.Delete(PropertiesFile);
+                            }
                         }
                     }
                 }

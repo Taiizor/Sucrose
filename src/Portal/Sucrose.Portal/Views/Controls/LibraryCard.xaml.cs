@@ -192,6 +192,17 @@ namespace Sucrose.Portal.Views.Controls
 
                 Visibility = Visibility.Hidden;
 
+                await Task.Run(() =>
+                {
+                    string PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
+                    string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Theme)}.json");
+
+                    if (File.Exists(PropertiesFile))
+                    {
+                        File.Delete(PropertiesFile);
+                    }
+                });
+
                 await Task.Run(() => Directory.Delete(Theme, true));
             }
         }

@@ -680,7 +680,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Expandable = false
             };
 
-            Focus.LeftIcon.Symbol = SymbolRegular.DesktopCursor24;
+            Focus.LeftIcon.Symbol = SymbolRegular.CursorHover24;
             Focus.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Focus");
             Focus.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Focus", "Description");
 
