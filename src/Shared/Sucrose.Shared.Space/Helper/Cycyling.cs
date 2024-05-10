@@ -41,13 +41,13 @@ namespace Sucrose.Shared.Space.Helper
             {
                 List<string> Themes = SMMM.Themes;
 
-                Themes = Themes.Except(SMMM.DisableCycyling).ToList();
+                string LibrarySelected = SMMM.LibrarySelected;
+
+                Themes = Themes.Where(Theme => !SMMM.DisableCycyling.Contains(Theme) || Theme == LibrarySelected).ToList();
 
                 if (Themes.Count > 1)
                 {
                     string Selected = string.Empty;
-
-                    string LibrarySelected = SMMM.LibrarySelected;
 
                     int Index = Themes.IndexOf(LibrarySelected);
 
@@ -97,7 +97,7 @@ namespace Sucrose.Shared.Space.Helper
 
                         SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Selected);
 
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Cycyling}{SMR.ValueSeparator}{SSSMI.Backgroundog}");
+                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Cycyling}{SMR.ValueSeparator}{SMR.Unknown}");
                     }
                 }
             }

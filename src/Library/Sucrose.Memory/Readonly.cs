@@ -17,17 +17,19 @@
 
         public static readonly string Bundle = "Bundle";
 
+        public static readonly string Branch = "develop";
+
         public static readonly string Key = string.Empty;
 
-        public static readonly string Branch = "develop";
+        public static readonly string AppName = "Sucrose";
+
+        public static readonly string Content = "Content";
 
         public static readonly string SignalT = "SignalT";
 
         public static readonly string StoreSource = "src";
 
-        public static readonly string AppName = "Sucrose";
-
-        public static readonly string Content = "Content";
+        public static readonly string Unknown = "Unknown";
 
         public static readonly string PipeServerName = ".";
 
