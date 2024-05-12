@@ -172,6 +172,7 @@
     <p>● Determine the fate of the wallpaper based on system performance.</p>
     <p>● Create wallpapers that display system status using the Sucrose System API.</p>
     <p>● You can use any website you want as a wallpaper with CefSharp and WebView.</p>
+    <p>● Automatically switch between different wallpapers at specified time intervals or randomly.</p>
   </div>
 
   <div>
@@ -183,8 +184,8 @@
   <div>
     <h4>Performance</h4>
     <p>● Optimize CPU and GPU usage for smooth performance.</p>
-    <p>● Auto-pause wallpapers when fullscreen applications/games run to conserve resources.</p>
     <p>● Power-saving mode to pause wallpapers when running on battery (laptops).</p>
+    <p>● Auto-pause wallpapers when fullscreen applications/games run to conserve resources.</p>
   </div>
 </div>
 
