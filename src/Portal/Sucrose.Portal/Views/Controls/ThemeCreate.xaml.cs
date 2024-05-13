@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Wpf.Ui.Controls;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEAT = Skylark.Enum.AssemblyType;
@@ -10,6 +11,7 @@ using SHA = Skylark.Helper.Assemblies;
 using SHG = Skylark.Helper.Generator;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SPETC = Sucrose.Portal.Extension.ThemeCreate;
 using SPETL = Sucrose.Portal.Extension.ThumbnailLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -79,6 +81,9 @@ namespace Sucrose.Portal.Views.Controls
             IsPrimaryButtonEnabled = true;
             GifCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
+
+            GifAuthor.Text = SPETC.GetAuthor();
+            GifContact.Text = SPETC.GetContact();
         }
 
         private void UrlCreate_Click(object sender, RoutedEventArgs e)
@@ -86,6 +91,9 @@ namespace Sucrose.Portal.Views.Controls
             IsPrimaryButtonEnabled = true;
             UrlCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
+
+            UrlAuthor.Text = SPETC.GetAuthor();
+            UrlContact.Text = SPETC.GetContact();
         }
 
         private void WebCreate_Click(object sender, RoutedEventArgs e)
@@ -93,6 +101,9 @@ namespace Sucrose.Portal.Views.Controls
             IsPrimaryButtonEnabled = true;
             WebCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
+
+            //WebAuthor.Text = SPETC.GetAuthor();
+            //WebContact.Text = SPETC.GetContact();
         }
 
         private void GifDelete_Click(object sender, RoutedEventArgs e)
@@ -136,6 +147,8 @@ namespace Sucrose.Portal.Views.Controls
 
                         if (Extension is ".gif")
                         {
+                            GifDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(Record), SSDEWT.Gif);
+                            GifTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(Record));
                             GifImagine.Source = await Loader.LoadAsync(Record);
                             GifDelete.Visibility = Visibility.Visible;
                             GifIcon.Visibility = Visibility.Collapsed;
@@ -165,6 +178,9 @@ namespace Sucrose.Portal.Views.Controls
             IsPrimaryButtonEnabled = true;
             VideoCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
+
+            VideoAuthor.Text = SPETC.GetAuthor();
+            VideoContact.Text = SPETC.GetContact();
         }
 
         private void VideoArea_DragLeave(object sender, DragEventArgs e)
@@ -217,6 +233,8 @@ namespace Sucrose.Portal.Views.Controls
 
                         if (Extension is ".mp4" or ".avi" or ".mov" or ".mkv" or ".ogv" or ".flv" or ".wmv" or ".hevc" or ".webm" or ".mpeg" or ".mpeg1" or ".mpeg2" or ".mpeg4")
                         {
+                            VideoDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(Record), SSDEWT.Video);
+                            VideoTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(Record));
                             VideoImagine.Source = await Loader.LoadAsync(Record);
                             VideoDelete.Visibility = Visibility.Visible;
                             VideoIcon.Visibility = Visibility.Collapsed;
@@ -234,6 +252,9 @@ namespace Sucrose.Portal.Views.Controls
             IsPrimaryButtonEnabled = true;
             YouTubeCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
+
+            YouTubeAuthor.Text = SPETC.GetAuthor();
+            YouTubeContact.Text = SPETC.GetContact();
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
@@ -284,6 +305,9 @@ namespace Sucrose.Portal.Views.Controls
             IsPrimaryButtonEnabled = true;
             CreateCard.Visibility = Visibility.Collapsed;
             ApplicationCard.Visibility = Visibility.Visible;
+
+            //ApplicationAuthor.Text = SPETC.GetAuthor();
+            //ApplicationContact.Text = SPETC.GetContact();
         }
 
         private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -429,7 +453,20 @@ namespace Sucrose.Portal.Views.Controls
                         }
                         else
                         {
-                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                            try
+                            {
+                                using FileStream Stream = new(Path.Combine(Theme, Thumbnail), FileMode.Create);
+
+                                BitmapEncoder Encoder = new JpegBitmapEncoder();
+
+                                Encoder.Frames.Add(BitmapFrame.Create((BitmapSource)GifImagine.Source));
+
+                                Encoder.Save(Stream);
+                            }
+                            catch
+                            {
+                                await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                            }
                         }
 
                         if (File.Exists($"{GifPreview.Content}"))
@@ -683,7 +720,20 @@ namespace Sucrose.Portal.Views.Controls
                         }
                         else
                         {
-                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                            try
+                            {
+                                using FileStream Stream = new(Path.Combine(Theme, Thumbnail), FileMode.Create);
+
+                                BitmapEncoder Encoder = new JpegBitmapEncoder();
+
+                                Encoder.Frames.Add(BitmapFrame.Create((BitmapSource)VideoImagine.Source));
+
+                                Encoder.Save(Stream);
+                            }
+                            catch
+                            {
+                                await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                            }
                         }
 
                         if (File.Exists($"{VideoPreview.Content}"))
