@@ -35,8 +35,11 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Mica">Mica</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.None">Nessuno</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Auto">Automatico</system:String>
-    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">A schede</system:String>
+    <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">A Schede</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrilico</system:String>
+
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
 
     <system:String x:Key="Portal.Enum.ChannelType.Release">Predefinito</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Sviluppatore</system:String>

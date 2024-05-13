@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Interaction Method</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Determines the methods through which interaction can occur with supported wallpapers.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Interaction Module:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Process interaction only when desktop is focused</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Hide to avoid accidentally selecting desktop icons</system:String>

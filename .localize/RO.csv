@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.WindowBackdropType.Auto,Automat
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.WindowBackdropType.Tabbed,Tab-uri
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acrilic
 Portal\Enum\Portal.Enum.RO.xaml,,
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.RO.xaml,,
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ChannelType.Release,Implicit
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.ChannelType.PreRelease,Dezvoltator
 Portal\Enum\Portal.Enum.RO.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode,Metoda de Interacțiune
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode.Description,Stabilește metodele prin care poate avea loc interacțiunea cu tapetele acceptate.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Modul de Interacțiune:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Procesează interacțiunea doar când desktop-ul este în focus
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,

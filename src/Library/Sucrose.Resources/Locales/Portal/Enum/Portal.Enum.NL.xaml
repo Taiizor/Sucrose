@@ -38,6 +38,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">In Tabbladen</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acryl</system:String>
 
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standaard</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Ontwikkelaar</system:String>
 

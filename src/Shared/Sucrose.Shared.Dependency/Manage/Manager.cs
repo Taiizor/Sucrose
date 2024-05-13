@@ -11,6 +11,7 @@ using SSDESHT = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDETT = Sucrose.Shared.Dependency.Enum.TransitionType;
+using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 
@@ -43,6 +44,8 @@ namespace Sucrose.Shared.Dependency.Manage
         public static SSDESKT LibrarySortKind => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortKind, SSDESKT.Descending);
 
         public static SSDESMT LibrarySortMode => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortMode, SSDESMT.Creation);
+
+        public static SSDEIMT InputModuleType => SMMI.EngineSettingManager.GetSetting(SMC.InputModuleType, SSDEIMT.RawInput);
 
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Resume);
 

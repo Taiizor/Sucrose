@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.WindowBackdropType.Auto,Auto
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.WindowBackdropType.Tabbed,Z Kartami
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akryl
 Portal\Enum\Portal.Enum.PL.xaml,,
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.PL.xaml,,
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ChannelType.Release,Domyślny
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.ChannelType.PreRelease,Deweloper
 Portal\Enum\Portal.Enum.PL.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode,Metoda Interakcji
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Określa metody, za pomocą których może występować interakcja z obsługiwanymi tapetami."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Moduł Interakcji:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,"Przetwarzaj interakcję tylko wtedy, gdy pulpit jest skoncentrowany"
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.PL.xaml,,

@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">상호 작용 방법</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">지원되는 배경 화면과의 상호 작용 방법을 결정합니다.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">상호 작용 모듈:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">바탕 화면이 초점을 맞춘 경우에만 상호 작용 처리</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">의도하지 않은 바탕 화면 아이콘 선택을 피하기 위해 숨기기</system:String>

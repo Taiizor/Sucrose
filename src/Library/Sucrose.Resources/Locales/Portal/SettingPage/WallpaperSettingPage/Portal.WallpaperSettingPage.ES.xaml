@@ -4,8 +4,10 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Método de interacción</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Método de Interacción</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Determina los métodos a través de los cuales puede ocurrir la interacción con los fondos de pantalla admitidos.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Módulo de Interacción:</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Procesar la interacción solo cuando el escritorio esté enfocado</system:String>
 

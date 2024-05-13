@@ -38,6 +38,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Aba</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrílico</system:String>
 
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
     <system:String x:Key="Portal.Enum.ChannelType.Release">Liberação</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pré-Lançamento</system:String>
 

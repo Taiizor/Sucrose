@@ -38,6 +38,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Berlapik</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akrilik</system:String>
 
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
     <system:String x:Key="Portal.Enum.ChannelType.Release">Standar</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Pengembang</system:String>
 

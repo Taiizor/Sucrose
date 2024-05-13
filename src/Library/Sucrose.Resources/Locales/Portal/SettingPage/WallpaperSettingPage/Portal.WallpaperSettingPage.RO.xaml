@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Metoda de Interacțiune</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Stabilește metodele prin care poate avea loc interacțiunea cu tapetele acceptate.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Modul de Interacțiune:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Procesează interacțiunea doar când desktop-ul este în focus</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Ascundeți pentru a evita selectarea accidentală a pictogramelor de pe desktop</system:String>

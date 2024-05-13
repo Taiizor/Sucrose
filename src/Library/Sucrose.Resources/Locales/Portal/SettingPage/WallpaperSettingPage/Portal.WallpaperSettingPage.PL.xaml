@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Metoda Interakcji</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Określa metody, za pomocą których może występować interakcja z obsługiwanymi tapetami.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Moduł Interakcji:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Przetwarzaj interakcję tylko wtedy, gdy pulpit jest skoncentrowany</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Ukryj, aby uniknąć przypadkowego wybierania ikon pulpitu</system:String>

@@ -38,6 +38,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Z Kartami</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Akryl</system:String>
 
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
     <system:String x:Key="Portal.Enum.ChannelType.Release">Domyślny</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Deweloper</system:String>
 

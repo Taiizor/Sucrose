@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Auto,स्वच
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Tabbed,टैब किया गया
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.WindowBackdropType.Acrylic,ऐक्रिलिक
 Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ChannelType.Release,डिफ़ॉल्ट
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ChannelType.PreRelease,डेवलपर
 Portal\Enum\Portal.Enum.HI.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode,अंतराक्रिया विधि
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode.Description,समर्थित वॉलपेपर के साथ अंतराक्रिया हो सकने के तरीकों का निर्धारण करता है।
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,इंटरएक्शन मॉड्यूल:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,केवल जब डेस्कटॉप पर ध्यान केंद्रित हो तो अंतराक्रिया को प्रक्रियित करें
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,

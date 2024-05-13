@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Método de Interação</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Determina os métodos pelos quais a interação pode ocorrer com os papéis de parede suportados.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Módulo de Interação:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Processar interação apenas quando o ambiente de trabalho estiver focado</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Ocultar para evitar a seleção acidental de ícones de área de trabalho</system:String>

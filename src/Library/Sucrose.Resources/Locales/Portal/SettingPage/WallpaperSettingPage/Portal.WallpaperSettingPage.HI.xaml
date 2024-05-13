@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">अंतराक्रिया विधि</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">समर्थित वॉलपेपर के साथ अंतराक्रिया हो सकने के तरीकों का निर्धारण करता है।</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">इंटरएक्शन मॉड्यूल:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">केवल जब डेस्कटॉप पर ध्यान केंद्रित हो तो अंतराक्रिया को प्रक्रियित करें</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">अनजाने में डेस्कटॉप आइकन का चयन न करने के लिए छिपाएं</system:String>

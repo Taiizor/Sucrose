@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Auto,Автома
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Tabbed,Закладки
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.WindowBackdropType.Acrylic,Акрил
 Portal\Enum\Portal.Enum.UK.xaml,,
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.UK.xaml,,
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.Release,За замовчуванням
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.ChannelType.PreRelease,Розробник
 Portal\Enum\Portal.Enum.UK.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode,Метод Взаємодії
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Визначає методи, за допомогою яких може відбуватися взаємодія з підтримуваними шпалерами."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Модуль Взаємодії:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Обробляти взаємодію лише при активному робочому столі
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,

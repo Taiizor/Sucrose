@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">交互方法</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">确定与支持的壁纸进行交互的方法。</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">交互模块：</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">只有在桌面聚焦时处理交互</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">隐藏以避免意外选择桌面图标</system:String>

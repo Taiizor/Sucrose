@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.Auto,Auto
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.Tabbed,Flikad
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akryl
 Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ChannelType.Release,Standard
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ChannelType.PreRelease,Utvecklare
 Portal\Enum\Portal.Enum.SV.xaml,,
@@ -958,6 +961,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode,Interaktionsmetod
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode.Description,Bestämmer metoderna genom vilka interaktion kan ske med stödda bakgrundsbilder.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Interaktionsmodul:
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Bearbeta interaktion endast när skrivbordet är i fokus
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Göm för att undvika oavsiktlig val av skrivbordsikoner
@@ -974,7 +979,7 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ShuffleMode,Blandningsläge
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Ändrar blandningsläge för stödda tapeter.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif-spelare
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.GifPlayer,Gif-Spelare
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.GifPlayer.Description,Välj en plugin som kommer att spela Gif-teman i din samling.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.SV.xaml,Portal.WallpaperSettingPage.VideoPlayer,Videospelare

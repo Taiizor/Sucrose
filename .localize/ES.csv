@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.WindowBackdropType.Auto,Automático
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.WindowBackdropType.Tabbed,Con Pestañas
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acrílico
 Portal\Enum\Portal.Enum.ES.xaml,,
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.ES.xaml,,
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ChannelType.Release,Por Defecto
 Portal\Enum\Portal.Enum.ES.xaml,Portal.Enum.ChannelType.PreRelease,Desarrollador
 Portal\Enum\Portal.Enum.ES.xaml,,
@@ -955,8 +958,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ES.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ES.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode,Método de interacción
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode,Método de Interacción
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode.Description,Determina los métodos a través de los cuales puede ocurrir la interacción con los fondos de pantalla admitidos.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Módulo de Interacción:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Procesar la interacción solo cuando el escritorio esté enfocado
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ES.xaml,,

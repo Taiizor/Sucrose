@@ -4,8 +4,10 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Μέθοδος αλληλεπίδρασης</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Μέθοδος Αλληλεπίδρασης</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Καθορίζει τις μεθόδους με τις οποίες μπορεί να γίνει αλληλεπίδραση με τις υποστηριζόμενες ταπετσαρίες.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Ενότητα Αλληλεπίδρασης:</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Επεξεργασία αλληλεπίδρασης μόνο όταν ο επιφάνεια εργασίας είναι εστιασμένη</system:String>
 

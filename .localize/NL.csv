@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Auto,Automatisch
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Tabbed,In Tabbladen
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acryl
 Portal\Enum\Portal.Enum.NL.xaml,,
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.NL.xaml,,
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ChannelType.Release,Standaard
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.ChannelType.PreRelease,Ontwikkelaar
 Portal\Enum\Portal.Enum.NL.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode,Interactiemethode
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode.Description,Bepaalt de methoden waarmee interactie kan plaatsvinden met ondersteunde achtergronden.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Interactiemodule:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Interactie alleen verwerken wanneer het bureaublad is gefocust
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,

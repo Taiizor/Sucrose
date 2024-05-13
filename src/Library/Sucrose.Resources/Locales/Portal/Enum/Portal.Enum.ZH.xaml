@@ -38,6 +38,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">标签页</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">亚克力</system:String>
 
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
     <system:String x:Key="Portal.Enum.ChannelType.Release">默认</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">开发版</system:String>
 

@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Etkileşim Yöntemi</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Desteklenen duvar kağıtlarında etkileşime girilebilecek yöntemleri belirler.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Etkileşim Modülü:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Etkileşimi yalnızca masaüstü odaklandığında işleme al</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Masaüstü simgelerini yanlışlıkla seçmemek adına gizle</system:String>

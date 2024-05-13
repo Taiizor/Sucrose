@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Auto,Otomatis
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Tabbed,Berlapik
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilik
 Portal\Enum\Portal.Enum.ID.xaml,,
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.ID.xaml,,
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ChannelType.Release,Standar
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.ChannelType.PreRelease,Pengembang
 Portal\Enum\Portal.Enum.ID.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode,Metode Interaksi
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode.Description,Menentukan metode melalui mana interaksi dapat terjadi dengan wallpaper yang didukung.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Modul Interaksi:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Proses interaksi hanya ketika desktop difokuskan
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ID.xaml,,

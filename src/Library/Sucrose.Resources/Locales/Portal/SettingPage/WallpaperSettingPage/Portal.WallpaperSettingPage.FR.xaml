@@ -4,17 +4,19 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Méthode d'interaction</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Méthode d'Interaction</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Détermine les méthodes par lesquelles l'interaction peut se produire avec les fonds d'écran pris en charge.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Module d'Interaction:</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Traiter l'interaction uniquement lorsque le bureau est au premier plan</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Masquer pour éviter de sélectionner accidentellement des icônes du bureau</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Disposition de l'écran</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Disposition de l'Écran</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Modifiez la disposition de vos fonds d'écran sur l'écran.</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Mode d'étirement</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Mode d'Étirement</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Modifiez le mode de mise à l'échelle pour les fonds d'écran pris en charge.</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Mode de Boucle</system:String>

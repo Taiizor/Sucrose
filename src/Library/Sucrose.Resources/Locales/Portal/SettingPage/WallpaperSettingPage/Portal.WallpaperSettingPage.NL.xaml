@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Interactiemethode</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Bepaalt de methoden waarmee interactie kan plaatsvinden met ondersteunde achtergronden.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Interactiemodule:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Interactie alleen verwerken wanneer het bureaublad is gefocust</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Verbergen om per ongeluk selecteren van bureaubladpictogrammen te voorkomen</system:String>

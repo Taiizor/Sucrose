@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.WindowBackdropType.Auto,自动
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.WindowBackdropType.Tabbed,标签页
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.WindowBackdropType.Acrylic,亚克力
 Portal\Enum\Portal.Enum.ZH.xaml,,
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ChannelType.Release,默认
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ChannelType.PreRelease,开发版
 Portal\Enum\Portal.Enum.ZH.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode,交互方法
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode.Description,确定与支持的壁纸进行交互的方法。
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,交互模块：
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,只有在桌面聚焦时处理交互
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,

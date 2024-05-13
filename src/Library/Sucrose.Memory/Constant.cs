@@ -146,6 +146,8 @@
 
         public const string DisableCycyling = "DisableCycyling";
 
+        public const string InputModuleType = "InputModuleType";
+
         public const string LibraryLocation = "LibraryLocation";
 
         public const string LibrarySelected = "LibrarySelected";

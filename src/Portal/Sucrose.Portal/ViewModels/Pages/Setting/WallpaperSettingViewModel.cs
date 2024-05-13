@@ -13,6 +13,7 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSDEAET = Sucrose.Shared.Dependency.Enum.ApplicationEngineType;
 using SSDEET = Sucrose.Shared.Dependency.Enum.EngineType;
 using SSDEGET = Sucrose.Shared.Dependency.Enum.GifEngineType;
+using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSDEUET = Sucrose.Shared.Dependency.Enum.UrlEngineType;
 using SSDEVET = Sucrose.Shared.Dependency.Enum.VideoEngineType;
@@ -83,6 +84,40 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Orientation = Orientation.Vertical
             };
 
+            StackPanel InputModuleContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock InputModuleText = new()
+            {
+                Text = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "InputModule"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ComboBox InputModuleType = new();
+
+            InputModuleType.SelectionChanged += (s, e) => InputModuleTypeSelected(InputModuleType.SelectedIndex);
+
+            foreach (SSDEIMT Type in Enum.GetValues(typeof(SSDEIMT)))
+            {
+                InputModuleType.Items.Add(new ComboBoxItem()
+                {
+                    Content = SRER.GetValue("Portal", "Enum", "InputModuleType", $"{Type}")
+                });
+            }
+
+            InputModuleType.SelectedIndex = (int)SSDMM.InputModuleType;
+
+            StackPanel InputCustomContent = new()
+            {
+                Orientation = Orientation.Vertical,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
             CheckBox InputDesktop = new()
             {
                 Content = SRER.GetValue("Portal", "WallpaperSettingPage", "InputMode", "InputDesktop"),
@@ -102,8 +137,14 @@ namespace Sucrose.Portal.ViewModels.Pages
             DesktopIcon.Checked += (s, e) => DesktopIconChecked(false);
             DesktopIcon.Unchecked += (s, e) => DesktopIconChecked(true);
 
-            InputContent.Children.Add(InputDesktop);
-            InputContent.Children.Add(DesktopIcon);
+            InputModuleContent.Children.Add(InputModuleText);
+            InputModuleContent.Children.Add(InputModuleType);
+
+            InputCustomContent.Children.Add(InputDesktop);
+            InputCustomContent.Children.Add(DesktopIcon);
+
+            InputContent.Children.Add(InputModuleContent);
+            InputContent.Children.Add(InputCustomContent);
 
             InputMode.FooterCard = InputContent;
 
@@ -454,6 +495,16 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void ShuffleStateChecked(bool State)
         {
             SMMI.EngineSettingManager.SetSetting(SMC.Shuffle, State);
+        }
+
+        private void InputModuleTypeSelected(int Index)
+        {
+            SSDEIMT NewInput = (SSDEIMT)Index;
+
+            if (NewInput != SSDMM.InputModuleType)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.InputModuleType, NewInput);
+            }
         }
 
         private void GifEngineSelected(ComboBoxItem Item)

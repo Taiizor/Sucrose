@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Auto,Automatický
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Tabbed,Kartáčovaný
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilový
 Portal\Enum\Portal.Enum.CS.xaml,,
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.CS.xaml,,
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ChannelType.Release,Výchozí
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.ChannelType.PreRelease,Předběžná verze
 Portal\Enum\Portal.Enum.CS.xaml,,
@@ -955,8 +958,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.CS.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode,Metoda interakce
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode,Metoda Interakce
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Určuje metody, pomocí kterých může interakce probíhat se podporovanými tapetami."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Interakční Modul:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Zpracovat interakci pouze při zaměření na pracovní plochu
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.CS.xaml,,

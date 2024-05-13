@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.WindowBackdropType.Auto,Auto
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.WindowBackdropType.Tabbed,Onglets
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acrylique
 Portal\Enum\Portal.Enum.FR.xaml,,
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.FR.xaml,,
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ChannelType.Release,Par Défaut
 Portal\Enum\Portal.Enum.FR.xaml,Portal.Enum.ChannelType.PreRelease,Développeur
 Portal\Enum\Portal.Enum.FR.xaml,,
@@ -955,17 +958,19 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.FR.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.FR.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode,Méthode d'interaction
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode,Méthode d'Interaction
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode.Description,Détermine les méthodes par lesquelles l'interaction peut se produire avec les fonds d'écran pris en charge.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Module d'Interaction:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Traiter l'interaction uniquement lorsque le bureau est au premier plan
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Masquer pour éviter de sélectionner accidentellement des icônes du bureau
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.ScreenLayout,Disposition de l'écran
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.ScreenLayout,Disposition de l'Écran
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Modifiez la disposition de vos fonds d'écran sur l'écran.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.StretchMode,Mode d'étirement
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.StretchMode,Mode d'Étirement
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Modifiez le mode de mise à l'échelle pour les fonds d'écran pris en charge.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.FR.xaml,Portal.WallpaperSettingPage.LoopMode,Mode de Boucle

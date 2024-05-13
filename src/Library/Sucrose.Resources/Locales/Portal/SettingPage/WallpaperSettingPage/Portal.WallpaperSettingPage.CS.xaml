@@ -4,8 +4,10 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Metoda interakce</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Metoda Interakce</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Určuje metody, pomocí kterých může interakce probíhat se podporovanými tapetami.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Interakční Modul:</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Zpracovat interakci pouze při zaměření na pracovní plochu</system:String>
 

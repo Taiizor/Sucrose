@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.Auto,Auto
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.Tabbed,Faner
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akryl
 Portal\Enum\Portal.Enum.DA.xaml,,
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.DA.xaml,,
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ChannelType.Release,Standard
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.ChannelType.PreRelease,Udvikler
 Portal\Enum\Portal.Enum.DA.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode,Interaktionsmetode
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode.Description,"Afgør de metoder, hvormed interaktion kan forekomme med understøttede tapeter."
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Interaktionsmodul:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Behandle interaktion kun når skrivebordet er i fokus
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,

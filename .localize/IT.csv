@@ -334,8 +334,11 @@ Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.WindowBackdropType.Mica,Mica
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.WindowBackdropType.None,Nessuno
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.WindowBackdropType.Auto,Automatico
-Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.WindowBackdropType.Tabbed,A schede
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.WindowBackdropType.Tabbed,A Schede
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.WindowBackdropType.Acrylic,Acrilico
+Portal\Enum\Portal.Enum.IT.xaml,,
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
 Portal\Enum\Portal.Enum.IT.xaml,,
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ChannelType.Release,Predefinito
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.ChannelType.PreRelease,Sviluppatore
@@ -955,23 +958,25 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.IT.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.IT.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,File ZIP (*.zip)|*.zip|Tutti i file (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.InputMode,Metodo di interazione
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.InputMode,Metodo di Interazione
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.InputMode.Description,Determina i metodi attraverso i quali può avvenire l'interazione con le sfondi supportate.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Modulo di Interazione:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Elabora l'interazione solo quando il desktop è focalizzato
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.InputMode.DesktopIcon,Nascondi per evitare la selezione accidentale delle icone del desktop
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.ScreenLayout,Layout dello schermo
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.ScreenLayout,Layout dello Schermo
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.ScreenLayout.Description,Modifica il layout dei tuoi sfondi sullo schermo.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.StretchMode,Metodo di ridimensionamento
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.StretchMode,Metodo di Ridimensionamento
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.StretchMode.Description,Modifica il modo in cui vengono ridimensionati gli sfondi supportati.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.LoopMode,Modalità di riproduzione in loop
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.LoopMode,Modalità di Riproduzione in Loop
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.LoopMode.Description,Modifica la modalità di riproduzione in loop degli sfondi supportati.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.ShuffleMode,Modalità di riproduzione casuale
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.ShuffleMode,Modalità di Riproduzione Casuale
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.ShuffleMode.Description,Modifica la modalità di riproduzione casuale degli sfondi supportati.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.IT.xaml,Portal.WallpaperSettingPage.GifPlayer,Plugin per Gif

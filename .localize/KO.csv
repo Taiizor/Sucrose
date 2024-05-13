@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Auto,자동
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Tabbed,탭식
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.WindowBackdropType.Acrylic,아크릴
 Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.Release,기본
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ChannelType.PreRelease,개발자
 Portal\Enum\Portal.Enum.KO.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode,상호 작용 방법
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode.Description,지원되는 배경 화면과의 상호 작용 방법을 결정합니다.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,상호 작용 모듈:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,바탕 화면이 초점을 맞춘 경우에만 상호 작용 처리
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,

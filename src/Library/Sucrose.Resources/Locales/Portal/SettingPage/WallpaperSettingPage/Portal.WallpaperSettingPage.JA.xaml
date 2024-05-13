@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">インタラクション メソッド</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">サポートされている壁紙とのインタラクションが発生する方法を決定します。</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">インタラクションモジュール：</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">デスクトップがフォーカスされている場合にのみインタラクションを処理する</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">デスクトップアイコンを誤って選択しないように非表示にする</system:String>

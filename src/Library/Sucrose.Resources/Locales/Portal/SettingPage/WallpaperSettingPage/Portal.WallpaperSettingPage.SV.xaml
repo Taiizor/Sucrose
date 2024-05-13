@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Interaktionsmetod</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Bestämmer metoderna genom vilka interaktion kan ske med stödda bakgrundsbilder.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Interaktionsmodul:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Bearbeta interaktion endast när skrivbordet är i fokus</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Göm för att undvika oavsiktlig val av skrivbordsikoner</system:String>
@@ -23,7 +25,7 @@
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Blandningsläge</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Ändrar blandningsläge för stödda tapeter.</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif-spelare</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Gif-Spelare</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer.Description">Välj en plugin som kommer att spela Gif-teman i din samling.</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.VideoPlayer">Videospelare</system:String>

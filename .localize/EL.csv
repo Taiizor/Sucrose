@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Auto,Αυτόμα
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Tabbed,Καρτελέτα
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.WindowBackdropType.Acrylic,Ακρυλικό
 Portal\Enum\Portal.Enum.EL.xaml,,
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.EL.xaml,,
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.Release,Προεπιλεγμένο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.ChannelType.PreRelease,Προ-Κυκλοφορία
 Portal\Enum\Portal.Enum.EL.xaml,,
@@ -955,8 +958,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλοι οι Τύποι Αρχείων (*.*)|*.*
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
-Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode,Μέθοδος αλληλεπίδρασης
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode,Μέθοδος Αλληλεπίδρασης
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode.Description,Καθορίζει τις μεθόδους με τις οποίες μπορεί να γίνει αλληλεπίδραση με τις υποστηριζόμενες ταπετσαρίες.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Ενότητα Αλληλεπίδρασης:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Επεξεργασία αλληλεπίδρασης μόνο όταν ο επιφάνεια εργασίας είναι εστιασμένη
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,

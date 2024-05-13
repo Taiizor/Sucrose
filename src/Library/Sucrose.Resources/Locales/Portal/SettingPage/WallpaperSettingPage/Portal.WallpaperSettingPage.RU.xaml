@@ -4,23 +4,25 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.WallpaperSettingPage.Title">WallpaperSettingPage</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Метод взаимодействия</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Метод Взаимодействия</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Определяет методы, с помощью которых может взаимодействовать с поддерживаемыми обоями.</system:String>
+
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Модуль Взаимодействия:</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Обрабатывать взаимодействие только при фокусировке на рабочем столе</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Скрыть, чтобы избежать случайного выбора значков рабочего стола</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Раскладка экрана</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout">Раскладка Экрана</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ScreenLayout.Description">Измените расположение ваших обоев на экране.</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Режим растяжения</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.StretchMode">Режим Pастяжения</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.StretchMode.Description">Измените метод изменения масштаба для поддерживаемых обоев.</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Режим повтора</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.LoopMode">Режим Повтора</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.LoopMode.Description">Измените режим повтора для поддерживаемых обоев.</system:String>
 
-    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Режим перемешивания</system:String>
+    <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode">Режим Перемешивания</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.ShuffleMode.Description">Измените режим перемешивания для поддерживаемых обоев.</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.GifPlayer">Плеер для Gif</system:String>

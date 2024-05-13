@@ -38,6 +38,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">Onglets</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">Acrylique</system:String>
 
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
     <system:String x:Key="Portal.Enum.ChannelType.Release">Par Défaut</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">Développeur</system:String>
 

@@ -337,6 +337,9 @@ Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.Auto,Otomatik
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.Tabbed,Sekmeli
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.WindowBackdropType.Acrylic,Akrilik
 Portal\Enum\Portal.Enum.TR.xaml,,
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputModuleType.Native,Native
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.InputModuleType.RawInput,RawInput
+Portal\Enum\Portal.Enum.TR.xaml,,
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ChannelType.Release,Varsayılan
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.ChannelType.PreRelease,Geliştirici
 Portal\Enum\Portal.Enum.TR.xaml,,
@@ -957,6 +960,8 @@ Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Port
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode,Etkileşim Yöntemi
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode.Description,Desteklenen duvar kağıtlarında etkileşime girilebilecek yöntemleri belirler.
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
+Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode.InputModule,Etkileşim Modülü:
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode.InputDesktop,Etkileşimi yalnızca masaüstü odaklandığında işleme al
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,

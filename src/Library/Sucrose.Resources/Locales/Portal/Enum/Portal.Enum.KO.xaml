@@ -38,6 +38,9 @@
     <system:String x:Key="Portal.Enum.WindowBackdropType.Tabbed">탭식</system:String>
     <system:String x:Key="Portal.Enum.WindowBackdropType.Acrylic">아크릴</system:String>
 
+    <system:String x:Key="Portal.Enum.InputModuleType.Native">Native</system:String>
+    <system:String x:Key="Portal.Enum.InputModuleType.RawInput">RawInput</system:String>
+
     <system:String x:Key="Portal.Enum.ChannelType.Release">기본</system:String>
     <system:String x:Key="Portal.Enum.ChannelType.PreRelease">개발자</system:String>
 

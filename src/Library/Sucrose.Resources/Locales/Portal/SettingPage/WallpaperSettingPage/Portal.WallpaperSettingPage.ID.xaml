@@ -7,6 +7,8 @@
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode">Metode Interaksi</system:String>
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.Description">Menentukan metode melalui mana interaksi dapat terjadi dengan wallpaper yang didukung.</system:String>
 
+    <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputModule">Modul Interaksi:</system:String>
+
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.InputDesktop">Proses interaksi hanya ketika desktop difokuskan</system:String>
 
     <system:String x:Key="Portal.WallpaperSettingPage.InputMode.DesktopIcon">Sembunyikan untuk menghindari memilih ikon desktop secara tidak sengaja</system:String>
