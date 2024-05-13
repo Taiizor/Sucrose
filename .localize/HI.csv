@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Application.Description,Application प्रकार की अपनी खुद की थीम बनाएं।
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeApplication,एप्लिकेशन
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeThumbnail,थंबनेल
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview,पूर्वावलोकन
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeTitle,शीर्षक
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeArguments,आर्ग्यूमेंट्स
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeUrl.Hint,कृपया एक मान्य Url पता लिखें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeWeb.Hint,एक Web पृष्ठ चुनें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeApplication.Hint,एक एप्लिकेशन फ़ाइल चुनें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,कृपया एक थंबनेल चित्र का चयन करें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview.Hint,कृपया एक पूर्वावलोकन फ़ाइल का चयन करें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeTitle.Hint,कृपया एक मान्य शीर्षक लिखें
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview.Title,पूर्वावलोकन फ़ाइल चुनें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif फ़ाइलें (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.WebSource.Title,वेब पृष्ठ चुनें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.WebSource.Filter,वेब पृष्ठ (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ApplicationSource.Title,एप्लिकेशन फ़ाइल चुनें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ApplicationSource.Filter,एप्लिकेशन फ़ाइलें (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Title,थीम हटाना
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Delete,हटाएं
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Close,बंद करें

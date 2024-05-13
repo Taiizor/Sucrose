@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Application.Description,Skapa ditt eget tema av typen Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeApplication,Applikation
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeThumbnail,Minitiatyrbild
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview,Förhandsgranskning
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeTitle,Rubrik
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeArguments,Argument
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Ange en giltig Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Välj en webbsida
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Välj en applikationsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Välj en miniatyrbild
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview.Hint,Välj en förhandsgranskningsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Ange en giltig rubrik
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview.Title,Välj förhandsgranskningsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.WebSource.Title,Välj Webbsida
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.WebSource.Filter,Webbsidor (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ApplicationSource.Title,Välj Applikationsfil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Applikationsfiler (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Title,Ta bort Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Delete,Ta bort
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Close,Stäng

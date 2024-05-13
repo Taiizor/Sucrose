@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Application.Description,Opprett ditt eget tema i Application-format.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeApplication,Applikasjon
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeThumbnail,Forsidebilde
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemePreview,Forhåndsvisning
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeTitle,Tittel
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeArguments,Argumenter
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Vennligst oppgi en gyldig URL
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Velg en nettside
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Velg en programfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Velg et forsidebilde
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemePreview.Hint,Velg en forhåndsvisningsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Vennligst oppgi en gyldig tittel
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemePreview.Title,Velg Forhåndsvisningsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.WebSource.Title,Velg Nettside
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.WebSource.Filter,Nettsider (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ApplicationSource.Title,Velg Programfil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Programfiler (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,Portal.ThemeDelete.Title,Slett Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,Portal.ThemeDelete.Delete,Slett
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,Portal.ThemeDelete.Close,Lukk

@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Application.Description,创建您自己的 Application 主题。
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeApplication,应用程序
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeThumbnail,封面
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemePreview,预览
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeTitle,标题
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeArguments,参数
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeUrl.Hint,请输入有效的 url 地址
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeWeb.Hint,选择一个网页
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeApplication.Hint,选择一个应用程序文件
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,请选择一张封面图片
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemePreview.Hint,请选择一个预览文件
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeTitle.Hint,请输入有效的标题
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemePreview.Title,选择预览文件
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif 文件 (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.WebSource.Title,选择网页
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.WebSource.Filter,网页 (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ApplicationSource.Title,选择应用程序文件
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ApplicationSource.Filter,应用程序文件 (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,Portal.ThemeDelete.Title,删除主题
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,Portal.ThemeDelete.Delete,删除
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ZH.xaml,Portal.ThemeDelete.Close,关闭

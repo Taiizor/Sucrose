@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Sendiri cipta tema jenis Application anda.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Aplikasi</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Thumbnail</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Pratonton</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tajuk</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumen</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Sila masukkan url yang sah</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Pilih laman web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Pilih fail aplikasi</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Sila pilih gambar thumbnail</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Sila pilih fail pratonton</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Sila masukkan tajuk yang sah</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Pilih Fail Pratonton</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Fail Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Pilih Laman Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Laman Web (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Pilih Fail Aplikasi</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Fail Aplikasi (*.exe)|*.exe</system:String>
 </ResourceDictionary>

@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Application.Description,Application 형식의 테마를 만드세요.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeApplication,응용 프로그램
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeThumbnail,썸네일
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview,미리보기
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeTitle,제목
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeArguments,인수
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeUrl.Hint,유효한 Url 주소를 입력하세요
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Web 페이지 선택
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeApplication.Hint,응용 프로그램 파일 선택
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,썸네일 이미지를 선택하세요
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview.Hint,미리보기 파일을 선택하세요
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeTitle.Hint,유효한 제목을 입력하세요
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview.Title,미리보기 파일 선택
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif 파일 (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.WebSource.Title,웹 페이지 선택
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.WebSource.Filter,웹 페이지 (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ApplicationSource.Title,응용 프로그램 파일 선택
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ApplicationSource.Filter,응용 프로그램 파일 (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Title,테마 삭제
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Delete,삭제
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Close,닫기

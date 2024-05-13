@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Opprett ditt eget tema i Application-format.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Applikasjon</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Forsidebilde</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Forhåndsvisning</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tittel</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenter</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Vennligst oppgi en gyldig URL</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Velg en nettside</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Velg en programfil</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Velg et forsidebilde</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Velg en forhåndsvisningsfil</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Vennligst oppgi en gyldig tittel</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Velg Forhåndsvisningsfil</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif-filer (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Velg Nettside</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Nettsider (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Velg Programfil</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Programfiler (*.exe)|*.exe</system:String>
 </ResourceDictionary>

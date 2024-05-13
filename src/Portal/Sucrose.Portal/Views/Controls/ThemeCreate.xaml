@@ -95,8 +95,7 @@
                 Appearance="Transparent"
                 BorderBrush="Transparent"
                 Click="WebCreate_Click"
-                Cursor="Hand"
-                IsEnabled="False">
+                Cursor="Hand">
                 <vcontrols:ExpanderCard
                     x:Name="WebExpander"
                     Expandable="False"
@@ -174,8 +173,7 @@
                 Appearance="Transparent"
                 BorderBrush="Transparent"
                 Click="ApplicationCreate_Click"
-                Cursor="Hand"
-                IsEnabled="False">
+                Cursor="Hand">
                 <vcontrols:ExpanderCard
                     x:Name="ApplicationExpander"
                     Expandable="False"
@@ -266,7 +264,7 @@
                         Click="GifDelete_Click"
                         Content="{DynamicResource Portal.ThemeCreate.DragDrop.Delete}"
                         Cursor="Hand"
-                        Icon="{ui:SymbolIcon Delete24}"
+                        Icon="{ui:SymbolIcon ArrowUndo24}"
                         Visibility="Collapsed" />
                 </StackPanel>
             </Grid>
@@ -514,6 +512,138 @@
                 Click="Back_Click"
                 Cursor="Hand"
                 Icon="{ui:SymbolIcon ArrowLeft24}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeWeb}"
+                TextWrapping="WrapWithOverflow" />
+            <Grid Margin="0,3,0,0" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ui:Button
+                    x:Name="WebSource"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    Appearance="Secondary"
+                    Click="WebSource_Click"
+                    Content="{DynamicResource Portal.ThemeCreate.ThemeWeb.Hint}"
+                    Cursor="Hand" />
+                <ui:Button
+                    x:Name="WebSourceClear"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Stretch"
+                    Appearance="Secondary"
+                    Click="WebSourceClear_Click"
+                    Cursor="Hand"
+                    Icon="{ui:SymbolIcon Delete24}" />
+            </Grid>
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeThumbnail}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:Button
+                x:Name="WebThumbnail"
+                Margin="0,3,0,0"
+                HorizontalAlignment="Stretch"
+                Click="ThemeThumbnail_Click"
+                Content="{DynamicResource Portal.ThemeCreate.ThemeThumbnail.Hint}"
+                Cursor="Hand" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemePreview}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:Button
+                x:Name="WebPreview"
+                Margin="0,3,0,0"
+                HorizontalAlignment="Stretch"
+                Click="ThemePreview_Click"
+                Content="{DynamicResource Portal.ThemeCreate.ThemePreview.Hint}"
+                Cursor="Hand" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeTitle}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="WebTitle"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="50"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTitle.Hint}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeDescription}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="WebDescription"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="500"
+                MaxLines="10"
+                MinLines="5"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeDescription.Hint}"
+                TextWrapping="WrapWithOverflow" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeAuthor}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="WebAuthor"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="50"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeAuthor.Hint}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeContact}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="WebContact"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="250"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeContact.Hint}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeTags}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="WebTags"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="104"
+                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
         </StackPanel>
 
         <StackPanel
@@ -591,7 +721,7 @@
                         Click="VideoDelete_Click"
                         Content="{DynamicResource Portal.ThemeCreate.DragDrop.Delete}"
                         Cursor="Hand"
-                        Icon="{ui:SymbolIcon Delete24}"
+                        Icon="{ui:SymbolIcon ArrowUndo24}"
                         Visibility="Collapsed" />
                 </StackPanel>
             </Grid>
@@ -839,6 +969,138 @@
                 Click="Back_Click"
                 Cursor="Hand"
                 Icon="{ui:SymbolIcon ArrowLeft24}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeApplication}"
+                TextWrapping="WrapWithOverflow" />
+            <Grid Margin="0,3,0,0" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ui:Button
+                    x:Name="ApplicationSource"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    Appearance="Secondary"
+                    Click="ApplicationSource_Click"
+                    Content="{DynamicResource Portal.ThemeCreate.ThemeApplication.Hint}"
+                    Cursor="Hand" />
+                <ui:Button
+                    x:Name="ApplicationSourceClear"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Stretch"
+                    Appearance="Secondary"
+                    Click="ApplicationSourceClear_Click"
+                    Cursor="Hand"
+                    Icon="{ui:SymbolIcon Delete24}" />
+            </Grid>
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeThumbnail}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:Button
+                x:Name="ApplicationThumbnail"
+                Margin="0,3,0,0"
+                HorizontalAlignment="Stretch"
+                Click="ThemeThumbnail_Click"
+                Content="{DynamicResource Portal.ThemeCreate.ThemeThumbnail.Hint}"
+                Cursor="Hand" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemePreview}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:Button
+                x:Name="ApplicationPreview"
+                Margin="0,3,0,0"
+                HorizontalAlignment="Stretch"
+                Click="ThemePreview_Click"
+                Content="{DynamicResource Portal.ThemeCreate.ThemePreview.Hint}"
+                Cursor="Hand" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeTitle}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="ApplicationTitle"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="50"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTitle.Hint}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeDescription}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="ApplicationDescription"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="500"
+                MaxLines="10"
+                MinLines="5"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeDescription.Hint}"
+                TextWrapping="WrapWithOverflow" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeAuthor}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="ApplicationAuthor"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="50"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeAuthor.Hint}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeContact}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="ApplicationContact"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="250"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeContact.Hint}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeTags}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="ApplicationTags"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="104"
+                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
         </StackPanel>
     </StackPanel>
 </ui:ContentDialog>

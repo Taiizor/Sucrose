@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Application.Description,Створити власну тему у форматі Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeApplication,Додаток
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeThumbnail,Зображення
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview,Попередній перегляд
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeTitle,Заголовок
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeArguments,Аргументи
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeUrl.Hint,"Будь ласка, введіть дійсну Url-адресу"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Виберіть Web-сторінку
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Виберіть файл додатка
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Виберіть обкладинку
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview.Hint,Виберіть файл попереднього перегляду
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeTitle.Hint,"Будь ласка, введіть дійсний заголовок"
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview.Title,Виберіть файл попереднього перегляду
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemePreview.Filter,Файли GIF (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.WebSource.Title,Виберіть Web-Сторінку
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.WebSource.Filter,Web-Сторінки (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ApplicationSource.Title,Виберіть Файл додатка
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Файли додатків (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Title,Видалення Теми
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Delete,Видалити
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Close,Закрити

@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Application形式のテーマを作成します。</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">アプリケーション</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">サムネイル</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">プレビュー</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">タイトル</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">引数</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">有効なUrlを入力してください</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Webページを選択</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">アプリケーションファイルを選択</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">サムネイル画像を選択してください</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">プレビューファイルを選択してください</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">有効なタイトルを入力してください</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">プレビューファイルを選択</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif ファイル (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Webページを選択</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Webページ (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">アプリケーションファイルを選択</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">アプリケーションファイル (*.exe)|*.exe</system:String>
 </ResourceDictionary>

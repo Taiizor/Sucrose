@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Creează-ți propria temă de tip Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Aplicație</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Miniatură</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Previzualizare</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Titlu</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumente</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Vă rugăm să introduceți un Url valid</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Selectați o pagină web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Selectați un fișier de aplicație</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Alegeți o imagine miniaturală</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Alegeți un fișier de previzualizare</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Vă rugăm să introduceți un titlu valid</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Alegeți un fișier de previzualizare</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Fișiere Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Selectați Pagina Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Pagini Web (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Selectați Fișierul de Aplicație</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Fișiere de Aplicație (*.exe)|*.exe</system:String>
 </ResourceDictionary>

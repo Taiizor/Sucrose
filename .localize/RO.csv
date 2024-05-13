@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Application.Description,Creează-ți propria temă de tip Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeApplication,Aplicație
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeThumbnail,Miniatură
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemePreview,Previzualizare
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeTitle,Titlu
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeArguments,Argumente
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Vă rugăm să introduceți un Url valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Selectați o pagină web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Selectați un fișier de aplicație
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Alegeți o imagine miniaturală
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemePreview.Hint,Alegeți un fișier de previzualizare
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Vă rugăm să introduceți un titlu valid
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemePreview.Title,Alegeți un fișier de previzualizare
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemePreview.Filter,Fișiere Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.WebSource.Title,Selectați Pagina Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.WebSource.Filter,Pagini Web (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ApplicationSource.Title,Selectați Fișierul de Aplicație
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Fișiere de Aplicație (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Portal.ThemeDelete.Title,Ștergere Temă
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Portal.ThemeDelete.Delete,Șterge
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Portal.ThemeDelete.Close,Închide

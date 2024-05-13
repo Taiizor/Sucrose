@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Application.Description,Kreasikan tema berjenis Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeApplication,Aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeThumbnail,Thumbnail
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview,Pratinjau
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeTitle,Judul
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeArguments,Argumen
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Harap masukkan url yang valid
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Pilih halaman web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Pilih file aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Pilih gambar cover
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview.Hint,Pilih file pratinjau
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Harap masukkan judul yang valid
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview.Title,Pilih File Pratinjau
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemePreview.Filter,File Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.WebSource.Title,Pilih Halaman Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.WebSource.Filter,Halaman Web (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ApplicationSource.Title,Pilih File Aplikasi
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ApplicationSource.Filter,File Aplikasi (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Title,Hapus Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Delete,Hapus
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Close,Tutup

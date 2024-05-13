@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Vytvořte svou vlastní šablonu typu Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Aplikace</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Náhled</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Náhled</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Název</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenty</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Zadejte platnou Url adresu</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Vyberte webovou stránku</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Vyberte soubor aplikace</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Vyberte náhledový obrázek</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Vyberte soubor s náhledem</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Zadejte platný název</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Vybrat náhledový soubor</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif soubory (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Vyberte Webovou Stránku</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Webové Stránky (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Vyberte Soubor Aplikace</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Soubory Aplikací (*.exe)|*.exe</system:String>
 </ResourceDictionary>

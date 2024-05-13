@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Application.Description,Opret dit eget tema i Application-format.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeApplication,Applikation
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeThumbnail,Forsidebillede
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview,Forhåndsvisning
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeTitle,Titel
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeArguments,Argumenter
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Indtast venligst en gyldig Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Vælg en webside
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Vælg en programfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Vælg et forsidebillede
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview.Hint,Vælg en forhåndsvisningsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Indtast venligst en gyldig titel
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview.Title,Vælg Forhåndsvisningsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.WebSource.Title,Vælg Webside
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.WebSource.Filter,Websider (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ApplicationSource.Title,Vælg Programfil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Programfiler (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Title,Slet Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Delete,Slet
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Close,Luk

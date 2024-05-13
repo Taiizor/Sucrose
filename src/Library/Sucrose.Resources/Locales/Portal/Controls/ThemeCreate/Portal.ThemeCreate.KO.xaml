@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Application 형식의 테마를 만드세요.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">응용 프로그램</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">썸네일</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">미리보기</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">제목</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">인수</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">유효한 Url 주소를 입력하세요</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Web 페이지 선택</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">응용 프로그램 파일 선택</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">썸네일 이미지를 선택하세요</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">미리보기 파일을 선택하세요</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">유효한 제목을 입력하세요</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">미리보기 파일 선택</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif 파일 (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">웹 페이지 선택</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">웹 페이지 (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">응용 프로그램 파일 선택</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">응용 프로그램 파일 (*.exe)|*.exe</system:String>
 </ResourceDictionary>

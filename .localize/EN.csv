@@ -138,7 +138,6 @@ Launcher\Launcher.EN.xaml,,
 Launcher\Launcher.EN.xaml,Launcher.UpdateText.Done,Preparing Update
 Launcher\Launcher.EN.xaml,Launcher.UpdateText.Check,Checking for Updates
 Launcher\Launcher.EN.xaml,Launcher.UpdateText.Progress,Update Progress {0}
-Launcher\Launcher.EN.xaml,,
 Portal\Portal.EN.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5FTi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkVOLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuRU4ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5FTi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.EN.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.EN.xaml,,
@@ -577,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.Application.Description,Create your own theme in Application format.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeApplication,Application
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeThumbnail,Thumbnail
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview,Preview
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeTitle,Title
@@ -587,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeArguments,Arguments
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Please enter a valid url address
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Select a web page
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Select an application file
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Select a cover image
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview.Hint,Select a preview file
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Please enter a valid title
@@ -606,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview.Title,Select Preview File
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif Files (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.WebSource.Title,Select Web Page
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.WebSource.Filter,Web Pages (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ApplicationSource.Title,Select Application File
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EN.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Application Files (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.Title,Delete Theme
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.Delete,Delete
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EN.xaml,Portal.ThemeDelete.Close,Close

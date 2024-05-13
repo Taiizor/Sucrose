@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Crie seu próprio tema no formato de Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Aplicação</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Miniatura</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Visualização</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Título</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumentos</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Por favor, insira um Url válido</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Selecionar uma página web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Selecionar um arquivo de aplicativo</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Selecione uma imagem de miniatura</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Selecione um arquivo de pré-visualização</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Por favor, insira um título válido</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Selecionar Arquivo de Pré-visualização</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Arquivos Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Selecionar Página Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Páginas da Web (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Selecionar Arquivo de Aplicativo</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Arquivos de Aplicativo (*.exe)|*.exe</system:String>
 </ResourceDictionary>

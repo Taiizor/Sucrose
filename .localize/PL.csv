@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Application.Description,Utwórz własny motyw w formacie Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeApplication,Aplikacja
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeThumbnail,Miniatura
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemePreview,Podgląd
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeTitle,Tytuł
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeArguments,Argumenty
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Proszę podać prawidłowy adres url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Wybierz stronę internetową
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Wybierz plik aplikacji
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Wybierz obraz okładki
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemePreview.Hint,Wybierz plik podglądu
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Proszę podać poprawny tytuł
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemePreview.Title,Wybierz Plik Podglądu
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemePreview.Filter,Pliki Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.WebSource.Title,Wybierz Stronę Internetową
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.WebSource.Filter,Strony Internetowe (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Wybierz Plik Aplikacji
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Pliki Aplikacji (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PL.xaml,Portal.ThemeDelete.Title,Usuń Temat
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PL.xaml,Portal.ThemeDelete.Delete,Usuń
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PL.xaml,Portal.ThemeDelete.Close,Zamknij

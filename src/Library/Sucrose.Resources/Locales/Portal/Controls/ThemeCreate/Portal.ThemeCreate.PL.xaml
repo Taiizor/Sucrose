@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Utwórz własny motyw w formacie Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Aplikacja</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Miniatura</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Podgląd</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Tytuł</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumenty</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Proszę podać prawidłowy adres url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Wybierz stronę internetową</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Wybierz plik aplikacji</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Wybierz obraz okładki</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Wybierz plik podglądu</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Proszę podać poprawny tytuł</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Wybierz Plik Podglądu</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Pliki Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Wybierz Stronę Internetową</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Strony Internetowe (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Wybierz Plik Aplikacji</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Pliki Aplikacji (*.exe)|*.exe</system:String>
 </ResourceDictionary>

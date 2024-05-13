@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Application.Description,Maak je eigen thema van het type Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeApplication,Applicatie
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeThumbnail,Afbeelding
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview,Voorbeeld
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeTitle,Titel
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeArguments,Argumenten
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Voer een geldige Url in
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Selecteer een webpagina
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Selecteer een toepassingsbestand
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Selecteer een omslagafbeelding
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview.Hint,Selecteer een voorbeeldbestand
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Voer een geldige titel in
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview.Title,Selecteer een Voorbeeldbestand
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif-bestanden (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.WebSource.Title,Selecteer Webpagina
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.WebSource.Filter,Webpagina's (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Selecteer Toepassingsbestand
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Toepassingsbestanden (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Title,Thema Verwijderen
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Delete,Verwijderen
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Close,Sluiten

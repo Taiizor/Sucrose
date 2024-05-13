@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.Application.Description,Crie seu próprio tema no formato de Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeApplication,Aplicação
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeThumbnail,Miniatura
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemePreview,Visualização
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeTitle,Título
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeArguments,Argumentos
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeUrl.Hint,"Por favor, insira um Url válido"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Selecionar uma página web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Selecionar um arquivo de aplicativo
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Selecione uma imagem de miniatura
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemePreview.Hint,Selecione um arquivo de pré-visualização
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeTitle.Hint,"Por favor, insira um título válido"
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemePreview.Title,Selecionar Arquivo de Pré-visualização
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ThemePreview.Filter,Arquivos Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.WebSource.Title,Selecionar Página Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.WebSource.Filter,Páginas da Web (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ApplicationSource.Title,Selecionar Arquivo de Aplicativo
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PT.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Arquivos de Aplicativo (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PT.xaml,Portal.ThemeDelete.Title,Excluir Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PT.xaml,Portal.ThemeDelete.Delete,Excluir
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PT.xaml,Portal.ThemeDelete.Close,Fechar

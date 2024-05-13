@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Application.Description,Application türündeki kendi temanızı oluşturun.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeApplication,Uygulama
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeThumbnail,Kapak
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview,Önizleme
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeTitle,Başlık
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeArguments,Argümanlar
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Lütfen geçerli bir url adresi yazın
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Bir web sayfası seçin
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Bir uygulama dosyası seçin
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Bir kapak resmi seçin
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview.Hint,Bir önizleme dosyası seçin
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Lütfen geçerli bir başlık yazın
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview.Title,Önizleme Dosyası Seç
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif Dosyaları (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.WebSource.Title,Web Sayfası Seç
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.WebSource.Filter,Web Sayfaları (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ApplicationSource.Title,Uygulama Dosyası Seç
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Uygulama Dosyaları (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Title,Tema Silme
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Delete,Sil
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Close,Kapat

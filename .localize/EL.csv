@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Application.Description,Δημιουργήστε το δικό σας θέμα τύπου Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeApplication,Εφαρμογή
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeThumbnail,Εξώφυλλο
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview,Προεπισκόπηση
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeTitle,Τίτλος
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeArguments,Ορίσματα
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Επιλέξτε μια ιστοσελίδα
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Επιλέξτε ένα αρχείο εφαρμογής
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Επιλέξτε μια εικόνα εξωφύλλου
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview.Hint,Επιλέξτε ένα αρχείο προεπισκόπησης
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Παρακαλούμε εισάγετε έναν έγκυρο τίτλο
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview.Title,Επιλογή Αρχείου Προεπισκόπησης
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemePreview.Filter,Αρχεία GIF (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.WebSource.Title,Επιλέξτε Ιστοσελίδα
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.WebSource.Filter,Ιστοσελίδες (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Επιλέξτε Αρχείο εφαρμογής
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Αρχεία Εφαρμογών (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Title,Διαγραφή Θέματος
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Delete,Διαγραφή
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Close,Κλείσιμο

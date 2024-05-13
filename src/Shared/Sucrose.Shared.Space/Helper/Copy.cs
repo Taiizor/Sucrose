@@ -24,7 +24,7 @@ namespace Sucrose.Shared.Space.Helper
                 {
                     string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
 
-                    Folder(SubDirectory, DestinationSubDirectory);
+                    Folder(SubDirectory, DestinationSubDirectory, Delete);
                 }
 
                 if (Delete)

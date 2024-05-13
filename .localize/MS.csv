@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Application.Description,Sendiri cipta tema jenis Application anda.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeApplication,Aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeThumbnail,Thumbnail
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemePreview,Pratonton
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeTitle,Tajuk
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeArguments,Argumen
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Sila masukkan url yang sah
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Pilih laman web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Pilih fail aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Sila pilih gambar thumbnail
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemePreview.Hint,Sila pilih fail pratonton
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Sila masukkan tajuk yang sah
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemePreview.Title,Pilih Fail Pratonton
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemePreview.Filter,Fail Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.WebSource.Title,Pilih Laman Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.WebSource.Filter,Laman Web (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ApplicationSource.Title,Pilih Fail Aplikasi
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Fail Aplikasi (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Portal.ThemeDelete.Title,Padam Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Portal.ThemeDelete.Delete,Padam
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Portal.ThemeDelete.Close,Tutup

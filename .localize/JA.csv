@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Application.Description,Application形式のテーマを作成します。
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeApplication,アプリケーション
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeThumbnail,サムネイル
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview,プレビュー
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeTitle,タイトル
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeArguments,引数
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeUrl.Hint,有効なUrlを入力してください
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Webページを選択
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeApplication.Hint,アプリケーションファイルを選択
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,サムネイル画像を選択してください
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview.Hint,プレビューファイルを選択してください
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeTitle.Hint,有効なタイトルを入力してください
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview.Title,プレビューファイルを選択
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif ファイル (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.WebSource.Title,Webページを選択
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.WebSource.Filter,Webページ (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ApplicationSource.Title,アプリケーションファイルを選択
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ApplicationSource.Filter,アプリケーションファイル (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Title,テーマの削除
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Delete,削除
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Close,閉じる

@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Створити власну тему у форматі Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Додаток</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Зображення</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Попередній перегляд</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Заголовок</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Аргументи</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Будь ласка, введіть дійсну Url-адресу</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Виберіть Web-сторінку</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Виберіть файл додатка</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Виберіть обкладинку</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Виберіть файл попереднього перегляду</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Будь ласка, введіть дійсний заголовок</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Виберіть файл попереднього перегляду</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Файли GIF (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Виберіть Web-Сторінку</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Web-Сторінки (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Виберіть Файл додатка</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Файли додатків (*.exe)|*.exe</system:String>
 </ResourceDictionary>

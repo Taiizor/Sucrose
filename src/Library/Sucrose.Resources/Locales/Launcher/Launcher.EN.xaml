@@ -37,5 +37,4 @@
     <system:String x:Key="Launcher.UpdateText.Done">Preparing Update</system:String>
     <system:String x:Key="Launcher.UpdateText.Check">Checking for Updates</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Update Progress {0}</system:String>
-
 </ResourceDictionary>

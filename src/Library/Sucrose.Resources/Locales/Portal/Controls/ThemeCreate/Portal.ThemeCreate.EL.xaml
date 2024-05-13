@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Δημιουργήστε το δικό σας θέμα τύπου Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Εφαρμογή</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Εξώφυλλο</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Προεπισκόπηση</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Τίτλος</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Ορίσματα</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Παρακαλούμε εισάγετε μια έγκυρη διεύθυνση Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Επιλέξτε μια ιστοσελίδα</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Επιλέξτε ένα αρχείο εφαρμογής</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Επιλέξτε μια εικόνα εξωφύλλου</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Επιλέξτε ένα αρχείο προεπισκόπησης</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Επιλογή Αρχείου Προεπισκόπησης</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Αρχεία GIF (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Επιλέξτε Ιστοσελίδα</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Ιστοσελίδες (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Επιλέξτε Αρχείο εφαρμογής</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Αρχεία Εφαρμογών (*.exe)|*.exe</system:String>
 </ResourceDictionary>

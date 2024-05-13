@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Erstellen Sie Ihr eigenes Thema im Application-Format.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Anwendung</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Titelseite</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Vorschau</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Titel</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumente</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Bitte geben Sie eine gültige Url-Adresse ein</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Wählen Sie eine Webseite aus</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Wählen Sie eine Anwendungsdatei aus</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Ein Cover-Bild auswählen</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Eine Vorschau-Datei auswählen</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Bitte geben Sie einen gültigen Titel ein</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Vorschau-Datei Auswählen</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">Gif-Dateien (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Webseite Auswählen</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Webseiten (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Anwendungsdatei Auswählen</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Anwendungsdateien (*.exe)|*.exe</system:String>
 </ResourceDictionary>

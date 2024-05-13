@@ -25,6 +25,8 @@
     <system:String x:Key="Portal.ThemeCreate.Application.Description">Kreasikan tema berjenis Application.</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl">Url</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb">Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication">Aplikasi</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail">Thumbnail</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview">Pratinjau</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle">Judul</system:String>
@@ -35,6 +37,8 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments">Argumen</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.ThemeUrl.Hint">Harap masukkan url yang valid</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeWeb.Hint">Pilih halaman web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ThemeApplication.Hint">Pilih file aplikasi</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeThumbnail.Hint">Pilih gambar cover</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Hint">Pilih file pratinjau</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeTitle.Hint">Harap masukkan judul yang valid</system:String>
@@ -54,4 +58,10 @@
 
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Title">Pilih File Pratinjau</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemePreview.Filter">File Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Title">Pilih Halaman Web</system:String>
+    <system:String x:Key="Portal.ThemeCreate.WebSource.Filter">Halaman Web (*.html)|*.html</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Pilih File Aplikasi</system:String>
+    <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">File Aplikasi (*.exe)|*.exe</system:String>
 </ResourceDictionary>

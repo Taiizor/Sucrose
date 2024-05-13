@@ -17,6 +17,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
@@ -102,8 +103,8 @@ namespace Sucrose.Portal.Views.Controls
             WebCard.Visibility = Visibility.Visible;
             CreateCard.Visibility = Visibility.Collapsed;
 
-            //WebAuthor.Text = SPETC.GetAuthor();
-            //WebContact.Text = SPETC.GetContact();
+            WebAuthor.Text = SPETC.GetAuthor();
+            WebContact.Text = SPETC.GetContact();
         }
 
         private void GifDelete_Click(object sender, RoutedEventArgs e)
@@ -116,6 +117,31 @@ namespace Sucrose.Portal.Views.Controls
             GifText.Visibility = Visibility.Visible;
             GifDelete.Visibility = Visibility.Collapsed;
             GifRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
+        }
+
+        private void WebSource_Click(object sender, RoutedEventArgs e)
+        {
+            Button Button = sender as Button;
+
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "WebSource", "Filter"),
+                FilterIndex = 1,
+
+                Title = SRER.GetValue("Portal", "ThemeCreate", "WebSource", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                Button.Content = FileDialog.FileName;
+                Button.BorderBrush = WebThumbnail.BorderBrush;
+                WebTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
+                WebDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Web);
+            }
         }
 
         private void VideoArea_DragOver(object sender, DragEventArgs e)
@@ -278,6 +304,11 @@ namespace Sucrose.Portal.Views.Controls
             ApplicationExpander.DescriptionText = SRER.GetValue("Portal", "ThemeCreate", "Application", "Description");
         }
 
+        private void WebSourceClear_Click(object sender, RoutedEventArgs e)
+        {
+            WebSource.Content = SRER.GetValue("Portal", "ThemeCreate", "ThemeWeb", "Hint");
+        }
+
         private void ThemeThumbnail_Click(object sender, RoutedEventArgs e)
         {
             Button Button = sender as Button;
@@ -306,8 +337,33 @@ namespace Sucrose.Portal.Views.Controls
             CreateCard.Visibility = Visibility.Collapsed;
             ApplicationCard.Visibility = Visibility.Visible;
 
-            //ApplicationAuthor.Text = SPETC.GetAuthor();
-            //ApplicationContact.Text = SPETC.GetContact();
+            ApplicationAuthor.Text = SPETC.GetAuthor();
+            ApplicationContact.Text = SPETC.GetContact();
+        }
+
+        private void ApplicationSource_Click(object sender, RoutedEventArgs e)
+        {
+            Button Button = sender as Button;
+
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "ApplicationSource", "Filter"),
+                FilterIndex = 1,
+
+                Title = SRER.GetValue("Portal", "ThemeCreate", "ApplicationSource", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                Button.Content = FileDialog.FileName;
+                Button.BorderBrush = ApplicationThumbnail.BorderBrush;
+                ApplicationTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
+                ApplicationDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Application);
+            }
         }
 
         private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -316,6 +372,11 @@ namespace Sucrose.Portal.Views.Controls
             {
                 e.Handled = true;
             }
+        }
+
+        private void ApplicationSourceClear_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationSource.Content = SRER.GetValue("Portal", "ThemeCreate", "ThemeApplication", "Hint");
         }
 
         private static async Task ExtractResources(string Source, string ExtractPath)
@@ -618,6 +679,129 @@ namespace Sucrose.Portal.Views.Controls
                         SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
                     }
                 }
+                else if (WebCard.Visibility == Visibility.Visible)
+                {
+                    if (Path.GetExtension($"{WebSource.Content}") != ".html")
+                    {
+                        WebSource.BorderBrush = Brushes.Crimson;
+                        WebSource.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(WebTitle.Text))
+                    {
+                        WebTitle.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(WebDescription.Text))
+                    {
+                        WebDescription.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(WebAuthor.Text))
+                    {
+                        WebAuthor.Focus();
+                        return;
+                    }
+                    else if (!SSTHV.IsUrl(WebContact.Text) && !SSTHV.IsMail(WebContact.Text))
+                    {
+                        WebContact.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        string Theme;
+                        string[] Tags;
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
+
+                        if (string.IsNullOrEmpty(WebTags.Text))
+                        {
+                            Tags = Array.Empty<string>();
+                        }
+                        else
+                        {
+                            if (WebTags.Text.Contains(','))
+                            {
+                                Tags = WebTags.Text.Split(',').Select(Tag => Tag.TrimStart().TrimEnd()).ToArray();
+
+                                if (Tags.Count() is < 1 or > 5)
+                                {
+                                    WebTags.Focus();
+                                    return;
+                                }
+                                else if (Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
+                                {
+                                    WebTags.Focus();
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (WebTags.Text.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(WebTags.Text))
+                                {
+                                    WebTags.Focus();
+                                    return;
+                                }
+                                else
+                                {
+                                    Tags = new[]
+                                    {
+                                        WebTags.Text.TrimStart().TrimEnd()
+                                    };
+                                }
+                            }
+                        }
+
+                        do
+                        {
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                        } while (File.Exists(Theme));
+
+                        Directory.CreateDirectory(Theme);
+
+                        SSSHC.Folder(Path.GetDirectoryName($"{WebSource.Content}"), Theme, false);
+
+                        if (File.Exists($"{WebThumbnail.Content}"))
+                        {
+                            string Source = $"{WebThumbnail.Content}";
+                            Thumbnail = "t_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Thumbnail), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                        }
+
+                        if (File.Exists($"{WebPreview.Content}"))
+                        {
+                            string Source = $"{WebPreview.Content}";
+                            Preview = "p_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Preview), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Preview, Theme));
+                        }
+
+                        SSTHI Info = new()
+                        {
+                            Tags = Tags,
+                            Type = SSDEWT.Web,
+                            Preview = Preview,
+                            Thumbnail = Thumbnail,
+                            Title = WebTitle.Text,
+                            Author = WebAuthor.Text,
+                            AppVersion = SSCHV.Get(),
+                            Version = new(1, 0, 0, 0),
+                            Contact = WebContact.Text,
+                            Description = WebDescription.Text,
+                            Source = Path.GetFileName($"{WebSource.Content}")
+                        };
+
+                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    }
+                }
                 else if (VideoCard.Visibility == Visibility.Visible)
                 {
                     Uri Video = Loader.SourceUri;
@@ -880,6 +1064,129 @@ namespace Sucrose.Portal.Views.Controls
                             Author = YouTubeAuthor.Text,
                             Contact = YouTubeContact.Text,
                             Description = YouTubeDescription.Text
+                        };
+
+                        SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);
+                    }
+                }
+                else if (ApplicationCard.Visibility == Visibility.Visible)
+                {
+                    if (Path.GetExtension($"{ApplicationSource.Content}") != ".exe")
+                    {
+                        ApplicationSource.BorderBrush = Brushes.Crimson;
+                        ApplicationSource.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(ApplicationTitle.Text))
+                    {
+                        ApplicationTitle.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(ApplicationDescription.Text))
+                    {
+                        ApplicationDescription.Focus();
+                        return;
+                    }
+                    else if (string.IsNullOrEmpty(ApplicationAuthor.Text))
+                    {
+                        ApplicationAuthor.Focus();
+                        return;
+                    }
+                    else if (!SSTHV.IsUrl(ApplicationContact.Text) && !SSTHV.IsMail(ApplicationContact.Text))
+                    {
+                        ApplicationContact.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        string Theme;
+                        string[] Tags;
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
+
+                        if (string.IsNullOrEmpty(ApplicationTags.Text))
+                        {
+                            Tags = Array.Empty<string>();
+                        }
+                        else
+                        {
+                            if (ApplicationTags.Text.Contains(','))
+                            {
+                                Tags = ApplicationTags.Text.Split(',').Select(Tag => Tag.TrimStart().TrimEnd()).ToArray();
+
+                                if (Tags.Count() is < 1 or > 5)
+                                {
+                                    ApplicationTags.Focus();
+                                    return;
+                                }
+                                else if (Tags.Any(Tag => Tag.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(Tag)))
+                                {
+                                    ApplicationTags.Focus();
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (ApplicationTags.Text.Length is < 1 or > 20 || string.IsNullOrWhiteSpace(ApplicationTags.Text))
+                                {
+                                    ApplicationTags.Focus();
+                                    return;
+                                }
+                                else
+                                {
+                                    Tags = new[]
+                                    {
+                                        ApplicationTags.Text.TrimStart().TrimEnd()
+                                    };
+                                }
+                            }
+                        }
+
+                        do
+                        {
+                            SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                            Theme = Path.Combine(SMMM.LibraryLocation, SPMI.LibraryService.Theme);
+                        } while (File.Exists(Theme));
+
+                        Directory.CreateDirectory(Theme);
+
+                        SSSHC.Folder(Path.GetDirectoryName($"{ApplicationSource.Content}"), Theme, false);
+
+                        if (File.Exists($"{ApplicationThumbnail.Content}"))
+                        {
+                            string Source = $"{ApplicationThumbnail.Content}";
+                            Thumbnail = "t_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Thumbnail), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Thumbnail, Theme));
+                        }
+
+                        if (File.Exists($"{ApplicationPreview.Content}"))
+                        {
+                            string Source = $"{ApplicationPreview.Content}";
+                            Preview = "p_" + Path.GetFileName(Source);
+                            await Task.Run(() => File.Copy(Source, Path.Combine(Theme, Preview), true));
+                        }
+                        else
+                        {
+                            await Task.Run(async () => await ExtractResources(Preview, Theme));
+                        }
+
+                        SSTHI Info = new()
+                        {
+                            Tags = Tags,
+                            Preview = Preview,
+                            Thumbnail = Thumbnail,
+                            AppVersion = SSCHV.Get(),
+                            Type = SSDEWT.Application,
+                            Version = new(1, 0, 0, 0),
+                            Title = ApplicationTitle.Text,
+                            Author = ApplicationAuthor.Text,
+                            Contact = ApplicationContact.Text,
+                            Description = ApplicationDescription.Text,
+                            Source = Path.GetFileName($"{ApplicationSource.Content}")
                         };
 
                         SSTHI.WriteJson(Path.Combine(Theme, SMR.SucroseInfo), Info);

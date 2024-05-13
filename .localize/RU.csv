@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Application.Description,Создайте свою собственную тему Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeApplication,Приложение
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeThumbnail,Обложка
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview,Предварительный просмотр
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeTitle,Название
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeArguments,Аргументы
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeUrl.Hint,"Пожалуйста, введите действительный Url-адрес"
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Выберите Web-страницу
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Выберите файл приложения
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Выберите обложку
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview.Hint,Выберите файл предварительного просмотра
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeTitle.Hint,"Пожалуйста, введите действительное название"
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview.Title,Выберите файл предварительного просмотра
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemePreview.Filter,Файлы Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.WebSource.Title,Выберите Web-Страницу
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.WebSource.Filter,Веб-Страницы (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ApplicationSource.Title,Выберите Файл Приложения
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Файлы Приложений (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Title,Удаление темы
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Delete,Удалить
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Close,Закрыть

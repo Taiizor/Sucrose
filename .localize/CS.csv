@@ -576,6 +576,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Applic
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Application.Description,Vytvořte svou vlastní šablonu typu Application.
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeUrl,Url
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeWeb,Web
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeApplication,Aplikace
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail,Náhled
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview,Náhled
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeTitle,Název
@@ -586,6 +588,8 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeArguments,Argumenty
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeUrl.Hint,Zadejte platnou Url adresu
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeWeb.Hint,Vyberte webovou stránku
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeApplication.Hint,Vyberte soubor aplikace
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail.Hint,Vyberte náhledový obrázek
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview.Hint,Vyberte soubor s náhledem
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeTitle.Hint,Zadejte platný název
@@ -605,6 +609,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeT
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview.Title,Vybrat náhledový soubor
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemePreview.Filter,Gif soubory (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.WebSource.Title,Vyberte Webovou Stránku
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.WebSource.Filter,Webové Stránky (*.html)|*.html
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ApplicationSource.Title,Vyberte Soubor Aplikace
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Soubory Aplikací (*.exe)|*.exe
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Title,Smazání tématu
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Delete,Smazat
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Close,Zavřít
