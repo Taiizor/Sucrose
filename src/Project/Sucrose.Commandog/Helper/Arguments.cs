@@ -124,6 +124,13 @@ namespace Sucrose.Commandog.Helper
                                     }
 
                                     SSLHR.Start();
+
+                                    await Task.Delay(1500);
+
+                                    if (!SSSHL.Run())
+                                    {
+                                        SSLHR.Start();
+                                    }
                                     break;
                                 case SSDECT.Property:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));

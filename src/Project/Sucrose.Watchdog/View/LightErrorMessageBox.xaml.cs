@@ -32,6 +32,8 @@ namespace Sucrose.Watchdog.View
             }
 
             Error_Message.Text += Environment.NewLine + ErrorMessage;
+
+            ShowInTaskbar = true;
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
