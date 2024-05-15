@@ -39,13 +39,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
 
         public static async Task<string> Capture2()
         {
-            InteropBitmap Bitmap = await SSECSMI.CefEngine.TakeScreenshot();
-
-            return Bitmap.ToBase64();
-        }
-
-        public static async Task<string> Capture3()
-        {
             SSECSMI.CefEngine.ExecuteScriptAsync(SSEHS.GetScreenshot());
 
             JavascriptResponse Response = await SSECSMI.CefEngine.EvaluateScriptAsync(@"html2canvas(document.body).then(canvas => { return canvas.toDataURL(""image/jpeg""); });");

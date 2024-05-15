@@ -1,8 +1,8 @@
-﻿using SMMM = Sucrose.Manager.Manage.Manager;
+﻿using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using Timer = System.Timers.Timer;
-using SMC = Sucrose.Memory.Constant;
 
 namespace Sucrose.Shared.Engine.Helper
 {

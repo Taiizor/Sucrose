@@ -43,6 +43,8 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static string WatcherFile = string.Empty;
 
+        public static IntPtr WindowHandle = IntPtr.Zero;
+
         public delegate void ExecuteNormal(string Script);
 
         public static string CompatiblePath = string.Empty;

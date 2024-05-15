@@ -1,6 +1,5 @@
 ﻿using CefSharp;
-using CefEngine = Sucrose.Shared.Engine.CefSharp.Control.CefBrowser;
-using CefEngine2 = CefSharp.Wpf.ChromiumWebBrowser;
+using CefEngine = CefSharp.Wpf.HwndHost.ChromiumWebBrowser;
 
 namespace Sucrose.Shared.Engine.CefSharp.Manage
 {
@@ -18,11 +17,13 @@ namespace Sucrose.Shared.Engine.CefSharp.Manage
 
         public static CefEngine CefEngine = new();
 
+        public static IBrowserHost CefHost = null;
+
         public static List<int> Processes = new();
 
-        public static CefEngine2 CefEngine2 = new();
-
         public static string YouTube = string.Empty;
+
+        public static IntPtr CefHandle = IntPtr.Zero;
 
         public static BrowserSettings CefSettings = new()
         {

@@ -7,6 +7,8 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
+using SEIT = Skylark.Enum.InputType;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -34,6 +36,11 @@ namespace Sucrose.Shared.Engine.WebView.Event
             {
                 SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
                 SSEMI.Properties.State = true;
+            }
+
+            if (SMMM.InputType != SEIT.Close)
+            {
+                SSEWVEI.Register();
             }
 
             if (SSEMI.Properties.State)

@@ -9,13 +9,13 @@
     <Import_RootNamespace>Sucrose.Shared.Engine.CefSharp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Control\CefBrowser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Url.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Gif.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\YouTube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\Interaction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\Screenshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Handler\CustomContextMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Execute.cs" />

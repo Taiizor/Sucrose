@@ -36,6 +36,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Event\Url.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\Web.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Event\YouTube.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\Interaction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\Screenshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Management.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Url.cs" />

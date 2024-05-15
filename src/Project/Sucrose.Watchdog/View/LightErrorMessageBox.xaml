@@ -10,6 +10,7 @@
     Height="300"
     MinWidth="600"
     MinHeight="300"
+    Loaded="LightErrorMessageBox_Loaded"
     ResizeMode="CanResizeWithGrip"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterScreen"

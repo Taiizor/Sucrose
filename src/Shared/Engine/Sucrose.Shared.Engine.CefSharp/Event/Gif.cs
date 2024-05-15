@@ -11,7 +11,13 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 {
     internal static class Gif
     {
-        public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+            SSECSHG.SetStretch(SSEHD.GetStretch());
+            SSECSHG.SetLoop(SSEHD.GetLoop());
+        }
+
+        public static void CefEngineInitializedChanged(object sender, EventArgs e)
         {
             if (SMMM.DeveloperMode)
             {
@@ -19,12 +25,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
             }
 
             SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
-        }
-
-        public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
-        {
-            SSECSHG.SetStretch(SSEHD.GetStretch());
-            SSECSHG.SetLoop(SSEHD.GetLoop());
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)

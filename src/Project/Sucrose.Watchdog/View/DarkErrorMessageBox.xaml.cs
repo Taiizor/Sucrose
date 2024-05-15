@@ -36,8 +36,6 @@ namespace Sucrose.Watchdog.View
             Error_Message.Text += Environment.NewLine + ErrorMessage;
 
             SourceInitialized += DarkErrorMessageBox_SourceInitialized;
-
-            ShowInTaskbar = true;
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
@@ -65,6 +63,13 @@ namespace Sucrose.Watchdog.View
         private void DarkErrorMessageBox_SourceInitialized(object sender, EventArgs e)
         {
             SSSHD.Apply(SWHWI.Handle(this));
+        }
+
+        private async void DarkErrorMessageBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(500);
+
+            ShowInTaskbar = true;
         }
     }
 }

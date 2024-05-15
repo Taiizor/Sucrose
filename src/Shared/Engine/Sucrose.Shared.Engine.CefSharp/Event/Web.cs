@@ -1,7 +1,9 @@
 ﻿using CefSharp;
 using System.IO;
 using System.Windows;
+using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SSECSEI = Sucrose.Shared.Engine.CefSharp.Extension.Interaction;
 using SSECSHW = Sucrose.Shared.Engine.CefSharp.Helper.Web;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
@@ -13,18 +15,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 {
     internal static class Web
     {
-        public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (SMMM.DeveloperMode)
-            {
-                SSECSMI.CefEngine.ShowDevTools();
-            }
-
-            SSECSHW.StartCompatible();
-
-            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
-        }
-
         private static async void PropertiesWatcher(object sender, FileSystemEventArgs e)
         {
             await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
@@ -47,6 +37,11 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
                 SSEMI.Properties.State = true;
             }
 
+            if (SMMM.InputType != SEIT.Close)
+            {
+                SSECSEI.Register();
+            }
+
             if (SSEMI.Properties.State)
             {
                 SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
@@ -58,6 +53,18 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
                 SSEHP.StartWatcher();
             }
+        }
+
+        public static void CefEngineInitializedChanged(object sender, EventArgs e)
+        {
+            if (SMMM.DeveloperMode)
+            {
+                SSECSMI.CefEngine.ShowDevTools();
+            }
+
+            SSECSHW.StartCompatible();
+
+            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)

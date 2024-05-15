@@ -15,10 +15,10 @@ namespace Sucrose.Shared.Engine.Event
     {
         public static void WindowLoaded(Window Window)
         {
-            IntPtr Handle = SWHWI.Handle(Window);
+            SSEMI.WindowHandle = SWHWI.Handle(Window);
 
             //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
-            SWHWO.RemoveWindowFromTaskbar(Handle);
+            SWHWO.RemoveWindowFromTaskbar(SSEMI.WindowHandle);
 
             //this hides the window from taskbar and also fixes crash when Win10-Win11 taskview is launched. 
             Window.ShowInTaskbar = true;

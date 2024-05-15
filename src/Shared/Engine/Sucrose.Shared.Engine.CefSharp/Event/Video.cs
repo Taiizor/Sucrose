@@ -11,16 +11,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 {
     internal static class Video
     {
-        public static void CefEngineInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (SMMM.DeveloperMode)
-            {
-                SSECSMI.CefEngine.ShowDevTools();
-            }
-
-            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
-        }
-
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
             //SSECSMI.CefEngine.ExecuteScriptAsync("document.getElementsByTagName('video')[0].webkitRequestFullscreen();");
@@ -33,6 +23,16 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
             SSECSHV.SetStretch(SSEHD.GetStretch());
             SSECSHV.SetVolume(SSEHD.GetVolume());
+        }
+
+        public static void CefEngineInitializedChanged(object sender, EventArgs e)
+        {
+            if (SMMM.DeveloperMode)
+            {
+                SSECSMI.CefEngine.ShowDevTools();
+            }
+
+            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
         public static void CefEngineLoaded(object sender, RoutedEventArgs e)

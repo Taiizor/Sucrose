@@ -72,6 +72,7 @@
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.1.4.5" />
         <PackageReference Include="Skylark.Standard" Version="3.1.5.3" />
+        <PackageReference Include="CefSharp.Wpf.HwndHost" Version="124.3.50" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
@@ -80,12 +81,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf" Version="124.3.50" />
         <PackageReference Include="System.IO.Compression" Version="4.3.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="!$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="CefSharp.Wpf.NETCore" Version="124.3.50" />
     </ItemGroup>
 
     <ItemGroup>
