@@ -1,14 +1,14 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using System.IO;
+using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
 using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
-using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
-using SEIT = Skylark.Enum.InputType;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {

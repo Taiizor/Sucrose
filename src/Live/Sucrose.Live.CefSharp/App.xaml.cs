@@ -161,6 +161,16 @@ namespace Sucrose.Live.CefSharp
                         Settings.CefCommandLineArgs.Add(Argument.Key, Argument.Value);
                     }
 
+                    if (SMMM.DeveloperPort > 0)
+                    {
+                        Settings.RemoteDebuggingPort = SMMM.DeveloperPort;
+
+                        if (!Settings.CefCommandLineArgs.ContainsKey("remote-allow-origins"))
+                        {
+                            Settings.CefCommandLineArgs.Add("remote-allow-origins", "*");
+                        }
+                    }
+
                     //Example of checking if a call to Cef.Initialize has already been made, we require this for
                     //our .Net 5.0 Single File Publish example, you don't typically need to perform this check
                     //if you call Cef.Initialze within your WPF App constructor.

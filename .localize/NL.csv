@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Update.Limit,Downloadbandbreedtelimiet:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer,Ontwikkelaarshulpmiddelen
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer.Description,Weergeven of verbergen van ontwikkelaarshulpmiddelen voor WebView en CefSharp-engine.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer.Description,Beheer ontwikkelaarstools voor de WebView- en CefSharp-engine.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Standaard Ontwikkelaarstools:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Debugging-Poort:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Standaard ontwikkelaarstools werken mogelijk niet correct in ondersteunde thema's. De debugging-poort werkt over het algemeen beter. Wanneer je klaar bent, kun je het adres 'http://localhost:{0}' of 'chrome://inspect' voor de Chrome-browser, 'opera://inspect' voor de Opera-browser, 'edge://inspect' voor de Edge-browser gebruiken."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Counter,Prestatie Tellers

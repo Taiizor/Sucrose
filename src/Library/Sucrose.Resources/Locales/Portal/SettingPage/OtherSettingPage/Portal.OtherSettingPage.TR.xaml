@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">İndirme Bant Genişliği Sınırı:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Geliştirici Araçları</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView ve CefSharp motoru için geliştirici araçlarının gösterilip gösterilmeyeceği.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView ve CefSharp motoru için geliştirici araçlarını yönetin.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Varsayılan Geliştirici Araçları:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Hata Ayıklama Bağlantı Noktası:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">İpucu: Varsayılan geliştirici araçları etkileşim desteklenen temalarda düzgün çalışmamaktadır. Hata ayıklama bağlantı noktası ise daha düzgün çalışmaktadır. Hazır olduğunuzda 'http://localhost:{0}' adresini veya Chrome tarayıcısı için 'chrome://inspect', Opera tarayıcısı için 'opera://inspect', Edge tarayıcısı için 'edge://inspect' adresini kullanabilirsiniz.</system:String>
 </ResourceDictionary>

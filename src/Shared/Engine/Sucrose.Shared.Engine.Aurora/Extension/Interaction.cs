@@ -1,36 +1,32 @@
-﻿using CefSharp;
-using Linearstar.Windows.RawInput;
+﻿using Linearstar.Windows.RawInput;
 using Linearstar.Windows.RawInput.Native;
 using System.Windows.Interop;
+using Application = System.Windows.Application;
 using Point = System.Drawing.Point;
 using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
-using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWHC = Skylark.Wing.Helper.Calculate;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using Timer = System.Timers.Timer;
 
-namespace Sucrose.Shared.Engine.CefSharp.Extension
+namespace Sucrose.Shared.Engine.Aurora.Extension
 {
     internal static class Interaction
     {
-        private static bool FirstKey = SMMM.InputType == SEIT.OnlyKeyboard;
-
         public static void Register()
         {
             if (SSEMI.Interaction)
             {
                 SSEMI.Interaction = false;
 
+                return;
+
                 IntPtr HWND = SSEMI.WindowHandle;
-
-                SSECSMI.CefHost = SSECSMI.CefEngine.GetBrowserHost();
-
-                SSECSMI.CefHandle = SSECSMI.CefHost.GetWindowHandle();
 
                 switch (SSDMM.InputModuleType)
                 {
@@ -49,13 +45,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
                         Source.AddHook(Hook);
 
                         break;
-                }
-
-                IntPtr InputHandle = SWNM.FindWindowEx(SSECSMI.CefHandle, IntPtr.Zero, "Chrome_WidgetWin_0", null);
-
-                if (!InputHandle.Equals(IntPtr.Zero))
-                {
-                    SSECSMI.CefHandle = InputHandle;
                 }
 
                 Start();
@@ -98,7 +87,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
                 lParam <<= 16;
                 lParam |= Convert.ToUInt32(X);
 
-                SWNM.PostMessageW(SSECSMI.CefHandle, Message, wParam, (UIntPtr)lParam);
+                foreach (SSDSHS Application in SSEMI.Applications)
+                {
+                    SWNM.PostMessageW(Application.Handle, Message, wParam, (UIntPtr)lParam);
+                }
             }
             catch { }
         }
@@ -124,9 +116,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
                  */
                 lParam = IsPressed ? lParam : (lParam |= 3u << 30);
 
-                //SSECSMI.CefHost?.SendKeyEvent(Message, (int)wParam, (int)lParam);
-                SWNM.PostMessageW(SSECSMI.CefHandle, Message, wParam, (UIntPtr)lParam);
-                //SSECSMI.CefHost?.SendKeyEvent((int)SWNM.WM.INPUT, (int)wParam, (int)lParam);
+                foreach (SSDSHS Application in SSEMI.Applications)
+                {
+                    SWNM.PostMessageW(Application.Handle, Message, wParam, (UIntPtr)lParam);
+                }
             }
             catch { }
         }
@@ -182,34 +175,16 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
                                     //SSECSMI.CefHost?.SendMouseMoveEvent(Position.X, Position.Y, false, CefEventFlags.None);
                                     break;
                                 case RawMouseButtonFlags.MouseWheel:
-                                    //int MouseData = 7864320; //-7864320
-                                    //int Delta = (MouseData >> 16) & 0xFFFF;
-
-                                    //int Amount = Delta >> 15 == 1 ? Delta - 0xFFFF - 1 : Delta;
-
-                                    //int DeltaX = MouseData & 0xFFFF;
-                                    //int DeltaY = Amount;
-
-                                    //SWNM.SendMessage(SSEWVMI.WebHandle, (int)SWNM.WM.MOUSEWHEEL, DeltaX, DeltaY);
-
                                     int MouseData = Mouse.Mouse.ButtonData;
 
-                                    MouseEvent MouseEvent = new(Position.X, Position.Y, CefEventFlags.None);
-                                    SSECSMI.CefHost?.SendMouseWheelEvent(MouseEvent, 0, MouseData);
+                                    foreach (SSDSHS Application in SSEMI.Applications)
+                                    {
+                                        SWNM.PostMessageW(Application.Handle, (int)SWNM.WM.MOUSEWHEEL, IntPtr.Zero, (IntPtr)MouseData);
+                                    }
                                     break;
                             }
                             break;
                         case RawInputKeyboardData Keyboard:
-                            if (FirstKey)
-                            {
-                                FirstKey = false;
-
-                                //SSECSMI.CefHost?.SendMouseClickEvent(0, 0, MouseButtonType.Left, false, 1, CefEventFlags.None);
-                                //SSECSMI.CefHost?.SendMouseClickEvent(0, 0, MouseButtonType.Left, true, 1, CefEventFlags.None);
-                                ForwardMessageMouse(0, 0, (int)SWNM.WM.LBUTTONDOWN, (IntPtr)0x0001);
-                                ForwardMessageMouse(0, 0, (int)SWNM.WM.LBUTTONUP, (IntPtr)0x0001);
-                            }
-
                             ForwardMessageKeyboard((int)Keyboard.Keyboard.WindowMessage, (IntPtr)Keyboard.Keyboard.VirutalKey, Keyboard.Keyboard.ScanCode, Keyboard.Keyboard.Flags != RawKeyboardFlags.Up);
                             break;
                     }

@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Update.Limit,Nedlastingsbåndbreddegrense:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer,Utviklerverktøy
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer.Description,Visning av utviklerverktøy for WebView og CefSharp-motoren.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer.Description,Administrer utviklerverktøy for WebView og CefSharp-motoren.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Standard Utviklerverktøy:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Feilsøkingsport:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Standard utviklerverktøy fungerer kanskje ikke skikkelig i støttede temaer. Feilsøkingsporten pleier å fungere bedre. Når du er klar, kan du bruke 'http://localhost:{0}'-adressen eller 'chrome://inspect' for Chrome-nettleseren, 'opera://inspect' for Opera-nettleseren, 'edge://inspect' for Edge-nettleseren."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Counter,Ytelsesmålere

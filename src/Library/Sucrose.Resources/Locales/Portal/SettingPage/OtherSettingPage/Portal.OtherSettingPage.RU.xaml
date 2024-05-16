@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Лимит полосы пропускания загрузки:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Инструменты разработчика</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Показывать ли инструменты разработчика для WebView и CefSharp движка.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Управление инструментами разработчика для движка WebView и CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Стандартные Инструменты Pазработчика:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Порт Отладки:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Подсказка: Стандартные инструменты разработчика могут некорректно работать в поддерживаемых темах. Порт отладки обычно работает лучше. Когда будете готовы, можете использовать адрес 'http://localhost:{0}' или 'chrome://inspect' для браузера Chrome, 'opera://inspect' для браузера Opera, 'edge://inspect' для браузера Edge.</system:String>
 </ResourceDictionary>

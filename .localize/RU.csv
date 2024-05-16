@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Update.Limit,Лимит полосы пропускания загрузки:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer,Инструменты разработчика
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer.Description,Показывать ли инструменты разработчика для WebView и CefSharp движка.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer.Description,Управление инструментами разработчика для движка WebView и CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Стандартные Инструменты Pазработчика:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Порт Отладки:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Подсказка: Стандартные инструменты разработчика могут некорректно работать в поддерживаемых темах. Порт отладки обычно работает лучше. Когда будете готовы, можете использовать адрес 'http://localhost:{0}' или 'chrome://inspect' для браузера Chrome, 'opera://inspect' для браузера Opera, 'edge://inspect' для браузера Edge."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Counter,Счетчики производительности

@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Update.Limit,Batas Lebar Pita Unduhan:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer,Alat Pengembang
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer.Description,Menampilkan atau menyembunyikan alat pengembang untuk mesin WebView dan CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer.Description,Mengelola alat pengembang untuk mesin WebView dan CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Alat Pengembang Default:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Port Debugging:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Petunjuk: Alat pengembang default mungkin tidak berfungsi dengan baik di tema yang didukung. Port debugging cenderung lebih baik. Ketika Anda siap, Anda dapat menggunakan alamat 'http://localhost:{0}' atau 'chrome://inspect' untuk browser Chrome, 'opera://inspect' untuk browser Opera, 'edge://inspect' untuk browser Edge."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ID.xaml,Portal.PerformanceSettingPage.Counter,Hitung Kinerja

@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Had Lebar Jalur Muat Turun:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Alat Pembangun</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Sama ada untuk menunjukkan alat pembangun untuk enjin WebView dan CefSharp.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Urus alat pembangun untuk enjin WebView dan CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Alat Pembangun Lalai:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Port Debugging:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Petua: Alat pembangun lalai mungkin tidak berfungsi dengan baik di dalam tema yang disokong. Port debugging cenderung berfungsi dengan lebih baik. Apabila anda sudah bersedia, anda boleh menggunakan alamat 'http://localhost:{0}' atau 'chrome://inspect' untuk pelayar Chrome, 'opera://inspect' untuk pelayar Opera, 'edge://inspect' untuk pelayar Edge.</system:String>
 </ResourceDictionary>

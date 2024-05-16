@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Update.Limit,Limit Šířky Pásma Stahování:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer,Vývojářské Nástroje
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer.Description,Zda se mají zobrazovat vývojářské nástroje pro WebView a CefSharp engine.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer.Description,Spravujte vývojářské nástroje pro motory WebView a CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Výchozí Vývojářské Nástroje:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Ladicí Port:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Nápověda: Výchozí vývojářské nástroje nemusí správně fungovat v podporovaných tématech. Ladicí port obvykle funguje lépe. Až budete připraveni, můžete použít adresu 'http://localhost:{0}' nebo 'chrome://inspect' pro prohlížeč Chrome, 'opera://inspect' pro prohlížeč Opera, 'edge://inspect' pro prohlížeč Edge."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Counter,Výkonové Čítačky

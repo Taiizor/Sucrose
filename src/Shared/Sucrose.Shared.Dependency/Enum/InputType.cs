@@ -2,7 +2,7 @@
 {
     internal enum InputModuleType
     {
-        Native,
+        //Native,
         RawInput
     }
 }

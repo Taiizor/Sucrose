@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Update.Limit,Download Bandwidth Limit:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer,Developer Tools
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer.Description,Whether developer tools for WebView and CefSharp engine should be displayed or not.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer.Description,Manage developer tools for WebView and CefSharp engine.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Default Developer Tools:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Debugging Port:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Default developer tools may not function properly in supported themes. Debugging port tends to work better. When you're ready, you can use 'http://localhost:{0}' address or 'chrome://inspect' for Chrome browser, 'opera://inspect' for Opera browser, 'edge://inspect' for Edge browser."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Counter,Performance Counters

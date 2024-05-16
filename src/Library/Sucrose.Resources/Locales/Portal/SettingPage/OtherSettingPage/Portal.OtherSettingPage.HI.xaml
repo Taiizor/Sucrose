@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">डाउनलोड बैंडविड्थ सीमा:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">डेवलपर टूल</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView और CefSharp मोटर के लिए डेवलपर टूल दिखाए जाएंगे या नहीं।</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView और CefSharp इंजन के लिए डेवलपर टूल्स का प्रबंधन करें।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">डिफ़ॉल्ट डेवलपर टूल्स:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">डीबगिंग पोर्ट:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">संकेत: समर्थित थीमों में डिफ़ॉल्ट डेवलपर टूल्स सही तरह से काम नहीं कर सकते हैं। डीबगिंग पोर्ट काम करने के लिए अधिक प्रवृत्त होता है। जब आप तैयार हों, तो आप 'http://localhost:{0}' पता या Chrome ब्राउज़र के लिए 'chrome://inspect', Opera ब्राउज़र के लिए 'opera://inspect', Edge ब्राउज़र के लिए 'edge://inspect' का उपयोग कर सकते हैं।</system:String>
 </ResourceDictionary>

@@ -110,6 +110,8 @@
 
         public const string AudioRequired = "AudioRequired";
 
+        public const string DeveloperPort = "DeveloperPort";
+
         public const string DownloadValue = "DownloadValue";
 
         public const string DonateVisible = "DonateVisible";

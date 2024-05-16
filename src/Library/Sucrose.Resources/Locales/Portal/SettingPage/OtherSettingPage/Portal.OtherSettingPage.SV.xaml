@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Nedladdningsbandbreddsbegränsning:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Utvecklarverktyg</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Visa eller dölj utvecklarverktygen för WebView och CefSharp-motorn.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Hantera utvecklarverktyg för WebView och CefSharp-motorn.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Standardutvecklarverktyg:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Felsökningsport:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Tips: Standardutvecklarverktyg kanske inte fungerar korrekt i de stödda temana. Felsökningsporten tenderar att fungera bättre. När du är redo kan du använda adressen 'http://localhost:{0}' eller 'chrome://inspect' för Chrome-webbläsaren, 'opera://inspect' för Opera-webbläsaren, 'edge://inspect' för Edge-webbläsaren.</system:String>
 </ResourceDictionary>

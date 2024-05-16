@@ -1,10 +1,10 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
-using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
-using SEIT = Skylark.Enum.InputType;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {

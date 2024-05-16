@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limit Przepustowości Pobierania:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Narzędzia Deweloperskie</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Czy wyświetlać narzędzia deweloperskie dla WebView i silnika CefSharp, czy nie.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Zarządzaj narzędziami dewelopera dla silnika WebView i CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Domyślne Narzędzia Deweloperskie:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Port Debugowania:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Wskazówka: Domyślne narzędzia deweloperskie mogą nie działać poprawnie w obsługiwanych motywach. Port debugowania zazwyczaj działa lepiej. Gdy będziesz gotowy, możesz użyć adresu 'http://localhost:{0}' lub 'chrome://inspect' dla przeglądarki Chrome, 'opera://inspect' dla przeglądarki Opera, 'edge://inspect' dla przeglądarki Edge.</system:String>
 </ResourceDictionary>

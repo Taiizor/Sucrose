@@ -48,6 +48,8 @@ namespace Sucrose.Manager.Manage
 
         public static SEDYST DisplayScreenType => SMMI.EngineSettingManager.GetSetting(SMC.DisplayScreenType, SEDYST.PerDisplay);
 
+        public static int DeveloperPort => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.DeveloperPort, 0), 0, 65535);
+
         public static int AdaptiveLayout => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveLayout, 0), 0, 100);
 
         public static int PingValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.PingValue, 100), 0, 1000);

@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Batas Lebar Pita Unduhan:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Alat Pengembang</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Menampilkan atau menyembunyikan alat pengembang untuk mesin WebView dan CefSharp.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Mengelola alat pengembang untuk mesin WebView dan CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Alat Pengembang Default:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Port Debugging:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Petunjuk: Alat pengembang default mungkin tidak berfungsi dengan baik di tema yang didukung. Port debugging cenderung lebih baik. Ketika Anda siap, Anda dapat menggunakan alamat 'http://localhost:{0}' atau 'chrome://inspect' untuk browser Chrome, 'opera://inspect' untuk browser Opera, 'edge://inspect' untuk browser Edge.</system:String>
 </ResourceDictionary>

@@ -153,6 +153,24 @@ namespace Sucrose.Live.WebView
 
                     Options.AdditionalBrowserArguments = string.Join(" ", SSEMI.BrowserSettings.WebView);
 
+                    if (SMMM.DeveloperPort > 0)
+                    {
+                        if (!Options.AdditionalBrowserArguments.Contains("--remote-debugging-port"))
+                        {
+                            Options.AdditionalBrowserArguments += $" --remote-debugging-port={SMMM.DeveloperPort}";
+                        }
+
+                        if (!Options.AdditionalBrowserArguments.Contains("--remote-allow-origins"))
+                        {
+                            Options.AdditionalBrowserArguments += $" --remote-allow-origins=*";
+                        }
+
+                        if (!Options.AdditionalBrowserArguments.Contains("--enable-features=msEdgeDevToolsWdpRemoteDebugging"))
+                        {
+                            Options.AdditionalBrowserArguments += $" --enable-features=msEdgeDevToolsWdpRemoteDebugging";
+                        }
+                    }
+
                     Task<CoreWebView2Environment> Environment = CoreWebView2Environment.CreateAsync(null, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.WebView2), Options);
 
                     SSEWVMI.WebEngine.EnsureCoreWebView2Async(Environment.Result);

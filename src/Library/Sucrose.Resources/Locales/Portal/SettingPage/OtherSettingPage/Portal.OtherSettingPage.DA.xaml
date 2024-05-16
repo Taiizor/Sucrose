@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Downloadbåndbreddegrænse:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Udviklerværktøjer</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Visning af udviklerværktøjer til WebView og CefSharp-motoren.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Administrer udviklerværktøjer til WebView og CefSharp-motor.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Standard Udviklerværktøjer:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Fejlfinding Port:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Hint: Standard udviklerværktøjer fungerer måske ikke korrekt i understøttede temaer. Fejlfindingsporten har tendens til at fungere bedre. Når du er klar, kan du bruge 'http://localhost:{0}' adressen eller 'chrome://inspect' for Chrome-browseren, 'opera://inspect' for Opera-browseren, 'edge://inspect' for Edge-browseren.</system:String>
 </ResourceDictionary>

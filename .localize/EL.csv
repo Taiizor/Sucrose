@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Update.Limit,Όριο Εύρους Ζώνης για Λήψη:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer,Εργαλεία Προγραμματιστή
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer.Description,Εμφάνιση ή απόκρυψη των εργαλείων προγραμματιστή για την μηχανή WebView και CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer.Description,Διαχείριση εργαλείων προγραμματιστή για τον κινητήρα WebView και CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Προεπιλεγμένα Εργαλεία Προγραμματιστή:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Θύρα Αποσφαλμάτωσης:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Υπόδειξη: Τα προεπιλεγμένα εργαλεία προγραμματιστή ενδέχεται να μη λειτουργούν σωστά σε υποστηριζόμενα θέματα. Η θύρα αποσφαλμάτωσης τείνει να λειτουργεί καλύτερα. Όταν είστε έτοιμοι, μπορείτε να χρησιμοποιήσετε τη διεύθυνση 'http://localhost:{0}' ή 'chrome://inspect' για τον περιηγητή Chrome, 'opera://inspect' για τον περιηγητή Opera, 'edge://inspect' για τον περιηγητή Edge."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Counter,Μετρητές Απόδοσης

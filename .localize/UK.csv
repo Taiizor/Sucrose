@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update.Limit,Обмеження ширина смуги для завантаження:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer,Інструменти розробника
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer.Description,"Визначте, чи показувати інструменти розробника для WebView та мотора CefSharp."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer.Description,Керуйте інструментами розробника для движка WebView та CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Стандартні Інструменти Розробника:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Порт Налагодження:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Підказка: Стандартні інструменти розробника можуть не працювати належним чином у підтримуваних темах. Порт налагодження працює краще. Коли ви будете готові, ви можете використовувати адресу 'http://localhost:{0}' або 'chrome://inspect' для браузера Chrome, 'opera://inspect' для браузера Opera, 'edge://inspect' для браузера Edge."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Counter,Показники продуктивності

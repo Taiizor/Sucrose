@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">ダウンロード帯域幅制限:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">開発者ツール</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebViewとCefSharpエンジンの開発者ツールの表示または非表示。</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView および CefSharp エンジンの開発者ツールを管理します。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">デフォルトの開発者ツール:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">デバッグポート:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">ヒント: デフォルトの開発者ツールは、サポートされているテーマでは正常に機能しない場合があります。デバッグポートの方がより良く動作します。準備ができたら、'http://localhost:{0}' アドレスまたは Chrome ブラウザー用の 'chrome://inspect'、Opera ブラウザー用の 'opera://inspect'、Edge ブラウザー用の 'edge://inspect' を使用できます。</system:String>
 </ResourceDictionary>

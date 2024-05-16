@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SSEAEA = Sucrose.Shared.Engine.Aurora.Event.Application;
 using SSEAHA = Sucrose.Shared.Engine.Aurora.Helper.Application;
 using SSEAHR = Sucrose.Shared.Engine.Aurora.Helper.Ready;
 using SSEAMI = Sucrose.Shared.Engine.Aurora.Manage.Internal;
@@ -61,6 +62,8 @@ namespace Sucrose.Shared.Engine.Aurora.View
             SystemEvents.DisplaySettingsChanged += (s, e) => SSEMI.Applications.ForEach(Application => SSEEH.DisplaySettingsChanged(Application, DateTime.Now));
 
             SSEAHA.SetVolume(SSEHD.GetVolume());
+
+            SSEAEA.ApplicationEngine();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)

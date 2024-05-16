@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Update.Limit,İndirme Bant Genişliği Sınırı:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer,Geliştirici Araçları
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer.Description,WebView ve CefSharp motoru için geliştirici araçlarının gösterilip gösterilmeyeceği.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer.Description,WebView ve CefSharp motoru için geliştirici araçlarını yönetin.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Varsayılan Geliştirici Araçları:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Hata Ayıklama Bağlantı Noktası:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"İpucu: Varsayılan geliştirici araçları etkileşim desteklenen temalarda düzgün çalışmamaktadır. Hata ayıklama bağlantı noktası ise daha düzgün çalışmaktadır. Hazır olduğunuzda 'http://localhost:{0}' adresini veya Chrome tarayıcısı için 'chrome://inspect', Opera tarayıcısı için 'opera://inspect', Edge tarayıcısı için 'edge://inspect' adresini kullanabilirsiniz."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.TR.xaml,Portal.PerformanceSettingPage.Counter,Performans Sayaçları

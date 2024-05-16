@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">下载带宽限制:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">开发工具</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView和CefSharp引擎的开发工具是否可见。</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">管理 WebView 和 CefSharp 引擎的开发者工具。</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">默认开发者工具：</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">调试端口：</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">提示：默认的开发者工具在支持的主题中可能无法正常工作。调试端口通常效果更好。当您准备好时，您可以使用 'http://localhost:{0}' 地址或 'chrome://inspect' 查看 Chrome 浏览器，'opera://inspect' 查看 Opera 浏览器，'edge://inspect' 查看 Edge 浏览器。</system:String>
 </ResourceDictionary>

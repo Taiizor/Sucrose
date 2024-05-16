@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Update.Limit,Had Lebar Jalur Muat Turun:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer,Alat Pembangun
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer.Description,Sama ada untuk menunjukkan alat pembangun untuk enjin WebView dan CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer.Description,Urus alat pembangun untuk enjin WebView dan CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Alat Pembangun Lalai:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Port Debugging:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Petua: Alat pembangun lalai mungkin tidak berfungsi dengan baik di dalam tema yang disokong. Port debugging cenderung berfungsi dengan lebih baik. Apabila anda sudah bersedia, anda boleh menggunakan alamat 'http://localhost:{0}' atau 'chrome://inspect' untuk pelayar Chrome, 'opera://inspect' untuk pelayar Opera, 'edge://inspect' untuk pelayar Edge."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Counter,Pengiraan Prestasi

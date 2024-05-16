@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Обмеження ширина смуги для завантаження:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Інструменти розробника</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Визначте, чи показувати інструменти розробника для WebView та мотора CefSharp.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Керуйте інструментами розробника для движка WebView та CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Стандартні Інструменти Розробника:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Порт Налагодження:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Підказка: Стандартні інструменти розробника можуть не працювати належним чином у підтримуваних темах. Порт налагодження працює краще. Коли ви будете готові, ви можете використовувати адресу 'http://localhost:{0}' або 'chrome://inspect' для браузера Chrome, 'opera://inspect' для браузера Opera, 'edge://inspect' для браузера Edge.</system:String>
 </ResourceDictionary>

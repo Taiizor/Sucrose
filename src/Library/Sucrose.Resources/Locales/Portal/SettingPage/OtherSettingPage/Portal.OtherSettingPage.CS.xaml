@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limit Šířky Pásma Stahování:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Vývojářské Nástroje</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Zda se mají zobrazovat vývojářské nástroje pro WebView a CefSharp engine.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Spravujte vývojářské nástroje pro motory WebView a CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Výchozí Vývojářské Nástroje:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Ladicí Port:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Nápověda: Výchozí vývojářské nástroje nemusí správně fungovat v podporovaných tématech. Ladicí port obvykle funguje lépe. Až budete připraveni, můžete použít adresu 'http://localhost:{0}' nebo 'chrome://inspect' pro prohlížeč Chrome, 'opera://inspect' pro prohlížeč Opera, 'edge://inspect' pro prohlížeč Edge.</system:String>
 </ResourceDictionary>

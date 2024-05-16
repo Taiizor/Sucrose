@@ -11,6 +11,8 @@ namespace Sucrose.Shared.Engine.Manage
     {
         public static SSTHI Info = new();
 
+        public static bool IsDesktop = true;
+
         public static bool Interaction = true;
 
         public static SSTHP Properties = new();
@@ -110,7 +112,7 @@ namespace Sucrose.Shared.Engine.Manage
             "--always-authorize-plugins",
             "--enable-npapi",
 
-            "--disable-speech-input",
+            "--disable-speech-input"
         };
 
         public static Dictionary<string, string> CefArguments = new()
@@ -147,7 +149,9 @@ namespace Sucrose.Shared.Engine.Manage
             { "debug-plugin-loading", "1" },
             { "allow-outdated-plugins", "1" },
             { "always-authorize-plugins", "1" },
-            { "enable-npapi", "1" }
+            { "enable-npapi", "1" },
+
+            { "disable-speech-input", "1" }
         };
     }
 }

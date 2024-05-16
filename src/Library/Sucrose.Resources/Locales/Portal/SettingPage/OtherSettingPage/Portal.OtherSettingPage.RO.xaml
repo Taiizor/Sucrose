@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limită Lățime de Bandă pentru Descărcare:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Instrumente de Dezvoltare</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Dacă ar trebui să se afișeze sau nu instrumente de dezvoltare pentru motorul WebView și CefSharp.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Gestionați instrumentele de dezvoltare pentru motorul WebView și CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Instrumente de Dezvoltare Implicite:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Port de Depanare:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Sugestie: Instrumentele de dezvoltare implicite pot să nu funcționeze corect în temele suportate. Portul de depanare are tendința să funcționeze mai bine. Când sunteți gata, puteți utiliza adresa 'http://localhost:{0}' sau 'chrome://inspect' pentru browserul Chrome, 'opera://inspect' pentru browserul Opera, 'edge://inspect' pentru browserul Edge.</system:String>
 </ResourceDictionary>

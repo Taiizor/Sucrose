@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Download-Bandbreitenbegrenzung:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Entwicklertools</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Ob Entwicklertools für WebView und den CefSharp-Motor angezeigt werden sollen oder nicht.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Verwalten Sie Entwicklerwerkzeuge für den WebView- und CefSharp-Motor.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Standard-Entwicklerwerkzeuge:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Debugging-Port:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Hinweis: Standard-Entwicklerwerkzeuge funktionieren möglicherweise nicht ordnungsgemäß in unterstützten Themen. Der Debugging-Port funktioniert tendenziell besser. Wenn Sie bereit sind, können Sie die Adresse 'http://localhost:{0}' oder 'chrome://inspect' für den Chrome-Browser, 'opera://inspect' für den Opera-Browser, 'edge://inspect' für den Edge-Browser verwenden.</system:String>
 </ResourceDictionary>

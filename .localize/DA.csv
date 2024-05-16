@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Update.Limit,Downloadbåndbreddegrænse:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer,Udviklerværktøjer
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer.Description,Visning af udviklerværktøjer til WebView og CefSharp-motoren.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer.Description,Administrer udviklerværktøjer til WebView og CefSharp-motor.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Standard Udviklerværktøjer:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Fejlfinding Port:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Hint: Standard udviklerværktøjer fungerer måske ikke korrekt i understøttede temaer. Fejlfindingsporten har tendens til at fungere bedre. Når du er klar, kan du bruge 'http://localhost:{0}' adressen eller 'chrome://inspect' for Chrome-browseren, 'opera://inspect' for Opera-browseren, 'edge://inspect' for Edge-browseren."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Counter,Ydelsesmålere

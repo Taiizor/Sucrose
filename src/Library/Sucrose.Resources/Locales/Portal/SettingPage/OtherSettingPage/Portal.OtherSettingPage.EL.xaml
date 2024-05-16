@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Όριο Εύρους Ζώνης για Λήψη:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Εργαλεία Προγραμματιστή</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Εμφάνιση ή απόκρυψη των εργαλείων προγραμματιστή για την μηχανή WebView και CefSharp.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Διαχείριση εργαλείων προγραμματιστή για τον κινητήρα WebView και CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Προεπιλεγμένα Εργαλεία Προγραμματιστή:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Θύρα Αποσφαλμάτωσης:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Υπόδειξη: Τα προεπιλεγμένα εργαλεία προγραμματιστή ενδέχεται να μη λειτουργούν σωστά σε υποστηριζόμενα θέματα. Η θύρα αποσφαλμάτωσης τείνει να λειτουργεί καλύτερα. Όταν είστε έτοιμοι, μπορείτε να χρησιμοποιήσετε τη διεύθυνση 'http://localhost:{0}' ή 'chrome://inspect' για τον περιηγητή Chrome, 'opera://inspect' για τον περιηγητή Opera, 'edge://inspect' για τον περιηγητή Edge.</system:String>
 </ResourceDictionary>

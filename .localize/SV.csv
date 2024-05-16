@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Update.Limit,Nedladdningsbandbreddsbegränsning:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer,Utvecklarverktyg
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer.Description,Visa eller dölj utvecklarverktygen för WebView och CefSharp-motorn.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer.Description,Hantera utvecklarverktyg för WebView och CefSharp-motorn.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Standardutvecklarverktyg:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Felsökningsport:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Tips: Standardutvecklarverktyg kanske inte fungerar korrekt i de stödda temana. Felsökningsporten tenderar att fungera bättre. När du är redo kan du använda adressen 'http://localhost:{0}' eller 'chrome://inspect' för Chrome-webbläsaren, 'opera://inspect' för Opera-webbläsaren, 'edge://inspect' för Edge-webbläsaren."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Counter,Prestandamätare

@@ -30,5 +30,11 @@
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limite de largura de banda de download:</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Ferramentas de Desenvolvedor</system:String>
-    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Se as ferramentas de desenvolvedor devem ser exibidas para WebView e CefSharp.</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Gerencie ferramentas de desenvolvedor para o motor WebView e CefSharp.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperMode">Ferramentas de Desenvolvedor Padrão:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperPort">Porta de Depuração:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Developer.DeveloperHint">Dica: As ferramentas de desenvolvedor padrão podem não funcionar corretamente nos temas suportados. A porta de depuração tende a funcionar melhor. Quando estiver pronto, você pode usar o endereço 'http://localhost:{0}' ou 'chrome://inspect' para o navegador Chrome, 'opera://inspect' para o navegador Opera, 'edge://inspect' para o navegador Edge.</system:String>
 </ResourceDictionary>

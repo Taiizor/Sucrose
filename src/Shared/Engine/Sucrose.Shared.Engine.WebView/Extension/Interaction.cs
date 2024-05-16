@@ -1,21 +1,24 @@
-﻿using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+﻿using Linearstar.Windows.RawInput;
+using Linearstar.Windows.RawInput.Native;
+using System.Windows.Interop;
+using Point = System.Drawing.Point;
+using SEIT = Skylark.Enum.InputType;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
-using SMMM = Sucrose.Manager.Manage.Manager;
-using SEIT = Skylark.Enum.InputType;
-using SWNM = Skylark.Wing.Native.Methods;
-using Linearstar.Windows.RawInput;
-using System.Windows.Interop;
-using SWHC = Skylark.Wing.Helper.Calculate;
-using Point = System.Drawing.Point;
-using Linearstar.Windows.RawInput.Native;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
-using System.Windows.Media;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SWHC = Skylark.Wing.Helper.Calculate;
+using SWNM = Skylark.Wing.Native.Methods;
+using SWUD = Skylark.Wing.Utility.Desktop;
+using Timer = System.Timers.Timer;
 
 namespace Sucrose.Shared.Engine.WebView.Extension
 {
     internal static class Interaction
     {
+        private static bool FirstKey = SMMM.InputType == SEIT.OnlyKeyboard;
+
         public static void Register()
         {
             if (SSEMI.Interaction)
@@ -24,10 +27,10 @@ namespace Sucrose.Shared.Engine.WebView.Extension
 
                 IntPtr HWND = SSEMI.WindowHandle;
 
+                SSEWVMI.WebHandle = SSEWVMI.WebEngine.Handle;
+
                 switch (SSDMM.InputModuleType)
                 {
-                    case SSDEIMT.Native:
-                        break;
                     case SSDEIMT.RawInput:
                         if (SMMM.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)
                         {
@@ -45,8 +48,6 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                         break;
                 }
 
-                SSEWVMI.WebHandle = SSEWVMI.WebEngine.Handle;
-
                 IntPtr InputHandle = SWNM.FindWindowEx(SSEWVMI.WebHandle, IntPtr.Zero, "Chrome_WidgetWin_0", null);
 
                 if (!InputHandle.Equals(IntPtr.Zero))
@@ -54,11 +55,7 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                     SSEWVMI.WebHandle = SWNM.FindWindowEx(InputHandle, IntPtr.Zero, "Chrome_WidgetWin_1", null);
                 }
 
-                if (SMMM.InputType is SEIT.OnlyKeyboard)
-                {
-                    ForwardMessageMouse(99999, 99999, (int)SWNM.WM.LBUTTONDOWN, (IntPtr)0x0001);
-                    ForwardMessageMouse(99999, 99999, (int)SWNM.WM.LBUTTONUP, (IntPtr)0x0001);
-                }
+                Start();
             }
         }
 
@@ -70,19 +67,33 @@ namespace Sucrose.Shared.Engine.WebView.Extension
             RawInputDevice.UnregisterDevice(HidUsageAndPage.Keyboard);
         }
 
+        public static void Start()
+        {
+            int Second = 1;
+
+            Timer Interactioner = new(Second * 1000);
+
+            Interactioner.Elapsed += (s, e) =>
+            {
+                SSEMI.IsDesktop = !SMMM.InputDesktop || SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced();
+            };
+
+            Interactioner.AutoReset = true;
+
+            Interactioner.Start();
+        }
+
         private static void ForwardMessageMouse(int X, int Y, int Message, IntPtr wParam)
         {
             try
             {
-                Point Mouse = SWHC.MousePosition(X, Y, SMMM.DisplayScreenType);
-
                 //The low-order word specifies the x-coordinate of the cursor, the high-order word specifies the y-coordinate of the cursor.
                 //ref: https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-mousemove
 
-                uint lParam = Convert.ToUInt32(Mouse.Y);
+                uint lParam = Convert.ToUInt32(Y);
 
                 lParam <<= 16;
-                lParam |= Convert.ToUInt32(Mouse.X);
+                lParam |= Convert.ToUInt32(X);
 
                 SWNM.PostMessageW(SSEWVMI.WebHandle, Message, wParam, (UIntPtr)lParam);
             }
@@ -107,7 +118,7 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                  * Same as:
                  * lParam = isPressed ? (lParam |= 0u << 30) : (lParam |= 1u << 30); //prev key state
                  * lParam = isPressed ? (lParam |= 0u << 31) : (lParam |= 1u << 31); //transition state
-                */
+                 */
                 lParam = IsPressed ? lParam : (lParam |= 3u << 30);
 
                 SWNM.PostMessageW(SSEWVMI.WebHandle, Message, wParam, (UIntPtr)lParam);
@@ -119,7 +130,7 @@ namespace Sucrose.Shared.Engine.WebView.Extension
         {
             try
             {
-                if (Message == (int)SWNM.WM.INPUT)
+                if (Message == (int)SWNM.WM.INPUT && SSEMI.IsDesktop)
                 {
                     RawInputData Data = RawInputData.FromHandle(lParam);
 
@@ -131,42 +142,34 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                                 break;
                             }
 
+                            Point Position = SWHC.MousePosition(P.X, P.Y, SMMM.DisplayScreenType);
+
                             switch (Mouse.Mouse.Buttons)
                             {
                                 case RawMouseButtonFlags.MiddleButtonDown:
-                                    ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.MBUTTONDOWN, (IntPtr)0x0010);
+                                    ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.MBUTTONDOWN, (IntPtr)0x0010);
                                     break;
                                 case RawMouseButtonFlags.MiddleButtonUp:
-                                    ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.MBUTTONUP, (IntPtr)0x0010);
+                                    ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.MBUTTONUP, (IntPtr)0x0010);
                                     break;
                                 case RawMouseButtonFlags.LeftButtonDown:
-                                    ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.LBUTTONDOWN, (IntPtr)0x0001);
+                                    ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.LBUTTONDOWN, (IntPtr)0x0001);
                                     break;
                                 case RawMouseButtonFlags.LeftButtonUp:
-                                    ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.LBUTTONUP, (IntPtr)0x0001);
+                                    ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.LBUTTONUP, (IntPtr)0x0001);
                                     break;
                                 case RawMouseButtonFlags.RightButtonDown:
                                     //issue: click being skipped; desktop already has its own rightclick contextmenu.
-                                    //ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.RBUTTONDOWN, (IntPtr)0x0002);
+                                    //ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.RBUTTONDOWN, (IntPtr)0x0002);
                                     break;
                                 case RawMouseButtonFlags.RightButtonUp:
                                     //issue: click being skipped; desktop already has its own rightclick contextmenu.
-                                    //ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.RBUTTONUP, (IntPtr)0x0002);
+                                    //ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.RBUTTONUP, (IntPtr)0x0002);
                                     break;
                                 case RawMouseButtonFlags.None:
-                                    ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.MOUSEMOVE, (IntPtr)0x0020);
+                                    ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.MOUSEMOVE, (IntPtr)0x0020);
                                     break;
                                 case RawMouseButtonFlags.MouseWheel:
-                                    //int MouseData = 7864320; //-7864320
-                                    //int Delta = (MouseData >> 16) & 0xFFFF;
-
-                                    //int Amount = Delta >> 15 == 1 ? Delta - 0xFFFF - 1 : Delta;
-
-                                    //int DeltaX = MouseData & 0xFFFF;
-                                    //int DeltaY = Amount;
-
-                                    //SWNM.SendMessage(SSEWVMI.WebHandle, (int)SWNM.WM.MOUSEWHEEL, DeltaX, DeltaY);
-
                                     int MouseData = Mouse.Mouse.ButtonData;
                                     int NewMouseData = MouseData = -MouseData; //MouseData ^ -0
 
@@ -177,6 +180,14 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                             }
                             break;
                         case RawInputKeyboardData Keyboard:
+                            if (FirstKey)
+                            {
+                                FirstKey = false;
+
+                                ForwardMessageMouse(99999, 99999, (int)SWNM.WM.LBUTTONDOWN, (IntPtr)0x0001);
+                                ForwardMessageMouse(99999, 99999, (int)SWNM.WM.LBUTTONUP, (IntPtr)0x0001);
+                            }
+
                             ForwardMessageKeyboard((int)Keyboard.Keyboard.WindowMessage, (IntPtr)Keyboard.Keyboard.VirutalKey, Keyboard.Keyboard.ScanCode, Keyboard.Keyboard.Flags != RawKeyboardFlags.Up);
                             break;
                     }

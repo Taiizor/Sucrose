@@ -799,7 +799,13 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Update.Limit,Límite de Ancho de Banda de Descarga:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Developer,Herramientas de Desarrollo
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Developer.Description,Si se deben mostrar o no las herramientas de desarrollo para WebView y el motor CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Developer.Description,Administrar herramientas de desarrollador para el motor WebView y CefSharp.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Developer.DeveloperMode,Herramientas de Desarrollador Predeterminadas:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Developer.DeveloperPort,Puerto de Depuración:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ES.xaml,Portal.OtherSettingPage.Developer.DeveloperHint,"Consejo: Las herramientas de desarrollador predeterminadas pueden no funcionar correctamente en los temas admitidos. El puerto de depuración tiende a funcionar mejor. Cuando esté listo, puede utilizar la dirección 'http://localhost:{0}' o 'chrome://inspect' para el navegador Chrome, 'opera://inspect' para el navegador Opera, 'edge://inspect' para el navegador Edge."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ES.xaml,Portal.PerformanceSettingPage.Title,PerformanceSettingPage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ES.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.ES.xaml,Portal.PerformanceSettingPage.Counter,Contadores de Rendimiento

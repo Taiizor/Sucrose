@@ -351,22 +351,89 @@ namespace Sucrose.Portal.ViewModels.Pages
             SPVCEC Developer = new()
             {
                 Margin = new Thickness(0, 10, 0, 0),
-                Expandable = false
+                Expandable = true,
+                IsExpand = true
             };
 
             Developer.LeftIcon.Symbol = SymbolRegular.WindowDevTools24;
             Developer.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Developer");
             Developer.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Developer", "Description");
 
-            ToggleSwitch DeveloperState = new()
+            StackPanel DeveloperContent = new();
+
+            StackPanel DeveloperModeContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock DeveloperModeText = new()
+            {
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperMode"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ToggleSwitch DeveloperMode = new()
             {
                 IsChecked = SMMM.DeveloperMode
             };
 
-            DeveloperState.Checked += (s, e) => DeveloperStateChecked(true);
-            DeveloperState.Unchecked += (s, e) => DeveloperStateChecked(false);
+            DeveloperMode.Checked += (s, e) => DeveloperModeChecked(true);
+            DeveloperMode.Unchecked += (s, e) => DeveloperModeChecked(false);
 
-            Developer.HeaderFrame = DeveloperState;
+            StackPanel DeveloperPortContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock DeveloperPortText = new()
+            {
+                Text = SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperPort"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            NumberBox DeveloperPort = new()
+            {
+                Icon = new SymbolIcon(SymbolRegular.SerialPort24),
+                IconPlacement = ElementPlacement.Left,
+                Value = SMMM.DeveloperPort,
+                ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
+                Maximum = 65535,
+                MaxLength = 5,
+                Minimum = 0
+            };
+
+            TextBlock DeveloperHint = new()
+            {
+                Text = string.Format(SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperHint"), SMMM.DeveloperPort),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                Margin = new Thickness(0, 10, 0, 0),
+                TextAlignment = TextAlignment.Left,
+                FontWeight = FontWeights.SemiBold
+            };
+
+            DeveloperPort.ValueChanged += (s, e) => DeveloperPortChanged(DeveloperHint, DeveloperPort.Value);
+
+            DeveloperModeContent.Children.Add(DeveloperModeText);
+            DeveloperModeContent.Children.Add(DeveloperMode);
+
+            DeveloperPortContent.Children.Add(DeveloperPortText);
+            DeveloperPortContent.Children.Add(DeveloperPort);
+
+            DeveloperContent.Children.Add(DeveloperModeContent);
+            DeveloperContent.Children.Add(DeveloperPortContent);
+            DeveloperContent.Children.Add(DeveloperHint);
+
+            Developer.FooterCard = DeveloperContent;
 
             Contents.Add(Developer);
 
@@ -408,6 +475,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             SMMI.HookSettingManager.SetSetting(SMC.DiscordState, State);
         }
 
+        private void DeveloperModeChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.DeveloperMode, State);
+        }
+
         private void DiscordRefreshChecked(bool State)
         {
             SMMI.HookSettingManager.SetSetting(SMC.DiscordRefresh, State);
@@ -421,11 +493,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
 
             SMMI.GeneralSettingManager.SetSetting(SMC.UserAgent, TextBox.Text);
-        }
-
-        private void DeveloperStateChecked(bool State)
-        {
-            SMMI.EngineSettingManager.SetSetting(SMC.DeveloperMode, State);
         }
 
         private void UpdateLimitChanged(double? Value)
@@ -469,6 +536,18 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 SMMI.PrivateSettingManager.SetSetting(SMC.Key, SMR.Key);
                 TextBox.PlaceholderText = SRER.GetValue("Portal", "OtherSettingPage", "Key", "PersonalKey", "Valid");
+            }
+        }
+
+        private void DeveloperPortChanged(TextBlock Developer, double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.DeveloperPort)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.DeveloperPort, NewValue);
+
+                Developer.Text = string.Format(SRER.GetValue("Portal", "OtherSettingPage", "Developer", "DeveloperHint"), NewValue);
             }
         }
 
