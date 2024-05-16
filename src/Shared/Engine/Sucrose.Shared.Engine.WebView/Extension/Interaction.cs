@@ -10,6 +10,7 @@ using SWHC = Skylark.Wing.Helper.Calculate;
 using Point = System.Drawing.Point;
 using Linearstar.Windows.RawInput.Native;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using System.Windows.Media;
 
 namespace Sucrose.Shared.Engine.WebView.Extension
 {
@@ -17,41 +18,54 @@ namespace Sucrose.Shared.Engine.WebView.Extension
     {
         public static void Register()
         {
-            IntPtr HWND = SSEMI.WindowHandle;
-
-            switch (SSDMM.InputModuleType)
+            if (SSEMI.Interaction)
             {
-                case SSDEIMT.Native:
-                    break;
-                case SSDEIMT.RawInput:
-                    if (SMMM.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)
-                    {
-                        RawInputDevice.RegisterDevice(HidUsageAndPage.Mouse, RawInputDeviceFlags.ExInputSink, HWND);
-                    }
+                SSEMI.Interaction = false;
 
-                    if (SMMM.InputType is SEIT.OnlyKeyboard or SEIT.MouseKeyboard)
-                    {
-                        RawInputDevice.RegisterDevice(HidUsageAndPage.Keyboard, RawInputDeviceFlags.ExInputSink, HWND);
-                    }
+                IntPtr HWND = SSEMI.WindowHandle;
 
-                    HwndSource Source = HwndSource.FromHwnd(HWND);
-                    Source.AddHook(Hook);
+                switch (SSDMM.InputModuleType)
+                {
+                    case SSDEIMT.Native:
+                        break;
+                    case SSDEIMT.RawInput:
+                        if (SMMM.InputType is SEIT.OnlyMouse or SEIT.MouseKeyboard)
+                        {
+                            RawInputDevice.RegisterDevice(HidUsageAndPage.Mouse, RawInputDeviceFlags.ExInputSink, HWND);
+                        }
 
-                    break;
-            }
+                        if (SMMM.InputType is SEIT.OnlyKeyboard or SEIT.MouseKeyboard)
+                        {
+                            RawInputDevice.RegisterDevice(HidUsageAndPage.Keyboard, RawInputDeviceFlags.ExInputSink, HWND);
+                        }
 
-            SSEWVMI.WebHandle = SSEWVMI.WebEngine.Handle;
+                        HwndSource Source = HwndSource.FromHwnd(HWND);
+                        Source.AddHook(Hook);
 
-            IntPtr InputHandle = SWNM.FindWindowEx(SSEWVMI.WebHandle, IntPtr.Zero, "Chrome_WidgetWin_0", null);
+                        break;
+                }
 
-            if (!InputHandle.Equals(IntPtr.Zero))
-            {
-                SSEWVMI.WebHandle = SWNM.FindWindowEx(InputHandle, IntPtr.Zero, "Chrome_WidgetWin_1", null);
+                SSEWVMI.WebHandle = SSEWVMI.WebEngine.Handle;
+
+                IntPtr InputHandle = SWNM.FindWindowEx(SSEWVMI.WebHandle, IntPtr.Zero, "Chrome_WidgetWin_0", null);
+
+                if (!InputHandle.Equals(IntPtr.Zero))
+                {
+                    SSEWVMI.WebHandle = SWNM.FindWindowEx(InputHandle, IntPtr.Zero, "Chrome_WidgetWin_1", null);
+                }
+
+                if (SMMM.InputType is SEIT.OnlyKeyboard)
+                {
+                    ForwardMessageMouse(99999, 99999, (int)SWNM.WM.LBUTTONDOWN, (IntPtr)0x0001);
+                    ForwardMessageMouse(99999, 99999, (int)SWNM.WM.LBUTTONUP, (IntPtr)0x0001);
+                }
             }
         }
 
         public static void Unregister()
         {
+            SSEMI.Interaction = true;
+
             RawInputDevice.UnregisterDevice(HidUsageAndPage.Mouse);
             RawInputDevice.UnregisterDevice(HidUsageAndPage.Keyboard);
         }
@@ -89,7 +103,8 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                 lParam |= 1u << 24; //extended key
                 lParam |= 0u << 29; //context code; Note: Alt key combos wont't work
 
-                /* Same as:
+                /*
+                 * Same as:
                  * lParam = isPressed ? (lParam |= 0u << 30) : (lParam |= 1u << 30); //prev key state
                  * lParam = isPressed ? (lParam |= 0u << 31) : (lParam |= 1u << 31); //transition state
                 */
@@ -132,11 +147,11 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                                     break;
                                 case RawMouseButtonFlags.RightButtonDown:
                                     //issue: click being skipped; desktop already has its own rightclick contextmenu.
-                                    //ForwardMessage(M.X, M.Y, (int)SWNM.WM.RBUTTONDOWN, (IntPtr)0x0002);
+                                    //ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.RBUTTONDOWN, (IntPtr)0x0002);
                                     break;
                                 case RawMouseButtonFlags.RightButtonUp:
                                     //issue: click being skipped; desktop already has its own rightclick contextmenu.
-                                    //ForwardMessage(M.X, M.Y, (int)SWNM.WM.RBUTTONUP, (IntPtr)0x0002);
+                                    //ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.RBUTTONUP, (IntPtr)0x0002);
                                     break;
                                 case RawMouseButtonFlags.None:
                                     ForwardMessageMouse(P.X, P.Y, (int)SWNM.WM.MOUSEMOVE, (IntPtr)0x0020);
@@ -153,8 +168,11 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                                     //SWNM.SendMessage(SSEWVMI.WebHandle, (int)SWNM.WM.MOUSEWHEEL, DeltaX, DeltaY);
 
                                     int MouseData = Mouse.Mouse.ButtonData;
+                                    int NewMouseData = MouseData = -MouseData; //MouseData ^ -0
 
-                                    SWNM.SendMessage(SSEWVMI.WebHandle, (int)SWNM.WM.MOUSEWHEEL, IntPtr.Zero, (IntPtr)MouseData);
+                                    SSEWVMI.WebEngine.ExecuteScriptAsync($"scrollBy(0, {NewMouseData}, 'smooth');");
+
+                                    //SWNM.PostMessageW(SSEWVMI.WebHandle, (int)SWNM.WM.MOUSEWHEEL, IntPtr.Zero, (IntPtr)MouseData);
                                     break;
                             }
                             break;

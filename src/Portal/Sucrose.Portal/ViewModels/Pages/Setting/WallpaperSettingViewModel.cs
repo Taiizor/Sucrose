@@ -511,7 +511,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (Enum.TryParse($"{Item.Content}", out SSDEGET Type) && (SSDEET)Type != SSDMM.GApp)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.GApp, Type);
+                SMMI.EngineSettingManager.SetSetting(SMC.GApp, (SSDEET)Type);
             }
         }
 
@@ -519,7 +519,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (Enum.TryParse($"{Item.Content}", out SSDEUET Type) && (SSDEET)Type != SSDMM.UApp)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.UApp, Type);
+                SMMI.EngineSettingManager.SetSetting(SMC.UApp, (SSDEET)Type);
             }
         }
 
@@ -527,7 +527,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (Enum.TryParse($"{Item.Content}", out SSDEWET Type) && (SSDEET)Type != SSDMM.WApp)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.WApp, Type);
+                SMMI.EngineSettingManager.SetSetting(SMC.WApp, (SSDEET)Type);
             }
         }
 
@@ -535,7 +535,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (Enum.TryParse($"{Item.Content}", out SSDEVET Type) && (SSDEET)Type != SSDMM.VApp)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.VApp, Type);
+                SMMI.EngineSettingManager.SetSetting(SMC.VApp, (SSDEET)Type);
             }
         }
 
@@ -543,7 +543,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (Enum.TryParse($"{Item.Content}", out SSDEYTET Type) && (SSDEET)Type != SSDMM.YApp)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.YApp, Type);
+                SMMI.EngineSettingManager.SetSetting(SMC.YApp, (SSDEET)Type);
             }
         }
 
@@ -562,7 +562,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             if (Enum.TryParse($"{Item.Content}", out SSDEAET Type) && (SSDEET)Type != SSDMM.AApp)
             {
-                SMMI.EngineSettingManager.SetSetting(SMC.AApp, Type);
+                SMMI.EngineSettingManager.SetSetting(SMC.AApp, (SSDEET)Type);
             }
         }
 

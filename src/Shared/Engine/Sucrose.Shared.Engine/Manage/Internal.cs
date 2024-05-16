@@ -11,6 +11,8 @@ namespace Sucrose.Shared.Engine.Manage
     {
         public static SSTHI Info = new();
 
+        public static bool Interaction = true;
+
         public static SSTHP Properties = new();
 
         public static bool Initialized = false;
