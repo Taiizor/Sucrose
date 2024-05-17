@@ -42,7 +42,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
             ThemePagination.Visibility = Visibility.Collapsed;
 
-            foreach (string Theme in Themes)
+            foreach (string Theme in Themes.ToList())
             {
                 string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
 
