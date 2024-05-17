@@ -103,7 +103,6 @@
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundle\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Portal\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Update\**" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.WPF.CS\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundler\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Launcher\**" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Property\**" />

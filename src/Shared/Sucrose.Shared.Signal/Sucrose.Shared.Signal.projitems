@@ -11,6 +11,5 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Services\BackgroundogSignalService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LauncherSignalService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\WebsiterSignalService.cs" />
   </ItemGroup>
 </Project>
