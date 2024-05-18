@@ -106,10 +106,13 @@
     </ItemGroup>
 
     <ItemGroup>
+        <None Update="lib\libmpv-86.dll" Condition="'$(PlatformTarget)' == 'x86'">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
         <None Update="lib\libmpv-64.dll" Condition="'$(PlatformTarget)' == 'x64'">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Update="lib\libmpv-86.dll" Condition="'$(PlatformTarget)' == 'x86'">
+        <None Update="lib\libmpv-a64.dll" Condition="'$(PlatformTarget)' == 'arm64'">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>

@@ -119,10 +119,6 @@
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.deps.json" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(PlatformTarget)' == 'arm64'">
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Live.MpvPlayer\**" />
-    </ItemGroup>
-
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
