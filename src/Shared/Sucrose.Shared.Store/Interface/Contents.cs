@@ -43,7 +43,19 @@ namespace Sucrose.Shared.Store.Interface
         /// <summary>
         /// 
         /// </summary>
+        [JsonProperty("source_url", Required = Required.Default)]
+        public string SourceUrl { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("download_url", Required = Required.Default)]
         public string DownloadUrl { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("direct_download_url", Required = Required.Default)]
+        public string DirectDownloadUrl { get; set; }
     }
 }

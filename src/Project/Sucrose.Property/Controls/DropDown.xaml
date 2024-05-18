@@ -15,6 +15,9 @@
             x:Name="Label"
             Margin="0,0,0,5"
             FontSize="16" />
-        <ComboBox x:Name="Component" MaxDropDownHeight="200" />
+        <ComboBox
+            x:Name="Component"
+            MaxDropDownHeight="200"
+            ScrollViewer.VerticalScrollBarVisibility="Auto" />
     </StackPanel>
 </UserControl>

@@ -11,6 +11,9 @@ namespace Sucrose.Shared.Theme.Model
         [JsonProperty("items", Required = Required.Always)]
         public string[] Items { get; set; }
 
+        [JsonProperty("valuetext", Required = Required.Default)]
+        public string ValueText => Items?.ElementAtOrDefault(Value) ?? string.Empty;
+
         public DropDownModel() : base("dropdown") { }
     }
 }

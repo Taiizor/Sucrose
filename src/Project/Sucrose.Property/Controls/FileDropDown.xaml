@@ -24,7 +24,8 @@
                 x:Name="Component"
                 Grid.Column="0"
                 HorizontalAlignment="Stretch"
-                MaxDropDownHeight="200" />
+                MaxDropDownHeight="200"
+                ScrollViewer.VerticalScrollBarVisibility="Auto" />
             <ui:Button
                 x:Name="Command"
                 Grid.Column="1"
