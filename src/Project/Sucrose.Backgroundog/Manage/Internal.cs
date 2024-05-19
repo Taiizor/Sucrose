@@ -200,7 +200,7 @@ namespace Sucrose.Backgroundog.Manage
             MemoryAvailable = 0f,
             VirtualMemoryUsed = 0f,
             VirtualMemoryLoad = 0f,
-            VirtualMemoryAvailable = 0f,
+            VirtualMemoryAvailable = 0f
         };
 
         public static Computer Computer = new()
@@ -213,7 +213,7 @@ namespace Sucrose.Backgroundog.Manage
             IsNetworkEnabled = false,
             IsStorageEnabled = false,
             IsControllerEnabled = false,
-            IsMotherboardEnabled = true,
+            IsMotherboardEnabled = true
         };
 
         public static SBSDGS GraphicData = new()

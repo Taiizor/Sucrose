@@ -57,7 +57,9 @@ namespace Sucrose.Shared.Space.Manage
             { SSDEET.VexanaLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.VexanaLive), SMR.VexanaLive) },
             { SSDEET.WebViewLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.WebViewLive), SMR.WebViewLive) },
             { SSDEET.CefSharpLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.CefSharpLive), SMR.CefSharpLive) },
+#if X86 || X64
             { SSDEET.MpvPlayerLive, Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.MpvPlayerLive), SMR.MpvPlayerLive) }
+#endif
         };
 
         public static Dictionary<string, string> TextEngineLive => new()
@@ -67,7 +69,9 @@ namespace Sucrose.Shared.Space.Manage
             { SMR.VexanaLive, EngineLive[SSDEET.VexanaLive] },
             { SMR.WebViewLive, EngineLive[SSDEET.WebViewLive] },
             { SMR.CefSharpLive, EngineLive[SSDEET.CefSharpLive] },
+#if X86 || X64
             { SMR.MpvPlayerLive, EngineLive[SSDEET.MpvPlayerLive] }
+#endif
         };
     }
 }
