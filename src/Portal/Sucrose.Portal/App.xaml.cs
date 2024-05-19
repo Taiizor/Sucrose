@@ -209,10 +209,8 @@ namespace Sucrose.Portal
         protected void Configure()
         {
             SSSHS.Apply();
-            _host.Start();
 
-            //Main Interface = new();
-            //Interface.Show();
+            _host.Start();
         }
 
         /// <summary>

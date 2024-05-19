@@ -24,6 +24,8 @@ namespace Sucrose.Bundle
     /// </summary>
     public partial class Main : Window
     {
+        private static string Description => "Sucrose Wallpaper Engine is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.";
+
         private static string PackagePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Package Cache", Application);
 
         private static string InstallPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
@@ -40,6 +42,8 @@ namespace Sucrose.Bundle
 
         private static string RedistPath => Path.Combine(Path.GetTempPath(), Redist);
 
+        private static string Url => "https://github.com/Taiizor/Sucrose";
+
         private static string TemporaryFile => "Sucrose.Backgroundog.sys";
 
         private static string TemporaryFolder => "Sucrose.Backgroundog";
@@ -51,6 +55,8 @@ namespace Sucrose.Bundle
         private static string Text => "Sucrose Wallpaper Engine";
 
         private static string Department => "Sucrose.Launcher";
+
+        private static string Contact => "taiizor@vegalya.com";
 
         private static string Shortcut => $"{Text}.lnk";
 
@@ -102,10 +108,10 @@ namespace Sucrose.Bundle
 
 #if X86
             string Executable = Path.Combine(RedistPath, "VC_Redist_x86.exe");
-#elif ARM64
-            string Executable = Path.Combine(RedistPath, "VC_Redist_arm64.exe");
-#else
+#elif X64
             string Executable = Path.Combine(RedistPath, "VC_Redist_x64.exe");
+#else
+            string Executable = Path.Combine(RedistPath, "VC_Redist_arm64.exe");
 #endif
 
             ProcessStartInfo Starter = new()
@@ -220,6 +226,7 @@ namespace Sucrose.Bundle
         private static async Task ExtractResources(string SourcePath, string ExtractPath)
         {
             Assembly Entry = SHA.Assemble(SEAT.Entry);
+
             string[] Resources = Entry.GetManifestResourceNames();
 
             foreach (string Resource in Resources)
@@ -267,9 +274,13 @@ namespace Sucrose.Bundle
 
             AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
             AppKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
+            AppKey.SetValue("Contact", Contact, RegistryValueKind.String);
             AppKey.SetValue("DisplayName", Text, RegistryValueKind.String);
+            AppKey.SetValue("URLInfoAbout", Url, RegistryValueKind.String);
             AppKey.SetValue("EstimatedSize", Size, RegistryValueKind.DWord);
+            AppKey.SetValue("URLUpdateInfo", Url, RegistryValueKind.String);
             AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
+            AppKey.SetValue("Comments", Description, RegistryValueKind.String);
             AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
             AppKey.SetValue("PublisherName", Publisher, RegistryValueKind.String);
             AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);

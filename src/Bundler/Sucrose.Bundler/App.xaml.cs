@@ -21,6 +21,8 @@ namespace Sucrose.Bundler
     /// </summary>
     public partial class App : Application
     {
+        private static string Description => "Sucrose Wallpaper Engine is a versatile wallpaper engine that brings life to your desktop with a wide range of interactive themes.";
+
         private static string PackagePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Package Cache", Application);
 
         private static string InstallPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
@@ -35,6 +37,8 @@ namespace Sucrose.Bundler
 
         private static string Wizard => Path.Combine(InstallPath, Department, Executable);
 
+        private static string Url => "https://github.com/Taiizor/Sucrose";
+
         private static string TemporaryFile => "Sucrose.Backgroundog.sys";
 
         private static string TemporaryFolder => "Sucrose.Backgroundog";
@@ -44,6 +48,8 @@ namespace Sucrose.Bundler
         private static string Executable => "Sucrose.Wizard.exe";
 
         private static string Text => "Sucrose Wallpaper Engine";
+
+        private static string Contact => "taiizor@vegalya.com";
 
         private static string Department => "Sucrose.Wizard";
 
@@ -87,10 +93,14 @@ namespace Sucrose.Bundler
 
             AppKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
             AppKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
+            AppKey.SetValue("Contact", Contact, RegistryValueKind.String);
             AppKey.SetValue("DisplayName", Text, RegistryValueKind.String);
+            AppKey.SetValue("URLInfoAbout", Url, RegistryValueKind.String);
             AppKey.SetValue("EstimatedSize", Size, RegistryValueKind.DWord);
+            AppKey.SetValue("URLUpdateInfo", Url, RegistryValueKind.String);
             AppKey.SetValue("DisplayIcon", Wizard, RegistryValueKind.String);
             AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
+            AppKey.SetValue("Comments", Description, RegistryValueKind.String);
             AppKey.SetValue("PublisherName", Publisher, RegistryValueKind.String);
             AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
             AppKey.SetValue("InstallLocation", InstallPath, RegistryValueKind.String);
