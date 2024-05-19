@@ -88,6 +88,9 @@
         <EmbeddedResource Include="Redist\**">
             <LogicalName>Redist\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
+        <EmbeddedResource Include="Themes\**">
+            <LogicalName>Themes\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
+        </EmbeddedResource>
         <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**">
             <LogicalName>Packages\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>

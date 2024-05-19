@@ -34,11 +34,15 @@ namespace Sucrose.Bundle
 
         private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
 
+        private static string AppDataPath => Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
         private static string Uninstall => Path.Combine(PackagePath, "Sucrose.Undo", "Sucrose.Undo.exe");
 
         private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
 
         private static string Launcher => Path.Combine(InstallPath, Department, Executable);
+
+        private static string ThemesPath => Path.Combine(AppDataPath, Application, Themes);
 
         private static string RedistPath => Path.Combine(Path.GetTempPath(), Redist);
 
@@ -65,6 +69,8 @@ namespace Sucrose.Bundle
         private static string Packages => "Packages";
 
         private static string Publisher => "Taiizor";
+
+        private static string Themes => "Themes";
 
         private static string Redist => "Redist";
 
@@ -315,12 +321,17 @@ namespace Sucrose.Bundle
             await Task.Delay(MaxDelay);
 
             await ControlDirectory(RedistPath);
+            await ControlDirectory(ThemesPath);
             await ControlDirectory(PackagePath);
             await ControlDirectoryStable(InstallPath);
 
             await Task.Delay(MaxDelay);
 
             await ExtractResources(Redist, RedistPath);
+
+            await Task.Delay(MinDelay);
+
+            await ExtractResources(Themes, ThemesPath);
 
             await Task.Delay(MinDelay);
 

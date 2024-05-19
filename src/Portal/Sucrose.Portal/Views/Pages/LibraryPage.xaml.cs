@@ -16,6 +16,7 @@ using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
@@ -39,6 +40,8 @@ namespace Sucrose.Portal.Views.Pages
         {
             this.ViewModel = ViewModel;
             DataContext = this;
+
+            FirstLaunch();
 
             InitializeThemes();
 
@@ -70,6 +73,37 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.LibraryService = new();
 
             SPMI.LibraryService.CreatedWallpaper += LibraryService_CreatedWallpaper;
+        }
+
+        private void FirstLaunch()
+        {
+            string FirstPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.FirstLaunch);
+
+            if (!File.Exists(FirstPath))
+            {
+                string ThemesPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.Themes);
+                string ThemesFile = Path.Combine(ThemesPath, $"{SMR.Themes}.zip");
+
+                if (File.Exists(ThemesFile))
+                {
+                    if (!Directory.Exists(SMMM.LibraryLocation))
+                    {
+                        Directory.CreateDirectory(SMMM.LibraryLocation);
+                    }
+
+                    SSDECT Result = SSZEZ.Extract(ThemesFile, ThemesPath);
+
+                    if (Result == SSDECT.Pass)
+                    {
+                        foreach (string Directory in Directory.GetDirectories(ThemesPath, "*", SearchOption.TopDirectoryOnly))
+                        {
+                            SSSHC.Folder(Directory, Path.Combine(SMMM.LibraryLocation, Path.GetFileName(Directory)), true);
+                        }
+
+                        File.Create(FirstPath);
+                    }
+                }
+            }
         }
 
         private void InitializeThemes()

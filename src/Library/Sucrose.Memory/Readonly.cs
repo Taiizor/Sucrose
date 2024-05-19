@@ -2,20 +2,21 @@
 {
     public static class Readonly
     {
-
         public static readonly string Language = "EN";
 
         public static readonly string Store = "Store";
+
+        public static readonly string Bundle = "Bundle";
+
+        public static readonly string GifFolder = "Gif";
+
+        public static readonly string LogFolder = "Log";
 
         public static readonly string Owner = "Taiizor";
 
         public static readonly Random Randomise = new();
 
-        public static readonly string LogFolder = "Log";
-
-        public static readonly string GifFolder = "Gif";
-
-        public static readonly string Bundle = "Bundle";
+        public static readonly string Themes = "Themes";
 
         public static readonly string Branch = "develop";
 
@@ -60,6 +61,8 @@
         public static readonly string StoreRepository = "Store";
 
         public static readonly string Undo = "Sucrose.Undo.exe";
+
+        public static readonly string FirstLaunch = "FirstLaunch";
 
         public static readonly string HostEntry = "www.google.com";
 
