@@ -26,7 +26,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
 
                     TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
 
-                    if (ElapsedDuration >= TimeSpan.FromHours(SMMM.StoreDuration))
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMM.StoreDuration) || !SSSHS.CheckRoot(Store))
                     {
                         File.Delete(Store);
                     }

@@ -22,6 +22,20 @@ namespace Sucrose.Shared.Store.Helper
             return File.ReadAllText(Store);
         }
 
+        public static bool CheckRoot(string Store)
+        {
+            try
+            {
+                JsonConvert.DeserializeObject<SSSIR>(Json(Store));
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static SSSIR DeserializeRoot(string Store)
         {
             return JsonConvert.DeserializeObject<SSSIR>(Json(Store));
