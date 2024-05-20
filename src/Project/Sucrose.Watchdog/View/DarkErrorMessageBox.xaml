@@ -77,10 +77,14 @@
                         FontWeight="Bold"
                         Foreground="White"
                         Text="{DynamicResource Watchdog.ErrorTitle}" />
-                    <TextBlock
+                    <TextBox
                         x:Name="Error_Message"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
                         FontSize="14"
                         Foreground="White"
+                        IsReadOnly="True"
                         Text="{DynamicResource Watchdog.ErrorMessage}"
                         TextWrapping="Wrap" />
                 </StackPanel>

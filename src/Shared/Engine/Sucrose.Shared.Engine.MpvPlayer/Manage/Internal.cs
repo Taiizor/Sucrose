@@ -13,7 +13,7 @@ namespace Sucrose.Shared.Engine.MpvPlayer.Manage
 #elif X64
         public static readonly string MediaPath = @"lib\libmpv-x64.dll";
 #else
-        public static readonly string MediaPath = @"lib\libmpv-arm64.dll";
+        public static readonly string MediaPath = @"lib\libmpv-ARM64.dll";
 #endif
 
     }
