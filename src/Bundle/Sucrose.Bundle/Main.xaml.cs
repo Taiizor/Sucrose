@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using SharpCompress.Archives;
+using SharpCompress.Common;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -40,9 +42,15 @@ namespace Sucrose.Bundle
 
         private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
 
+        private static string PackagesFilePath => Path.Combine(PackagesPath, $"{Application}.7z");
+
         private static string Launcher => Path.Combine(InstallPath, Department, Executable);
 
         private static string ThemesPath => Path.Combine(AppDataPath, Application, Themes);
+
+        private static string SevenZipPath => Path.Combine(Path.GetTempPath(), SevenZip);
+
+        private static string PackagesPath => Path.Combine(Path.GetTempPath(), Packages);
 
         private static string RedistPath => Path.Combine(Path.GetTempPath(), Redist);
 
@@ -66,9 +74,11 @@ namespace Sucrose.Bundle
 
         private static string Application => "Sucrose";
 
-        private static string Packages => "Packages";
+        private static string SevenZip => "SevenZip";
 
         private static string Publisher => "Taiizor";
+
+        private static string Packages => "Packages";
 
         private static string Themes => "Themes";
 
@@ -117,7 +127,7 @@ namespace Sucrose.Bundle
 #elif X64
             string Executable = Path.Combine(RedistPath, "VC_Redist_x64.exe");
 #else
-            string Executable = Path.Combine(RedistPath, "VC_Redist_arm64.exe");
+            string Executable = Path.Combine(RedistPath, "VC_Redist_ARM64.exe");
 #endif
 
             ProcessStartInfo Starter = new()
@@ -127,7 +137,8 @@ namespace Sucrose.Bundle
                 CreateNoWindow = true,
                 UseShellExecute = false,
                 RedirectStandardError = false,
-                RedirectStandardOutput = false
+                RedirectStandardOutput = false,
+                WindowStyle = ProcessWindowStyle.Hidden
             };
 
             using (Process Installer = new())
@@ -139,6 +150,68 @@ namespace Sucrose.Bundle
             }
 
             await Task.CompletedTask;
+        }
+
+        private static async Task ExtractArchive()
+        {
+            string Command = $"x \"{PackagesFilePath}\" -o\"{InstallPath}\" -aoa";
+
+            string Executable = Path.Combine(SevenZipPath, "7z.exe");
+
+            ProcessStartInfo Starter = new()
+            {
+                Arguments = Command,
+                CreateNoWindow = true,
+                FileName = Executable,
+                UseShellExecute = false,
+                RedirectStandardError = false,
+                RedirectStandardOutput = false,
+                WindowStyle = ProcessWindowStyle.Hidden
+            };
+
+            using Process Extactor = new()
+            {
+                EnableRaisingEvents = true,
+                StartInfo = Starter
+            };
+
+            TaskCompletionSource<bool> Completion = new();
+
+            Extactor.Exited += (sender, args) =>
+            {
+                Completion.TrySetResult(true);
+            };
+
+            Extactor.Start();
+
+            await Completion.Task;
+        }
+
+        private static async Task ExtractPackages()
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                using IArchive Archiver = ArchiveFactory.Open(PackagesFilePath);
+
+                foreach (IArchiveEntry Record in Archiver.Entries)
+                {
+                    if (Record.IsDirectory)
+                    {
+                        if (Directory.Exists(Path.Combine(InstallPath, Record.Key)))
+                        {
+                            Directory.CreateDirectory(Path.Combine(InstallPath, Record.Key));
+                        }
+                    }
+
+                    Record.WriteToDirectory(InstallPath, new ExtractionOptions()
+                    {
+                        PreserveAttributes = true,
+                        PreserveFileTime = true,
+                        ExtractFullPath = true,
+                        Overwrite = true
+                    });
+                }
+            });
         }
 
         private static void TerminateProcess(string Name)
@@ -227,6 +300,40 @@ namespace Sucrose.Bundle
             }
 
             await Task.Delay(MinDelay);
+        }
+
+        private static async Task ExtractArchive(string SourcePath, string ExtractPath)
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                if (!Directory.Exists(ExtractPath))
+                {
+                    Directory.CreateDirectory(ExtractPath);
+                }
+
+                Assembly Entry = SHA.Assemble(SEAT.Entry);
+
+                using IArchive Archive = ArchiveFactory.Open(Entry.GetManifestResourceStream(SourcePath));
+
+                foreach (IArchiveEntry Record in Archive.Entries)
+                {
+                    if (Record.IsDirectory)
+                    {
+                        if (Directory.Exists(Path.Combine(ExtractPath, Record.Key)))
+                        {
+                            Directory.CreateDirectory(Path.Combine(ExtractPath, Record.Key));
+                        }
+                    }
+
+                    Record.WriteToDirectory(ExtractPath, new ExtractionOptions()
+                    {
+                        PreserveAttributes = true,
+                        PreserveFileTime = true,
+                        ExtractFullPath = true,
+                        Overwrite = true
+                    });
+                }
+            });
         }
 
         private static async Task ExtractResources(string SourcePath, string ExtractPath)
@@ -323,6 +430,8 @@ namespace Sucrose.Bundle
             await ControlDirectory(RedistPath);
             await ControlDirectory(ThemesPath);
             await ControlDirectory(PackagePath);
+            await ControlDirectory(PackagesPath);
+            await ControlDirectory(SevenZipPath);
             await ControlDirectoryStable(InstallPath);
 
             await Task.Delay(MaxDelay);
@@ -339,9 +448,17 @@ namespace Sucrose.Bundle
 
             await Task.Delay(MinDelay);
 
-            await ExtractResources(Packages, InstallPath);
+            await ExtractResources(Packages, PackagesPath);
 
-            await Task.Delay(MaxDelay);
+            await Task.Delay(MinDelay);
+
+            await ExtractResources(SevenZip, SevenZipPath);
+
+            await Task.Delay(MinDelay);
+
+            await ExtractArchive();
+
+            await Task.Delay(MinDelay);
 
             await InstallRedist();
 

@@ -72,6 +72,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="SharpCompress" Version="0.37.2" />
         <PackageReference Include="Skylark.Wing" Version="3.1.4.5" />
         <PackageReference Include="Skylark.Standard" Version="3.1.5.3" />
         <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098" Condition="$(TargetFramework.StartsWith('net48'))">
@@ -85,45 +86,29 @@
     </ItemGroup>
     
     <ItemGroup>
-        <EmbeddedResource Include="Redist\**">
+        <EmbeddedResource Include="Redist\VC_Redist_$(Platform).exe">
             <LogicalName>Redist\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Themes\**">
             <LogicalName>Themes\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
-        <EmbeddedResource Include="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**">
-            <LogicalName>Packages\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
+        <EmbeddedResource Include="SevenZip\7z-$(Platform)\**">
+            <LogicalName>SevenZip\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**">
             <LogicalName>Caches\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
+        <EmbeddedResource Include="..\..\Sucrose\Package\Compressed\$(TargetFramework)\Sucrose-$(Platform).7z">
+            <LogicalName>Packages\%(RecursiveDir)Sucrose%(Extension)</LogicalName>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Remove="Redist\VC_Redist_x64.exe" Condition="'$(PlatformTarget)' != 'x64'" />
-        <EmbeddedResource Remove="Redist\VC_Redist_x86.exe" Condition="'$(PlatformTarget)' != 'x86'" />
-        <EmbeddedResource Remove="Redist\VC_Redist_arm64.exe" Condition="'$(PlatformTarget)' != 'arm64'" />
-        
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.log" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.txt" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.pdb" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.xml" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\**\*.deps.json" />
-
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundle\**" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Wizard\**" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Bundler\**" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Localizer\**" />
-        
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.log" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.txt" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.pdb" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.xml" />
         <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.deps.json" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(PlatformTarget)' == 'arm64'">
-        <EmbeddedResource Remove="..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\Sucrose.Live.MpvPlayer\**" />
     </ItemGroup>
 
     <PropertyGroup>

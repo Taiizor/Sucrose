@@ -82,26 +82,20 @@ namespace Sucrose.Portal.Views.Pages
             if (!File.Exists(FirstPath))
             {
                 string ThemesPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.Themes);
-                string ThemesFile = Path.Combine(ThemesPath, $"{SMR.Themes}.zip");
 
-                if (File.Exists(ThemesFile))
+                if (Directory.Exists(ThemesPath))
                 {
                     if (!Directory.Exists(SMMM.LibraryLocation))
                     {
                         Directory.CreateDirectory(SMMM.LibraryLocation);
                     }
 
-                    SSDECT Result = SSZEZ.Extract(ThemesFile, ThemesPath);
-
-                    if (Result == SSDECT.Pass)
+                    foreach (string Directory in Directory.GetDirectories(ThemesPath, "*", SearchOption.TopDirectoryOnly))
                     {
-                        foreach (string Directory in Directory.GetDirectories(ThemesPath, "*", SearchOption.TopDirectoryOnly))
-                        {
-                            SSSHC.Folder(Directory, Path.Combine(SMMM.LibraryLocation, Path.GetFileName(Directory)), true);
-                        }
-
-                        File.Create(FirstPath);
+                        SSSHC.Folder(Directory, Path.Combine(SMMM.LibraryLocation, Path.GetFileName(Directory)), false);
                     }
+
+                    File.Create(FirstPath);
                 }
             }
         }
