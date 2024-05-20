@@ -1,0 +1,43 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "imgSelect": {
+      "title": "Select Image",
+      "type": "filedropdown",
+      "value": "jellyfish.jpg",
+      "text": "Picture Frame",
+      "desc": "Image Files",
+      "filter": "*.jpeg|*.jpg|*.png",
+      "folder": "photos"
+    },
+    "xAngleCamera": {
+      "max": 60,
+      "min": -60,
+      "step": 1,
+      "text": "Vertical",
+      "type": "slider",
+      "value": -30
+    },
+    "yAngleCamera": {
+      "max": 120,
+      "min": -120,
+      "step": 1,
+      "text": "Horizontal",
+      "type": "slider",
+      "value": 30
+    },
+    "zoomCamera": {
+      "max": 2.5,
+      "min": 0.5,
+      "step": 0.01,
+      "text": "Zoom",
+      "type": "slider",
+      "value": 1.25
+    },
+    "30fps": {
+      "type": "checkbox",
+      "value": true,
+      "text": "24 Fps cap"
+    }
+  }
+}

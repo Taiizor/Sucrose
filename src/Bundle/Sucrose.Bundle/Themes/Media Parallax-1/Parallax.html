@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            @font-face {
+                font-family: Montserrat;
+                font-weight: normal;
+                src: url("fonts/Montserrat-Regular.otf");
+            }
+
+            :root {
+                --mainColor: #000;
+                --shadowColor: #fff;
+            }
+
+            body {
+                margin: 0;
+                background-color: #414141;
+                overflow: hidden;
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .blur {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                backdrop-filter: saturate(180%) blur(20px);
+                z-index: 1000;
+            }
+
+            .shadow {
+                position: fixed;
+                z-index: 1001;
+                top: 4%;
+                left: 2%;
+                min-width: 100%;
+                min-height: 100%;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) inset;
+            }
+
+            #backgroundImage {
+                width: inherit;
+                height: inherit;
+                -o-filter: blur(15px);
+                filter: blur(15px) brightness(80%);
+                object-fit: cover;
+                transform: scale(1.06);
+                /* scale up to hide the edge blur */
+                width: 110%;
+                height: 110%;
+                object-fit: cover;
+                position: absolute;
+                left: -2.5%;
+                top: -2.5%;
+                z-index: -10;
+            }
+
+            #backgroundImageFade {
+                width: inherit;
+                height: inherit;
+                -o-filter: blur(15px);
+                filter: blur(15px) brightness(80%);
+                object-fit: cover;
+                transform: scale(1.06);
+                /* scale up to hide the edge blur */
+                width: 110%;
+                height: 110%;
+                object-fit: cover;
+                position: absolute;
+                left: -2.5%;
+                top: -2.5%;
+                z-index: -9;
+            }
+
+            canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            .center {
+                text-align: center;
+                z-index: 1;
+            }
+
+            .center span {
+                height: 0;
+                display: block;
+            }
+
+            #albumart {
+                border: solid 1px rgb(0 0 0 / 50%);
+                width: 200px;
+                height: 200px;
+                box-shadow: 3px 3px 18px var(--shadowColor);
+                border-radius: 50%;
+            }
+
+            div {
+                padding: 10px;
+            }
+
+            h1 {
+                font-family: Montserrat;
+                margin: 0;
+                color: var(--mainColor);
+                text-shadow: 1px 0px 10px var(--shadowColor);
+            }
+
+            h2 {
+                font-family: Montserrat;
+                color: var(--mainColor);
+                text-shadow: 1px 0px 10px var(--shadowColor);
+            }
+        </style>
+        <script src="js/color-thief.umd.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/script.js" defer></script>
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <div class="center">
+            <img id="albumart" alt="" />
+            <span>
+                <h1>Waiting for media... <span></span>
+                </h1>
+                <h2></h2>
+            </span>
+        </div>
+        <div id="parallax">
+            <img id="backgroundImageFade" />
+            <img id="backgroundImage" />
+        </div>
+    </body>
+</html>

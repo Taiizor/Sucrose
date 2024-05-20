@@ -1,0 +1,52 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "labelBackground": {
+      "type": "label",
+      "value": "Background settings"
+    },
+    "parallaxToggle": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Parallax"
+    },
+    "parallax": {
+      "max": 100,
+      "min": -100,
+      "step": 0.1,
+      "text": "Parallax strength",
+      "type": "slider",
+      "value": 5
+    },
+    "labelSpectrum": {
+      "type": "label",
+      "value": "Spectrum settings"
+    },
+    "verticalScale": {
+      "max": 50,
+      "min": 0,
+      "step": 0.1,
+      "text": "Amplitude",
+      "type": "slider",
+      "value": 8
+    },
+    "dotScale": {
+      "max": 5,
+      "min": 0,
+      "step": 0.1,
+      "text": "Dot size",
+      "type": "slider",
+      "value": 0.5
+    },
+    "sortingMode": {
+      "type": "dropdown",
+      "value": 0,
+      "text": "Spectrum mode",
+      "items": [
+        "Concentrated",
+        "Center-split",
+        "Keep original"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+body {
+  background: #151618;
+  color: #FFF;
+  margin: 0;
+}
+
+.overlay {
+  pointer-events: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.hide {
+  opacity: 0;
+}

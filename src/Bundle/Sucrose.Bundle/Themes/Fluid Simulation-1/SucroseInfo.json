@@ -1,0 +1,17 @@
+{
+  "AppVersion": "24.5.17.0",
+  "Version": "1.0.0.2",
+  "Title": "Fluid Simulation",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Fluid simulation using WebGL, reacts with system audio & cursor.",
+  "Author": "Dani John",
+  "License": "License.txt",
+  "Contact": "https://github.com/rocksdanister",
+  "Type": 2,
+  "Source": "Fluid.html",
+  "Tags": [
+    "Interaction"
+  ],
+  "Arguments": null
+}

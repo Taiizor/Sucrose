@@ -72,12 +72,6 @@
         <PackageReference Include="Skylark.Standard" Version="3.1.5.3" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Reference Include="Mpv.NET">
-            <HintPath>reference\Mpv.NET.dll</HintPath>
-        </Reference>
-    </ItemGroup>
-
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <Reference Include="System.Web" />
         <Reference Include="System.Net.Http" />
@@ -89,6 +83,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
+        <ProjectReference Include="..\..\Library\Sucrose.Mpv.NET\Sucrose.Mpv.NET.csproj" />
         <ProjectReference Include="..\..\Library\Sucrose.Resources\Sucrose.Resources.csproj" />
     </ItemGroup>
 

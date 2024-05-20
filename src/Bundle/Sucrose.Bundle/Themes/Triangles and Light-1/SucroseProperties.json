@@ -1,0 +1,49 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "label1": {
+      "type": "label",
+      "value": "Mesh"
+    },
+    "meshAmbient": {
+      "text": "Ambient",
+      "type": "colorpicker",
+      "value": "#FF000000"
+    },
+    "meshDiffuse": {
+      "text": "Diffuse",
+      "type": "colorpicker",
+      "value": "#FFC0C0C0"
+    },
+    "meshSlices": {
+      "max": 800,
+      "min": 1,
+      "step": 1,
+      "text": "Slices",
+      "type": "slider",
+      "value": 350
+    },
+    "label2": {
+      "type": "label",
+      "value": "Light"
+    },
+    "lightAmbient": {
+      "text": "Ambient",
+      "type": "colorpicker",
+      "value": "#FFC0C0C0"
+    },
+    "lightDiffuse": {
+      "text": "Diffuse",
+      "type": "colorpicker",
+      "value": "#FF808080"
+    },
+    "lightDistance": {
+      "max": 1000,
+      "min": 0,
+      "step": 1,
+      "text": "Distance",
+      "type": "slider",
+      "value": 135
+    }
+  }
+}

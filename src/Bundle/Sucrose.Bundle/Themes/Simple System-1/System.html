@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>three.js webgl - glTF loader</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="style/main.css">
+    </head>
+    <body id="body">
+        <div class="bg"></div>
+        <div style="z-index: 100; position: absolute; width: 20vw; height: 20vh; left: 10%; top: 15%;">
+            <canvas id="cpuChart" />
+        </div>
+        <div style="z-index: 100; position: absolute; width: 20vw; height: 20vh; left: 10%; top: 52.5%;">
+            <canvas id="gpuChart" />
+        </div>
+        <div style="z-index: 100; position: absolute; width: 20vw; height: 20vh; left: 70%; top: 25%;">
+            <canvas id="ramChart" />
+        </div>
+        <div style="z-index: 100; position: absolute; width: 20vw; height: 20vh; left: 70%; top: 62.5%;">
+            <canvas id="netChart" />
+        </div>
+        <!-- New version of chart.js has issue with chartjs-plugin-streaming.js, using this: https://cdn.jsdelivr.net/npm/chart.js@2.8.0 -->
+        <script src="js/moment.min.js"></script>
+        <script src="js/chart.js"></script>
+        <script src="js/chartjs-plugin-streaming.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

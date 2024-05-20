@@ -1,4 +1,4 @@
-﻿using MediaEngine = Mpv.NET.Player.MpvPlayer;
+﻿using MediaEngine = Sucrose.Mpv.NET.Player.MpvPlayer;
 
 namespace Sucrose.Shared.Engine.MpvPlayer.Manage
 {

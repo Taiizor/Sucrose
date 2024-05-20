@@ -1,0 +1,480 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "schemecolor": {
+      "text": "Scheme Color",
+      "type": "colorpicker",
+      "value": "#FF000000"
+    },
+    "folder_rain": {
+      "type": "label",
+      "value": "Rain"
+    },
+    "ui_rain_matrixspeed": {
+      "max": 60,
+      "min": 10,
+      "step": 1,
+      "text": "Matrix Speed",
+      "type": "slider",
+      "value": 24
+    },
+    "ui_rain_traillength": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Trail Length",
+      "type": "slider",
+      "value": 86
+    },
+    "ui_rain_dropcount": {
+      "max": 5,
+      "min": 1,
+      "step": 1,
+      "text": "Drop Count/Column",
+      "type": "slider",
+      "value": 1
+    },
+    "ui_rain_initialanimation": {
+      "type": "dropdown",
+      "text": "Initial Animation",
+      "value": 1,
+      "items": [
+        "None",
+        "Fall",
+        "Scatter"
+      ]
+    },
+    "folder_color": {
+      "type": "label",
+      "value": "Color"
+    },
+    "ui_color_colormode": {
+      "type": "dropdown",
+      "text": "Color Mode",
+      "value": 2,
+      "items": [
+        "Single",
+        "RGB Cycle",
+        "Vertical Rainbow",
+        "Horizontal Rainbow"
+      ]
+    },
+    "ui_color_matrixcolor": {
+      "text": "Matrix Color",
+      "type": "colorpicker",
+      "value": "#FF00FF00"
+    },
+    "ui_color_coloranimationspeed": {
+      "max": 10,
+      "min": -10,
+      "step": 1,
+      "text": "Color Animation Speed",
+      "type": "slider",
+      "value": 5
+    },
+    "ui_color_highlightfirstcharacter": {
+      "text": "Highlight First Character",
+      "type": "checkbox",
+      "value": true
+    },
+    "folder_characters": {
+      "type": "label",
+      "value": "Characters"
+    },
+    "ui_characters_charset": {
+      "type": "dropdown",
+      "text": "Char Set",
+      "value": 4,
+      "items": [
+        "Custom",
+        "English Lttrs",
+        "Lttrs+Nums",
+        "Lttrs+Nums+Chars",
+        "Original Matrix",
+        "Binary",
+        "Hex",
+        "Morse Code"
+      ]
+    },
+    "ui_characters_customcharset": {
+      "text": "Custom Char Set",
+      "help": "Enter custom char set",
+      "type": "textbox",
+      "value": "0123456789ABCDEF"
+    },
+    "folder_font": {
+      "type": "label",
+      "value": "Font"
+    },
+    "ui_font_size": {
+      "max": 30,
+      "min": 5,
+      "step": 1,
+      "text": "Font Size",
+      "type": "slider",
+      "value": 15
+    },
+    "ui_font_font": {
+      "type": "dropdown",
+      "text": "Font Family",
+      "value": 3,
+      "items": [
+        "Custom",
+        "MonoSpace",
+        "Consolas",
+        "Courier Bold"
+      ]
+    },
+    "ui_font_customfont": {
+      "text": "Custom Font Family",
+      "help": "Enter custom font family",
+      "type": "textbox",
+      "value": "monospace"
+    },
+    "folder_audio": {
+      "type": "label",
+      "value": "Audio"
+    },
+    "ui_audio_audioresponsive": {
+      "text": "Audio Responsive",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_audio_audiosensetivity": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Audio Sensetivity",
+      "type": "slider",
+      "value": 50
+    },
+    "ui_audio_silenceanimation": {
+      "text": "Silence Animation",
+      "type": "checkbox",
+      "value": true
+    },
+    "ui_audio_silencetimeoutseconds": {
+      "max": 15,
+      "min": 1,
+      "step": 1,
+      "text": "Silence Timeout (Seconds)",
+      "type": "slider",
+      "value": 3
+    },
+    "folder_logo": {
+      "type": "label",
+      "value": "Logo"
+    },
+    "ui_logo_logo": {
+      "type": "dropdown",
+      "text": "Logo Matrix",
+      "value": 0,
+      "items": [
+        "None",
+        "Custom",
+        "IP.AF",
+        "Kali 1",
+        "Kali 2",
+        "Ubuntu 1",
+        "Ubuntu 2",
+        "Windows 11",
+        "Windows 10/8",
+        "Windows 7",
+        "Visual Studio",
+        "VS Code",
+        "Unity 1",
+        "Unity 2",
+        "Unreal",
+        "Python",
+        "Blazor",
+        "Docker",
+        "Flutter",
+        "Git",
+        "Blender",
+        "Angular",
+        "C#",
+        "C++",
+        "QT"
+      ]
+    },
+    "ui_logo_customlogo": {
+      "text": "Custom Logo Matrix URL (SVG/PNG)",
+      "help": "Enter custom logo matrix url (svg/png)",
+      "type": "textbox",
+      "value": ""
+    },
+    "ui_logo_preservecolor": {
+      "text": "Preserve Logo Matrix Color",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_logo_scale": {
+      "max": 10,
+      "min": 0,
+      "step": 1,
+      "text": "Logo Matrix Scale",
+      "type": "slider",
+      "value": 1
+    },
+    "ui_logo_positionx": {
+      "max": 2500,
+      "min": -2500,
+      "step": 1,
+      "text": "Logo Matrix Position X",
+      "type": "slider",
+      "value": 0
+    },
+    "ui_logo_positiony": {
+      "max": 2500,
+      "min": -2500,
+      "step": 1,
+      "text": "Logo Matrix Position Y",
+      "type": "slider",
+      "value": 0
+    },
+    "folder_clock": {
+      "type": "label",
+      "value": "Clock"
+    },
+    "ui_clock_clock": {
+      "type": "dropdown",
+      "text": "Clock Position",
+      "value": 0,
+      "items": [
+        "None",
+        "Horizontal",
+        "Vertical"
+      ]
+    },
+    "ui_clock_24hourformat": {
+      "text": "24 Hour Format",
+      "type": "checkbox",
+      "value": true
+    },
+    "ui_clock_daylightsaving": {
+      "max": 1,
+      "min": -1,
+      "step": 1,
+      "text": "Day-Light Saving",
+      "type": "slider",
+      "value": 0
+    },
+    "ui_clock_scale": {
+      "max": 10,
+      "min": 0,
+      "step": 1,
+      "text": "Clock Scale",
+      "type": "slider",
+      "value": 1
+    },
+    "ui_clock_positionx": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Clock Position X",
+      "type": "slider",
+      "value": 0
+    },
+    "ui_clock_positiony": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Clock Position Y",
+      "type": "slider",
+      "value": 0
+    },
+    "folder_day": {
+      "type": "label",
+      "value": "Day"
+    },
+    "ui_day_day": {
+      "type": "dropdown",
+      "text": "Day State",
+      "value": 0,
+      "items": [
+        "None",
+        "Full",
+        "Short"
+      ]
+    },
+    "ui_day_allcaps": {
+      "text": "All CAPS",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_day_orientation": {
+      "text": "Vertical Orientation",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_day_scale": {
+      "max": 10,
+      "min": 0,
+      "step": 1,
+      "text": "Day Scale",
+      "type": "slider",
+      "value": 1
+    },
+    "ui_day_positionx": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Day Position X",
+      "type": "slider",
+      "value": 0
+    },
+    "ui_day_positiony": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Day Position Y",
+      "type": "slider",
+      "value": 0
+    },
+    "folder_date": {
+      "type": "label",
+      "value": "Date"
+    },
+    "ui_date_date": {
+      "type": "dropdown",
+      "text": "Day State",
+      "value": 0,
+      "items": [
+        "None",
+        "Gregorian",
+        "Persian",
+        "Hijri"
+      ]
+    },
+    "ui_date_year": {
+      "type": "dropdown",
+      "text": "Year",
+      "value": 2,
+      "items": [
+        "None",
+        "Short",
+        "Full"
+      ]
+    },
+    "ui_date_order": {
+      "type": "dropdown",
+      "text": "Order",
+      "value": 0,
+      "items": [
+        "MM/DD",
+        "DD/MM"
+      ]
+    },
+    "ui_date_monthname": {
+      "text": "Month Name",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_date_allcaps": {
+      "text": "All CAPS",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_date_delimiter": {
+      "type": "dropdown",
+      "text": "Date Delimiter",
+      "value": 0,
+      "items": [
+        "None",
+        "Space",
+        "-",
+        ".",
+        "/"
+      ]
+    },
+    "ui_date_orientation": {
+      "text": "Vertical Orientation",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_date_scale": {
+      "max": 10,
+      "min": 0,
+      "step": 1,
+      "text": "Date Scale",
+      "type": "slider",
+      "value": 1
+    },
+    "ui_date_positionx": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Date Position X",
+      "type": "slider",
+      "value": 0
+    },
+    "ui_date_positiony": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Date Position Y",
+      "type": "slider",
+      "value": 0
+    },
+    "folder_message": {
+      "type": "label",
+      "value": "Message"
+    },
+    "ui_message_message": {
+      "text": "Message State",
+      "type": "checkbox",
+      "value": false
+    },
+    "ui_message_text": {
+      "text": "Message Text",
+      "help": "Enter message text",
+      "type": "textbox",
+      "value": "THE MATRIX"
+    },
+    "ui_message_scale": {
+      "max": 10,
+      "min": 0,
+      "step": 1,
+      "text": "Message Scale",
+      "type": "slider",
+      "value": 1
+    },
+    "ui_message_positionx": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Message Position X",
+      "type": "slider",
+      "value": 0
+    },
+    "ui_message_positiony": {
+      "max": 100,
+      "min": -100,
+      "step": 1,
+      "text": "Message Position Y",
+      "type": "slider",
+      "value": 0
+    },
+    "folder_other": {
+      "type": "label",
+      "value": "Other"
+    },
+    "ui_other_codescommaseparated": {
+      "text": "Codes (Comma Separated)",
+      "help": "Enter codes (comma separated)",
+      "type": "textbox",
+      "value": "IP.AF,THE MATRIX"
+    },
+    "ui_other_preset": {
+      "text": "Preset",
+      "help": "Enter preset",
+      "type": "textbox",
+      "value": ""
+    },
+    "ui_other_debug": {
+      "text": "Debug Mode",
+      "type": "checkbox",
+      "value": false
+    }
+  }
+}

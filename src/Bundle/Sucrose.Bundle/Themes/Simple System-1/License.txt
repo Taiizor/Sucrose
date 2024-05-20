@@ -1,0 +1,14 @@
+Source
+https://github.com/rocksdanister/system-stats-wallpaper
+
+License 
+MIT License
+Copyright (c) 2020 Rocksdanister
+
+Art credit
+https://www.reddit.com/r/Rainmeter/comments/gbb42z/recreated_my_motherboard_components_with_a_little/
+
+Attribution
+https://github.com/moment/moment
+https://github.com/chartjs/Chart.js
+https://nagix.github.io/chartjs-plugin-streaming

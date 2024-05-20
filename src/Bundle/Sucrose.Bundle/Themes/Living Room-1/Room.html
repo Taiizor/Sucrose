@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Isometric Room</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <link rel="stylesheet" href="styles/style.css" />
+    </head>
+    <body>
+        <div id="loader"></div>
+        <div id="container"></div>
+        <!-- Import maps polyfill -->
+        <!-- Remove this when import maps will be widely supported -->
+        <script async src="./js/es-module-shims.js"></script>
+        <script type="importmap"> {
+        "imports": {
+          "three": "./js/threejs/three.module.js",
+          "three/addons/": "./js/threejs/jsm/"
+        }
+      }
+    </script>
+        <script type="text/javascript">
+            //Global variables
+            var fps = 24;
+            var camera,
+                musicLight,
+                soundbarMaterial,
+                musicLightIntensity = 50 / 1,
+                cameraContainer,
+                isSignalNotFound,
+                isDebugging = false;
+            //Using two separate canvas to simplify code
+            let canvasArtist = document.createElement("canvas");
+            let canvasClock = document.createElement("canvas");
+            let canvasPhoto = document.createElement("canvas");
+            canvasArtist.width = 640;
+            canvasArtist.height = 360;
+            canvasPhoto.width = 360;
+            canvasPhoto.height = 640;
+            canvasClock.width = canvasClock.height = 300;
+        </script>
+        <script type="module">
+            import * as THREE from "three";
+            import Stats from "three/addons/libs/stats.module.js";
+            import {
+                OrbitControls
+            } from "three/addons/controls/OrbitControls.js";
+            import {
+                GLTFLoader
+            } from "three/addons/loaders/GLTFLoader.js";
+            import {
+                RGBELoader
+            } from "three/addons/loaders/RGBELoader.js";
+            // import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUniformsLib.js";
+            import {
+                EffectComposer
+            } from "three/addons/postprocessing/EffectComposer.js";
+            import {
+                RenderPass
+            } from "three/addons/postprocessing/RenderPass.js";
+            import {
+                UnrealBloomPass
+            } from "three/addons/postprocessing/UnrealBloomPass.js";
+            import {
+                FilmPass
+            } from "three/addons/postprocessing/FilmPass.js";
+            //let musicLight;
+            let scene, renderer, composer, orbitalControl;
+            let canvasTextureArtist, canvasTextureClock, canvasTexturePhoto;
+            //let stats;
+            // isSignalNotFound video using threejs texture
+            let htmlVideoScreenObject;
+            let htmlVideo = document.createElement("video");
+            htmlVideo.src = `textures/no_signal.webm`;
+            htmlVideo.muted = true;
+            htmlVideo.loop = true;
+            htmlVideo.play();
+            //orthographic camera params
+            const frustumSize = 20,
+                resizeWidth = false;
+
+            function init() {
+                const container = document.getElementById("container");
+                renderer = new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha: true
+                });
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.shadowMap.enabled = true;
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                //renderer.setClearColor(0x000000, 0.0);
+                renderer.outputEncoding = THREE.sRGBEncoding;
+                renderer.toneMapping = THREE.ACESFilmicToneMapping;
+                //renderer.toneMappingExposure = 0.8;
+                container.appendChild(renderer.domElement);
+                composer = new EffectComposer(renderer);
+                window.addEventListener("resize", onWindowResize);
+                //stats = new Stats();
+                //container.appendChild(stats.dom);
+                //camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.25, 1000);
+                if (resizeWidth) {
+                    let aspect = window.innerHeight / window.innerWidth;
+                    camera = new THREE.OrthographicCamera(frustumSize / -2, frustumSize / 2,
+                        (frustumSize * aspect) / 2,
+                        (frustumSize * aspect) / -2, 0.25, 1000);
+                } else {
+                    let aspect = window.innerWidth / window.innerHeight;
+                    camera = new THREE.OrthographicCamera(
+                        (-aspect * frustumSize) / 2,
+                        (aspect * frustumSize) / 2, frustumSize / 2, -frustumSize / 2, 0.25, 1000);
+                }
+                camera.zoom = 1.25;
+                camera.updateProjectionMatrix();
+                cameraContainer = new THREE.Object3D();
+                cameraContainer.add(camera);
+                cameraContainer.rotation.x = (Math.PI / 180) * -30;
+                cameraContainer.rotation.y = (Math.PI / 180) * 30;
+                orbitalControl = new OrbitControls(camera, container);
+                orbitalControl.enableDamping = true;
+                orbitalControl.minDistance = 18;
+                orbitalControl.maxDistance = 50;
+                //orbitalControl.minAzimuthAngle = Math.PI * -0.5;
+                //orbitalControl.maxAzimuthAngle = Math.PI * 0.5;
+                orbitalControl.target.set(0, 0, -0.1);
+                orbitalControl.enabled = isDebugging;
+                //orbitalControl.autoRotate = false;
+                orbitalControl.update();
+                //Lighting and environment
+                scene = new THREE.Scene();
+                //RectAreaLightUniformsLib.init();
+                //scene.background = new THREE.Color(0x000000);
+                //scene.background = new THREE.TextureLoader().load( "textures/background.png" );
+                //scene.environment = new RGBELoader().load("textures/industrial_sunset_puresky_1k.hdr");
+                //scene.environment.mapping = THREE.EquirectangularReflectionMapping;
+                //Lighting is baked in blender, environment map not needed
+                const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+                scene.add(ambientLight);
+                // const spotLightRoom = new THREE.SpotLight(0xffffff, 1);
+                // spotLightRoom.position.set(-10, 75, 0);
+                // scene.add(spotLightRoom);
+                // const directionalLight = new THREE.DirectionalLight(0x404040, 0.75);
+                // directionalLight.position.set(0, 5, 5);
+                // directionalLight.castShadow = false;
+                // scene.add(directionalLight);
+                // const helper = new THREE.DirectionalLightHelper( directionalLight, 5 );
+                // scene.add( helper );
+                musicLight = new THREE.PointLight(0x2d2d2d, musicLightIntensity, 5);
+                musicLight.position.set(0, 1.25, -3.75);
+                scene.add(musicLight);
+                let roomLight = new THREE.PointLight(0xcecca7, 4, 8);
+                roomLight.position.set(-3.5, 2, 1.5);
+                scene.add(roomLight);
+                //const pointLightHelper = new THREE.PointLightHelper(roomLight, 1);
+                //scene.add(pointLightHelper);
+                //TODO: Bake ground shadow in blender
+                const shadowLight = new THREE.SpotLight(0xffffff, 0.1);
+                shadowLight.position.set(0, 75, 0);
+                shadowLight.castShadow = true;
+                scene.add(shadowLight);
+                //const spotLightHelper = new THREE.SpotLightHelper(shadowLight);
+                //scene.add(spotLightHelper);
+                //Photo frame light
+                // const spotLight = new THREE.SpotLight(0xffffff, 4, 10, (Math.PI / 180) * 15, 0, 4);
+                // spotLight.position.set(-4, 3.4, -0.75);
+                // const targetObject = new THREE.Object3D();
+                // scene.add(targetObject);
+                // targetObject.position.set(-4, 0, -0.75);
+                // spotLight.target = targetObject;
+                // scene.add(spotLight);
+                //const spotLightHelper = new THREE.SpotLightHelper(spotLight);
+                //scene.add(spotLightHelper);
+                //Preloading material
+                soundbarMaterial = new THREE.MeshStandardMaterial();
+                soundbarMaterial.color = new THREE.Color(0x2d2d2d);
+                //Load model
+                const loader = new GLTFLoader();
+                loader.load("models/Room.glb", function(gltf) {
+                    const planeGeometry = new THREE.PlaneGeometry(25, 25);
+                    const bottomPlane = new THREE.Mesh(planeGeometry, new THREE.ShadowMaterial({
+                        // color: new THREE.Color(0x000000),
+                    }));
+                    bottomPlane.receiveShadow = true;
+                    bottomPlane.position.set(0, -2.5, 0);
+                    bottomPlane.rotation.x = (Math.PI / 180) * -90;
+                    scene.add(bottomPlane);
+                    gltf.scene.position.set(0, -2.5, 0);
+                    gltf.scene.traverse(function(child) {
+                        //if (child.isMesh) child.castShadow = true;
+                        console.log(child);
+                    });
+                    gltf.scene.getObjectByName("Room").castShadow = true;
+                    canvasTextureArtist = new THREE.CanvasTexture(canvasArtist);
+                    canvasTextureArtist.encoding = THREE.sRGBEncoding;
+                    canvasTextureArtist.flipY = false;
+                    const canvasMaterialArtist = new THREE.MeshBasicMaterial({
+                        map: canvasTextureArtist,
+                        transparent: false
+                    });
+                    canvasTexturePhoto = new THREE.CanvasTexture(canvasPhoto);
+                    canvasTexturePhoto.encoding = THREE.sRGBEncoding;
+                    canvasTexturePhoto.flipY = false;
+                    canvasTexturePhoto.wrapS = THREE.RepeatWrapping;
+                    canvasTexturePhoto.wrapT = THREE.RepeatWrapping;
+                    canvasTexturePhoto.rotation = (Math.PI / 180) * -90;
+                    const canvasMaterialPhoto = new THREE.MeshBasicMaterial({
+                        map: canvasTexturePhoto,
+                        transparent: false
+                    });
+                    canvasMaterialPhoto.map.offset.set(-0.003, 0); //hide repeat artifact
+                    canvasTextureClock = new THREE.CanvasTexture(canvasClock);
+                    canvasTextureClock.flipY = false;
+                    canvasTextureClock.anisotropy = 4;
+                    const canvasMaterialClock = new THREE.MeshBasicMaterial({
+                        map: canvasTextureClock,
+                        transparent: false
+                    });
+                    //Model objects
+                    let screenArtist = gltf.scene.getObjectByName("TV_SCREEN");
+                    let screenClock = gltf.scene.getObjectByName("CLOCK_SCREEN");
+                    let screenPhoto = gltf.scene.getObjectByName("PICTURE_FRAME");
+                    //Model adjustments
+                    //Baked texture is MeshBasic otherwise (no real-time lighting.)
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("Room"));
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("Tv_Cabinet"));
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("Sofa"));
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("Cube003")); //table2
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("Book4009")); //books
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("Cube001")); //dvd
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("1001")); //guitar
+                    meshBasicToStandardMesh(gltf.scene.getObjectByName("1")); //plant
+                    gltf.scene.getObjectByName("Wall_Frame").material.color = new THREE.Color(0x080808);
+                    gltf.scene.getObjectByName("SOUNDBAR_LED").material = soundbarMaterial;
+                    gltf.scene.getObjectByName("Cube001").material.map.offset.set(-0.03, 0)
+                    //no signal video
+                    let videoTexture = new THREE.VideoTexture(htmlVideo);
+                    videoTexture.format = THREE.RGBAFormat;
+                    videoTexture.minFilter = THREE.NearestFilter;
+                    videoTexture.maxFilter = THREE.NearestFilter;
+                    videoTexture.generateMipmaps = false;
+                    videoTexture.flipY = false;
+                    var videoMaterial = new THREE.MeshBasicMaterial({
+                        map: videoTexture,
+                        transparent: false
+                    });
+                    htmlVideoScreenObject = screenArtist.clone(false);
+                    screenArtist.getWorldPosition(htmlVideoScreenObject.position);
+                    screenArtist.getWorldQuaternion(htmlVideoScreenObject.quaternion);
+                    htmlVideoScreenObject.position.set(htmlVideoScreenObject.position.x, htmlVideoScreenObject.position.y, htmlVideoScreenObject.position.z + 0.002);
+                    screenArtist.material = canvasMaterialArtist;
+                    screenClock.material = canvasMaterialClock;
+                    screenPhoto.material = canvasMaterialPhoto;
+                    htmlVideoScreenObject.material = videoMaterial;
+                    scene.add(gltf.scene);
+                    scene.add(htmlVideoScreenObject);
+                    showScene();
+                });
+                //post processing
+                const renderPass = new RenderPass(scene, camera);
+                composer.addPass(renderPass);
+            }
+
+            function meshBasicToStandardMesh(object) {
+                let oldMat = object.material;
+                let newMat = new THREE.MeshStandardMaterial();
+                //THREE.MeshStandardMaterial.prototype.copy.call( newMat, oldMat );
+                //newMat.copy(oldMat);
+                newMat.map = oldMat.map;
+                object.material = newMat;
+            }
+
+            function onWindowResize() {
+                if (resizeWidth) {
+                    let aspect = window.innerHeight / window.innerWidth;
+                    camera.left = frustumSize / -2;
+                    camera.right = frustumSize / 2;
+                    camera.top = (frustumSize * aspect) / 2;
+                    camera.bottom = (-frustumSize * aspect) / 2;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                } else {
+                    let aspect = window.innerWidth / window.innerHeight;
+                    camera.left = (-aspect * frustumSize) / 2;
+                    camera.right = (aspect * frustumSize) / 2;
+                    camera.top = frustumSize / 2;
+                    camera.bottom = -frustumSize / 2;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                }
+            }
+
+            function render() {
+                //fps control
+                setTimeout(function() {
+                    requestAnimationFrame(render);
+                }, 1000 / fps);
+                orbitalControl.update();
+                const time = -performance.now() / 1000;
+                if (canvasTextureArtist != null) {
+                    canvasTextureArtist.needsUpdate = true;
+                }
+                if (canvasTextureClock != null) {
+                    canvasTextureClock.needsUpdate = true;
+                }
+                if (canvasTexturePhoto != null) {
+                    canvasTexturePhoto.needsUpdate = true;
+                }
+                if (htmlVideoScreenObject != null) {
+                    if (isSignalNotFound) {
+                        htmlVideo.play();
+                        htmlVideoScreenObject.visible = true;
+                    } else {
+                        htmlVideo.pause();
+                        htmlVideoScreenObject.visible = false;
+                    }
+                }
+                composer.render();
+                //stats.update();
+            }
+            init();
+            render();
+            //helpers
+            function showScene() {
+                document.getElementById("loader").style.visibility = "collapse";
+                document.getElementById("container").classList.toggle("fadeIn");
+            }
+        </script>
+        <script src="js/color-thief.umd.js"></script>
+        <script type="text/javascript">
+            const colorThief = new ColorThief();
+            let ctxArtist = canvasArtist.getContext("2d");
+            let ctxPhoto = canvasPhoto.getContext("2d");
+            let albumImg = new Image();
+            let photoImg = new Image();
+            //ref: https://stackoverflow.com/questions/2756575/drawing-text-to-canvas-with-font-face-does-not-work-at-the-first-time
+            var newFont = new FontFace("digib", "url(./fonts/DS-DIGIB.TTF)", {
+                weight: "normal",
+            });
+            newFont.load().then(function(font) {
+                document.fonts.add(font);
+            });
+            window.onload = () => {
+                if (isDebugging) {
+                    isSignalNotFound = true;
+                    photoImg.src = "photos//jellyfish.jpg";
+                }
+            };
+
+            function SucrosePropertyListener(name, val) {
+                switch (name) {
+                    case "imgSelect": {
+                        photoImg.src = "photos//" + val.value;
+                    }
+                    break;
+                case "xAngleCamera":
+                    if (cameraContainer != null) {
+                        cameraContainer.rotation.x = (Math.PI / 180) * val.value;
+                    }
+                    break;
+                case "yAngleCamera":
+                    if (cameraContainer != null) {
+                        cameraContainer.rotation.y = (Math.PI / 180) * val.value;
+                    }
+                    break;
+                case "zoomCamera":
+                    if (camera != null) {
+                        camera.zoom = val.value;
+                        camera.updateProjectionMatrix();
+                    }
+                    case "30fps":
+                        fps = val.value ? 24 : 60;
+                        break;
+                }
+            }
+            photoImg.onload = () => {
+                ctxPhoto.clearRect(0, 0, canvasPhoto.width, canvasPhoto.height);
+                ctxPhoto.filter = "brightness(90%)";
+                drawImageProp(ctxPhoto, photoImg);
+                var gradient = ctxPhoto.createLinearGradient(canvasPhoto.width, 0, 0, 0);
+                gradient.addColorStop(0, "rgba(55,55,55,0.75)");
+                gradient.addColorStop(1, "rgba(0,0,0,0)");
+                ctxPhoto.fillStyle = gradient;
+                ctxPhoto.fillRect(0, 0, canvasPhoto.width, canvasPhoto.height);
+            };
+            let songTitle = "",
+                songArtist = "",
+                albumColor = [225, 225, 225];
+
+            function SucroseAudioData(obj) {
+                if (obj == null || !obj.State) {
+                    isSignalNotFound = true;
+                    setLightColor(45 / 255, 45 / 255, 45 / 255);
+                    document.body.style.setProperty("--gradientColor1", "#2d2d2d");
+                } else {
+                    songTitle = obj.Title;
+                    songArtist = obj.Artist;
+                    isSignalNotFound = false;
+					
+                    if (obj.ThumbnailString == null) {
+                        ctxArtist.clearRect(0, 0, canvasArtist.width, canvasArtist.height);
+                        ctxArtist.textAlign = "center";
+                        ctxArtist.font = songTitle.length > 20 ? "27px Arial, sans-serif" : "54px Arial, sans-serif";
+                        ctxArtist.fillStyle = `rgb(225,225,225)`;
+                        ctxArtist.fillText(songTitle, canvasArtist.width / 2, 25 + canvasArtist.height / 2);
+                        albumColor = [225, 225, 225];
+                        setLightColor(45 / 255, 45 / 255, 45 / 255);
+                        document.body.style.setProperty("--gradientColor1", "#2d2d2d");
+                    } else {
+                        albumImg.src = "data:image/png;base64," + obj.ThumbnailString;
+                    }
+					
+                    if (isSignalNotFound) return;
+					
+                    let bass = 0,
+                        audioIntensity = 1;
+						
+                    for (let i = 0; i <= 40; i++) bass += obj.Data[i] * 2;
+					
+                    bass /= 40 * 2 * 0.1;
+					
+                    audioIntensity -= 0.1;
+                    audioIntensity = (Math.floor(bass * 0.5 * 5) * 10) / 100;
+					
+                    if (audioIntensity > 1) audioIntensity = 1;
+                    if (audioIntensity < 0) audioIntensity = 0;
+                    if (musicLight != null) {
+                        musicLight.intensity = musicLightIntensity * audioIntensity;
+                    }
+                }
+            }
+            var lastBass = 1;
+            albumImg.onload = () => {
+                albumColor = colorThief.getColor(albumImg);
+                ctxArtist.clearRect(0, 0, canvasArtist.width, canvasArtist.height);
+                // ctxArtist.textAlign = "center";
+                // ctxArtist.font = songTitle.length > 20 ? "16px Arial, sans-serif" : "25px Arial, sans-serif";
+                // ctxArtist.fillStyle = `rgb(${albumColor.toString()}`;
+                // ctxArtist.fillText(songTitle, canvasArtist.width / 2, 125 + canvasArtist.height / 2);
+                ctxArtist.filter = "blur(20px) brightness(90%)";
+                ctxArtist.drawImage(albumImg, 0, 0, canvasArtist.width, canvasArtist.height);
+                ctxArtist.filter = "none";
+                ctxArtist.drawImage(albumImg, canvasArtist.width / 2 - 150, canvasArtist.height / 2 - 150, 300, 300);
+                setLightColor(albumColor[0] / 255, albumColor[1] / 255, albumColor[2] / 255);
+                document.body.style.setProperty("--gradientColor1", `rgb(${albumColor.toString()}`);
+            };
+
+            function setLightColor(r, g, b) {
+                musicLight?.color.setRGB(r, g, b);
+                soundbarMaterial?.color.setRGB(r, g, b);
+            }
+
+            function setMouseParallax() {
+                this.onmousemove = mouseMove;
+
+                function mouseMove(event) {
+                    if (cameraContainer == null) return;
+                    const x = ((Math.PI / 180) * (window.innerWidth - event.pageX * 1)) / 90;
+                    const y = ((Math.PI / 180) * (window.innerHeight - event.pageY * 1)) / 90;
+                    cameraContainer.rotation.x = (Math.PI / 180) * -30 - y;
+                    cameraContainer.rotation.y = (Math.PI / 180) * 30 - x;
+                }
+            }
+
+            function resetMouse() {
+                this.onmousedown = null;
+            }
+            //https://techfunda.com/howto/1077/digital-clock-animation
+            let ctxClock = canvasClock.getContext("2d");
+
+            function updateClock() {
+                let date = new Date();
+                let str = getTime(date.getHours(), date.getMinutes(), date.getSeconds());
+                ctxClock.clearRect(0, 0, canvasClock.width, canvasClock.height);
+                ctxClock.font = "125px digib";
+                ctxClock.fillStyle = "white";
+                ctxClock.textBaseline = "middle";
+                ctxClock.textAlign = "center";
+                ctxClock.fillText(str, canvasClock.width / 2, canvasClock.height / 2);
+            }
+
+            function getTime(hour, min, sec) {
+                var curTime;
+                if (hour < 10) curTime = "0" + hour.toString();
+                else curTime = hour.toString();
+                if (min < 10) curTime += ":0" + min.toString();
+                else curTime += ":" + min.toString();
+                /* if (sec < 10) curTime += ":0" + sec.toString();
+                else curTime += ":" + sec.toString(); */
+                return curTime;
+            }
+            setInterval(updateClock, 1000);
+            //helpers
+            //ref: https://stackoverflow.com/questions/21961839/simulation-background-size-cover-in-canvas
+            function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
+                if (arguments.length === 2) {
+                    x = y = 0;
+                    w = ctx.canvas.width;
+                    h = ctx.canvas.height;
+                }
+                // default offset is center
+                offsetX = typeof offsetX === "number" ? offsetX : 0.5;
+                offsetY = typeof offsetY === "number" ? offsetY : 0.5;
+                // keep bounds [0.0, 1.0]
+                if (offsetX < 0) offsetX = 0;
+                if (offsetY < 0) offsetY = 0;
+                if (offsetX > 1) offsetX = 1;
+                if (offsetY > 1) offsetY = 1;
+                var iw = img.width,
+                    ih = img.height,
+                    r = Math.min(w / iw, h / ih),
+                    nw = iw * r, // new prop. width
+                    nh = ih * r, // new prop. height
+                    cx,
+                    cy,
+                    cw,
+                    ch,
+                    ar = 1;
+                // decide which gap to fill
+                if (Math.round(nw) < w) ar = w / nw;
+                if (Math.abs(ar - 1) < 1e-14 && Math.round(nh) < h) ar = h / nh; // updated
+                nw *= ar;
+                nh *= ar;
+                // calc source rectangle
+                cw = iw / (nw / w);
+                ch = ih / (nh / h);
+                cx = (iw - cw) * offsetX;
+                cy = (ih - ch) * offsetY;
+                // make sure source rectangle is valid
+                if (cx < 0) cx = 0;
+                if (cy < 0) cy = 0;
+                if (cw > iw) cw = iw;
+                if (ch > ih) ch = ih;
+                ctx.drawImage(img, cx, cy, cw, ch, x, y, w, h);
+            }
+            //ref: https://stackoverflow.com/questions/17411991/html5-canvas-rotate-image
+            // x,y position of image center
+            function drawImage(ctx, image, x, y, scaleX, scaleY, degree) {
+                ctx.setTransform(scaleX, 0, 0, scaleY, x, y);
+                ctx.rotate((degree * Math.PI) / 180);
+                ctx.drawImage(image, -image.width / 2, -image.height / 2);
+                ctx.resetTransform();
+            }
+        </script>
+    </body>
+</html>

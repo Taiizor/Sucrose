@@ -1,0 +1,21 @@
+{
+  "AppVersion": "24.4.24.0",
+  "Version": "1.0.0.0",
+  "Title": "Lighthouse",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Simple, lightweight Parallax Engine that reacts to the orientation of a smart device",
+  "Author": "Matthew Wagerfield",
+  "License": "License.txt",
+  "Contact": "https://github.com/wagerfield",
+  "Type": 2,
+  "Source": "Lighthouse.html",
+  "Tags": [
+    "Mountain",
+    "Clouds",
+    "Ocean",
+    "Wave",
+    "Sea"
+  ],
+  "Arguments": null
+}

@@ -1,0 +1,96 @@
+body {
+  background-color: black;
+  background-image: url("../images/scene/body_background.gif");
+  background-repeat: repeat;
+  margin: 0;
+  overflow: hidden;
+}
+
+.scene{
+  width: 100vw;
+  height: auto;
+  margin-top: 0;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+.sceneC {
+  width: 100vw;
+  position: absolute;
+}
+
+#sceneS3{
+  opacity: 0;
+}
+
+#sceneCL0 #sceneCL1{
+  visibility: hidden;
+}
+
+#dateContainer {
+  position: absolute;
+  width: 100vw;
+  padding-top: 11.5vw;
+  font-family: 'Pixeloid-bold';
+  font-size: 0.8vw;
+  color: #F7F9F4;
+  opacity: 0.5;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+#dateTime {
+  font-size: 1.9vw;
+}
+#dateDay {
+  padding-top: 0.15vw;
+  font-size: 0.6vw;
+  font-family: 'Pixeloid';
+}
+
+#weatherContainer {
+  position: absolute;
+  width: 100vw;
+  padding-top: 11.8vw;
+  font-family: 'Pixeloid';
+  color: #F7F9F4;
+  opacity: 0.5;
+  text-align: center;
+}
+
+#weatherIconSvg {
+  position: relative;
+  padding-right: 17.12vw;
+  color: #F7F9F4;
+  width: 3vw;
+  height: 3vw;
+}
+
+#weatherIcon {
+  fill: #F7F9F4;
+}
+
+#weatherDescription {
+  position: relative;
+  font-size: 0.4vw;
+  padding-right: 17.12vw;
+  margin-top: 0.25vw;
+}
+
+#weatherTemp {
+  position: relative;
+  font-family: 'Pixeloid-bold';
+  margin-top: -4vw;
+  margin-left: -12vw;
+  font-size: 0.6vw;
+}
+
+@font-face {
+  font-family: 'Pixeloid';
+  src: url('../fonts/PixeloidSans.ttf');
+}
+
+@font-face {
+  font-family: 'Pixeloid-bold';
+  src: url('../fonts/PixeloidSansBold.ttf');
+}

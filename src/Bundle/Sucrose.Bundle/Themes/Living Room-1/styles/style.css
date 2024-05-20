@@ -1,0 +1,50 @@
+@property --gradientColor1 {
+    syntax: "<color>";
+    initial-value: #2d2d2d;
+    inherits: false;
+}
+
+@property --gradientColor2 {
+    syntax: "<color>";
+    initial-value: #000000;
+    inherits: false;
+}
+body {
+    /* transition only works with css custom property */
+    background: radial-gradient(var(--gradientColor1), var(--gradientColor2));
+    transition: --gradientColor1 3s, --gradientColor2 3s;
+    margin: 0;
+}
+
+#container {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#container.fadeIn {
+    opacity: 1;
+}
+
+#loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #525252;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

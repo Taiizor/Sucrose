@@ -1,0 +1,17 @@
+{
+  "AppVersion": "24.4.24.0",
+  "Version": "1.0.0.3",
+  "Title": "Media Parallax",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Visualizer, music and mouse parallax in one",
+  "Author": "Dani John",
+  "License": "License.txt",
+  "Contact": "https://github.com/rocksdanister",
+  "Type": 2,
+  "Source": "Parallax.html",
+  "Tags": [
+    "Wave"
+  ],
+  "Arguments": null
+}

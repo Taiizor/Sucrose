@@ -1,0 +1,17 @@
+{
+  "AppVersion": "24.5.3.0",
+  "Version": "1.0.0.1",
+  "Title": "Periodic Table",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Interactive periodic table of elements.",
+  "Author": "Mike Golus",
+  "License": "License.txt",
+  "Contact": "https://codepen.io/mikegolus",
+  "Type": 2,
+  "Source": "Table.html",
+  "Tags": [
+    "Chemical"
+  ],
+  "Arguments": null
+}

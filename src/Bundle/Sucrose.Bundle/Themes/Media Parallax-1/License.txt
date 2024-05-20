@@ -1,0 +1,26 @@
+The project is licensed under MIT
+Copyright (c) 2023 Rocksdanister
+
+************************************************************************************************************************************
+
+AudioDot visualizer
+
+MIT License Copyright (c) 2022 John Bernal
+
+https://github.com/DigitalNaut/AudioDotVisualizer
+
+************************************************************************************************************************************
+
+Color Thief licensed under MIT license
+
+https://github.com/lokesh/color-thief
+
+************************************************************************************************************************************
+
+jQuery licensed under MIT license https://github.com/jquery/jquery/blob/main/LICENSE.txt
+
+************************************************************************************************************************************
+
+Photo by Codioful (formerly Gradienta): https://www.pexels.com/photo/a-red-and-blue-color-gradient-7135037/
+
+Vinyl Record by Chriss Gannon licensed under Lottie Simple License (FL 9.13.21): https://lottiefiles.com/21200-vinyl-record

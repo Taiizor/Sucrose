@@ -1,0 +1,130 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "sceneLabel": {
+      "type": "label",
+      "value": "SCENE"
+    },
+    "sceneMargin": {
+      "max": 25,
+      "min": -25,
+      "step": 1,
+      "text": "Margin",
+      "help": "Scale/Crop the image",
+      "type": "slider",
+      "value": 0
+    },
+    "sceneAnimation": {
+      "text": "Enable animation (CPU heavy)",
+      "help": "Turn animation on",
+      "type": "checkbox",
+      "value": false
+    },
+    "sceneColor": {
+      "text": "Font Color",
+      "type": "colorpicker",
+      "value": "#FFF7F9F4"
+    },
+    "sceneAdjustWeather": {
+      "text": "(WIP) Adjust Scene to weather",
+      "help": "Change clouds or color intensity based on weather",
+      "type": "checkbox",
+      "value": false
+    },
+    "weatherLabel": {
+      "type": "label",
+      "value": "WEATHER"
+    },
+    "weatherShow": {
+      "text": "Show Weather",
+      "help": "Show/Hide weather info (API is still called when hidden)",
+      "type": "checkbox",
+      "value": false
+    },
+    "weatherApiInput": {
+      "text": "API Key - openweathermap.org",
+      "help": "Enter your openweathermap api key",
+      "type": "passwordbox",
+      "value": ""
+    },
+    "weatherCityInput": {
+      "text": "Location",
+      "help": "Enter your city, country",
+      "type": "textbox",
+      "value": "city, country"
+    },
+    "weatherRefreshFreq": {
+      "text": "Refresh Frequency",
+      "help": "Interval (in minutes) that weather data is fetched",
+      "type": "textbox",
+      "value": 60
+    },
+    "weatherBtnRefresh": {
+      "text": "Update Weather",
+      "type": "button",
+      "value": "Refresh"
+    },
+    "miscLabel": {
+      "type": "label",
+      "value": "MISC"
+    },
+    "miscHour12": {
+      "type": "checkbox",
+      "text": "12 Hour Clock",
+      "help": "Enable/Disable 12 hour Clock",
+      "value": false
+    },
+    "miscLanguage": {
+      "type": "dropdown",
+      "text": "Language",
+      "help": "Select you language",
+      "value": 0,
+      "items": [
+        "English_WORLD",
+        "Bahasa_Indonesia",
+        "Bahasa_Melayu",
+        "Bulgarian",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English_GB",
+        "English_US",
+        "Finnish",
+        "French",
+        "German",
+        "Greek",
+        "Hindi",
+        "Hungarian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Norwegian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Slovak",
+        "Spanish",
+        "Swedish",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Vietnamese"
+      ]
+    },
+    "miscSunrise": {
+      "text": "Default Sunrise Time",
+      "help": "Default value when weather API is not used",
+      "type": "textbox",
+      "value": "05:20"
+    },
+    "miscSunset": {
+      "text": "Default Sunset Time",
+      "help": "Default value when weather API is not used",
+      "type": "textbox",
+      "value": "22:00"
+    }
+  }
+}

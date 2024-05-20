@@ -1,0 +1,18 @@
+{
+  "AppVersion": "24.4.24.0",
+  "Version": "1.0.0.2",
+  "Title": "Particulate Medusae",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Soft body jellyfish simulation. Built with Particulate.js and Three.js",
+  "Author": "Ash Weeks",
+  "License": "License.txt",
+  "Contact": "https://github.com/jpweeks",
+  "Type": 2,
+  "Source": "Jellyfish.html",
+  "Tags": [
+    "Ocean",
+    "Sea"
+  ],
+  "Arguments": null
+}

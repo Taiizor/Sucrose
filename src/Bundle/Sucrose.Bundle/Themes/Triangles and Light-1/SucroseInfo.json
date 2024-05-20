@@ -1,0 +1,17 @@
+{
+  "AppVersion": "24.5.2.0",
+  "Version": "1.0.0.0",
+  "Title": "Triangles and Light",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Triangle pattern generator with light that follow cursor.",
+  "Author": "Maksim Surguy",
+  "License": "License.txt",
+  "Contact": "https://codepen.io/msurguy",
+  "Type": 2,
+  "Source": "Triangle.html",
+  "Tags": [
+    "Interactive"
+  ],
+  "Arguments": null
+}

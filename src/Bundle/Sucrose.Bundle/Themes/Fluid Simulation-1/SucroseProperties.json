@@ -1,0 +1,186 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "audioReact": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Audio Visualiser"
+    },
+    "randomSplats": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Random Splats"
+    },
+    "quality": {
+      "type": "dropdown",
+      "value": 0,
+      "text": "Quality",
+      "items": [
+        "High",
+        "Medium",
+        "Low",
+        "Very Low",
+        "Very Very Low"
+      ]
+    },
+    "simResolution": {
+      "type": "dropdown",
+      "value": 2,
+      "text": "Sim Resolution",
+      "items": [
+        "32",
+        "64",
+        "128",
+        "256",
+        "512"
+      ]
+    },
+    "densityDiffusion": {
+      "max": 40,
+      "min": 0,
+      "step": 1,
+      "text": "Density Diffusion",
+      "type": "slider",
+      "value": 10
+    },
+    "velocityDiffusion": {
+      "max": 40,
+      "min": 0,
+      "step": 1,
+      "text": "Velocity Diffusion",
+      "type": "slider",
+      "value": 20
+    },
+    "pressure": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Pressure",
+      "type": "slider",
+      "value": 80
+    },
+    "pressureIterations": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Pressure Iterations",
+      "type": "slider",
+      "value": 20
+    },
+    "vorticity": {
+      "max": 50,
+      "min": 0,
+      "step": 1,
+      "text": "Vorticity",
+      "type": "slider",
+      "value": 30
+    },
+    "splatRadius": {
+      "max": 100,
+      "min": 1,
+      "step": 1,
+      "text": "Splat Radius",
+      "type": "slider",
+      "value": 25
+    },
+    "splatForce": {
+      "max": 1000,
+      "min": 100,
+      "step": 10,
+      "text": "Splat Force",
+      "type": "slider",
+      "value": 600
+    },
+    "shading": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Shading"
+    },
+    "colorful": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Colorful"
+    },
+    "bloomEnable": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Bloom"
+    },
+    "bloomResolution": {
+      "type": "dropdown",
+      "value": 3,
+      "text": "Bloom Resolution",
+      "items": [
+        "32",
+        "64",
+        "128",
+        "256",
+        "512"
+      ]
+    },
+    "bloomIterations": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Bloom Iterations",
+      "type": "slider",
+      "value": 80
+    },
+    "bloomIntensity": {
+      "max": 200,
+      "min": 10,
+      "step": 1,
+      "text": "Bloom Intensity",
+      "type": "slider",
+      "value": 80
+    },
+    "bloomThreshold": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Bloom Threshold",
+      "type": "slider",
+      "value": 60
+    },
+    "bloomSoftKnee": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Bloom Soft Knee",
+      "type": "slider",
+      "value": 70
+    },
+    "sunRaysEnable": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Sunrays"
+    },
+    "sunRaysWeight": {
+      "max": 100,
+      "min": 30,
+      "step": 1,
+      "text": "Sunray Weight",
+      "type": "slider",
+      "value": 100
+    },
+    "bgColor": {
+      "text": "BG Color",
+      "type": "colorpicker",
+      "value": "#FF000000"
+    },
+    "imgSelect": {
+      "title": "Select Image",
+      "type": "filedropdown",
+      "value": "pexels-neosiam-601798.jpg",
+      "text": "Image",
+      "desc": "Image Files",
+      "filter": "*.jpeg|*.jpg|*.png",
+      "folder": "wallpapers"
+    },
+    "bgImgChk": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Background"
+    }
+  }
+}
