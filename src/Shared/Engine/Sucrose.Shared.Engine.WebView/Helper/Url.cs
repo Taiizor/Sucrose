@@ -1,9 +1,9 @@
-﻿using SSEHS = Sucrose.Shared.Engine.Helper.Source;
-using SSEWVES = Sucrose.Shared.Engine.WebView.Extension.Screenshot;
+﻿using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
 {
@@ -15,21 +15,31 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             {
                 SSEWVMI.State = true;
 
-                SSEWVMI.WebEngine.Source = new(SSEWVMI.Url);
+                //SSEWVMI.WebEngine.Source = new(SSEWVMI.Url);
+
+                if (SSEMI.IntermediateD3DWindow > 0)
+                {
+                    _ = SWNM.DebugActiveProcessStop((uint)SSEMI.IntermediateD3DWindow);
+                }
             }
         }
 
-        public static async void Pause()
+        public static void Pause()
         {
             if (SSEWVMI.State)
             {
                 SSEWVMI.State = false;
 
-                string Path = SSEHS.GetImageContentPath();
+                //string Path = SSEHS.GetImageContentPath();
 
-                SSEHS.WriteImageContent(Path, await SSEWVES.Capture());
+                //SSEHS.WriteImageContent(Path, await SSEWVES.Capture());
 
-                SSEWVMI.WebEngine.Source = SSEHS.GetSource(Path);
+                //SSEWVMI.WebEngine.Source = SSEHS.GetSource(Path);
+
+                if (SSEMI.IntermediateD3DWindow > 0)
+                {
+                    _ = SWNM.DebugActiveProcess((uint)SSEMI.IntermediateD3DWindow);
+                }
             }
         }
 

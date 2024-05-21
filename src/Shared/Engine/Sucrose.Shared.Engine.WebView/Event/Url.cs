@@ -3,6 +3,7 @@ using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
+using SSEWVHH = Sucrose.Shared.Engine.WebView.Helper.Handle;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
@@ -20,6 +21,10 @@ namespace Sucrose.Shared.Engine.WebView.Event
             SSEWVHM.SetProcesses();
 
             SSEMI.Initialized = true;
+
+            SSEWVHH.GetInputHandle();
+
+            SSEWVHH.GetIntermediateHandle();
 
             if (SMMM.InputType != SEIT.Close)
             {

@@ -4,9 +4,7 @@ using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
-using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
-using SSEWVES = Sucrose.Shared.Engine.WebView.Extension.Screenshot;
 using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
@@ -14,6 +12,7 @@ using SSPSBSS = Sucrose.Shared.Pipe.Services.BackgroundogPipeService;
 using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
 {
@@ -25,21 +24,31 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             {
                 SSEWVMI.State = true;
 
-                SSEWVMI.WebEngine.Source = SSEHS.GetSource(SSEWVMI.Web);
+                //SSEWVMI.WebEngine.Source = SSEHS.GetSource(SSEWVMI.Web);
+
+                if (SSEMI.IntermediateD3DWindow > 0)
+                {
+                    _ = SWNM.DebugActiveProcessStop((uint)SSEMI.IntermediateD3DWindow);
+                }
             }
         }
 
-        public static async void Pause()
+        public static void Pause()
         {
             if (SSEWVMI.State)
             {
                 SSEWVMI.State = false;
 
-                string Path = SSEHS.GetImageContentPath();
+                //string Path = SSEHS.GetImageContentPath();
 
-                SSEHS.WriteImageContent(Path, await SSEWVES.Capture());
+                //SSEHS.WriteImageContent(Path, await SSEWVES.Capture());
 
-                SSEWVMI.WebEngine.Source = SSEHS.GetSource(Path);
+                //SSEWVMI.WebEngine.Source = SSEHS.GetSource(Path);
+
+                if (SSEMI.IntermediateD3DWindow > 0)
+                {
+                    _ = SWNM.DebugActiveProcess((uint)SSEMI.IntermediateD3DWindow);
+                }
             }
         }
 

@@ -6,6 +6,7 @@ using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEI = Sucrose.Shared.Engine.WebView.Extension.Interaction;
+using SSEWVHH = Sucrose.Shared.Engine.WebView.Helper.Handle;
 using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -37,6 +38,10 @@ namespace Sucrose.Shared.Engine.WebView.Event
                 SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
                 SSEMI.Properties.State = true;
             }
+
+            SSEWVHH.GetInputHandle();
+
+            SSEWVHH.GetIntermediateHandle();
 
             if (SMMM.InputType != SEIT.Close)
             {

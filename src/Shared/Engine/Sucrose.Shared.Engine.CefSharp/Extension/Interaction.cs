@@ -28,10 +28,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
 
                 IntPtr HWND = SSEMI.WindowHandle;
 
-                SSECSMI.CefHost = SSECSMI.CefEngine.GetBrowserHost();
-
-                SSECSMI.CefHandle = SSECSMI.CefHost.GetWindowHandle();
-
                 switch (SSDMM.InputModuleType)
                 {
                     case SSDEIMT.RawInput:
@@ -49,13 +45,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Extension
                         Source.AddHook(Hook);
 
                         break;
-                }
-
-                IntPtr InputHandle = SWNM.FindWindowEx(SSECSMI.CefHandle, IntPtr.Zero, "Chrome_WidgetWin_0", null);
-
-                if (!InputHandle.Equals(IntPtr.Zero))
-                {
-                    SSECSMI.CefHandle = InputHandle;
                 }
 
                 Start();

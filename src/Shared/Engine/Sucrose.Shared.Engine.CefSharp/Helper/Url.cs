@@ -1,9 +1,8 @@
-﻿using SSECSES = Sucrose.Shared.Engine.CefSharp.Extension.Screenshot;
-using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
+﻿using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
-using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
@@ -15,7 +14,20 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SSECSMI.State = true;
 
-                SSECSMI.CefEngine.Address = SSECSMI.Url;
+                //SSECSMI.CefEngine.Address = SSECSMI.Url;
+
+                if (SSECSMI.Processes.Any())
+                {
+                    foreach (int Process in SSECSMI.Processes.ToList())
+                    {
+                        _ = SWNM.DebugActiveProcessStop((uint)Process);
+                    }
+                }
+
+                //if (SSEMI.IntermediateD3DWindow > 0)
+                //{
+                //    _ = SWNM.DebugActiveProcessStop((uint)SSEMI.IntermediateD3DWindow);
+                //}
             }
         }
 
@@ -25,11 +37,24 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SSECSMI.State = false;
 
-                string Path = SSEHS.GetImageContentPath();
+                //string Path = SSEHS.GetImageContentPath();
 
-                SSEHS.WriteImageContent(Path, SSECSES.Capture());
+                //SSEHS.WriteImageContent(Path, SSECSES.Capture());
 
-                SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
+                //SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
+
+                if (SSECSMI.Processes.Any())
+                {
+                    foreach (int Process in SSECSMI.Processes.ToList())
+                    {
+                        _ = SWNM.DebugActiveProcess((uint)Process);
+                    }
+                }
+
+                //if (SSEMI.IntermediateD3DWindow > 0)
+                //{
+                //    _ = SWNM.DebugActiveProcess((uint)SSEMI.IntermediateD3DWindow);
+                //}
             }
         }
 

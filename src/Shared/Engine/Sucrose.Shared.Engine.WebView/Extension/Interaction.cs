@@ -27,8 +27,6 @@ namespace Sucrose.Shared.Engine.WebView.Extension
 
                 IntPtr HWND = SSEMI.WindowHandle;
 
-                SSEWVMI.WebHandle = SSEWVMI.WebEngine.Handle;
-
                 switch (SSDMM.InputModuleType)
                 {
                     case SSDEIMT.RawInput:
@@ -46,13 +44,6 @@ namespace Sucrose.Shared.Engine.WebView.Extension
                         Source.AddHook(Hook);
 
                         break;
-                }
-
-                IntPtr InputHandle = SWNM.FindWindowEx(SSEWVMI.WebHandle, IntPtr.Zero, "Chrome_WidgetWin_0", null);
-
-                if (!InputHandle.Equals(IntPtr.Zero))
-                {
-                    SSEWVMI.WebHandle = SWNM.FindWindowEx(InputHandle, IntPtr.Zero, "Chrome_WidgetWin_1", null);
                 }
 
                 Start();

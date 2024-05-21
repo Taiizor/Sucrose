@@ -4,17 +4,16 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SPMI = Sucrose.Pipe.Manage.Internal;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommunicationType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
-using SSECSES = Sucrose.Shared.Engine.CefSharp.Extension.Screenshot;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHC = Sucrose.Shared.Engine.Helper.Compatible;
-using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSPSBSS = Sucrose.Shared.Pipe.Services.BackgroundogPipeService;
 using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
@@ -26,7 +25,20 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SSECSMI.State = true;
 
-                SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
+                //SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
+
+                if (SSECSMI.Processes.Any())
+                {
+                    foreach (int Process in SSECSMI.Processes.ToList())
+                    {
+                        _ = SWNM.DebugActiveProcessStop((uint)Process);
+                    }
+                }
+
+                //if (SSEMI.IntermediateD3DWindow > 0)
+                //{
+                //    _ = SWNM.DebugActiveProcessStop((uint)SSEMI.IntermediateD3DWindow);
+                //}
             }
         }
 
@@ -36,11 +48,24 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             {
                 SSECSMI.State = false;
 
-                string Path = SSEHS.GetImageContentPath();
+                //string Path = SSEHS.GetImageContentPath();
 
-                SSEHS.WriteImageContent(Path, SSECSES.Capture());
+                //SSEHS.WriteImageContent(Path, SSECSES.Capture());
 
-                SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
+                //SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
+
+                if (SSECSMI.Processes.Any())
+                {
+                    foreach (int Process in SSECSMI.Processes.ToList())
+                    {
+                        _ = SWNM.DebugActiveProcess((uint)Process);
+                    }
+                }
+
+                //if (SSEMI.IntermediateD3DWindow > 0)
+                //{
+                //    _ = SWNM.DebugActiveProcess((uint)SSEMI.IntermediateD3DWindow);
+                //}
             }
         }
 

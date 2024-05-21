@@ -21,6 +21,8 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static SSTHC Compatible = new();
 
+        public static int IntermediateD3DWindow = 0;
+
         public static bool PausePerformance = false;
 
         public static bool PropertiesWatcher = true;

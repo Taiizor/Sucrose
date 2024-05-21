@@ -633,12 +633,3 @@ Global
 		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
-4419-a396-4949c2f642f6}*SharedItemsImports = 5
-		Shared\Engine\Sucrose.Shared.Engine.WebView\Sucrose.Shared.Engine.WebView.projitems*{fe860c2d-99bb-407a-9e3c-8f26812864d8}*SharedItemsImports = 13
-		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
-		Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
-	EndGlobalSection
-EndGlobal

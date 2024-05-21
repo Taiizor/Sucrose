@@ -4,6 +4,7 @@ using System.Windows;
 using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSECSEI = Sucrose.Shared.Engine.CefSharp.Extension.Interaction;
+using SSECSHH = Sucrose.Shared.Engine.CefSharp.Helper.Handle;
 using SSECSHW = Sucrose.Shared.Engine.CefSharp.Helper.Web;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
@@ -36,6 +37,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
                 SSEMI.Properties = SSTHP.ReadJson(SSEMI.PropertiesFile);
                 SSEMI.Properties.State = true;
             }
+
+            SSECSHH.GetInputHandle();
+
+            SSECSHH.GetIntermediateHandle();
 
             if (SMMM.InputType != SEIT.Close)
             {
