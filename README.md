@@ -151,7 +151,7 @@
       <td>Application</td>
       <td>
         <img src=".screenshots/Application.gif" width="256" height="144" />
-        <br>Santa's Helper Theme
+        <br><a href="https://github.com/BayatGames/RedRunner">Red Runner</a> Theme
       </td>
       <td>No</td>
       <td>Fixed</td>
