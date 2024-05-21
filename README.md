@@ -131,7 +131,7 @@
       <td>Video</td>
       <td>
         <img src=".screenshots/Video.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Game/The Last of Us Part II-1">The Last of Us Part II</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Vehicles/Batmobile Pursuit-1">Batmobile Pursuit</a> Theme
       </td>
       <td>No</td>
       <td>Variable</td>
