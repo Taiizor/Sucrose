@@ -111,7 +111,7 @@
       <td>Url</td>
       <td>
         <img src=".screenshots/Url.gif" width="256" height="144" />
-        <br>Taiizor Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Dynamic/The 25th Hour-1">The 25th Hour</a> Theme
       </td>
       <td>Yes</td>
       <td>Fixed</td>
