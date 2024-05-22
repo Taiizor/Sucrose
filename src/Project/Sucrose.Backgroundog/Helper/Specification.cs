@@ -8,6 +8,7 @@ using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBED = Sucrose.Backgroundog.Extension.Data;
 using SBEO = Sucrose.Backgroundog.Extension.Object;
 using SBER = Sucrose.Backgroundog.Extension.Remote;
+using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBEV = Sucrose.Backgroundog.Extension.Virtual;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SBSSSS = Sucrose.Backgroundog.Struct.Sensor.SensorStruct;
@@ -555,6 +556,8 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         try
                         {
+                            SBMI.Computer.Accept(new SBEUV());
+
                             foreach (IHardware Hardware in SBMI.Computer.Hardware)
                             {
                                 if (Hardware.HardwareType == HardwareType.Cpu)

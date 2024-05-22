@@ -1,5 +1,4 @@
 ﻿using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
-using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBHA = Sucrose.Backgroundog.Helper.Attempt;
 using SBHC = Sucrose.Backgroundog.Helper.Condition;
 using SBHP = Sucrose.Backgroundog.Helper.Performance;
@@ -17,8 +16,6 @@ namespace Sucrose.Backgroundog.Helper
         public void Start()
         {
             SBMI.Computer.Open();
-
-            SBMI.Computer.Accept(new SBEUV());
 
             TimerCallback Callback = InitializeTimer_Callback;
             SBMI.InitializeTimer = new(Callback, null, 0, SBMI.InitializeTime);
