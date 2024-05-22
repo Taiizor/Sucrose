@@ -30,7 +30,9 @@ namespace Sucrose.Backgroundog.Helper
         public void Stop()
         {
             SBMI.Computer.Close();
+
             SBMI.InitializeTimer.Dispose();
+
             SPMI.BackgroundogManager.DisposeClient();
 
             try

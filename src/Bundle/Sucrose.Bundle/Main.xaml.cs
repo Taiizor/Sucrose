@@ -456,7 +456,21 @@ namespace Sucrose.Bundle
 
             await Task.Delay(MinDelay);
 
-            await ExtractArchive();
+            try
+            {
+                await ExtractArchive();
+            }
+            catch
+            {
+                try
+                {
+                    await ExtractPackages();
+                }
+                catch
+                {
+                    await ExtractArchive(Path.Combine(Packages, $"{Application}.7z"), InstallPath);
+                }
+            }
 
             await Task.Delay(MinDelay);
 

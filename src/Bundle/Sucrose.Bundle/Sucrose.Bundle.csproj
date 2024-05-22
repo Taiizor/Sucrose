@@ -103,14 +103,6 @@
         </EmbeddedResource>
     </ItemGroup>
 
-    <ItemGroup>
-        <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.log" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.txt" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.pdb" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.xml" />
-        <EmbeddedResource Remove="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**\*.deps.json" />
-    </ItemGroup>
-
     <PropertyGroup>
         <SourceDirectory>$(OutputPath)\$(TargetFramework)\win-$(Platform)</SourceDirectory>
         <DestinationDirectory>..\..\Sucrose\Package\$(TargetFramework)\$(Platform)\$(AssemblyName)\</DestinationDirectory>
