@@ -224,6 +224,7 @@ Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Failed,İNDİRİLEN DOSYA BA
 Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Corrupt,İNDİRİLEN DOSYA BOZUK
 Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Not,İNDİRİLEN DOSYA KULLANILAMAZ
 Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Error,İNDİRİLEN DOSYA ÇIKARILAMADI
+Portal\Area\Portal.Area.TR.xaml,Portal.Area.Data,Veri
 Portal\Area\Portal.Area.TR.xaml,Portal.Area.Sound,Ses
 Portal\Area\Portal.Area.TR.xaml,Portal.Area.Log,Günlük
 Portal\Area\Portal.Area.TR.xaml,Portal.Area.Hook,Kanca
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Mevcut kütüphanenizi yeni konuma taşı
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.ReportData,Otomatik Hata Raporlama
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.ReportData.Description,"Sucrose, bir hatayla karşılaştığında bunu hızlıca bildirmek için harekete geçer."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.StatisticsData,Kullanım İstatistiklerini Paylaş
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.StatisticsData.Description,"Sucrose, kullanım istatistiklerinizi toplayarak uygulamanın gelişmesine olanak sağlar."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.DiscordHook.Description,"Sucrose, Discord ile arasındaki haberleşmeyi sağlar."

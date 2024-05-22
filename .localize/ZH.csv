@@ -224,6 +224,7 @@ Wizard\Wizard.ZH.xaml,Wizard.MessageText.Extracting.Failed,已下载的文件失
 Wizard\Wizard.ZH.xaml,Wizard.MessageText.Extracting.Corrupt,已下载的文件损坏
 Wizard\Wizard.ZH.xaml,Wizard.MessageText.Extracting.Not,已下载的文件无法使用
 Wizard\Wizard.ZH.xaml,Wizard.MessageText.Extracting.Error,无法提取已下载的文件
+Portal\Area\Portal.Area.ZH.xaml,Portal.Area.Data,数据
 Portal\Area\Portal.Area.ZH.xaml,Portal.Area.Sound,声音
 Portal\Area\Portal.Area.ZH.xaml,Portal.Area.Log,日志
 Portal\Area\Portal.Area.ZH.xaml,Portal.Area.Hook,挂钩
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,将您的现有库移动到新位置
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.ReportData,自动错误报告
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.ReportData.Description,当遇到错误时，Sucrose 会迅速采取行动进行报告。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.StatisticsData,分享使用统计信息
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose 使您能够收集您的使用统计信息，以促进应用程序的发展。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.DiscordHook,Discord钩子
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose与Discord之间的通信。

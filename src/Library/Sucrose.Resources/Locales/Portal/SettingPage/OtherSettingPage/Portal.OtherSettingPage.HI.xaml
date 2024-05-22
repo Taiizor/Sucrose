@@ -4,6 +4,12 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.ReportData">स्वचालित त्रुटि रिपोर्टिंग</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.ReportData.Description">जब कोई त्रुटि होती है, तो Sucrose त्वरितता से इसे रिपोर्ट करने के लिए कार्रवाई करती है।</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.StatisticsData">उपयोग सांख्यिकी साझा करें</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.StatisticsData.Description">Sucrose आपके उपयोग सांख्यिकियों को संग्रहीत करने की सुविधा प्रदान करती है ताकि अनुप्रयोग के विकास में योगदान दिया जा सके।</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose, Discord के साथ संचालन संवाद सुनिश्चित करता है।</system:String>
 

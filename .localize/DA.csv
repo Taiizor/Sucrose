@@ -224,6 +224,7 @@ Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Failed,DEN DOWNLOADEDE FIL M
 Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Corrupt,DEN DOWNLOADEDE FIL ER KORRUPT
 Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Not,DEN DOWNLOADEDE FIL KAN IKKE BRUGES
 Wizard\Wizard.DA.xaml,Wizard.MessageText.Extracting.Error,DEN DOWNLOADEDE FIL KUNNE IKKE EKSTRAHERES
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Sound,Lyd
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Log,Log
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Hook,Hook
@@ -231,7 +232,7 @@ Portal\Area\Portal.Area.DA.xaml,Portal.Area.Store,Butik
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Donate,Donér
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.System,System
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Cache,Cache
-Portal\Area\Portal.Area.DA.xaml,Portal.Area.Laptop,Bærbar computer
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.Laptop,Bærbar Computer
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Support,Support
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Reset,Nulstil
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Backup,Backup
@@ -242,7 +243,7 @@ Portal\Area\Portal.Area.DA.xaml,Portal.Area.Library,Bibliotek
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Developer,Udvikler
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.Extensions,Udvidelser
 Portal\Area\Portal.Area.DA.xaml,Portal.Area.SystemResources,Systemressourcer
-Portal\Area\Portal.Area.DA.xaml,Portal.Area.AppearanceBehavior,Udseende og adfærd
+Portal\Area\Portal.Area.DA.xaml,Portal.Area.AppearanceBehavior,Udseende og Adfærd
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.All,Alle
 Portal\Category\Portal.Category.DA.xaml,,
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.Abstract,Abstrakt
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Flyt din nuværende bibliotek til den nye placering
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.ReportData,Automatisk Fejlrapportering
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.ReportData.Description,"Sucrose handler hurtigt for at rapportere det, når der opstår en fejl."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.StatisticsData,Del Brugsstatistikker
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose muliggør indsamling af dine brugsstatistikker for at bidrage til udviklingen af applikationen.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose muliggør kommunikation med Discord.

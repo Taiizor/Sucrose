@@ -224,6 +224,7 @@ Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Failed,ダウンロードし
 Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Corrupt,ダウンロードしたファイルが壊れています
 Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Not,ダウンロードしたファイルは使用できません
 Wizard\Wizard.JA.xaml,Wizard.MessageText.Extracting.Error,ダウンロードしたファイルを展開できませんでした
+Portal\Area\Portal.Area.JA.xaml,Portal.Area.Data,データ
 Portal\Area\Portal.Area.JA.xaml,Portal.Area.Sound,サウンド
 Portal\Area\Portal.Area.JA.xaml,Portal.Area.Log,ログ
 Portal\Area\Portal.Area.JA.xaml,Portal.Area.Hook,フック
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,現在のライブラリを新しい場所に移動する
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.ReportData,自動エラー報告
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.ReportData.Description,エラーが発生した場合、Sucrose 速やかに報告するための行動を取ります。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.StatisticsData,使用統計の共有
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose は、アプリケーションの開発に貢献するために、使用統計の収集を可能にします。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.DiscordHook.Description,SucroseはDiscordとの通信を担当します。

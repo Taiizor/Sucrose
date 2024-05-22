@@ -224,6 +224,7 @@ Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Failed,DEN NEDLASTEDE FILEN 
 Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Corrupt,DEN NEDLASTEDE FILEN ER KORRUPT
 Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Not,DEN NEDLASTEDE FILEN ER IKKE BRUKBAR
 Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Error,DEN NEDLASTEDE FILEN KUNNE IKKE EKSTRAHERES
+Portal\Area\Portal.Area.NB.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Sound,Lyd
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Log,Logg
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Hook,Krok
@@ -231,7 +232,7 @@ Portal\Area\Portal.Area.NB.xaml,Portal.Area.Store,Butikk
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Donate,Doner
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.System,System
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Cache,Buffer
-Portal\Area\Portal.Area.NB.xaml,Portal.Area.Laptop,Bærbar datamaskin
+Portal\Area\Portal.Area.NB.xaml,Portal.Area.Laptop,Bærbar Datamaskin
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Support,Støtte
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Reset,Tilbakestill
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Backup,Sikkerhetskopiering
@@ -242,7 +243,7 @@ Portal\Area\Portal.Area.NB.xaml,Portal.Area.Library,Bibliotek
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Developer,Utvikler
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Extensions,Utvidelser
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.SystemResources,Systemressurser
-Portal\Area\Portal.Area.NB.xaml,Portal.Area.AppearanceBehavior,Utseende og oppførsel
+Portal\Area\Portal.Area.NB.xaml,Portal.Area.AppearanceBehavior,Utseende og Oppførsel
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.All,Alle
 Portal\Category\Portal.Category.NB.xaml,,
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Abstract,Abstrakt
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Flytt ditt nåværende bibliotek til ny plassering
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.ReportData,Automatisk Feilrapportering
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose tar handling for å rapportere det raskt ved feil.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.StatisticsData,Del Bruksstatistikk
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose muliggjør innsamling av bruksstatistikken din for å bidra til utviklingen av applikasjonen.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose muliggjør kommunikasjon med Discord.

@@ -224,6 +224,7 @@ Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Failed,डाउनलोड
 Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Corrupt,डाउनलोड की गई फ़ाइल कोरप्ट है
 Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Not,डाउनलोड की गई फ़ाइल उपयोग योग्य नहीं है
 Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Error,डाउनलोड की गई फ़ाइल को निकाला नहीं जा सका
+Portal\Area\Portal.Area.HI.xaml,Portal.Area.Data,डेटा
 Portal\Area\Portal.Area.HI.xaml,Portal.Area.Sound,ध्वनि
 Portal\Area\Portal.Area.HI.xaml,Portal.Area.Log,लॉग
 Portal\Area\Portal.Area.HI.xaml,Portal.Area.Hook,कुंजी
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,वर्तमान लाइब्रेरी को नई स्थान पर ले जाएं
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.ReportData,स्वचालित त्रुटि रिपोर्टिंग
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.ReportData.Description,"जब कोई त्रुटि होती है, तो Sucrose त्वरितता से इसे रिपोर्ट करने के लिए कार्रवाई करती है।"
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.StatisticsData,उपयोग सांख्यिकी साझा करें
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose आपके उपयोग सांख्यिकियों को संग्रहीत करने की सुविधा प्रदान करती है ताकि अनुप्रयोग के विकास में योगदान दिया जा सके।
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.DiscordHook.Description,"Sucrose, Discord के साथ संचालन संवाद सुनिश्चित करता है।"

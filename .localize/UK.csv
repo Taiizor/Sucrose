@@ -224,6 +224,7 @@ Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Failed,ЗАВАНТАЖЕН�
 Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Corrupt,ЗАВАНТАЖЕНИЙ ФАЙЛ ПОШКОДЖЕНИЙ
 Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Not,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕПРИДАТНИЙ ДЛЯ ВИКОРИСТАННЯ
 Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Error,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ РОЗПАКУВАТИ
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Data,Дані
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Sound,Звук
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Log,Журнал
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Hook,Гачок
@@ -234,14 +235,14 @@ Portal\Area\Portal.Area.UK.xaml,Portal.Area.Cache,Кеш
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Laptop,Ноутбук
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Support,Підтримка
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Reset,Скидання
-Portal\Area\Portal.Area.UK.xaml,Portal.Area.Backup,Резервне копіювання
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.Backup,Резервне Копіювання
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Priority,Пріоритет
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Engines,Двигуни
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Update,Оновлення
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Library,Бібліотека
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Developer,Розробник
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Extensions,Розширення
-Portal\Area\Portal.Area.UK.xaml,Portal.Area.SystemResources,Системні ресурси
+Portal\Area\Portal.Area.UK.xaml,Portal.Area.SystemResources,Системні Pесурси
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.AppearanceBehavior,Вигляд та Поведінка
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.All,Всі
 Portal\Category\Portal.Category.UK.xaml,,
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Перемістити вашу поточну бібліотеку в нове місце
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.ReportData,Автоматична звітність про помилки
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.ReportData.Description,"Сукроза діє таким чином, щоб швидко повідомляти про помилку при її виявленні."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.StatisticsData,Поділіться Cтатистикою використання
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.StatisticsData.Description,Сукроза дозволяє збирати вашу статистику використання для сприяння розвитку додатка.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose забезпечує зв'язок з Discord.

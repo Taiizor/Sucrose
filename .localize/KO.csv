@@ -224,6 +224,7 @@ Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Failed,다운로드한 파�
 Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Corrupt,다운로드한 파일이 손상되었습니다
 Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Not,다운로드한 파일을 사용할 수 없습니다
 Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Error,다운로드한 파일을 추출할 수 없습니다
+Portal\Area\Portal.Area.KO.xaml,Portal.Area.Data,데이터
 Portal\Area\Portal.Area.KO.xaml,Portal.Area.Sound,소리
 Portal\Area\Portal.Area.KO.xaml,Portal.Area.Log,로그
 Portal\Area\Portal.Area.KO.xaml,Portal.Area.Hook,훅
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,현재 라이브러리를 새 위치로 이동
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.ReportData,자동 오류 보고
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.ReportData.Description,오류가 발생하면 Sucrose 신속하게 보고합니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.StatisticsData,사용 통계 공유
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose 애플리케이션 개발에 기여하기 위해 사용 통계를 수집할 수 있게 합니다.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose는 Discord와의 통신을 담당합니다.

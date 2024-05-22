@@ -224,6 +224,7 @@ Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Failed,DEN NERLADDATA FILN M
 Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Corrupt,DEN NERLADDATA FILN ÄR KORRUMPERAD
 Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Not,DEN NERLADDATA FILN ÄR INTE ANVÄNDBAR
 Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Error,DEN NERLADDATA FILN KUNDE INTE EXTRAHAR
+Portal\Area\Portal.Area.SV.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.SV.xaml,Portal.Area.Sound,Ljud
 Portal\Area\Portal.Area.SV.xaml,Portal.Area.Log,Logg
 Portal\Area\Portal.Area.SV.xaml,Portal.Area.Hook,Krok
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Flytta ditt nuvarande bibliotek till den nya platsen
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.ReportData,Automatisk Felrapportering
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose vidtar åtgärder för att snabbt rapportera när det uppstår ett fel.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.StatisticsData,Dela Användningsstatistik
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose möjliggör insamling av din användningsstatistik för att bidra till utvecklingen av applikationen.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose möjliggör kommunikation med Discord.

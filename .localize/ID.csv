@@ -224,6 +224,7 @@ Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Failed,BERKAS YANG DIUNDUH G
 Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Corrupt,BERKAS YANG DIUNDUH RUSAK
 Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Not,BERKAS YANG DIUNDUH TIDAK DAPAT DIGUNAKAN
 Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Error,BERKAS YANG DIUNDUH TIDAK DAPAT DIEKSTRAK
+Portal\Area\Portal.Area.ID.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.ID.xaml,Portal.Area.Sound,Suara
 Portal\Area\Portal.Area.ID.xaml,Portal.Area.Log,Log
 Portal\Area\Portal.Area.ID.xaml,Portal.Area.Hook,Gantungan
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Pindahkan perpustakaan Anda ke lokasi baru
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.ReportData,Laporan Kesalahan Otomatis
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose mengambil tindakan untuk melaporkannya dengan cepat saat menemui kesalahan.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.StatisticsData,Bagikan Statistik Penggunaan
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose memungkinkan pengumpulan statistik penggunaan Anda untuk berkontribusi pada pengembangan aplikasi.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose menyediakan komunikasi dengan Discord.

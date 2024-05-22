@@ -224,6 +224,7 @@ Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Failed,HET GEDOWNLOADE BESTA
 Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Corrupt,HET GEDOWNLOADE BESTAND IS BESCHADIGD
 Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Not,HET GEDOWNLOADE BESTAND IS NIET GEBRUIKBAAR
 Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Error,HET GEDOWNLOADE BESTAND KON NIET WORDEN GEËXTRAHEERD
+Portal\Area\Portal.Area.NL.xaml,Portal.Area.Data,Gegevens
 Portal\Area\Portal.Area.NL.xaml,Portal.Area.Sound,Geluid
 Portal\Area\Portal.Area.NL.xaml,Portal.Area.Log,Logboek
 Portal\Area\Portal.Area.NL.xaml,Portal.Area.Hook,Haak
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Verplaats uw huidige bibliotheek naar een nieuwe locatie
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.ReportData,Automatische Foutenrapportage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose onderneemt actie om het snel te rapporteren bij een fout.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.StatisticsData,Deel Gebruiksstatistieken
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose maakt het mogelijk om uw gebruiksstatistieken te verzamelen om bij te dragen aan de ontwikkeling van de applicatie.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose maakt communicatie met Discord mogelijk.

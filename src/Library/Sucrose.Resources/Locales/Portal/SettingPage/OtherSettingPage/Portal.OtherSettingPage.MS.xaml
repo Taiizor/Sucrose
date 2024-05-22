@@ -4,6 +4,12 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.ReportData">Pelaporan Ralat Automatik</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.ReportData.Description">Sucrose mengambil tindakan untuk melaporkannya dengan cepat apabila berlaku ralat.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.StatisticsData">Kongsi Statistik Penggunaan</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.StatisticsData.Description">Sucrose membolehkan pengumpulan statistik penggunaan anda untuk menyumbang kepada pembangunan aplikasi.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose membolehkan komunikasi antara Discord.</system:String>
 

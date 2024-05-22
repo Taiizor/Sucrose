@@ -224,6 +224,7 @@ Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Failed,FIȘIERUL DESCĂRCAT 
 Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Corrupt,FIȘIERUL DESCĂRCAT ESTE CORUPT
 Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Not,FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL
 Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Error,NU S-A PUTUT EXTRAGE FIȘIERUL DESCĂRCAT
+Portal\Area\Portal.Area.RO.xaml,Portal.Area.Data,Date
 Portal\Area\Portal.Area.RO.xaml,Portal.Area.Sound,Sunet
 Portal\Area\Portal.Area.RO.xaml,Portal.Area.Log,Jurnal
 Portal\Area\Portal.Area.RO.xaml,Portal.Area.Hook,Clește
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Mută biblioteca curentă în noua locație
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.ReportData,Raportare Automată a Erorilor
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose ia măsuri pentru a raporta rapid când întâlnește o eroare.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.StatisticsData,Partajarea Statisticilor de Utilizare
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose permite colectarea statisticilor dvs. de utilizare pentru a contribui la dezvoltarea aplicației.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose facilitează comunicarea cu Discord.

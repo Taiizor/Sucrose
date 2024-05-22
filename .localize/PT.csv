@@ -224,6 +224,7 @@ Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Failed,O ARQUIVO BAIXADO FAL
 Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Corrupt,O ARQUIVO BAIXADO ESTÁ CORROMPIDO
 Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Not,O ARQUIVO BAIXADO NÃO É USÁVEL
 Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Error,NÃO FOI POSSÍVEL EXTRAIR O ARQUIVO BAIXADO
+Portal\Area\Portal.Area.PT.xaml,Portal.Area.Data,Dados
 Portal\Area\Portal.Area.PT.xaml,Portal.Area.Sound,Som
 Portal\Area\Portal.Area.PT.xaml,Portal.Area.Log,Registro
 Portal\Area\Portal.Area.PT.xaml,Portal.Area.Hook,Gancho
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Mover sua biblioteca existente para um novo local
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.ReportData,Relatório Automático de Erros
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.ReportData.Description,A Sucrose toma medidas para relatá-lo rapidamente ao encontrar um erro.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.StatisticsData,Compartilhar Estatísticas de Uso
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.StatisticsData.Description,A Sucrose permite a coleta de suas estatísticas de uso para contribuir para o desenvolvimento do aplicativo.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PT.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose permite a comunicação com o Discord.

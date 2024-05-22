@@ -224,6 +224,7 @@ Wizard\Wizard.IT.xaml,Wizard.MessageText.Extracting.Failed,IL FILE SCARICATO È 
 Wizard\Wizard.IT.xaml,Wizard.MessageText.Extracting.Corrupt,IL FILE SCARICATO È CORROTTO
 Wizard\Wizard.IT.xaml,Wizard.MessageText.Extracting.Not,IL FILE SCARICATO NON È UTILIZZABILE
 Wizard\Wizard.IT.xaml,Wizard.MessageText.Extracting.Error,IMPOSSIBILE ESTRARRE IL FILE SCARICATO
+Portal\Area\Portal.Area.IT.xaml,Portal.Area.Data,Dati
 Portal\Area\Portal.Area.IT.xaml,Portal.Area.Sound,Suono
 Portal\Area\Portal.Area.IT.xaml,Portal.Area.Log,Registro
 Portal\Area\Portal.Area.IT.xaml,Portal.Area.Hook,Gancio
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Sposta la tua libreria esistente in una nuova posizione
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.ReportData,Segnalazione Automatica Degli Errori
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose interviene per segnalarlo rapidamente in caso di errore.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.StatisticsData,Condividi Statistiche di Utilizzo
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose consente la raccolta delle tue statistiche di utilizzo per contribuire allo sviluppo dell'applicazione.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose facilita la comunicazione con Discord.

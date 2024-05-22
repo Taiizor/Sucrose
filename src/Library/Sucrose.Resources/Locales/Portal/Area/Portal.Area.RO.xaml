@@ -2,6 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.Area.Data">Date</system:String>
     <system:String x:Key="Portal.Area.Sound">Sunet</system:String>
     <system:String x:Key="Portal.Area.Log">Jurnal</system:String>
     <system:String x:Key="Portal.Area.Hook">Clește</system:String>

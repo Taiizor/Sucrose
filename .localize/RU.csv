@@ -224,6 +224,7 @@ Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Failed,ЗАГРУЖЕННЫ�
 Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Corrupt,ЗАГРУЖЕННЫЙ ФАЙЛ ПОВРЕЖДЁН
 Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Not,ЗАГРУЖЕННЫЙ ФАЙЛ НЕПРИГОДЕН ДЛЯ ИСПОЛЬЗОВАНИЯ
 Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Error,НЕ УДАЛОСЬ ИЗВЛЕЧЬ ЗАГРУЖЕННЫЙ ФАЙЛ
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Data,Данные
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Sound,Звук
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Log,Лог
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Hook,Крюк
@@ -234,14 +235,14 @@ Portal\Area\Portal.Area.RU.xaml,Portal.Area.Cache,Кэш
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Laptop,Ноутбук
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Support,Поддержка
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Reset,Сброс
-Portal\Area\Portal.Area.RU.xaml,Portal.Area.Backup,Резервное копирование
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.Backup,Резервное Копирование
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Priority,Приоритет
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Engines,Двигатели
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Update,Обновление
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Library,Библиотека
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Developer,Разработчик
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Extensions,Расширения
-Portal\Area\Portal.Area.RU.xaml,Portal.Area.SystemResources,Системные ресурсы
+Portal\Area\Portal.Area.RU.xaml,Portal.Area.SystemResources,Системные Pесурсы
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.AppearanceBehavior,Внешний вид и Поведение
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.All,Все
 Portal\Category\Portal.Category.RU.xaml,,
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Переместить текущую библиотеку в новое местоположение
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.ReportData,Автоматическая Oтчетность об Oшибках
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose предпринимает действия для быстрого сообщения об ошибке при ее возникновении.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.StatisticsData,Поделиться Cтатистикой Использования
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose позволяет собирать статистику вашего использования для вклада в развитие приложения.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RU.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose обеспечивает связь с Discord.

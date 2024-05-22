@@ -37,6 +37,60 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void InitializeViewModel()
         {
+            TextBlock DataArea = new()
+            {
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Text = SRER.GetValue("Portal", "Area", "Data"),
+                Margin = new Thickness(0, 0, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            Contents.Add(DataArea);
+
+            SPVCEC ReportData = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            ReportData.LeftIcon.Symbol = SymbolRegular.BugArrowCounterclockwise20;
+            ReportData.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "ReportData");
+            ReportData.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "ReportData", "Description");
+
+            ToggleSwitch ReportState = new()
+            {
+                IsChecked = SMMM.Report
+            };
+
+            ReportState.Checked += (s, e) => ReportStateChecked(true);
+            ReportState.Unchecked += (s, e) => ReportStateChecked(false);
+
+            ReportData.HeaderFrame = ReportState;
+
+            Contents.Add(ReportData);
+
+            SPVCEC StatisticsData = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            StatisticsData.LeftIcon.Symbol = SymbolRegular.DataHistogram24;
+            StatisticsData.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "StatisticsData");
+            StatisticsData.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "StatisticsData", "Description");
+
+            ToggleSwitch StatisticsState = new()
+            {
+                IsChecked = SMMM.Statistics
+            };
+
+            StatisticsState.Checked += (s, e) => StatisticsStateChecked(true);
+            StatisticsState.Unchecked += (s, e) => StatisticsStateChecked(false);
+
+            StatisticsData.HeaderFrame = StatisticsState;
+
+            Contents.Add(StatisticsData);
+
             TextBlock HookArea = new()
             {
                 Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
@@ -460,6 +514,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void ReportStateChecked(bool State)
+        {
+            SMMI.GeneralSettingManager.SetSetting(SMC.Report, State);
+        }
+
         private void ChannelTypeSelected(int Index)
         {
             if (Index != (int)SSCMM.ChannelType)
@@ -503,6 +562,11 @@ namespace Sucrose.Portal.ViewModels.Pages
             {
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdateLimitValue, NewValue);
             }
+        }
+
+        private void StatisticsStateChecked(bool State)
+        {
+            SMMI.GeneralSettingManager.SetSetting(SMC.Statistics, State);
         }
 
         private void UpdateLimitTypeSelected(int Index)

@@ -4,6 +4,12 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Portal.OtherSettingPage.Title">OtherSettingPage</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.ReportData">Автоматична звітність про помилки</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.ReportData.Description">Сукроза діє таким чином, щоб швидко повідомляти про помилку при її виявленні.</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.StatisticsData">Поділіться Cтатистикою використання</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.StatisticsData.Description">Сукроза дозволяє збирати вашу статистику використання для сприяння розвитку додатка.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook">Discord</system:String>
     <system:String x:Key="Portal.OtherSettingPage.DiscordHook.Description">Sucrose забезпечує зв'язок з Discord.</system:String>
 

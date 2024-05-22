@@ -154,6 +154,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool StoreStart => SMMI.EngineSettingManager.GetSetting(SMC.StoreStart, false);
 
+        public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMC.Statistics, true);
+
         public static bool DonateVisible => SMMI.DonateManager.GetSetting(SMC.DonateVisible, true);
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
@@ -161,6 +163,8 @@ namespace Sucrose.Manager.Manage
         public static string App => SMMI.AuroraSettingManager.GetSetting(SMC.App, string.Empty);
 
         public static bool Shuffle => SMMI.EngineSettingManager.GetSetting(SMC.Shuffle, true);
+
+        public static bool Report => SMMI.GeneralSettingManager.GetSetting(SMC.Report, true);
 
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 

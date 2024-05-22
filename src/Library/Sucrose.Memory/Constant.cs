@@ -26,6 +26,8 @@
 
         public const string Video = "Video";
 
+        public const string Report = "Report";
+
         public const string Themes = "Themes";
 
         public const string Volume = "Volume";
@@ -52,17 +54,19 @@
 
         public const string UserAgent = "UserAgent";
 
-        public const string StoreStart = "StoreStart";
-
         public const string PlayerType = "PlayerType";
+
+        public const string Statistics = "Statistics";
+
+        public const string StoreStart = "StoreStart";
 
         public const string ScreenType = "ScreenType";
 
-        public const string UploadType = "UploadType";
+        public const string UpdateTime = "UpdateTime";
 
         public const string UpdateType = "UpdateType";
 
-        public const string UpdateTime = "UpdateTime";
+        public const string UploadType = "UploadType";
 
         public const string ChannelType = "ChannelType";
 

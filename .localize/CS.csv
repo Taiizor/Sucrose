@@ -224,6 +224,7 @@ Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Failed,STÁHNUTÝ SOUBOR SEL
 Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Corrupt,STÁHNUTÝ SOUBOR JE POŠKOZENÝ
 Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Not,STÁHNUTÝ SOUBOR NENÍ POUŽITELNÝ
 Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Error,STÁHNUTÝ SOUBOR NELZE ROZBALIT
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Sound,Zvuk
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Log,Záznam
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Hook,Hák
@@ -241,7 +242,7 @@ Portal\Area\Portal.Area.CS.xaml,Portal.Area.Update,Aktualizace
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Library,Knižnice
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Developer,Vývojář
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Extensions,Rozšíření
-Portal\Area\Portal.Area.CS.xaml,Portal.Area.SystemResources,Systémové prostředky
+Portal\Area\Portal.Area.CS.xaml,Portal.Area.SystemResources,Systémové Prostředky
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.AppearanceBehavior,Vzhled a Chování
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.All,Všechny
 Portal\Category\Portal.Category.CS.xaml,,
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Přesunout vaši stávající knihovnu na nové místo
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.ReportData,Automatické Hlášení Chyb
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.ReportData.Description,"Sucrose přijme opatření k rychlému hlášení, když narazí na chybu."
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.StatisticsData,Sdílet Statistiky Použití
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose umožňuje sbírání statistik vašeho používání k přispění k rozvoji aplikace.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose umožňuje komunikaci s Discordem.

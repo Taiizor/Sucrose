@@ -224,6 +224,7 @@ Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Failed,ΤΟ ΚΑΤΕΒΑΣΜ
 Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Corrupt,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΕΙΝΑΙ ΚΑΤΕΣΤΡΑΜΜΕΝΟ
 Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Not,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟΠΟΙΗΣΙΜΟ
 Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Error,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΠΟΣΥΜΠΙΕΣΤΕΙ
+Portal\Area\Portal.Area.EL.xaml,Portal.Area.Data,Δεδομένα
 Portal\Area\Portal.Area.EL.xaml,Portal.Area.Sound,Ήχος
 Portal\Area\Portal.Area.EL.xaml,Portal.Area.Log,Αρχείο καταγραφής
 Portal\Area\Portal.Area.EL.xaml,Portal.Area.Hook,Αγκίστρι
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Μετακίνηση της υφιστάμενης βιβλιοθήκης σας σε νέα τοποθεσία
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.ReportData,Αυτόματη Αναφορά σφαλμάτων
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.ReportData.Description,Η Sucrose αναλαμβάνει δράση για γρήγορη αναφορά όταν συναντά ένα σφάλμα.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.StatisticsData,Κοινοποίηση στατιστικών χρήσης
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.StatisticsData.Description,Η Sucrose επιτρέπει τη συλλογή των στατιστικών χρήσης σας για να συμβάλει στην ανάπτυξη της εφαρμογής.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.DiscordHook.Description,Το Sucrose διαχειρίζεται την επικοινωνία με το Discord.

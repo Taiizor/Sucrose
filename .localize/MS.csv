@@ -224,6 +224,7 @@ Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Failed,FAIL YANG DIDOWNLOAD 
 Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Corrupt,FAIL YANG DIDOWNLOAD ROSAK
 Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Not,FAIL YANG DIDOWNLOAD TIDAK BOLEH DIGUNAKAN
 Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Error,FAIL YANG DIDOWNLOAD TIDAK DAPAT DIKSTRRAK
+Portal\Area\Portal.Area.MS.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.MS.xaml,Portal.Area.Sound,Bunyi
 Portal\Area\Portal.Area.MS.xaml,Portal.Area.Log,Log
 Portal\Area\Portal.Area.MS.xaml,Portal.Area.Hook,Gantung
@@ -772,6 +773,12 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryMove,Pindahkan perpustakaan Anda ke lokasi baru
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Title,OtherSettingPage
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.ReportData,Pelaporan Ralat Automatik
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.ReportData.Description,Sucrose mengambil tindakan untuk melaporkannya dengan cepat apabila berlaku ralat.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.StatisticsData,Kongsi Statistik Penggunaan
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.StatisticsData.Description,Sucrose membolehkan pengumpulan statistik penggunaan anda untuk menyumbang kepada pembangunan aplikasi.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.DiscordHook,Discord
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.DiscordHook.Description,Sucrose membolehkan komunikasi antara Discord.
