@@ -6,7 +6,6 @@
     xmlns:local="clr-namespace:Sucrose.Update.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:xag="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     Title="{DynamicResource Update.WindowTitle}"
     Width="350"
     Height="350"
@@ -29,13 +28,9 @@
                 <VisualBrush.Visual>
                     <Grid>
                         <Image
+                            x:Name="Background"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Center"
-                            xag:AnimationBehavior.AnimateInDesignMode="False"
-                            xag:AnimationBehavior.AutoStart="True"
-                            xag:AnimationBehavior.CacheFramesInMemory="True"
-                            xag:AnimationBehavior.RepeatBehavior="Forever"
-                            xag:AnimationBehavior.SourceUri="\Sucrose.Update;component\Assets\Back.gif"
                             Opacity="0.75"
                             Stretch="None"
                             StretchDirection="Both" />
@@ -70,7 +65,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             CornerRadius="120"
-            Opacity="0.5"
+            Opacity="0.85"
             Source="\Sucrose.Update;component\Assets\Logo.png"
             Stretch="UniformToFill" />
 

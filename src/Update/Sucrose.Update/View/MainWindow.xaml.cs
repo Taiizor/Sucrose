@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
@@ -66,6 +67,24 @@ namespace Sucrose.Update.View
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void LoadBackground()
+        {
+            BitmapImage Back = new();
+
+            Back.BeginInit();
+
+            Back.UriSource = SMR.Randomise.Next(3) switch
+            {
+                0 => new Uri("pack://application:,,,/Assets/Back1.jpg", UriKind.RelativeOrAbsolute),
+                1 => new Uri("pack://application:,,,/Assets/Back2.jpg", UriKind.RelativeOrAbsolute),
+                _ => new Uri("pack://application:,,,/Assets/Back3.jpg", UriKind.RelativeOrAbsolute),
+            };
+
+            Back.EndInit();
+
+            Background.Source = Back;
         }
 
         private void WindowCorner()
@@ -544,6 +563,8 @@ namespace Sucrose.Update.View
 
         private async void Window_ContentRendered(object sender, EventArgs e)
         {
+            LoadBackground();
+
             WindowCorner();
 
             await Start();
