@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSUQueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.ID.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSUQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLklELnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5JRC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSUQueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.ID.xaml,Discord.BrowseButton,Jelajah
 Discord\Discord.ID.xaml,Discord.Details,Mesin Wallpaper
 Discord\Discord.ID.xaml,Discord.DownloadButton,Unduh
@@ -158,27 +158,56 @@ Property\Property.ID.xaml,Property.FileDropDown.Filter,Semua File (*.*)|*.*
 Undo\Undo.ID.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.ID.xaml,,
 Undo\Undo.ID.xaml,Undo.QuestionMessage,Apakah Anda benar-benar ingin menghapus Sucrose Wallpaper Engine?
+Update\Update.ID.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.ID.xaml,,
 Update\Update.ID.xaml,Update.HelpText,Perbaiki Masalah
 Update\Update.ID.xaml,,
-Update\Update.ID.xaml,Update.UpdateBox.WindowTitle,Pembaruan Sucrose
-Update\Update.ID.xaml,Update.UpdateBox.InstallText,Instal Pembaruan
+Update\Update.ID.xaml,Update.ReloadText,COBA LAGI
 Update\Update.ID.xaml,,
-Update\Update.ID.xaml,Update.InfoBox.WindowTitle,Pembaruan Sucrose
-Update\Update.ID.xaml,Update.InfoBox.TextMessage,Pesan
-Update\Update.ID.xaml,Update.InfoBox.CloseText,Tutup
+Update\Update.ID.xaml,Update.MessageText.Preparing,MENYIAPKAN PERSIAPAN YANG DIBUTUHKAN
 Update\Update.ID.xaml,,
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Empty,Kami berada di saat-saat ketika file pembaruan tersimpan seperti permata yang tersembunyi. Anda masih bisa menikmati pengalaman dengan menggunakan versi yang ada saat ini.
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Error,"Saat mengunduh file pembaruan, kami menemukan retak di jalan dan menyadari bahwa perjalanan ini untuk sementara berakhir. Tetap lanjutkan perjalanan Anda dengan versi saat ini karena pembaruan yang lebih kuat akan menanti Anda saat retakan ini diperbaiki."
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Update,Aplikasi sudah bersama Anda dengan versi paling baru dan inovatifnya seperti halaman terbaru dari sebuah buku. Kami selalu hadir untuk memberikan pengalaman terbaik dan terkini.
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Status,"Kami berada di ambang sebuah mimpi yang tak bisa diakses file pembaruannya. Namun, Anda masih bisa melanjutkan perjalanan Anda dengan versi saat ini."
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Channel,Saluran pembaruan yang dipilih seperti hutan yang sunyi. Saat ini tidak ada informasi pembaruan baru di sini. Lanjutkan perjalanan Anda dengan versi saat ini karena kami akan memberikan lebih banyak lagi saat sunyi ini terpecahkan.
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Extract,"Saat mencoba mengekstrak file pembaruan, kami menghadapi hambatan dari kedalaman lautan. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini karena kami akan kembali untuk menemukan harta baru saat lautan menjadi lebih tenang."
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Network,"Kekurangan koneksi Anda seperti awan yang menutupi matahari. Namun, saat awan berlalu, pengalaman yang lebih terang akan menunggu Anda."
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Updating,Pembaruan aplikasi sedang bergerak maju seperti harta baru yang dibawa ombak ke tepi pantai dengan diam-diam. Inovasi berharga ini sedang dikumpulkan untuk Anda di belakang layar.
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Releases,"Kami sedang mengalami saat di mana bintang pembaruan aplikasi belum terbit. Saat ini tidak ada informasi pembaruan apa pun, namun Anda masih bisa menggunakan versi yang sudah ada."
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Download,"Saat mengunduh file pembaruan, kami menemukan bahwa bintang di langit tidak teratur. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini karena kami akan memberikan pembaruan yang lebih baik saat bintang-bintang berada dalam urutan yang benar."
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Cancelled,Pengunduhan file pembaruan dibatalkan karena jalan kita tiba-tiba berpisah. Lanjutkan perjalanan Anda dengan versi saat ini dan bersiaplah untuk pembaruan di masa depan karena awal baru selalu mungkin.
-Update\Update.ID.xaml,Update.InfoBox.TextMessage.Condition,"Syarat-syarat dalam file pembaruan tampaknya kurang untuk membuka kunci. Sementara itu, lanjutkan perjalanan Anda dengan versi saat ini dan siapkan diri untuk pembaruan di masa depan."
+Update\Update.ID.xaml,Update.MessageText.Temporary,MEMERIKSA LOKASI SEMENTARA
+Update\Update.ID.xaml,Update.MessageText.Temporary.Error,LOKASI SEMENTARA TIDAK DAPAT DIPERIKSA
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Connection,MEMERIKSA KONEKSI INTERNET
+Update\Update.ID.xaml,Update.MessageText.Connection.None,TIDAK ADA KONEKSI INTERNET
+Update\Update.ID.xaml,Update.MessageText.Connection.Error,KONEKSI INTERNET TIDAK DAPAT DIPERIKSA
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Listing,MENDAPATKAN DAFTAR YANG DIPERLUKAN
+Update\Update.ID.xaml,Update.MessageText.Listing.Empty,DAFTAR YANG DIPERLUKAN KOSONG
+Update\Update.ID.xaml,Update.MessageText.Listing.Error,DAFTAR YANG DIPERLUKAN TIDAK DAPAT DITERIMA
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Filtering,DAFTAR SEDANG DIFILTER
+Update\Update.ID.xaml,Update.MessageText.Filtering.Not,DAFTAR TIDAK DAPAT DIFILTER
+Update\Update.ID.xaml,Update.MessageText.Filtering.Error,DAFTAR TIDAK DAPAT DIFILTER
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Comparing,MEMBANDINGKAN DAFTAR
+Update\Update.ID.xaml,Update.MessageText.Comparing.Update,APLIKASI SUDAH TERBARU
+Update\Update.ID.xaml,Update.MessageText.Comparing.Error,GAGAL MEMBANDINGKAN DAFTAR
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Searching,MENCARI BERKAS YANG DIPERLUKAN
+Update\Update.ID.xaml,Update.MessageText.Searching.Not,BERKAS YANG DIPERLUKAN TIDAK DITEMUKAN
+Update\Update.ID.xaml,Update.MessageText.Searching.Error,BERKAS YANG DIPERLUKAN TIDAK DAPAT DICARI
+Update\Update.ID.xaml,Update.MessageText.Searching.Condition,FILE YANG DIBUTUHKAN TIDAK DITEMUKAN
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Downloading,MENGUNDUH BERKAS YANG DIPERLUKAN
+Update\Update.ID.xaml,Update.MessageText.Downloading.Error,BERKAS YANG DIPERLUKAN TIDAK DAPAT DIUNDUH
+Update\Update.ID.xaml,Update.MessageText.Downloading.Complete.Cancel,UNDUHAN BERKAS YANG DIPERLUKAN DIBATALKAN
+Update\Update.ID.xaml,Update.MessageText.Downloading.Complete.Error,TERDAPAT KESALAHAN SAAT MENGUNDUH BERKAS YANG DIPERLUKAN
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Running,MENYIAPKAN FILE YANG DIUNDUH
+Update\Update.ID.xaml,Update.MessageText.Running.Executing,MENJALANKAN FILE YANG DIUNDUH
+Update\Update.ID.xaml,Update.MessageText.Running.Executed,FILE YANG DIUNDUH BERHASIL DIJALANKAN
+Update\Update.ID.xaml,Update.MessageText.Running.Not,FILE YANG DIUNDUH TIDAK DAPAT DIGUNAKAN
+Update\Update.ID.xaml,Update.MessageText.Running.Error,GAGAL MENYIAPKAN FILE YANG DIUNDUH
+Update\Update.ID.xaml,,
+Update\Update.ID.xaml,Update.MessageText.Extracting,MENGEKSTRAK BERKAS YANG TELAH DIUNDUH
+Update\Update.ID.xaml,Update.MessageText.Extracting.Executing,BERKAS YANG DIEKSTRAK SEDANG DIEKSEKUSI
+Update\Update.ID.xaml,Update.MessageText.Extracting.Executed,BERKAS YANG DIEKSTRAK TELAH DIEKSEKUSI
+Update\Update.ID.xaml,Update.MessageText.Extracting.Failed,BERKAS YANG DIUNDUH GAGAL
+Update\Update.ID.xaml,Update.MessageText.Extracting.Corrupt,BERKAS YANG DIUNDUH RUSAK
+Update\Update.ID.xaml,Update.MessageText.Extracting.Not,BERKAS YANG DIUNDUH TIDAK DAPAT DIGUNAKAN
+Update\Update.ID.xaml,Update.MessageText.Extracting.Error,BERKAS YANG DIUNDUH TIDAK DAPAT DIEKSTRAK
 Watchdog\Watchdog.ID.xaml,Watchdog.HelpButton,Bantuan
 Watchdog\Watchdog.ID.xaml,Watchdog.CloseButton,Tutup
 Watchdog\Watchdog.ID.xaml,Watchdog.ErrorMessage,Tidak terduga terjadi kesalahan:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.ID.xaml,Watchdog.HideButton,Sembunyikan
 Watchdog\Watchdog.ID.xaml,Watchdog.ShowButton,Tampilkan
 Watchdog\Watchdog.ID.xaml,Watchdog.StackTrace,Tumpukan Jejak:
 Watchdog\Watchdog.ID.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.ID.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.ReloadText,COBA LAGI
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Preparing,MENYIAPKAN PERSIAPAN YANG DIBUTUHKAN
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Temporary,MEMERIKSA LOKASI SEMENTARA
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Temporary.Error,LOKASI SEMENTARA TIDAK DAPAT DIPERIKSA
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Connection,MEMERIKSA KONEKSI INTERNET
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Connection.None,TIDAK ADA KONEKSI INTERNET
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Connection.Error,KONEKSI INTERNET TIDAK DAPAT DIPERIKSA
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Searching,MENCARI BERKAS YANG DIPERLUKAN
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Searching.Not,BERKAS YANG DIPERLUKAN TIDAK DITEMUKAN
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Searching.Error,BERKAS YANG DIPERLUKAN TIDAK DAPAT DICARI
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Listing,MENDAPATKAN DAFTAR YANG DIPERLUKAN
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Listing.Empty,DAFTAR YANG DIPERLUKAN KOSONG
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Listing.Error,DAFTAR YANG DIPERLUKAN TIDAK DAPAT DITERIMA
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Filtering,DAFTAR SEDANG DIFILTER
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Filtering.Not,DAFTAR TIDAK DAPAT DIFILTER
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Filtering.Error,DAFTAR TIDAK DAPAT DIFILTER
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading,MENGUNDUH BERKAS YANG DIPERLUKAN
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading.Error,BERKAS YANG DIPERLUKAN TIDAK DAPAT DIUNDUH
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading.Complete.Cancel,UNDUHAN BERKAS YANG DIPERLUKAN DIBATALKAN
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Downloading.Complete.Error,TERDAPAT KESALAHAN SAAT MENGUNDUH BERKAS YANG DIPERLUKAN
-Wizard\Wizard.ID.xaml,,
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting,MENGEKSTRAK BERKAS YANG TELAH DIUNDUH
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Executing,BERKAS YANG DIEKSTRAK SEDANG DIEKSEKUSI
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Executed,BERKAS YANG DIEKSTRAK TELAH DIEKSEKUSI
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Failed,BERKAS YANG DIUNDUH GAGAL
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Corrupt,BERKAS YANG DIUNDUH RUSAK
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Not,BERKAS YANG DIUNDUH TIDAK DAPAT DIGUNAKAN
-Wizard\Wizard.ID.xaml,Wizard.MessageText.Extracting.Error,BERKAS YANG DIUNDUH TIDAK DAPAT DIEKSTRAK
 Portal\Area\Portal.Area.ID.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.ID.xaml,Portal.Area.Sound,Suara
 Portal\Area\Portal.Area.ID.xaml,Portal.Area.Log,Log

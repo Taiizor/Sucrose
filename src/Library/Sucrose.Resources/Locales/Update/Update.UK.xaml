@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
+
     <system:String x:Key="Update.HelpText">Вирішити проблему</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Оновлення Sucrose</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Встановити оновлення</system:String>
+    <system:String x:Key="Update.ReloadText">СПРОБУВАТИ ЗНОВУ</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Оновлення Sucrose</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Повідомлення</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Закрити</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">ПІДГОТОВКА НЕОБХІДНИХ ПІДГОТОВК</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Ми переживаємо моменти, коли оновлення файлів зараз заховані, як втрачений скарб. Ви можете продовжувати насолоджуватися досвідом, використовуючи поточну версію.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">Під час завантаження файлу оновлення ми помітили тріщину на шляху, і ця подорож наразі завершилася. Продовжуйте подорожувати зараз з поточною версією, оскільки, коли ці тріщини виправляться, вас очікує більш потужне оновлення.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">Додаток вже з вами в його останній і найновіший версії, схожий на останню сторінку у книзі. Ми тут, щоб завжди надавати вам найкращий і найновіший досвід.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Ми на межі, де неможливо отримати доступ до файлів оновлення. Але ви можете продовжувати насолоджуватися своєю мрією зараз з поточною версією.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Обраний канал оновлення схожий на ліс мовчазності. Зараз тут немає нової інформації про оновлення. Продовжуйте свою подорож з поточною версією, оскільки коли ця мовчазність порушиться, вас чекатимуть нові можливості.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Під час спроби витягти файл оновлення, ми зіткнулися з перешкодою, яка походить з глибини моря. Зараз просто продовжуйте подорож з поточною версією, оскільки коли моря стануть спокійніше, ми повернемося, щоб знайти нові скарби.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">Слабкий сигнал вашого з'єднання, схоже на те, як хмари перекривають сонце. Якщо хмари розсиплються, вас чекає світліший досвід.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Оновлення додатку рухаються ледь помітно, схоже на нові скарби, які приносять хвилі на берег. Ці цінні покращення збираються для вас в фоновому режимі.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Ми живемо у момент, коли зірка оновлення ще не сходить. Зараз немає жодних відомостей про оновлення, але ви можете продовжувати використовувати поточну версію.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">Під час завантаження файлу оновлення ми виявили, що зорі на небі розташовані в неправильному порядку. Зараз продовжуйте подорож з поточною версією, оскільки коли зорі розташуються в правильному порядку, вас чекатиме краще оновлення.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Завантаження файлу оновлення скасовано через раптове розходження шляхів. Продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень, оскільки новий початок завжди можливий.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Здається, що умови в файлах оновлення виглядають, як відсутність ключа для розблокування. Зараз продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень.</system:String>
+    <system:String x:Key="Update.MessageText.Temporary">ПЕРЕВІРКА ТИМЧАСОВИХ МІСЦЬ</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">ТИМЧАСОВІ МІСЦЯ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">ПЕРЕВІРКА ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">НЕМАЄ ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">ОТРИМАННЯ НЕОБХІДНИХ СПИСКІВ</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">НЕОБХІДНІ СПИСКИ ПОРОЖНІ</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">НЕ ВДАЛОСЯ ОТРИМАТИ НЕОБХІДНІ СПИСКИ</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">СПИСКИ ФІЛЬТРУЮТЬСЯ</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">СПИСКИ НЕ МОЖНА ФІЛЬТРУВАТИ</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">СПИСКИ НЕ ВДАЛОСЯ ФІЛЬТРУВАТИ</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">ПОРІВНЯННЯ СПИСКІВ</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">ДОДАТОК ВЖЕ ОНОВЛЕНИЙ</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">НЕ ВДАЛОСЯ ПОРІВНЯТИ СПИСКИ</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">ПОШУК НЕОБХІДНИХ ФАЙЛІВ</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">НЕ ЗНАЙДЕНО НЕОБХІДНІ ФАЙЛИ</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">НЕ ВДАЛОСЯ ВИКОНАТИ ПОШУК НЕОБХІДНИХ ФАЙЛІВ</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">ПОТРІБНІ ФАЙЛИ НЕ ЗНАЙДЕНО</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">ЗАВАНТАЖЕННЯ НЕОБХІДНИХ ФАЙЛІВ</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">НЕ ВДАЛОСЯ ЗАВАНТАЖИТИ НЕОБХІДНІ ФАЙЛИ</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ СКАСОВАНО</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">ПІД ЧАС ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ ВИНИКЛА ПОМИЛКА</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">ПІДГОТОВКА ЗАВАНТАЖЕНОГО ФАЙЛУ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">ВИКОНАННЯ ЗАВАНТАЖЕНОГО ФАЙЛУ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">ЗАВАНТАЖЕНИЙ ФАЙЛ ВИКОНАНО</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ПРИДАТНИЙ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">НЕ ВДАЛОСЯ ПІДГОТУВАТИ ЗАВАНТАЖЕНИЙ ФАЙЛ</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">РОЗПАКОВКА ЗАВАНТАЖЕНОГО ФАЙЛУ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">ВИКОНАННЯ РОЗПАКОВАНОГО ФАЙЛУ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">РОЗПАКОВАНИЙ ФАЙЛ ВИКОНАНО</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">ЗАВАНТАЖЕНИЙ ФАЙЛ ПОШКОДЖЕНИЙ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">ЗАВАНТАЖЕНИЙ ФАЙЛ НЕПРИДАТНИЙ ДЛЯ ВИКОРИСТАННЯ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ РОЗПАКУВАТИ</system:String>
 </ResourceDictionary>

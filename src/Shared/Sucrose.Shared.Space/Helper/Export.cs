@@ -16,7 +16,6 @@ namespace Sucrose.Shared.Space.Helper
             SSSHP.Kill(SMR.Undo);
             SSSHP.Kill(SMR.Portal);
             SSSHP.Kill(SMR.Update);
-            SSSHP.Kill(SMR.Wizard);
             SSSHP.Kill(SMR.Launcher);
             SSSHP.Kill(SMR.Property);
             SSSHP.Kill(SMR.Watchdog);

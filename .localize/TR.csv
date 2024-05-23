@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuVFIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.TR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuVFIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlRSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5UUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuVFIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.TR.xaml,Discord.BrowseButton,Gözat
 Discord\Discord.TR.xaml,Discord.Details,Duvar Kağıdı Motoru
 Discord\Discord.TR.xaml,Discord.DownloadButton,İndir
@@ -158,27 +158,56 @@ Property\Property.TR.xaml,Property.FileDropDown.Filter,Tüm Dosyalar (*.*)|*.*
 Undo\Undo.TR.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.TR.xaml,,
 Undo\Undo.TR.xaml,Undo.QuestionMessage,Sucrose Wallpaper Engine'yi gerçekten kaldırmak istiyor musunuz?
+Update\Update.TR.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.TR.xaml,,
 Update\Update.TR.xaml,Update.HelpText,Sorunu Çöz
 Update\Update.TR.xaml,,
-Update\Update.TR.xaml,Update.UpdateBox.WindowTitle,Sucrose Güncelleme
-Update\Update.TR.xaml,Update.UpdateBox.InstallText,Güncellemeyi Yükle
+Update\Update.TR.xaml,Update.ReloadText,TEKRAR DENEYİN
 Update\Update.TR.xaml,,
-Update\Update.TR.xaml,Update.InfoBox.WindowTitle,Sucrose Güncelleme
-Update\Update.TR.xaml,Update.InfoBox.TextMessage,Mesaj
-Update\Update.TR.xaml,Update.InfoBox.CloseText,Çıkış
+Update\Update.TR.xaml,Update.MessageText.Preparing,GEREKLİ HAZIRLIKLAR YAPILIYOR
 Update\Update.TR.xaml,,
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Empty,Güncelleme dosyalarının kayıp bir mücevher gibi gizlendiği anlardayız. Şu an mevcut sürümü kullanarak da deneyimden keyif alabilirsiniz.
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Error,"Güncelleme dosyasını indirirken, yolda bir çatlak oluştuğunu ve bu yolculuğun şimdilik sona erdiğini fark ettik. Mevcut sürümle yolculuğunuza devam edin, çünkü bu çatlaklar tamir edildiğinde daha güçlü bir güncelleme sizi bekliyor olacak."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Update,"Uygulama, bir kitabın en yeni sayfası gibi zaten en güncel ve yenilikçi haliyle sizinle. Her an en iyi ve en güncel deneyimi yaşatmak için burada."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Status,Güncelleme dosyalarına erişilemeyen bir rüyanın eşiğindeyiz. Ancak mevcut sürümle de rüyanızı yaşamaya devam edebilirsiniz.
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Channel,"Seçili güncelleme kanalı, bir sessizlik ormanı gibi. Şu an için yeni güncelleme bilgileri burada bulunmuyor. Mevcut sürümle yolculuğunuza devam edin, çünkü bu sessizlik bozulduğunda size daha fazlasını sunacağız."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Extract,"Güncelleme dosyasını çıkartmaya çalışırken, denizin derinliklerinden kaynaklanan bir engelle karşılaştık. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü denizler daha sakin olduğunda yeni hazineleri bulmak için geri döneceğiz."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Network,"Bağlantınızın zayıflığı, bulutların güneşi örtmesi gibi. Bulutlar dağıldığında daha aydınlık bir deneyim sizi bekliyor olacak."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Updating,"Uygulama güncellemesi, denizin dalgalarının kıyıya getirdiği yeni hazineler gibi sinsi bir şekilde ilerliyor. Bu değerli yenilikler, arkaplanda sizin için toplanıyor."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Releases,"Uygulamada güncelleme yıldızının henüz doğmadığı bir anı yaşıyoruz. Şu an için herhangi bir güncelleme bilgisi yok, ancak zaten mevcut olan sürümü kullanmaya devam edebilirsiniz."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Download,"Güncelleme dosyasını indirirken, gökyüzündeki yıldızların yanlış bir sıralamaya sahip olduğunu keşfettik. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü yıldızlar doğru hizaya geldiğinde size daha iyi bir güncelleme sunacağız."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Cancelled,"Güncelleme dosyasının indirilmesi iptal edildi, çünkü yollarımız aniden ayrıldı. Mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun, çünkü yeni bir başlangıç her zaman mümkündür."
-Update\Update.TR.xaml,Update.InfoBox.TextMessage.Condition,"Güncelleme dosyalarındaki şartlar, anahtarın kilidini açmak için eksik gibi görünüyor. Şimdilik mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun."
+Update\Update.TR.xaml,Update.MessageText.Temporary,GEÇİCİ KONUMLARIN KONTROLÜ YAPILIYOR
+Update\Update.TR.xaml,Update.MessageText.Temporary.Error,GEÇİCİ KONUMLAR KONTROL EDİLEMEDİ
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Connection,İNTERNET BAĞLANTISI KONTROL EDİLİYOR
+Update\Update.TR.xaml,Update.MessageText.Connection.None,İNTERNET BAĞLANTISI YOK
+Update\Update.TR.xaml,Update.MessageText.Connection.Error,İNTERNET BAĞLANTISI KONTROL EDİLEMEDİ
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Listing,GEREKLİ LİSTELER ALINIYOR
+Update\Update.TR.xaml,Update.MessageText.Listing.Empty,GEREKLİ LİSTELER BOŞ
+Update\Update.TR.xaml,Update.MessageText.Listing.Error,GEREKLİ LİSTELER ALINAMADI
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Filtering,LİSTELER AYIKLANIYOR
+Update\Update.TR.xaml,Update.MessageText.Filtering.Not,LİSTELER FİLTRELENEMİYOR
+Update\Update.TR.xaml,Update.MessageText.Filtering.Error,LİSTELER AYIKLANAMADI
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Comparing,LİSTELER KARŞILAŞTIRILIYOR
+Update\Update.TR.xaml,Update.MessageText.Comparing.Update,UYGULAMA ZATEN GÜNCEL
+Update\Update.TR.xaml,Update.MessageText.Comparing.Error,LİSTELER KARŞILAŞTIRILAMADI
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Searching,GEREKLİ DOSYALAR ARANIYOR
+Update\Update.TR.xaml,Update.MessageText.Searching.Not,GEREKLİ DOSYALAR BULUNAMADI
+Update\Update.TR.xaml,Update.MessageText.Searching.Error,GEREKLİ DOSYALAR ARANAMADI
+Update\Update.TR.xaml,Update.MessageText.Searching.Condition,GEREKLİ DOSYALAR BULUNAMADI
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Downloading,GEREKLİ DOSYALAR İNDİRİLİYOR
+Update\Update.TR.xaml,Update.MessageText.Downloading.Error,GEREKLİ DOSYALAR İNDİRİLEMEDİ
+Update\Update.TR.xaml,Update.MessageText.Downloading.Complete.Cancel,GEREKLİ DOSYA İNDİRİLİRKEN İPTAL OLDU
+Update\Update.TR.xaml,Update.MessageText.Downloading.Complete.Error,GEREKLİ DOSYA İNDİRİLİRKEN HATA OLDU
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Running,İNDİRİLEN DOSYA HAZIRLANIYOR
+Update\Update.TR.xaml,Update.MessageText.Running.Executing,İNDİRİLEN DOSYA ÇALIŞTIRILIYOR
+Update\Update.TR.xaml,Update.MessageText.Running.Executed,İNDİRİLEN DOSYA ÇALIŞTIRILDI
+Update\Update.TR.xaml,Update.MessageText.Running.Not,İNDİRİLEN DOSYA KULLANILAMAZ
+Update\Update.TR.xaml,Update.MessageText.Running.Error,İNDİRİLEN DOSYA HAZIRLANAMADI
+Update\Update.TR.xaml,,
+Update\Update.TR.xaml,Update.MessageText.Extracting,İNDİRİLEN DOSYA ÇIKARTILIYOR
+Update\Update.TR.xaml,Update.MessageText.Extracting.Executing,ÇIKARTILAN DOSYA ÇALIŞTIRILIYOR
+Update\Update.TR.xaml,Update.MessageText.Extracting.Executed,ÇIKARTILAN DOSYA ÇALIŞTIRILDI
+Update\Update.TR.xaml,Update.MessageText.Extracting.Failed,İNDİRİLEN DOSYA BAŞARISIZ OLDU
+Update\Update.TR.xaml,Update.MessageText.Extracting.Corrupt,İNDİRİLEN DOSYA BOZUK
+Update\Update.TR.xaml,Update.MessageText.Extracting.Not,İNDİRİLEN DOSYA KULLANILAMAZ
+Update\Update.TR.xaml,Update.MessageText.Extracting.Error,İNDİRİLEN DOSYA ÇIKARILAMADI
 Watchdog\Watchdog.TR.xaml,Watchdog.HelpButton,Yardım
 Watchdog\Watchdog.TR.xaml,Watchdog.CloseButton,Çıkış
 Watchdog\Watchdog.TR.xaml,Watchdog.ErrorMessage,Beklenmeyen bir hata oluştu:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.TR.xaml,Watchdog.HideButton,Sakla
 Watchdog\Watchdog.TR.xaml,Watchdog.ShowButton,Göster
 Watchdog\Watchdog.TR.xaml,Watchdog.StackTrace,Yığın İzleme:
 Watchdog\Watchdog.TR.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.TR.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.ReloadText,TEKRAR DENEYİN
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Preparing,GEREKLİ HAZIRLIKLAR YAPILIYOR
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Temporary,GEÇİCİ KONUMLARIN KONTROLÜ YAPILIYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Temporary.Error,GEÇİCİ KONUMLAR KONTROL EDİLEMEDİ
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Connection,İNTERNET BAĞLANTISI KONTROL EDİLİYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Connection.None,İNTERNET BAĞLANTISI YOK
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Connection.Error,İNTERNET BAĞLANTISI KONTROL EDİLEMEDİ
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Searching,GEREKLİ DOSYALAR ARANIYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Searching.Not,GEREKLİ DOSYALAR BULUNAMADI
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Searching.Error,GEREKLİ DOSYALAR ARANAMADI
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Listing,GEREKLİ LİSTELER ALINIYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Listing.Empty,GEREKLİ LİSTELER BOŞ
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Listing.Error,GEREKLİ LİSTELER ALINAMADI
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Filtering,LİSTELER AYIKLANIYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Filtering.Not,LİSTELER FİLTRELENEMİYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Filtering.Error,LİSTELER AYIKLANAMADI
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading,GEREKLİ DOSYALAR İNDİRİLİYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading.Error,GEREKLİ DOSYALAR İNDİRİLEMEDİ
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading.Complete.Cancel,GEREKLİ DOSYA İNDİRİLİRKEN İPTAL OLDU
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Downloading.Complete.Error,GEREKLİ DOSYA İNDİRİLİRKEN HATA OLDU
-Wizard\Wizard.TR.xaml,,
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting,İNDİRİLEN DOSYA ÇIKARTILIYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Executing,ÇIKARTILAN DOSYA ÇALIŞTIRILIYOR
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Executed,ÇIKARTILAN DOSYA ÇALIŞTIRILDI
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Failed,İNDİRİLEN DOSYA BAŞARISIZ OLDU
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Corrupt,İNDİRİLEN DOSYA BOZUK
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Not,İNDİRİLEN DOSYA KULLANILAMAZ
-Wizard\Wizard.TR.xaml,Wizard.MessageText.Extracting.Error,İNDİRİLEN DOSYA ÇIKARILAMADI
 Portal\Area\Portal.Area.TR.xaml,Portal.Area.Data,Veri
 Portal\Area\Portal.Area.TR.xaml,Portal.Area.Sound,Ses
 Portal\Area\Portal.Area.TR.xaml,Portal.Area.Log,Günlük

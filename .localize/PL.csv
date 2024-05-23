@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.PL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUEwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5QTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUEwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.PL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUEwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlBMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5QTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUEwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.PL.xaml,Discord.BrowseButton,Przeglądać
 Discord\Discord.PL.xaml,Discord.Details,Silnik Tapet
 Discord\Discord.PL.xaml,Discord.DownloadButton,Pobierać
@@ -158,27 +158,56 @@ Property\Property.PL.xaml,Property.FileDropDown.Filter,Wszystkie pliki (*.*)|*.*
 Undo\Undo.PL.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.PL.xaml,,
 Undo\Undo.PL.xaml,Undo.QuestionMessage,Czy na pewno chcesz odinstalować Sucrose Wallpaper Engine?
+Update\Update.PL.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.PL.xaml,,
 Update\Update.PL.xaml,Update.HelpText,Rozwiązać Problem
 Update\Update.PL.xaml,,
-Update\Update.PL.xaml,Update.UpdateBox.WindowTitle,Aktualizacja Surose
-Update\Update.PL.xaml,Update.UpdateBox.InstallText,Zainstaluj Aktualizację
+Update\Update.PL.xaml,Update.ReloadText,SPRÓBUJ PONOWNIE
 Update\Update.PL.xaml,,
-Update\Update.PL.xaml,Update.InfoBox.WindowTitle,Aktualizacja Sucrose
-Update\Update.PL.xaml,Update.InfoBox.TextMessage,Wiadomość
-Update\Update.PL.xaml,Update.InfoBox.CloseText,Zamknąć
+Update\Update.PL.xaml,Update.MessageText.Preparing,PRZYGOTOWYWANIE NIEZBĘDNYCH PRZYGOTOWAŃ
 Update\Update.PL.xaml,,
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Empty,"Jesteśmy w chwilach, gdy pliki aktualizacji są ukryte jak zaginiony klejnot. Możesz także cieszyć się doświadczeniem, korzystając z obecnej wersji."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Error,"Podczas pobierania pliku aktualizacji odkryliśmy pęknięcie na ścieżce, a ta podróż na razie dobiegła końca. Kontynuuj swoją podróż z obecną wersją, ponieważ na ciebie czeka mocniejsza aktualizacja, gdy te pęknięcia zostaną naprawione."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Update,"Aplikacja jest już z Tobą, podobnie jak najnowsza strona książki, w jej najnowszej i innowacyjnej formie. Tutaj, aby w każdej chwili zapewnić Ci najlepsze i najnowsze doświadczenie."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Status,"Stojąc na progu snu, w którym nie można uzyskać dostępu do plików aktualizacji. Niemniej jednak możesz kontynuować życie swojego snu za pomocą obecnej wersji."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Channel,"Wybrany kanał aktualizacji jest jak cichy las. Obecnie nie ma tutaj nowych informacji o aktualizacjach. Kontynuuj swoją podróż z obecną wersją, ponieważ kiedy ta cisza zostanie przerwana, zaoferujemy Ci więcej."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Extract,"Podczas próby wyodrębnienia pliku aktualizacji napotkaliśmy przeszkodę ze spodów morza. Na razie kontynuuj podróż z aktualną wersją, ponieważ wrócimy, aby znaleźć nowe skarby, gdy morza staną się spokojniejsze."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Network,"Słabość Twojego połączenia, jak chmury zakrywające słońce. Kiedy chmury się rozeszły, czeka Cię jaśniejsze doświadczenie."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Updating,"Aktualizacja aplikacji postępuje podstępnie, podobnie jak nowe skarby przyniesione na brzeg przez fale morza. Te cenne nowości są zbierane w tle dla Ciebie."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Releases,"Przeżywamy chwilę, gdy gwiazda aktualizacji w aplikacji jeszcze się nie narodziła. Obecnie nie ma żadnych informacji o aktualizacji, ale możesz nadal korzystać z obecnej wersji."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Download,"Podczas pobierania pliku aktualizacji odkryliśmy, że gwiazdy na niebie są źle ustawione. Na razie kontynuuj podróż z aktualną wersją, ponieważ dostarczymy Ci lepszą aktualizację, gdy gwiazdy ustawią się prawidłowo."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Cancelled,"Pobieranie pliku aktualizacji zostało anulowane, ponieważ nasze ścieżki nagle się rozeszły. Kontynuuj swoją podróż z obecną wersją i bądź gotowy na przyszłe aktualizacje, bo nowy początek zawsze jest możliwy."
-Update\Update.PL.xaml,Update.InfoBox.TextMessage.Condition,"Warunki w plikach aktualizacji wydają się brakować, aby odblokować klucz. Na razie kontynuuj podróż z bieżącą wersją i bądź gotowy na przyszłe aktualizacje."
+Update\Update.PL.xaml,Update.MessageText.Temporary,SPRAWDZANIE LOKALIZACJI TYMCZASOWYCH
+Update\Update.PL.xaml,Update.MessageText.Temporary.Error,NIE MOŻNA SPRWADZIĆ LOKALIZACJI TYMCZASOWYCH
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Connection,SPRAWDZANIE POŁĄCZENIA INTERNETOWEGO
+Update\Update.PL.xaml,Update.MessageText.Connection.None,BRAK POŁĄCZENIA INTERNETOWEGO
+Update\Update.PL.xaml,Update.MessageText.Connection.Error,NIE MOŻNA SPRWADZIĆ POŁĄCZENIA INTERNETOWEGO
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Listing,POBIERANIE WYMAGANYCH LIST
+Update\Update.PL.xaml,Update.MessageText.Listing.Empty,WYMAGANE LISTY SĄ PUSTE
+Update\Update.PL.xaml,Update.MessageText.Listing.Error,NIE MOŻNA POBRAĆ WYMAGANYCH LIST
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Filtering,LISTY SĄ FILTROWANE
+Update\Update.PL.xaml,Update.MessageText.Filtering.Not,LISTY NIE MOGĄ BYĆ FILTROWANE
+Update\Update.PL.xaml,Update.MessageText.Filtering.Error,LISTY NIE MOGĄ BYĆ FILTROWANE
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Comparing,PORÓWNYWANIE LIST
+Update\Update.PL.xaml,Update.MessageText.Comparing.Update,APLIKACJA JEST JUŻ AKTUALNA
+Update\Update.PL.xaml,Update.MessageText.Comparing.Error,NIE UDAŁO SIĘ PORÓWNAĆ LIST
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Searching,WYSZUKIWANIE WYMAGANYCH PLIKÓW
+Update\Update.PL.xaml,Update.MessageText.Searching.Not,NIE ZNALEZIONO WYMAGANYCH PLIKÓW
+Update\Update.PL.xaml,Update.MessageText.Searching.Error,NIE MOŻNA WYSZUKAĆ WYMAGANYCH PLIKÓW
+Update\Update.PL.xaml,Update.MessageText.Searching.Condition,NIE ZNALEZIONO WYMAGANYCH PLIKÓW
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Downloading,POBIERANIE WYMAGANYCH PLIKÓW
+Update\Update.PL.xaml,Update.MessageText.Downloading.Error,NIE MOŻNA POBRAĆ WYMAGANYCH PLIKÓW
+Update\Update.PL.xaml,Update.MessageText.Downloading.Complete.Cancel,POBIERANIE WYMAGANEGO PLIKU ZOSTAŁO ANULOWANE
+Update\Update.PL.xaml,Update.MessageText.Downloading.Complete.Error,WYSTĄPIŁ BŁĄD PODCZAS POBIERANIA WYMAGANEGO PLIKU
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Running,PRZYGOTOWYWANIE POBRANEGO PLIKU
+Update\Update.PL.xaml,Update.MessageText.Running.Executing,WYKONYWANIE POBRANEGO PLIKU
+Update\Update.PL.xaml,Update.MessageText.Running.Executed,POBRANY PLIK WYKONANY
+Update\Update.PL.xaml,Update.MessageText.Running.Not,POBRANY PLIK NIE JEST UŻYWALNY
+Update\Update.PL.xaml,Update.MessageText.Running.Error,NIE UDAŁO SIĘ PRZYGOTOWAĆ POBRANEGO PLIKU
+Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.MessageText.Extracting,WYPYCHANIE POBRANEGO PLIKU
+Update\Update.PL.xaml,Update.MessageText.Extracting.Executing,WYPYCHANY PLIK JEST WYKONYWANY
+Update\Update.PL.xaml,Update.MessageText.Extracting.Executed,WYPYCHANY PLIK ZOSTAŁ WYKONANY
+Update\Update.PL.xaml,Update.MessageText.Extracting.Failed,POBRANY PLIK NIE POWIODŁ SIĘ
+Update\Update.PL.xaml,Update.MessageText.Extracting.Corrupt,POBRANY PLIK JEST USZKODZONY
+Update\Update.PL.xaml,Update.MessageText.Extracting.Not,POBRANY PLIK NIE MOŻE BYĆ UŻYWANY
+Update\Update.PL.xaml,Update.MessageText.Extracting.Error,NIE MOŻNA WYPYCHAĆ POBRANEGO PLIKU
 Watchdog\Watchdog.PL.xaml,Watchdog.HelpButton,Pomoc
 Watchdog\Watchdog.PL.xaml,Watchdog.CloseButton,Zamknąć
 Watchdog\Watchdog.PL.xaml,Watchdog.ErrorMessage,Wystąpił nieoczekiwany błąd:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.PL.xaml,Watchdog.HideButton,Ukrywać
 Watchdog\Watchdog.PL.xaml,Watchdog.ShowButton,Pokazywać
 Watchdog\Watchdog.PL.xaml,Watchdog.StackTrace,Ślad Stosu:
 Watchdog\Watchdog.PL.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.PL.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.ReloadText,SPRÓBUJ PONOWNIE
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Preparing,PRZYGOTOWYWANIE NIEZBĘDNYCH PRZYGOTOWAŃ
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Temporary,SPRAWDZANIE LOKALIZACJI TYMCZASOWYCH
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Temporary.Error,NIE MOŻNA SPRWADZIĆ LOKALIZACJI TYMCZASOWYCH
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Connection,SPRAWDZANIE POŁĄCZENIA INTERNETOWEGO
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Connection.None,BRAK POŁĄCZENIA INTERNETOWEGO
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Connection.Error,NIE MOŻNA SPRWADZIĆ POŁĄCZENIA INTERNETOWEGO
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Searching,WYSZUKIWANIE WYMAGANYCH PLIKÓW
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Searching.Not,NIE ZNALEZIONO WYMAGANYCH PLIKÓW
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Searching.Error,NIE MOŻNA WYSZUKAĆ WYMAGANYCH PLIKÓW
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Listing,POBIERANIE WYMAGANYCH LIST
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Listing.Empty,WYMAGANE LISTY SĄ PUSTE
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Listing.Error,NIE MOŻNA POBRAĆ WYMAGANYCH LIST
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Filtering,LISTY SĄ FILTROWANE
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Filtering.Not,LISTY NIE MOGĄ BYĆ FILTROWANE
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Filtering.Error,LISTY NIE MOGĄ BYĆ FILTROWANE
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Downloading,POBIERANIE WYMAGANYCH PLIKÓW
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Downloading.Error,NIE MOŻNA POBRAĆ WYMAGANYCH PLIKÓW
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Downloading.Complete.Cancel,POBIERANIE WYMAGANEGO PLIKU ZOSTAŁO ANULOWANE
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Downloading.Complete.Error,WYSTĄPIŁ BŁĄD PODCZAS POBIERANIA WYMAGANEGO PLIKU
-Wizard\Wizard.PL.xaml,,
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Extracting,WYPYCHANIE POBRANEGO PLIKU
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Extracting.Executing,WYPYCHANY PLIK JEST WYKONYWANY
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Extracting.Executed,WYPYCHANY PLIK ZOSTAŁ WYKONANY
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Extracting.Failed,POBRANY PLIK NIE POWIODŁ SIĘ
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Extracting.Corrupt,POBRANY PLIK JEST USZKODZONY
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Extracting.Not,POBRANY PLIK NIE MOŻE BYĆ UŻYWANY
-Wizard\Wizard.PL.xaml,Wizard.MessageText.Extracting.Error,NIE MOŻNA WYPYCHAĆ POBRANEGO PLIKU
 Portal\Area\Portal.Area.PL.xaml,Portal.Area.Data,Dane
 Portal\Area\Portal.Area.PL.xaml,Portal.Area.Sound,Dźwięk
 Portal\Area\Portal.Area.PL.xaml,Portal.Area.Log,Dziennik

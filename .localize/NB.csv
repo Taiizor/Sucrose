@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.NB.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuTkIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.NB.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuTkIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLk5CLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5OQi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuTkIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.NB.xaml,Discord.BrowseButton,Bla Gjennom
 Discord\Discord.NB.xaml,Discord.Details,Bakgrunnsmotor
 Discord\Discord.NB.xaml,Discord.DownloadButton,Last Ned
@@ -158,27 +158,56 @@ Property\Property.NB.xaml,Property.FileDropDown.Filter,Alle filer (*.*)|*.*
 Undo\Undo.NB.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.NB.xaml,,
 Undo\Undo.NB.xaml,Undo.QuestionMessage,Ønsker du virkelig å avinstallere Sucrose Wallpaper Engine?
-Update\Update.NB.xaml,Update.HelpText,Løs problemet
+Update\Update.NB.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.NB.xaml,,
-Update\Update.NB.xaml,Update.UpdateBox.WindowTitle,Sucrose Oppdatering
-Update\Update.NB.xaml,Update.UpdateBox.InstallText,Installer oppdateringen
+Update\Update.NB.xaml,Update.HelpText,Løs Problemet
 Update\Update.NB.xaml,,
-Update\Update.NB.xaml,Update.InfoBox.WindowTitle,Sucrose Oppdatering
-Update\Update.NB.xaml,Update.InfoBox.TextMessage,Melding
-Update\Update.NB.xaml,Update.InfoBox.CloseText,Lukk
+Update\Update.NB.xaml,Update.ReloadText,PRØV IGJEN
 Update\Update.NB.xaml,,
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Empty,Vi er i øyeblikket på et øyeblikk der oppdateringsfilene er skjult som en tapt juvel. Du kan fortsatt glede deg over opplevelsen med den gjeldende versjonen.
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Error,"Vi oppdaget en sprekk i veien mens du prøvde å laste ned oppdateringsfilen, og denne reisen endte foreløpig. Fortsett din reise med den gjeldende versjonen, fordi når sprekkene er reparert, venter en sterkere oppdatering på deg."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Update,"Applikasjonen er allerede med deg i sin nyeste og mest innovative form, akkurat som den siste siden i en bok. Vi er her for å gi deg den beste og mest oppdaterte opplevelsen når som helst."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Status,Vi er på terskelen til en drøm der oppdateringsfilene ikke er tilgjengelige. Men du kan fortsatt leve drømmen med den gjeldende versjonen.
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Channel,"Den valgte oppdateringskanalen er som en stille skog. Det er for øyeblikket ingen nye oppdateringsinformasjon her. Fortsett reisen med den gjeldende versjonen, for når stillheten brytes, vil vi gi deg mer."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Extract,"Vi støtte på en hindring fra dypene mens vi prøvde å pakke ut oppdateringsfilen. For nå kan du fortsette reisen med den nåværende versjonen, for vi vil komme tilbake for å finne nye skatter når havet er roligere."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Network,"Din tilkoblings svakhet er som skyer som dekker solen. Når skyene spres, vil en lysere opplevelse vente på deg."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Updating,Applikasjonsoppdateringen beveger seg stille som de nye skattene som bølgene bærer til kysten. Disse dyrebare forbedringene samles for deg i bakgrunnen.
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Releases,"Vi opplever øyeblikket når stjernen på oppdateringshimmelen ennå ikke har steget opp. For øyeblikket er det ingen oppdateringsinformasjon tilgjengelig, men du kan fortsatt bruke den gjeldende versjonen som allerede er tilgjengelig."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Download,"Vi oppdaget at stjernene på himmelen var i feil rekkefølge mens du lastet ned oppdateringsfilen. Fortsett reisen med den gjeldende versjonen, for når stjernene er riktig justert, vil vi gi deg en bedre oppdatering."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Cancelled,"Nedlasting av oppdateringsfilen ble avbrutt fordi veiene våre plutselig skilte lag. Fortsett reisen med den nåværende versjonen og vær klar for fremtidige oppdateringer, fordi en ny begynnelse alltid er mulig."
-Update\Update.NB.xaml,Update.InfoBox.TextMessage.Condition,Vilkårene i oppdateringsfilene ser ut til å mangle nøkkelen som åpner døren. Fortsett reisen med den nåværende versjonen og vær klar for fremtidige oppdateringer.
+Update\Update.NB.xaml,Update.MessageText.Preparing,FORBEREDER NØDVENDIGE FORBEREDELSER
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Temporary,SJEKKER MIDlERTIDIGE LOKASJONER
+Update\Update.NB.xaml,Update.MessageText.Temporary.Error,MIDLERTIDIGE LOKASJONER KUNNE IKKE SJEKKES
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Connection,SJEKKER INTERNETTILKOBLING
+Update\Update.NB.xaml,Update.MessageText.Connection.None,INGEN INTERNETTILKOBLING
+Update\Update.NB.xaml,Update.MessageText.Connection.Error,INTERNETTILKOBLINGEN KUNNE IKKE SJEKKES
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Listing,HENTER DE NØDVENDIGE LISTENE
+Update\Update.NB.xaml,Update.MessageText.Listing.Empty,NØDVENDIGE LISTENE ER TOMME
+Update\Update.NB.xaml,Update.MessageText.Listing.Error,NØDVENDIGE LISTENE KUNNE IKKE MOTTAS
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Filtering,LISTENE BLIR FILTRERT
+Update\Update.NB.xaml,Update.MessageText.Filtering.Not,LISTENE KAN IKKE FILTRERES
+Update\Update.NB.xaml,Update.MessageText.Filtering.Error,LISTENE KUNNE IKKE FILTRERES
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Comparing,SAMMENLIGNER LISTER
+Update\Update.NB.xaml,Update.MessageText.Comparing.Update,APPLIKASJONEN ER ALLEREDE OPPDATERT
+Update\Update.NB.xaml,Update.MessageText.Comparing.Error,KUNNE IKKE SAMMENLIGNE LISTER
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Searching,LETER ETTER NØDVENDIGE FILER
+Update\Update.NB.xaml,Update.MessageText.Searching.Not,NØDVENDIGE FILER IKKE FUNNET
+Update\Update.NB.xaml,Update.MessageText.Searching.Error,NØDVENDIGE FILER KUNNE IKKE SØKES ETTER
+Update\Update.NB.xaml,Update.MessageText.Searching.Condition,NØDVENDIGE FILER IKKE FUNNET
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Downloading,NEDLASTING AV NØDVENDIGE FILER
+Update\Update.NB.xaml,Update.MessageText.Downloading.Error,NØDVENDIGE FILER KUNNE IKKE LASTES NED
+Update\Update.NB.xaml,Update.MessageText.Downloading.Complete.Cancel,NEDLASTINGEN AV DEN NØDVENDIGE FILEN BLE AVBRUTT
+Update\Update.NB.xaml,Update.MessageText.Downloading.Complete.Error,DET OPPSTO EN FEIL UNDER NEDLASTINGEN AV DEN NØDVENDIGE FILEN
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Running,FORBEREDER NEDLASTET FIL
+Update\Update.NB.xaml,Update.MessageText.Running.Executing,UTFØRER NEDLASTET FIL
+Update\Update.NB.xaml,Update.MessageText.Running.Executed,NEDLASTET FIL UTFØRT
+Update\Update.NB.xaml,Update.MessageText.Running.Not,NEDLASTET FIL IKKE BRUKBAR
+Update\Update.NB.xaml,Update.MessageText.Running.Error,KUNNE IKKE FORBEREDE NEDLASTET FIL
+Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.MessageText.Extracting,EKSTRAHERER DEN NEDLASTEDE FILEN
+Update\Update.NB.xaml,Update.MessageText.Extracting.Executing,DEN EKSTRAHERTE FILEN BLIR UTFØRT
+Update\Update.NB.xaml,Update.MessageText.Extracting.Executed,DEN EKSTRAHERTE FILEN HAR BLITT UTFØRT
+Update\Update.NB.xaml,Update.MessageText.Extracting.Failed,DEN NEDLASTEDE FILEN MISLYKTES
+Update\Update.NB.xaml,Update.MessageText.Extracting.Corrupt,DEN NEDLASTEDE FILEN ER KORRUPT
+Update\Update.NB.xaml,Update.MessageText.Extracting.Not,DEN NEDLASTEDE FILEN ER IKKE BRUKBAR
+Update\Update.NB.xaml,Update.MessageText.Extracting.Error,DEN NEDLASTEDE FILEN KUNNE IKKE EKSTRAHERES
 Watchdog\Watchdog.NB.xaml,Watchdog.HelpButton,Hjelp
 Watchdog\Watchdog.NB.xaml,Watchdog.CloseButton,Lukk
 Watchdog\Watchdog.NB.xaml,Watchdog.ErrorMessage,Det oppstod en uventet feil:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.NB.xaml,Watchdog.HideButton,Skjul
 Watchdog\Watchdog.NB.xaml,Watchdog.ShowButton,Vis
 Watchdog\Watchdog.NB.xaml,Watchdog.StackTrace,Stakkspor:
 Watchdog\Watchdog.NB.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.NB.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.ReloadText,PRØV IGJEN
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Preparing,FORBEREDER NØDVENDIGE FORBEREDELSER
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Temporary,SJEKKER MIDlERTIDIGE LOKASJONER
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Temporary.Error,MIDLERTIDIGE LOKASJONER KUNNE IKKE SJEKKES
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Connection,SJEKKER INTERNETTILKOBLING
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Connection.None,INGEN INTERNETTILKOBLING
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Connection.Error,INTERNETTILKOBLINGEN KUNNE IKKE SJEKKES
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Searching,LETER ETTER NØDVENDIGE FILER
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Searching.Not,NØDVENDIGE FILER IKKE FUNNET
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Searching.Error,NØDVENDIGE FILER KUNNE IKKE SØKES ETTER
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Listing,HENTER DE NØDVENDIGE LISTENE
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Listing.Empty,NØDVENDIGE LISTENE ER TOMME
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Listing.Error,NØDVENDIGE LISTENE KUNNE IKKE MOTTAS
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Filtering,LISTENE BLIR FILTRERT
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Filtering.Not,LISTENE KAN IKKE FILTRERES
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Filtering.Error,LISTENE KUNNE IKKE FILTRERES
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Downloading,NEDLASTING AV NØDVENDIGE FILER
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Downloading.Error,NØDVENDIGE FILER KUNNE IKKE LASTES NED
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Downloading.Complete.Cancel,NEDLASTINGEN AV DEN NØDVENDIGE FILEN BLE AVBRUTT
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Downloading.Complete.Error,DET OPPSTO EN FEIL UNDER NEDLASTINGEN AV DEN NØDVENDIGE FILEN
-Wizard\Wizard.NB.xaml,,
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting,EKSTRAHERER DEN NEDLASTEDE FILEN
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Executing,DEN EKSTRAHERTE FILEN BLIR UTFØRT
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Executed,DEN EKSTRAHERTE FILEN HAR BLITT UTFØRT
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Failed,DEN NEDLASTEDE FILEN MISLYKTES
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Corrupt,DEN NEDLASTEDE FILEN ER KORRUPT
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Not,DEN NEDLASTEDE FILEN ER IKKE BRUKBAR
-Wizard\Wizard.NB.xaml,Wizard.MessageText.Extracting.Error,DEN NEDLASTEDE FILEN KUNNE IKKE EKSTRAHERES
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Sound,Lyd
 Portal\Area\Portal.Area.NB.xaml,Portal.Area.Log,Logg

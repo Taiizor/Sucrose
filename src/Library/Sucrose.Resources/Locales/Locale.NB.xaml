@@ -9,7 +9,6 @@
         <ResourceDictionary Source="Undo/Undo.NB.xaml" />
         <ResourceDictionary Source="Update/Update.NB.xaml" />
         <ResourceDictionary Source="Portal/Portal.NB.xaml" />
-        <ResourceDictionary Source="Wizard/Wizard.NB.xaml" />
         <ResourceDictionary Source="Discord/Discord.NB.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.NB.xaml" />
         <ResourceDictionary Source="Property/Property.NB.xaml" />

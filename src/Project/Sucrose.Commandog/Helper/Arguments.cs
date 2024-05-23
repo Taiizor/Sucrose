@@ -108,9 +108,6 @@ namespace Sucrose.Commandog.Helper
                                 case SSDECT.Report:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                     break;
-                                case SSDECT.Wizard:
-                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
-                                    break;
                                 case SSDECT.Publish:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                     break;

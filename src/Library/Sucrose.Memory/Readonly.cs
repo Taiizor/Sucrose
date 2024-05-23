@@ -58,6 +58,10 @@
 
         public static readonly string SettingFolder = "Setting";
 
+        public static readonly string SoferityReport = "Report";
+
+        public static readonly string SoferityUpload = "Upload";
+
         public static readonly string StoreRepository = "Store";
 
         public static readonly string Undo = "Sucrose.Undo.exe";
@@ -70,8 +74,6 @@
 
         public static readonly string Portal = "Sucrose.Portal.exe";
 
-        public static readonly string Wizard = "Sucrose.Wizard.exe";
-
         public static readonly string GifContent = "GifContent.html";
 
         public static readonly string TaskName = "Autorun for Sucrose";
@@ -81,6 +83,8 @@
         public static readonly string Launcher = "Sucrose.Launcher.exe";
 
         public static readonly string Property = "Sucrose.Property.exe";
+
+        public static readonly string SoferityStatistics = "Statistics";
 
         public static readonly string Watchdog = "Sucrose.Watchdog.exe";
 
@@ -131,8 +135,6 @@
         public static readonly string SoferityWebsite = $"https://sucrose.soferity.com";
 
         public static readonly string UpdateMutex = "{Sucrose-Wallpaper-Engine-Update}";
-
-        public static readonly string WizardMutex = "{Sucrose-Wallpaper-Engine-Wizard}";
 
         public static readonly string CefSharpProcessName = "CefSharp.BrowserSubprocess";
 

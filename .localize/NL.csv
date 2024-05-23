@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuTkwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.NL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuTkwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLk5MLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5OTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuTkwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.NL.xaml,Discord.BrowseButton,Bladeren
 Discord\Discord.NL.xaml,Discord.Details,Achtergrond Engine
 Discord\Discord.NL.xaml,Discord.DownloadButton,Downloaden
@@ -158,27 +158,56 @@ Property\Property.NL.xaml,Property.FileDropDown.Filter,Alle bestanden (*.*)|*.*
 Undo\Undo.NL.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.NL.xaml,,
 Undo\Undo.NL.xaml,Undo.QuestionMessage,Wil je Sucrose Wallpaper Engine echt verwijderen?
+Update\Update.NL.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.NL.xaml,,
 Update\Update.NL.xaml,Update.HelpText,Probleem Oplossen
 Update\Update.NL.xaml,,
-Update\Update.NL.xaml,Update.UpdateBox.WindowTitle,Sucrose Bijwerken
-Update\Update.NL.xaml,Update.UpdateBox.InstallText,Update Installeren
+Update\Update.NL.xaml,Update.ReloadText,PROBEER OPNIEUW
 Update\Update.NL.xaml,,
-Update\Update.NL.xaml,Update.InfoBox.WindowTitle,Sucrose Bijwerken
-Update\Update.NL.xaml,Update.InfoBox.TextMessage,Bericht
-Update\Update.NL.xaml,Update.InfoBox.CloseText,Sluiten
+Update\Update.NL.xaml,Update.MessageText.Preparing,VOORBEREIDING VAN NOODZAKELIJKE VOORBEREIDINGEN
 Update\Update.NL.xaml,,
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Empty,We bevinden ons in momenten waarin de updatebestanden zich als een verloren juweel verbergen. Je kunt nog steeds genieten van de huidige versie van de ervaring.
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Error,"Terwijl we het updatebestand aan het downloaden waren, merkten we dat er een scheur in de weg is ontstaan en dat deze reis voorlopig tot een einde is gekomen. Ga verder met je reis met de huidige versie, want wanneer deze scheuren zijn gerepareerd, wacht er een krachtigere update op je."
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Update,De app is al bijgewerkt en is altijd bij je in de meest actuele en innovatieve vorm. We zijn hier om je op elk moment de beste en meest actuele ervaring te bieden.
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Status,We staan aan de drempel van een droom waarin we geen toegang hebben tot de updatebestanden. Maar je kunt nog steeds je droom beleven met de huidige versie.
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Channel,"Het geselecteerde updatekanaal is als een stille bos. Op dit moment zijn er geen nieuwe updategegevens beschikbaar. Ga verder met je reis met de huidige versie, want wanneer deze stilte wordt verbroken, zullen we je meer bieden."
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Extract,"Toen we probeerden het updatebestand uit te pakken, stonden we tegenover een obstakel dat uit de diepten van de zee kwam. Ga voor nu verder met je reis met de huidige versie, want wanneer de zeeën kalmer zijn, keren we terug om nieuwe schatten te vinden."
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Network,"De zwakte van je verbinding is als wolken die de zon bedekken. Wanneer de wolken verdwijnen, wacht er een helderdere ervaring op je."
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Updating,De app-update vordert stilletjes als nieuwe schatten die de golven naar de kust brengen. Deze waardevolle vernieuwingen worden in de achtergrond voor je verzameld.
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Releases,"We beleven een moment waarop de update-ster nog niet is opgekomen. Op dit moment zijn er geen update-informatie, maar je kunt blijven genieten van de huidige versie."
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Download,"Terwijl we het updatebestand aan het downloaden waren, ontdekten we dat de sterren aan de hemel in de verkeerde volgorde staan. Ga voor nu verder met je reis met de huidige versie, want wanneer de sterren op de juiste manier uitlijnen, zullen we je een betere update bieden."
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Cancelled,"De download van het updatebestand is geannuleerd omdat onze wegen plotseling uiteengingen. Ga verder met je reis met de huidige versie en wees klaar voor toekomstige updates, want een nieuwe start is altijd mogelijk."
-Update\Update.NL.xaml,Update.InfoBox.TextMessage.Condition,De voorwaarden in de updatebestanden lijken nog steeds ontbrekend om de sleutel te ontgrendelen. Ga voor nu verder met je reis met de huidige versie en wees klaar voor toekomstige updates.
+Update\Update.NL.xaml,Update.MessageText.Temporary,CONTROLEREN VAN TIJDELIJKE LOCATIES
+Update\Update.NL.xaml,Update.MessageText.Temporary.Error,TIJDELIJKE LOCATIES KONDEN NIET WORDEN GECONTROLEERD
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Connection,CONTROLEREN VAN INTERNETVERBINDING
+Update\Update.NL.xaml,Update.MessageText.Connection.None,GEEN INTERNETVERBINDING
+Update\Update.NL.xaml,Update.MessageText.Connection.Error,INTERNETVERBINDING KON NIET WORDEN GECONTROLEERD
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Listing,OPHALEN VAN DE VEREISTE LIJSTEN
+Update\Update.NL.xaml,Update.MessageText.Listing.Empty,VEREISTE LIJSTEN ZIJN LEEG
+Update\Update.NL.xaml,Update.MessageText.Listing.Error,VEREISTE LIJSTEN KONDEN NIET WORDEN ONTVANGEN
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Filtering,LIJSTEN WORDEN GEFILTERD
+Update\Update.NL.xaml,Update.MessageText.Filtering.Not,LIJSTEN KUNNEN NIET WORDEN GEFILTERD
+Update\Update.NL.xaml,Update.MessageText.Filtering.Error,LIJSTEN KONDEN NIET WORDEN GEFILTERD
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Comparing,LIJSTEN VERGELIJKEN
+Update\Update.NL.xaml,Update.MessageText.Comparing.Update,TOEPASSING IS AL UP-TO-DATE
+Update\Update.NL.xaml,Update.MessageText.Comparing.Error,LIJSTEN VERGELIJKEN MISLUKT
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Searching,ZOEKEN NAAR VEREISTE BESTANDEN
+Update\Update.NL.xaml,Update.MessageText.Searching.Not,VEREISTE BESTANDEN NIET GEVONDEN
+Update\Update.NL.xaml,Update.MessageText.Searching.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEZOCHT
+Update\Update.NL.xaml,Update.MessageText.Searching.Condition,VEREISTE BESTANDEN NIET GEVONDEN
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Downloading,DOWNLOADEN VAN VEREISTE BESTANDEN
+Update\Update.NL.xaml,Update.MessageText.Downloading.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEDOWNLOAD
+Update\Update.NL.xaml,Update.MessageText.Downloading.Complete.Cancel,HET DOWNLOADEN VAN HET VEREISTE BESTAND WERD GEANNULEERD
+Update\Update.NL.xaml,Update.MessageText.Downloading.Complete.Error,ER IS EEN FOUT OPGETREDEN TIJDENS HET DOWNLOADEN VAN HET VEREISTE BESTAND
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Running,GEDOWNLOADE BESTAND VOORBEREIDEN
+Update\Update.NL.xaml,Update.MessageText.Running.Executing,GEDOWNLOADE BESTAND UITVOEREN
+Update\Update.NL.xaml,Update.MessageText.Running.Executed,GEDOWNLOADE BESTAND UITGEVOERD
+Update\Update.NL.xaml,Update.MessageText.Running.Not,GEDOWNLOADE BESTAND NIET BRUIKBAAR
+Update\Update.NL.xaml,Update.MessageText.Running.Error,GEDOWNLOADE BESTAND VOORBEREIDEN MISLUKT
+Update\Update.NL.xaml,,
+Update\Update.NL.xaml,Update.MessageText.Extracting,HET EXTRACTEREN VAN HET GEDOWNLOADE BESTAND
+Update\Update.NL.xaml,Update.MessageText.Extracting.Executing,HET UITGEPAKTE BESTAND WORDT UITGEVOERD
+Update\Update.NL.xaml,Update.MessageText.Extracting.Executed,HET UITGEPAKTE BESTAND IS UITGEVOERD
+Update\Update.NL.xaml,Update.MessageText.Extracting.Failed,HET GEDOWNLOADE BESTAND IS MISLUKT
+Update\Update.NL.xaml,Update.MessageText.Extracting.Corrupt,HET GEDOWNLOADE BESTAND IS BESCHADIGD
+Update\Update.NL.xaml,Update.MessageText.Extracting.Not,HET GEDOWNLOADE BESTAND IS NIET GEBRUIKBAAR
+Update\Update.NL.xaml,Update.MessageText.Extracting.Error,HET GEDOWNLOADE BESTAND KON NIET WORDEN GEËXTRAHEERD
 Watchdog\Watchdog.NL.xaml,Watchdog.HelpButton,Help
 Watchdog\Watchdog.NL.xaml,Watchdog.CloseButton,Afsluiten
 Watchdog\Watchdog.NL.xaml,Watchdog.ErrorMessage,Er is een onverwachte fout opgetreden:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.NL.xaml,Watchdog.HideButton,Verbergen
 Watchdog\Watchdog.NL.xaml,Watchdog.ShowButton,Tonen
 Watchdog\Watchdog.NL.xaml,Watchdog.StackTrace,Stapeltracering:
 Watchdog\Watchdog.NL.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.NL.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.ReloadText,PROBEER OPNIEUW
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Preparing,VOORBEREIDING VAN NOODZAKELIJKE VOORBEREIDINGEN
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Temporary,CONTROLEREN VAN TIJDELIJKE LOCATIES
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Temporary.Error,TIJDELIJKE LOCATIES KONDEN NIET WORDEN GECONTROLEERD
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Connection,CONTROLEREN VAN INTERNETVERBINDING
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Connection.None,GEEN INTERNETVERBINDING
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Connection.Error,INTERNETVERBINDING KON NIET WORDEN GECONTROLEERD
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Searching,ZOEKEN NAAR VEREISTE BESTANDEN
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Searching.Not,VEREISTE BESTANDEN NIET GEVONDEN
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Searching.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEZOCHT
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Listing,OPHALEN VAN DE VEREISTE LIJSTEN
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Listing.Empty,VEREISTE LIJSTEN ZIJN LEEG
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Listing.Error,VEREISTE LIJSTEN KONDEN NIET WORDEN ONTVANGEN
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Filtering,LIJSTEN WORDEN GEFILTERD
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Filtering.Not,LIJSTEN KUNNEN NIET WORDEN GEFILTERD
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Filtering.Error,LIJSTEN KONDEN NIET WORDEN GEFILTERD
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading,DOWNLOADEN VAN VEREISTE BESTANDEN
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading.Error,VEREISTE BESTANDEN KONDEN NIET WORDEN GEDOWNLOAD
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading.Complete.Cancel,HET DOWNLOADEN VAN HET VEREISTE BESTAND WERD GEANNULEERD
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Downloading.Complete.Error,ER IS EEN FOUT OPGETREDEN TIJDENS HET DOWNLOADEN VAN HET VEREISTE BESTAND
-Wizard\Wizard.NL.xaml,,
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting,HET EXTRACTEREN VAN HET GEDOWNLOADE BESTAND
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Executing,HET UITGEPAKTE BESTAND WORDT UITGEVOERD
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Executed,HET UITGEPAKTE BESTAND IS UITGEVOERD
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Failed,HET GEDOWNLOADE BESTAND IS MISLUKT
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Corrupt,HET GEDOWNLOADE BESTAND IS BESCHADIGD
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Not,HET GEDOWNLOADE BESTAND IS NIET GEBRUIKBAAR
-Wizard\Wizard.NL.xaml,Wizard.MessageText.Extracting.Error,HET GEDOWNLOADE BESTAND KON NIET WORDEN GEËXTRAHEERD
 Portal\Area\Portal.Area.NL.xaml,Portal.Area.Data,Gegevens
 Portal\Area\Portal.Area.NL.xaml,Portal.Area.Sound,Geluid
 Portal\Area\Portal.Area.NL.xaml,Portal.Area.Log,Logboek

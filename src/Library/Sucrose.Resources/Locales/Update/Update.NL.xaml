@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
+
     <system:String x:Key="Update.HelpText">Probleem Oplossen</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose Bijwerken</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Update Installeren</system:String>
+    <system:String x:Key="Update.ReloadText">PROBEER OPNIEUW</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Bijwerken</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Bericht</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Sluiten</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">VOORBEREIDING VAN NOODZAKELIJKE VOORBEREIDINGEN</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">We bevinden ons in momenten waarin de updatebestanden zich als een verloren juweel verbergen. Je kunt nog steeds genieten van de huidige versie van de ervaring.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">Terwijl we het updatebestand aan het downloaden waren, merkten we dat er een scheur in de weg is ontstaan en dat deze reis voorlopig tot een einde is gekomen. Ga verder met je reis met de huidige versie, want wanneer deze scheuren zijn gerepareerd, wacht er een krachtigere update op je.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">De app is al bijgewerkt en is altijd bij je in de meest actuele en innovatieve vorm. We zijn hier om je op elk moment de beste en meest actuele ervaring te bieden.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">We staan aan de drempel van een droom waarin we geen toegang hebben tot de updatebestanden. Maar je kunt nog steeds je droom beleven met de huidige versie.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Het geselecteerde updatekanaal is als een stille bos. Op dit moment zijn er geen nieuwe updategegevens beschikbaar. Ga verder met je reis met de huidige versie, want wanneer deze stilte wordt verbroken, zullen we je meer bieden.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Toen we probeerden het updatebestand uit te pakken, stonden we tegenover een obstakel dat uit de diepten van de zee kwam. Ga voor nu verder met je reis met de huidige versie, want wanneer de zeeën kalmer zijn, keren we terug om nieuwe schatten te vinden.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">De zwakte van je verbinding is als wolken die de zon bedekken. Wanneer de wolken verdwijnen, wacht er een helderdere ervaring op je.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">De app-update vordert stilletjes als nieuwe schatten die de golven naar de kust brengen. Deze waardevolle vernieuwingen worden in de achtergrond voor je verzameld.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">We beleven een moment waarop de update-ster nog niet is opgekomen. Op dit moment zijn er geen update-informatie, maar je kunt blijven genieten van de huidige versie.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">Terwijl we het updatebestand aan het downloaden waren, ontdekten we dat de sterren aan de hemel in de verkeerde volgorde staan. Ga voor nu verder met je reis met de huidige versie, want wanneer de sterren op de juiste manier uitlijnen, zullen we je een betere update bieden.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">De download van het updatebestand is geannuleerd omdat onze wegen plotseling uiteengingen. Ga verder met je reis met de huidige versie en wees klaar voor toekomstige updates, want een nieuwe start is altijd mogelijk.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">De voorwaarden in de updatebestanden lijken nog steeds ontbrekend om de sleutel te ontgrendelen. Ga voor nu verder met je reis met de huidige versie en wees klaar voor toekomstige updates.</system:String>
+    <system:String x:Key="Update.MessageText.Temporary">CONTROLEREN VAN TIJDELIJKE LOCATIES</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">TIJDELIJKE LOCATIES KONDEN NIET WORDEN GECONTROLEERD</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">CONTROLEREN VAN INTERNETVERBINDING</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">GEEN INTERNETVERBINDING</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">INTERNETVERBINDING KON NIET WORDEN GECONTROLEERD</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">OPHALEN VAN DE VEREISTE LIJSTEN</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">VEREISTE LIJSTEN ZIJN LEEG</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">VEREISTE LIJSTEN KONDEN NIET WORDEN ONTVANGEN</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">LIJSTEN WORDEN GEFILTERD</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">LIJSTEN KUNNEN NIET WORDEN GEFILTERD</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">LIJSTEN KONDEN NIET WORDEN GEFILTERD</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">LIJSTEN VERGELIJKEN</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">TOEPASSING IS AL UP-TO-DATE</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">LIJSTEN VERGELIJKEN MISLUKT</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">ZOEKEN NAAR VEREISTE BESTANDEN</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">VEREISTE BESTANDEN NIET GEVONDEN</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">VEREISTE BESTANDEN KONDEN NIET WORDEN GEZOCHT</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">VEREISTE BESTANDEN NIET GEVONDEN</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">DOWNLOADEN VAN VEREISTE BESTANDEN</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">VEREISTE BESTANDEN KONDEN NIET WORDEN GEDOWNLOAD</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">HET DOWNLOADEN VAN HET VEREISTE BESTAND WERD GEANNULEERD</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">ER IS EEN FOUT OPGETREDEN TIJDENS HET DOWNLOADEN VAN HET VEREISTE BESTAND</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">GEDOWNLOADE BESTAND VOORBEREIDEN</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">GEDOWNLOADE BESTAND UITVOEREN</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">GEDOWNLOADE BESTAND UITGEVOERD</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">GEDOWNLOADE BESTAND NIET BRUIKBAAR</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">GEDOWNLOADE BESTAND VOORBEREIDEN MISLUKT</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">HET EXTRACTEREN VAN HET GEDOWNLOADE BESTAND</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">HET UITGEPAKTE BESTAND WORDT UITGEVOERD</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">HET UITGEPAKTE BESTAND IS UITGEVOERD</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">HET GEDOWNLOADE BESTAND IS MISLUKT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">HET GEDOWNLOADE BESTAND IS BESCHADIGD</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">HET GEDOWNLOADE BESTAND IS NIET GEBRUIKBAAR</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">HET GEDOWNLOADE BESTAND KON NIET WORDEN GEËXTRAHEERD</system:String>
 </ResourceDictionary>

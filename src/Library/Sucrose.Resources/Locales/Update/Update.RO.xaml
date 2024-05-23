@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Update.HelpText">Rezolvă problema</system:String>
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Actualizare Sucrose</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Instalează actualizarea</system:String>
+    <system:String x:Key="Update.HelpText">Rezolvă Problema</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Actualizare Sucrose</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Mesaj</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Închide</system:String>
+    <system:String x:Key="Update.ReloadText">ÎNCERCAȚI DIN NOU</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Suntem într-un moment în care fișierele de actualizare sunt ascunse ca un bijuterie pierdută. Puteți să vă bucurați de experiența actuală folosind versiunea curentă.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">În timpul descărcării fișierului de actualizare, am observat că s-a format o crăpătură pe drum și că această călătorie se încheie pentru moment. Continuați cu versiunea curentă, deoarece vă așteaptă o actualizare mai puternică atunci când aceste crăpături vor fi reparate.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">Aplicația este deja cu cea mai recentă și inovatoare versiune, precum cea mai recentă pagină dintr-o carte. Suntem aici pentru a vă oferi cea mai bună și actuală experiență în orice moment.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Suntem la limita unei vise la care nu putem să accesăm fișierele de actualizare. Cu toate acestea, puteți continua să vă bucurați de visul dvs. cu versiunea actuală.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Canalul de actualizare selectat este asemănător unei păduri liniștite. În acest moment, nu există informații noi despre actualizări. Continuați cu versiunea actuală, deoarece vă vom oferi mai multe atunci când această liniște va fi întreruptă.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">În timp ce încercam să extragem fișierul de actualizare, am dat de o piedică provenită din adâncurile mării. Pentru moment, vă rugăm să continuați cu versiunea actuală, pentru că vom reveni să descoperim noi comori când mările vor fi mai liniștite.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">Slăbiciunea conexiunii tale este precum norii care acoperă soarele. Când norii se vor risipi, vă va aștepta o experiență mai strălucitoare.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Actualizarea aplicației progresează discret ca noi comori aduse de valurile mării pe țărm. Aceste îmbunătățiri prețioase sunt colectate pentru dvs. în fundal.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Trăim un moment în care steaua actualizării încă nu a răsărit. În acest moment, nu avem nicio informație despre actualizări, dar puteți continua să utilizați versiunea actuală care este deja disponibilă.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">În timp ce descărcam fișierul de actualizare, am descoperit că stelele pe cer sunt aranjate într-un mod greșit. Pentru moment, vă rugăm să continuați cu versiunea actuală, deoarece când stelele se vor alinia corect, vă vom oferi o actualizare mai bună.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Descărcarea fișierului de actualizare a fost anulată, deoarece drumurile noastre s-au separat brusc. Continuați cu versiunea actuală și fiți pregătit pentru viitoarele actualizări, deoarece o nouă început este mereu posibil.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Se pare că condițiile pentru fișierele de actualizare lipsesc pentru a debloca cheia. Pentru moment, vă rugăm să continuați cu versiunea actuală și să fiți pregătit pentru viitoarele actualizări.</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">SE PREGĂTESC PREGĂTIRILE NECESARE</system:String>
+
+    <system:String x:Key="Update.MessageText.Temporary">SE VERIFICĂ LOCURILE TEMPORARE</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">NU S-AU PUTUT VERIFICA LOCURILE TEMPORARE</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">SE VERIFICĂ CONEXIUNEA LA INTERNET</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">NU EXISTĂ CONEXIUNE LA INTERNET</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">NU S-A PUTUT VERIFICA CONEXIUNEA LA INTERNET</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">SE OBȚIN LISTELE NECESARE</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">LISTELE NECESARE SUNT GOALE</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">NU S-AU PUTUT PRIMI LISTELE NECESARE</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">SE FILTREAZĂ LISTELE</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">LISTELE NU POT FI FILTRATE</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">NU S-AU PUTUT FILTRA LISTELE</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">COMPARAREA LISTELOR</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">APLICAȚIA ESTE DEJA ACTUALIZATĂ</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">NU S-A PUTUT COMPARA LISTELE</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">SE CAUTĂ FIȘIERELE NECESARE</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">FIȘIERELE NECESARE NU AU FOST GĂSITE</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">NU S-AU PUTUT CĂUTA FIȘIERELE NECESARE</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">FIȘIERELE NECESARE NU AU FOST GĂSITE</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">SE DESCARCĂ FIȘIERELE NECESARE</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">NU S-AU PUTUT DESCĂRCA FIȘIERELE NECESARE</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">DESCĂRCAREA FIȘIERULUI NECESAR A FOST ANULATĂ</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">A APĂRUT O EROARE ÎN TIMPUL DESCĂRCĂRII FIȘIERULUI NECESAR</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">PREGĂTIREA FIȘIERULUI DESCĂRCAT</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">EXECUTAREA FIȘIERULUI DESCĂRCAT</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">FIȘIERUL DESCĂRCAT A FOST EXECUTAT</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">NU S-A PUTUT PREGĂTI FIȘIERUL DESCĂRCAT</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">SE EXTRAGE FIȘIERUL DESCĂRCAT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">FIȘIERUL EXTRAS ESTE ÎN CURS DE EXECUȚIE</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">FIȘIERUL EXTRAS A FOST EXECUTAT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">FIȘIERUL DESCĂRCAT A EȘUAT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">FIȘIERUL DESCĂRCAT ESTE CORUPT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">NU S-A PUTUT EXTRAGE FIȘIERUL DESCĂRCAT</system:String>
 </ResourceDictionary>

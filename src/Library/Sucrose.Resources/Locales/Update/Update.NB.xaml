@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Update.HelpText">Løs problemet</system:String>
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose Oppdatering</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Installer oppdateringen</system:String>
+    <system:String x:Key="Update.HelpText">Løs Problemet</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Oppdatering</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Melding</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Lukk</system:String>
+    <system:String x:Key="Update.ReloadText">PRØV IGJEN</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Vi er i øyeblikket på et øyeblikk der oppdateringsfilene er skjult som en tapt juvel. Du kan fortsatt glede deg over opplevelsen med den gjeldende versjonen.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">Vi oppdaget en sprekk i veien mens du prøvde å laste ned oppdateringsfilen, og denne reisen endte foreløpig. Fortsett din reise med den gjeldende versjonen, fordi når sprekkene er reparert, venter en sterkere oppdatering på deg.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">Applikasjonen er allerede med deg i sin nyeste og mest innovative form, akkurat som den siste siden i en bok. Vi er her for å gi deg den beste og mest oppdaterte opplevelsen når som helst.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Vi er på terskelen til en drøm der oppdateringsfilene ikke er tilgjengelige. Men du kan fortsatt leve drømmen med den gjeldende versjonen.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Den valgte oppdateringskanalen er som en stille skog. Det er for øyeblikket ingen nye oppdateringsinformasjon her. Fortsett reisen med den gjeldende versjonen, for når stillheten brytes, vil vi gi deg mer.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Vi støtte på en hindring fra dypene mens vi prøvde å pakke ut oppdateringsfilen. For nå kan du fortsette reisen med den nåværende versjonen, for vi vil komme tilbake for å finne nye skatter når havet er roligere.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">Din tilkoblings svakhet er som skyer som dekker solen. Når skyene spres, vil en lysere opplevelse vente på deg.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Applikasjonsoppdateringen beveger seg stille som de nye skattene som bølgene bærer til kysten. Disse dyrebare forbedringene samles for deg i bakgrunnen.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Vi opplever øyeblikket når stjernen på oppdateringshimmelen ennå ikke har steget opp. For øyeblikket er det ingen oppdateringsinformasjon tilgjengelig, men du kan fortsatt bruke den gjeldende versjonen som allerede er tilgjengelig.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">Vi oppdaget at stjernene på himmelen var i feil rekkefølge mens du lastet ned oppdateringsfilen. Fortsett reisen med den gjeldende versjonen, for når stjernene er riktig justert, vil vi gi deg en bedre oppdatering.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Nedlasting av oppdateringsfilen ble avbrutt fordi veiene våre plutselig skilte lag. Fortsett reisen med den nåværende versjonen og vær klar for fremtidige oppdateringer, fordi en ny begynnelse alltid er mulig.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Vilkårene i oppdateringsfilene ser ut til å mangle nøkkelen som åpner døren. Fortsett reisen med den nåværende versjonen og vær klar for fremtidige oppdateringer.</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">FORBEREDER NØDVENDIGE FORBEREDELSER</system:String>
+
+    <system:String x:Key="Update.MessageText.Temporary">SJEKKER MIDlERTIDIGE LOKASJONER</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">MIDLERTIDIGE LOKASJONER KUNNE IKKE SJEKKES</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">SJEKKER INTERNETTILKOBLING</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">INGEN INTERNETTILKOBLING</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">INTERNETTILKOBLINGEN KUNNE IKKE SJEKKES</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">HENTER DE NØDVENDIGE LISTENE</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">NØDVENDIGE LISTENE ER TOMME</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">NØDVENDIGE LISTENE KUNNE IKKE MOTTAS</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">LISTENE BLIR FILTRERT</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">LISTENE KAN IKKE FILTRERES</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">LISTENE KUNNE IKKE FILTRERES</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">SAMMENLIGNER LISTER</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">APPLIKASJONEN ER ALLEREDE OPPDATERT</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">KUNNE IKKE SAMMENLIGNE LISTER</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">LETER ETTER NØDVENDIGE FILER</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">NØDVENDIGE FILER IKKE FUNNET</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">NØDVENDIGE FILER KUNNE IKKE SØKES ETTER</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">NØDVENDIGE FILER IKKE FUNNET</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">NEDLASTING AV NØDVENDIGE FILER</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">NØDVENDIGE FILER KUNNE IKKE LASTES NED</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">NEDLASTINGEN AV DEN NØDVENDIGE FILEN BLE AVBRUTT</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">DET OPPSTO EN FEIL UNDER NEDLASTINGEN AV DEN NØDVENDIGE FILEN</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">FORBEREDER NEDLASTET FIL</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">UTFØRER NEDLASTET FIL</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">NEDLASTET FIL UTFØRT</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">NEDLASTET FIL IKKE BRUKBAR</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">KUNNE IKKE FORBEREDE NEDLASTET FIL</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">EKSTRAHERER DEN NEDLASTEDE FILEN</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">DEN EKSTRAHERTE FILEN BLIR UTFØRT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">DEN EKSTRAHERTE FILEN HAR BLITT UTFØRT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">DEN NEDLASTEDE FILEN MISLYKTES</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">DEN NEDLASTEDE FILEN ER KORRUPT</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">DEN NEDLASTEDE FILEN ER IKKE BRUKBAR</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">DEN NEDLASTEDE FILEN KUNNE IKKE EKSTRAHERES</system:String>
 </ResourceDictionary>

@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUlUueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.RU.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUlUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlJVLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5SVS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUlUueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.RU.xaml,Discord.BrowseButton,Просмотр
 Discord\Discord.RU.xaml,Discord.Details,Движок Обоев
 Discord\Discord.RU.xaml,Discord.DownloadButton,Скачать
@@ -158,27 +158,56 @@ Property\Property.RU.xaml,Property.FileDropDown.Filter,Все файлы (*.*)|*
 Undo\Undo.RU.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.RU.xaml,,
 Undo\Undo.RU.xaml,Undo.QuestionMessage,Вы действительно хотите удалить Sucrose Wallpaper Engine?
-Update\Update.RU.xaml,Update.HelpText,Решить проблему
+Update\Update.RU.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.RU.xaml,,
-Update\Update.RU.xaml,Update.UpdateBox.WindowTitle,Обновление Sucrose
-Update\Update.RU.xaml,Update.UpdateBox.InstallText,Установить обновление
+Update\Update.RU.xaml,Update.HelpText,Решить Проблему
 Update\Update.RU.xaml,,
-Update\Update.RU.xaml,Update.InfoBox.WindowTitle,Обновление Sucrose
-Update\Update.RU.xaml,Update.InfoBox.TextMessage,Сообщение
-Update\Update.RU.xaml,Update.InfoBox.CloseText,Закрыть
+Update\Update.RU.xaml,Update.ReloadText,ПОВТОРИТЬ ПОПЫТКУ
 Update\Update.RU.xaml,,
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Empty,"Мы находимся в моменты, когда обновления спрятаны как утерянные драгоценности. Вы можете продолжать использовать текущую версию и наслаждаться ею."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Error,"Мы обнаружили трещину на пути скачивания обновления, и этот путь пока завершен. Продолжайте использовать текущую версию, потому что когда трещины будут залатаны, вас ждет более мощное обновление."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Update,"Приложение уже с вами в самой свежей и инновационной версии, как последняя страница в книге. Мы здесь, чтобы предоставить вам лучший и самый актуальный опыт в любое время."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Status,Мы на пороге недоступной мечты об обновлениях. Но вы все равно можете продолжать свою мечту с текущей версией.
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Channel,"Выбранный канал обновления похож на лес тишины. В настоящее время здесь нет новой информации об обновлениях. Продолжайте свой путь с текущей версией, потому что, когда тишина нарушится, мы предложим вам больше."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Extract,"Мы столкнулись с препятствием, возникшим из глубин моря, когда пытались извлечь файл обновления. Пока что продолжайте свой путь с текущей версией, потому что, когда моря успокоятся, мы вернемся, чтобы найти новые сокровища."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Network,"Слабое соединение, словно облака закрывают солнце. Когда облака разойдутся, вас ждет более яркий опыт."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Updating,"Обновление приложения продвигается незаметно, как новые сокровища, которые приносят волны к берегу. Эти ценные нововведения собираются для вас в фоновом режиме."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Releases,"Мы находимся в момент, когда звезда обновления еще не взошла. На данный момент нет информации об обновлениях, но вы все равно можете продолжать использовать текущую версию."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Download,"Мы обнаружили, что звезды на небе стоят не в правильной последовательности при скачивании файла обновления. Пока что продолжайте свой путь с текущей версией, потому что, когда звезды выстроятся, мы предложим вам лучшее обновление."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Cancelled,"Загрузка файла обновления отменена из-за неожиданного разветвления путей. Продолжайте свой путь с текущей версией и будьте готовы к будущим обновлениям, потому что новое начало всегда возможно."
-Update\Update.RU.xaml,Update.InfoBox.TextMessage.Condition,"Похоже, условия для разблокировки ключа в файлах обновления пока не выполнены. Пока что продолжайте свой путь с текущей версией и будьте готовы к будущим обновлениям."
+Update\Update.RU.xaml,Update.MessageText.Preparing,ПОДГОТОВКА НЕОБХОДИМЫХ ПРИГОТОВЛЕНИЙ
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Temporary,ПРОВЕРКА ВРЕМЕННЫХ МЕСТОПОЛОЖЕНИЙ
+Update\Update.RU.xaml,Update.MessageText.Temporary.Error,ВРЕМЕННЫЕ МЕСТОПОЛОЖЕНИЯ НЕ МОГУТ БЫТЬ ПРОВЕРЕНЫ
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Connection,ПРОВЕРКА ИНТЕРНЕТ-СОЕДИНЕНИЯ
+Update\Update.RU.xaml,Update.MessageText.Connection.None,НЕТ ИНТЕРНЕТ-СОЕДИНЕНИЯ
+Update\Update.RU.xaml,Update.MessageText.Connection.Error,ИНТЕРНЕТ-СОЕДИНЕНИЕ НЕ МОЖЕТ БЫТЬ ПРОВЕРЕНО
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Listing,ПОЛУЧЕНИЕ НЕОБХОДИМЫХ СПИСКОВ
+Update\Update.RU.xaml,Update.MessageText.Listing.Empty,НЕОБХОДИМЫЕ СПИСКИ ПУСТЫ
+Update\Update.RU.xaml,Update.MessageText.Listing.Error,НЕОБХОДИМЫЕ СПИСКИ НЕ МОГУТ БЫТЬ ПОЛУЧЕНЫ
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Filtering,СПИСКИ ФИЛЬТРУЮТСЯ
+Update\Update.RU.xaml,Update.MessageText.Filtering.Not,СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ
+Update\Update.RU.xaml,Update.MessageText.Filtering.Error,СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Comparing,СРАВНЕНИЕ СПИСКОВ
+Update\Update.RU.xaml,Update.MessageText.Comparing.Update,ПРИЛОЖЕНИЕ УЖЕ ОБНОВЛЕНО
+Update\Update.RU.xaml,Update.MessageText.Comparing.Error,НЕ УДАЛОСЬ СРАВНИТЬ СПИСКИ
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Searching,ПОИСК НЕОБХОДИМЫХ ФАЙЛОВ
+Update\Update.RU.xaml,Update.MessageText.Searching.Not,НЕ НАЙДЕНЫ НЕОБХОДИМЫЕ ФАЙЛЫ
+Update\Update.RU.xaml,Update.MessageText.Searching.Error,НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ НАЙДЕНЫ
+Update\Update.RU.xaml,Update.MessageText.Searching.Condition,ТРЕБУЕМЫЕ ФАЙЛЫ НЕ НАЙДЕНЫ
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Downloading,ЗАГРУЗКА НЕОБХОДИМЫХ ФАЙЛОВ
+Update\Update.RU.xaml,Update.MessageText.Downloading.Error,НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ ЗАГРУЖЕНЫ
+Update\Update.RU.xaml,Update.MessageText.Downloading.Complete.Cancel,ЗАГРУЗКА НЕОБХОДИМОГО ФАЙЛА БЫЛА ОТМЕНЕНА
+Update\Update.RU.xaml,Update.MessageText.Downloading.Complete.Error,ПРИ ЗАГРУЗКЕ НЕОБХОДИМОГО ФАЙЛА ПРОИЗОШЛА ОШИБКА
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Running,ПОДГОТОВКА ЗАГРУЖЕННОГО ФАЙЛА
+Update\Update.RU.xaml,Update.MessageText.Running.Executing,ВЫПОЛНЕНИЕ ЗАГРУЖЕННОГО ФАЙЛА
+Update\Update.RU.xaml,Update.MessageText.Running.Executed,ЗАГРУЖЕННЫЙ ФАЙЛ ВЫПОЛНЕН
+Update\Update.RU.xaml,Update.MessageText.Running.Not,ЗАГРУЖЕННЫЙ ФАЙЛ НЕ ПРИГОДЕН ДЛЯ ИСПОЛЬЗОВАНИЯ
+Update\Update.RU.xaml,Update.MessageText.Running.Error,НЕ УДАЛОСЬ ПОДГОТОВИТЬ ЗАГРУЖЕННЫЙ ФАЙЛ
+Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.MessageText.Extracting,ИЗВЛЕЧЕНИЕ ЗАГРУЖЕННОГО ФАЙЛА
+Update\Update.RU.xaml,Update.MessageText.Extracting.Executing,ИЗВЛЕЧЕННЫЙ ФАЙЛ ВЫПОЛНЯЕТСЯ
+Update\Update.RU.xaml,Update.MessageText.Extracting.Executed,ИЗВЛЕЧЕННЫЙ ФАЙЛ БЫЛ ВЫПОЛНЕН
+Update\Update.RU.xaml,Update.MessageText.Extracting.Failed,ЗАГРУЖЕННЫЙ ФАЙЛ НЕ УДАЛОСЬ ИЗВЛЕЧЬ
+Update\Update.RU.xaml,Update.MessageText.Extracting.Corrupt,ЗАГРУЖЕННЫЙ ФАЙЛ ПОВРЕЖДЁН
+Update\Update.RU.xaml,Update.MessageText.Extracting.Not,ЗАГРУЖЕННЫЙ ФАЙЛ НЕПРИГОДЕН ДЛЯ ИСПОЛЬЗОВАНИЯ
+Update\Update.RU.xaml,Update.MessageText.Extracting.Error,НЕ УДАЛОСЬ ИЗВЛЕЧЬ ЗАГРУЖЕННЫЙ ФАЙЛ
 Watchdog\Watchdog.RU.xaml,Watchdog.HelpButton,Помощь
 Watchdog\Watchdog.RU.xaml,Watchdog.CloseButton,Закрыть
 Watchdog\Watchdog.RU.xaml,Watchdog.ErrorMessage,Произошла непредвиденная ошибка:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.RU.xaml,Watchdog.HideButton,Скрыть
 Watchdog\Watchdog.RU.xaml,Watchdog.ShowButton,Показать
 Watchdog\Watchdog.RU.xaml,Watchdog.StackTrace,Трассировка стека:
 Watchdog\Watchdog.RU.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.RU.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.ReloadText,ПОВТОРИТЬ ПОПЫТКУ
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Preparing,ПОДГОТОВКА НЕОБХОДИМЫХ ПРИГОТОВЛЕНИЙ
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Temporary,ПРОВЕРКА ВРЕМЕННЫХ МЕСТОПОЛОЖЕНИЙ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Temporary.Error,ВРЕМЕННЫЕ МЕСТОПОЛОЖЕНИЯ НЕ МОГУТ БЫТЬ ПРОВЕРЕНЫ
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Connection,ПРОВЕРКА ИНТЕРНЕТ-СОЕДИНЕНИЯ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Connection.None,НЕТ ИНТЕРНЕТ-СОЕДИНЕНИЯ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Connection.Error,ИНТЕРНЕТ-СОЕДИНЕНИЕ НЕ МОЖЕТ БЫТЬ ПРОВЕРЕНО
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Searching,ПОИСК НЕОБХОДИМЫХ ФАЙЛОВ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Searching.Not,НЕ НАЙДЕНЫ НЕОБХОДИМЫЕ ФАЙЛЫ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Searching.Error,НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ НАЙДЕНЫ
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Listing,ПОЛУЧЕНИЕ НЕОБХОДИМЫХ СПИСКОВ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Listing.Empty,НЕОБХОДИМЫЕ СПИСКИ ПУСТЫ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Listing.Error,НЕОБХОДИМЫЕ СПИСКИ НЕ МОГУТ БЫТЬ ПОЛУЧЕНЫ
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Filtering,СПИСКИ ФИЛЬТРУЮТСЯ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Filtering.Not,СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Filtering.Error,СПИСКИ НЕ МОГУТ БЫТЬ ОТФИЛЬТРОВАНЫ
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading,ЗАГРУЗКА НЕОБХОДИМЫХ ФАЙЛОВ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading.Error,НЕОБХОДИМЫЕ ФАЙЛЫ НЕ МОГУТ БЫТЬ ЗАГРУЖЕНЫ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading.Complete.Cancel,ЗАГРУЗКА НЕОБХОДИМОГО ФАЙЛА БЫЛА ОТМЕНЕНА
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Downloading.Complete.Error,ПРИ ЗАГРУЗКЕ НЕОБХОДИМОГО ФАЙЛА ПРОИЗОШЛА ОШИБКА
-Wizard\Wizard.RU.xaml,,
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting,ИЗВЛЕЧЕНИЕ ЗАГРУЖЕННОГО ФАЙЛА
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Executing,ИЗВЛЕЧЕННЫЙ ФАЙЛ ВЫПОЛНЯЕТСЯ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Executed,ИЗВЛЕЧЕННЫЙ ФАЙЛ БЫЛ ВЫПОЛНЕН
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Failed,ЗАГРУЖЕННЫЙ ФАЙЛ НЕ УДАЛОСЬ ИЗВЛЕЧЬ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Corrupt,ЗАГРУЖЕННЫЙ ФАЙЛ ПОВРЕЖДЁН
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Not,ЗАГРУЖЕННЫЙ ФАЙЛ НЕПРИГОДЕН ДЛЯ ИСПОЛЬЗОВАНИЯ
-Wizard\Wizard.RU.xaml,Wizard.MessageText.Extracting.Error,НЕ УДАЛОСЬ ИЗВЛЕЧЬ ЗАГРУЖЕННЫЙ ФАЙЛ
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Data,Данные
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Sound,Звук
 Portal\Area\Portal.Area.RU.xaml,Portal.Area.Log,Лог

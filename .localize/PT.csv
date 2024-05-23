@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.PT.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUFQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5QVC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUFQueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.PT.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUFQueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlBULnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5QVC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUFQueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.PT.xaml,Discord.BrowseButton,Procurar
 Discord\Discord.PT.xaml,Discord.Details,Motor de Papel de Parede
 Discord\Discord.PT.xaml,Discord.DownloadButton,Baixar
@@ -158,27 +158,56 @@ Property\Property.PT.xaml,Property.FileDropDown.Filter,Todos os Arquivos (*.*)|*
 Undo\Undo.PT.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.PT.xaml,,
 Undo\Undo.PT.xaml,Undo.QuestionMessage,Tem certeza de que deseja desinstalar o Sucrose Wallpaper Engine?
+Update\Update.PT.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.PT.xaml,,
 Update\Update.PT.xaml,Update.HelpText,Resolver Problema
 Update\Update.PT.xaml,,
-Update\Update.PT.xaml,Update.UpdateBox.WindowTitle,Atualização do Sucrose
-Update\Update.PT.xaml,Update.UpdateBox.InstallText,Instalar Atualização
+Update\Update.PT.xaml,Update.ReloadText,TENTAR NOVAMENTE
 Update\Update.PT.xaml,,
-Update\Update.PT.xaml,Update.InfoBox.WindowTitle,Atualização do Sucrose
-Update\Update.PT.xaml,Update.InfoBox.TextMessage,Mensagem
-Update\Update.PT.xaml,Update.InfoBox.CloseText,Fechar
+Update\Update.PT.xaml,Update.MessageText.Preparing,PREPARANDO PREPARAÇÕES NECESSÁRIAS
 Update\Update.PT.xaml,,
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Empty,"Estamos nos momentos em que os arquivos de atualização estão escondidos como um tesouro perdido. No entanto, você ainda pode desfrutar da experiência com a versão atual."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Error,"Descobrimos uma rachadura no caminho enquanto baixávamos o arquivo de atualização e percebemos que esta jornada chegou ao fim por enquanto. Continue sua jornada com a versão atual, pois uma atualização mais forte o aguarda quando essas rachaduras forem corrigidas."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Update,"O aplicativo já está com você em sua forma mais atual e inovadora, como a página mais recente de um livro. Estamos aqui para proporcionar a melhor e mais atual experiência a qualquer momento."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Status,"Estamos à beira de um sonho onde os arquivos de atualização não podem ser alcançados. No entanto, você pode continuar a viver seu sonho com a versão atual."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Channel,"O canal de atualização selecionado está tão silencioso quanto uma floresta tranquila. Não há novas informações de atualização disponíveis no momento. Continue sua jornada com a versão atual, pois ofereceremos mais quando esse silêncio for quebrado."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Extract,"Enquanto tentávamos extrair o arquivo de atualização, encontramos um obstáculo vindo das profundezas do mar. Continue sua jornada com a versão atual, pois voltaremos para encontrar novos tesouros quando o mar estiver mais calmo."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Network,"A fragilidade de sua conexão é como nuvens encobrindo o sol. Quando as nuvens se dissiparem, uma experiência mais brilhante o aguardará."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Updating,"A atualização do aplicativo está avançando sorrateiramente, como novos tesouros trazidos pelas ondas do mar à costa. Essas valiosas inovações estão sendo coletadas para você nos bastidores."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Releases,"Estamos vivendo um momento em que a estrela da atualização ainda não nasceu. Não há informações de atualização disponíveis no momento, mas você pode continuar usando a versão existente."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Download,"Descobrimos que as estrelas no céu estavam em uma ordem incorreta enquanto baixávamos o arquivo de atualização. Continue sua jornada com a versão atual, pois ofereceremos uma atualização melhor quando as estrelas estiverem alinhadas corretamente."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Cancelled,"O download do arquivo de atualização foi cancelado porque nossos caminhos se separaram repentinamente. Continue sua jornada com a versão atual e esteja preparado para futuras atualizações, pois um novo começo é sempre possível."
-Update\Update.PT.xaml,Update.InfoBox.TextMessage.Condition,As condições nos arquivos de atualização parecem estar faltando para desbloquear a chave. Continue sua jornada com a versão atual e esteja pronto para futuras atualizações.
+Update\Update.PT.xaml,Update.MessageText.Temporary,VERIFICANDO LOCAIS TEMPORÁRIOS
+Update\Update.PT.xaml,Update.MessageText.Temporary.Error,NÃO FOI POSSÍVEL VERIFICAR OS LOCAIS TEMPORÁRIOS
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Connection,VERIFICANDO CONEXÃO COM A INTERNET
+Update\Update.PT.xaml,Update.MessageText.Connection.None,SEM CONEXÃO COM A INTERNET
+Update\Update.PT.xaml,Update.MessageText.Connection.Error,NÃO FOI POSSÍVEL VERIFICAR A CONEXÃO COM A INTERNET
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Listing,OBTENDO AS LISTAS NECESSÁRIAS
+Update\Update.PT.xaml,Update.MessageText.Listing.Empty,AS LISTAS NECESSÁRIAS ESTÃO VAZIAS
+Update\Update.PT.xaml,Update.MessageText.Listing.Error,NÃO FOI POSSÍVEL RECEBER AS LISTAS NECESSÁRIAS
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Filtering,LISTAS ESTÃO SENDO FILTRADAS
+Update\Update.PT.xaml,Update.MessageText.Filtering.Not,LISTAS NÃO PODEM SER FILTRADAS
+Update\Update.PT.xaml,Update.MessageText.Filtering.Error,NÃO FOI POSSÍVEL FILTRAR AS LISTAS
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Comparing,COMPARANDO LISTAS
+Update\Update.PT.xaml,Update.MessageText.Comparing.Update,APLICATIVO JÁ ESTÁ ATUALIZADO
+Update\Update.PT.xaml,Update.MessageText.Comparing.Error,FALHA AO COMPARAR LISTAS
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Searching,PROCURANDO POR ARQUIVOS NECESSÁRIOS
+Update\Update.PT.xaml,Update.MessageText.Searching.Not,ARQUIVOS NECESSÁRIOS NÃO ENCONTRADOS
+Update\Update.PT.xaml,Update.MessageText.Searching.Error,NÃO FOI POSSÍVEL PROCURAR OS ARQUIVOS NECESSÁRIOS
+Update\Update.PT.xaml,Update.MessageText.Searching.Condition,ARQUIVOS NECESSÁRIOS NÃO ENCONTRADOS
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Downloading,BAIXANDO ARQUIVOS NECESSÁRIOS
+Update\Update.PT.xaml,Update.MessageText.Downloading.Error,NÃO FOI POSSÍVEL BAIXAR OS ARQUIVOS NECESSÁRIOS
+Update\Update.PT.xaml,Update.MessageText.Downloading.Complete.Cancel,O DOWNLOAD DO ARQUIVO NECESSÁRIO FOI CANCELADO
+Update\Update.PT.xaml,Update.MessageText.Downloading.Complete.Error,OCORREU UM ERRO DURANTE O DOWNLOAD DO ARQUIVO NECESSÁRIO
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Running,PREPARANDO ARQUIVO BAIXADO
+Update\Update.PT.xaml,Update.MessageText.Running.Executing,EXECUTANDO ARQUIVO BAIXADO
+Update\Update.PT.xaml,Update.MessageText.Running.Executed,ARQUIVO BAIXADO EXECUTADO
+Update\Update.PT.xaml,Update.MessageText.Running.Not,ARQUIVO BAIXADO NÃO UTILIZÁVEL
+Update\Update.PT.xaml,Update.MessageText.Running.Error,FALHA AO PREPARAR ARQUIVO BAIXADO
+Update\Update.PT.xaml,,
+Update\Update.PT.xaml,Update.MessageText.Extracting,EXTRAINDO O ARQUIVO BAIXADO
+Update\Update.PT.xaml,Update.MessageText.Extracting.Executing,O ARQUIVO EXTRAÍDO ESTÁ SENDO EXECUTADO
+Update\Update.PT.xaml,Update.MessageText.Extracting.Executed,O ARQUIVO EXTRAÍDO FOI EXECUTADO
+Update\Update.PT.xaml,Update.MessageText.Extracting.Failed,O ARQUIVO BAIXADO FALHOU
+Update\Update.PT.xaml,Update.MessageText.Extracting.Corrupt,O ARQUIVO BAIXADO ESTÁ CORROMPIDO
+Update\Update.PT.xaml,Update.MessageText.Extracting.Not,O ARQUIVO BAIXADO NÃO É USÁVEL
+Update\Update.PT.xaml,Update.MessageText.Extracting.Error,NÃO FOI POSSÍVEL EXTRAIR O ARQUIVO BAIXADO
 Watchdog\Watchdog.PT.xaml,Watchdog.HelpButton,Ajuda
 Watchdog\Watchdog.PT.xaml,Watchdog.CloseButton,Fechar
 Watchdog\Watchdog.PT.xaml,Watchdog.ErrorMessage,Ocorreu um erro inesperado:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.PT.xaml,Watchdog.HideButton,Ocultar
 Watchdog\Watchdog.PT.xaml,Watchdog.ShowButton,Mostrar
 Watchdog\Watchdog.PT.xaml,Watchdog.StackTrace,Rastreamento de Pilha:
 Watchdog\Watchdog.PT.xaml,Watchdog.WindowTitle,Vigilante de Sucrose
-Wizard\Wizard.PT.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.ReloadText,TENTAR NOVAMENTE
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Preparing,PREPARANDO PREPARAÇÕES NECESSÁRIAS
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Temporary,VERIFICANDO LOCAIS TEMPORÁRIOS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Temporary.Error,NÃO FOI POSSÍVEL VERIFICAR OS LOCAIS TEMPORÁRIOS
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Connection,VERIFICANDO CONEXÃO COM A INTERNET
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Connection.None,SEM CONEXÃO COM A INTERNET
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Connection.Error,NÃO FOI POSSÍVEL VERIFICAR A CONEXÃO COM A INTERNET
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Searching,PROCURANDO POR ARQUIVOS NECESSÁRIOS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Searching.Not,ARQUIVOS NECESSÁRIOS NÃO ENCONTRADOS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Searching.Error,NÃO FOI POSSÍVEL PROCURAR OS ARQUIVOS NECESSÁRIOS
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Listing,OBTENDO AS LISTAS NECESSÁRIAS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Listing.Empty,AS LISTAS NECESSÁRIAS ESTÃO VAZIAS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Listing.Error,NÃO FOI POSSÍVEL RECEBER AS LISTAS NECESSÁRIAS
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Filtering,LISTAS ESTÃO SENDO FILTRADAS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Filtering.Not,LISTAS NÃO PODEM SER FILTRADAS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Filtering.Error,NÃO FOI POSSÍVEL FILTRAR AS LISTAS
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Downloading,BAIXANDO ARQUIVOS NECESSÁRIOS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Downloading.Error,NÃO FOI POSSÍVEL BAIXAR OS ARQUIVOS NECESSÁRIOS
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Downloading.Complete.Cancel,O DOWNLOAD DO ARQUIVO NECESSÁRIO FOI CANCELADO
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Downloading.Complete.Error,OCORREU UM ERRO DURANTE O DOWNLOAD DO ARQUIVO NECESSÁRIO
-Wizard\Wizard.PT.xaml,,
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting,EXTRAINDO O ARQUIVO BAIXADO
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Executing,O ARQUIVO EXTRAÍDO ESTÁ SENDO EXECUTADO
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Executed,O ARQUIVO EXTRAÍDO FOI EXECUTADO
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Failed,O ARQUIVO BAIXADO FALHOU
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Corrupt,O ARQUIVO BAIXADO ESTÁ CORROMPIDO
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Not,O ARQUIVO BAIXADO NÃO É USÁVEL
-Wizard\Wizard.PT.xaml,Wizard.MessageText.Extracting.Error,NÃO FOI POSSÍVEL EXTRAIR O ARQUIVO BAIXADO
 Portal\Area\Portal.Area.PT.xaml,Portal.Area.Data,Dados
 Portal\Area\Portal.Area.PT.xaml,Portal.Area.Sound,Som
 Portal\Area\Portal.Area.PT.xaml,Portal.Area.Log,Registro

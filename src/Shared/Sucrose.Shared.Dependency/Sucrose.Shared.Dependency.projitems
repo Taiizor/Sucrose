@@ -19,7 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\SortType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StoreType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enum\UpdateType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\StretchType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\ArchitectureType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\WallpaperType.cs" />

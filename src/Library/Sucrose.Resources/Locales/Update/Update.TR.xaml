@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
+
     <system:String x:Key="Update.HelpText">Sorunu Çöz</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Sucrose Güncelleme</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Güncellemeyi Yükle</system:String>
+    <system:String x:Key="Update.ReloadText">TEKRAR DENEYİN</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Sucrose Güncelleme</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Mesaj</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Çıkış</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">GEREKLİ HAZIRLIKLAR YAPILIYOR</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Güncelleme dosyalarının kayıp bir mücevher gibi gizlendiği anlardayız. Şu an mevcut sürümü kullanarak da deneyimden keyif alabilirsiniz.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">Güncelleme dosyasını indirirken, yolda bir çatlak oluştuğunu ve bu yolculuğun şimdilik sona erdiğini fark ettik. Mevcut sürümle yolculuğunuza devam edin, çünkü bu çatlaklar tamir edildiğinde daha güçlü bir güncelleme sizi bekliyor olacak.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">Uygulama, bir kitabın en yeni sayfası gibi zaten en güncel ve yenilikçi haliyle sizinle. Her an en iyi ve en güncel deneyimi yaşatmak için burada.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Güncelleme dosyalarına erişilemeyen bir rüyanın eşiğindeyiz. Ancak mevcut sürümle de rüyanızı yaşamaya devam edebilirsiniz.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Seçili güncelleme kanalı, bir sessizlik ormanı gibi. Şu an için yeni güncelleme bilgileri burada bulunmuyor. Mevcut sürümle yolculuğunuza devam edin, çünkü bu sessizlik bozulduğunda size daha fazlasını sunacağız.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Güncelleme dosyasını çıkartmaya çalışırken, denizin derinliklerinden kaynaklanan bir engelle karşılaştık. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü denizler daha sakin olduğunda yeni hazineleri bulmak için geri döneceğiz.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">Bağlantınızın zayıflığı, bulutların güneşi örtmesi gibi. Bulutlar dağıldığında daha aydınlık bir deneyim sizi bekliyor olacak.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Uygulama güncellemesi, denizin dalgalarının kıyıya getirdiği yeni hazineler gibi sinsi bir şekilde ilerliyor. Bu değerli yenilikler, arkaplanda sizin için toplanıyor.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Uygulamada güncelleme yıldızının henüz doğmadığı bir anı yaşıyoruz. Şu an için herhangi bir güncelleme bilgisi yok, ancak zaten mevcut olan sürümü kullanmaya devam edebilirsiniz.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">Güncelleme dosyasını indirirken, gökyüzündeki yıldızların yanlış bir sıralamaya sahip olduğunu keşfettik. Şimdilik mevcut sürümle yolculuğunuza devam edin, çünkü yıldızlar doğru hizaya geldiğinde size daha iyi bir güncelleme sunacağız.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Güncelleme dosyasının indirilmesi iptal edildi, çünkü yollarımız aniden ayrıldı. Mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun, çünkü yeni bir başlangıç her zaman mümkündür.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Güncelleme dosyalarındaki şartlar, anahtarın kilidini açmak için eksik gibi görünüyor. Şimdilik mevcut sürümle yolculuğunuza devam edin ve gelecekteki güncellemeler için hazır olun.</system:String>
+    <system:String x:Key="Update.MessageText.Temporary">GEÇİCİ KONUMLARIN KONTROLÜ YAPILIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">GEÇİCİ KONUMLAR KONTROL EDİLEMEDİ</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">İNTERNET BAĞLANTISI KONTROL EDİLİYOR</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">İNTERNET BAĞLANTISI YOK</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">İNTERNET BAĞLANTISI KONTROL EDİLEMEDİ</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">GEREKLİ LİSTELER ALINIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">GEREKLİ LİSTELER BOŞ</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">GEREKLİ LİSTELER ALINAMADI</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">LİSTELER AYIKLANIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">LİSTELER FİLTRELENEMİYOR</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">LİSTELER AYIKLANAMADI</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">LİSTELER KARŞILAŞTIRILIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">UYGULAMA ZATEN GÜNCEL</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">LİSTELER KARŞILAŞTIRILAMADI</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">GEREKLİ DOSYALAR ARANIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">GEREKLİ DOSYALAR BULUNAMADI</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">GEREKLİ DOSYALAR ARANAMADI</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">GEREKLİ DOSYALAR BULUNAMADI</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">GEREKLİ DOSYALAR İNDİRİLİYOR</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">GEREKLİ DOSYALAR İNDİRİLEMEDİ</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">GEREKLİ DOSYA İNDİRİLİRKEN İPTAL OLDU</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">GEREKLİ DOSYA İNDİRİLİRKEN HATA OLDU</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">İNDİRİLEN DOSYA HAZIRLANIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">İNDİRİLEN DOSYA ÇALIŞTIRILIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">İNDİRİLEN DOSYA ÇALIŞTIRILDI</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">İNDİRİLEN DOSYA KULLANILAMAZ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">İNDİRİLEN DOSYA HAZIRLANAMADI</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">İNDİRİLEN DOSYA ÇIKARTILIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">ÇIKARTILAN DOSYA ÇALIŞTIRILIYOR</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">ÇIKARTILAN DOSYA ÇALIŞTIRILDI</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">İNDİRİLEN DOSYA BAŞARISIZ OLDU</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">İNDİRİLEN DOSYA BOZUK</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">İNDİRİLEN DOSYA KULLANILAMAZ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">İNDİRİLEN DOSYA ÇIKARILAMADI</system:String>
 </ResourceDictionary>

@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.DE.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuREUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5ERS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuREUueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.DE.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuREUueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkRFLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5ERS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuREUueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.DE.xaml,Discord.BrowseButton,Durchsuchen
 Discord\Discord.DE.xaml,Discord.Details,Wallpaper-Engine
 Discord\Discord.DE.xaml,Discord.DownloadButton,Herunterladen
@@ -158,27 +158,56 @@ Property\Property.DE.xaml,Property.FileDropDown.Filter,Alle Dateien (*.*)|*.*
 Undo\Undo.DE.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.DE.xaml,,
 Undo\Undo.DE.xaml,Undo.QuestionMessage,Möchten Sie Sucrose Wallpaper Engine wirklich deinstallieren?
+Update\Update.DE.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.DE.xaml,,
 Update\Update.DE.xaml,Update.HelpText,Problem Lösen
 Update\Update.DE.xaml,,
-Update\Update.DE.xaml,Update.UpdateBox.WindowTitle,Sucrose-Update
-Update\Update.DE.xaml,Update.UpdateBox.InstallText,Installiere Update
+Update\Update.DE.xaml,Update.ReloadText,ERNEUT VERSUCHEN
 Update\Update.DE.xaml,,
-Update\Update.DE.xaml,Update.InfoBox.WindowTitle,Sucrose-Update
-Update\Update.DE.xaml,Update.InfoBox.TextMessage,Nachricht
-Update\Update.DE.xaml,Update.InfoBox.CloseText,Ausfahrt
+Update\Update.DE.xaml,Update.MessageText.Preparing,BEREITSTELLUNG ERFORDERLICHER VORBEREITUNGEN
 Update\Update.DE.xaml,,
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Empty,"Wir befinden uns in Momenten, in denen Update-Dateien wie ein verlorenes Juwel versteckt sind. Sie können weiterhin Freude an der Erfahrung haben, indem Sie die aktuelle Version verwenden."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Error,"Beim Herunterladen der Aktualisierungsdatei haben wir einen Riss im Pfad entdeckt, und diese Reise ist vorerst zu Ende. Setzen Sie Ihre Reise mit der aktuellen Version fort, denn eine stärkere Aktualisierung erwartet Sie, wenn diese Risse repariert sind."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Update,"Die Anwendung ist bereits bei Ihnen, wie die neueste Seite eines Buches, in ihrer aktuellsten und innovativsten Form. Hier, um Ihnen jederzeit das beste und aktuellste Erlebnis zu bieten."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Status,"Wir stehen an der Schwelle eines Traums, in dem Update-Dateien nicht zugänglich sind. Sie können jedoch Ihren Traum weiterhin mit der aktuellen Version leben."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Channel,"Der ausgewählte Update-Kanal ist wie ein stiller Wald. Hier gibt es derzeit keine neuen Update-Informationen. Setzen Sie Ihre Reise mit der aktuellen Version fort, denn wenn diese Stille gebrochen ist, werden wir Ihnen mehr bieten."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Extract,"Beim Versuch, die Update-Datei zu extrahieren, sind wir auf ein Hindernis aus den Tiefen des Meeres gestoßen. Setzen Sie vorerst Ihre Reise mit der aktuellen Version fort, denn wir werden zurückkehren, um neue Schätze zu finden, wenn die See ruhiger ist."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Network,"Die Schwäche Ihrer Verbindung, wie Wolken, die die Sonne verdecken. Ein helleres Erlebnis erwartet Sie, wenn die Wolken sich auflösen."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Updating,"Das Anwendungsupdate schreitet heimlich voran, wie neue Schätze, die von den Wellen des Meeres ans Ufer gebracht werden. Diese wertvollen Innovationen werden im Hintergrund für Sie gesammelt."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Releases,"Wir erleben einen Moment, in dem der Update-Stern in der Anwendung noch nicht aufgegangen ist. Derzeit gibt es keine verfügbaren Update-Informationen, aber Sie können weiterhin die vorhandene Version verwenden."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Download,"Beim Herunterladen der Update-Datei haben wir festgestellt, dass die Sterne am Himmel falsch ausgerichtet sind. Setzen Sie vorerst Ihre Reise mit der aktuellen Version fort, denn wir werden Ihnen ein besseres Update anbieten, wenn die Sterne richtig ausgerichtet sind."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Cancelled,"Das Herunterladen der Aktualisierungsdatei wurde abgebrochen, weil sich unsere Wege plötzlich getrennt haben. Setzen Sie Ihre Reise mit der aktuellen Version fort und seien Sie bereit für zukünftige Updates, denn ein Neuanfang ist immer möglich."
-Update\Update.DE.xaml,Update.InfoBox.TextMessage.Condition,"Die Bedingungen in den Update-Dateien scheinen zu fehlen, um den Schlüssel zu entsperren. Für jetzt setzen Sie Ihre Reise mit der aktuellen Version fort und seien Sie bereit für zukünftige Updates."
+Update\Update.DE.xaml,Update.MessageText.Temporary,ÜBERPRÜFUNG VON TEMPORÄREN SPEICHERORTEN
+Update\Update.DE.xaml,Update.MessageText.Temporary.Error,TEMPORÄRE SPEICHERORT KONNTE NICHT ÜBERPRÜFT WERDEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Connection,ÜBERPRÜFUNG DER INTERNETVERBINDUNG
+Update\Update.DE.xaml,Update.MessageText.Connection.None,KEINE INTERNETVERBINDUNG
+Update\Update.DE.xaml,Update.MessageText.Connection.Error,INTERNETVERBINDUNG KONNTE NICHT ÜBERPRÜFT WERDEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Listing,BEKOMMEN DER ERFORDERLICHEN LISTEN
+Update\Update.DE.xaml,Update.MessageText.Listing.Empty,ERFORDERLICHE LISTEN SIND LEER
+Update\Update.DE.xaml,Update.MessageText.Listing.Error,ERFORDERLICHE LISTEN KONNTEN NICHT EMPFANGEN WERDEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Filtering,LISTEN WERDEN GEFILTERT
+Update\Update.DE.xaml,Update.MessageText.Filtering.Not,LISTEN KÖNNEN NICHT GEFILTERT WERDEN
+Update\Update.DE.xaml,Update.MessageText.Filtering.Error,LISTEN KONNTEN NICHT GEFILTERT WERDEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Comparing,VERGLEICHEN VON LISTEN
+Update\Update.DE.xaml,Update.MessageText.Comparing.Update,DIE ANWENDUNG IST BEREITS AKTUELL
+Update\Update.DE.xaml,Update.MessageText.Comparing.Error,LISTENVERGLEICH FEHLGESCHLAGEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Searching,SUCHE NACH ERFORDERLICHEN DATEIEN
+Update\Update.DE.xaml,Update.MessageText.Searching.Not,ERFORDERLICHE DATEIEN NICHT GEFUNDEN
+Update\Update.DE.xaml,Update.MessageText.Searching.Error,ERFORDERLICHE DATEIEN KONNTEN NICHT GESUCHT WERDEN
+Update\Update.DE.xaml,Update.MessageText.Searching.Condition,ERFORDERLICHE DATEIEN NICHT GEFUNDEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Downloading,DOWNLOADEN DER ERFORDERLICHEN DATEIEN
+Update\Update.DE.xaml,Update.MessageText.Downloading.Error,ERFORDERLICHE DATEIEN KONNTEN NICHT HERUNTERGELADEN WERDEN
+Update\Update.DE.xaml,Update.MessageText.Downloading.Complete.Cancel,DER DOWNLOAD DER ERFORDERLICHEN DATEI WURDE ABGEBROCHEN
+Update\Update.DE.xaml,Update.MessageText.Downloading.Complete.Error,BEIM HERUNTERLADEN DER ERFORDERLICHEN DATEI IST EIN FEHLER AUFGETRETEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Running,VORBEREITUNG DER HERUNTERGELADENEN DATEI
+Update\Update.DE.xaml,Update.MessageText.Running.Executing,AUSFÜHRUNG DER HERUNTERGELADENEN DATEI
+Update\Update.DE.xaml,Update.MessageText.Running.Executed,HERUNTERGELADENE DATEI AUSGEFÜHRT
+Update\Update.DE.xaml,Update.MessageText.Running.Not,HERUNTERGELADENE DATEI NICHT VERWENDBAR
+Update\Update.DE.xaml,Update.MessageText.Running.Error,VORBEREITUNG DER HERUNTERGELADENEN DATEI FEHLGESCHLAGEN
+Update\Update.DE.xaml,,
+Update\Update.DE.xaml,Update.MessageText.Extracting,EXTRAHIEREN DER HERUNTERGELADENEN DATEI
+Update\Update.DE.xaml,Update.MessageText.Extracting.Executing,DIE EXTRAHIERTE DATEI WIRD AUSGEFÜHRT
+Update\Update.DE.xaml,Update.MessageText.Extracting.Executed,DIE EXTRAHIERTE DATEI WURDE AUSGEFÜHRT
+Update\Update.DE.xaml,Update.MessageText.Extracting.Failed,DIE HERUNTERGELADENE DATEI IST FEHLGESCHLAGEN
+Update\Update.DE.xaml,Update.MessageText.Extracting.Corrupt,DIE HERUNTERGELADENE DATEI IST BESCHÄDIGT
+Update\Update.DE.xaml,Update.MessageText.Extracting.Not,DIE HERUNTERGELADENE DATEI IST NICHT VERWENDBAR
+Update\Update.DE.xaml,Update.MessageText.Extracting.Error,DIE HERUNTERGELADENE DATEI KONNTE NICHT EXTRAHIEREN WERDEN
 Watchdog\Watchdog.DE.xaml,Watchdog.HelpButton,Helfen
 Watchdog\Watchdog.DE.xaml,Watchdog.CloseButton,Ausfahrt
 Watchdog\Watchdog.DE.xaml,Watchdog.ErrorMessage,Ein unerwarteter Fehler ist aufgetreten:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.DE.xaml,Watchdog.HideButton,Verstecken
 Watchdog\Watchdog.DE.xaml,Watchdog.ShowButton,Zeigen
 Watchdog\Watchdog.DE.xaml,Watchdog.StackTrace,Stack-Trace:
 Watchdog\Watchdog.DE.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.DE.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.ReloadText,ERNEUT VERSUCHEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Preparing,BEREITSTELLUNG ERFORDERLICHER VORBEREITUNGEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Temporary,ÜBERPRÜFUNG VON TEMPORÄREN SPEICHERORTEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Temporary.Error,TEMPORÄRE SPEICHERORT KONNTE NICHT ÜBERPRÜFT WERDEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Connection,ÜBERPRÜFUNG DER INTERNETVERBINDUNG
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Connection.None,KEINE INTERNETVERBINDUNG
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Connection.Error,INTERNETVERBINDUNG KONNTE NICHT ÜBERPRÜFT WERDEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Searching,SUCHE NACH ERFORDERLICHEN DATEIEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Searching.Not,ERFORDERLICHE DATEIEN NICHT GEFUNDEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Searching.Error,ERFORDERLICHE DATEIEN KONNTEN NICHT GESUCHT WERDEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Listing,BEKOMMEN DER ERFORDERLICHEN LISTEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Listing.Empty,ERFORDERLICHE LISTEN SIND LEER
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Listing.Error,ERFORDERLICHE LISTEN KONNTEN NICHT EMPFANGEN WERDEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Filtering,LISTEN WERDEN GEFILTERT
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Filtering.Not,LISTEN KÖNNEN NICHT GEFILTERT WERDEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Filtering.Error,LISTEN KONNTEN NICHT GEFILTERT WERDEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Downloading,DOWNLOADEN DER ERFORDERLICHEN DATEIEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Downloading.Error,ERFORDERLICHE DATEIEN KONNTEN NICHT HERUNTERGELADEN WERDEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Downloading.Complete.Cancel,DER DOWNLOAD DER ERFORDERLICHEN DATEI WURDE ABGEBROCHEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Downloading.Complete.Error,BEIM HERUNTERLADEN DER ERFORDERLICHEN DATEI IST EIN FEHLER AUFGETRETEN
-Wizard\Wizard.DE.xaml,,
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Extracting,EXTRAHIEREN DER HERUNTERGELADENEN DATEI
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Extracting.Executing,DIE EXTRAHIERTE DATEI WIRD AUSGEFÜHRT
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Extracting.Executed,DIE EXTRAHIERTE DATEI WURDE AUSGEFÜHRT
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Extracting.Failed,DIE HERUNTERGELADENE DATEI IST FEHLGESCHLAGEN
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Extracting.Corrupt,DIE HERUNTERGELADENE DATEI IST BESCHÄDIGT
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Extracting.Not,DIE HERUNTERGELADENE DATEI IST NICHT VERWENDBAR
-Wizard\Wizard.DE.xaml,Wizard.MessageText.Extracting.Error,DIE HERUNTERGELADENE DATEI KONNTE NICHT EXTRAHIEREN WERDEN
 Portal\Area\Portal.Area.DE.xaml,Portal.Area.Data,Daten
 Portal\Area\Portal.Area.DE.xaml,Portal.Area.Sound,Ton
 Portal\Area\Portal.Area.DE.xaml,Portal.Area.Log,Protokoll

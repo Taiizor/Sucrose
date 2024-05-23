@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.RO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUk8ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.RO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuUk8ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlJPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5STy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuUk8ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.RO.xaml,Discord.BrowseButton,Răsfoiește
 Discord\Discord.RO.xaml,Discord.Details,Motor de Fundal
 Discord\Discord.RO.xaml,Discord.DownloadButton,Descarcă
@@ -158,27 +158,56 @@ Property\Property.RO.xaml,Property.FileDropDown.Filter,Toate fișierele (*.*)|*.
 Undo\Undo.RO.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.RO.xaml,,
 Undo\Undo.RO.xaml,Undo.QuestionMessage,Doriți cu adevărat să dezinstalați Sucrose Wallpaper Engine?
-Update\Update.RO.xaml,Update.HelpText,Rezolvă problema
+Update\Update.RO.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.RO.xaml,,
-Update\Update.RO.xaml,Update.UpdateBox.WindowTitle,Actualizare Sucrose
-Update\Update.RO.xaml,Update.UpdateBox.InstallText,Instalează actualizarea
+Update\Update.RO.xaml,Update.HelpText,Rezolvă Problema
 Update\Update.RO.xaml,,
-Update\Update.RO.xaml,Update.InfoBox.WindowTitle,Actualizare Sucrose
-Update\Update.RO.xaml,Update.InfoBox.TextMessage,Mesaj
-Update\Update.RO.xaml,Update.InfoBox.CloseText,Închide
+Update\Update.RO.xaml,Update.ReloadText,ÎNCERCAȚI DIN NOU
 Update\Update.RO.xaml,,
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Empty,Suntem într-un moment în care fișierele de actualizare sunt ascunse ca un bijuterie pierdută. Puteți să vă bucurați de experiența actuală folosind versiunea curentă.
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Error,"În timpul descărcării fișierului de actualizare, am observat că s-a format o crăpătură pe drum și că această călătorie se încheie pentru moment. Continuați cu versiunea curentă, deoarece vă așteaptă o actualizare mai puternică atunci când aceste crăpături vor fi reparate."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Update,"Aplicația este deja cu cea mai recentă și inovatoare versiune, precum cea mai recentă pagină dintr-o carte. Suntem aici pentru a vă oferi cea mai bună și actuală experiență în orice moment."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Status,"Suntem la limita unei vise la care nu putem să accesăm fișierele de actualizare. Cu toate acestea, puteți continua să vă bucurați de visul dvs. cu versiunea actuală."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Channel,"Canalul de actualizare selectat este asemănător unei păduri liniștite. În acest moment, nu există informații noi despre actualizări. Continuați cu versiunea actuală, deoarece vă vom oferi mai multe atunci când această liniște va fi întreruptă."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Extract,"În timp ce încercam să extragem fișierul de actualizare, am dat de o piedică provenită din adâncurile mării. Pentru moment, vă rugăm să continuați cu versiunea actuală, pentru că vom reveni să descoperim noi comori când mările vor fi mai liniștite."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Network,"Slăbiciunea conexiunii tale este precum norii care acoperă soarele. Când norii se vor risipi, vă va aștepta o experiență mai strălucitoare."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Updating,Actualizarea aplicației progresează discret ca noi comori aduse de valurile mării pe țărm. Aceste îmbunătățiri prețioase sunt colectate pentru dvs. în fundal.
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Releases,"Trăim un moment în care steaua actualizării încă nu a răsărit. În acest moment, nu avem nicio informație despre actualizări, dar puteți continua să utilizați versiunea actuală care este deja disponibilă."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Download,"În timp ce descărcam fișierul de actualizare, am descoperit că stelele pe cer sunt aranjate într-un mod greșit. Pentru moment, vă rugăm să continuați cu versiunea actuală, deoarece când stelele se vor alinia corect, vă vom oferi o actualizare mai bună."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Cancelled,"Descărcarea fișierului de actualizare a fost anulată, deoarece drumurile noastre s-au separat brusc. Continuați cu versiunea actuală și fiți pregătit pentru viitoarele actualizări, deoarece o nouă început este mereu posibil."
-Update\Update.RO.xaml,Update.InfoBox.TextMessage.Condition,"Se pare că condițiile pentru fișierele de actualizare lipsesc pentru a debloca cheia. Pentru moment, vă rugăm să continuați cu versiunea actuală și să fiți pregătit pentru viitoarele actualizări."
+Update\Update.RO.xaml,Update.MessageText.Preparing,SE PREGĂTESC PREGĂTIRILE NECESARE
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Temporary,SE VERIFICĂ LOCURILE TEMPORARE
+Update\Update.RO.xaml,Update.MessageText.Temporary.Error,NU S-AU PUTUT VERIFICA LOCURILE TEMPORARE
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Connection,SE VERIFICĂ CONEXIUNEA LA INTERNET
+Update\Update.RO.xaml,Update.MessageText.Connection.None,NU EXISTĂ CONEXIUNE LA INTERNET
+Update\Update.RO.xaml,Update.MessageText.Connection.Error,NU S-A PUTUT VERIFICA CONEXIUNEA LA INTERNET
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Listing,SE OBȚIN LISTELE NECESARE
+Update\Update.RO.xaml,Update.MessageText.Listing.Empty,LISTELE NECESARE SUNT GOALE
+Update\Update.RO.xaml,Update.MessageText.Listing.Error,NU S-AU PUTUT PRIMI LISTELE NECESARE
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Filtering,SE FILTREAZĂ LISTELE
+Update\Update.RO.xaml,Update.MessageText.Filtering.Not,LISTELE NU POT FI FILTRATE
+Update\Update.RO.xaml,Update.MessageText.Filtering.Error,NU S-AU PUTUT FILTRA LISTELE
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Comparing,COMPARAREA LISTELOR
+Update\Update.RO.xaml,Update.MessageText.Comparing.Update,APLICAȚIA ESTE DEJA ACTUALIZATĂ
+Update\Update.RO.xaml,Update.MessageText.Comparing.Error,NU S-A PUTUT COMPARA LISTELE
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Searching,SE CAUTĂ FIȘIERELE NECESARE
+Update\Update.RO.xaml,Update.MessageText.Searching.Not,FIȘIERELE NECESARE NU AU FOST GĂSITE
+Update\Update.RO.xaml,Update.MessageText.Searching.Error,NU S-AU PUTUT CĂUTA FIȘIERELE NECESARE
+Update\Update.RO.xaml,Update.MessageText.Searching.Condition,FIȘIERELE NECESARE NU AU FOST GĂSITE
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Downloading,SE DESCARCĂ FIȘIERELE NECESARE
+Update\Update.RO.xaml,Update.MessageText.Downloading.Error,NU S-AU PUTUT DESCĂRCA FIȘIERELE NECESARE
+Update\Update.RO.xaml,Update.MessageText.Downloading.Complete.Cancel,DESCĂRCAREA FIȘIERULUI NECESAR A FOST ANULATĂ
+Update\Update.RO.xaml,Update.MessageText.Downloading.Complete.Error,A APĂRUT O EROARE ÎN TIMPUL DESCĂRCĂRII FIȘIERULUI NECESAR
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Running,PREGĂTIREA FIȘIERULUI DESCĂRCAT
+Update\Update.RO.xaml,Update.MessageText.Running.Executing,EXECUTAREA FIȘIERULUI DESCĂRCAT
+Update\Update.RO.xaml,Update.MessageText.Running.Executed,FIȘIERUL DESCĂRCAT A FOST EXECUTAT
+Update\Update.RO.xaml,Update.MessageText.Running.Not,FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL
+Update\Update.RO.xaml,Update.MessageText.Running.Error,NU S-A PUTUT PREGĂTI FIȘIERUL DESCĂRCAT
+Update\Update.RO.xaml,,
+Update\Update.RO.xaml,Update.MessageText.Extracting,SE EXTRAGE FIȘIERUL DESCĂRCAT
+Update\Update.RO.xaml,Update.MessageText.Extracting.Executing,FIȘIERUL EXTRAS ESTE ÎN CURS DE EXECUȚIE
+Update\Update.RO.xaml,Update.MessageText.Extracting.Executed,FIȘIERUL EXTRAS A FOST EXECUTAT
+Update\Update.RO.xaml,Update.MessageText.Extracting.Failed,FIȘIERUL DESCĂRCAT A EȘUAT
+Update\Update.RO.xaml,Update.MessageText.Extracting.Corrupt,FIȘIERUL DESCĂRCAT ESTE CORUPT
+Update\Update.RO.xaml,Update.MessageText.Extracting.Not,FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL
+Update\Update.RO.xaml,Update.MessageText.Extracting.Error,NU S-A PUTUT EXTRAGE FIȘIERUL DESCĂRCAT
 Watchdog\Watchdog.RO.xaml,Watchdog.HelpButton,Ajutor
 Watchdog\Watchdog.RO.xaml,Watchdog.CloseButton,Închide
 Watchdog\Watchdog.RO.xaml,Watchdog.ErrorMessage,A apărut o eroare neașteptată:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.RO.xaml,Watchdog.HideButton,Ascunde
 Watchdog\Watchdog.RO.xaml,Watchdog.ShowButton,Arată
 Watchdog\Watchdog.RO.xaml,Watchdog.StackTrace,Urme de stivă:
 Watchdog\Watchdog.RO.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.RO.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.ReloadText,ÎNCERCAȚI DIN NOU
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Preparing,SE PREGĂTESC PREGĂTIRILE NECESARE
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Temporary,SE VERIFICĂ LOCURILE TEMPORARE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Temporary.Error,NU S-AU PUTUT VERIFICA LOCURILE TEMPORARE
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Connection,SE VERIFICĂ CONEXIUNEA LA INTERNET
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Connection.None,NU EXISTĂ CONEXIUNE LA INTERNET
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Connection.Error,NU S-A PUTUT VERIFICA CONEXIUNEA LA INTERNET
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Searching,SE CAUTĂ FIȘIERELE NECESARE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Searching.Not,FIȘIERELE NECESARE NU AU FOST GĂSITE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Searching.Error,NU S-AU PUTUT CĂUTA FIȘIERELE NECESARE
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Listing,SE OBȚIN LISTELE NECESARE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Listing.Empty,LISTELE NECESARE SUNT GOALE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Listing.Error,NU S-AU PUTUT PRIMI LISTELE NECESARE
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Filtering,SE FILTREAZĂ LISTELE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Filtering.Not,LISTELE NU POT FI FILTRATE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Filtering.Error,NU S-AU PUTUT FILTRA LISTELE
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Downloading,SE DESCARCĂ FIȘIERELE NECESARE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Downloading.Error,NU S-AU PUTUT DESCĂRCA FIȘIERELE NECESARE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Downloading.Complete.Cancel,DESCĂRCAREA FIȘIERULUI NECESAR A FOST ANULATĂ
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Downloading.Complete.Error,A APĂRUT O EROARE ÎN TIMPUL DESCĂRCĂRII FIȘIERULUI NECESAR
-Wizard\Wizard.RO.xaml,,
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting,SE EXTRAGE FIȘIERUL DESCĂRCAT
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Executing,FIȘIERUL EXTRAS ESTE ÎN CURS DE EXECUȚIE
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Executed,FIȘIERUL EXTRAS A FOST EXECUTAT
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Failed,FIȘIERUL DESCĂRCAT A EȘUAT
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Corrupt,FIȘIERUL DESCĂRCAT ESTE CORUPT
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Not,FIȘIERUL DESCĂRCAT NU ESTE UTILIZABIL
-Wizard\Wizard.RO.xaml,Wizard.MessageText.Extracting.Error,NU S-A PUTUT EXTRAGE FIȘIERUL DESCĂRCAT
 Portal\Area\Portal.Area.RO.xaml,Portal.Area.Data,Date
 Portal\Area\Portal.Area.RO.xaml,Portal.Area.Sound,Sunet
 Portal\Area\Portal.Area.RO.xaml,Portal.Area.Log,Jurnal

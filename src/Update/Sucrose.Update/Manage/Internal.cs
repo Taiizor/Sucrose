@@ -3,6 +3,7 @@ using System.Net;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
+using SMR = Sucrose.Memory.Readonly;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 
 namespace Sucrose.Update.Manage
@@ -12,6 +13,8 @@ namespace Sucrose.Update.Manage
         public static string Source = string.Empty;
 
         public static DownloadService DownloadService;
+
+        public static bool Chance = SMR.Randomise.Next(2) == 0;
 
         public static readonly SSCEUT UpdateType = SMMI.UpdateSettingManager.GetSetting(SMC.UpdateType, SSCEUT.Compressed);
 

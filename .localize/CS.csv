@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuQ1MueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.CS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuQ1MueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkNTLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5DUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuQ1MueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.CS.xaml,Discord.BrowseButton,Procházet
 Discord\Discord.CS.xaml,Discord.Details,Tapetový Motor
 Discord\Discord.CS.xaml,Discord.DownloadButton,Stáhnout
@@ -158,27 +158,56 @@ Property\Property.CS.xaml,Property.FileDropDown.Filter,Všechny soubory (*.*)|*.
 Undo\Undo.CS.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.CS.xaml,,
 Undo\Undo.CS.xaml,Undo.QuestionMessage,Skutečně chcete odinstalovat program Sucrose Wallpaper Engine?
-Update\Update.CS.xaml,Update.HelpText,Vyřešit problém
+Update\Update.CS.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.CS.xaml,,
-Update\Update.CS.xaml,Update.UpdateBox.WindowTitle,Aktualizace Sucrose
-Update\Update.CS.xaml,Update.UpdateBox.InstallText,Nainstalovat aktualizaci
+Update\Update.CS.xaml,Update.HelpText,Vyřešit Problém
 Update\Update.CS.xaml,,
-Update\Update.CS.xaml,Update.InfoBox.WindowTitle,Aktualizace Sucrose
-Update\Update.CS.xaml,Update.InfoBox.TextMessage,Zpráva
-Update\Update.CS.xaml,Update.InfoBox.CloseText,Zavřít
+Update\Update.CS.xaml,Update.ReloadText,ZKUSIT ZNOVU
 Update\Update.CS.xaml,,
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Empty,"Jsme právě na místě, kde jsou aktualizační soubory skryty jako ztracený poklad. Můžete si stále užívat zážitek z používání aktuální verze."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Error,"Při stahování aktualizačního souboru jsme narazili na trhlinu na cestě a tato cesta zatím končí. Pokračujte v cestě s aktuální verzí, protože až budou tyto trhliny opraveny, čeká na vás silnější aktualizace."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Update,"Aplikace je již s vámi ve své nejnovější a nejinovativnější podobě, jako nejnovější stránka v knize. Jsme zde, abychom vám kdykoli zajistili nejlepší a nejaktuální zážitek."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Status,"Jsme na prahu snu, ke kterému nelze získat přístup ke souborům aktualizace. Nicméně můžete stále pokračovat ve svém snu s aktuální verzí."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Channel,"Vybraný kanál aktualizace je jako tichý les. Aktuálně zde nejsou k dispozici nové informace o aktualizacích. Pokračujte v cestě s aktuální verzí, protože až tento klid bude narušen, nabídneme vám více."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Extract,"Při pokusu o rozbalení aktualizačního souboru jsme narazili na překážku z hlubin moře. Zatím pokračujte v cestě s aktuální verzí, protože až se moře uklidní, vrátíme se hledat nové poklady."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Network,"Síla vašeho připojení je jako závoj zahalující slunce. Až se závoj rozplyne, čeká vás světlejší zážitek."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Updating,"Aktualizace aplikace pokračuje tiše jako nové poklady, které přináší mořské vlny na břeh. Tyto cenné novinky se pro vás sbírají v pozadí."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Releases,"Právě teď žijeme okamžik, kdy se ještě nerozsvítila hvězda aktualizace. Aktuálně nejsou k dispozici žádné informace o aktualizaci, ale můžete pokračovat v používání již dostupné verze."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Download,"Při stahování aktualizačního souboru jsme zjistili, že hvězdy na obloze jsou ve špatném pořadí. Zatím pokračujte v cestě s aktuální verzí, protože až se hvězdy správně seřadí, nabídneme vám lepší aktualizaci."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Cancelled,"Stahování aktualizačního souboru bylo zrušeno, protože jsme se najednou rozdělili. Pokračujte v cestě s aktuální verzí a buďte připraveni na budoucí aktualizace, protože nový začátek je vždy možný."
-Update\Update.CS.xaml,Update.InfoBox.TextMessage.Condition,"Podmínky v aktualizačních souborech vypadají, jako by chyběl klíč k odemčení. Zatím pokračujte v cestě s aktuální verzí a buďte připraveni na budoucí aktualizace."
+Update\Update.CS.xaml,Update.MessageText.Preparing,PŘÍPRAVA NEZBYTNÝCH PŘÍPRAV
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Temporary,KONTROLA DOČASNÝCH UMÍSTĚNÍ
+Update\Update.CS.xaml,Update.MessageText.Temporary.Error,DOČASNÁ UMÍSTĚNÍ NELZE ZKONTROLOVAT
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Connection,KONTROLA INTERNETOVÉHO PŘIPOJENÍ
+Update\Update.CS.xaml,Update.MessageText.Connection.None,ŽÁDNÉ INTERNETOVÉ PŘIPOJENÍ
+Update\Update.CS.xaml,Update.MessageText.Connection.Error,INTERNETOVÉ PŘIPOJENÍ NELZE ZKONTROLOVAT
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Listing,ZÍSKÁVÁNÍ POŽADOVANÝCH SEZNAMŮ
+Update\Update.CS.xaml,Update.MessageText.Listing.Empty,POŽADOVANÉ SEZNAMY JSOU PRÁZDNÉ
+Update\Update.CS.xaml,Update.MessageText.Listing.Error,POŽADOVANÉ SEZNAMY NELZE PŘIJMOUT
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Filtering,SEZNAMY SE FILTRUJÍ
+Update\Update.CS.xaml,Update.MessageText.Filtering.Not,SEZNAMY NELZE FILTROVAT
+Update\Update.CS.xaml,Update.MessageText.Filtering.Error,SEZNAMY NELZE FILTROVAT
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Comparing,POROVNÁVÁNÍ SEZNAMŮ
+Update\Update.CS.xaml,Update.MessageText.Comparing.Update,APLIKACE JE JIŽ AKTUÁLNÍ
+Update\Update.CS.xaml,Update.MessageText.Comparing.Error,NEPODAŘILO SE POROVNAT SEZNAMY
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Searching,HLEDÁNÍ POŽADOVANÝCH SOUBORŮ
+Update\Update.CS.xaml,Update.MessageText.Searching.Not,POŽADOVANÉ SOUBORY NEBYLY NALEZENY
+Update\Update.CS.xaml,Update.MessageText.Searching.Error,POŽADOVANÉ SOUBORY NELZE HLEDAT
+Update\Update.CS.xaml,Update.MessageText.Searching.Condition,POŽADOVANÉ SOUBORY NENALEZENY
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Downloading,STAHUJÍ SE POŽADOVANÉ SOUBORY
+Update\Update.CS.xaml,Update.MessageText.Downloading.Error,POŽADOVANÉ SOUBORY NELZE STÁHNOUT
+Update\Update.CS.xaml,Update.MessageText.Downloading.Complete.Cancel,STAHOVÁNÍ POŽADOVANÉHO SOUBORU BYLO ZRUŠENO
+Update\Update.CS.xaml,Update.MessageText.Downloading.Complete.Error,BĚHEM STAHOVÁNÍ POŽADOVANÉHO SOUBORU DOŠLO K CHYBĚ
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Running,PŘÍPRAVA STAŽENÉHO SOUBORU
+Update\Update.CS.xaml,Update.MessageText.Running.Executing,SPUŠTĚNÍ STAŽENÉHO SOUBORU
+Update\Update.CS.xaml,Update.MessageText.Running.Executed,STAŽENÝ SOUBOR SPUŠTĚN
+Update\Update.CS.xaml,Update.MessageText.Running.Not,STAŽENÝ SOUBOR NELZE POUŽÍT
+Update\Update.CS.xaml,Update.MessageText.Running.Error,PŘÍPRAVA STAŽENÉHO SOUBORU SELHALA
+Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.MessageText.Extracting,ROZBALOVÁNÍ STÁHNUTÉHO SOUBORU
+Update\Update.CS.xaml,Update.MessageText.Extracting.Executing,PROVÁDÍ SE ROZBALOVANÝ SOUBOR
+Update\Update.CS.xaml,Update.MessageText.Extracting.Executed,ROZBALOVANÝ SOUBOR BYL PROVEDEN
+Update\Update.CS.xaml,Update.MessageText.Extracting.Failed,STÁHNUTÝ SOUBOR SELHAL
+Update\Update.CS.xaml,Update.MessageText.Extracting.Corrupt,STÁHNUTÝ SOUBOR JE POŠKOZENÝ
+Update\Update.CS.xaml,Update.MessageText.Extracting.Not,STÁHNUTÝ SOUBOR NENÍ POUŽITELNÝ
+Update\Update.CS.xaml,Update.MessageText.Extracting.Error,STÁHNUTÝ SOUBOR NELZE ROZBALIT
 Watchdog\Watchdog.CS.xaml,Watchdog.HelpButton,Pomoc
 Watchdog\Watchdog.CS.xaml,Watchdog.CloseButton,Zavřít
 Watchdog\Watchdog.CS.xaml,Watchdog.ErrorMessage,Nastala neočekávaná chyba:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.CS.xaml,Watchdog.HideButton,Skrýt
 Watchdog\Watchdog.CS.xaml,Watchdog.ShowButton,Zobrazit
 Watchdog\Watchdog.CS.xaml,Watchdog.StackTrace,Zásobníková stopa:
 Watchdog\Watchdog.CS.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.CS.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.ReloadText,ZKUSIT ZNOVU
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Preparing,PŘÍPRAVA NEZBYTNÝCH PŘÍPRAV
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Temporary,KONTROLA DOČASNÝCH UMÍSTĚNÍ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Temporary.Error,DOČASNÁ UMÍSTĚNÍ NELZE ZKONTROLOVAT
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Connection,KONTROLA INTERNETOVÉHO PŘIPOJENÍ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Connection.None,ŽÁDNÉ INTERNETOVÉ PŘIPOJENÍ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Connection.Error,INTERNETOVÉ PŘIPOJENÍ NELZE ZKONTROLOVAT
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Searching,HLEDÁNÍ POŽADOVANÝCH SOUBORŮ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Searching.Not,POŽADOVANÉ SOUBORY NEBYLY NALEZENY
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Searching.Error,POŽADOVANÉ SOUBORY NELZE HLEDAT
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Listing,ZÍSKÁVÁNÍ POŽADOVANÝCH SEZNAMŮ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Listing.Empty,POŽADOVANÉ SEZNAMY JSOU PRÁZDNÉ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Listing.Error,POŽADOVANÉ SEZNAMY NELZE PŘIJMOUT
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Filtering,SEZNAMY SE FILTRUJÍ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Filtering.Not,SEZNAMY NELZE FILTROVAT
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Filtering.Error,SEZNAMY NELZE FILTROVAT
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading,STAHUJÍ SE POŽADOVANÉ SOUBORY
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading.Error,POŽADOVANÉ SOUBORY NELZE STÁHNOUT
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading.Complete.Cancel,STAHOVÁNÍ POŽADOVANÉHO SOUBORU BYLO ZRUŠENO
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Downloading.Complete.Error,BĚHEM STAHOVÁNÍ POŽADOVANÉHO SOUBORU DOŠLO K CHYBĚ
-Wizard\Wizard.CS.xaml,,
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting,ROZBALOVÁNÍ STÁHNUTÉHO SOUBORU
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Executing,PROVÁDÍ SE ROZBALOVANÝ SOUBOR
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Executed,ROZBALOVANÝ SOUBOR BYL PROVEDEN
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Failed,STÁHNUTÝ SOUBOR SELHAL
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Corrupt,STÁHNUTÝ SOUBOR JE POŠKOZENÝ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Not,STÁHNUTÝ SOUBOR NENÍ POUŽITELNÝ
-Wizard\Wizard.CS.xaml,Wizard.MessageText.Extracting.Error,STÁHNUTÝ SOUBOR NELZE ROZBALIT
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Sound,Zvuk
 Portal\Area\Portal.Area.CS.xaml,Portal.Area.Log,Záznam

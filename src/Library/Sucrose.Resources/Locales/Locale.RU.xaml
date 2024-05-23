@@ -9,7 +9,6 @@
         <ResourceDictionary Source="Undo/Undo.RU.xaml" />
         <ResourceDictionary Source="Update/Update.RU.xaml" />
         <ResourceDictionary Source="Portal/Portal.RU.xaml" />
-        <ResourceDictionary Source="Wizard/Wizard.RU.xaml" />
         <ResourceDictionary Source="Discord/Discord.RU.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.RU.xaml" />
         <ResourceDictionary Source="Property/Property.RU.xaml" />

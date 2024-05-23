@@ -4,15 +4,26 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using SECNT = Skylark.Enum.ClearNumericType;
+using SEMST = Skylark.Enum.ModeStorageType;
+using SEST = Skylark.Enum.StorageType;
+using SEVT = Skylark.Enum.VersionType;
+using SHN = Skylark.Helper.Numeric;
 using SHV = Skylark.Helper.Versionly;
+using SMC = Sucrose.Memory.Constant;
+using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHU = Sucrose.Shared.Core.Helper.Update;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
@@ -21,15 +32,16 @@ using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
+using SUMI = Sucrose.Update.Manage.Internal;
+using SUMM = Sucrose.Update.Manage.Manager;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
-using SWMI = Sucrose.Wizard.Manage.Internal;
-using SWMM = Sucrose.Wizard.Manage.Manager;
 using SWNM = Skylark.Wing.Native.Methods;
+using Timer = System.Timers.Timer;
 
-namespace Sucrose.Wizard.View
+namespace Sucrose.Update.View
 {
     /// <summary>
-    /// MainWindow.xaml etkileşim mantığı
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -37,13 +49,19 @@ namespace Sucrose.Wizard.View
 
         private static string Bundle { get; set; } = string.Empty;
 
+        private static List<SSIIA> Assets { get; set; } = new();
+
+        private static Version Latest { get; set; } = new();
+
         private static bool HasBundle { get; set; } = false;
 
         private static SSIIR Release { get; set; } = null;
 
-        private static int MaxDelay => 5000;
+        public static bool Updater { get; set; } = true;
 
         private static int MinDelay => 1000;
+
+        private static int MaxDelay => 5000;
 
         public MainWindow()
         {
@@ -87,13 +105,18 @@ namespace Sucrose.Wizard.View
                         {
                             await Task.Delay(MinDelay);
 
-                            if (StepSearching())
+                            if (StepComparing())
                             {
                                 await Task.Delay(MinDelay);
 
-                                if (await StepDownloading())
+                                if (StepSearching())
                                 {
-                                    State = false;
+                                    await Task.Delay(MinDelay);
+
+                                    if (await StepDownloading())
+                                    {
+                                        State = false;
+                                    }
                                 }
                             }
                         }
@@ -116,11 +139,11 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Temporary");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Temporary");
 
-                if (Directory.Exists(SWMM.CachePath))
+                if (Directory.Exists(SUMM.CachePath))
                 {
-                    string[] Files = Directory.GetFiles(SWMM.CachePath);
+                    string[] Files = Directory.GetFiles(SUMM.CachePath);
 
                     foreach (string Record in Files)
                     {
@@ -129,14 +152,14 @@ namespace Sucrose.Wizard.View
                 }
                 else
                 {
-                    Directory.CreateDirectory(SWMM.CachePath);
+                    Directory.CreateDirectory(SUMM.CachePath);
                 }
 
                 return true;
             }
             catch
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Temporary", "Error");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Temporary", "Error");
 
                 return false;
             }
@@ -146,24 +169,26 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Connection");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Connection");
 
                 if (SSSHN.GetHostEntry())
                 {
                     SSSHS.Apply();
 
+                    SMMI.UpdateSettingManager.SetSetting(SMC.UpdateTime, DateTime.Now);
+
                     return true;
                 }
                 else
                 {
-                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Connection", "None");
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Connection", "None");
 
                     return false;
                 }
             }
             catch
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Connection", "Error");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Connection", "Error");
 
                 return false;
             }
@@ -173,28 +198,29 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Filtering");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Filtering");
 
-                Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
+                Release = Releases.FirstOrDefault();
+
+                if (SSCMM.ChannelType == SSCECT.Release)
+                {
+                    Release = Releases.FirstOrDefault(Releasing => !Releasing.PreRelease);
+                }
 
                 if (Release == null)
                 {
-                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Filtering", "Not");
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Filtering", "Not");
 
                     return false;
                 }
                 else
                 {
-                    Version Latest = SHV.Clear(Release.TagName);
-
-                    List<SSIIA> Assets = Release.Assets;
-
                     return true;
                 }
             }
             catch
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Filtering", "Error");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Filtering", "Error");
 
                 return false;
             }
@@ -204,7 +230,7 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Listing");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Listing");
 
                 Releases = SSHG.ReleasesList(SMR.Owner, SMR.Repository, SMMM.UserAgent, SMMM.Key);
 
@@ -214,14 +240,44 @@ namespace Sucrose.Wizard.View
                 }
                 else
                 {
-                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Listing", "Empty");
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Listing", "Empty");
 
                     return false;
                 }
             }
             catch
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Listing", "Error");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Listing", "Error");
+
+                return false;
+            }
+        }
+
+        private bool StepComparing()
+        {
+            try
+            {
+                Message.Text = SRER.GetValue("Update", "MessageText", "Comparing");
+
+                Version Current = new(SSCHV.GetText());
+                Latest = SHV.Clear(Release.TagName);
+
+                if (SHV.Compare(Current, Latest) == SEVT.Latest)
+                {
+                    Assets = Release.Assets;
+
+                    return true;
+                }
+                else
+                {
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Comparing", "Update");
+
+                    return false;
+                }
+            }
+            catch
+            {
+                Message.Text = SRER.GetValue("Update", "MessageText", "Comparing", "Error");
 
                 return false;
             }
@@ -231,21 +287,17 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Searching");
-
-                Version Latest = SHV.Clear(Release.TagName);
-
-                List<SSIIA> Assets = Release.Assets;
+                Message.Text = SRER.GetValue("Update", "MessageText", "Searching");
 
                 if (Assets.Any())
                 {
                     foreach (SSIIA Asset in Assets)
                     {
-                        string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SSCEUT.Compressed)}";
+                        string Name = $"{SMR.AppName}_{SMR.Bundle}_{SSCHF.GetDescription()}_{SSCHA.Get()}_{Latest}{SSCHU.GetDescription(SUMI.UpdateType)}";
 
                         string[] Required =
                         {
-                            SSCHU.GetDescription(SSCEUT.Compressed),
+                            SSCHU.GetDescription(SUMI.UpdateType),
                             SSCHF.GetDescription(),
                             SSCHA.GetText(),
                             $"{Latest}",
@@ -255,9 +307,9 @@ namespace Sucrose.Wizard.View
 
                         if (Asset.Name.Contains(Name) && Required.All(Asset.Name.Contains))
                         {
-                            SWMI.Source = Asset.BrowserDownloadUrl;
+                            SUMI.Source = Asset.BrowserDownloadUrl;
 
-                            Bundle = Path.Combine(SWMM.CachePath, Path.GetFileName(SWMI.Source));
+                            Bundle = Path.Combine(SUMM.CachePath, Path.GetFileName(SUMI.Source));
 
                             if (File.Exists(Bundle))
                             {
@@ -268,28 +320,73 @@ namespace Sucrose.Wizard.View
                         }
                     }
 
+                    if (string.IsNullOrEmpty(Bundle))
+                    {
+                        Message.Text = SRER.GetValue("Update", "MessageText", "Searching", "Condition");
+                    }
+
                     return false;
                 }
                 else
                 {
-                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Searching", "Not");
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Searching", "Not");
 
                     return false;
                 }
             }
             catch
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Searching", "Error");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Searching", "Error");
 
                 return false;
             }
+        }
+
+        private async Task StepRunning()
+        {
+            try
+            {
+                Message.Text = SRER.GetValue("Update", "MessageText", "Running");
+
+                Ring.Visibility = Visibility.Hidden;
+                Message.Visibility = Visibility.Visible;
+                Progress.Visibility = Visibility.Hidden;
+
+                if (HasBundle)
+                {
+                    await Task.Delay(MinDelay);
+
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Running", "Executing");
+
+                    await Task.Delay(MinDelay);
+
+                    await Task.Run(() => SSSHP.Run(Bundle));
+
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Running", "Executed");
+                }
+                else
+                {
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Running", "Not");
+                }
+            }
+            catch
+            {
+                Message.Text = SRER.GetValue("Update", "MessageText", "Running", "Error");
+            }
+
+            await Task.Delay(MaxDelay);
+
+            Ring.Visibility = Visibility.Hidden;
+            Message.Visibility = Visibility.Hidden;
+            Reload.Visibility = Visibility.Visible;
+            Progress.Visibility = Visibility.Hidden;
         }
 
         private async Task StepExtracting()
         {
             try
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Extracting");
 
                 Ring.Visibility = Visibility.Hidden;
                 Message.Visibility = Visibility.Visible;
@@ -299,7 +396,7 @@ namespace Sucrose.Wizard.View
                 {
                     if (await Task.Run(() => SSSZHZ.CheckArchive(Bundle)))
                     {
-                        SSDECT Result = await Task.Run(() => SSSZEZ.Extract(Bundle, SWMM.CachePath));
+                        SSDECT Result = await Task.Run(() => SSSZEZ.Extract(Bundle, SUMM.CachePath));
 
                         if (Result == SSDECT.Pass)
                         {
@@ -307,32 +404,32 @@ namespace Sucrose.Wizard.View
 
                             Bundle = Path.ChangeExtension(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
 
-                            Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Executing");
+                            Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Executing");
 
                             await Task.Delay(MinDelay);
 
                             await Task.Run(() => SSSHP.Run(Bundle));
 
-                            Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Executed");
+                            Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Executed");
                         }
                         else
                         {
-                            Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Failed");
+                            Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Extract");
                         }
                     }
                     else
                     {
-                        Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Corrupt");
+                        Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Corrupt");
                     }
                 }
                 else
                 {
-                    Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Not");
+                    Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Not");
                 }
             }
             catch
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Extracting", "Error");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Error");
             }
 
             await Task.Delay(MaxDelay);
@@ -347,21 +444,23 @@ namespace Sucrose.Wizard.View
         {
             try
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Downloading");
 
-                SWMI.DownloadService = new(SWMI.DownloadConfiguration);
+                UpdateLimit();
 
-                SWMI.DownloadService.DownloadStarted += OnDownloadStarted;
-                SWMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
-                SWMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
+                SUMI.DownloadService = new(SUMI.DownloadConfiguration);
 
-                await SWMI.DownloadService.DownloadFileTaskAsync(SWMI.Source, Bundle);
+                SUMI.DownloadService.DownloadStarted += OnDownloadStarted;
+                SUMI.DownloadService.DownloadFileCompleted += OnDownloadFileCompleted;
+                SUMI.DownloadService.DownloadProgressChanged += OnDownloadProgressChanged;
+
+                await SUMI.DownloadService.DownloadFileTaskAsync(SUMI.Source, Bundle);
 
                 return true;
             }
             catch
             {
-                Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Error");
+                Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Error");
 
                 return false;
             }
@@ -376,7 +475,7 @@ namespace Sucrose.Wizard.View
             Release = null;
             Releases = new();
 
-            Message.Text = SRER.GetValue("Wizard", "MessageText", "Preparing");
+            Message.Text = SRER.GetValue("Update", "MessageText", "Preparing");
 
             Ring.Progress = 0;
             Progress.Value = 0;
@@ -387,6 +486,43 @@ namespace Sucrose.Wizard.View
             Progress.Visibility = Visibility.Hidden;
 
             await Start();
+        }
+
+        private static void UpdateLimit()
+        {
+            if (Updater)
+            {
+                Updater = false;
+
+                Timer Limiter = new(3000);
+
+                Limiter.Elapsed += (s, e) =>
+                {
+                    try
+                    {
+                        if (SMMM.UpdateLimitValue > 0)
+                        {
+                            double UpdateLimit = SSESSE.Convert(SMMM.UpdateLimitValue, SMMM.UpdateLimitType, SEST.Byte, SEMST.Palila);
+
+                            long Limit = Convert.ToInt64(SHN.Numeral(UpdateLimit, false, false, 0, '0', SECNT.None));
+
+                            SUMI.DownloadConfiguration.MaximumBytesPerSecond = Limit;
+                        }
+                        else
+                        {
+                            SUMI.DownloadConfiguration.MaximumBytesPerSecond = 0;
+                        }
+                    }
+                    catch
+                    {
+                        SUMI.DownloadConfiguration.MaximumBytesPerSecond = 0;
+                    }
+                };
+
+                Limiter.AutoReset = true;
+
+                Limiter.Start();
+            }
         }
 
         private async void Reload_Click(object sender, RoutedEventArgs e)
@@ -422,7 +558,7 @@ namespace Sucrose.Wizard.View
                 Reload.Visibility = Visibility.Hidden;
                 Message.Visibility = Visibility.Hidden;
 
-                if (SWMI.Chance)
+                if (SUMI.Chance)
                 {
                     Ring.Visibility = Visibility.Visible;
                     Progress.Visibility = Visibility.Hidden;
@@ -432,6 +568,8 @@ namespace Sucrose.Wizard.View
                     Ring.Visibility = Visibility.Hidden;
                     Progress.Visibility = Visibility.Visible;
                 }
+
+                SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, true);
             });
         }
 
@@ -441,17 +579,15 @@ namespace Sucrose.Wizard.View
             {
                 if (e.Error != null || e.Cancelled)
                 {
+                    HasBundle = false;
+
                     if (e.Error != null)
                     {
-                        HasBundle = false;
-
-                        Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Complete", "Error");
+                        Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Complete", "Error");
                     }
                     else
                     {
-                        HasBundle = false;
-
-                        Message.Text = SRER.GetValue("Wizard", "MessageText", "Downloading", "Complete", "Cancel");
+                        Message.Text = SRER.GetValue("Update", "MessageText", "Downloading", "Complete", "Cancel");
                     }
 
                     Ring.Visibility = Visibility.Hidden;
@@ -470,7 +606,17 @@ namespace Sucrose.Wizard.View
 
                     await Task.Delay(MinDelay);
 
-                    await StepExtracting();
+                    switch (SUMI.UpdateType)
+                    {
+                        case SSCEUT.Compressed:
+                            await StepExtracting();
+                            break;
+                        case SSCEUT.Executable:
+                            await StepRunning();
+                            break;
+                        default:
+                            break;
+                    }
                 }
             });
         }

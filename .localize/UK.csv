@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuVUsueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlVLLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5VSy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuVUsueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.UK.xaml,Discord.BrowseButton,Переглянути
 Discord\Discord.UK.xaml,Discord.Details,Двигун Обоїв
 Discord\Discord.UK.xaml,Discord.DownloadButton,Завантажити
@@ -158,27 +158,56 @@ Property\Property.UK.xaml,Property.FileDropDown.Filter,Усі файли (*.*)|*
 Undo\Undo.UK.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.UK.xaml,,
 Undo\Undo.UK.xaml,Undo.QuestionMessage,Ви дійсно хочете видалити Sucrose Wallpaper Engine?
+Update\Update.UK.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.UK.xaml,,
 Update\Update.UK.xaml,Update.HelpText,Вирішити проблему
 Update\Update.UK.xaml,,
-Update\Update.UK.xaml,Update.UpdateBox.WindowTitle,Оновлення Sucrose
-Update\Update.UK.xaml,Update.UpdateBox.InstallText,Встановити оновлення
+Update\Update.UK.xaml,Update.ReloadText,СПРОБУВАТИ ЗНОВУ
 Update\Update.UK.xaml,,
-Update\Update.UK.xaml,Update.InfoBox.WindowTitle,Оновлення Sucrose
-Update\Update.UK.xaml,Update.InfoBox.TextMessage,Повідомлення
-Update\Update.UK.xaml,Update.InfoBox.CloseText,Закрити
+Update\Update.UK.xaml,Update.MessageText.Preparing,ПІДГОТОВКА НЕОБХІДНИХ ПІДГОТОВК
 Update\Update.UK.xaml,,
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Empty,"Ми переживаємо моменти, коли оновлення файлів зараз заховані, як втрачений скарб. Ви можете продовжувати насолоджуватися досвідом, використовуючи поточну версію."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Error,"Під час завантаження файлу оновлення ми помітили тріщину на шляху, і ця подорож наразі завершилася. Продовжуйте подорожувати зараз з поточною версією, оскільки, коли ці тріщини виправляться, вас очікує більш потужне оновлення."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Update,"Додаток вже з вами в його останній і найновіший версії, схожий на останню сторінку у книзі. Ми тут, щоб завжди надавати вам найкращий і найновіший досвід."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Status,"Ми на межі, де неможливо отримати доступ до файлів оновлення. Але ви можете продовжувати насолоджуватися своєю мрією зараз з поточною версією."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Channel,"Обраний канал оновлення схожий на ліс мовчазності. Зараз тут немає нової інформації про оновлення. Продовжуйте свою подорож з поточною версією, оскільки коли ця мовчазність порушиться, вас чекатимуть нові можливості."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Extract,"Під час спроби витягти файл оновлення, ми зіткнулися з перешкодою, яка походить з глибини моря. Зараз просто продовжуйте подорож з поточною версією, оскільки коли моря стануть спокійніше, ми повернемося, щоб знайти нові скарби."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Network,"Слабкий сигнал вашого з'єднання, схоже на те, як хмари перекривають сонце. Якщо хмари розсиплються, вас чекає світліший досвід."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Updating,"Оновлення додатку рухаються ледь помітно, схоже на нові скарби, які приносять хвилі на берег. Ці цінні покращення збираються для вас в фоновому режимі."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Releases,"Ми живемо у момент, коли зірка оновлення ще не сходить. Зараз немає жодних відомостей про оновлення, але ви можете продовжувати використовувати поточну версію."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Download,"Під час завантаження файлу оновлення ми виявили, що зорі на небі розташовані в неправильному порядку. Зараз продовжуйте подорож з поточною версією, оскільки коли зорі розташуються в правильному порядку, вас чекатиме краще оновлення."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Cancelled,"Завантаження файлу оновлення скасовано через раптове розходження шляхів. Продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень, оскільки новий початок завжди можливий."
-Update\Update.UK.xaml,Update.InfoBox.TextMessage.Condition,"Здається, що умови в файлах оновлення виглядають, як відсутність ключа для розблокування. Зараз продовжуйте свою подорож з поточною версією і будьте готові до майбутніх оновлень."
+Update\Update.UK.xaml,Update.MessageText.Temporary,ПЕРЕВІРКА ТИМЧАСОВИХ МІСЦЬ
+Update\Update.UK.xaml,Update.MessageText.Temporary.Error,ТИМЧАСОВІ МІСЦЯ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Connection,ПЕРЕВІРКА ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ
+Update\Update.UK.xaml,Update.MessageText.Connection.None,НЕМАЄ ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ
+Update\Update.UK.xaml,Update.MessageText.Connection.Error,ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Listing,ОТРИМАННЯ НЕОБХІДНИХ СПИСКІВ
+Update\Update.UK.xaml,Update.MessageText.Listing.Empty,НЕОБХІДНІ СПИСКИ ПОРОЖНІ
+Update\Update.UK.xaml,Update.MessageText.Listing.Error,НЕ ВДАЛОСЯ ОТРИМАТИ НЕОБХІДНІ СПИСКИ
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Filtering,СПИСКИ ФІЛЬТРУЮТЬСЯ
+Update\Update.UK.xaml,Update.MessageText.Filtering.Not,СПИСКИ НЕ МОЖНА ФІЛЬТРУВАТИ
+Update\Update.UK.xaml,Update.MessageText.Filtering.Error,СПИСКИ НЕ ВДАЛОСЯ ФІЛЬТРУВАТИ
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Comparing,ПОРІВНЯННЯ СПИСКІВ
+Update\Update.UK.xaml,Update.MessageText.Comparing.Update,ДОДАТОК ВЖЕ ОНОВЛЕНИЙ
+Update\Update.UK.xaml,Update.MessageText.Comparing.Error,НЕ ВДАЛОСЯ ПОРІВНЯТИ СПИСКИ
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Searching,ПОШУК НЕОБХІДНИХ ФАЙЛІВ
+Update\Update.UK.xaml,Update.MessageText.Searching.Not,НЕ ЗНАЙДЕНО НЕОБХІДНІ ФАЙЛИ
+Update\Update.UK.xaml,Update.MessageText.Searching.Error,НЕ ВДАЛОСЯ ВИКОНАТИ ПОШУК НЕОБХІДНИХ ФАЙЛІВ
+Update\Update.UK.xaml,Update.MessageText.Searching.Condition,ПОТРІБНІ ФАЙЛИ НЕ ЗНАЙДЕНО
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Downloading,ЗАВАНТАЖЕННЯ НЕОБХІДНИХ ФАЙЛІВ
+Update\Update.UK.xaml,Update.MessageText.Downloading.Error,НЕ ВДАЛОСЯ ЗАВАНТАЖИТИ НЕОБХІДНІ ФАЙЛИ
+Update\Update.UK.xaml,Update.MessageText.Downloading.Complete.Cancel,ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ СКАСОВАНО
+Update\Update.UK.xaml,Update.MessageText.Downloading.Complete.Error,ПІД ЧАС ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ ВИНИКЛА ПОМИЛКА
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Running,ПІДГОТОВКА ЗАВАНТАЖЕНОГО ФАЙЛУ
+Update\Update.UK.xaml,Update.MessageText.Running.Executing,ВИКОНАННЯ ЗАВАНТАЖЕНОГО ФАЙЛУ
+Update\Update.UK.xaml,Update.MessageText.Running.Executed,ЗАВАНТАЖЕНИЙ ФАЙЛ ВИКОНАНО
+Update\Update.UK.xaml,Update.MessageText.Running.Not,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ПРИДАТНИЙ
+Update\Update.UK.xaml,Update.MessageText.Running.Error,НЕ ВДАЛОСЯ ПІДГОТУВАТИ ЗАВАНТАЖЕНИЙ ФАЙЛ
+Update\Update.UK.xaml,,
+Update\Update.UK.xaml,Update.MessageText.Extracting,РОЗПАКОВКА ЗАВАНТАЖЕНОГО ФАЙЛУ
+Update\Update.UK.xaml,Update.MessageText.Extracting.Executing,ВИКОНАННЯ РОЗПАКОВАНОГО ФАЙЛУ
+Update\Update.UK.xaml,Update.MessageText.Extracting.Executed,РОЗПАКОВАНИЙ ФАЙЛ ВИКОНАНО
+Update\Update.UK.xaml,Update.MessageText.Extracting.Failed,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ
+Update\Update.UK.xaml,Update.MessageText.Extracting.Corrupt,ЗАВАНТАЖЕНИЙ ФАЙЛ ПОШКОДЖЕНИЙ
+Update\Update.UK.xaml,Update.MessageText.Extracting.Not,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕПРИДАТНИЙ ДЛЯ ВИКОРИСТАННЯ
+Update\Update.UK.xaml,Update.MessageText.Extracting.Error,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ РОЗПАКУВАТИ
 Watchdog\Watchdog.UK.xaml,Watchdog.HelpButton,Допомога
 Watchdog\Watchdog.UK.xaml,Watchdog.CloseButton,Вихід
 Watchdog\Watchdog.UK.xaml,Watchdog.ErrorMessage,Сталася непередбачена помилка:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.UK.xaml,Watchdog.HideButton,Приховати
 Watchdog\Watchdog.UK.xaml,Watchdog.ShowButton,Показати
 Watchdog\Watchdog.UK.xaml,Watchdog.StackTrace,Стек викликів:
 Watchdog\Watchdog.UK.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.UK.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.ReloadText,СПРОБУВАТИ ЗНОВУ
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Preparing,ПІДГОТОВКА НЕОБХІДНИХ ПІДГОТОВК
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Temporary,ПЕРЕВІРКА ТИМЧАСОВИХ МІСЦЬ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Temporary.Error,ТИМЧАСОВІ МІСЦЯ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Connection,ПЕРЕВІРКА ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Connection.None,НЕМАЄ ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Connection.Error,ПІДКЛЮЧЕННЯ ДО ІНТЕРНЕТУ НЕ ВДАЛОСЯ ПЕРЕВІРИТИ
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Searching,ПОШУК НЕОБХІДНИХ ФАЙЛІВ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Searching.Not,НЕ ЗНАЙДЕНО НЕОБХІДНІ ФАЙЛИ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Searching.Error,НЕ ВДАЛОСЯ ВИКОНАТИ ПОШУК НЕОБХІДНИХ ФАЙЛІВ
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Listing,ОТРИМАННЯ НЕОБХІДНИХ СПИСКІВ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Listing.Empty,НЕОБХІДНІ СПИСКИ ПОРОЖНІ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Listing.Error,НЕ ВДАЛОСЯ ОТРИМАТИ НЕОБХІДНІ СПИСКИ
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Filtering,СПИСКИ ФІЛЬТРУЮТЬСЯ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Filtering.Not,СПИСКИ НЕ МОЖНА ФІЛЬТРУВАТИ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Filtering.Error,СПИСКИ НЕ ВДАЛОСЯ ФІЛЬТРУВАТИ
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading,ЗАВАНТАЖЕННЯ НЕОБХІДНИХ ФАЙЛІВ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading.Error,НЕ ВДАЛОСЯ ЗАВАНТАЖИТИ НЕОБХІДНІ ФАЙЛИ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading.Complete.Cancel,ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ СКАСОВАНО
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Downloading.Complete.Error,ПІД ЧАС ЗАВАНТАЖЕННЯ НЕОБХІДНОГО ФАЙЛУ ВИНИКЛА ПОМИЛКА
-Wizard\Wizard.UK.xaml,,
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting,РОЗПАКОВКА ЗАВАНТАЖЕНОГО ФАЙЛУ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Executing,ВИКОНАННЯ РОЗПАКОВАНОГО ФАЙЛУ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Executed,РОЗПАКОВАНИЙ ФАЙЛ ВИКОНАНО
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Failed,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Corrupt,ЗАВАНТАЖЕНИЙ ФАЙЛ ПОШКОДЖЕНИЙ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Not,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕПРИДАТНИЙ ДЛЯ ВИКОРИСТАННЯ
-Wizard\Wizard.UK.xaml,Wizard.MessageText.Extracting.Error,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ РОЗПАКУВАТИ
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Data,Дані
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Sound,Звук
 Portal\Area\Portal.Area.UK.xaml,Portal.Area.Log,Журнал

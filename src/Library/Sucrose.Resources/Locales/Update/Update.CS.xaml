@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Update.HelpText">Vyřešit problém</system:String>
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Aktualizace Sucrose</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Nainstalovat aktualizaci</system:String>
+    <system:String x:Key="Update.HelpText">Vyřešit Problém</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Aktualizace Sucrose</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Zpráva</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Zavřít</system:String>
+    <system:String x:Key="Update.ReloadText">ZKUSIT ZNOVU</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Jsme právě na místě, kde jsou aktualizační soubory skryty jako ztracený poklad. Můžete si stále užívat zážitek z používání aktuální verze.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">Při stahování aktualizačního souboru jsme narazili na trhlinu na cestě a tato cesta zatím končí. Pokračujte v cestě s aktuální verzí, protože až budou tyto trhliny opraveny, čeká na vás silnější aktualizace.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">Aplikace je již s vámi ve své nejnovější a nejinovativnější podobě, jako nejnovější stránka v knize. Jsme zde, abychom vám kdykoli zajistili nejlepší a nejaktuální zážitek.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Jsme na prahu snu, ke kterému nelze získat přístup ke souborům aktualizace. Nicméně můžete stále pokračovat ve svém snu s aktuální verzí.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Vybraný kanál aktualizace je jako tichý les. Aktuálně zde nejsou k dispozici nové informace o aktualizacích. Pokračujte v cestě s aktuální verzí, protože až tento klid bude narušen, nabídneme vám více.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Při pokusu o rozbalení aktualizačního souboru jsme narazili na překážku z hlubin moře. Zatím pokračujte v cestě s aktuální verzí, protože až se moře uklidní, vrátíme se hledat nové poklady.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">Síla vašeho připojení je jako závoj zahalující slunce. Až se závoj rozplyne, čeká vás světlejší zážitek.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Aktualizace aplikace pokračuje tiše jako nové poklady, které přináší mořské vlny na břeh. Tyto cenné novinky se pro vás sbírají v pozadí.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Právě teď žijeme okamžik, kdy se ještě nerozsvítila hvězda aktualizace. Aktuálně nejsou k dispozici žádné informace o aktualizaci, ale můžete pokračovat v používání již dostupné verze.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">Při stahování aktualizačního souboru jsme zjistili, že hvězdy na obloze jsou ve špatném pořadí. Zatím pokračujte v cestě s aktuální verzí, protože až se hvězdy správně seřadí, nabídneme vám lepší aktualizaci.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Stahování aktualizačního souboru bylo zrušeno, protože jsme se najednou rozdělili. Pokračujte v cestě s aktuální verzí a buďte připraveni na budoucí aktualizace, protože nový začátek je vždy možný.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Podmínky v aktualizačních souborech vypadají, jako by chyběl klíč k odemčení. Zatím pokračujte v cestě s aktuální verzí a buďte připraveni na budoucí aktualizace.</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">PŘÍPRAVA NEZBYTNÝCH PŘÍPRAV</system:String>
+
+    <system:String x:Key="Update.MessageText.Temporary">KONTROLA DOČASNÝCH UMÍSTĚNÍ</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">DOČASNÁ UMÍSTĚNÍ NELZE ZKONTROLOVAT</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">KONTROLA INTERNETOVÉHO PŘIPOJENÍ</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">ŽÁDNÉ INTERNETOVÉ PŘIPOJENÍ</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">INTERNETOVÉ PŘIPOJENÍ NELZE ZKONTROLOVAT</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">ZÍSKÁVÁNÍ POŽADOVANÝCH SEZNAMŮ</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">POŽADOVANÉ SEZNAMY JSOU PRÁZDNÉ</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">POŽADOVANÉ SEZNAMY NELZE PŘIJMOUT</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">SEZNAMY SE FILTRUJÍ</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">SEZNAMY NELZE FILTROVAT</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">SEZNAMY NELZE FILTROVAT</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">POROVNÁVÁNÍ SEZNAMŮ</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">APLIKACE JE JIŽ AKTUÁLNÍ</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">NEPODAŘILO SE POROVNAT SEZNAMY</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">HLEDÁNÍ POŽADOVANÝCH SOUBORŮ</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">POŽADOVANÉ SOUBORY NEBYLY NALEZENY</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">POŽADOVANÉ SOUBORY NELZE HLEDAT</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">POŽADOVANÉ SOUBORY NENALEZENY</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">STAHUJÍ SE POŽADOVANÉ SOUBORY</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">POŽADOVANÉ SOUBORY NELZE STÁHNOUT</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">STAHOVÁNÍ POŽADOVANÉHO SOUBORU BYLO ZRUŠENO</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">BĚHEM STAHOVÁNÍ POŽADOVANÉHO SOUBORU DOŠLO K CHYBĚ</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">PŘÍPRAVA STAŽENÉHO SOUBORU</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">SPUŠTĚNÍ STAŽENÉHO SOUBORU</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">STAŽENÝ SOUBOR SPUŠTĚN</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">STAŽENÝ SOUBOR NELZE POUŽÍT</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">PŘÍPRAVA STAŽENÉHO SOUBORU SELHALA</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">ROZBALOVÁNÍ STÁHNUTÉHO SOUBORU</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">PROVÁDÍ SE ROZBALOVANÝ SOUBOR</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">ROZBALOVANÝ SOUBOR BYL PROVEDEN</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">STÁHNUTÝ SOUBOR SELHAL</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">STÁHNUTÝ SOUBOR JE POŠKOZENÝ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">STÁHNUTÝ SOUBOR NENÍ POUŽITELNÝ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">STÁHNUTÝ SOUBOR NELZE ROZBALIT</system:String>
 </ResourceDictionary>

@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.FR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuRlIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5GUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuRlIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.FR.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuRlIueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkZSLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5GUi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuRlIueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.FR.xaml,Discord.BrowseButton,Parcourir
 Discord\Discord.FR.xaml,Discord.Details,Moteur de Fond d'écran
 Discord\Discord.FR.xaml,Discord.DownloadButton,Télécharger
@@ -158,27 +158,56 @@ Property\Property.FR.xaml,Property.FileDropDown.Filter,Tous les fichiers (*.*)|*
 Undo\Undo.FR.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.FR.xaml,,
 Undo\Undo.FR.xaml,Undo.QuestionMessage,Voulez-vous vraiment désinstaller Sucrose Wallpaper Engine?
+Update\Update.FR.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.FR.xaml,,
 Update\Update.FR.xaml,Update.HelpText,Résoudre le Problème
 Update\Update.FR.xaml,,
-Update\Update.FR.xaml,Update.UpdateBox.WindowTitle,Mise à jour du Sucrose
-Update\Update.FR.xaml,Update.UpdateBox.InstallText,Installer la mise à jour
+Update\Update.FR.xaml,Update.ReloadText,ESSAYER ENCORE
 Update\Update.FR.xaml,,
-Update\Update.FR.xaml,Update.InfoBox.WindowTitle,Mise à jour de Sucrose
-Update\Update.FR.xaml,Update.InfoBox.TextMessage,Message
-Update\Update.FR.xaml,Update.InfoBox.CloseText,Fermer
+Update\Update.FR.xaml,Update.MessageText.Preparing,PRÉPARATION DES PRÉPARATIFS NÉCESSAIRES
 Update\Update.FR.xaml,,
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Empty,Nous sommes à des moments où les fichiers de mise à jour sont cachés comme un joyau perdu. Vous pouvez également profiter de l'expérience en utilisant la version actuelle à l'heure actuelle.
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Error,"En téléchargeant le fichier de mise à jour, nous avons découvert une fissure dans le chemin, et ce voyage s'est terminé pour l'instant. Continuez votre voyage avec la version actuelle car une mise à jour plus solide vous attend lorsque ces fissures seront réparées."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Update,"L'application est déjà avec vous, telle que la page la plus récente d'un livre, dans sa forme la plus actuelle et innovante. Ici pour vous offrir en tout temps la meilleure et la plus actuelle expérience."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Status,"Nous sommes au bord d'un rêve où les fichiers de mise à jour ne sont pas accessibles. Cependant, vous pouvez continuer à vivre votre rêve avec la version actuelle."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Channel,"Le canal de mise à jour sélectionné est comme une forêt silencieuse. Il n'y a actuellement aucune nouvelle information de mise à jour ici. Poursuivez votre voyage avec la version actuelle, car lorsque ce silence sera rompu, nous vous offrirons plus."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Extract,"En tentant d'extraire le fichier de mise à jour, nous avons rencontré un obstacle venu des profondeurs de la mer. Pour l'instant, poursuivez votre voyage avec la version actuelle, car nous reviendrons pour trouver de nouveaux trésors lorsque les mers seront plus calmes."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Network,"La faiblesse de votre connexion, comme des nuages cachant le soleil. Lorsque les nuages se dispersent, une expérience plus lumineuse vous attendra."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Updating,"La mise à jour de l'application avance sournoisement, comme de nouveaux trésors que les vagues de la mer apportent sur le rivage. Ces précieuses nouveautés sont collectées en arrière-plan pour vous."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Releases,"Nous vivons un moment où l'étoile de la mise à jour dans l'application n'est pas encore née. Il n'y a actuellement aucune information de mise à jour disponible, mais vous pouvez continuer à utiliser la version actuelle."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Download,"En téléchargeant le fichier de mise à jour, nous avons découvert que les étoiles dans le ciel sont mal alignées. Pour l'instant, poursuivez votre voyage avec la version actuelle, car nous vous fournirons une meilleure mise à jour lorsque les étoiles seront correctement alignées."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Cancelled,"Le téléchargement du fichier de mise à jour a été annulé car nos chemins se sont soudainement séparés. Continuez votre voyage avec la version actuelle et soyez prêt pour les futures mises à jour, car un nouveau départ est toujours possible."
-Update\Update.FR.xaml,Update.InfoBox.TextMessage.Condition,"Les conditions dans les fichiers de mise à jour semblent manquer pour déverrouiller la clé. Pour l'instant, poursuivez votre voyage avec la version actuelle et soyez prêt pour les futures mises à jour."
+Update\Update.FR.xaml,Update.MessageText.Temporary,VÉRIFICATION DES EMPLACEMENTS TEMPORAIRES
+Update\Update.FR.xaml,Update.MessageText.Temporary.Error,LES EMPLACEMENTS TEMPORAIRES N'ONT PAS PU ÊTRE VÉRIFIÉS
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Connection,VÉRIFICATION DE LA CONNEXION INTERNET
+Update\Update.FR.xaml,Update.MessageText.Connection.None,PAS DE CONNEXION INTERNET
+Update\Update.FR.xaml,Update.MessageText.Connection.Error,LA CONNEXION INTERNET N'A PAS PU ÊTRE VÉRIFIÉE
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Listing,OBTENTION DES LISTES REQUISES
+Update\Update.FR.xaml,Update.MessageText.Listing.Empty,LES LISTES REQUISES SONT VIDES
+Update\Update.FR.xaml,Update.MessageText.Listing.Error,LES LISTES REQUISES N'ONT PAS PU ÊTRE REÇUES
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Filtering,FILTRAGE DES LISTES EN COURS
+Update\Update.FR.xaml,Update.MessageText.Filtering.Not,LES LISTES NE PEUVENT PAS ÊTRE FILTRÉES
+Update\Update.FR.xaml,Update.MessageText.Filtering.Error,LES LISTES N'ONT PAS PU ÊTRE FILTRÉES
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Comparing,COMPARAISON DES LISTES
+Update\Update.FR.xaml,Update.MessageText.Comparing.Update,L'APPLICATION EST DÉJÀ À JOUR
+Update\Update.FR.xaml,Update.MessageText.Comparing.Error,ÉCHEC DE LA COMPARAISON DES LISTES
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Searching,RECHERCHE DES FICHIERS REQUIS
+Update\Update.FR.xaml,Update.MessageText.Searching.Not,FICHIERS REQUIS NON TROUVÉS
+Update\Update.FR.xaml,Update.MessageText.Searching.Error,LES FICHIERS REQUIS N'ONT PAS PU ÊTRE RECHERCHÉS
+Update\Update.FR.xaml,Update.MessageText.Searching.Condition,FICHIERS REQUIS NON TROUVÉS
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Downloading,TÉLÉCHARGEMENT DES FICHIERS REQUIS
+Update\Update.FR.xaml,Update.MessageText.Downloading.Error,LES FICHIERS REQUIS N'ONT PAS PU ÊTRE TÉLÉCHARGÉS
+Update\Update.FR.xaml,Update.MessageText.Downloading.Complete.Cancel,LE TÉLÉCHARGEMENT DU FICHIER REQUIS A ÉTÉ ANNULÉ
+Update\Update.FR.xaml,Update.MessageText.Downloading.Complete.Error,UNE ERREUR EST SURVENUE LORS DU TÉLÉCHARGEMENT DU FICHIER REQUIS
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Running,PRÉPARATION DU FICHIER TÉLÉCHARGÉ
+Update\Update.FR.xaml,Update.MessageText.Running.Executing,EXÉCUTION DU FICHIER TÉLÉCHARGÉ
+Update\Update.FR.xaml,Update.MessageText.Running.Executed,FICHIER TÉLÉCHARGÉ EXÉCUTÉ
+Update\Update.FR.xaml,Update.MessageText.Running.Not,FICHIER TÉLÉCHARGÉ INUTILISABLE
+Update\Update.FR.xaml,Update.MessageText.Running.Error,ÉCHEC DE LA PRÉPARATION DU FICHIER TÉLÉCHARGÉ
+Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.MessageText.Extracting,EXTRACTION DU FICHIER TÉLÉCHARGÉ
+Update\Update.FR.xaml,Update.MessageText.Extracting.Executing,LE FICHIER EXTRAIT EST EN COURS D'EXÉCUTION
+Update\Update.FR.xaml,Update.MessageText.Extracting.Executed,LE FICHIER EXTRAIT A ÉTÉ EXÉCUTÉ
+Update\Update.FR.xaml,Update.MessageText.Extracting.Failed,LE FICHIER TÉLÉCHARGÉ A ÉCHOUÉ
+Update\Update.FR.xaml,Update.MessageText.Extracting.Corrupt,LE FICHIER TÉLÉCHARGÉ EST CORROMPU
+Update\Update.FR.xaml,Update.MessageText.Extracting.Not,LE FICHIER TÉLÉCHARGÉ N'EST PAS UTILISABLE
+Update\Update.FR.xaml,Update.MessageText.Extracting.Error,LE FICHIER TÉLÉCHARGÉ N'A PAS PU ÊTRE EXTRAIT
 Watchdog\Watchdog.FR.xaml,Watchdog.HelpButton,Aide
 Watchdog\Watchdog.FR.xaml,Watchdog.CloseButton,Fermer
 Watchdog\Watchdog.FR.xaml,Watchdog.ErrorMessage,Une erreur inattendue est apparue:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.FR.xaml,Watchdog.HideButton,Cacher
 Watchdog\Watchdog.FR.xaml,Watchdog.ShowButton,Montrer
 Watchdog\Watchdog.FR.xaml,Watchdog.StackTrace,Trace de la Pile:
 Watchdog\Watchdog.FR.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.FR.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.ReloadText,ESSAYER ENCORE
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Preparing,PRÉPARATION DES PRÉPARATIFS NÉCESSAIRES
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Temporary,VÉRIFICATION DES EMPLACEMENTS TEMPORAIRES
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Temporary.Error,LES EMPLACEMENTS TEMPORAIRES N'ONT PAS PU ÊTRE VÉRIFIÉS
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Connection,VÉRIFICATION DE LA CONNEXION INTERNET
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Connection.None,PAS DE CONNEXION INTERNET
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Connection.Error,LA CONNEXION INTERNET N'A PAS PU ÊTRE VÉRIFIÉE
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Searching,RECHERCHE DES FICHIERS REQUIS
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Searching.Not,FICHIERS REQUIS NON TROUVÉS
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Searching.Error,LES FICHIERS REQUIS N'ONT PAS PU ÊTRE RECHERCHÉS
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Listing,OBTENTION DES LISTES REQUISES
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Listing.Empty,LES LISTES REQUISES SONT VIDES
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Listing.Error,LES LISTES REQUISES N'ONT PAS PU ÊTRE REÇUES
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Filtering,FILTRAGE DES LISTES EN COURS
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Filtering.Not,LES LISTES NE PEUVENT PAS ÊTRE FILTRÉES
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Filtering.Error,LES LISTES N'ONT PAS PU ÊTRE FILTRÉES
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Downloading,TÉLÉCHARGEMENT DES FICHIERS REQUIS
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Downloading.Error,LES FICHIERS REQUIS N'ONT PAS PU ÊTRE TÉLÉCHARGÉS
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Downloading.Complete.Cancel,LE TÉLÉCHARGEMENT DU FICHIER REQUIS A ÉTÉ ANNULÉ
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Downloading.Complete.Error,UNE ERREUR EST SURVENUE LORS DU TÉLÉCHARGEMENT DU FICHIER REQUIS
-Wizard\Wizard.FR.xaml,,
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Extracting,EXTRACTION DU FICHIER TÉLÉCHARGÉ
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Extracting.Executing,LE FICHIER EXTRAIT EST EN COURS D'EXÉCUTION
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Extracting.Executed,LE FICHIER EXTRAIT A ÉTÉ EXÉCUTÉ
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Extracting.Failed,LE FICHIER TÉLÉCHARGÉ A ÉCHOUÉ
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Extracting.Corrupt,LE FICHIER TÉLÉCHARGÉ EST CORROMPU
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Extracting.Not,LE FICHIER TÉLÉCHARGÉ N'EST PAS UTILISABLE
-Wizard\Wizard.FR.xaml,Wizard.MessageText.Extracting.Error,LE FICHIER TÉLÉCHARGÉ N'A PAS PU ÊTRE EXTRAIT
 Portal\Area\Portal.Area.FR.xaml,Portal.Area.Data,Données
 Portal\Area\Portal.Area.FR.xaml,Portal.Area.Sound,Son
 Portal\Area\Portal.Area.FR.xaml,Portal.Area.Log,Journal

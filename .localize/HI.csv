@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSEkueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSEkueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.HI.xaml,Discord.BrowseButton,ब्राउज़ कर
 Discord\Discord.HI.xaml,Discord.Details,वॉलपेपर इंजन
 Discord\Discord.HI.xaml,Discord.DownloadButton,डाउनलोड कर
@@ -158,27 +158,56 @@ Property\Property.HI.xaml,Property.FileDropDown.Filter,सभी फ़ाइल
 Undo\Undo.HI.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.HI.xaml,,
 Undo\Undo.HI.xaml,Undo.QuestionMessage,क्या आप वास्तव में Sucrose Wallpaper Engine को अनइंस्टॉल करना चाहते हैं?
+Update\Update.HI.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.HI.xaml,,
 Update\Update.HI.xaml,Update.HelpText,समस्या को हल करें
 Update\Update.HI.xaml,,
-Update\Update.HI.xaml,Update.UpdateBox.WindowTitle,Sucrose अद्यतन
-Update\Update.HI.xaml,Update.UpdateBox.InstallText,अद्यतन स्थापित करें
+Update\Update.HI.xaml,Update.ReloadText,पुनः प्रयास करें
 Update\Update.HI.xaml,,
-Update\Update.HI.xaml,Update.InfoBox.WindowTitle,Sucrose अद्यतन
-Update\Update.HI.xaml,Update.InfoBox.TextMessage,संदेश
-Update\Update.HI.xaml,Update.InfoBox.CloseText,बंद करें
+Update\Update.HI.xaml,Update.MessageText.Preparing,आवश्यक तैयारियों को तैयार कर रहे हैं
 Update\Update.HI.xaml,,
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Empty,हम उस समय में हैं जब अद्यतन फ़ाइलें एक गुम गहना की तरह छिपी हुई हैं। आप अभी मौजूदा संस्करण का उपयोग करके भी अनुभव से मजा ले सकते हैं।
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Error,"हमने पाया कि अद्यतन फाइल को डाउनलोड करते समय, रास्ते में एक क्रैक हो गया है, और यह यात्रा अब समाप्त हो गई है। मौजूदा संस्करण के साथ अपनी यात्रा को जारी रखें, क्योंकि जैसे-तैसे ही, प्रतिक्रिया प्राप्त होने पर, महान प्रतिक्रिया प्राप्त होती है।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Update,अनुप्रयोग एक पुस्तक के नवीनतम पृष्ठ की तरह पहले से ही सबसे अद्यतित और नवीनतम रूप में आपके साथ है। हर समय सबसे अच्छी और सबसे अद्यतित अनुभव प्रदान करने के लिए यहां है।
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Status,"हम एक सपने के कगार पर हैं जिस तक अपडेट फ़ाइलों तक पहुंच नहीं है। हालाँकि, आप वर्तमान संस्करण के साथ अपना सपना जीना जारी रख सकते हैं।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Channel,"चयनित अपडेट चैनल एक मौन जंगल की तरह है। नए अपडेट की जानकारी अभी यहां नहीं है। वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि इस मौन को तोड़ने पर हम आपको और अधिक प्रदान करेंगे।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Extract,"अपडेट फ़ाइल को निकालने का प्रयास करते समय, हमने समुद्र की गहराई से उत्पन्न एक बाधा का सामना किया। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि समुद्र अधिक शांत होने पर हम नए खजाने खोजने के लिए वापस आएंगे।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Network,"आपके कनेक्शन की कमजोरी, बादलों के सूर्य को ढकने जैसी है। बादल छंटने पर अधिक उज्ज्वल अनुभव आपका इंतजार कर रहा होगा।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Updating,"अनुप्रयोग अपडेट, समुद्र की लहरों के तट पर लाए गए नए खजाने की तरह, चुपके से आगे बढ़ रहा है। इन मूल्यवान नवाचारों को आपके लिए पृष्ठभूमि में एकत्र किया जा रहा है।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Releases,"अनुप्रयोग में हम एक ऐसी पल का अनुभव कर रहे हैं जब अपडेट स्टार अभी तक पैदा नहीं हुआ है। वर्तमान में कोई भी अपडेट जानकारी नहीं है, लेकिन आप पहले से ही मौजूद संस्करण का उपयोग करना जारी रख सकते हैं।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Download,"अपडेट फ़ाइल को डाउनलोड करते समय, हमने खोज की कि आकाश में तारे गलत क्रम में हैं। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें, क्योंकि तारे सही hizaya आते ही हम आपको एक बेहतर अपडेट प्रदान करेंगे।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Cancelled,"अपडेट फ़ाइल को डाउनलोड करना रद्द कर दिया गया है, क्योंकि हमारे रास्ते अचानक अलग हो गए हैं। वर्तमान संस्करण के साथ अपने सफर को जारी रखें और भविष्य के अपडेट्स के लिए तैयार रहें, क्योंकि एक नई शुरुआत हमेशा संभव है।"
-Update\Update.HI.xaml,Update.InfoBox.TextMessage.Condition,"अपडेट फ़ाइलों में शर्तें, चाबी को अनलॉक करने के लिए अपूर्ण लगती हैं। अभी के लिए, वर्तमान संस्करण के साथ अपने सफर को जारी रखें और भविष्य के अपडेट्स के लिए तैयार रहें।"
+Update\Update.HI.xaml,Update.MessageText.Temporary,तात्कालिक स्थानों की जाँच कर रहे हैं
+Update\Update.HI.xaml,Update.MessageText.Temporary.Error,तात्कालिक स्थानों की जाँच नहीं की जा सकी
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Connection,इंटरनेट कनेक्शन की जाँच कर रहे हैं
+Update\Update.HI.xaml,Update.MessageText.Connection.None,कोई इंटरनेट कनेक्शन नहीं
+Update\Update.HI.xaml,Update.MessageText.Connection.Error,इंटरनेट कनेक्शन की जाँच नहीं की जा सकी
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Listing,आवश्यक सूचियों को प्राप्त कर रहे हैं
+Update\Update.HI.xaml,Update.MessageText.Listing.Empty,आवश्यक सूचियाँ खाली हैं
+Update\Update.HI.xaml,Update.MessageText.Listing.Error,आवश्यक सूचियाँ प्राप्त नहीं की जा सकीं
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Filtering,सूचियों को फ़िल्टर कर रहे हैं
+Update\Update.HI.xaml,Update.MessageText.Filtering.Not,सूचियाँ फ़िल्टर नहीं की जा सकीं
+Update\Update.HI.xaml,Update.MessageText.Filtering.Error,सूचियों को फ़िल्टर नहीं किया जा सका
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Comparing,सूचियों की तुलना की जा रही है
+Update\Update.HI.xaml,Update.MessageText.Comparing.Update,एप्लिकेशन पहले से ही अद्यतित है
+Update\Update.HI.xaml,Update.MessageText.Comparing.Error,सूचियों की तुलना करने में विफल
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Searching,आवश्यक फ़ाइलें खोज रहे हैं
+Update\Update.HI.xaml,Update.MessageText.Searching.Not,आवश्यक फ़ाइलें नहीं मिलीं
+Update\Update.HI.xaml,Update.MessageText.Searching.Error,आवश्यक फ़ाइलें खोजी नहीं जा सकीं
+Update\Update.HI.xaml,Update.MessageText.Searching.Condition,आवश्यक फ़ाइलें नहीं मिलीं
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Downloading,आवश्यक फ़ाइलें डाउनलोड कर रहे हैं
+Update\Update.HI.xaml,Update.MessageText.Downloading.Error,आवश्यक फ़ाइलें डाउनलोड नहीं की जा सकीं
+Update\Update.HI.xaml,Update.MessageText.Downloading.Complete.Cancel,आवश्यक फ़ाइल का डाउनलोड रद्द किया गया था
+Update\Update.HI.xaml,Update.MessageText.Downloading.Complete.Error,आवश्यक फ़ाइल के डाउनलोड के दौरान एक त्रुटि हुई
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Running,डाउनलोड की गई फ़ाइल की तैयारी
+Update\Update.HI.xaml,Update.MessageText.Running.Executing,डाउनलोड की गई फ़ाइल को निष्पादित किया जा रहा है
+Update\Update.HI.xaml,Update.MessageText.Running.Executed,डाउनलोड की गई फ़ाइल निष्पादित हुई
+Update\Update.HI.xaml,Update.MessageText.Running.Not,डाउनलोड की गई फ़ाइल उपयोगी नहीं
+Update\Update.HI.xaml,Update.MessageText.Running.Error,डाउनलोड की गई फ़ाइल की तैयारी विफल
+Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.MessageText.Extracting,डाउनलोड किए गए फ़ाइल को निकाल रहे हैं
+Update\Update.HI.xaml,Update.MessageText.Extracting.Executing,निकाला गया फ़ाइल कार्यान्वित हो रही है
+Update\Update.HI.xaml,Update.MessageText.Extracting.Executed,निकाला गया फ़ाइल कार्यान्वित किया गया है
+Update\Update.HI.xaml,Update.MessageText.Extracting.Failed,डाउनलोड की गई फ़ाइल असफल हो गई
+Update\Update.HI.xaml,Update.MessageText.Extracting.Corrupt,डाउनलोड की गई फ़ाइल कोरप्ट है
+Update\Update.HI.xaml,Update.MessageText.Extracting.Not,डाउनलोड की गई फ़ाइल उपयोग योग्य नहीं है
+Update\Update.HI.xaml,Update.MessageText.Extracting.Error,डाउनलोड की गई फ़ाइल को निकाला नहीं जा सका
 Watchdog\Watchdog.HI.xaml,Watchdog.HelpButton,सहायता
 Watchdog\Watchdog.HI.xaml,Watchdog.CloseButton,बंद करें
 Watchdog\Watchdog.HI.xaml,Watchdog.ErrorMessage,एक अप्रत्याशित त्रुटि हुई:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.HI.xaml,Watchdog.HideButton,छिपाएँ
 Watchdog\Watchdog.HI.xaml,Watchdog.ShowButton,दिखाएँ
 Watchdog\Watchdog.HI.xaml,Watchdog.StackTrace,स्टैक ट्रेस:
 Watchdog\Watchdog.HI.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.HI.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.ReloadText,पुनः प्रयास करें
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Preparing,आवश्यक तैयारियों को तैयार कर रहे हैं
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Temporary,तात्कालिक स्थानों की जाँच कर रहे हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Temporary.Error,तात्कालिक स्थानों की जाँच नहीं की जा सकी
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Connection,इंटरनेट कनेक्शन की जाँच कर रहे हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Connection.None,कोई इंटरनेट कनेक्शन नहीं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Connection.Error,इंटरनेट कनेक्शन की जाँच नहीं की जा सकी
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Searching,आवश्यक फ़ाइलें खोज रहे हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Searching.Not,आवश्यक फ़ाइलें नहीं मिलीं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Searching.Error,आवश्यक फ़ाइलें खोजी नहीं जा सकीं
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Listing,आवश्यक सूचियों को प्राप्त कर रहे हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Listing.Empty,आवश्यक सूचियाँ खाली हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Listing.Error,आवश्यक सूचियाँ प्राप्त नहीं की जा सकीं
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Filtering,सूचियों को फ़िल्टर कर रहे हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Filtering.Not,सूचियाँ फ़िल्टर नहीं की जा सकीं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Filtering.Error,सूचियों को फ़िल्टर नहीं किया जा सका
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading,आवश्यक फ़ाइलें डाउनलोड कर रहे हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading.Error,आवश्यक फ़ाइलें डाउनलोड नहीं की जा सकीं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading.Complete.Cancel,आवश्यक फ़ाइल का डाउनलोड रद्द किया गया था
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Downloading.Complete.Error,आवश्यक फ़ाइल के डाउनलोड के दौरान एक त्रुटि हुई
-Wizard\Wizard.HI.xaml,,
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting,डाउनलोड किए गए फ़ाइल को निकाल रहे हैं
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Executing,निकाला गया फ़ाइल कार्यान्वित हो रही है
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Executed,निकाला गया फ़ाइल कार्यान्वित किया गया है
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Failed,डाउनलोड की गई फ़ाइल असफल हो गई
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Corrupt,डाउनलोड की गई फ़ाइल कोरप्ट है
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Not,डाउनलोड की गई फ़ाइल उपयोग योग्य नहीं है
-Wizard\Wizard.HI.xaml,Wizard.MessageText.Extracting.Error,डाउनलोड की गई फ़ाइल को निकाला नहीं जा सका
 Portal\Area\Portal.Area.HI.xaml,Portal.Area.Data,डेटा
 Portal\Area\Portal.Area.HI.xaml,Portal.Area.Sound,ध्वनि
 Portal\Area\Portal.Area.HI.xaml,Portal.Area.Log,लॉग

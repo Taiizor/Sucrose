@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.MS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuTVMueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.MS.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuTVMueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLk1TLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5NUy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuTVMueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.MS.xaml,Discord.BrowseButton,Jelajah
 Discord\Discord.MS.xaml,Discord.Details,Enjin Wallpaper
 Discord\Discord.MS.xaml,Discord.DownloadButton,Muat turun
@@ -158,27 +158,56 @@ Property\Property.MS.xaml,Property.FileDropDown.Filter,Semua Fail (*.*)|*.*
 Undo\Undo.MS.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.MS.xaml,,
 Undo\Undo.MS.xaml,Undo.QuestionMessage,Adakah anda benar-benar ingin membuang Sucrose Wallpaper Engine?
+Update\Update.MS.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.MS.xaml,,
 Update\Update.MS.xaml,Update.HelpText,Selesaikan Masalah
 Update\Update.MS.xaml,,
-Update\Update.MS.xaml,Update.UpdateBox.WindowTitle,Pembaruan Sucrose
-Update\Update.MS.xaml,Update.UpdateBox.InstallText,Pemasangan Pembaruan
+Update\Update.MS.xaml,Update.ReloadText,COBA LAGI
 Update\Update.MS.xaml,,
-Update\Update.MS.xaml,Update.InfoBox.WindowTitle,Pembaruan Sucrose
-Update\Update.MS.xaml,Update.InfoBox.TextMessage,Mesej
-Update\Update.MS.xaml,Update.InfoBox.CloseText,Tutup
+Update\Update.MS.xaml,Update.MessageText.Preparing,SEDANG MENYEDIAKAN SEDIAAN PERLU
 Update\Update.MS.xaml,,
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Empty,"Seperti permata yang tersembunyi, kita berada pada saat-saat di mana file pembaruan terselubung. Anda masih bisa menikmati pengalaman dengan menggunakan versi yang ada saat ini."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Error,"Ketika mengunduh file pembaruan, kami menemukan retakan di jalan, mengakhiri perjalanan ini untuk saat ini. Lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena pembaruan yang lebih kuat akan menanti ketika retakan ini diperbaiki."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Update,"Aplikasi sudah bersama Anda dalam bentuk yang paling mutakhir dan inovatif, seperti halaman terbaru dalam sebuah buku. Kami di sini untuk memberikan pengalaman terbaik dan terkini setiap saat."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Status,"Kami berada di ambang mimpi di mana file pembaruan tidak dapat diakses. Namun, Anda masih dapat melanjutkan perjalanan Anda dengan versi yang ada saat ini."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Channel,"Saluran pembaruan yang dipilih hampir seperti hutan yang sunyi. Saat ini, tidak ada informasi pembaruan baru di sini. Lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena kami akan memberikan lebih banyak lagi saat keheningan ini terpecahkan."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Extract,"Saat kami mencoba mengekstrak file pembaruan, kami menghadapi hambatan dari kedalaman laut. Untuk saat ini, lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena kami akan kembali mencari harta baru saat laut menjadi tenang."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Network,"Kelemahan koneksi Anda hampir seperti awan menutupi matahari. Ketika awan berlalu, pengalaman yang lebih terang akan menanti Anda."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Updating,Pembaruan aplikasi bergerak maju dengan diam-diam seperti harta yang dibawa ombak ke pantai. Inovasi berharga ini sedang dikumpulkan untuk Anda di belakang layar.
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Releases,"Kami sedang berada di momen ketika bintang pembaruan belum terbit. Saat ini, tidak ada informasi pembaruan, tetapi Anda masih dapat menggunakan versi yang ada saat ini."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Download,"Ketika mengunduh file pembaruan, kami menemukan bahwa bintang di langit tidak teratur. Untuk saat ini, lanjutkan perjalanan Anda dengan versi yang ada saat ini, karena kami akan memberikan pembaruan yang lebih baik ketika bintang berada dalam urutan yang tepat."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Cancelled,"Pengunduhan file pembaruan dibatalkan karena jalan kita tiba-tiba bercabang. Lanjutkan perjalanan Anda dengan versi yang ada saat ini, dan bersiaplah untuk pembaruan di masa mendatang, karena awal baru selalu mungkin."
-Update\Update.MS.xaml,Update.InfoBox.TextMessage.Condition,"Kondisi dalam file pembaruan tampaknya kurang untuk membuka kunci. Untuk saat ini, lanjutkan perjalanan Anda dengan versi yang ada saat ini, dan bersiaplah untuk pembaruan di masa mendatang."
+Update\Update.MS.xaml,Update.MessageText.Temporary,MEMERIKSA LOKASI SEMENTARA
+Update\Update.MS.xaml,Update.MessageText.Temporary.Error,LOKASI SEMENTARA TIDAK DAPAT DIPERIKSA
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Connection,MEMERIKSA SAMBUNGAN INTERNET
+Update\Update.MS.xaml,Update.MessageText.Connection.None,TIADA SAMBUNGAN INTERNET
+Update\Update.MS.xaml,Update.MessageText.Connection.Error,SAMBUNGAN INTERNET TIDAK DAPAT DIPERIKSA
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Listing,MENDAPAT SENARAI-SNRAI DIPERLUKAN
+Update\Update.MS.xaml,Update.MessageText.Listing.Empty,SENARAI-SNRAI DIPERLUKAN KOSONG
+Update\Update.MS.xaml,Update.MessageText.Listing.Error,SENARAI-SNRAI DIPERLUKAN TIDAK DAPAT DITERIMA
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Filtering,SENARAI SEDANG DIFILTER
+Update\Update.MS.xaml,Update.MessageText.Filtering.Not,SENARAI TIDAK DAPAT DIFILTER
+Update\Update.MS.xaml,Update.MessageText.Filtering.Error,SENARAI TIDAK DAPAT DIFILTER
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Comparing,MEMBANDINGKAN SENARAI
+Update\Update.MS.xaml,Update.MessageText.Comparing.Update,APLIKASI SUDAH TERKINI
+Update\Update.MS.xaml,Update.MessageText.Comparing.Error,GAGAL UNTUK MEMBANDINGKAN SENARAI
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Searching,MENCARI FAIL-FALI DIPERLUKAN
+Update\Update.MS.xaml,Update.MessageText.Searching.Not,FAIL-FALI DIPERLUKAN TIDAK DIjumpai
+Update\Update.MS.xaml,Update.MessageText.Searching.Error,FAIL-FALI DIPERLUKAN TIDAK DAPAT DICARI
+Update\Update.MS.xaml,Update.MessageText.Searching.Condition,FAIL YANG DIPERLUKAN TIDAK DITEMUI
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Downloading,MENDOWNLOAD FAIL-FALI DIPERLUKAN
+Update\Update.MS.xaml,Update.MessageText.Downloading.Error,FAIL-FALI DIPERLUKAN TIDAK DAPAT DIDOWNLOAD
+Update\Update.MS.xaml,Update.MessageText.Downloading.Complete.Cancel,PENDOWNLOADAN FAIL YANG DIPERLUKAN TELAH DIBATALKAN
+Update\Update.MS.xaml,Update.MessageText.Downloading.Complete.Error,TERDAPAT RALAT SEMASA MENDOWNLOAD FAIL YANG DIPERLUKAN
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Running,SEDANG MENYEDIAKAN FAIL YANG DIMUAT TURUN
+Update\Update.MS.xaml,Update.MessageText.Running.Executing,MELAKSANAKAN FAIL YANG DIMUAT TURUN
+Update\Update.MS.xaml,Update.MessageText.Running.Executed,FAIL YANG DIMUAT TURUN TELAH DILAKSANAKAN
+Update\Update.MS.xaml,Update.MessageText.Running.Not,FAIL YANG DIMUAT TURUN TIDAK BOLEH DIGUNAKAN
+Update\Update.MS.xaml,Update.MessageText.Running.Error,GAGAL UNTUK MENYEDIAKAN FAIL YANG DIMUAT TURUN
+Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.MessageText.Extracting,MENGEKSTRAK FAIL YANG DIDOWNLOAD
+Update\Update.MS.xaml,Update.MessageText.Extracting.Executing,FAIL YANG DIEKSTRAK SEDANG DIJALANKAN
+Update\Update.MS.xaml,Update.MessageText.Extracting.Executed,FAIL YANG DIEKSTRAK TELAH DIJALANKAN
+Update\Update.MS.xaml,Update.MessageText.Extracting.Failed,FAIL YANG DIDOWNLOAD GAGAL
+Update\Update.MS.xaml,Update.MessageText.Extracting.Corrupt,FAIL YANG DIDOWNLOAD ROSAK
+Update\Update.MS.xaml,Update.MessageText.Extracting.Not,FAIL YANG DIDOWNLOAD TIDAK BOLEH DIGUNAKAN
+Update\Update.MS.xaml,Update.MessageText.Extracting.Error,FAIL YANG DIDOWNLOAD TIDAK DAPAT DIKSTRRAK
 Watchdog\Watchdog.MS.xaml,Watchdog.HelpButton,Bantuan
 Watchdog\Watchdog.MS.xaml,Watchdog.CloseButton,Tutup
 Watchdog\Watchdog.MS.xaml,Watchdog.ErrorMessage,Ralat yang tidak dijangka berlaku:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.MS.xaml,Watchdog.HideButton,Sembunyikan
 Watchdog\Watchdog.MS.xaml,Watchdog.ShowButton,Tunjukkan
 Watchdog\Watchdog.MS.xaml,Watchdog.StackTrace,Tumpukan Jejak:
 Watchdog\Watchdog.MS.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.MS.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.ReloadText,COBA LAGI
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Preparing,SEDANG MENYEDIAKAN SEDIAAN PERLU
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Temporary,MEMERIKSA LOKASI SEMENTARA
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Temporary.Error,LOKASI SEMENTARA TIDAK DAPAT DIPERIKSA
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Connection,MEMERIKSA SAMBUNGAN INTERNET
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Connection.None,TIADA SAMBUNGAN INTERNET
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Connection.Error,SAMBUNGAN INTERNET TIDAK DAPAT DIPERIKSA
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Searching,MENCARI FAIL-FALI DIPERLUKAN
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Searching.Not,FAIL-FALI DIPERLUKAN TIDAK DIjumpai
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Searching.Error,FAIL-FALI DIPERLUKAN TIDAK DAPAT DICARI
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Listing,MENDAPAT SENARAI-SNRAI DIPERLUKAN
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Listing.Empty,SENARAI-SNRAI DIPERLUKAN KOSONG
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Listing.Error,SENARAI-SNRAI DIPERLUKAN TIDAK DAPAT DITERIMA
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Filtering,SENARAI SEDANG DIFILTER
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Filtering.Not,SENARAI TIDAK DAPAT DIFILTER
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Filtering.Error,SENARAI TIDAK DAPAT DIFILTER
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Downloading,MENDOWNLOAD FAIL-FALI DIPERLUKAN
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Downloading.Error,FAIL-FALI DIPERLUKAN TIDAK DAPAT DIDOWNLOAD
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Downloading.Complete.Cancel,PENDOWNLOADAN FAIL YANG DIPERLUKAN TELAH DIBATALKAN
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Downloading.Complete.Error,TERDAPAT RALAT SEMASA MENDOWNLOAD FAIL YANG DIPERLUKAN
-Wizard\Wizard.MS.xaml,,
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting,MENGEKSTRAK FAIL YANG DIDOWNLOAD
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Executing,FAIL YANG DIEKSTRAK SEDANG DIJALANKAN
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Executed,FAIL YANG DIEKSTRAK TELAH DIJALANKAN
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Failed,FAIL YANG DIDOWNLOAD GAGAL
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Corrupt,FAIL YANG DIDOWNLOAD ROSAK
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Not,FAIL YANG DIDOWNLOAD TIDAK BOLEH DIGUNAKAN
-Wizard\Wizard.MS.xaml,Wizard.MessageText.Extracting.Error,FAIL YANG DIDOWNLOAD TIDAK DAPAT DIKSTRRAK
 Portal\Area\Portal.Area.MS.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.MS.xaml,Portal.Area.Sound,Bunyi
 Portal\Area\Portal.Area.MS.xaml,Portal.Area.Log,Log

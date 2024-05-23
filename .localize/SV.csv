@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuU1YueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuU1YueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.SV.xaml,Discord.BrowseButton,Bläddra
 Discord\Discord.SV.xaml,Discord.Details,Tapetmotor
 Discord\Discord.SV.xaml,Discord.DownloadButton,Ladda Ner
@@ -158,27 +158,56 @@ Property\Property.SV.xaml,Property.FileDropDown.Filter,Alla filer (*.*)|*.*
 Undo\Undo.SV.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.SV.xaml,,
 Undo\Undo.SV.xaml,Undo.QuestionMessage,Vill du verkligen avinstallera Sucrose Wallpaper Engine?
-Update\Update.SV.xaml,Update.HelpText,Lös problemet
+Update\Update.SV.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.SV.xaml,,
-Update\Update.SV.xaml,Update.UpdateBox.WindowTitle,Sucrose Uppdatering
-Update\Update.SV.xaml,Update.UpdateBox.InstallText,Installera uppdateringen
+Update\Update.SV.xaml,Update.HelpText,Lös Problemet
 Update\Update.SV.xaml,,
-Update\Update.SV.xaml,Update.InfoBox.WindowTitle,Sucrose Uppdatering
-Update\Update.SV.xaml,Update.InfoBox.TextMessage,Meddelande
-Update\Update.SV.xaml,Update.InfoBox.CloseText,Stäng
+Update\Update.SV.xaml,Update.ReloadText,FÖRSÖK IGEN
 Update\Update.SV.xaml,,
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Empty,Vi är i ögonblick då uppdateringsfiler är gömda som en förlorad skatt. Du kan fortfarande njuta av din upplevelse med den nuvarande versionen.
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Error,"När vi försökte hämta uppdateringsfilen uppstod en spricka på vägen, och resan är för närvarande över. Fortsätt din resa med den nuvarande versionen, för när dessa sprickor är lagade kommer en kraftfullare uppdatering att vänta på dig."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Update,"Programmet är redan med dig i sin mest aktuella och innovativa form, som de senaste sidorna i en bok. Vi är här för att ge dig den bästa och mest aktuella upplevelsen när som helst."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Status,Vi är vid tröskeln till drömmar som vi för närvarande inte kan nå uppdateringsfiler för. Men du kan fortsätta att leva din dröm med den nuvarande versionen.
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Channel,"Den valda uppdateringskanalen är tyst som en skog. Det finns för närvarande ingen ny uppdateringsinformation här. Fortsätt din resa med den nuvarande versionen, för när tystnaden bryts kommer vi att ge dig mer."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Extract,"När vi försökte extrahera uppdateringsfilen mötte vi ett hinder från djupen av havet. Fortsätt din resa med den nuvarande versionen, för när haven lugnar sig kommer vi tillbaka för att hitta nya skatter."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Network,"Din anslutning är svag, som om molnen skymmer solen. När molnen skingras väntar en ljusare upplevelse på dig."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Updating,Uppdateringen av programmet fortskrider smygande som nya skatter som vågorna för med sig till stranden. Dessa värdefulla förbättringar samlas för dig i bakgrunden.
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Releases,"Vi upplever en stund då stjärnan på uppdateringens himmel ännu inte har fötts. Just nu finns det ingen uppdateringsinformation, men du kan fortsätta att använda den nuvarande versionen."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Download,"När vi försökte hämta uppdateringsfilen upptäckte vi att stjärnorna på himlen var felplacerade. Fortsätt din resa med den nuvarande versionen, för när stjärnorna hamnar rätt kommer vi att erbjuda dig en bättre uppdatering."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Cancelled,"Hämtningen av uppdateringsfilen avbröts eftersom våra vägar plötsligt skiljdes åt. Fortsätt din resa med den nuvarande versionen och var beredd på framtida uppdateringar, för en ny början är alltid möjlig."
-Update\Update.SV.xaml,Update.InfoBox.TextMessage.Condition,Det verkar som om villkoren för uppdateringsfilerna saknas för att öppna nyckeln. Fortsätt din resa med den nuvarande versionen och var redo för framtida uppdateringar.
+Update\Update.SV.xaml,Update.MessageText.Preparing,FÖRBEREDER NÖDVÄNDIGA FÖRBEREDELSER
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Temporary,KONTROLLERAR TEMPORÄRA PLATSER
+Update\Update.SV.xaml,Update.MessageText.Temporary.Error,TEMPORÄRA PLATSER KUNDE INTE KONTROLLERAS
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Connection,KONTROLLERAR INTERNETANSUTNING
+Update\Update.SV.xaml,Update.MessageText.Connection.None,INGEN INTERNETANSUTNING
+Update\Update.SV.xaml,Update.MessageText.Connection.Error,INTERNETANSUTNING KUNDE INTE KONTROLLERAS
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Listing,HÄMTAR DE OBLIGATORISKA LISTORNA
+Update\Update.SV.xaml,Update.MessageText.Listing.Empty,OBLIGATORISKA LISTOR ÄR TOMMA
+Update\Update.SV.xaml,Update.MessageText.Listing.Error,OBLIGATORISKA LISTOR KUNDE INTE HÄMTAS
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Filtering,LISTORNA FILTRERAS
+Update\Update.SV.xaml,Update.MessageText.Filtering.Not,LISTOR KAN INTE FILTRERAS
+Update\Update.SV.xaml,Update.MessageText.Filtering.Error,LISTORNA KUNDE INTE FILTRERAS
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Comparing,JÄMFÖR LISTOR
+Update\Update.SV.xaml,Update.MessageText.Comparing.Update,APPLIKATIONEN ÄR REDAN UPPDATERAD
+Update\Update.SV.xaml,Update.MessageText.Comparing.Error,MISSLYCKADES ATT JÄMFÖRA LISTOR
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Searching,SÖKER EFTER OBLIGATORISKA FILER
+Update\Update.SV.xaml,Update.MessageText.Searching.Not,OBLIGATORISKA FILER HITTADES INTE
+Update\Update.SV.xaml,Update.MessageText.Searching.Error,OBLIGATORISKA FILER KUNDE INTE SÖKAS
+Update\Update.SV.xaml,Update.MessageText.Searching.Condition,KRÄVDA FILER HITTADES INTE
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Downloading,LADDAR NER OBLIGATORISKA FILER
+Update\Update.SV.xaml,Update.MessageText.Downloading.Error,OBLIGATORISKA FILER KUNDE INTE LADDAS NER
+Update\Update.SV.xaml,Update.MessageText.Downloading.Complete.Cancel,NERLADDNINGEN AV DEN OBLIGATORISKA FILN AVBRÖTS
+Update\Update.SV.xaml,Update.MessageText.Downloading.Complete.Error,DET UPPSTOD ETT FEL UNDER NERLADDNINGEN AV DEN OBLIGATORISKA FILN
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Running,FÖRBEREDER NEDLADDAD FIL
+Update\Update.SV.xaml,Update.MessageText.Running.Executing,UTFÖR NEDLADDAD FIL
+Update\Update.SV.xaml,Update.MessageText.Running.Executed,NEDLADDAD FIL UTFÖRD
+Update\Update.SV.xaml,Update.MessageText.Running.Not,NEDLADDAD FIL EJ ANVÄNDBAR
+Update\Update.SV.xaml,Update.MessageText.Running.Error,MISSLYCKADES ATT FÖRBEREDA NEDLADDAD FIL
+Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.MessageText.Extracting,EXTRAHAR DEN NERLADDATA FILN
+Update\Update.SV.xaml,Update.MessageText.Extracting.Executing,DEN EXTRAKTERADE FILN UTFÖRS
+Update\Update.SV.xaml,Update.MessageText.Extracting.Executed,DEN EXTRAKTERADE FILN HAR UTFÖRATS
+Update\Update.SV.xaml,Update.MessageText.Extracting.Failed,DEN NERLADDATA FILN MISSLYCKADES
+Update\Update.SV.xaml,Update.MessageText.Extracting.Corrupt,DEN NERLADDATA FILN ÄR KORRUMPERAD
+Update\Update.SV.xaml,Update.MessageText.Extracting.Not,DEN NERLADDATA FILN ÄR INTE ANVÄNDBAR
+Update\Update.SV.xaml,Update.MessageText.Extracting.Error,DEN NERLADDATA FILN KUNDE INTE EXTRAHAR
 Watchdog\Watchdog.SV.xaml,Watchdog.HelpButton,Hjälp
 Watchdog\Watchdog.SV.xaml,Watchdog.CloseButton,Stäng
 Watchdog\Watchdog.SV.xaml,Watchdog.ErrorMessage,Ett oväntat fel uppstod:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.SV.xaml,Watchdog.HideButton,Dölj
 Watchdog\Watchdog.SV.xaml,Watchdog.ShowButton,Visa
 Watchdog\Watchdog.SV.xaml,Watchdog.StackTrace,Stackspårning:
 Watchdog\Watchdog.SV.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.SV.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.ReloadText,FÖRSÖK IGEN
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Preparing,FÖRBEREDER NÖDVÄNDIGA FÖRBEREDELSER
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Temporary,KONTROLLERAR TEMPORÄRA PLATSER
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Temporary.Error,TEMPORÄRA PLATSER KUNDE INTE KONTROLLERAS
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Connection,KONTROLLERAR INTERNETANSUTNING
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Connection.None,INGEN INTERNETANSUTNING
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Connection.Error,INTERNETANSUTNING KUNDE INTE KONTROLLERAS
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Searching,SÖKER EFTER OBLIGATORISKA FILER
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Searching.Not,OBLIGATORISKA FILER HITTADES INTE
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Searching.Error,OBLIGATORISKA FILER KUNDE INTE SÖKAS
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Listing,HÄMTAR DE OBLIGATORISKA LISTORNA
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Listing.Empty,OBLIGATORISKA LISTOR ÄR TOMMA
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Listing.Error,OBLIGATORISKA LISTOR KUNDE INTE HÄMTAS
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Filtering,LISTORNA FILTRERAS
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Filtering.Not,LISTOR KAN INTE FILTRERAS
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Filtering.Error,LISTORNA KUNDE INTE FILTRERAS
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading,LADDAR NER OBLIGATORISKA FILER
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading.Error,OBLIGATORISKA FILER KUNDE INTE LADDAS NER
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading.Complete.Cancel,NERLADDNINGEN AV DEN OBLIGATORISKA FILN AVBRÖTS
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Downloading.Complete.Error,DET UPPSTOD ETT FEL UNDER NERLADDNINGEN AV DEN OBLIGATORISKA FILN
-Wizard\Wizard.SV.xaml,,
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting,EXTRAHAR DEN NERLADDATA FILN
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Executing,DEN EXTRAKTERADE FILN UTFÖRS
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Executed,DEN EXTRAKTERADE FILN HAR UTFÖRATS
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Failed,DEN NERLADDATA FILN MISSLYCKADES
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Corrupt,DEN NERLADDATA FILN ÄR KORRUMPERAD
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Not,DEN NERLADDATA FILN ÄR INTE ANVÄNDBAR
-Wizard\Wizard.SV.xaml,Wizard.MessageText.Extracting.Error,DEN NERLADDATA FILN KUNDE INTE EXTRAHAR
 Portal\Area\Portal.Area.SV.xaml,Portal.Area.Data,Data
 Portal\Area\Portal.Area.SV.xaml,Portal.Area.Sound,Ljud
 Portal\Area\Portal.Area.SV.xaml,Portal.Area.Log,Logg

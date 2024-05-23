@@ -19,8 +19,6 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMLM UpdateLogManager = new("Update-{0}.log");
 
-        public static readonly SMLM WizardLogManager = new("Wizard-{0}.log");
-
         public static readonly SMSM AuroraSettingManager = new("Aurora.json");
 
         public static readonly SMSM EngineSettingManager = new("Engine.json");
@@ -30,8 +28,6 @@ namespace Sucrose.Manager.Manage
         public static readonly SMSM SystemSettingManager = new("System.json");
 
         public static readonly SMSM UpdateSettingManager = new("Update.json");
-
-        public static readonly SMSM WizardSettingManager = new("Wizard.json");
 
         public static readonly SMSM GeneralSettingManager = new("General.json");
 

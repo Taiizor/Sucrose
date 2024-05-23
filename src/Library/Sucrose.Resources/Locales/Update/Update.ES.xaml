@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
+
     <system:String x:Key="Update.HelpText">Resolver el Problema</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Actualización de Sucrose</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Instalar Actualización</system:String>
+    <system:String x:Key="Update.ReloadText">INTENTAR DE NUEVO</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Actualización de Sucrose</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Mensaje</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Cerrar</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">PREPARANDO PREPARATIVOS NECESARIOS</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Estamos en momentos en los que los archivos de actualización están ocultos como una joya perdida. Puedes disfrutar de la experiencia utilizando la versión actual en este momento.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">Mientras descargábamos el archivo de actualización, descubrimos una grieta en el camino y este viaje ha llegado a su fin por ahora. Continúa tu viaje con la versión actual porque una actualización más sólida te espera cuando estas grietas se reparen.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">La aplicación ya está contigo, como la página más nueva de un libro, en su forma más actual e innovadora. Aquí para ofrecerte en todo momento la mejor y más actualizada experiencia.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Estamos al borde de un sueño en el que no se puede acceder a los archivos de actualización. Sin embargo, puedes seguir viviendo tu sueño con la versión actual.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">El canal de actualización seleccionado es como un bosque silencioso. Actualmente no hay nueva información de actualización aquí. Continúa tu viaje con la versión actual, porque cuando se rompa este silencio, te ofreceremos más.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Mientras intentábamos extraer el archivo de actualización, encontramos un obstáculo desde las profundidades del mar. Por ahora, continúa tu viaje con la versión actual, ya que volveremos para encontrar nuevos tesoros cuando los mares estén más tranquilos.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">La debilidad de tu conexión, como nubes que ocultan el sol. Cuando las nubes se dispersen, te espera una experiencia más brillante.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">La actualización de la aplicación avanza sigilosamente, como nuevos tesoros que las olas del mar traen a la orilla. Estas valiosas novedades se están recopilando en segundo plano para ti.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Estamos viviendo un momento en el que la estrella de actualización en la aplicación aún no ha nacido. Actualmente no hay información de actualización disponible, pero puedes seguir utilizando la versión actual.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">Mientras descargábamos el archivo de actualización, descubrimos que las estrellas en el cielo están en la alineación incorrecta. Por ahora, continúa tu viaje con la versión actual, ya que te proporcionaremos una mejor actualización cuando las estrellas se alineen correctamente.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">La descarga del archivo de actualización se canceló porque nuestros caminos se separaron repentinamente. Continúa tu viaje con la versión actual y prepárate para futuras actualizaciones, porque un nuevo comienzo siempre es posible.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Las condiciones en los archivos de actualización parecen estar ausentes para desbloquear la clave. Por ahora, continúa tu viaje con la versión actual y prepárate para futuras actualizaciones.</system:String>
+    <system:String x:Key="Update.MessageText.Temporary">COMPROBANDO UBICACIONES TEMPORALES</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">NO SE PUDIERON COMPROBAR LAS UBICACIONES TEMPORALES</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">COMPROBANDO CONEXIÓN A INTERNET</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">NO HAY CONEXIÓN A INTERNET</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">NO SE PUDO COMPROBAR LA CONEXIÓN A INTERNET</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">OBTENIENDO LAS LISTAS REQUERIDAS</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">LAS LISTAS REQUERIDAS ESTÁN VACÍAS</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">NO SE PUDIERON RECIBIR LAS LISTAS REQUERIDAS</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">LAS LISTAS SE ESTÁN FILTRANDO</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">NO SE PUEDEN FILTRAR LAS LISTAS</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">NO SE PUDIERON FILTRAR LAS LISTAS</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">COMPARANDO LISTAS</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">LA APLICACIÓN YA ESTÁ ACTUALIZADA</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">FALLO AL COMPARAR LISTAS</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">BUSCANDO ARCHIVOS NECESARIOS</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">NO SE ENCONTRARON LOS ARCHIVOS NECESARIOS</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">NO SE PUDIERON BUSCAR LOS ARCHIVOS NECESARIOS</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">ARCHIVOS REQUERIDOS NO ENCONTRADOS</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">DESCARGANDO ARCHIVOS REQUERIDOS</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">NO SE PUDIERON DESCARGAR LOS ARCHIVOS REQUERIDOS</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">SE CANCELÓ LA DESCARGA DEL ARCHIVO REQUERIDO</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">HUBO UN ERROR AL DESCARGAR EL ARCHIVO REQUERIDO</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">PREPARANDO ARCHIVO DESCARGADO</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">EJECUTANDO ARCHIVO DESCARGADO</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">ARCHIVO DESCARGADO EJECUTADO</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">ARCHIVO DESCARGADO NO UTILIZABLE</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">FALLO AL PREPARAR ARCHIVO DESCARGADO</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">EXTRAYENDO EL ARCHIVO DESCARGADO</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">SE ESTÁ EJECUTANDO EL ARCHIVO EXTRAÍDO</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">EL ARCHIVO EXTRAÍDO HA SIDO EJECUTADO</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">FALLÓ LA DESCARGA DEL ARCHIVO</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">EL ARCHIVO DESCARGADO ESTÁ CORRUPTO</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">EL ARCHIVO DESCARGADO NO ES UTILIZABLE</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">NO SE PUDO EXTRAER EL ARCHIVO DESCARGADO</system:String>
 </ResourceDictionary>

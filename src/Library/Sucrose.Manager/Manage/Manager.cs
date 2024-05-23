@@ -110,8 +110,6 @@ namespace Sucrose.Manager.Manage
 
         public static DateTime UpdateTime => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateTime, new DateTime());
 
-        public static string UpdatePercentage => SMMI.UpdateSettingManager.GetSetting(SMC.UpdatePercentage, "0%");
-
         public static bool StorePreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.StorePreviewHide, false);
 
         public static bool AudioRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.AudioRequired, false);

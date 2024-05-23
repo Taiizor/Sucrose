@@ -9,7 +9,6 @@
         <ResourceDictionary Source="Undo/Undo.KO.xaml" />
         <ResourceDictionary Source="Update/Update.KO.xaml" />
         <ResourceDictionary Source="Portal/Portal.KO.xaml" />
-        <ResourceDictionary Source="Wizard/Wizard.KO.xaml" />
         <ResourceDictionary Source="Discord/Discord.KO.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.KO.xaml" />
         <ResourceDictionary Source="Property/Property.KO.xaml" />

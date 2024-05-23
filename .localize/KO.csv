@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuS08ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuS08ueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.KO.xaml,Discord.BrowseButton,찾아보기
 Discord\Discord.KO.xaml,Discord.Details,벽지 엔진
 Discord\Discord.KO.xaml,Discord.DownloadButton,다운로드
@@ -158,27 +158,56 @@ Property\Property.KO.xaml,Property.FileDropDown.Filter,모든 파일 (*.*)|*.*
 Undo\Undo.KO.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.KO.xaml,,
 Undo\Undo.KO.xaml,Undo.QuestionMessage,정말로 Sucrose Wallpaper Engine을(를) 제거하시겠습니까?
+Update\Update.KO.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.KO.xaml,,
 Update\Update.KO.xaml,Update.HelpText,문제 해결
 Update\Update.KO.xaml,,
-Update\Update.KO.xaml,Update.UpdateBox.WindowTitle,Sucrose 업데이트
-Update\Update.KO.xaml,Update.UpdateBox.InstallText,업데이트 설치
+Update\Update.KO.xaml,Update.ReloadText,다시 시도
 Update\Update.KO.xaml,,
-Update\Update.KO.xaml,Update.InfoBox.WindowTitle,Sucrose 업데이트
-Update\Update.KO.xaml,Update.InfoBox.TextMessage,메시지
-Update\Update.KO.xaml,Update.InfoBox.CloseText,닫기
+Update\Update.KO.xaml,Update.MessageText.Preparing,필요한 준비를 진행 중입니다
 Update\Update.KO.xaml,,
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Empty,업데이트 파일이 숨겨진 보석처럼 없어져 버렸던 순간입니다. 현재 버전을 사용하면 여전히 즐길 수 있습니다.
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Error,"업데이트 파일을 다운로드하는 동안 길에 갈라짐이 생겼다는 것을 발견했고, 이 여정은 일단 여기서 끝이라고 알게 되었습니다. 현재 버전으로 여정을 계속하세요, 이 길이 고쳐질 때 더 강력한 업데이트가 여러분을 기다리고 있을 것입니다."
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Update,앱은 이미 최신 및 혁신적인 형태로 여러분과 함께합니다. 언제든지 최고의 최신 경험을 제공하기 위해 여기에 있습니다.
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Status,업데이트 파일에 액세스할 수 없는 꿈의 문턱에 서 있습니다. 그러나 현재 버전을 사용하여 꿈을 계속 즐길 수 있습니다.
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Channel,"선택한 업데이트 채널은 정적인 숲과 같습니다. 현재 새로운 업데이트 정보가 여기에 없습니다. 현재 버전으로 여정을 계속하세요, 이 고요함이 깨지면 여러분에게 더 많은 것을 제공할 것입니다."
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Extract,"업데이트 파일을 추출하려고 할 때, 심연에서 비롯된 장애물과 마주쳤습니다. 현재 버전으로 여정을 계속하세요, 바다가 더 잔잔해지면 새로운 보물을 찾아 돌아올 것입니다."
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Network,"귀하의 연결이 약해져, 구름이 태양을 가리는 것과 유사합니다. 구름이 걷히면 더 밝은 경험이 여러분을 기다리고 있을 것입니다."
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Updating,앱 업데이트는 바다 파도가 새로운 보물을 해변으로 가져오는 것과 같이 은밀하게 진행 중입니다. 이 값진 혁신은 백그라운드에서 여러분을 위해 모아지고 있습니다.
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Releases,"아직 앱 업데이트 별이 떠오르지 않은 순간을 즐기고 있습니다. 현재 어떠한 업데이트 정보도 없지만, 이미 사용 가능한 버전을 계속 사용할 수 있습니다."
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Download,"업데이트 파일을 다운로드하는 동안, 하늘의 별들이 잘못된 배열을 가지고 있음을 발견했습니다. 현재 버전으로 여정을 계속하세요, 별들이 올바른 위치에 있을 때 더 나은 업데이트를 제공할 것입니다."
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Cancelled,"업데이트 파일 다운로드가 중지되었으며 이는 우리의 길이 갑자기 분기한 결과입니다. 현재 버전으로 여정을 계속하고 미래의 업데이트에 대비하세요, 새로운 시작은 언제나 가능합니다."
-Update\Update.KO.xaml,Update.InfoBox.TextMessage.Condition,업데이트 파일의 조건이 열쇠를 열기에 부적합한 것처럼 보입니다. 현재 버전으로 여정을 계속하고 미래의 업데이트를 기대하세요.
+Update\Update.KO.xaml,Update.MessageText.Temporary,임시 위치를 확인 중입니다
+Update\Update.KO.xaml,Update.MessageText.Temporary.Error,임시 위치를 확인할 수 없습니다
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Connection,인터넷 연결을 확인 중입니다
+Update\Update.KO.xaml,Update.MessageText.Connection.None,인터넷에 연결되어 있지 않습니다
+Update\Update.KO.xaml,Update.MessageText.Connection.Error,인터넷 연결을 확인할 수 없습니다
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Listing,필요한 목록을 가져오고 있습니다
+Update\Update.KO.xaml,Update.MessageText.Listing.Empty,필요한 목록이 비어 있습니다
+Update\Update.KO.xaml,Update.MessageText.Listing.Error,필요한 목록을 받을 수 없습니다
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Filtering,목록을 필터링 중입니다
+Update\Update.KO.xaml,Update.MessageText.Filtering.Not,목록을 필터링할 수 없습니다
+Update\Update.KO.xaml,Update.MessageText.Filtering.Error,목록을 필터링할 수 없습니다
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Comparing,목록 비교 중
+Update\Update.KO.xaml,Update.MessageText.Comparing.Update,응용 프로그램이 최신 상태입니다
+Update\Update.KO.xaml,Update.MessageText.Comparing.Error,목록 비교 실패
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Searching,필요한 파일을 검색 중입니다
+Update\Update.KO.xaml,Update.MessageText.Searching.Not,필요한 파일을 찾을 수 없습니다
+Update\Update.KO.xaml,Update.MessageText.Searching.Error,필요한 파일을 검색할 수 없습니다
+Update\Update.KO.xaml,Update.MessageText.Searching.Condition,필요한 파일을 찾을 수 없습니다
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Downloading,필요한 파일을 다운로드 중입니다
+Update\Update.KO.xaml,Update.MessageText.Downloading.Error,필요한 파일을 다운로드할 수 없습니다
+Update\Update.KO.xaml,Update.MessageText.Downloading.Complete.Cancel,필요한 파일의 다운로드가 취소되었습니다
+Update\Update.KO.xaml,Update.MessageText.Downloading.Complete.Error,필요한 파일을 다운로드하는 동안 오류가 발생했습니다
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Running,다운로드한 파일 준비 중
+Update\Update.KO.xaml,Update.MessageText.Running.Executing,다운로드한 파일 실행 중
+Update\Update.KO.xaml,Update.MessageText.Running.Executed,다운로드한 파일 실행 완료
+Update\Update.KO.xaml,Update.MessageText.Running.Not,다운로드한 파일을 사용할 수 없습니다
+Update\Update.KO.xaml,Update.MessageText.Running.Error,다운로드한 파일 준비 실패
+Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.MessageText.Extracting,다운로드한 파일을 추출 중입니다
+Update\Update.KO.xaml,Update.MessageText.Extracting.Executing,추출된 파일이 실행 중입니다
+Update\Update.KO.xaml,Update.MessageText.Extracting.Executed,추출된 파일이 실행되었습니다
+Update\Update.KO.xaml,Update.MessageText.Extracting.Failed,다운로드한 파일이 실패했습니다
+Update\Update.KO.xaml,Update.MessageText.Extracting.Corrupt,다운로드한 파일이 손상되었습니다
+Update\Update.KO.xaml,Update.MessageText.Extracting.Not,다운로드한 파일을 사용할 수 없습니다
+Update\Update.KO.xaml,Update.MessageText.Extracting.Error,다운로드한 파일을 추출할 수 없습니다
 Watchdog\Watchdog.KO.xaml,Watchdog.HelpButton,도움말
 Watchdog\Watchdog.KO.xaml,Watchdog.CloseButton,닫기
 Watchdog\Watchdog.KO.xaml,Watchdog.ErrorMessage,예기치 않은 오류가 발생했습니다:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.KO.xaml,Watchdog.HideButton,숨기기
 Watchdog\Watchdog.KO.xaml,Watchdog.ShowButton,보이기
 Watchdog\Watchdog.KO.xaml,Watchdog.StackTrace,스택 추적:
 Watchdog\Watchdog.KO.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.KO.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.ReloadText,다시 시도
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Preparing,필요한 준비를 진행 중입니다
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Temporary,임시 위치를 확인 중입니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Temporary.Error,임시 위치를 확인할 수 없습니다
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Connection,인터넷 연결을 확인 중입니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Connection.None,인터넷에 연결되어 있지 않습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Connection.Error,인터넷 연결을 확인할 수 없습니다
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Searching,필요한 파일을 검색 중입니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Searching.Not,필요한 파일을 찾을 수 없습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Searching.Error,필요한 파일을 검색할 수 없습니다
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Listing,필요한 목록을 가져오고 있습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Listing.Empty,필요한 목록이 비어 있습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Listing.Error,필요한 목록을 받을 수 없습니다
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Filtering,목록을 필터링 중입니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Filtering.Not,목록을 필터링할 수 없습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Filtering.Error,목록을 필터링할 수 없습니다
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading,필요한 파일을 다운로드 중입니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading.Error,필요한 파일을 다운로드할 수 없습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading.Complete.Cancel,필요한 파일의 다운로드가 취소되었습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Downloading.Complete.Error,필요한 파일을 다운로드하는 동안 오류가 발생했습니다
-Wizard\Wizard.KO.xaml,,
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting,다운로드한 파일을 추출 중입니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Executing,추출된 파일이 실행 중입니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Executed,추출된 파일이 실행되었습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Failed,다운로드한 파일이 실패했습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Corrupt,다운로드한 파일이 손상되었습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Not,다운로드한 파일을 사용할 수 없습니다
-Wizard\Wizard.KO.xaml,Wizard.MessageText.Extracting.Error,다운로드한 파일을 추출할 수 없습니다
 Portal\Area\Portal.Area.KO.xaml,Portal.Area.Data,데이터
 Portal\Area\Portal.Area.KO.xaml,Portal.Area.Sound,소리
 Portal\Area\Portal.Area.KO.xaml,Portal.Area.Log,로그

@@ -9,7 +9,6 @@
         <ResourceDictionary Source="Undo/Undo.IT.xaml" />
         <ResourceDictionary Source="Update/Update.IT.xaml" />
         <ResourceDictionary Source="Portal/Portal.IT.xaml" />
-        <ResourceDictionary Source="Wizard/Wizard.IT.xaml" />
         <ResourceDictionary Source="Discord/Discord.IT.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.IT.xaml" />
         <ResourceDictionary Source="Property/Property.IT.xaml" />

@@ -2,25 +2,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Update.WindowTitle">Sucrose Update</system:String>
+
     <system:String x:Key="Update.HelpText">Λύστε το Πρόβλημα</system:String>
 
-    <system:String x:Key="Update.UpdateBox.WindowTitle">Ενημέρωση Sucrose</system:String>
-    <system:String x:Key="Update.UpdateBox.InstallText">Εγκατάσταση Ενημέρωσης</system:String>
+    <system:String x:Key="Update.ReloadText">ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ</system:String>
 
-    <system:String x:Key="Update.InfoBox.WindowTitle">Ενημέρωση Sucrose</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage">Μήνυμα</system:String>
-    <system:String x:Key="Update.InfoBox.CloseText">Κλείσιμο</system:String>
+    <system:String x:Key="Update.MessageText.Preparing">ΠΡΟΕΤΟΙΜΑΖΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΠΡΟΕΤΟΙΜΑΣΙΕΣ</system:String>
 
-    <system:String x:Key="Update.InfoBox.TextMessage.Empty">Βρισκόμαστε σε στιγμές όπου οι ενημερώσεις είναι κρυμμένες σαν ένα χαμένο κόσμημα. Μπορείτε να απολαύσετε την εμπειρία ακόμα και χρησιμοποιώντας την τρέχουσα έκδοση.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Error">Καταλάβαμε ότι υπήρξε ένα σφάλμα στον δρόμο κατά τη λήψη του αρχείου ενημέρωσης και ότι αυτό το ταξίδι τελείωσε προς το παρόν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς μια ισχυρότερη ενημέρωση σας περιμένει όταν αυτά τα προβλήματα επιλυθούν.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Update">Η εφαρμογή είναι ήδη μαζί σας σε μια ενημερωμένη και καινοτόμο μορφή, όπως η τελευταία σελίδα ενός βιβλίου. Είμαστε εδώ για να σας προσφέρουμε πάντα την καλύτερη και πιο ενημερωμένη εμπειρία.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Status">Βρισκόμαστε στην προσοχή ενός ονείρου προς το παρόν ανεπιτυχές να φτάσουμε στο αρχείο ενημέρωσης. Παρ' όλα αυτά, μπορείτε να συνεχίσετε να απολαμβάνετε το όνειρό σας χρησιμοποιώντας την τρέχουσα έκδοση.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Channel">Ο επιλεγμένος κανάλι ενημέρωσης είναι σαν ένα δάσος σιωπής. Προς το παρόν δεν υπάρχουν πληροφορίες για νέες ενημερώσεις. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα σας προσφέρουμε περισσότερα όταν αυτή η σιωπή διακοπεί.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Extract">Κατά την προσπάθεια ανάκτησης του αρχείου ενημέρωσης, αντιμετωπίσαμε ένα εμπόδιο από τα βάθη της θάλασσας. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα επιστρέψουμε για να ανακαλύψουμε νέους θησαυρούς όταν η θάλασσα ηρεμήσει.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Network">Η ασθενής σύνδεσή σας είναι σαν τα σύννεφα να καλύπτουν τον ήλιο. Όταν τα σύννεφα διαλυθούν, σας περιμένει μια πιο φωτεινή εμπειρία.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Updating">Η ενημέρωση της εφαρμογής προχωρά σιωπηλά, σαν να προσεγγίζουμε νέους θησαυρούς που τα κύματα φέρνουν στην ακτή. Αυτές οι πολύτιμες αναβαθμίσεις συλλέγονται για εσάς στο παρασκήνιο.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Releases">Βρισκόμαστε σε ένα σημείο όπου ο αστέρας της ενημέρωσης δεν έχει ακόμα ανατείλει. Προς το παρόν, δεν υπάρχει καμία πληροφορία για ενημερώσεις, αλλά μπορείτε να συνεχίσετε να χρησιμοποιείτε την υπάρχουσα έκδοση.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Download">Κατά την λήψη του αρχείου ενημέρωσης, ανακαλύψαμε ότι οι αστέρες στον ουρανό ήταν σε λάθος σειρά. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς όταν οι αστέρες έλθουν σε σωστή τάξη, θα σας προσφέρουμε μια βελτιωμένη ενημέρωση.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Cancelled">Η λήψη του αρχείου ενημέρωσης ακυρώθηκε, καθώς οι δρόμοι μας απομακρύνθηκαν ξαφνικά. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις, διότι μια νέα αρχή είναι πάντα εφικτή.</system:String>
-    <system:String x:Key="Update.InfoBox.TextMessage.Condition">Φαίνεται ότι οι συνθήκες για την απελευθέρωση των αρχείων ενημέρωσης είναι ακόμα ανεκπλήρωτες, ως να λείπει ένα κλειδί για να ξεκλειδώσουν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις.</system:String>
+    <system:String x:Key="Update.MessageText.Temporary">ΕΛΕΓΧΟΣ ΠΡΟΣΩΡΙΝΩΝ ΤΟΠΟΘΕΣΙΩΝ</system:String>
+    <system:String x:Key="Update.MessageText.Temporary.Error">ΤΑ ΠΡΟΣΩΡΙΝΑ ΤΟΠΟΘΕΤΗΣΕΙΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΟΥΝ</system:String>
+
+    <system:String x:Key="Update.MessageText.Connection">ΕΛΕΓΧΟΣ ΣΥΝΔΕΣΗΣ ΣΤΟ ΔΙΑΔΙΚΤΥΟ</system:String>
+    <system:String x:Key="Update.MessageText.Connection.None">ΧΩΡΙΣ ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ</system:String>
+    <system:String x:Key="Update.MessageText.Connection.Error">Η ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΕΙ</system:String>
+
+    <system:String x:Key="Update.MessageText.Listing">ΠΑΡΑΛΑΜΒΑΝΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Empty">ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΕΙΝΑΙ ΚΕΝΕΣ</system:String>
+    <system:String x:Key="Update.MessageText.Listing.Error">ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΛΗΦΘΟΥΝ</system:String>
+
+    <system:String x:Key="Update.MessageText.Filtering">ΟΙ ΛΙΣΤΕΣ ΕΙΝΑΙ ΣΕ ΦΑΣΗ ΦΙΛΤΡΑΡΙΣΜΑΤΟΣ</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Not">ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΜΠΟΡΟΥΝ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ</system:String>
+    <system:String x:Key="Update.MessageText.Filtering.Error">ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ</system:String>
+
+    <system:String x:Key="Update.MessageText.Comparing">ΣΥΓΚΡΙΣΗ ΛΙΣΤΩΝ</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Update">Η ΕΦΑΡΜΟΓΗ ΕΙΝΑΙ ΗΔΗ ΕΝΗΜΕΡΩΜΕΝΗ</system:String>
+    <system:String x:Key="Update.MessageText.Comparing.Error">ΑΠΕΤΥΧΕ Η ΣΥΓΚΡΙΣΗ ΛΙΣΤΩΝ</system:String>
+
+    <system:String x:Key="Update.MessageText.Searching">ΑΝΑΖΗΤΗΣΗ ΓΙΑ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Not">ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΒΡΕΘΗΚΑΝ</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Error">ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΝΑΖΗΤΗΘΟΥΝ</system:String>
+    <system:String x:Key="Update.MessageText.Searching.Condition">ΔΕΝ ΒΡΕΘΗΚΑΝ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ</system:String>
+
+    <system:String x:Key="Update.MessageText.Downloading">ΚΑΤΕΒΑΖΟΝΤΑΣ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Error">ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΚΑΤΕΒΑΣΤΟΥΝ</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Cancel">Η ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ ΑΚΥΡΩΘΗΚΕ</system:String>
+    <system:String x:Key="Update.MessageText.Downloading.Complete.Error">ΥΠΗΡΞΕ ΣΦΑΛΜΑ ΚΑΤΑ ΤΗ ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ</system:String>
+
+    <system:String x:Key="Update.MessageText.Running">ΠΡΟΕΤΟΙΜΑΣΙΑ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executing">ΕΚΤΕΛΕΣΗ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Executed">ΤΟ ΛΗΦΘΕΝ ΑΡΧΕΙΟ ΕΚΤΕΛΕΣΤΗΚΕ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Not">ΤΟ ΛΗΦΘΕΝ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟ</system:String>
+    <system:String x:Key="Update.MessageText.Running.Error">ΑΠΕΤΥΧΕ Η ΠΡΟΕΤΟΙΜΑΣΙΑ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ</system:String>
+
+    <system:String x:Key="Update.MessageText.Extracting">ΑΠΟΣΥΜΠΙΕΣΗ ΤΟΥ ΚΑΤΕΒΑΣΜΕΝΟΥ ΑΡΧΕΙΟΥ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executing">ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΚΤΕΛΕΙΤΑΙ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Executed">ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Failed">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΑΠΕΤΥΧΕ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Corrupt">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΕΙΝΑΙ ΚΑΤΕΣΤΡΑΜΜΕΝΟ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Not">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟΠΟΙΗΣΙΜΟ</system:String>
+    <system:String x:Key="Update.MessageText.Extracting.Error">ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΠΟΣΥΜΠΙΕΣΤΕΙ</system:String>
 </ResourceDictionary>

@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXaXphcmQvV2l6YXJkLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuRUwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkVMLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5FTC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuRUwueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
 Discord\Discord.EL.xaml,Discord.BrowseButton,Περιήγηση
 Discord\Discord.EL.xaml,Discord.Details,Κινητήρας ταπετσαρίας
 Discord\Discord.EL.xaml,Discord.DownloadButton,Λήψη
@@ -158,27 +158,56 @@ Property\Property.EL.xaml,Property.FileDropDown.Filter,Όλα τα αρχεία 
 Undo\Undo.EL.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.EL.xaml,,
 Undo\Undo.EL.xaml,Undo.QuestionMessage,Θέλετε πραγματικά να απεγκαταστήσετε το Sucrose Wallpaper Engine;
+Update\Update.EL.xaml,Update.WindowTitle,Sucrose Update
+Update\Update.EL.xaml,,
 Update\Update.EL.xaml,Update.HelpText,Λύστε το Πρόβλημα
 Update\Update.EL.xaml,,
-Update\Update.EL.xaml,Update.UpdateBox.WindowTitle,Ενημέρωση Sucrose
-Update\Update.EL.xaml,Update.UpdateBox.InstallText,Εγκατάσταση Ενημέρωσης
+Update\Update.EL.xaml,Update.ReloadText,ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ
 Update\Update.EL.xaml,,
-Update\Update.EL.xaml,Update.InfoBox.WindowTitle,Ενημέρωση Sucrose
-Update\Update.EL.xaml,Update.InfoBox.TextMessage,Μήνυμα
-Update\Update.EL.xaml,Update.InfoBox.CloseText,Κλείσιμο
+Update\Update.EL.xaml,Update.MessageText.Preparing,ΠΡΟΕΤΟΙΜΑΖΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΠΡΟΕΤΟΙΜΑΣΙΕΣ
 Update\Update.EL.xaml,,
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Empty,Βρισκόμαστε σε στιγμές όπου οι ενημερώσεις είναι κρυμμένες σαν ένα χαμένο κόσμημα. Μπορείτε να απολαύσετε την εμπειρία ακόμα και χρησιμοποιώντας την τρέχουσα έκδοση.
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Error,"Καταλάβαμε ότι υπήρξε ένα σφάλμα στον δρόμο κατά τη λήψη του αρχείου ενημέρωσης και ότι αυτό το ταξίδι τελείωσε προς το παρόν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς μια ισχυρότερη ενημέρωση σας περιμένει όταν αυτά τα προβλήματα επιλυθούν."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Update,"Η εφαρμογή είναι ήδη μαζί σας σε μια ενημερωμένη και καινοτόμο μορφή, όπως η τελευταία σελίδα ενός βιβλίου. Είμαστε εδώ για να σας προσφέρουμε πάντα την καλύτερη και πιο ενημερωμένη εμπειρία."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Status,"Βρισκόμαστε στην προσοχή ενός ονείρου προς το παρόν ανεπιτυχές να φτάσουμε στο αρχείο ενημέρωσης. Παρ' όλα αυτά, μπορείτε να συνεχίσετε να απολαμβάνετε το όνειρό σας χρησιμοποιώντας την τρέχουσα έκδοση."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Channel,"Ο επιλεγμένος κανάλι ενημέρωσης είναι σαν ένα δάσος σιωπής. Προς το παρόν δεν υπάρχουν πληροφορίες για νέες ενημερώσεις. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα σας προσφέρουμε περισσότερα όταν αυτή η σιωπή διακοπεί."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Extract,"Κατά την προσπάθεια ανάκτησης του αρχείου ενημέρωσης, αντιμετωπίσαμε ένα εμπόδιο από τα βάθη της θάλασσας. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς θα επιστρέψουμε για να ανακαλύψουμε νέους θησαυρούς όταν η θάλασσα ηρεμήσει."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Network,"Η ασθενής σύνδεσή σας είναι σαν τα σύννεφα να καλύπτουν τον ήλιο. Όταν τα σύννεφα διαλυθούν, σας περιμένει μια πιο φωτεινή εμπειρία."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Updating,"Η ενημέρωση της εφαρμογής προχωρά σιωπηλά, σαν να προσεγγίζουμε νέους θησαυρούς που τα κύματα φέρνουν στην ακτή. Αυτές οι πολύτιμες αναβαθμίσεις συλλέγονται για εσάς στο παρασκήνιο."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Releases,"Βρισκόμαστε σε ένα σημείο όπου ο αστέρας της ενημέρωσης δεν έχει ακόμα ανατείλει. Προς το παρόν, δεν υπάρχει καμία πληροφορία για ενημερώσεις, αλλά μπορείτε να συνεχίσετε να χρησιμοποιείτε την υπάρχουσα έκδοση."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Download,"Κατά την λήψη του αρχείου ενημέρωσης, ανακαλύψαμε ότι οι αστέρες στον ουρανό ήταν σε λάθος σειρά. Προς το παρόν, συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση, καθώς όταν οι αστέρες έλθουν σε σωστή τάξη, θα σας προσφέρουμε μια βελτιωμένη ενημέρωση."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Cancelled,"Η λήψη του αρχείου ενημέρωσης ακυρώθηκε, καθώς οι δρόμοι μας απομακρύνθηκαν ξαφνικά. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις, διότι μια νέα αρχή είναι πάντα εφικτή."
-Update\Update.EL.xaml,Update.InfoBox.TextMessage.Condition,"Φαίνεται ότι οι συνθήκες για την απελευθέρωση των αρχείων ενημέρωσης είναι ακόμα ανεκπλήρωτες, ως να λείπει ένα κλειδί για να ξεκλειδώσουν. Συνεχίστε το ταξίδι σας χρησιμοποιώντας την τρέχουσα έκδοση και ετοιμαστείτε για μελλοντικές ενημερώσεις."
+Update\Update.EL.xaml,Update.MessageText.Temporary,ΕΛΕΓΧΟΣ ΠΡΟΣΩΡΙΝΩΝ ΤΟΠΟΘΕΣΙΩΝ
+Update\Update.EL.xaml,Update.MessageText.Temporary.Error,ΤΑ ΠΡΟΣΩΡΙΝΑ ΤΟΠΟΘΕΤΗΣΕΙΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΟΥΝ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Connection,ΕΛΕΓΧΟΣ ΣΥΝΔΕΣΗΣ ΣΤΟ ΔΙΑΔΙΚΤΥΟ
+Update\Update.EL.xaml,Update.MessageText.Connection.None,ΧΩΡΙΣ ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ
+Update\Update.EL.xaml,Update.MessageText.Connection.Error,Η ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΕΙ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Listing,ΠΑΡΑΛΑΜΒΑΝΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ
+Update\Update.EL.xaml,Update.MessageText.Listing.Empty,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΕΙΝΑΙ ΚΕΝΕΣ
+Update\Update.EL.xaml,Update.MessageText.Listing.Error,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΛΗΦΘΟΥΝ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Filtering,ΟΙ ΛΙΣΤΕΣ ΕΙΝΑΙ ΣΕ ΦΑΣΗ ΦΙΛΤΡΑΡΙΣΜΑΤΟΣ
+Update\Update.EL.xaml,Update.MessageText.Filtering.Not,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΜΠΟΡΟΥΝ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ
+Update\Update.EL.xaml,Update.MessageText.Filtering.Error,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Comparing,ΣΥΓΚΡΙΣΗ ΛΙΣΤΩΝ
+Update\Update.EL.xaml,Update.MessageText.Comparing.Update,Η ΕΦΑΡΜΟΓΗ ΕΙΝΑΙ ΗΔΗ ΕΝΗΜΕΡΩΜΕΝΗ
+Update\Update.EL.xaml,Update.MessageText.Comparing.Error,ΑΠΕΤΥΧΕ Η ΣΥΓΚΡΙΣΗ ΛΙΣΤΩΝ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Searching,ΑΝΑΖΗΤΗΣΗ ΓΙΑ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ
+Update\Update.EL.xaml,Update.MessageText.Searching.Not,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΒΡΕΘΗΚΑΝ
+Update\Update.EL.xaml,Update.MessageText.Searching.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΝΑΖΗΤΗΘΟΥΝ
+Update\Update.EL.xaml,Update.MessageText.Searching.Condition,ΔΕΝ ΒΡΕΘΗΚΑΝ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Downloading,ΚΑΤΕΒΑΖΟΝΤΑΣ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ
+Update\Update.EL.xaml,Update.MessageText.Downloading.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΚΑΤΕΒΑΣΤΟΥΝ
+Update\Update.EL.xaml,Update.MessageText.Downloading.Complete.Cancel,Η ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ ΑΚΥΡΩΘΗΚΕ
+Update\Update.EL.xaml,Update.MessageText.Downloading.Complete.Error,ΥΠΗΡΞΕ ΣΦΑΛΜΑ ΚΑΤΑ ΤΗ ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Running,ΠΡΟΕΤΟΙΜΑΣΙΑ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ
+Update\Update.EL.xaml,Update.MessageText.Running.Executing,ΕΚΤΕΛΕΣΗ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ
+Update\Update.EL.xaml,Update.MessageText.Running.Executed,ΤΟ ΛΗΦΘΕΝ ΑΡΧΕΙΟ ΕΚΤΕΛΕΣΤΗΚΕ
+Update\Update.EL.xaml,Update.MessageText.Running.Not,ΤΟ ΛΗΦΘΕΝ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟ
+Update\Update.EL.xaml,Update.MessageText.Running.Error,ΑΠΕΤΥΧΕ Η ΠΡΟΕΤΟΙΜΑΣΙΑ ΤΟΥ ΛΗΦΘΕΝΤΟΣ ΑΡΧΕΙΟΥ
+Update\Update.EL.xaml,,
+Update\Update.EL.xaml,Update.MessageText.Extracting,ΑΠΟΣΥΜΠΙΕΣΗ ΤΟΥ ΚΑΤΕΒΑΣΜΕΝΟΥ ΑΡΧΕΙΟΥ
+Update\Update.EL.xaml,Update.MessageText.Extracting.Executing,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΚΤΕΛΕΙΤΑΙ
+Update\Update.EL.xaml,Update.MessageText.Extracting.Executed,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ
+Update\Update.EL.xaml,Update.MessageText.Extracting.Failed,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΑΠΕΤΥΧΕ
+Update\Update.EL.xaml,Update.MessageText.Extracting.Corrupt,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΕΙΝΑΙ ΚΑΤΕΣΤΡΑΜΜΕΝΟ
+Update\Update.EL.xaml,Update.MessageText.Extracting.Not,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟΠΟΙΗΣΙΜΟ
+Update\Update.EL.xaml,Update.MessageText.Extracting.Error,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΠΟΣΥΜΠΙΕΣΤΕΙ
 Watchdog\Watchdog.EL.xaml,Watchdog.HelpButton,Βοήθεια
 Watchdog\Watchdog.EL.xaml,Watchdog.CloseButton,Έξοδος
 Watchdog\Watchdog.EL.xaml,Watchdog.ErrorMessage,Προέκυψε μια απροσδόκητη σφάλμα:
@@ -187,43 +216,6 @@ Watchdog\Watchdog.EL.xaml,Watchdog.HideButton,Απόκρυψη
 Watchdog\Watchdog.EL.xaml,Watchdog.ShowButton,Εμφάνιση
 Watchdog\Watchdog.EL.xaml,Watchdog.StackTrace,Πρόσκληση Στοίβας:
 Watchdog\Watchdog.EL.xaml,Watchdog.WindowTitle,Sucrose Watchdog
-Wizard\Wizard.EL.xaml,Wizard.WindowTitle,Sucrose Wizard
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.ReloadText,ΔΟΚΙΜΑΣΤΕ ΞΑΝΑ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Preparing,ΠΡΟΕΤΟΙΜΑΖΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΠΡΟΕΤΟΙΜΑΣΙΕΣ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Temporary,ΕΛΕΓΧΟΣ ΠΡΟΣΩΡΙΝΩΝ ΤΟΠΟΘΕΣΙΩΝ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Temporary.Error,ΤΑ ΠΡΟΣΩΡΙΝΑ ΤΟΠΟΘΕΤΗΣΕΙΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΟΥΝ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Connection,ΕΛΕΓΧΟΣ ΣΥΝΔΕΣΗΣ ΣΤΟ ΔΙΑΔΙΚΤΥΟ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Connection.None,ΧΩΡΙΣ ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Connection.Error,Η ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΕΛΕΓΧΘΕΙ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Searching,ΑΝΑΖΗΤΗΣΗ ΓΙΑ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Searching.Not,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΒΡΕΘΗΚΑΝ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Searching.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΝΑΖΗΤΗΘΟΥΝ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Listing,ΠΑΡΑΛΑΜΒΑΝΟΝΤΑΣ ΤΙΣ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Listing.Empty,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΕΙΝΑΙ ΚΕΝΕΣ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Listing.Error,ΟΙ ΑΠΑΡΑΙΤΗΤΕΣ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΛΗΦΘΟΥΝ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Filtering,ΟΙ ΛΙΣΤΕΣ ΕΙΝΑΙ ΣΕ ΦΑΣΗ ΦΙΛΤΡΑΡΙΣΜΑΤΟΣ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Filtering.Not,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΜΠΟΡΟΥΝ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Filtering.Error,ΟΙ ΛΙΣΤΕΣ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΦΙΛΤΡΑΡΙΣΤΟΥΝ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading,ΚΑΤΕΒΑΖΟΝΤΑΣ ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading.Error,ΤΑ ΑΠΑΡΑΙΤΗΤΑ ΑΡΧΕΙΑ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΚΑΤΕΒΑΣΤΟΥΝ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading.Complete.Cancel,Η ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ ΑΚΥΡΩΘΗΚΕ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Downloading.Complete.Error,ΥΠΗΡΞΕ ΣΦΑΛΜΑ ΚΑΤΑ ΤΗ ΛΗΨΗ ΤΟΥ ΑΠΑΡΑΙΤΗΤΟΥ ΑΡΧΕΙΟΥ
-Wizard\Wizard.EL.xaml,,
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting,ΑΠΟΣΥΜΠΙΕΣΗ ΤΟΥ ΚΑΤΕΒΑΣΜΕΝΟΥ ΑΡΧΕΙΟΥ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Executing,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΚΤΕΛΕΙΤΑΙ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Executed,ΤΟ ΑΠΟΣΥΜΠΙΕΣΜΕΝΟ ΑΡΧΕΙΟ ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Failed,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΑΠΕΤΥΧΕ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Corrupt,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΕΙΝΑΙ ΚΑΤΕΣΤΡΑΜΜΕΝΟ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Not,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΕΙΝΑΙ ΧΡΗΣΙΜΟΠΟΙΗΣΙΜΟ
-Wizard\Wizard.EL.xaml,Wizard.MessageText.Extracting.Error,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΠΟΣΥΜΠΙΕΣΤΕΙ
 Portal\Area\Portal.Area.EL.xaml,Portal.Area.Data,Δεδομένα
 Portal\Area\Portal.Area.EL.xaml,Portal.Area.Sound,Ήχος
 Portal\Area\Portal.Area.EL.xaml,Portal.Area.Log,Αρχείο καταγραφής

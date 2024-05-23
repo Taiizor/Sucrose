@@ -38,8 +38,6 @@ namespace Sucrose.Shared.Space.Manage
 
         public static string Update => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Update), SMR.Update);
 
-        public static string Wizard => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Wizard), SMR.Wizard);
-
         public static string Property => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Property), SMR.Property);
 
         public static string Launcher => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Launcher), SMR.Launcher);

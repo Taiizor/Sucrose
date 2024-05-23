@@ -192,14 +192,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
                 if (SMMM.UpdateState)
                 {
-                    if (SMMM.UpdatePercentage.Contains("100"))
-                    {
-                        Update.Text = SRER.GetValue("Launcher", "UpdateText", "Done");
-                    }
-                    else
-                    {
-                        Update.Text = string.Format(SRER.GetValue("Launcher", "UpdateText", "Progress"), SMMM.UpdatePercentage);
-                    }
+                    Update.Text = SRER.GetValue("Launcher", "UpdateText", "Done");
                 }
                 else
                 {
