@@ -347,11 +347,6 @@ namespace Sucrose.Portal.Views.Controls
                         IncompatibleVersion.Visibility = Visibility.Visible;
                     }
 
-                    await Task.Delay(100);
-
-                    Card.Visibility = Visibility.Visible;
-                    Progress.Visibility = Visibility.Collapsed;
-
                     foreach (KeyValuePair<string, SSSID> Pair in SSSTMI.StoreService.Info.ToList())
                     {
                         if (Pair.Value.Guid == Guid)
@@ -367,13 +362,16 @@ namespace Sucrose.Portal.Views.Controls
                             DownloadRing.Visibility = Visibility.Visible;
                             DownloadSymbol.Visibility = Visibility.Collapsed;
 
-                            DownloadRing.Progress = SSSTMI.StoreService.Info[Keys].ProgressPercentage;
-
                             SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
 
                             break;
                         }
                     }
+
+                    await Task.Delay(100);
+
+                    Card.Visibility = Visibility.Visible;
+                    Progress.Visibility = Visibility.Collapsed;
                 }
                 else
                 {

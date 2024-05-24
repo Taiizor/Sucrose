@@ -121,6 +121,7 @@ namespace Sucrose.Portal.Views.Pages.Library
                 if ((sender as SPVCLC).Delete)
                 {
                     Themes.Remove(Theme);
+                    SMMM.Themes.Remove(Theme);
                 }
 
                 await Task.Delay(250);

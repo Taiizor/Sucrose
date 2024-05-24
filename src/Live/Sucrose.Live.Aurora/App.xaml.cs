@@ -41,7 +41,7 @@ namespace Sucrose.Live.Aurora
                 await SSWW.Watch_ThreadException(Exception);
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             AppDomain.CurrentDomain.FirstChanceException += async (s, e) =>
@@ -51,7 +51,7 @@ namespace Sucrose.Live.Aurora
                 await SSWW.Watch_FirstChanceException(Exception);
 
                 //Close();
-                //Message(Exception.Message);
+                //Message(Exception);
             };
 
             AppDomain.CurrentDomain.UnhandledException += async (s, e) =>
@@ -61,7 +61,7 @@ namespace Sucrose.Live.Aurora
                 await SSWW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             TaskScheduler.UnobservedTaskException += async (s, e) =>
@@ -73,7 +73,7 @@ namespace Sucrose.Live.Aurora
                 e.SetObserved();
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             Current.DispatcherUnhandledException += async (s, e) =>
@@ -85,7 +85,7 @@ namespace Sucrose.Live.Aurora
                 e.Handled = true;
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             SHC.All = new CultureInfo(SMMM.Culture, true);
@@ -98,7 +98,7 @@ namespace Sucrose.Live.Aurora
             Shutdown();
         }
 
-        protected void Message(string Message)
+        protected void Message(Exception Exception)
         {
             if (HasError)
             {
@@ -106,7 +106,7 @@ namespace Sucrose.Live.Aurora
 
                 string Path = SMMI.AuroraLiveLogManager.LogFile();
 
-                SSSHW.Start(Message, Path);
+                SSSHW.Start(SMR.AuroraLive, Exception, Path);
 
                 Close();
             }

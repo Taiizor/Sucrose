@@ -9,6 +9,7 @@
     <Import_RootNamespace>Sucrose.Shared.Space</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Converter\ExceptionConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\Lifecycle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Cycyling.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Copy.cs" />
@@ -18,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Management.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Tags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Versionly.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\WatchException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Watchdog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Virtual.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Remote.cs" />
@@ -32,6 +34,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Live.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Processor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Temporary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\SerializableException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\StackFrameData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
   </ItemGroup>
 </Project>

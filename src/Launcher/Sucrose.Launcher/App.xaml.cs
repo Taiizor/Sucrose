@@ -38,7 +38,7 @@ namespace Sucrose.Launcher
                 await SSWW.Watch_ThreadException(Exception);
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             AppDomain.CurrentDomain.FirstChanceException += async (s, e) =>
@@ -48,7 +48,7 @@ namespace Sucrose.Launcher
                 await SSWW.Watch_FirstChanceException(Exception);
 
                 //Close();
-                //Message(Exception.Message);
+                //Message(Exception);
             };
 
             AppDomain.CurrentDomain.UnhandledException += async (s, e) =>
@@ -58,7 +58,7 @@ namespace Sucrose.Launcher
                 await SSWW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             TaskScheduler.UnobservedTaskException += async (s, e) =>
@@ -70,7 +70,7 @@ namespace Sucrose.Launcher
                 e.SetObserved();
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             Current.DispatcherUnhandledException += async (s, e) =>
@@ -82,7 +82,7 @@ namespace Sucrose.Launcher
                 e.Handled = true;
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             SHC.All = new CultureInfo(SMMM.Culture, true);
@@ -97,7 +97,7 @@ namespace Sucrose.Launcher
             Shutdown();
         }
 
-        protected void Message(string Message)
+        protected void Message(Exception Exception)
         {
             if (HasError)
             {
@@ -105,7 +105,7 @@ namespace Sucrose.Launcher
 
                 string Path = SMMI.LauncherLogManager.LogFile();
 
-                SSSHW.Start(Message, Path);
+                SSSHW.Start(SMR.Launcher, Exception, Path);
 
                 Close();
             }

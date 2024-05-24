@@ -35,7 +35,7 @@ namespace Sucrose.Property
                 await SSWW.Watch_FirstChanceException(Exception);
 
                 //Close();
-                //Message(Exception.Message);
+                //Message(Exception);
             };
 
             AppDomain.CurrentDomain.UnhandledException += async (s, e) =>
@@ -45,7 +45,7 @@ namespace Sucrose.Property
                 await SSWW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             TaskScheduler.UnobservedTaskException += async (s, e) =>
@@ -57,7 +57,7 @@ namespace Sucrose.Property
                 e.SetObserved();
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             Current.DispatcherUnhandledException += async (s, e) =>
@@ -69,7 +69,7 @@ namespace Sucrose.Property
                 e.Handled = true;
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             ConfigHelper.Instance.SetLang(SMMM.Culture);
@@ -83,7 +83,7 @@ namespace Sucrose.Property
             Shutdown();
         }
 
-        protected void Message(string Message)
+        protected void Message(Exception Exception)
         {
             if (HasError)
             {
@@ -91,7 +91,7 @@ namespace Sucrose.Property
 
                 string Path = SMMI.PropertyLogManager.LogFile();
 
-                SSSHW.Start(Message, Path);
+                SSSHW.Start(SMR.Property, Exception, Path);
 
                 Close();
             }
