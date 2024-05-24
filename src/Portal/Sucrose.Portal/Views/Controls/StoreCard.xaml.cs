@@ -27,6 +27,7 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
+using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
@@ -45,6 +46,7 @@ namespace Sucrose.Portal.Views.Controls
         private readonly SPEIL Loader = new();
         private string Keys = string.Empty;
         private readonly string Agent;
+        private readonly string Guid;
         private readonly string Key;
         private SSTHI Info;
         private bool State;
@@ -55,6 +57,7 @@ namespace Sucrose.Portal.Views.Controls
             this.Agent = Agent;
             this.Theme = Theme;
             this.Wallpaper = Wallpaper;
+            this.Guid = Path.Combine(Wallpaper.Value.Source, Wallpaper.Key);
 
             InitializeComponent();
         }
@@ -164,10 +167,10 @@ namespace Sucrose.Portal.Views.Controls
             switch (SSDMM.StoreType)
             {
                 case SSDEST.GitHub:
-                    await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys, Key);
+                    await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys, Key);
                     break;
                 default:
-                    await SSSHSD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Keys);
+                    await SSSHSD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys);
                     break;
             }
 
@@ -201,7 +204,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void StoreService_InfoChanged(string Keys)
         {
-            if (this.Keys == Keys)
+            if (this.Keys == Keys && SSSTMI.StoreService.Info.ContainsKey(Keys))
             {
                 await Application.Current.Dispatcher.InvokeAsync(async () =>
                 {
@@ -233,6 +236,10 @@ namespace Sucrose.Portal.Views.Controls
 
                             DownloadSymbol.Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush");
                             DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
+
+                            SSSTMI.StoreService.InfoChanged -= (s, e) => StoreService_InfoChanged(Keys);
+
+                            SSSTMI.StoreService.Info.Remove(Keys);
                         }
                     }
                 });
@@ -344,6 +351,29 @@ namespace Sucrose.Portal.Views.Controls
 
                     Card.Visibility = Visibility.Visible;
                     Progress.Visibility = Visibility.Collapsed;
+
+                    foreach (KeyValuePair<string, SSSID> Pair in SSSTMI.StoreService.Info.ToList())
+                    {
+                        if (Pair.Value.Guid == Guid)
+                        {
+                            State = true;
+
+                            Keys = Pair.Key;
+
+                            StoreService_InfoChanged(Keys);
+
+                            DownloadSymbol.Symbol = SymbolRegular.Empty;
+
+                            DownloadRing.Visibility = Visibility.Visible;
+                            DownloadSymbol.Visibility = Visibility.Collapsed;
+
+                            DownloadRing.Progress = SSSTMI.StoreService.Info[Keys].ProgressPercentage;
+
+                            SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
+
+                            break;
+                        }
+                    }
                 }
                 else
                 {

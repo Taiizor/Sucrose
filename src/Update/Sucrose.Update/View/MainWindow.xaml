@@ -17,7 +17,7 @@
     MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
     ShowInTaskbar="True"
-    Topmost="False"
+    Topmost="True"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">

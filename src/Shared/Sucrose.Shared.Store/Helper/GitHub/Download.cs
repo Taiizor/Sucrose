@@ -181,11 +181,11 @@ namespace Sucrose.Shared.Store.Helper.GitHub
             }
         }
 
-        public static async Task<bool> Theme(string Source, string Output, string Agent, string Keys, string Key, bool Sub = true)
+        public static async Task<bool> Theme(string Source, string Output, string Agent, string Guid, string Keys, string Key, bool Sub = true)
         {
             InitializeClient(Agent, Key);
 
-            SSSMI.StoreService.Info[Keys] = new SSSID(0, 0, 0, "0%", "0/0");
+            SSSMI.StoreService.Info[Keys] = new SSSID(0, 0, 0, "0%", "0/0", Guid);
 
             return await DownloadFolder(Source, Output, Agent, Keys, Key, Sub);
         }

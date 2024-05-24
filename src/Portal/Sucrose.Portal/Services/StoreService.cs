@@ -85,6 +85,18 @@ namespace Sucrose.Portal.Services
                 }
             }
         }
+
+        public void Guid(string Key, string Guid)
+        {
+            if (Info.ContainsKey(Key))
+            {
+                if (_Info[Key].Guid != Guid)
+                {
+                    _Info[Key].Guid = Guid;
+                    _Info.OnPropertyChanged(Key);
+                }
+            }
+        }
     }
 
     internal class ObservableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, INotifyPropertyChanged
