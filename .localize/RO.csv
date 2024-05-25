@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish,Publicare în Magazin
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemeCopy,Copiere Link
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Publish,Publică
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Preparing,Pregătirile pentru publicare vor începe în curând..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Limit,Limita dvs. zilnică de încărcare a temelor este verificată..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Ați atins limita zilnică de încărcare a temelor, încercați din nou mai târziu."
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,A apărut o eroare necunoscută la verificarea limitei zilnice de încărcare a temelor.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Compress,Tema este comprimată înainte de încărcare..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,A apărut o eroare la comprimarea temei.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Size,Dimensiunea temei comprimate este verificată..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema comprimată nu poate fi încărcată deoarece depășește {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Upload,Tema comprimată este pregătită pentru încărcare..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Tema comprimată este încărcată..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,A apărut o eroare necunoscută la încărcarea temei comprimate.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,A apărut o eroare neașteptată la încărcarea temei comprimate: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Tema comprimată a fost încărcată cu succes și va fi publicată în magazin după verificare.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.SaveDialogTitle,Salvează Fișier Temă
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.RO.xaml,Portal.WallpaperCycling.Title,Ciclare Tapet

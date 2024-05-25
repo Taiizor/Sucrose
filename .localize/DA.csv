@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish,Udgiv i Butikken
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemeCopy,Kopier Link
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Publish,Udgiv
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Preparing,Forberedelser til udgivelse vil begynde snart..
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Limit,Din daglige tema upload grænse bliver kontrolleret..
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Du har nået din daglige grænse for tema uploads, prøv venligst igen senere."
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,En ukendt fejl opstod under kontrollen af din daglige tema upload grænse.
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Compress,Temaet bliver komprimeret før upload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,En fejl opstod under komprimeringen af temaet.
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Size,Størrelsen af det komprimerede tema bliver kontrolleret..
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Det komprimerede tema kan ikke uploades, da det overstiger {0} MB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Upload,Det komprimerede tema forberedes til upload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Det komprimerede tema uploades..
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,En ukendt fejl opstod under upload af det komprimerede tema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,En uventet fejl opstod under upload af det komprimerede tema: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Det komprimerede tema blev succesfuldt uploadet og vil blive udgivet i butikken efter verifikation.
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.SaveDialogTitle,Gem Tema Fil
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.DA.xaml,Portal.WallpaperCycling.Title,Baggrundscyklus

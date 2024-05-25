@@ -670,15 +670,37 @@ Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeC
 Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeModify,Изменено
 Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeModifyDate,Неизвестно
 Portal\Controls\ThemeReview\Portal.ThemeReview.RU.xaml,Portal.ThemeReview.ThemeContact,Контактная информация по теме
-Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.Title,Поделиться темой
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.Title,Поделиться Темой
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.Close,Закрыть
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeTitle,Заголовок
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeDescription,Описание
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeExport,Экспорт
-Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish,Опубликовать в магазине
-Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeCopy,Копировать ссылку
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish,Опубликовать в Магазине
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemeCopy,Копировать Cсылку
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Publish,Опубликовать
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Preparing,Подготовка к публикации начнется в ближайшее время..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Limit,Проверяется ваш дневной лимит загрузки тем..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Вы достигли дневного лимита загрузки тем, пожалуйста, попробуйте позже."
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Произошла неизвестная ошибка при проверке вашего дневного лимита загрузки тем.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Compress,Тема сжимается перед загрузкой..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Произошла ошибка при сжатии темы.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Size,Проверяется размер сжатой темы..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Сжатую тему невозможно загрузить, так как она превышает {0} MB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload,Сжатая тема готовится к загрузке..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Сжатая тема загружается..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Произошла неизвестная ошибка при загрузке сжатой темы.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Произошла неожиданная ошибка при загрузке сжатой темы: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Сжатая тема успешно загружена и будет опубликована в магазине после проверки.
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файлы (*.zip)|*.zip|Все файлы (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.SaveDialogTitle,Сохранить файл темы

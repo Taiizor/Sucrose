@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish,스토어에 게시
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemeCopy,링크 복사
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Publish,게시
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Preparing,게시 준비가 곧 시작됩니다..
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Limit,일일 테마 업로드 한도가 확인되고 있습니다..
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,일일 테마 업로드 한도에 도달했습니다. 나중에 다시 시도해주세요.
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,일일 테마 업로드 한도를 확인하는 중에 알 수 없는 오류가 발생했습니다.
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Compress,업로드 전에 테마를 압축하고 있습니다..
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,테마를 압축하는 중에 오류가 발생했습니다.
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Size,압축된 테마의 크기를 확인하고 있습니다..
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,압축된 테마가 {0} MB를 초과하여 업로드할 수 없습니다.
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Upload,압축된 테마를 업로드 준비 중입니다..
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,압축된 테마를 업로드 중입니다..
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,압축된 테마를 업로드하는 중에 알 수 없는 오류가 발생했습니다.
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,압축된 테마를 업로드하는 중에 예기치 않은 오류가 발생했습니다: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,압축된 테마가 성공적으로 업로드되었으며 확인 후 스토어에 게시될 것입니다.
+Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.KO.xaml,Portal.ThemeShare.SaveDialogTitle,테마 파일 저장
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.KO.xaml,Portal.WallpaperCycling.Title,배경화면 순환

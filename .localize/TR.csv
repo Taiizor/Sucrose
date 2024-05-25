@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish,Mağazada Yayınla
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemeCopy,Bağlantıyı Kopyala
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Publish,Yayınla
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Preparing,Yayınlamak için gerekli hazırlıklara birazdan başlanacak..
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Limit,Günlük tema yükleme sınırınız kontrol ediliyor..
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Günlük tema yükleme sınırınıza ulaşmışsınız, lütfen başka zaman tekrar deneyin."
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Günlük tema yükleme sınırınız kontrol edilirken bilinmeyen bir hata meydana geldi.
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Compress,Tema karşıya yüklenmeden önce sıkıştırılıyor..
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Tema sıkıştırılırken bir hata meydana geldi.
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Size,Sıkıştırılan temanın boyutu kontrol ediliyor..
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Sıkıştırılan temanın boyutu {0} MB'den büyük olduğu için karşıya yüklenemiyor.
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Upload,Sıkıştırılan tema karşıya yüklemek için hazırlanıyor..
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Sıkıştırılan tema karşıya yükleniyor..
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Sıkıştırılan tema karşıya yüklenirken bilinmeyen bir hata meydana geldi.
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Sıkıştırılan tema karşıya yüklenirken beklenmedik bir hata meydana geldi: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,"Sıkıştırılan tema başarıyla karşıya yüklendi, kontrol edildikten sonra mağazada yayınlanacak."
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.SaveDialogTitle,Tema Dosyasını Kaydet
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.TR.xaml,Portal.WallpaperCycling.Title,Duvar Kağıdı Döngüsü

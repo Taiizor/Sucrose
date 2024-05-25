@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Publier dans la Boutique</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Copier le Lien</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Publier</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Les préparatifs pour la publication vont commencer sous peu..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Votre limite quotidienne de téléchargement de thèmes est en cours de vérification..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Vous avez atteint votre limite quotidienne de téléchargement de thèmes, veuillez réessayer plus tard.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Une erreur inconnue s'est produite lors de la vérification de votre limite quotidienne de téléchargement de thèmes.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Le thème est en cours de compression avant le téléchargement..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Une erreur s'est produite lors de la compression du thème.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">La taille du thème compressé est en cours de vérification..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Le thème compressé ne peut pas être téléchargé car il dépasse {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Le thème compressé est en cours de préparation pour le téléchargement..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Le thème compressé est en cours de téléchargement..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Une erreur inconnue s'est produite lors du téléchargement du thème compressé.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Une erreur inattendue s'est produite lors du téléchargement du thème compressé: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Le thème compressé a été téléchargé avec succès et sera publié dans la boutique après vérification.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Enregistrer le Fichier du Thème</system:String>
 </ResourceDictionary>

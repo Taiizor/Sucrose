@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Publicar na Loja</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Copiar Link</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Publicar</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Os preparativos para a publicação começarão em breve..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Seu limite diário de upload de temas está sendo verificado..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Você atingiu seu limite diário de upload de temas, por favor, tente novamente mais tarde.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Ocorreu um erro desconhecido ao verificar seu limite diário de upload de temas.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">O tema está sendo compactado antes do upload..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Ocorreu um erro ao compactar o tema.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">O tamanho do tema compactado está sendo verificado..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">O tema compactado não pode ser carregado porque excede {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">O tema compactado está sendo preparado para upload..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">O tema compactado está sendo carregado..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Ocorreu um erro desconhecido ao carregar o tema compactado.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Ocorreu um erro inesperado ao carregar o tema compactado: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">O tema compactado foi carregado com sucesso e será publicado na loja após a verificação.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Salvar Arquivo de Tema</system:String>
 </ResourceDictionary>

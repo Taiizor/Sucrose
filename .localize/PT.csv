@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish,Publicar na Loja
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemeCopy,Copiar Link
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Publish,Publicar
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Preparing,Os preparativos para a publicação começarão em breve..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Limit,Seu limite diário de upload de temas está sendo verificado..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Você atingiu seu limite diário de upload de temas, por favor, tente novamente mais tarde."
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Ocorreu um erro desconhecido ao verificar seu limite diário de upload de temas.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Compress,O tema está sendo compactado antes do upload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Ocorreu um erro ao compactar o tema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Size,O tamanho do tema compactado está sendo verificado..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,O tema compactado não pode ser carregado porque excede {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Upload,O tema compactado está sendo preparado para upload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,O tema compactado está sendo carregado..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Ocorreu um erro desconhecido ao carregar o tema compactado.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Ocorreu um erro inesperado ao carregar o tema compactado: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,O tema compactado foi carregado com sucesso e será publicado na loja após a verificação.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.SaveDialogFilter,Arquivos ZIP (*.zip)|*.zip|Todos os Arquivos (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.SaveDialogTitle,Salvar Arquivo de Tema
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PT.xaml,Portal.WallpaperCycling.Title,Ciclagem de Papel de Parede

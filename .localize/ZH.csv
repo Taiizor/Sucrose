@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish,发布到商店
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemeCopy,复制链接
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Publish,发布
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Preparing,发布准备即将开始..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Limit,正在检查您的每日主题上传限制..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,您已达到每日主题上传限制，请稍后再试。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,检查您的每日主题上传限制时发生未知错误。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Compress,主题在上传前正在压缩..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,压缩主题时发生错误。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Size,正在检查压缩主题的大小..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,压缩主题的大小超过 {0} MB，无法上传。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Upload,压缩主题正在准备上传..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,压缩主题正在上传..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,上传压缩主题时发生未知错误。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,上传压缩主题时发生意外错误: {0}。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,压缩主题已成功上传，验证后将在商店发布。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.SaveDialogTitle,保存主题文件
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ZH.xaml,Portal.WallpaperCycling.Title,壁纸循环

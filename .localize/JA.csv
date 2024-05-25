@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish,ストアで公開
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemeCopy,リンクをコピー
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Publish,公開する
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Preparing,公開の準備がまもなく始まります..
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Limit,あなたの日々のテーマアップロード制限が確認されています..
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,あなたは日々のテーマアップロード制限に達しました。後でもう一度お試しください。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,日々のテーマアップロード制限を確認中に不明なエラーが発生しました。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Compress,テーマがアップロード前に圧縮されています..
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,テーマの圧縮中にエラーが発生しました。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Size,圧縮されたテーマのサイズが確認されています..
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,圧縮されたテーマは{0} MBを超えているため、アップロードできません。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Upload,圧縮されたテーマがアップロードの準備をしています..
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,圧縮されたテーマがアップロードされています..
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,圧縮されたテーマのアップロード中に不明なエラーが発生しました。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,圧縮されたテーマのアップロード中に予期しないエラーが発生しました: {0}。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,圧縮されたテーマが正常にアップロードされ、確認後にストアで公開されます。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.SaveDialogTitle,テーマファイルを保存
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.JA.xaml,Portal.WallpaperCycling.Title,壁紙サイクリング

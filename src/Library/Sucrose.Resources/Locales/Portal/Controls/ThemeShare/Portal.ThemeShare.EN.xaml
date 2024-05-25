@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Publish in Store</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Copy Link</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Publish</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Preparations for publishing will begin shortly..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Your daily theme upload limit is being checked..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">You have reached your daily theme upload limit, please try again later.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">An unknown error occurred while checking your daily theme upload limit.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">The theme is being compressed before uploading..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">An error occurred while compressing the theme.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">The size of the compressed theme is being checked..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">The compressed theme cannot be uploaded because it exceeds {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">The compressed theme is being prepared for upload..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">The compressed theme is being uploaded..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">An unknown error occurred while uploading the compressed theme.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">An unexpected error occurred while uploading the compressed theme: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">The compressed theme was successfully uploaded and will be published in the store after verification.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Save Theme File</system:String>
 </ResourceDictionary>

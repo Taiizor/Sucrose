@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Mağazada Yayınla</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Bağlantıyı Kopyala</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Yayınla</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Yayınlamak için gerekli hazırlıklara birazdan başlanacak..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Günlük tema yükleme sınırınız kontrol ediliyor..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Günlük tema yükleme sınırınıza ulaşmışsınız, lütfen başka zaman tekrar deneyin.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Günlük tema yükleme sınırınız kontrol edilirken bilinmeyen bir hata meydana geldi.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Tema karşıya yüklenmeden önce sıkıştırılıyor..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Tema sıkıştırılırken bir hata meydana geldi.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">Sıkıştırılan temanın boyutu kontrol ediliyor..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Sıkıştırılan temanın boyutu {0} MB'den büyük olduğu için karşıya yüklenemiyor.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Sıkıştırılan tema karşıya yüklemek için hazırlanıyor..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Sıkıştırılan tema karşıya yükleniyor..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Sıkıştırılan tema karşıya yüklenirken bilinmeyen bir hata meydana geldi.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Sıkıştırılan tema karşıya yüklenirken beklenmedik bir hata meydana geldi: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Sıkıştırılan tema başarıyla karşıya yüklendi, kontrol edildikten sonra mağazada yayınlanacak.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Tema Dosyasını Kaydet</system:String>
 </ResourceDictionary>

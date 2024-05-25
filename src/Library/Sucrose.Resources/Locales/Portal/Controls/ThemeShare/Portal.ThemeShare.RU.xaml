@@ -2,15 +2,37 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeShare.Title">Поделиться темой</system:String>
+    <system:String x:Key="Portal.ThemeShare.Title">Поделиться Темой</system:String>
     <system:String x:Key="Portal.ThemeShare.Close">Закрыть</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemeTitle">Заголовок</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeDescription">Описание</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemeExport">Экспорт</system:String>
-    <system:String x:Key="Portal.ThemeShare.ThemePublish">Опубликовать в магазине</system:String>
-    <system:String x:Key="Portal.ThemeShare.ThemeCopy">Копировать ссылку</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish">Опубликовать в Магазине</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemeCopy">Копировать Cсылку</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Опубликовать</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Подготовка к публикации начнется в ближайшее время..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Проверяется ваш дневной лимит загрузки тем..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Вы достигли дневного лимита загрузки тем, пожалуйста, попробуйте позже.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Произошла неизвестная ошибка при проверке вашего дневного лимита загрузки тем.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Тема сжимается перед загрузкой..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Произошла ошибка при сжатии темы.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">Проверяется размер сжатой темы..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Сжатую тему невозможно загрузить, так как она превышает {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Сжатая тема готовится к загрузке..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Сжатая тема загружается..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Произошла неизвестная ошибка при загрузке сжатой темы.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Произошла неожиданная ошибка при загрузке сжатой темы: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Сжатая тема успешно загружена и будет опубликована в магазине после проверки.</system:String>
 
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Файлы (*.zip)|*.zip|Все файлы (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Сохранить файл темы</system:String>

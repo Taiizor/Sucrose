@@ -677,8 +677,30 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemeTitl
 Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemeDescription,Descrizione
 Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemeExport,Esporta
-Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish,Pubblica nello Store
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish,Pubblica Nello Store
 Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemeCopy,Copia Collegamento
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Publish,Pubblica
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Preparing,I preparativi per la pubblicazione inizieranno a breve..
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Limit,Il tuo limite giornaliero di caricamento dei temi è in fase di verifica..
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Hai raggiunto il limite giornaliero di caricamento dei temi, per favore riprova più tardi."
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Si è verificato un errore sconosciuto durante la verifica del limite giornaliero di caricamento dei temi.
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Compress,Il tema viene compresso prima del caricamento..
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Si è verificato un errore durante la compressione del tema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Size,La dimensione del tema compresso è in fase di verifica..
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Il tema compresso non può essere caricato perché supera i {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Upload,Il tema compresso viene preparato per il caricamento..
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Il tema compresso viene caricato..
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Si è verificato un errore sconosciuto durante il caricamento del tema compresso.
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Si è verificato un errore inaspettato durante il caricamento del tema compresso: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Il tema compresso è stato caricato con successo e verrà pubblicato nel negozio dopo la verifica.
 Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.SaveDialogFilter,File ZIP (*.zip)|*.zip|Tutti i file (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.IT.xaml,Portal.ThemeShare.SaveDialogTitle,Salva File Tema

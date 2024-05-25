@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish,Опублікувати в магазині
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemeCopy,Скопіювати посилання
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Publish,Опублікувати
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Preparing,Підготовка до публікації незабаром розпочнеться..
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Limit,Перевіряється ваш денний ліміт на завантаження тем..
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Ви досягли свого денного ліміту на завантаження тем, спробуйте пізніше."
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Сталася невідома помилка під час перевірки вашого денного ліміту на завантаження тем.
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Compress,Тема стискається перед завантаженням..
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Сталася помилка під час стискання теми.
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Size,Перевіряється розмір стисненої теми..
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Стиснену тему не можна завантажити, оскільки вона перевищує {0} МB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload,Стиснена тема готується до завантаження..
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Стиснена тема завантажується..
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Сталася невідома помилка під час завантаження стисненої теми.
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Сталася несподівана помилка під час завантаження стисненої теми: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Стиснену тему успішно завантажено і після перевірки вона буде опублікована в магазині.
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Файли (*.zip)|*.zip|Всі файли (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.SaveDialogTitle,Зберегти файл теми
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.UK.xaml,Portal.WallpaperCycling.Title,Циклінг Шпалер

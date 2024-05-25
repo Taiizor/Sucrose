@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Δημοσίευση στο Κατάστημα</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Αντιγραφή συνδέσμου</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Δημοσίευση</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Οι προετοιμασίες για τη δημοσίευση θα ξεκινήσουν σύντομα..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Ελέγχεται το ημερήσιο όριο ανεβάσματος θεμάτων σας..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Έχετε φτάσει το ημερήσιο όριο ανεβάσματος θεμάτων, παρακαλώ δοκιμάστε αργότερα.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Παρουσιάστηκε άγνωστο σφάλμα κατά τον έλεγχο του ημερήσιου ορίου ανεβάσματος θεμάτων σας.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Το θέμα συμπιέζεται πριν από το ανέβασμα..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Παρουσιάστηκε σφάλμα κατά τη συμπίεση του θέματος.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">Ελέγχεται το μέγεθος του συμπιεσμένου θέματος..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Το συμπιεσμένο θέμα δεν μπορεί να ανέβει επειδή υπερβαίνει τα {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Το συμπιεσμένο θέμα προετοιμάζεται για ανέβασμα..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Το συμπιεσμένο θέμα ανεβαίνει..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Παρουσιάστηκε άγνωστο σφάλμα κατά το ανέβασμα του συμπιεσμένου θέματος.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Παρουσιάστηκε απρόσμενο σφάλμα κατά το ανέβασμα του συμπιεσμένου θέματος: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Το συμπιεσμένο θέμα ανέβηκε με επιτυχία και θα δημοσιευτεί στο κατάστημα μετά την επαλήθευση.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Αποθήκευση αρχείου θέματος</system:String>
 </ResourceDictionary>

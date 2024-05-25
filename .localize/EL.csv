@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish,Δημοσίευση στο Κατάστημα
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemeCopy,Αντιγραφή συνδέσμου
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Publish,Δημοσίευση
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Preparing,Οι προετοιμασίες για τη δημοσίευση θα ξεκινήσουν σύντομα..
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Limit,Ελέγχεται το ημερήσιο όριο ανεβάσματος θεμάτων σας..
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Έχετε φτάσει το ημερήσιο όριο ανεβάσματος θεμάτων, παρακαλώ δοκιμάστε αργότερα."
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Παρουσιάστηκε άγνωστο σφάλμα κατά τον έλεγχο του ημερήσιου ορίου ανεβάσματος θεμάτων σας.
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Compress,Το θέμα συμπιέζεται πριν από το ανέβασμα..
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Παρουσιάστηκε σφάλμα κατά τη συμπίεση του θέματος.
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Size,Ελέγχεται το μέγεθος του συμπιεσμένου θέματος..
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Το συμπιεσμένο θέμα δεν μπορεί να ανέβει επειδή υπερβαίνει τα {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Upload,Το συμπιεσμένο θέμα προετοιμάζεται για ανέβασμα..
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Το συμπιεσμένο θέμα ανεβαίνει..
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Παρουσιάστηκε άγνωστο σφάλμα κατά το ανέβασμα του συμπιεσμένου θέματος.
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Παρουσιάστηκε απρόσμενο σφάλμα κατά το ανέβασμα του συμπιεσμένου θέματος: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Το συμπιεσμένο θέμα ανέβηκε με επιτυχία και θα δημοσιευτεί στο κατάστημα μετά την επαλήθευση.
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλα τα αρχεία (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.SaveDialogTitle,Αποθήκευση αρχείου θέματος
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.EL.xaml,Portal.WallpaperCycling.Title,Κύκλος Ταπετσαριών

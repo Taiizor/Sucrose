@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish,Publicar en la Tienda
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemeCopy,Copiar Enlace
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Publish,Publicar
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Preparing,Las preparaciones para la publicación comenzarán en breve..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Limit,Se está comprobando tu límite diario de carga de temas..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Has alcanzado tu límite diario de carga de temas, por favor intenta más tarde."
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Se produjo un error desconocido al comprobar tu límite diario de carga de temas.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Compress,El tema se está comprimiendo antes de cargarlo..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Se produjo un error al comprimir el tema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Size,Se está comprobando el tamaño del tema comprimido..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,El tema comprimido no se puede cargar porque supera los {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Upload,El tema comprimido se está preparando para cargarlo..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,El tema comprimido se está cargando..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Se produjo un error desconocido al cargar el tema comprimido.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Se produjo un error inesperado al cargar el tema comprimido: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,El tema comprimido se cargó con éxito y se publicará en la tienda después de la verificación.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.SaveDialogFilter,Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.SaveDialogTitle,Guardar Archivo de Tema
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ES.xaml,Portal.WallpaperCycling.Title,Cambio de Fondo de Pantalla

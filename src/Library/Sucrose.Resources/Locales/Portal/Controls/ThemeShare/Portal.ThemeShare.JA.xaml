@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">ストアで公開</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">リンクをコピー</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">公開する</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">公開の準備がまもなく始まります..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">あなたの日々のテーマアップロード制限が確認されています..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">あなたは日々のテーマアップロード制限に達しました。後でもう一度お試しください。</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">日々のテーマアップロード制限を確認中に不明なエラーが発生しました。</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">テーマがアップロード前に圧縮されています..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">テーマの圧縮中にエラーが発生しました。</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">圧縮されたテーマのサイズが確認されています..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">圧縮されたテーマは{0} MBを超えているため、アップロードできません。</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">圧縮されたテーマがアップロードの準備をしています..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">圧縮されたテーマがアップロードされています..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">圧縮されたテーマのアップロード中に不明なエラーが発生しました。</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">圧縮されたテーマのアップロード中に予期しないエラーが発生しました: {0}。</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">圧縮されたテーマが正常にアップロードされ、確認後にストアで公開されます。</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">テーマファイルを保存</system:String>
 </ResourceDictionary>

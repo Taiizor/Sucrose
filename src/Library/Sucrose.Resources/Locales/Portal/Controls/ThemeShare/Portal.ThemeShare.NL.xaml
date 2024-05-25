@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Publiceren in de Winkel</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Koppeling Kopiëren</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Publiceren</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">De voorbereidingen voor publicatie beginnen binnenkort..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Uw dagelijkse uploadlimiet voor thema's wordt gecontroleerd..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">U heeft uw dagelijkse uploadlimiet voor thema's bereikt, probeer het later opnieuw.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Er is een onbekende fout opgetreden bij het controleren van uw dagelijkse uploadlimiet voor thema's.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Het thema wordt gecomprimeerd voordat het wordt geüpload..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Er is een fout opgetreden bij het comprimeren van het thema.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">De grootte van het gecomprimeerde thema wordt gecontroleerd..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Het gecomprimeerde thema kan niet worden geüpload omdat het groter is dan {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Het gecomprimeerde thema wordt voorbereid voor uploaden..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Het gecomprimeerde thema wordt geüpload..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Er is een onbekende fout opgetreden bij het uploaden van het gecomprimeerde thema.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Er is een onverwachte fout opgetreden bij het uploaden van het gecomprimeerde thema: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Het gecomprimeerde thema is succesvol geüpload en wordt na verificatie in de winkel gepubliceerd.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Thema Opslaan als Bestand</system:String>
 </ResourceDictionary>

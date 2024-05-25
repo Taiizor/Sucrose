@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish,स्टोर में प्रकाशित करें
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemeCopy,लिंक कॉपी करें
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Publish,प्रकाशित करें
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Preparing,प्रकाशन के लिए तैयारी जल्द ही शुरू होगी..
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Limit,आपकी दैनिक थीम अपलोड सीमा की जांच की जा रही है..
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"आपने अपनी दैनिक थीम अपलोड सीमा को पूरा कर लिया है, कृपया बाद में पुनः प्रयास करें।"
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,आपकी दैनिक थीम अपलोड सीमा की जांच करते समय अज्ञात त्रुटि हुई।
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Compress,अपलोड करने से पहले थीम को संकुचित किया जा रहा है..
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,थीम को संकुचित करते समय एक त्रुटि हुई।
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Size,संकुचित थीम का आकार जांचा जा रहा है..
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,संकुचित थीम को अपलोड नहीं किया जा सकता क्योंकि यह {0} MB से अधिक है।
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Upload,संकुचित थीम को अपलोड के लिए तैयार किया जा रहा है..
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,संकुचित थीम अपलोड की जा रही है..
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,संकुचित थीम अपलोड करते समय अज्ञात त्रुटि हुई।
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,संकुचित थीम अपलोड करते समय अप्रत्याशित त्रुटि हुई: {0}।
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,संकुचित थीम को सफलतापूर्वक अपलोड कर दिया गया है और सत्यापन के बाद स्टोर में प्रकाशित किया जाएगा।
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.SaveDialogTitle,थीम फ़ाइल सहेजें
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.HI.xaml,Portal.WallpaperCycling.Title,वॉलपेपर साइकिलिंग

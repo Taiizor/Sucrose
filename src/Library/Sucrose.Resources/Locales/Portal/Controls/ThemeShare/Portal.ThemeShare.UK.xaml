@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Опублікувати в магазині</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Скопіювати посилання</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Опублікувати</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Підготовка до публікації незабаром розпочнеться..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Перевіряється ваш денний ліміт на завантаження тем..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Ви досягли свого денного ліміту на завантаження тем, спробуйте пізніше.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Сталася невідома помилка під час перевірки вашого денного ліміту на завантаження тем.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Тема стискається перед завантаженням..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Сталася помилка під час стискання теми.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">Перевіряється розмір стисненої теми..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Стиснену тему не можна завантажити, оскільки вона перевищує {0} МB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Стиснена тема готується до завантаження..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Стиснена тема завантажується..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Сталася невідома помилка під час завантаження стисненої теми.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Сталася несподівана помилка під час завантаження стисненої теми: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Стиснену тему успішно завантажено і після перевірки вона буде опублікована в магазині.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP Файли (*.zip)|*.zip|Всі файли (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Зберегти файл теми</system:String>
 </ResourceDictionary>

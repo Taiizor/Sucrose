@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish,Opublikuj w Sklepie
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemeCopy,Kopiuj Link
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Publish,Opublikuj
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Preparing,Przygotowania do publikacji wkrótce się rozpoczną..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Limit,Sprawdzanie dziennego limitu przesyłania tematów..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Osiągnięto dzienny limit przesyłania tematów, spróbuj ponownie później."
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Wystąpił nieznany błąd podczas sprawdzania dziennego limitu przesyłania tematów.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Compress,Trwa kompresja tematu przed przesłaniem..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Wystąpił błąd podczas kompresji tematu.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Size,Sprawdzanie rozmiaru skompresowanego tematu..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Skompresowany temat nie może zostać przesłany, ponieważ przekracza {0} MB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Upload,Przygotowanie skompresowanego tematu do przesłania..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Trwa przesyłanie skompresowanego tematu..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Wystąpił nieznany błąd podczas przesyłania skompresowanego tematu.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Podczas przesyłania skompresowanego tematu wystąpił nieoczekiwany błąd: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Skompresowany temat został pomyślnie przesłany i zostanie opublikowany w sklepie po weryfikacji.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.SaveDialogFilter,Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.PL.xaml,Portal.ThemeShare.SaveDialogTitle,Zapisz Plik Motywu
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.PL.xaml,Portal.WallpaperCycling.Title,Cykliczne Tapety

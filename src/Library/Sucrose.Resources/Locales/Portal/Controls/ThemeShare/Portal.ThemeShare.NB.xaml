@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Publiser i Butikk</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Kopier kobling</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Publiser</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Forberedelsene til publisering vil begynne snart..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Din daglige temaopplastningsgrense blir sjekket..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Du har nådd din daglige grense for opplastning av temaer, prøv igjen senere.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">En ukjent feil oppstod ved sjekking av din daglige temaopplastningsgrense.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Temaet blir komprimert før opplastning..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">En feil oppstod ved komprimering av temaet.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">Størrelsen på det komprimerte temaet blir sjekket..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Det komprimerte temaet kan ikke lastes opp fordi det overstiger {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Det komprimerte temaet blir forberedt for opplastning..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Det komprimerte temaet lastes opp..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">En ukjent feil oppstod ved opplastning av det komprimerte temaet.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">En uventet feil oppstod ved opplastning av det komprimerte temaet: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Det komprimerte temaet ble lastet opp med hell og vil bli publisert i butikken etter verifikasjon.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Lagre Temafilen</system:String>
 </ResourceDictionary>

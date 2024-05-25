@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish,Publiser i Butikk
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemeCopy,Kopier kobling
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Publish,Publiser
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Preparing,Forberedelsene til publisering vil begynne snart..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Limit,Din daglige temaopplastningsgrense blir sjekket..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Du har nådd din daglige grense for opplastning av temaer, prøv igjen senere."
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,En ukjent feil oppstod ved sjekking av din daglige temaopplastningsgrense.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Compress,Temaet blir komprimert før opplastning..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,En feil oppstod ved komprimering av temaet.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Size,Størrelsen på det komprimerte temaet blir sjekket..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Det komprimerte temaet kan ikke lastes opp fordi det overstiger {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Upload,Det komprimerte temaet blir forberedt for opplastning..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Det komprimerte temaet lastes opp..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,En ukjent feil oppstod ved opplastning av det komprimerte temaet.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,En uventet feil oppstod ved opplastning av det komprimerte temaet: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Det komprimerte temaet ble lastet opp med hell og vil bli publisert i butikken etter verifikasjon.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.SaveDialogTitle,Lagre Temafilen
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NB.xaml,Portal.WallpaperCycling.Title,Bakgrunnsbilder Sykling

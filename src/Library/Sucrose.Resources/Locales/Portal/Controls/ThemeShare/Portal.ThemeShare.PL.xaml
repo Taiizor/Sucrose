@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Opublikuj w Sklepie</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Kopiuj Link</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Opublikuj</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Przygotowania do publikacji wkrótce się rozpoczną..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Sprawdzanie dziennego limitu przesyłania tematów..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Osiągnięto dzienny limit przesyłania tematów, spróbuj ponownie później.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">Wystąpił nieznany błąd podczas sprawdzania dziennego limitu przesyłania tematów.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Trwa kompresja tematu przed przesłaniem..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">Wystąpił błąd podczas kompresji tematu.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">Sprawdzanie rozmiaru skompresowanego tematu..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Skompresowany temat nie może zostać przesłany, ponieważ przekracza {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Przygotowanie skompresowanego tematu do przesłania..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Trwa przesyłanie skompresowanego tematu..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">Wystąpił nieznany błąd podczas przesyłania skompresowanego tematu.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">Podczas przesyłania skompresowanego tematu wystąpił nieoczekiwany błąd: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Skompresowany temat został pomyślnie przesłany i zostanie opublikowany w sklepie po weryfikacji.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Zapisz Plik Motywu</system:String>
 </ResourceDictionary>

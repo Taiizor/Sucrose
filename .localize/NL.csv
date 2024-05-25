@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish,Publiceren in de Winkel
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemeCopy,Koppeling Kopiëren
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Publish,Publiceren
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Preparing,De voorbereidingen voor publicatie beginnen binnenkort..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Limit,Uw dagelijkse uploadlimiet voor thema's wordt gecontroleerd..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"U heeft uw dagelijkse uploadlimiet voor thema's bereikt, probeer het later opnieuw."
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Er is een onbekende fout opgetreden bij het controleren van uw dagelijkse uploadlimiet voor thema's.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Compress,Het thema wordt gecomprimeerd voordat het wordt geüpload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Er is een fout opgetreden bij het comprimeren van het thema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Size,De grootte van het gecomprimeerde thema wordt gecontroleerd..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Het gecomprimeerde thema kan niet worden geüpload omdat het groter is dan {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Upload,Het gecomprimeerde thema wordt voorbereid voor uploaden..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Het gecomprimeerde thema wordt geüpload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Er is een onbekende fout opgetreden bij het uploaden van het gecomprimeerde thema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Er is een onverwachte fout opgetreden bij het uploaden van het gecomprimeerde thema: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Het gecomprimeerde thema is succesvol geüpload en wordt na verificatie in de winkel gepubliceerd.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.SaveDialogTitle,Thema Opslaan als Bestand
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.NL.xaml,Portal.WallpaperCycling.Title,Achtergrondafbeeldingcyclus

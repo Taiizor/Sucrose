@@ -670,15 +670,37 @@ Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeC
 Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeModify,Upraveno
 Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeModifyDate,Neznámo
 Portal\Controls\ThemeReview\Portal.ThemeReview.CS.xaml,Portal.ThemeReview.ThemeContact,Kontaktní údaj pro šablonu
-Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.Title,Sdílení šablony
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.Title,Sdílení Šablony
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.Close,Zavřít
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeTitle,Název
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeDescription,Popis
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeExport,Exportovat
-Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish,Publikovat v obchodě
-Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeCopy,Kopírovat odkaz
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish,Publikovat v Obchodě
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemeCopy,Kopírovat Odkaz
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Publish,Publikovat
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Preparing,Přípravy na publikaci začnou brzy..
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Limit,Kontroluje se váš denní limit pro nahrávání témat..
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Dosáhli jste svého denního limitu pro nahrávání témat, zkuste to prosím později."
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Při kontrole vašeho denního limitu pro nahrávání témat došlo k neznámé chybě.
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Compress,Téma se komprimuje před nahráním..
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Při komprimaci tématu došlo k chybě.
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Size,Kontroluje se velikost komprimovaného tématu..
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Komprimované téma nelze nahrát, protože přesahuje {0} MB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Upload,Komprimované téma se připravuje k nahrání..
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Komprimované téma se nahrává..
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Při nahrávání komprimovaného tématu došlo k neznámé chybě.
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Při nahrávání komprimovaného tématu došlo k neočekávané chybě: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Komprimované téma bylo úspěšně nahráno a po ověření bude publikováno v obchodě.
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.SaveDialogTitle,Uložit soubor se šablonou

@@ -12,6 +12,28 @@
     <system:String x:Key="Portal.ThemeShare.ThemePublish">Publicare în Magazin</system:String>
     <system:String x:Key="Portal.ThemeShare.ThemeCopy">Copiere Link</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Publish">Publică</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Preparing">Pregătirile pentru publicare vor începe în curând..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit">Limita dvs. zilnică de încărcare a temelor este verificată..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Exceeded">Ați atins limita zilnică de încărcare a temelor, încercați din nou mai târziu.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Limit.Error">A apărut o eroare necunoscută la verificarea limitei zilnice de încărcare a temelor.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress">Tema este comprimată înainte de încărcare..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Compress.Error">A apărut o eroare la comprimarea temei.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size">Dimensiunea temei comprimate este verificată..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Tema comprimată nu poate fi încărcată deoarece depășește {0} MB.</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Tema comprimată este pregătită pentru încărcare..</system:String>
+
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Tema comprimată este încărcată..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Error">A apărut o eroare necunoscută la încărcarea temei comprimate.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Errored">A apărut o eroare neașteptată la încărcarea temei comprimate: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Succeded">Tema comprimată a fost încărcată cu succes și va fi publicată în magazin după verificare.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.SaveDialogFilter">Fișiere ZIP (*.zip)|*.zip|Toate fișierele (*.*)|*.*</system:String>
     <system:String x:Key="Portal.ThemeShare.SaveDialogTitle">Salvează Fișier Temă</system:String>
 </ResourceDictionary>

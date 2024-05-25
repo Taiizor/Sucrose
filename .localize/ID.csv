@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish,Publikasikan di Toko
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemeCopy,Salin Tautan
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Publish,Publikasikan
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Preparing,Persiapan untuk publikasi akan segera dimulai..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Limit,Batas unggahan tema harian Anda sedang diperiksa..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Anda telah mencapai batas unggahan tema harian Anda, silakan coba lagi nanti."
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Terjadi kesalahan yang tidak diketahui saat memeriksa batas unggahan tema harian Anda.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Compress,Tema sedang dikompresi sebelum diunggah..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Terjadi kesalahan saat mengompresi tema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Size,Ukuran tema yang dikompresi sedang diperiksa..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema yang dikompresi tidak dapat diunggah karena melebihi {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Upload,Tema yang dikompresi sedang dipersiapkan untuk diunggah..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Tema yang dikompresi sedang diunggah..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Terjadi kesalahan yang tidak diketahui saat mengunggah tema yang dikompresi.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Terjadi kesalahan yang tidak terduga saat mengunggah tema yang dikompresi: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Tema yang dikompresi berhasil diunggah dan akan diterbitkan di toko setelah diverifikasi.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.SaveDialogTitle,Simpan Berkas Tema
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.ID.xaml,Portal.WallpaperCycling.Title,Pemutaran Wallpaper

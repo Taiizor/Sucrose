@@ -156,7 +156,7 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Stretch"
                             Click="Publisher_Click"
-                            Content="Yayınla"
+                            Content="{DynamicResource Portal.ThemeShare.ThemePublish.Publish}"
                             Cursor="Hand" />
 
                         <ProgressBar
@@ -176,7 +176,7 @@
                             Margin="10,10,10,10"
                             FontSize="14"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Gerekli hazırlıklara birazdan başlanacak.."
+                            Text="{DynamicResource Portal.ThemeShare.ThemePublish.Preparing}"
                             TextWrapping="Wrap"
                             Visibility="Collapsed" />
                     </Grid>

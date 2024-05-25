@@ -150,7 +150,7 @@ namespace Sucrose.Portal.Views.Controls
                 Progress.Visibility = Visibility.Collapsed;
                 PublishGrid.Visibility = Visibility.Collapsed;
 
-                State.Text = "Gerekli hazırlıklara birazdan başlanacak..";
+                State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Preparing");
             }
 
             Publish.IsEnabled = true;
@@ -190,7 +190,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
-                    State.Text = "Günlük tema yükleme sınırınız kontrol ediliyor..";
+                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Limit");
 
                     await Task.Delay(1000);
 
@@ -200,38 +200,39 @@ namespace Sucrose.Portal.Views.Controls
                     }
                     catch
                     {
-                        State.Text = "Günlük tema yükleme sınırınız kontrol edilirken bilinmeyen bir hata meydana geldi.";
+                        State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Limit", "Error");
                     }
 
                     if (Response.IsSuccessStatusCode)
                     {
                         TempFile = Path.Combine(Path.GetTempPath(), $"{SSSHC.FileName(Info.Title)}.zip");
 
-                        State.Text = "Tema karşıya yüklenmeden önce sıkıştırılıyor..";
+                        State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Compress");
 
                         await Task.Delay(1000);
 
                         if (await Task.Run(() => SSZEZ.Compress(Theme, TempFile)) != SSDECT.Pass)
                         {
-                            State.Text = "Tema sıkıştırılırken bir hata meydana geldi.";
+                            State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Compress", "Error");
                         }
                         else
                         {
-                            State.Text = "Sıkıştırılan temanın boyutu kontrol ediliyor..";
+                            State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Size");
 
                             await Task.Delay(1000);
 
                             FileInfo TempInfo = new(TempFile);
 
                             long TempSize = TempInfo.Length;
+                            int LimitSize = 90;
 
-                            if (TempSize > 90 * 1024 * 1024)
+                            if (TempSize > LimitSize * 1024 * 1024)
                             {
-                                State.Text = "Sıkıştırılan temanın boyutu 90 MB'den büyük olduğu için karşıya yüklenemiyor.";
+                                State.Text = string.Format(SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Size", "Exceeded"), LimitSize);
                             }
                             else
                             {
-                                State.Text = "Sıkıştırılan tema karşıya yüklemek için hazırlanıyor..";
+                                State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload");
 
                                 await Task.Delay(1000);
 
@@ -244,7 +245,7 @@ namespace Sucrose.Portal.Views.Controls
                                 FileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/zip");
                                 Content.Add(FileContent, "file", Path.GetFileName(TempFile));
 
-                                State.Text = "Sıkıştırılan tema karşıya yükleniyor..";
+                                State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Start");
 
                                 await Task.Delay(1000);
 
@@ -254,23 +255,23 @@ namespace Sucrose.Portal.Views.Controls
                                 }
                                 catch
                                 {
-                                    State.Text = "Sıkıştırılan tema karşıya yüklenirken bilinmeyen bir hata meydana geldi.";
+                                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Error");
                                 }
 
                                 if (Response.IsSuccessStatusCode)
                                 {
-                                    State.Text = "Sıkıştırılan tema başarıyla karşıya yüklendi, kontrol edildikten sonra mağazada yayınlanacak..";
+                                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Succeded");
                                 }
                                 else
                                 {
-                                    State.Text = $"Sıkıştırılan tema karşıya yüklenirken beklenmedik bir hata meydana geldi: {Response.StatusCode}.";
+                                    State.Text = string.Format(SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Errored"), Response.StatusCode);
                                 }
                             }
                         }
                     }
                     else
                     {
-                        State.Text = "Günlük tema yükleme sınırınıza ulaşmışsınız, lütfen başka zaman tekrar deneyin.";
+                        State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Limit", "Exceeded");
                     }
 
                     await Task.Delay(3000);

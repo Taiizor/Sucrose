@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish,Publicera i Butiken
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemeCopy,Kopiera Länken
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Publish,Publicera
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Preparing,Förberedelser för publicering kommer att börja inom kort..
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Limit,Din dagliga temauppladdningsgräns kontrolleras..
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Du har nått din dagliga temauppladdningsgräns, försök igen senare."
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Ett okänt fel inträffade vid kontroll av din dagliga temauppladdningsgräns.
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Compress,Temat komprimeras innan uppladdning..
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Ett fel inträffade vid komprimering av temat.
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Size,Storleken på det komprimerade temat kontrolleras..
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Det komprimerade temat kan inte laddas upp eftersom det överskrider {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload,Det komprimerade temat förbereds för uppladdning..
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Det komprimerade temat laddas upp..
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Ett okänt fel inträffade vid uppladdning av det komprimerade temat.
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Ett oväntat fel inträffade vid uppladdning av det komprimerade temat: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Det komprimerade temat laddades upp framgångsrikt och kommer att publiceras i butiken efter verifiering.
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.SaveDialogTitle,Spara Temafil
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.SV.xaml,Portal.WallpaperCycling.Title,Bakgrundsbildcykling

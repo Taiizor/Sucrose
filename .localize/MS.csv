@@ -680,6 +680,28 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemeExpo
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish,Terbitkan di Kedai
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemeCopy,Salin Pautan
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Publish,Terbitkan
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Preparing,Persiapan untuk penerbitan akan bermula tidak lama lagi..
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Limit,Had muat naik tema harian anda sedang diperiksa..
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Limit.Exceeded,"Anda telah mencapai had muat naik tema harian anda, sila cuba lagi kemudian."
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Limit.Error,Ralat tidak diketahui berlaku semasa memeriksa had muat naik tema harian anda.
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Compress,Tema sedang dimampatkan sebelum dimuat naik..
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Compress.Error,Ralat berlaku semasa memampatkan tema.
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Size,Saiz tema yang dimampatkan sedang diperiksa..
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema yang dimampatkan tidak dapat dimuat naik kerana melebihi {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Upload,Tema yang dimampatkan sedang disediakan untuk dimuat naik..
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Upload.Start,Tema yang dimampatkan sedang dimuat naik..
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Upload.Error,Ralat tidak diketahui berlaku semasa memuat naik tema yang dimampatkan.
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Upload.Errored,Ralat tidak dijangka berlaku semasa memuat naik tema yang dimampatkan: {0}.
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.ThemePublish.Upload.Succeded,Tema yang dimampatkan berjaya dimuat naik dan akan diterbitkan di stor selepas pengesahan.
+Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*
 Portal\Controls\ThemeShare\Portal.ThemeShare.MS.xaml,Portal.ThemeShare.SaveDialogTitle,Simpan Fail Tema
 Portal\Controls\WallpaperCycling\Portal.WallpaperCycling.MS.xaml,Portal.WallpaperCycling.Title,Pemutaran Wallpaper
