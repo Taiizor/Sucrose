@@ -12,6 +12,7 @@ using SPVMW = Sucrose.Property.View.MainWindow;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
@@ -188,6 +189,8 @@ namespace Sucrose.Property
 
             if (SSSHI.Basic(SMR.PropertyMutex, SMR.Property))
             {
+                SSSHU.ControlGuid();
+
                 Configure(e.Args);
             }
             else

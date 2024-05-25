@@ -24,6 +24,7 @@ using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -310,6 +311,8 @@ namespace Sucrose.Live.WebView
                 }
                 else
                 {
+                    SSSHU.ControlGuid();
+
                     Configure();
                 }
             }

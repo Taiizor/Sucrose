@@ -6,6 +6,7 @@ using SESET = Skylark.Enum.StorageType;
 using SESNT = Skylark.Enum.ScreenType;
 using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
+using SHG = Skylark.Helper.Guidly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -36,7 +37,13 @@ namespace Sucrose.Manager.Manage
 
         public static string[] NetworkInterfaces => SMMI.SystemSettingManager.GetSetting(SMC.NetworkInterfaces, Array.Empty<string>());
 
+        public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateSettingManager.GetSettingStable(SMC.AdvertisingDelay, 30), 30, 720);
+
+        public static int PassingCycyling => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMC.PassingCycyling, 0), 0, 99999);
+
         public static string Culture => SMMI.GeneralSettingManager.GetSetting(SMC.CultureName, SHC.CurrentUITwoLetterISOLanguageName);
+
+        public static List<string> DisableCycyling => SMMI.CyclingSettingManager.GetSetting(SMC.DisableCycyling, new List<string>());
 
         public static int StorePagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.StorePagination, 30), 1, 100);
 
@@ -54,19 +61,15 @@ namespace Sucrose.Manager.Manage
 
         public static int PingValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.PingValue, 100), 0, 1000);
 
-        public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateManager.GetSettingStable(SMC.AdvertisingDelay, 30), 30, 720);
-
         public static int AdaptiveMargin => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.AdaptiveMargin, 5), 5, 25);
 
-        public static int PassingCycyling => SHS.Clamp(SMMI.CyclingManager.GetSettingStable(SMC.PassingCycyling, 0), 0, 99999);
-
         public static int StoreDuration => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.StoreDuration, 12), 1, 24);
+
+        public static int CycylingTime => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMC.CycylingTime, 30), 1, 999);
 
         public static List<string> WebArguments => SMMI.EngineSettingManager.GetSetting(SMC.WebArguments, new List<string>());
 
         public static int DiscordDelay => SHS.Clamp(SMMI.HookSettingManager.GetSettingStable(SMC.DiscordDelay, 60), 60, 3600);
-
-        public static List<string> DisableCycyling => SMMI.CyclingManager.GetSetting(SMC.DisableCycyling, new List<string>());
 
         public static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 20), 10, 100);
 
@@ -88,8 +91,6 @@ namespace Sucrose.Manager.Manage
 
         public static SESET DownloadType => SMMI.BackgroundogSettingManager.GetSetting(SMC.DownloadType, SESET.Megabyte);
 
-        public static int CycylingTime => SHS.Clamp(SMMI.CyclingManager.GetSettingStable(SMC.CycylingTime, 30), 1, 999);
-
         public static string BackgroundImage => SMMI.PortalSettingManager.GetSetting(SMC.BackgroundImage, string.Empty);
 
         public static bool PausePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformance, false);
@@ -110,9 +111,13 @@ namespace Sucrose.Manager.Manage
 
         public static DateTime UpdateTime => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateTime, new DateTime());
 
+        public static List<string> Themes => SMMI.ThemesSettingManager.GetSetting(SMC.Themes, new List<string>());
+
         public static bool StorePreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.StorePreviewHide, false);
 
         public static bool AudioRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.AudioRequired, false);
+
+        public static bool AdvertisingState => SMMI.DonateSettingManager.GetSetting(SMC.AdvertisingState, true);
 
         public static bool PipeRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.PipeRequired, false);
 
@@ -130,9 +135,11 @@ namespace Sucrose.Manager.Manage
 
         public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMC.VolumeDesktop, false);
 
-        public static List<string> Themes => SMMI.ThemesManager.GetSetting(SMC.Themes, new List<string>());
-
         public static string PingType => SMMI.BackgroundogSettingManager.GetSetting(SMC.PingType, "Bing");
+
+        public static Guid Guid => SMMI.UserSettingManager.GetSetting(SMC.Guid, SHG.TextToGuid(SMR.Guid));
+
+        public static bool DonateVisible => SMMI.DonateSettingManager.GetSetting(SMC.DonateVisible, true);
 
         public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
 
@@ -141,8 +148,6 @@ namespace Sucrose.Manager.Manage
         public static bool LibraryStart => SMMI.EngineSettingManager.GetSetting(SMC.LibraryStart, false);
 
         public static bool InputDesktop => SMMI.EngineSettingManager.GetSetting(SMC.InputDesktop, false);
-
-        public static bool AdvertisingState => SMMI.DonateManager.GetSetting(SMC.AdvertisingState, true);
 
         public static bool UpdateState => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateState, false);
 
@@ -154,7 +159,7 @@ namespace Sucrose.Manager.Manage
 
         public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMC.Statistics, true);
 
-        public static bool DonateVisible => SMMI.DonateManager.GetSetting(SMC.DonateVisible, true);
+        public static bool Cycyling => SMMI.CyclingSettingManager.GetSetting(SMC.Cycyling, false);
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);
 
@@ -167,8 +172,6 @@ namespace Sucrose.Manager.Manage
         public static string Key => SMMI.PrivateSettingManager.GetSetting(SMC.Key, SMR.Key);
 
         public static bool Exit => SMMI.LauncherSettingManager.GetSetting(SMC.Exit, false);
-
-        public static bool Cycyling => SMMI.CyclingManager.GetSetting(SMC.Cycyling, false);
 
         public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
 

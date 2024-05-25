@@ -16,6 +16,7 @@ using SSENVV = Sucrose.Shared.Engine.Nebula.View.Video;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -198,6 +199,8 @@ namespace Sucrose.Live.Nebula
                 }
                 else
                 {
+                    SSSHU.ControlGuid();
+
                     Configure();
                 }
             }

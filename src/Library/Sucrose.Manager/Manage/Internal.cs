@@ -5,15 +5,11 @@ namespace Sucrose.Manager.Manage
 {
     public static class Internal
     {
-        public static readonly SMSM DonateManager = new("Donate.json");
-
-        public static readonly SMSM ThemesManager = new("Themes.json");
-
-        public static readonly SMSM CyclingManager = new("Cycling.json");
-
         public static readonly SMSM CoreSettingManager = new("Core.json");
 
         public static readonly SMSM HookSettingManager = new("Hook.json");
+
+        public static readonly SMSM UserSettingManager = new("User.json");
 
         public static readonly SMLM PortalLogManager = new("Portal-{0}.log");
 
@@ -21,13 +17,19 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMSM AuroraSettingManager = new("Aurora.json");
 
+        public static readonly SMSM DonateSettingManager = new("Donate.json");
+
         public static readonly SMSM EngineSettingManager = new("Engine.json");
 
         public static readonly SMSM PortalSettingManager = new("Portal.json");
 
         public static readonly SMSM SystemSettingManager = new("System.json");
 
+        public static readonly SMSM ThemesSettingManager = new("Themes.json");
+
         public static readonly SMSM UpdateSettingManager = new("Update.json");
+
+        public static readonly SMSM CyclingSettingManager = new("Cycling.json");
 
         public static readonly SMSM GeneralSettingManager = new("General.json");
 

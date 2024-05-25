@@ -391,6 +391,10 @@ namespace Sucrose.Manager
             {
                 return (T)(object)new Uri(value.ToString());
             }
+            else if (type == typeof(Guid))
+            {
+                return (T)(object)Guid.Parse(value.ToString());
+            }
             else if (type.IsEnum)
             {
                 return (T)Enum.Parse(type, value.ToString());

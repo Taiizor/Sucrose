@@ -36,6 +36,7 @@ using SPVWMW = Sucrose.Portal.Views.Windows.MainWindow;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 
@@ -236,6 +237,8 @@ namespace Sucrose.Portal
 
             if (SSSHI.Basic(SMR.PortalMutex, SMR.Portal))
             {
+                SSSHU.ControlGuid();
+
                 Configure();
             }
             else

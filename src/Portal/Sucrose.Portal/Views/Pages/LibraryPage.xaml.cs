@@ -196,7 +196,7 @@ namespace Sucrose.Portal.Views.Pages
             Themes.Clear();
             Themes.AddRange(SortThemes.Select(Theme => Theme.Key));
 
-            SMMI.ThemesManager.SetSetting(SMC.Themes, Themes);
+            SMMI.ThemesSettingManager.SetSetting(SMC.Themes, Themes);
         }
 
         private async Task Start(bool Progress = false)

@@ -132,6 +132,8 @@
 
         public static readonly string SucroseProperties = "SucroseProperties.json";
 
+        public static readonly string Guid = "00000000-0000-0000-0000-000000000000";
+
         public static readonly string LiveMutex = "{Sucrose-Wallpaper-Engine-Live}";
 
         public static readonly string PortalMutex = "{Sucrose-Wallpaper-Engine-Portal}";

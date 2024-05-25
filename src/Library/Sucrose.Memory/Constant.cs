@@ -8,6 +8,8 @@
 
         public const string Exit = "Exit";
 
+        public const string Guid = "Guid";
+
         public const string Loop = "Loop";
 
         public const string AApp = "AApp";

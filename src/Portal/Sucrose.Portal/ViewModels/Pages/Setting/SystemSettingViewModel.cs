@@ -428,6 +428,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 string[] Excludes = new[]
                 {
+                    SMMI.UserSettingManager.SettingFile(),
                     SMMI.PrivateSettingManager.SettingFile()
                 };
 

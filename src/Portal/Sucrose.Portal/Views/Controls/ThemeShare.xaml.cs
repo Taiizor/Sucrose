@@ -22,6 +22,7 @@ using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
@@ -191,9 +192,11 @@ namespace Sucrose.Portal.Views.Controls
 
                     State.Text = "Günlük tema yükleme sınırınız kontrol ediliyor..";
 
+                    await Task.Delay(1000);
+
                     try
                     {
-                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityUpload}/{SMR.Check}");
+                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityUpload}/{SMR.Check}/{SSSHU.GetGuid()}");
                     }
                     catch
                     {
@@ -206,6 +209,8 @@ namespace Sucrose.Portal.Views.Controls
 
                         State.Text = "Tema karşıya yüklenmeden önce sıkıştırılıyor..";
 
+                        await Task.Delay(1000);
+
                         if (await Task.Run(() => SSZEZ.Compress(Theme, TempFile)) != SSDECT.Pass)
                         {
                             State.Text = "Tema sıkıştırılırken bir hata meydana geldi.";
@@ -213,6 +218,8 @@ namespace Sucrose.Portal.Views.Controls
                         else
                         {
                             State.Text = "Sıkıştırılan temanın boyutu kontrol ediliyor..";
+
+                            await Task.Delay(1000);
 
                             FileInfo TempInfo = new(TempFile);
 
@@ -226,6 +233,8 @@ namespace Sucrose.Portal.Views.Controls
                             {
                                 State.Text = "Sıkıştırılan tema karşıya yüklemek için hazırlanıyor..";
 
+                                await Task.Delay(1000);
+
                                 Progress.IsIndeterminate = false;
 
                                 using MultipartFormDataContent Content = new();
@@ -237,9 +246,11 @@ namespace Sucrose.Portal.Views.Controls
 
                                 State.Text = "Sıkıştırılan tema karşıya yükleniyor..";
 
+                                await Task.Delay(1000);
+
                                 try
                                 {
-                                    Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityUpload}/{SMR.Theme}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
+                                    Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityUpload}/{SMR.Theme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
                                 }
                                 catch
                                 {

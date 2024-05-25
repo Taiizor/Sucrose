@@ -23,7 +23,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ResetList_Click(object sender, RoutedEventArgs e)
         {
-            SMMI.CyclingManager.SetSetting(SMC.DisableCycyling, new List<string>());
+            SMMI.CyclingSettingManager.SetSetting(SMC.DisableCycyling, new List<string>());
         }
 
         private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
@@ -85,7 +85,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private void CyclingStateChecked(bool State)
         {
-            SMMI.CyclingManager.SetSetting(SMC.Cycyling, State);
+            SMMI.CyclingSettingManager.SetSetting(SMC.Cycyling, State);
         }
 
         private void TransitionTypeSelected(int Index)
@@ -94,7 +94,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if (NewStore != SSDMM.TransitionType)
             {
-                SMMI.CyclingManager.SetSetting(SMC.TransitionType, NewStore);
+                SMMI.CyclingSettingManager.SetSetting(SMC.TransitionType, NewStore);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Sucrose.Portal.Views.Controls
 
             if (NewValue != SMMM.CycylingTime)
             {
-                SMMI.CyclingManager.SetSetting(SMC.CycylingTime, NewValue);
+                SMMI.CyclingSettingManager.SetSetting(SMC.CycylingTime, NewValue);
             }
         }
 

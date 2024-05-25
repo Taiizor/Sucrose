@@ -16,7 +16,7 @@ namespace Sucrose.Shared.Engine.Helper
 
             Cycler.Elapsed += (s, e) =>
             {
-                SMMI.CyclingManager.SetSetting(SMC.PassingCycyling, SMMM.PassingCycyling + Second);
+                SMMI.CyclingSettingManager.SetSetting(SMC.PassingCycyling, SMMM.PassingCycyling + Second);
 
                 if (SSSHC.Check())
                 {

@@ -49,9 +49,9 @@ namespace Sucrose.Shared.Dependency.Manage
 
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Resume);
 
-        public static SSDEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, (SSDEET)SSSMI.ApplicationEngine);
+        public static SSDETT TransitionType => SMMI.CyclingSettingManager.GetSetting(SMC.TransitionType, SSDETT.Random);
 
-        public static SSDETT TransitionType => SMMI.CyclingManager.GetSetting(SMC.TransitionType, SSDETT.Random);
+        public static SSDEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, (SSDEET)SSSMI.ApplicationEngine);
 
         public static SSDESHT StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDESHT.Fill);
 

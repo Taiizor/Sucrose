@@ -93,7 +93,7 @@ namespace Sucrose.Shared.Space.Helper
 
                     if (!string.IsNullOrEmpty(Selected))
                     {
-                        SMMI.CyclingManager.SetSetting(SMC.PassingCycyling, 0);
+                        SMMI.CyclingSettingManager.SetSetting(SMC.PassingCycyling, 0);
 
                         SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Selected);
 

@@ -10,10 +10,11 @@ using SRHR = Sucrose.Resources.Helper.Resources;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
+using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
-using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
 
 namespace Sucrose.Watchdog
 {
@@ -160,6 +161,8 @@ namespace Sucrose.Watchdog
             SRHR.SetLanguage(SMMM.Culture);
 
             ShutdownMode = ShutdownMode.OnLastWindowClose;
+
+            SSSHU.ControlGuid();
 
             Configure(e.Args);
         }

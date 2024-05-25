@@ -110,7 +110,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 DisableCycyling.Remove(Path.GetFileName(Theme));
 
-                SMMI.CyclingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
+                SMMI.CyclingSettingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
             }
         }
 
@@ -215,7 +215,7 @@ namespace Sucrose.Portal.Views.Controls
             {
                 DisableCycyling.Add(Path.GetFileName(Theme));
 
-                SMMI.CyclingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
+                SMMI.CyclingSettingManager.SetSetting(SMC.DisableCycyling, DisableCycyling);
             }
         }
 

@@ -164,7 +164,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 bool State = Index == 0;
                 Visibility Visible = State ? Visibility.Visible : Visibility.Collapsed;
 
-                SMMI.DonateManager.SetSetting(SMC.DonateVisible, State);
+                SMMI.DonateSettingManager.SetSetting(SMC.DonateVisible, State);
 
                 SPMI.DonateService.DonateVisibility = Visible;
             }
@@ -172,7 +172,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
         private void AdvertisingStateChecked(bool State)
         {
-            SMMI.DonateManager.SetSetting(SMC.AdvertisingState, State);
+            SMMI.DonateSettingManager.SetSetting(SMC.AdvertisingState, State);
         }
 
         private void AdvertisingDelayChanged(double? Value)
@@ -181,7 +181,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             if (NewValue != SMMM.AdvertisingDelay)
             {
-                SMMI.DonateManager.SetSetting(SMC.AdvertisingDelay, NewValue);
+                SMMI.DonateSettingManager.SetSetting(SMC.AdvertisingDelay, NewValue);
             }
         }
 
