@@ -12,6 +12,7 @@
     CloseButtonText="{DynamicResource Portal.ThemeShare.Close}"
     DialogMaxWidth="750"
     Loaded="ContentDialog_Loaded"
+    PreviewKeyDown="ContentDialog_PreviewKeyDown"
     mc:Ignorable="d">
 
     <ui:ContentDialog.Resources>
@@ -85,7 +86,7 @@
                         </ui:Button>
                         <ui:Button
                             x:Name="Publish"
-                            Margin="5,0,5,0"
+                            Margin="5,0,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Appearance="Secondary"
@@ -94,6 +95,7 @@
                             <StackPanel>
                                 <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Gift24" FontSize="20" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemePublish}" Width="20" Height="20" Foreground="ForestGreen" /> -->
                                 <Image
+                                    x:Name="Image"
                                     Width="20"
                                     Height="20"
                                     Margin="0,3,0,3"
@@ -107,7 +109,8 @@
                             VerticalAlignment="Center"
                             Appearance="Secondary"
                             Cursor="Hand"
-                            IsEnabled="False">
+                            IsEnabled="False"
+                            Visibility="Collapsed">
                             <StackPanel>
                                 <!--<ui:SymbolIcon Margin="0 3 0 3" Symbol="Link48" FontSize="20" ToolTipService.ToolTip="{DynamicResource Portal.ThemeShare.ThemeCopy}" Width="20" Height="20" Foreground="DodgerBlue" />-->
                                 <Image
@@ -119,6 +122,64 @@
                             </StackPanel>
                         </ui:Button>
                     </StackPanel>
+
+                    <Grid
+                        x:Name="PublishGrid"
+                        Margin="10,10,10,0"
+                        HorizontalAlignment="Stretch"
+                        Visibility="Collapsed">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox
+                            x:Name="Category"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalAlignment="Stretch"
+                            MaxDropDownHeight="200"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+                        <ui:Button
+                            x:Name="Publisher"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Stretch"
+                            Click="Publisher_Click"
+                            Content="Yayınla"
+                            Cursor="Hand" />
+
+                        <ProgressBar
+                            x:Name="Progress"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,0"
+                            IsIndeterminate="True"
+                            Visibility="Collapsed" />
+
+                        <TextBlock
+                            x:Name="State"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="10,10,10,10"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Gerekli hazırlıklara birazdan başlanacak.."
+                            TextWrapping="Wrap"
+                            Visibility="Collapsed" />
+                    </Grid>
                 </StackPanel>
             </StackPanel>
         </ui:Card>

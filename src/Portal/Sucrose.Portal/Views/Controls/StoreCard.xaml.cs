@@ -236,10 +236,6 @@ namespace Sucrose.Portal.Views.Controls
 
                             DownloadSymbol.Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush");
                             DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
-
-                            SSSTMI.StoreService.InfoChanged -= (s, e) => StoreService_InfoChanged(Keys);
-
-                            SSSTMI.StoreService.Info.Remove(Keys);
                         }
                     }
                 });
@@ -351,20 +347,23 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         if (Pair.Value.Guid == Guid)
                         {
-                            State = true;
-
                             Keys = Pair.Key;
 
-                            StoreService_InfoChanged(Keys);
+                            if (SSSTMI.StoreService.Info[Keys].ProgressPercentage < 100)
+                            {
+                                State = true;
 
-                            DownloadSymbol.Symbol = SymbolRegular.Empty;
+                                StoreService_InfoChanged(Keys);
 
-                            DownloadRing.Visibility = Visibility.Visible;
-                            DownloadSymbol.Visibility = Visibility.Collapsed;
+                                DownloadSymbol.Symbol = SymbolRegular.Empty;
 
-                            SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
+                                DownloadRing.Visibility = Visibility.Visible;
+                                DownloadSymbol.Visibility = Visibility.Collapsed;
 
-                            break;
+                                SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
+
+                                break;
+                            }
                         }
                     }
 

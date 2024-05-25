@@ -49,14 +49,14 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 
             if (SSEMI.Properties.State)
             {
-                SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
-
                 if (SSEMI.PropertiesWatcher)
                 {
                     SSEHP.CreatedEventHandler += PropertiesWatcher;
                 }
 
                 SSEHP.StartWatcher();
+
+                SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
             }
         }
 

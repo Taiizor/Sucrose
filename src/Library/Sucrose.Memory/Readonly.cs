@@ -4,7 +4,11 @@
     {
         public static readonly string Language = "EN";
 
+        public static readonly string Check = "Check";
+
         public static readonly string Store = "Store";
+
+        public static readonly string Theme = "Theme";
 
         public static readonly string Bundle = "Bundle";
 

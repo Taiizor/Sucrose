@@ -50,14 +50,14 @@ namespace Sucrose.Shared.Engine.WebView.Event
 
             if (SSEMI.Properties.State)
             {
-                SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
-
                 if (SSEMI.PropertiesWatcher)
                 {
                     SSEHP.CreatedEventHandler += PropertiesWatcher;
                 }
 
                 SSEHP.StartWatcher();
+
+                SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
             }
         }
 
