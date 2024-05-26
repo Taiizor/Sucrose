@@ -1,6 +1,6 @@
 ﻿using System.Management;
 
-namespace Sucrose.Backgroundog.Extension
+namespace Sucrose.Shared.Space.Helper
 {
     internal static class Object
     {

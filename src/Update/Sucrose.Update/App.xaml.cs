@@ -8,7 +8,6 @@ using SMR = Sucrose.Memory.Readonly;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SUMI = Sucrose.Update.Manage.Internal;
@@ -125,8 +124,6 @@ namespace Sucrose.Update
             if (SSSHI.Basic(SMR.UpdateMutex, SMR.Update))
             {
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, false);
-
-                SSSHU.ControlGuid();
 
                 Configure();
             }

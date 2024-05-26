@@ -6,7 +6,6 @@ using SESET = Skylark.Enum.StorageType;
 using SESNT = Skylark.Enum.ScreenType;
 using SHC = Skylark.Helper.Culture;
 using SHS = Skylark.Helper.Skymath;
-using SHG = Skylark.Helper.Guidly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMR = Sucrose.Memory.Readonly;
@@ -136,8 +135,6 @@ namespace Sucrose.Manager.Manage
         public static bool VolumeDesktop => SMMI.EngineSettingManager.GetSetting(SMC.VolumeDesktop, false);
 
         public static string PingType => SMMI.BackgroundogSettingManager.GetSetting(SMC.PingType, "Bing");
-
-        public static Guid Guid => SMMI.UserSettingManager.GetSetting(SMC.Guid, SHG.TextToGuid(SMR.Guid));
 
         public static bool DonateVisible => SMMI.DonateSettingManager.GetSetting(SMC.DonateVisible, true);
 

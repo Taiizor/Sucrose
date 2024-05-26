@@ -10,15 +10,18 @@ namespace Sucrose.Shared.Theme.Helper
             if (reader.TokenType == JsonToken.String)
             {
                 string versionString = (string)reader.Value;
+
                 return new Version(versionString);
             }
             else if (reader.TokenType == JsonToken.StartObject)
             {
                 JObject jObject = JObject.Load(reader);
+
                 int major = (int)jObject["Major"];
                 int minor = (int)jObject["Minor"];
                 int build = (int)jObject["Build"];
                 int revision = (int)jObject["Revision"];
+
                 return new Version(major, minor, build, revision);
             }
 

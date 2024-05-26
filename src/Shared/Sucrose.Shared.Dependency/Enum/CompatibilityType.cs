@@ -10,6 +10,7 @@
         Type,
         Title,
         Author,
+        Folder,
         Source,
         Contact,
         Preview,

@@ -70,6 +70,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema, uygulamanın desteklemediği bir tür için oluşturulmuş</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' değeri boş veya çok uzun</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' değeri boş veya çok uzun</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Tema dosyaları arşivin ana dizininde değil</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' dosyası bulunamadı</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' değeri boş veya çok uzun</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview' dosyası bulunamadı</system:String>

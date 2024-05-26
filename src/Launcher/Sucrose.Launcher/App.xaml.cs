@@ -12,7 +12,6 @@ using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
 using SSLMI = Sucrose.Shared.Launcher.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
-using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSSLSS = Sucrose.Shared.Signal.Services.LauncherSignalService;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
@@ -158,8 +157,6 @@ namespace Sucrose.Launcher
 
             if (SSSHI.Basic(SMR.LauncherMutex, SMR.Launcher))
             {
-                SSSHU.ControlGuid();
-
                 Configure();
 
                 SMMI.LauncherLogManager.Log(SELLT.Info, "Application initialized..");

@@ -38,6 +38,11 @@ namespace Sucrose.Shared.Zip.Helper
                 //    return SSDECT.Encrypt;
                 //}
 
+                if (!SSZHZ.CheckFolder(Archive))
+                {
+                    return SSDECT.Folder;
+                }
+
                 if (!SSZHZ.CheckFile(Archive, SMR.SucroseInfo))
                 {
                     return SSDECT.InfoFile;

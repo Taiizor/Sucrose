@@ -9,6 +9,11 @@ namespace Sucrose.Shared.Theme.Helper
             return JsonConvert.SerializeObject(Self, Converter.Settings);
         }
 
+        public static string ToJson(this Compatible Self)
+        {
+            return JsonConvert.SerializeObject(Self, Converter.Settings);
+        }
+
         public static string ToJson(this Properties Self)
         {
             return JsonConvert.SerializeObject(Self, Converter.Settings);
