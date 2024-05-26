@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' indeho
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Type,Tema er oprettet til en ukendt typen
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Title,'Title' er enten tomt eller for langt
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Author,'Author' er enten tomt eller for langt
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Folder,Temafiler er ikke i rodmappe af arkivet
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Source,Kunne ikke finde 'Source'-filen
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' er enten tomt eller for langt
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Preview,Kunne ikke finde 'Preview'-filen

@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Tags,För många '
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Type,Temat är skapat för en typ som inte stöds av applikationen
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Title,'Title' är tomt eller för långt
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Author,'Author' är tomt eller för långt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Folder,Temafilerna finns inte i rotkatalogen för arkivet
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Source,Filen 'Source' kunde inte hittas
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' är tomt eller för långt
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CompatibilityType.Preview,Filen 'Preview' kunde inte hittas

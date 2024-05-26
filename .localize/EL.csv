@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' περ
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Type,Το θέμα δημιουργήθηκε για έναν τύπο που η εφαρμογή δεν υποστηρίζει
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Title,Η τιμή 'Title' είναι άδεια ή πολύ μεγάλη
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Author,Η τιμή 'Author' είναι άδεια ή πολύ μεγάλη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Folder,Τα αρχεία θεμάτων δεν βρίσκονται στον ριζικό κατάλογο του αρχείου
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Source,Το αρχείο 'Source' δεν βρέθηκε
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Contact,Η τιμή 'Contact' είναι άδεια ή πολύ μεγάλη
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Preview,Το αρχείο 'Preview' δεν βρέθηκε

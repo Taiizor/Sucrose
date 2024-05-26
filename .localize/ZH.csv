@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' 包含
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Type,主题针对应用不支持的类型创建
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Title,'Title' 值为空或太长
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Author,'Author' 值为空或太长
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Folder,主题文件不在存档的根目录中
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Source,'Source' 文件未找到
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' 值为空或太长
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' 文件未找到

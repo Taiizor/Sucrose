@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' ma zby
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Type,Motyw został stworzony dla nieobsługiwanego typu
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Title,Wartość 'Title' jest pusta lub zbyt długa
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Author,Wartość 'Author' jest pusta lub zbyt długa
+Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Folder,Pliki motywów nie znajdują się w głównym katalogu archiwum
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Source,Brak pliku 'Source'
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Contact,Wartość 'Contact' jest pusta lub zbyt długa
 Portal\Enum\Portal.Enum.PL.xaml,Portal.Enum.CompatibilityType.Preview,Brak pliku 'Preview'

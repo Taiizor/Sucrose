@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Tags,Troppi valori
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Type,Tema creato per un tipo non supportato dall'applicazione
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Title,Valore 'Title' vuoto o troppo lungo
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Author,Valore 'Author' vuoto o troppo lungo
+Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Folder,I file del tema non sono nella directory principale dell'archivio
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Source,File 'Source' non trovato
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Contact,Valore 'Contact' vuoto o troppo lungo
 Portal\Enum\Portal.Enum.IT.xaml,Portal.Enum.CompatibilityType.Preview,File 'Preview' non trovato

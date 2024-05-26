@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' memili
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Type,Tema dibuat untuk jenis yang tidak didukung oleh aplikasi
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Title,Nilai 'Title' kosong atau terlalu panjang
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Author,Nilai 'Author' kosong atau terlalu panjang
+Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Folder,File tema tidak berada di direktori root arsip
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Source,Berkas 'Source' tidak ditemukan
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Contact,Nilai 'Contact' kosong atau terlalu panjang
 Portal\Enum\Portal.Enum.ID.xaml,Portal.Enum.CompatibilityType.Preview,Berkas 'Preview' tidak ditemukan

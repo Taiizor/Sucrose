@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Tags,Tagy obsahuj�
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Type,"Téma vytvořeno pro typ, který aplikace nepodporuje"
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Title,Hodnota 'Title' je prázdná nebo příliš dlouhá
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Author,Hodnota 'Author' je prázdná nebo příliš dlouhá
+Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Folder,Soubory témat nejsou ve složce kořenového adresáře archivu
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Source,Soubor 'Source' nebyl nalezen
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Contact,Hodnota 'Contact' je prázdná nebo příliš dlouhá
 Portal\Enum\Portal.Enum.CS.xaml,Portal.Enum.CompatibilityType.Preview,Soubor 'Preview' nebyl nalezen

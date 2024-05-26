@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Tags,Занадт�
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Type,"Тема призначена для типу, який програма не підтримує"
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Title,Значення 'Title' порожнє або занадто довге
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Author,Значення 'Author' порожнє або занадто довге
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Folder,Файли тем не знаходяться в кореневому каталозі архіву
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Source,Файл 'Source' не знайдено
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Contact,Значення 'Contact' порожнє або занадто довге
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Preview,Файл 'Preview' не знайдено

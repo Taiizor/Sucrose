@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' çok f
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Type,"Tema, uygulamanın desteklemediği bir tür için oluşturulmuş"
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Title,'Title' değeri boş veya çok uzun
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Author,'Author' değeri boş veya çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Folder,Tema dosyaları arşivin ana dizininde değil
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Source,'Source' dosyası bulunamadı
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' değeri boş veya çok uzun
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' dosyası bulunamadı

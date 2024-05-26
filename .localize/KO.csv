@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' 값이
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Type,테마가 지원하지 않는 유형용으로 만들어짐
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Title,'Title' 값이 비어 있거나 너무 김
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Author,'Author' 값이 비어 있거나 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Folder,테마 파일이 보관함의 루트 디렉터리에 없습니다
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Source,'Source' 파일을 찾을 수 없음
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' 값이 비어 있거나 너무 김
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' 파일을 찾을 수 없음

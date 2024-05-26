@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Tags,Слишко�
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Type,"Тема создана для типа, который не поддерживается этим приложением"
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Title,Значение 'Title' отсутствует или слишком длинное
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Author,Значение 'Author' отсутствует или слишком длинное
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Folder,Файлы тем не находятся в корневом каталоге архива
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Source,Файл 'Source' не найден
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Contact,Значение 'Contact' отсутствует или слишком длинное
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Preview,Файл 'Preview' не найден

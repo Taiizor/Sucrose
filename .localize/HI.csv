@@ -362,6 +362,7 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' मे
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Type,"थीम, ऐसे एक प्रकार के आवश्यकता नहीं है, जो ऐप्लिकेशन से संगत नहीं है"
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Title,'Title' मान खाली है या बहुत लंबा है
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Author,'Author' मूल्य खाली है या बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Folder,थीम फ़ाइलें आर्काइव के रूट निर्देशिका में नहीं हैं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Source,'Source' फ़ाइल नहीं मिल सकी
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Contact,'Contact' मूल्य खाली है या बहुत लंबा है
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Preview,'Preview' फ़ाइल नहीं मिल सकी

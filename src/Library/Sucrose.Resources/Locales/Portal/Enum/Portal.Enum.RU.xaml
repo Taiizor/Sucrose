@@ -70,6 +70,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Тема создана для типа, который не поддерживается этим приложением</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Значение 'Title' отсутствует или слишком длинное</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Значение 'Author' отсутствует или слишком длинное</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Файлы тем не находятся в корневом каталоге архива</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Файл 'Source' не найден</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Значение 'Contact' отсутствует или слишком длинное</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Файл 'Preview' не найден</system:String>

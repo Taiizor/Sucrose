@@ -70,6 +70,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema er opprettet for en type som ikke støttes av applikasjonen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' verdien er tom eller for lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' verdien er tom eller for lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Temafiler er ikke i rotkatalogen til arkivet</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' filen ble ikke funnet</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' verdien er tom eller for lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">'Preview' filen ble ikke funnet</system:String>

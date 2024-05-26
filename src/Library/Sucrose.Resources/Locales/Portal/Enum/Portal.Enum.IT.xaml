@@ -70,6 +70,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema creato per un tipo non supportato dall'applicazione</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Valore 'Title' vuoto o troppo lungo</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Valore 'Author' vuoto o troppo lungo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Folder">I file del tema non sono nella directory principale dell'archivio</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">File 'Source' non trovato</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Valore 'Contact' vuoto o troppo lungo</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">File 'Preview' non trovato</system:String>

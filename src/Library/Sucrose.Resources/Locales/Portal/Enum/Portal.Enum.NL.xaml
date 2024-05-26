@@ -70,6 +70,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Thema is gemaakt voor een niet-ondersteund type</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' is leeg of te lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' is leeg of te lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Themabestanden bevinden zich niet in de hoofdmap van het archief</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Bestand 'Source' niet gevonden</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' is leeg of te lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Bestand 'Preview' niet gevonden</system:String>

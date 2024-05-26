@@ -70,6 +70,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema creată pentru un tip nepotrivit, neprovizionat de aplicație</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Valoarea 'Title' este goală sau prea lungă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Valoarea 'Author' este goală sau prea lungă</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Fișierele temei nu sunt în directorul rădăcină al arhivei</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Fișierul 'Source' nu a fost găsit</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Contact">Valoarea 'Contact' este goală sau prea lungă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Fișierul 'Preview' nu a fost găsit</system:String>

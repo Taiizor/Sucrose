@@ -70,6 +70,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema er oprettet til en ukendt typen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' er enten tomt eller for langt</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' er enten tomt eller for langt</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Temafiler er ikke i rodmappe af arkivet</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Kunne ikke finde 'Source'-filen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Contact">'Contact' er enten tomt eller for langt</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Preview">Kunne ikke finde 'Preview'-filen</system:String>
