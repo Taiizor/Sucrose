@@ -1,0 +1,18 @@
+{
+  "AppVersion": "24.4.25.0",
+  "Version": "1.0.0.2",
+  "Title": "Rainy",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Customisable rain particles.",
+  "Author": "Dani John",
+  "License": "License.txt",
+  "Contact": "https://github.com/rocksdanister",
+  "Type": 2,
+  "Source": "Rainy.html",
+  "Tags": [
+    "Lightning",
+    "Parallax"
+  ],
+  "Arguments": null
+}

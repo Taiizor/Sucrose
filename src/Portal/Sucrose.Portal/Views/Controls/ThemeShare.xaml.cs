@@ -93,7 +93,9 @@ namespace Sucrose.Portal.Views.Controls
             {
                 if (await SSSHN.GetHostEntryAsync())
                 {
-                    Image.Source = LoadImage("Progress");
+                    Image.Source = LoadImage("Loading");
+
+                    await Task.Delay(500);
 
                     string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 

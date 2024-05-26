@@ -1,0 +1,123 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "rainIntensity": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Intensity",
+      "type": "slider",
+      "value": 40
+    },
+    "rainSpeed": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Speed",
+      "type": "slider",
+      "value": 25
+    },
+    "brightness": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Brightness",
+      "type": "slider",
+      "value": 75
+    },
+    "rainNormal": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Normal",
+      "type": "slider",
+      "value": 50
+    },
+    "rainZoom": {
+      "max": 300,
+      "min": 10,
+      "step": 1,
+      "text": "Zoom",
+      "type": "slider",
+      "value": 261
+    },
+    "mediaSelect": {
+      "type": "filedropdown",
+      "value": "mountain-surrounded-with-fog-1772973.jpg",
+      "title": "Select Background Image",
+      "text": "Background (.jpg, .png, .webm)",
+      "desc": "All Images",
+      "filter": "*.jpg|*.jpeg|*.png|*.webm",
+      "folder": "media"
+    },
+    "mediaScaling": {
+      "type": "dropdown",
+      "value": 1,
+      "text": "Scaling",
+      "items": [
+        "Stretch",
+        "Fill"
+      ]
+    },
+    "blurQuality": {
+      "type": "dropdown",
+      "value": 1,
+      "text": "Blur Quality",
+      "items": [
+        "Off",
+        "Low",
+        "High",
+        "Very High"
+      ]
+    },
+    "blurIntensity": {
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "text": "Blur Intensity",
+      "type": "slider",
+      "value": 50
+    },
+    "parallaxIntensity": {
+      "max": 5,
+      "min": 0,
+      "step": 1,
+      "text": "Parallax",
+      "type": "slider",
+      "value": 1
+    },
+    "displayScaling": {
+      "max": 2,
+      "min": 0.1,
+      "step": 0.01,
+      "text": "Scaling",
+      "type": "slider",
+      "value": 1
+    },
+    "animateChk": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Panning"
+    },
+    "postProcessingChk": {
+      "type": "checkbox",
+      "value": true,
+      "text": "Post Processing"
+    },
+    "lightningChk": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Lightning"
+    },
+    "fpsLock": {
+      "type": "checkbox",
+      "value": true,
+      "text": "30FPS Lock"
+    },
+    "debug": {
+      "type": "checkbox",
+      "value": false,
+      "text": "Debug"
+    }
+  }
+}

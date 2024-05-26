@@ -1,0 +1,57 @@
+body {
+  background-color: #000;
+  margin: 0px;
+  overflow: hidden;
+  background: url(./../assets/temp_background.webp) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#container {
+  transform: scale(1.09);
+  z-index: -10;
+  opacity: 0; /*set to 1 after sceneLoaded event*/
+}
+
+/*loading progressbar*/
+.indeterminate-progress-bar {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  background-color: #d1d5db;
+  height: 5px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  animation: fade-in 1s ease;
+}
+
+.indeterminate-progress-bar__progress {
+  background-color: #345681;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 50%;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: indeterminate-progress-bar;
+}
+
+@keyframes indeterminate-progress-bar {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

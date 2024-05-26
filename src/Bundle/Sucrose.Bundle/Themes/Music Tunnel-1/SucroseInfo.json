@@ -1,0 +1,17 @@
+{
+  "AppVersion": "24.4.24.0",
+  "Version": "1.0.0.2",
+  "Title": "Music Tunnel",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Mesmerizing infinite music tunnel",
+  "Author": "Dani John",
+  "License": "License.txt",
+  "Contact": "https://github.com/rocksdanister",
+  "Type": 2,
+  "Source": "Tunnel.html",
+  "Tags": [
+    "Worm"
+  ],
+  "Arguments": null
+}
