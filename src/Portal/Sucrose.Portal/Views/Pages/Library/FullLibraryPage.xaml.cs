@@ -46,7 +46,7 @@ namespace Sucrose.Portal.Views.Pages.Library
 
             if (Search.Any())
             {
-                foreach (KeyValuePair<string, string> Pair in Searches.ToArray().Where(Pair => Search.Any(Pattern => Pair.Value.Contains(Pattern))))
+                foreach (KeyValuePair<string, string> Pair in Searches.ToArray().Select(Pair => new { Pair.Key, Pair.Value, MatchCount = CountMatchingWords(Pair.Value, Search) }).Where(Pair => Pair.MatchCount > 0).OrderByDescending(Pair => Pair.MatchCount).ToDictionary(Pair => Pair.Key, Pair => Pair.Value))
                 {
                     if (SMMM.LibraryPagination * Page > Count && SMMM.LibraryPagination * Page <= Count + SMMM.LibraryPagination)
                     {
@@ -97,6 +97,11 @@ namespace Sucrose.Portal.Views.Pages.Library
             }
 
             ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMM.LibraryPagination);
+        }
+
+        private static int CountMatchingWords(string Text, string[] Words)
+        {
+            return Text.Split(' ').Count(Word => Words.Contains(Word));
         }
 
         private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)

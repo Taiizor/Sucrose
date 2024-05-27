@@ -245,7 +245,7 @@ namespace Sucrose.Portal.Views.Windows
             try
             {
                 await Task.Delay(500, Searching.Token);
-                
+
                 SPMI.SearchService.SearchText = SearchBox.Text;
 
                 Dispose();
