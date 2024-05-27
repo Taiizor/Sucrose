@@ -175,10 +175,9 @@ namespace Sucrose.Portal.Views.Pages
 
                 IEnumerable<string> SearchText = Info.Title.Split(' ')
                            .Concat(Info.Description.Split(' '))
-                           .Concat(Info.Tags ?? Array.Empty<string>())
-                           .Distinct();
+                           .Concat(Info.Tags ?? Array.Empty<string>());
 
-                Searches.Add(Theme, string.Join(" ", SearchText).ToLowerInvariant());
+                Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
 
                 if (SSDMM.LibrarySortMode == SSDESMT.Name)
                 {

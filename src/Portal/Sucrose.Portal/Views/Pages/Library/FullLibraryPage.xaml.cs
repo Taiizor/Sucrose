@@ -99,9 +99,9 @@ namespace Sucrose.Portal.Views.Pages.Library
             ThemePagination.MaxPage = (int)Math.Ceiling((double)Count / SMMM.LibraryPagination);
         }
 
-        private static int CountMatchingWords(string Text, string[] Words)
+        private static int CountMatchingWords(string Text, string[] Pattern)
         {
-            return Text.Split(' ').Count(Word => Words.Contains(Word));
+            return Text.Split(' ').Count(Word => Pattern.Any(Words => Word.Contains(Words)));
         }
 
         private async void FullLibraryPage_Loaded(object sender, RoutedEventArgs e)
