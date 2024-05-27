@@ -35,7 +35,7 @@ namespace Sucrose.Portal.Views.Controls
                         TextWrapping = TextWrapping.WrapWithOverflow,
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Foreground = Types.Any(Type => Message.Contains($"'{Type}'.")) ? SRER.GetResource<Brush>("SystemFillColorCriticalBrush") : SRER.GetResource<Brush>("SystemFillColorSuccessBrush")
+                        Foreground = Types.Any(Type => Message.Contains($"'{Type}'.") || Message.Contains($"'{Type}'।") || Message.Contains($"'{Type}'。")) ? SRER.GetResource<Brush>("SystemFillColorCriticalBrush") : SRER.GetResource<Brush>("SystemFillColorSuccessBrush")
                     });
                 });
             }

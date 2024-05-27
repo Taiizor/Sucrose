@@ -78,72 +78,52 @@ namespace Sucrose.Shared.Engine.Event
             SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
         }
 
-        public static async void DisplaySettingsChanged(Window Window, DateTime DisplayChanged)
+        public static async void DisplaySettingsChanged(Window Window)
         {
-            SSEMI.DisplayChanged = DisplayChanged;
+            SSEMI.Displaying?.Cancel();
+
+            SSEMI.Displaying = new CancellationTokenSource();
 
             Window.Hide();
 
-            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2))
+            try
             {
-                await Task.Delay(500);
+                await Task.Delay(2000, SSEMI.Displaying.Token);
 
-                if (SSEMI.DisplayChanged != DisplayChanged)
-                {
-                    return;
-                }
+                SWUS.Initialize();
+
+                await Task.Delay(500, SSEMI.Displaying.Token);
+
+                ContentRendered(Window);
+
+                Window.Show();
             }
-
-            SWUS.Initialize();
-
-            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2.5))
-            {
-                await Task.Delay(500);
-
-                if (SSEMI.DisplayChanged != DisplayChanged)
-                {
-                    return;
-                }
-            }
-
-            ContentRendered(Window);
-
-            Window.Show();
+            catch (TaskCanceledException) { }
         }
 
-        public static async void DisplaySettingsChanged(SSDSHS Application, DateTime DisplayChanged)
+        public static async void DisplaySettingsChanged(SSDSHS Application)
         {
-            SSEMI.DisplayChanged = DisplayChanged;
+            SSEMI.Displaying?.Cancel();
+
+            SSEMI.Displaying = new CancellationTokenSource();
 
             SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
             SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_HIDE);
 
-            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2))
+            try
             {
-                await Task.Delay(500);
+                await Task.Delay(2000, SSEMI.Displaying.Token);
 
-                if (SSEMI.DisplayChanged != DisplayChanged)
-                {
-                    return;
-                }
+                SWUS.Initialize();
+
+                await Task.Delay(500, SSEMI.Displaying.Token);
+
+                ApplicationRendered(Application);
+
+                SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+                SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
             }
-
-            SWUS.Initialize();
-
-            while (DateTime.Now - SSEMI.DisplayChanged < TimeSpan.FromSeconds(2.5))
-            {
-                await Task.Delay(500);
-
-                if (SSEMI.DisplayChanged != DisplayChanged)
-                {
-                    return;
-                }
-            }
-
-            ApplicationRendered(Application);
-
-            SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
-            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+            catch (TaskCanceledException) { }
         }
     }
 }

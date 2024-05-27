@@ -69,7 +69,7 @@ namespace Sucrose.Shared.Engine.Manage
 
         public delegate Task<string> ExecuteTask(string script);
 
-        public static DateTime DisplayChanged = DateTime.MinValue;
+        public static CancellationTokenSource Displaying = new();
 
         public static readonly DispatcherTimer GeneralTimer = new();
 

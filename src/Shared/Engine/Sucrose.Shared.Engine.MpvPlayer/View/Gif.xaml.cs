@@ -21,7 +21,7 @@ namespace Sucrose.Shared.Engine.MpvPlayer.View
         {
             InitializeComponent();
 
-            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this, DateTime.Now);
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEEH.DisplaySettingsChanged(this);
 
             SSEMPMI.Source = SSEHS.GetSource(Gif).ToString();
 

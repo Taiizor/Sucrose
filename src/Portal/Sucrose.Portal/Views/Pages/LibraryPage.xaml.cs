@@ -28,6 +28,8 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class LibraryPage : INavigableView<SPVMPLVM>, IDisposable
     {
+        private readonly Dictionary<string, string> Searches = new();
+
         private static List<string> Themes = SMMM.Themes;
 
         private SPVPLELP EmptyLibraryPage { get; set; }
@@ -169,10 +171,18 @@ namespace Sucrose.Portal.Views.Pages
             foreach (string Theme in Themes)
             {
                 string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
+                SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                IEnumerable<string> SearchText = Info.Title.Split(' ')
+                           .Concat(Info.Description.Split(' '))
+                           .Concat(Info.Tags ?? Array.Empty<string>())
+                           .Distinct();
+
+                Searches.Add(Theme, string.Join(" ", SearchText).ToLowerInvariant());
 
                 if (SSDMM.LibrarySortMode == SSDESMT.Name)
                 {
-                    SortThemes.Add(Theme, SSTHI.ReadJson(InfoPath).Title);
+                    SortThemes.Add(Theme, Info.Title);
                 }
                 else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
                 {
@@ -203,7 +213,7 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (Themes.Any())
             {
-                FullLibraryPage = new(Themes);
+                FullLibraryPage = new(Searches, Themes);
 
                 FrameLibrary.Content = FullLibraryPage;
             }

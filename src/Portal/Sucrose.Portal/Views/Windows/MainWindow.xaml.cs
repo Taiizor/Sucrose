@@ -30,6 +30,8 @@ namespace Sucrose.Portal.Views.Windows
     /// </summary>
     public partial class MainWindow : SPSCIW, IDisposable
     {
+        private CancellationTokenSource Searching { get; set; }
+
         public SPVMWMWVM ViewModel { get; }
 
         public MainWindow(SPVMWMWVM ViewModel, INavigationService NavigationService, IServiceProvider ServiceProvider, ISnackbarService SnackbarService, IContentDialogService ContentDialogService)
@@ -217,13 +219,6 @@ namespace Sucrose.Portal.Views.Windows
             }
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            SPMI.SearchService.SearchText = SearchBox.Text;
-
-            Dispose();
-        }
-
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ApplySearch(e.NewSize.Width);
@@ -239,6 +234,23 @@ namespace Sucrose.Portal.Views.Windows
         private void RootView_Navigated(NavigationView sender, NavigatedEventArgs args)
         {
             Dispose();
+        }
+
+        private async void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Searching?.Cancel();
+
+            Searching = new CancellationTokenSource();
+
+            try
+            {
+                await Task.Delay(500, Searching.Token);
+                
+                SPMI.SearchService.SearchText = SearchBox.Text;
+
+                Dispose();
+            }
+            catch (TaskCanceledException) { }
         }
 
         private void RootView_Navigating(NavigationView sender, NavigatingCancelEventArgs args)

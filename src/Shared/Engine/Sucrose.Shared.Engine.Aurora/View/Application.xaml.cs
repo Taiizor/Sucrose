@@ -59,7 +59,7 @@ namespace Sucrose.Shared.Engine.Aurora.View
                 SSEEH.ApplicationRendered(Application);
             });
 
-            SystemEvents.DisplaySettingsChanged += (s, e) => SSEMI.Applications.ForEach(Application => SSEEH.DisplaySettingsChanged(Application, DateTime.Now));
+            SystemEvents.DisplaySettingsChanged += (s, e) => SSEMI.Applications.ForEach(Application => SSEEH.DisplaySettingsChanged(Application));
 
             SSEAHA.SetVolume(SSEHD.GetVolume());
 
