@@ -338,9 +338,12 @@ namespace Sucrose.Portal.Views.Pages
 
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
         {
-            Dispose();
+            if (string.IsNullOrEmpty(SPMI.SearchService.SearchText) || !string.IsNullOrWhiteSpace(SPMI.SearchService.SearchText))
+            {
+                Dispose();
 
-            await Start(true);
+                await Start(true);
+            }
         }
 
         private async void LibraryService_CreatedWallpaper(object sender, EventArgs e)

@@ -210,6 +210,10 @@ namespace Sucrose.Portal.Views.Pages.Store
             {
                 return true;
             }
+            else if (string.IsNullOrWhiteSpace(Search))
+            {
+                return true;
+            }
             else
             {
                 if (Title.Contains(Search))
@@ -251,15 +255,18 @@ namespace Sucrose.Portal.Views.Pages.Store
 
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
         {
-            Dispose();
+            if (string.IsNullOrEmpty(SPMI.SearchService.SearchText) || !string.IsNullOrWhiteSpace(SPMI.SearchService.SearchText))
+            {
+                Dispose();
 
-            Searching = true;
+                Searching = true;
 
-            ThemePagination.SelectPage = 1;
+                ThemePagination.SelectPage = 1;
 
-            await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+                await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
 
-            Searching = false;
+                Searching = false;
+            }
         }
 
         private async void ThemePagination_SelectPageChanged(object sender, EventArgs e)

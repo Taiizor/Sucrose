@@ -25,7 +25,7 @@
             }
         }
 
-        public string[] SearchList => _SearchText.Trim().Replace("  ", " ").Split(' ');
+        public string[] SearchList => CleanSpaces(_SearchText);
 
         public string BeforeSearchText
         {
@@ -40,7 +40,12 @@
             }
         }
 
-        public string[] BeforeSearchList => _BeforeSearchText.Trim().Replace("  ", " ").Split(' ');
+        public string[] BeforeSearchList => CleanSpaces(_BeforeSearchText);
+
+        private static string[] CleanSpaces(string Text)
+        {
+            return Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        }
 
         public void Dispose()
         {
