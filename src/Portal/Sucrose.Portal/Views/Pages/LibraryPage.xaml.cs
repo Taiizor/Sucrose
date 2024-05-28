@@ -28,7 +28,7 @@ namespace Sucrose.Portal.Views.Pages
     /// </summary>
     public partial class LibraryPage : INavigableView<SPVMPLVM>, IDisposable
     {
-        private readonly Dictionary<string, string> Searches = new();
+        private Dictionary<string, string> Searches = new();
 
         private static List<string> Themes = SMMM.Themes;
 
@@ -167,6 +167,8 @@ namespace Sucrose.Portal.Views.Pages
             }
 
             Dictionary<string, object> SortThemes = new();
+
+            Searches.Clear();
 
             foreach (string Theme in Themes)
             {

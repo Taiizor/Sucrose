@@ -13,10 +13,10 @@ namespace Sucrose.Shared.Store.Interface
         [JsonProperty("Cover", Required = Required.Always)]
         public string Cover { get; set; } = string.Empty;
 
-        [JsonProperty("Search", Required = Required.Default)]
-        public string Search { get; set; } = string.Empty;
-
         [JsonProperty("Source", Required = Required.Always)]
         public string Source { get; set; } = string.Empty;
+
+        [JsonProperty("Pattern", Required = Required.Default)]
+        public string Pattern { get; set; } = string.Empty;
     }
 }

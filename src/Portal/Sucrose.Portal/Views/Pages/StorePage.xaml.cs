@@ -47,17 +47,25 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (SSSHN.GetHostEntry())
             {
+                string PatternFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.PatternFile);
                 string StoreFile = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.StoreFile);
 
                 bool Result = SSDMM.StoreType switch
                 {
                     SSDEST.GitHub => SSSHGHD.Store(StoreFile, SMMM.UserAgent, SMMM.Key),
-                    _ => SSSHSD.Store(StoreFile, SMMM.UserAgent),
+                    _ => SSSHSD.Store(StoreFile, SMMM.UserAgent)
                 };
 
                 if (Result)
                 {
-                    Root = SSSHS.DeserializeRoot(StoreFile);
+                    if (SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
+                    {
+                        Root = SSSHS.DeserializeRoot(PatternFile);
+                    }
+                    else
+                    {
+                        Root = SSSHS.DeserializeRoot(StoreFile);
+                    }
 
                     StoreStage = SSDESST.Full;
                 }

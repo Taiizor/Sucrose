@@ -72,6 +72,63 @@ namespace Sucrose.Shared.Store.Helper.Soferity
             return false;
         }
 
+        public static bool Pattern(string Pattern, string Agent)
+        {
+            if (Directory.Exists(Path.GetDirectoryName(Pattern)))
+            {
+                if (File.Exists(Pattern))
+                {
+                    DateTime CurrentTime = DateTime.Now;
+                    DateTime ModificationTime = File.GetLastWriteTime(Pattern);
+
+                    TimeSpan ElapsedDuration = CurrentTime - ModificationTime;
+
+                    if (ElapsedDuration >= TimeSpan.FromHours(SMMM.StoreDuration) || !SSSHS.CheckRoot(Pattern))
+                    {
+                        File.Delete(Pattern);
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(Pattern));
+            }
+
+            InitializeClient(Agent);
+
+            try
+            {
+                using HttpResponseMessage Response = SSSMI.Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityPattern}").Result;
+
+                Response.EnsureSuccessStatusCode();
+
+                if (Response.IsSuccessStatusCode)
+                {
+                    using HttpContent HContent = Response.Content;
+
+                    using Stream Stream = HContent.ReadAsStreamAsync().Result;
+                    using FileStream FStream = new(Pattern, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+
+                    Stream.CopyTo(FStream);
+
+                    Stream.Dispose();
+                    FStream.Dispose();
+
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return false;
+        }
+
         public static bool Cache(KeyValuePair<string, SSSIW> Wallpaper, string Theme, string Agent)
         {
             string Info = Path.Combine(Theme, SMR.SucroseInfo);

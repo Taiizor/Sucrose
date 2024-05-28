@@ -10,7 +10,7 @@ namespace Sucrose.Shared.Launcher.Command
     {
         public static void Command()
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Interface}{SMR.ValueSeparator}{SSSMI.Portal}{SMR.ValueSeparator}{SSDEACT.Setting}");
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Interface}{SMR.ValueSeparator}{SSSMI.Portal}{SMR.ValueSeparator}{SSDEACT.GeneralSetting}");
         }
     }
 }

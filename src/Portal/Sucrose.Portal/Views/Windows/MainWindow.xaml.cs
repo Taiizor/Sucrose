@@ -5,12 +5,12 @@ using System.Windows.Input;
 using Wpf.Ui;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
-using XamlAnimatedGif;
 using Button = Wpf.Ui.Controls.Button;
 using SCHB = Skylark.Clipboard.Helper.Board;
 using SEWTT = Skylark.Enum.WindowsThemeType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
@@ -22,6 +22,7 @@ using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
+using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
 namespace Sucrose.Portal.Views.Windows
 {
@@ -83,15 +84,15 @@ namespace Sucrose.Portal.Views.Windows
 
             string[] Args = Environment.GetCommandLineArgs();
 
-            if (Args.Count() > 1 && Args[1] == $"{SSDEACT.Setting}")
-            {
-                ApplySetting(false);
-                RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPSGSP));
-            }
-            else if (Args.Count() > 1 && Args[1] == $"{SSDEACT.SystemSetting}")
+            if (Args.Count() > 1 && Args[1] == $"{SSDEACT.SystemSetting}")
             {
                 ApplySetting(false);
                 RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPSSSP));
+            }
+            else if (Args.Count() > 1 && Args[1] == $"{SSDEACT.GeneralSetting}")
+            {
+                ApplySetting(false);
+                RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPSGSP));
             }
             else
             {
@@ -99,7 +100,9 @@ namespace Sucrose.Portal.Views.Windows
                 RootView.Loaded += (_, _) => RootView.Navigate(typeof(SPVPLP));
             }
 
-            AnimationBehavior.SetDownloadCacheLocation(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary));
+            SXAGAB.SetClientUserAgent(SMMM.UserAgent);
+            SXAGAB.SetDownloadCacheExpiration(TimeSpan.FromHours(SMMM.StoreDuration));
+            SXAGAB.SetDownloadCacheLocation(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary));
         }
 
         private void ApplyTheme(Button Button)

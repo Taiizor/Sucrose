@@ -72,7 +72,11 @@
 
         public static readonly string FirstLaunch = "FirstLaunch";
 
+        public static readonly string SoferityPattern = "Pattern";
+
         public static readonly string HostEntry = "www.google.com";
+
+        public static readonly string PatternFile = "Pattern.json";
 
         public static readonly string Update = "Sucrose.Update.exe";
 

@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using XamlAnimatedGif;
 using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
 using SHV = Skylark.Helper.Versionly;
@@ -33,6 +32,7 @@ using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -268,7 +268,7 @@ namespace Sucrose.Portal.Views.Controls
             if (Info != null && SMMM.StorePreview)
             {
                 Imaginer.Source = null;
-                AnimationBehavior.SetSourceUri(Imaginer, null);
+                SXAGAB.SetSourceUri(Imaginer, null);
 
                 Imagine.Visibility = Visibility.Visible;
                 Imaginer.Visibility = Visibility.Hidden;
@@ -288,8 +288,8 @@ namespace Sucrose.Portal.Views.Controls
             {
                 string GifPath = $"{SSSHS.Source(SSDMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
 
-                AnimationBehavior.SetSourceUri(Imaginer, new(GifPath));
-                AnimationBehavior.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);
+                SXAGAB.SetSourceUri(Imaginer, new(GifPath));
+                SXAGAB.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);
             }
         }
 

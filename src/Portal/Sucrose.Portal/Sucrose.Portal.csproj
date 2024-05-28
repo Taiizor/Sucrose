@@ -70,7 +70,6 @@
     <ItemGroup>
         <PackageReference Include="Skylark.Wing" Version="3.1.4.7" />
         <PackageReference Include="XamlFlair.WPF" Version="1.2.13" />
-        <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
         <PackageReference Include="WPF-UI" Version="3.0.0-preview.7" />
         <PackageReference Include="Skylark.Standard" Version="3.1.5.5" />
         <PackageReference Include="Skylark.Clipboard" Version="3.1.3.4" />
@@ -102,6 +101,7 @@
         <ProjectReference Include="..\..\Library\Sucrose.Signal\Sucrose.Signal.csproj" />
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
         <ProjectReference Include="..\..\Library\Sucrose.Resources\Sucrose.Resources.csproj" />
+        <ProjectReference Include="..\..\Library\Sucrose.XamlAnimatedGif\Sucrose.XamlAnimatedGif.csproj" />
     </ItemGroup>
 
     <Import Project="..\..\Shared\Sucrose.Shared.Zip\Sucrose.Shared.Zip.projitems" Label="Shared" />

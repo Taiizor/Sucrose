@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Sucrose.Shared.Store.Interface;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,11 +10,9 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCSC = Sucrose.Portal.Views.Controls.StoreCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSSHC = Sucrose.Shared.Space.Helper.Clean;
-using SSSHT = Sucrose.Shared.Space.Helper.Tags;
 using SSSIC = Sucrose.Shared.Store.Interface.Category;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 
 namespace Sucrose.Portal.Views.Pages.Store
 {
@@ -147,7 +146,7 @@ namespace Sucrose.Portal.Views.Pages.Store
                 });
         }
 
-        private async Task AddThemes(int Page, string Text, string Tag)
+        private async Task AddThemes(string[] Search, string Text, int Page, string Tag)
         {
             await Application.Current.Dispatcher.InvokeAsync(async () =>
             {
@@ -157,23 +156,55 @@ namespace Sucrose.Portal.Views.Pages.Store
 
                 ThemePagination.Visibility = Visibility.Collapsed;
 
-                foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
+                if (Search.Any())
                 {
-                    if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.Key == SPMI.CategoryService.CategoryTag)
+                    foreach ((string CategoryKey, string WallpaperKey, SSSIW Wallpaper) Category in GetSortedWallpapers(Root, Search))
                     {
-                        foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
+                        if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.CategoryKey == SPMI.CategoryService.CategoryTag)
                         {
-                            if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMM.Adult))
+                            if (!Category.Wallpaper.Adult || (Category.Wallpaper.Adult && SMMM.Adult))
                             {
-                                string Title = Wallpaper.Key.ToLowerInvariant();
-                                string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
-
-                                if (SearchControl(Text, Theme, Title))
+                                if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchList.Any() && SPMI.SearchService.SearchText == Text)
                                 {
-                                    if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && SPMI.SearchService.SearchText == Text)
+                                    if (SMMM.StorePagination * Page > Count && SMMM.StorePagination * Page <= Count + SMMM.StorePagination)
+                                    {
+                                        string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.CategoryKey, SSSHC.FileName(Category.WallpaperKey));
+
+                                        SPVCSC StoreCard = new(Theme, new(Category.WallpaperKey, Category.Wallpaper), SMMM.UserAgent, SMMM.Key);
+
+                                        ThemeStore.Children.Add(StoreCard);
+
+                                        Empty.Visibility = Visibility.Collapsed;
+
+                                        await Task.Delay(50);
+                                    }
+
+                                    Count++;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (KeyValuePair<string, SSSIC> Category in Root.Categories)
+                    {
+                        if (string.IsNullOrEmpty(SPMI.CategoryService.CategoryTag) || Category.Key == SPMI.CategoryService.CategoryTag)
+                        {
+                            foreach (KeyValuePair<string, SSSIW> Wallpaper in Category.Value.Wallpapers)
+                            {
+                                if (!Wallpaper.Value.Adult || (Wallpaper.Value.Adult && SMMM.Adult))
+                                {
+                                    if (ThemePagination.SelectPage == Page && SPMI.CategoryService.CategoryTag == Tag && !SPMI.SearchService.SearchList.Any())
                                     {
                                         if (SMMM.StorePagination * Page > Count && SMMM.StorePagination * Page <= Count + SMMM.StorePagination)
                                         {
+                                            string Theme = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, Category.Key, SSSHC.FileName(Wallpaper.Key));
+
                                             SPVCSC StoreCard = new(Theme, Wallpaper, SMMM.UserAgent, SMMM.Key);
 
                                             ThemeStore.Children.Add(StoreCard);
@@ -204,43 +235,9 @@ namespace Sucrose.Portal.Views.Pages.Store
             });
         }
 
-        private bool SearchControl(string Search, string Theme, string Title)
+        private static int CountMatchingWords(string Text, string[] Pattern)
         {
-            if (string.IsNullOrEmpty(Search))
-            {
-                return true;
-            }
-            else if (string.IsNullOrWhiteSpace(Search))
-            {
-                return true;
-            }
-            else
-            {
-                if (Title.Contains(Search))
-                {
-                    return true;
-                }
-                else
-                {
-                    string InfoPath = Path.Combine(Theme, SMR.SucroseInfo);
-
-                    if (File.Exists(InfoPath))
-                    {
-                        SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                        Title = Info.Title.ToLowerInvariant();
-                        string Description = Info.Description.ToLowerInvariant();
-                        string Tags = SSSHT.Join(Info.Tags, SMR.SearchSplit, true, string.Empty);
-
-                        if (Tags.Contains(Search) || Title.Contains(Search) || Description.Contains(Search))
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-
-            return false;
+            return Text.Split(' ').Count(Word => Pattern.Any(Words => Word.Contains(Words)));
         }
 
         private async void FullStorePage_Loaded(object sender, RoutedEventArgs e)
@@ -250,7 +247,7 @@ namespace Sucrose.Portal.Views.Pages.Store
             ThemeStore.ItemMargin = new Thickness(SMMM.AdaptiveMargin);
             ThemeStore.MaxItemsPerRow = SMMM.AdaptiveLayout;
 
-            await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+            await AddThemes(SPMI.SearchService.SearchList, SPMI.SearchService.SearchText, ThemePagination.SelectPage, SPMI.CategoryService.CategoryTag);
         }
 
         private async void SearchService_SearchTextChanged(object sender, EventArgs e)
@@ -263,7 +260,7 @@ namespace Sucrose.Portal.Views.Pages.Store
 
                 ThemePagination.SelectPage = 1;
 
-                await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+                await AddThemes(SPMI.SearchService.SearchList, SPMI.SearchService.SearchText, ThemePagination.SelectPage, SPMI.CategoryService.CategoryTag);
 
                 Searching = false;
             }
@@ -275,7 +272,7 @@ namespace Sucrose.Portal.Views.Pages.Store
             {
                 Dispose();
 
-                await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+                await AddThemes(SPMI.SearchService.SearchList, SPMI.SearchService.SearchText, ThemePagination.SelectPage, SPMI.CategoryService.CategoryTag);
             }
         }
 
@@ -283,7 +280,23 @@ namespace Sucrose.Portal.Views.Pages.Store
         {
             Dispose();
 
-            await AddThemes(ThemePagination.SelectPage, SPMI.SearchService.SearchText, SPMI.CategoryService.CategoryTag);
+            await AddThemes(SPMI.SearchService.SearchList, SPMI.SearchService.SearchText, ThemePagination.SelectPage, SPMI.CategoryService.CategoryTag);
+        }
+
+        private static List<(string CategoryKey, string WallpaperKey, SSSIW Wallpaper)> GetSortedWallpapers(SSSIR Root, string[] Words)
+        {
+            return Root.Categories.SelectMany(Category => Category.Value.Wallpapers
+                .Select(Wallpaper => new
+                {
+                    CategoryKey = Category.Key,
+                    Wallpaper = Wallpaper.Value,
+                    WallpaperKey = Wallpaper.Key,
+                    MatchCount = CountMatchingWords(Wallpaper.Value.Pattern ?? Wallpaper.Key.ToLowerInvariant(), Words)
+                }))
+                .Where(Pair => Pair.MatchCount > 0)
+                .OrderByDescending(Pair => Pair.MatchCount)
+                .Select(Pair => (Pair.CategoryKey, Pair.WallpaperKey, Pair.Wallpaper))
+                .ToList();
         }
 
         public void Dispose()

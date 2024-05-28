@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd))</Version>
+        <DefineConstants Condition="$(TargetFramework.StartsWith('net48'))">$(DefineConstants);LACKS_STREAM_MEMORY_OVERLOADS</DefineConstants>
+        <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
+        <OutputPath>..\..\Sucrose\Library\XamlAnimatedGif</OutputPath>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <FileVersion>$(Version)</FileVersion>
+        <LangVersion>preview</LangVersion>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+
+</Project>
