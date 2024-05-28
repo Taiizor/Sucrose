@@ -44,7 +44,8 @@ jobs:
             src/Library/Sucrose.Signal/Sucrose.Signal.csproj,
             src/Library/Sucrose.Manager/Sucrose.Manager.csproj,
             src/Library/Sucrose.Mpv.NET/Sucrose.Mpv.NET.csproj,
-            src/Library/Sucrose.Resources/Sucrose.Resources.csproj
+            src/Library/Sucrose.Resources/Sucrose.Resources.csproj,
+            src/Library/Sucrose.XamlAnimatedGif/Sucrose.XamlAnimatedGif.csproj
         ]
 
     steps:
