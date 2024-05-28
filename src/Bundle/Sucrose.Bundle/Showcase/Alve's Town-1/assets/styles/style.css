@@ -4,6 +4,7 @@ body {
   background-repeat: repeat;
   margin: 0;
   overflow: hidden;
+  user-select: none;
 }
 
 .scene{

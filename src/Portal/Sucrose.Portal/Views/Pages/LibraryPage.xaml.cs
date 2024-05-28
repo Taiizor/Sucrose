@@ -43,7 +43,7 @@ namespace Sucrose.Portal.Views.Pages
             this.ViewModel = ViewModel;
             DataContext = this;
 
-            FirstLaunch();
+            CheckShowcase();
 
             InitializeThemes();
 
@@ -77,27 +77,32 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.LibraryService.CreatedWallpaper += LibraryService_CreatedWallpaper;
         }
 
-        private void FirstLaunch()
+        private void CheckShowcase()
         {
-            string FirstPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.FirstLaunch);
+            string ShowcasePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.Showcase);
 
-            if (!File.Exists(FirstPath))
+            if (Directory.Exists(ShowcasePath))
             {
-                string ThemesPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.Themes);
+                List<string> Showcase = SMMM.Showcase;
+                bool State = false;
 
-                if (Directory.Exists(ThemesPath))
+                if (!Directory.Exists(SMMM.LibraryLocation))
                 {
-                    if (!Directory.Exists(SMMM.LibraryLocation))
-                    {
-                        Directory.CreateDirectory(SMMM.LibraryLocation);
-                    }
+                    Directory.CreateDirectory(SMMM.LibraryLocation);
+                }
 
-                    foreach (string Directory in Directory.GetDirectories(ThemesPath, "*", SearchOption.TopDirectoryOnly))
-                    {
-                        SSSHC.Folder(Directory, Path.Combine(SMMM.LibraryLocation, Path.GetFileName(Directory)), false);
-                    }
+                foreach (string Directory in Directory.GetDirectories(ShowcasePath, "*", SearchOption.TopDirectoryOnly).Where(Theme => !Showcase.Contains(Path.GetFileName(Theme))))
+                {
+                    SSSHC.Folder(Directory, Path.Combine(SMMM.LibraryLocation, Path.GetFileName(Directory)), false);
 
-                    File.Create(FirstPath);
+                    Showcase.Add(Path.GetFileName(Directory));
+
+                    State = true;
+                }
+
+                if (State)
+                {
+                    SMMI.UserSettingManager.SetSetting(SMC.Showcase, Showcase);
                 }
             }
         }

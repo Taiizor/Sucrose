@@ -89,11 +89,11 @@
         <EmbeddedResource Include="Redist\VC_Redist_$(Platform).exe">
             <LogicalName>Redist\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
-        <EmbeddedResource Include="Themes\**">
-            <LogicalName>Themes\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
-        </EmbeddedResource>
         <EmbeddedResource Include="SevenZip\7z-$(Platform)\**">
             <LogicalName>SevenZip\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Showcase\**">
+            <LogicalName>Showcase\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="..\..\Sucrose\Package\Cache\$(TargetFramework)\$(Platform)\**">
             <LogicalName>Caches\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>

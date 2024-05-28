@@ -100,6 +100,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool LibraryPreviewHide => SMMI.PortalSettingManager.GetSetting(SMC.LibraryPreviewHide, false);
 
+        public static List<string> Showcase => SMMI.UserSettingManager.GetSetting(SMC.Showcase, new List<string>());
+
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
         public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0), 0, 10);

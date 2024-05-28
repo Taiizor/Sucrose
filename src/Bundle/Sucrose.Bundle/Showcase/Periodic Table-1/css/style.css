@@ -2,6 +2,7 @@ body {
   background: #101318;
   text-shadow: 0 0 0.4vw currentColor;
   overflow: hidden;
+  user-select: none;
 }
 
 .wrapper {

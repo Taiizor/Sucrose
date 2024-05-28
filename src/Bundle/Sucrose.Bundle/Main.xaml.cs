@@ -44,9 +44,9 @@ namespace Sucrose.Bundle
 
         private static string PackagesFilePath => Path.Combine(PackagesPath, $"{Application}.7z");
 
-        private static string Launcher => Path.Combine(InstallPath, Department, Executable);
+        private static string ShowcasePath => Path.Combine(AppDataPath, Application, Showcase);
 
-        private static string ThemesPath => Path.Combine(AppDataPath, Application, Themes);
+        private static string Launcher => Path.Combine(InstallPath, Department, Executable);
 
         private static string SevenZipPath => Path.Combine(Path.GetTempPath(), SevenZip);
 
@@ -74,13 +74,13 @@ namespace Sucrose.Bundle
 
         private static string Application => "Sucrose";
 
+        private static string Showcase => "Showcase";
+
         private static string SevenZip => "SevenZip";
 
         private static string Publisher => "Taiizor";
 
         private static string Packages => "Packages";
-
-        private static string Themes => "Themes";
 
         private static string Redist => "Redist";
 
@@ -428,19 +428,15 @@ namespace Sucrose.Bundle
             await Task.Delay(MaxDelay);
 
             await ControlDirectory(RedistPath);
-            await ControlDirectory(ThemesPath);
             await ControlDirectory(PackagePath);
             await ControlDirectory(PackagesPath);
             await ControlDirectory(SevenZipPath);
+            await ControlDirectory(ShowcasePath);
             await ControlDirectoryStable(InstallPath);
 
             await Task.Delay(MaxDelay);
 
             await ExtractResources(Redist, RedistPath);
-
-            await Task.Delay(MinDelay);
-
-            await ExtractResources(Themes, ThemesPath);
 
             await Task.Delay(MinDelay);
 
@@ -453,6 +449,10 @@ namespace Sucrose.Bundle
             await Task.Delay(MinDelay);
 
             await ExtractResources(SevenZip, SevenZipPath);
+
+            await Task.Delay(MinDelay);
+
+            await ExtractResources(Showcase, ShowcasePath);
 
             await Task.Delay(MinDelay);
 

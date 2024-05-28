@@ -15,6 +15,7 @@ body {
     margin: 0px;
     overflow: hidden;
     pointer-events: none;
+    user-select: none;
 }
 
 #track-container {

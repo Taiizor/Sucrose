@@ -336,84 +336,88 @@
 						"value" : "4"
 					},
 					{
-						"label" : "Ubuntu 1",
+						"label" : "Pardus",
 						"value" : "5"
 					},
 					{
-						"label" : "Ubuntu 2",
+						"label" : "Ubuntu 1",
 						"value" : "6"
 					},
 					{
-						"label" : "Windows 11",
+						"label" : "Ubuntu 2",
 						"value" : "7"
 					},
 					{
-						"label" : "Windows 10/8",
+						"label" : "Windows 11",
 						"value" : "8"
 					},
 					{
-						"label" : "Windows 7",
+						"label" : "Windows 10/8",
 						"value" : "9"
 					},
 					{
-						"label" : "Visual Studio",
+						"label" : "Windows 7",
 						"value" : "10"
 					},
 					{
-						"label" : "VS Code",
+						"label" : "Visual Studio",
 						"value" : "11"
 					},
 					{
-						"label" : "Unity 1",
+						"label" : "VS Code",
 						"value" : "12"
 					},
 					{
-						"label" : "Unity 2",
+						"label" : "Unity 1",
 						"value" : "13"
 					},
 					{
-						"label" : "Unreal",
+						"label" : "Unity 2",
 						"value" : "14"
 					},
 					{
-						"label" : "Python",
+						"label" : "Unreal",
 						"value" : "15"
 					},
 					{
-						"label" : "Blazor",
+						"label" : "Python",
 						"value" : "16"
 					},
 					{
-						"label" : "Docker",
+						"label" : "Blazor",
 						"value" : "17"
 					},
 					{
-						"label" : "Flutter",
+						"label" : "Docker",
 						"value" : "18"
 					},
 					{
-						"label" : "Git",
+						"label" : "Flutter",
 						"value" : "19"
 					},
 					{
-						"label" : "Blender",
+						"label" : "Git",
 						"value" : "20"
 					},
 					{
-						"label" : "Angular",
+						"label" : "Blender",
 						"value" : "21"
 					},
 					{
-						"label" : "C#",
+						"label" : "Angular",
 						"value" : "22"
 					},
 					{
-						"label" : "C++",
+						"label" : "C#",
 						"value" : "23"
 					},
 					{
-						"label" : "QT",
+						"label" : "C++",
 						"value" : "24"
+					},
+					{
+						"label" : "QT",
+						"value" : "25"
 					}
 				],
 				"order" : 123,
@@ -447,8 +451,8 @@
 				"max" : 10,
 				"min" : 0,
 				"order" : 126,
-				"precision" : 1.1,
-				"step" : 0.79432823,
+				"precision" : 2,
+				"step" : 0.1,
 				"text" : "Logo Scale",
 				"type" : "slider",
 				"value" : 1
@@ -898,12 +902,12 @@
 		"supportsaudioprocessing" : true
 	},
 	"monetization" : false,
-	"preview" : "preview.gif",
+	"preview" : "images/preview.gif",
 	"snapshotformat" : 1,
 	"snapshotoverlay" : "",
-	"tags" : [ "Sci-Fi", "Technology", "Multi-monitor optimized" ],
+	"tags" : [ "Sci-Fi", "Hacker", "Matrix", "Music" ],
 	"title" : "Neo Matrix",
 	"type" : "web",
-	"version" : 0,
+	"version" : 7,
 	"visibility" : "public"
 }

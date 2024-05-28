@@ -1,11 +1,6 @@
 {
   "PropertyListener": "SucrosePropertyListener('{0}', {1});",
   "PropertyList": {
-    "schemecolor": {
-      "text": "Scheme Color",
-      "type": "colorpicker",
-      "value": "#FF000000"
-    },
     "folder_rain": {
       "type": "label",
       "value": "Rain"
@@ -84,7 +79,7 @@
     "ui_characters_charset": {
       "type": "dropdown",
       "text": "Char Set",
-      "value": 4,
+      "value": 3,
       "items": [
         "Custom",
         "English Lttrs",
@@ -167,7 +162,7 @@
     },
     "ui_logo_logo": {
       "type": "dropdown",
-      "text": "Logo Matrix",
+      "text": "Logo",
       "value": 0,
       "items": [
         "None",
@@ -175,6 +170,7 @@
         "IP.AF",
         "Kali 1",
         "Kali 2",
+        "Pardus",
         "Ubuntu 1",
         "Ubuntu 2",
         "Windows 11",
@@ -198,29 +194,29 @@
       ]
     },
     "ui_logo_customlogo": {
-      "text": "Custom Logo Matrix URL (SVG/PNG)",
-      "help": "Enter custom logo matrix url (svg/png)",
+      "text": "Custom Logo URL (SVG/PNG)",
+      "help": "Enter custom logo url (svg/png)",
       "type": "textbox",
       "value": ""
     },
     "ui_logo_preservecolor": {
-      "text": "Preserve Logo Matrix Color",
+      "text": "Preserve Logo Color",
       "type": "checkbox",
       "value": false
     },
     "ui_logo_scale": {
-      "max": 10,
+      "max": 100,
       "min": 0,
       "step": 1,
-      "text": "Logo Matrix Scale",
+      "text": "Logo Scale",
       "type": "slider",
-      "value": 1
+      "value": 10
     },
     "ui_logo_positionx": {
       "max": 2500,
       "min": -2500,
       "step": 1,
-      "text": "Logo Matrix Position X",
+      "text": "Logo Position X",
       "type": "slider",
       "value": 0
     },
@@ -228,7 +224,7 @@
       "max": 2500,
       "min": -2500,
       "step": 1,
-      "text": "Logo Matrix Position Y",
+      "text": "Logo Position Y",
       "type": "slider",
       "value": 0
     },
@@ -464,17 +460,6 @@
       "help": "Enter codes (comma separated)",
       "type": "textbox",
       "value": "IP.AF,THE MATRIX"
-    },
-    "ui_other_preset": {
-      "text": "Preset",
-      "help": "Enter preset",
-      "type": "textbox",
-      "value": ""
-    },
-    "ui_other_debug": {
-      "text": "Debug Mode",
-      "type": "checkbox",
-      "value": false
     }
   }
 }

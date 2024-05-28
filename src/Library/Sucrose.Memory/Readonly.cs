@@ -40,6 +40,8 @@
 
         public static readonly char SearchSplitChar = 'ꕥ';
 
+        public static readonly string Showcase = "Showcase";
+
         public static readonly string SoferityFile = "File";
 
         public static readonly char StartCommandChar = '✔';
@@ -69,8 +71,6 @@
         public static readonly string StoreRepository = "Store";
 
         public static readonly string Undo = "Sucrose.Undo.exe";
-
-        public static readonly string FirstLaunch = "FirstLaunch";
 
         public static readonly string SoferityPattern = "Pattern";
 

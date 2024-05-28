@@ -343,27 +343,24 @@ namespace Sucrose.Portal.Views.Controls
                         IncompatibleVersion.Visibility = Visibility.Visible;
                     }
 
-                    foreach (KeyValuePair<string, SSSID> Pair in SSSTMI.StoreService.Info.ToList())
+                    KeyValuePair<string, SSSID> Matching = SSSTMI.StoreService.Info.FirstOrDefault(Pair => Pair.Value.Guid == Guid);
+
+                    if (!Matching.Equals(default(KeyValuePair<string, SSSID>)))
                     {
-                        if (Pair.Value.Guid == Guid)
+                        Keys = Matching.Key;
+
+                        if (Matching.Value.ProgressPercentage < 100)
                         {
-                            Keys = Pair.Key;
+                            State = true;
 
-                            if (SSSTMI.StoreService.Info[Keys].ProgressPercentage < 100)
-                            {
-                                State = true;
+                            StoreService_InfoChanged(Keys);
 
-                                StoreService_InfoChanged(Keys);
+                            DownloadSymbol.Symbol = SymbolRegular.Empty;
 
-                                DownloadSymbol.Symbol = SymbolRegular.Empty;
+                            DownloadRing.Visibility = Visibility.Visible;
+                            DownloadSymbol.Visibility = Visibility.Collapsed;
 
-                                DownloadRing.Visibility = Visibility.Visible;
-                                DownloadSymbol.Visibility = Visibility.Collapsed;
-
-                                SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
-
-                                break;
-                            }
+                            SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
                         }
                     }
 

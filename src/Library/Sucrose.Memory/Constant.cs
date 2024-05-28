@@ -44,6 +44,8 @@
 
         public const string PingType = "PingType";
 
+        public const string Showcase = "Showcase";
+
         public const string InputType = "InputType";
 
         public const string PingValue = "PingValue";
