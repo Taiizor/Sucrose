@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Пропорційно</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Пропорційно заповнити</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Спам</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Інше</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Нагота</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Шкідливий</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Насильство</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Зловмисний</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Порушення Aвторських Прав</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Оманлива Iнформація</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">Жоден</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Назва</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Створення</system:String>

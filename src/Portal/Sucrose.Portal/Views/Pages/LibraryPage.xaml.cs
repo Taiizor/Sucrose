@@ -91,7 +91,7 @@ namespace Sucrose.Portal.Views.Pages
                     Directory.CreateDirectory(SMMM.LibraryLocation);
                 }
 
-                foreach (string Directory in Directory.GetDirectories(ShowcasePath, "*", SearchOption.TopDirectoryOnly).Where(Theme => !Showcase.Contains(Path.GetFileName(Theme))))
+                foreach (string Directory in Directory.GetDirectories(ShowcasePath, "*", SearchOption.TopDirectoryOnly).Where(Directory => !Showcase.Contains(Path.GetFileName(Directory))))
                 {
                     SSSHC.Folder(Directory, Path.Combine(SMMM.LibraryLocation, Path.GetFileName(Directory)), false);
 

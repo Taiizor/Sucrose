@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Orantılı</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Orantılı Doldur</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Diğer</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Çıplaklık</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Zararlı</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Şiddet</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Kötü Niyetli</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Telif Hakkı İhlali</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Yanıltıcı Bilgi</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">Yok</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">İsim</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Oluşturma</system:String>

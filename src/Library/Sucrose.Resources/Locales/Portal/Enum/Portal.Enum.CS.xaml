@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Rovnoměrný</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Rovnoměrně vyplnit</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Jiný</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nahota</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Škodlivé</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Násilí</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Zlovolný</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Porušení Autorských Práv</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Zavádějící Informace</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">Žádný</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Název</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Vytvoření</system:String>

@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">균일하게</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">균일하게 채우기</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">스팸</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">기타</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">나체</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">유해</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">폭력</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">악의적인</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">저작권 침해</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">오해의 소지가 있는 정보</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">없음</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">이름</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">생성</system:String>

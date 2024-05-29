@@ -13,8 +13,8 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -29,7 +29,6 @@ using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
-using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
@@ -98,60 +97,6 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void MenuReport_Click(object sender, RoutedEventArgs e)
-        {
-            string Title = Wallpaper.Key.Replace(" ", "%20");
-            string Location = $"{Wallpaper.Value.Source.Replace(" ", "%20").Split('/').LastOrDefault()}/{Title}";
-
-            SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.StoreReportWebsite}&title={Title}&wallpaper-location={Location}");
-        }
-
-        private void MenuInstall_Click(object sender, RoutedEventArgs e)
-        {
-            Start();
-        }
-
-        private async Task<bool> DownloadCache()
-        {
-            if (SPMI.StoreDownloader.ContainsKey(Theme))
-            {
-                while (!SPMI.StoreDownloading.ContainsKey(Theme) || !SPMI.StoreDownloading[Theme])
-                {
-                    await Task.Delay(100);
-                }
-
-                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
-
-                return true;
-            }
-            else
-            {
-                SPMI.StoreDownloader[Theme] = false;
-
-                SPMI.StoreDownloader[Theme] = SSDMM.StoreType switch
-                {
-                    SSDEST.GitHub => SSSHGHD.Cache(Wallpaper, Theme, Agent, Key),
-                    _ => SSSHSD.Cache(Wallpaper, Theme, Agent),
-                };
-
-                if (SPMI.StoreDownloader[Theme])
-                {
-                    while (!SPMI.StoreDownloading.ContainsKey(Theme) || !SPMI.StoreDownloading[Theme])
-                    {
-                        await Task.Delay(100);
-                    }
-
-                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-
         private async void DownloadTheme()
         {
             do
@@ -197,9 +142,45 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void Download_Click(object sender, RoutedEventArgs e)
+        private async Task<bool> DownloadCache()
         {
-            Start();
+            if (SPMI.StoreDownloader.ContainsKey(Theme))
+            {
+                while (!SPMI.StoreDownloading.ContainsKey(Theme) || !SPMI.StoreDownloading[Theme])
+                {
+                    await Task.Delay(100);
+                }
+
+                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+
+                return true;
+            }
+            else
+            {
+                SPMI.StoreDownloader[Theme] = false;
+
+                SPMI.StoreDownloader[Theme] = SSDMM.StoreType switch
+                {
+                    SSDEST.GitHub => SSSHGHD.Cache(Wallpaper, Theme, Agent, Key),
+                    _ => SSSHSD.Cache(Wallpaper, Theme, Agent),
+                };
+
+                if (SPMI.StoreDownloader[Theme])
+                {
+                    while (!SPMI.StoreDownloading.ContainsKey(Theme) || !SPMI.StoreDownloading[Theme])
+                    {
+                        await Task.Delay(100);
+                    }
+
+                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         private async void StoreService_InfoChanged(string Keys)
@@ -242,6 +223,16 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
+        private void Download_Click(object sender, RoutedEventArgs e)
+        {
+            Start();
+        }
+
+        private void MenuInstall_Click(object sender, RoutedEventArgs e)
+        {
+            Start();
+        }
+
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
             if (Info != null)
@@ -260,6 +251,17 @@ namespace Sucrose.Portal.Views.Controls
             else
             {
                 MenuInstall.IsEnabled = false;
+            }
+        }
+
+        private void StoreCard_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (Info != null && SMMM.StorePreview)
+            {
+                string GifPath = $"{SSSHS.Source(SSDMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
+
+                SXAGAB.SetSourceUri(Imaginer, new(GifPath));
+                SXAGAB.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);
             }
         }
 
@@ -282,17 +284,6 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void StoreCard_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Info != null && SMMM.StorePreview)
-            {
-                string GifPath = $"{SSSHS.Source(SSDMM.StoreType)}/{Wallpaper.Value.Source}/{Wallpaper.Key}/{Wallpaper.Value.Live}";
-
-                SXAGAB.SetSourceUri(Imaginer, new(GifPath));
-                SXAGAB.AddLoadedHandler(Imaginer, Imaginer_MediaOpened);
-            }
-        }
-
         private void Imaginer_MediaOpened(object sender, RoutedEventArgs e)
         {
             Imaginer.Visibility = Visibility.Visible;
@@ -304,6 +295,20 @@ namespace Sucrose.Portal.Views.Controls
             }
 
             Dispose();
+        }
+
+        private async void MenuReport_Click(object sender, RoutedEventArgs e)
+        {
+            SPVCTR ThemeReport = new()
+            {
+                Info = Info,
+                Theme = Theme,
+                Wallpaper = Wallpaper
+            };
+
+            await ThemeReport.ShowAsync();
+
+            ThemeReport.Dispose();
         }
 
         private async void StoreCard_Loaded(object sender, RoutedEventArgs e)

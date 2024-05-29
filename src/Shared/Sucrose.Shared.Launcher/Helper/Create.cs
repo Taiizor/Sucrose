@@ -36,8 +36,6 @@ namespace Sucrose.Shared.Launcher.Helper
 
                 string[] Excludes = new[]
                 {
-
-                    SMMI.UserSettingManager.SettingFile(),
                     SMMI.PrivateSettingManager.SettingFile()
                 };
 

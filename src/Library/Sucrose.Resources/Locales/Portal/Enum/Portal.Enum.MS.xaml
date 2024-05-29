@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Seragam</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Seragam Untuk Isi</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Lain-Lain</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Ketelanjangan</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Berbahaya</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Keganasan</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Berbahaya</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Pelanggaran Hak Cipta</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Maklumat Mengelirukan</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">Tiada</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Nama</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Penciptaan</system:String>

@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform pentru a umple</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Altul</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nuditate</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Dăunător</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Violență</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Răuvoitor</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Încălcarea Drepturilor de Autor</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Informații Înșelătoare</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">Niciunul</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Nume</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Creare</system:String>

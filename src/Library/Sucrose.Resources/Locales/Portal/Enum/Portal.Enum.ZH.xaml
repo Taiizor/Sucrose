@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">均匀</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">均匀填充</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">垃圾邮件</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">其他</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">裸露</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">有害</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">暴力</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">恶意</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">版权侵犯</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">误导信息</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">无</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">名称</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">创建</system:String>

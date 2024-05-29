@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">समानानुपातिक</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">समानानुपातिक भरना</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">स्पैम</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">अन्य</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">नग्नता</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">हानिकारक</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">हिंसा</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">दुर्भावनापूर्ण</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">कॉपीराइट उल्लंघन</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">भ्रामक जानकारी</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">कोई नहीं</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">नाम</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">सृजन</system:String>

@@ -11,6 +11,7 @@
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.KO.xaml" />
         <ResourceDictionary Source="ThemeImport/Portal.ThemeImport.KO.xaml" />
         <ResourceDictionary Source="ThemeCreate/Portal.ThemeCreate.KO.xaml" />
+        <ResourceDictionary Source="ThemeReport/Portal.ThemeReport.KO.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.KO.xaml" />
         <ResourceDictionary Source="WallpaperCycling/Portal.WallpaperCycling.KO.xaml" />
         <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.KO.xaml" />

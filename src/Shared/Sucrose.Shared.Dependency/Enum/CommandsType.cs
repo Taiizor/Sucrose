@@ -32,8 +32,13 @@
 
     internal enum ArgumentCommandsType
     {
+        OtherSetting,
+        DonateSetting,
         SystemSetting,
-        GeneralSetting
+        GeneralSetting,
+        PersonalSetting,
+        WallpaperSetting,
+        PerformanceSetting
     }
 
     internal enum SchedulerCommandsType

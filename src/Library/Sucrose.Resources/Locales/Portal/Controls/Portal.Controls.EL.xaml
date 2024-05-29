@@ -11,6 +11,7 @@
         <ResourceDictionary Source="ThemeReview/Portal.ThemeReview.EL.xaml" />
         <ResourceDictionary Source="ThemeImport/Portal.ThemeImport.EL.xaml" />
         <ResourceDictionary Source="ThemeCreate/Portal.ThemeCreate.EL.xaml" />
+        <ResourceDictionary Source="ThemeReport/Portal.ThemeReport.EL.xaml" />
         <ResourceDictionary Source="ExpanderCard/Portal.ExpanderCard.EL.xaml" />
         <ResourceDictionary Source="WallpaperCycling/Portal.WallpaperCycling.EL.xaml" />
         <ResourceDictionary Source="DisplayPreferences/Portal.DisplayPreferences.EL.xaml" />

@@ -1,0 +1,83 @@
+﻿<ui:ContentDialog
+    x:Class="Sucrose.Portal.Views.Controls.ThemeReport"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Sucrose.Portal.Views.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vcontrols="clr-namespace:Sucrose.Portal.Views.Controls"
+    Title="Title"
+    d:DesignHeight="7500"
+    d:DesignWidth="750"
+    CloseButtonText="Close"
+    DialogMaxWidth="750"
+    Loaded="ContentDialog_Loaded"
+    PreviewKeyDown="ContentDialog_PreviewKeyDown"
+    mc:Ignorable="d">
+
+    <ui:ContentDialog.Resources>
+        <Style BasedOn="{StaticResource {x:Type ui:ContentDialog}}" TargetType="{x:Type local:ThemeReport}" />
+    </ui:ContentDialog.Resources>
+
+    <Grid
+        MinWidth="400"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ui:Card Grid.Row="0">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <ui:Image
+                    x:Name="ThemeThumbnail"
+                    Width="250"
+                    Height="Auto"
+                    MinHeight="150"
+                    Margin="10,0,0,0"
+                    CornerRadius="10"
+                    Stretch="UniformToFill" />
+
+                <StackPanel
+                    MaxWidth="400"
+                    Margin="10,10,0,10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Vertical">
+                    <TextBlock
+                        x:Name="ThemeTitle"
+                        Margin="10,0,10,0"
+                        FontSize="16"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Text="{DynamicResource Portal.ThemeShare.ThemeTitle}"
+                        TextAlignment="Center"
+                        TextWrapping="WrapWithOverflow" />
+                    <TextBlock
+                        x:Name="ThemeDescription"
+                        Margin="10,5,10,0"
+                        FontSize="14"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Portal.ThemeShare.ThemeDescription}"
+                        TextAlignment="Justify"
+                        TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+            </StackPanel>
+        </ui:Card>
+
+        <ui:Card Grid.Row="1" Margin="0,10,0,0">
+            <vcontrols:ExpanderCard
+                x:Name="Reporter"
+                Expandable="True"
+                IsExpand="True">
+                <vcontrols:ExpanderCard.HeaderFrame>
+                    <ComboBox MaxDropDownHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                </vcontrols:ExpanderCard.HeaderFrame>
+            </vcontrols:ExpanderCard>
+        </ui:Card>
+    </Grid>
+</ui:ContentDialog>

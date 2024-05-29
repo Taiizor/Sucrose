@@ -107,9 +107,9 @@
     <Import Project="..\..\Shared\Sucrose.Shared.Zip\Sucrose.Shared.Zip.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems" Label="Shared" />
-    <Import Project="..\..\Shared\Sucrose.Shared.Store\Sucrose.Shared.Store.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Store\Sucrose.Shared.Store.projitems" Label="Shared" />
+    <Import Project="..\..\Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Watchdog\Sucrose.Shared.Watchdog.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems" Label="Shared" />
 

@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Ομοιόμορφη</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Ομοιόμορφο Γέμισμα</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Σπαμ</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Άλλο</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Γύμνια</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Επιβλαβές</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Βία</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Κακόβουλο</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Παραβίαση Πνευματικών Δικαιωμάτων</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Παραπλανητικές Πληροφορίες</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">Καμία</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Όνομα</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Δημιουργία</system:String>

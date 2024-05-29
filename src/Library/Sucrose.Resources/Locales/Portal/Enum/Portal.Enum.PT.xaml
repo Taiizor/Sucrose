@@ -7,6 +7,15 @@
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniforme</system:String>
     <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Preencher Uniformemente</system:String>
 
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Spam</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Outro</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nudez</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Prejudicial</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Violência</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Malicioso</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Violação de Direitos Autorais</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Informação Enganosa</system:String>
+
     <system:String x:Key="Portal.Enum.SortModeType.None">Nenhum</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Nome</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Creation">Criação</system:String>

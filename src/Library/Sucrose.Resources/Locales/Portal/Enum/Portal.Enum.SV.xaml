@@ -5,7 +5,16 @@
     <system:String x:Key="Portal.Enum.Stretch.Fill">Fyll</system:String>
     <system:String x:Key="Portal.Enum.Stretch.None">Ingen</system:String>
     <system:String x:Key="Portal.Enum.Stretch.Uniform">Uniform</system:String>
-    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform att fylla</system:String>
+    <system:String x:Key="Portal.Enum.Stretch.UniformToFill">Uniform att Fylla</system:String>
+
+    <system:String x:Key="Portal.Enum.ReportType.Spam">Skräppost</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Other">Annat</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Nudity">Nakenhet</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Harmful">Skadligt</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Violence">Våld</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.Malicious">Elakartad</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.CopyrightViolation">Upphovsrättsbrott</system:String>
+    <system:String x:Key="Portal.Enum.ReportType.MisleadingInformation">Vilseledande Information</system:String>
 
     <system:String x:Key="Portal.Enum.SortModeType.None">Ingen</system:String>
     <system:String x:Key="Portal.Enum.SortModeType.Name">Namn</system:String>
@@ -23,7 +32,7 @@
     <system:String x:Key="Portal.Enum.StretchType.Fill">Fyll</system:String>
     <system:String x:Key="Portal.Enum.StretchType.None">Ingen</system:String>
     <system:String x:Key="Portal.Enum.StretchType.Uniform">Uniform</system:String>
-    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform att fylla</system:String>
+    <system:String x:Key="Portal.Enum.StretchType.UniformToFill">Uniform att Fylla</system:String>
 
     <system:String x:Key="Portal.Enum.CommunicationType.Pipe">Pipe</system:String>
     <system:String x:Key="Portal.Enum.CommunicationType.Signal">Signal</system:String>
