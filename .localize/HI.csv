@@ -293,11 +293,20 @@ Portal\Category\Portal.Category.HI.xaml,Portal.Category.UnderwaterandMarine,प�
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Vehicles,वाहन
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Vintage,पुराना
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.War,युद्ध
-Portal\Controls\Portal.Controls.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmVwb3J0L1BvcnRhbC5UaGVtZVJlcG9ydC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRXhwYW5kZXJDYXJkL1BvcnRhbC5FeHBhbmRlckNhcmQuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IldhbGxwYXBlckN5Y2xpbmcvUG9ydGFsLldhbGxwYXBlckN5Y2xpbmcuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc3BsYXlQcmVmZXJlbmNlcy9Qb3J0YWwuRGlzcGxheVByZWZlcmVuY2VzLkhJLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.Fill,भरना
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.None,कोई नहीं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.Uniform,समानानुपातिक
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.Stretch.UniformToFill,समानानुपातिक भरना
+Portal\Enum\Portal.Enum.HI.xaml,,
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Spam,स्पैम
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Other,अन्य
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Nudity,नग्नता
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Harmful,हानिकारक
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Violence,हिंसा
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.Malicious,दुर्भावनापूर्ण
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.CopyrightViolation,कॉपीराइट उल्लंघन
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.ReportType.MisleadingInformation,भ्रामक जानकारी
 Portal\Enum\Portal.Enum.HI.xaml,,
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.None,कोई नहीं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.SortModeType.Name,नाम
@@ -651,6 +660,33 @@ Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Portal.ThemeImport.Close,
 Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,,
 Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Portal.ThemeImport.Info,थीम जानकारी
 Portal\Controls\ThemeImport\Portal.ThemeImport.HI.xaml,Portal.ThemeImport.Type,कारण विवरण
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Title,थीम रिपोर्टिंग
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Close,बंद करें
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.ThemeTitle,शीर्षक
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.ThemeDescription,विवरण
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter,रिपोर्ट
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Description,कृपया थीम की रिपोर्टिंग के कारणों को निर्दिष्ट करें।
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Description.Text,अतिरिक्त नोट्स:
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,कृपया रिपोर्ट का कारण विस्तार से बताएं।
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Preparing,रिपोर्टिंग के लिए तैयारी जल्द ही शुरू होगी..
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Checking,रिपोर्टिंग के लिए आवश्यक जांच की जा रही है..
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Checking.Error,रिपोर्टिंग के लिए आवश्यक जांच करते समय एक अज्ञात त्रुटि हुई।
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Checking.Status,"इस समय रिपोर्टिंग के लिए उपयुक्त शर्तें बनाई नहीं जा सकीं, कृपया बाद में पुनः प्रयास करें.."
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Sending,रिपोर्टिंग के लिए जानकारी भेजी जा रही है..
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Sending.Error,रिपोर्ट भेजते समय एक त्रुटि हुई।
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Sending.Errored,रिपोर्ट भेजते समय एक अप्रत्याशित त्रुटि हुई: {0}।
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Sending.Succeded,"रिपोर्ट सफलतापूर्वक भेजी गई, धन्यवाद।"
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Network,रिपोर्टिंग के लिए इंटरनेट कनेक्शन आवश्यक है।
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Report,रिपोर्ट
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.GitHub,GitHub से रिपोर्ट करें
 Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.Title,थीम समीक्षा
 Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,Portal.ThemeReview.Close,बंद करें
 Portal\Controls\ThemeReview\Portal.ThemeReview.HI.xaml,,

@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Zgłaszanie Tematu</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Zamknij</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Tytuł</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Opis</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Zgłoś</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Określ powody zgłoszenia tematu.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Dodatkowe uwagi:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Proszę szczegółowo opisać powód zgłoszenia.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Przygotowania do zgłoszenia wkrótce się rozpoczną..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Przeprowadzane są niezbędne kontrole do zgłoszenia..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Wystąpił nieznany błąd podczas wykonywania niezbędnych kontroli do zgłoszenia.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">W tej chwili nie można było stworzyć odpowiednich warunków do zgłoszenia, spróbuj ponownie później..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Wysyłanie informacji do zgłoszenia..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Wystąpił błąd podczas wysyłania zgłoszenia.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Wystąpił nieoczekiwany błąd podczas wysyłania zgłoszenia: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Zgłoszenie zostało pomyślnie wysłane, dziękujemy.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Do zgłoszenia wymagane jest połączenie z internetem.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Zgłoś</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Zgłoś z GitHub</system:String>
 </ResourceDictionary>

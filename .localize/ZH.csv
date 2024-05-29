@@ -293,11 +293,20 @@ Portal\Category\Portal.Category.ZH.xaml,Portal.Category.UnderwaterandMarine,水�
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Vehicles,车辆
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Vintage,复古
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.War,战争
-Portal\Controls\Portal.Controls.ZH.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5aSC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.ZH.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlpILnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmVwb3J0L1BvcnRhbC5UaGVtZVJlcG9ydC5aSC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRXhwYW5kZXJDYXJkL1BvcnRhbC5FeHBhbmRlckNhcmQuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IldhbGxwYXBlckN5Y2xpbmcvUG9ydGFsLldhbGxwYXBlckN5Y2xpbmcuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc3BsYXlQcmVmZXJlbmNlcy9Qb3J0YWwuRGlzcGxheVByZWZlcmVuY2VzLlpILnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.Stretch.Fill,填充
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.Stretch.None,无
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.Stretch.Uniform,均匀
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.Stretch.UniformToFill,均匀填充
+Portal\Enum\Portal.Enum.ZH.xaml,,
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.Spam,垃圾邮件
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.Other,其他
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.Nudity,裸露
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.Harmful,有害
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.Violence,暴力
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.Malicious,恶意
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.CopyrightViolation,版权侵犯
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.ReportType.MisleadingInformation,误导信息
 Portal\Enum\Portal.Enum.ZH.xaml,,
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.SortModeType.None,无
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.SortModeType.Name,名称
@@ -651,6 +660,33 @@ Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,Portal.ThemeImport.Close,
 Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,,
 Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,Portal.ThemeImport.Info,主题信息
 Portal\Controls\ThemeImport\Portal.ThemeImport.ZH.xaml,Portal.ThemeImport.Type,原因说明
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Title,主题报告
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Close,关闭
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.ThemeTitle,标题
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.ThemeDescription,描述
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter,报告
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Description,请说明报告该主题的原因。
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Description.Text,附加备注：
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,请详细描述报告原因。
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Preparing,报告的准备工作即将开始..
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Checking,正在进行必要的报告检查..
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Checking.Error,执行必要的报告检查时发生未知错误。
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Checking.Status,目前无法创建适合报告的条件，请稍后再试..
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Sending,正在发送报告信息..
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Sending.Error,发送报告时发生错误。
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Sending.Errored,发送报告时发生意外错误：{0}。
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Sending.Succeded,报告已成功发送，感谢您的反馈。
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Network,报告需要互联网连接。
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Report,报告
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.GitHub,通过 GitHub 报告
 Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,Portal.ThemeReview.Title,主题审查
 Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,Portal.ThemeReview.Close,关闭
 Portal\Controls\ThemeReview\Portal.ThemeReview.ZH.xaml,,

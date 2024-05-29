@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">主题报告</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">关闭</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">标题</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">描述</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">报告</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">请说明报告该主题的原因。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">附加备注：</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">请详细描述报告原因。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">报告的准备工作即将开始..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">正在进行必要的报告检查..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">执行必要的报告检查时发生未知错误。</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">目前无法创建适合报告的条件，请稍后再试..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">正在发送报告信息..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">发送报告时发生错误。</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">发送报告时发生意外错误：{0}。</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">报告已成功发送，感谢您的反馈。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">报告需要互联网连接。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">报告</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">通过 GitHub 报告</system:String>
 </ResourceDictionary>

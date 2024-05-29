@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">テーマの報告</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">閉じる</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">タイトル</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">説明</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">報告</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">テーマを報告する理由を指定してください。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">追加のメモ:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">報告の理由を詳細に説明してください。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">報告の準備がまもなく開始されます..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">報告のための必要なチェックを実行しています..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">報告のための必要なチェックを実行中に不明なエラーが発生しました。</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">現時点では報告に適した条件を作成できませんでしたので、後でもう一度お試しください..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">報告のための情報を送信しています..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">報告の送信中にエラーが発生しました。</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">報告の送信中に予期しないエラーが発生しました: {0}。</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">報告は正常に送信されました、ありがとうございます。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">報告するにはインターネット接続が必要です。</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">報告</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">GitHubから報告</system:String>
 </ResourceDictionary>

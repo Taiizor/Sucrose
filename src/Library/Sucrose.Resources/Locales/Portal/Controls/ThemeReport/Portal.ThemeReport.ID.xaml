@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Pelaporan Tema</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Tutup</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Judul</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Deskripsi</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Laporan</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Tentukan alasan Anda melaporkan tema tersebut.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Catatan Tambahan:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Harap jelaskan alasan laporan secara rinci.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Persiapan untuk pelaporan akan segera dimulai..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Pemeriksaan yang diperlukan sedang dilakukan untuk pelaporan..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Terjadi kesalahan yang tidak diketahui saat melakukan pemeriksaan yang diperlukan untuk pelaporan.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">Kondisi yang sesuai untuk pelaporan tidak dapat dibuat saat ini, silakan coba lagi nanti..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Mengirimkan informasi untuk pelaporan..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Terjadi kesalahan saat mengirim laporan.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Terjadi kesalahan yang tidak terduga saat mengirim laporan: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Laporan berhasil dikirim, terima kasih.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Diperlukan koneksi internet untuk melaporkan.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Laporan</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Laporan dari GitHub</system:String>
 </ResourceDictionary>

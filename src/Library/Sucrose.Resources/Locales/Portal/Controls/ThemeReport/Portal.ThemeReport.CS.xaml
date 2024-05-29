@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Hlášení Tématu</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Zavřít</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Název</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Popis</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Hlášení</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Uveďte důvody pro hlášení tématu.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Další poznámky:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Podrobně popište důvod hlášení.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Přípravy na hlášení budou brzy zahájeny..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Provádějí se potřebné kontroly pro hlášení..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Při provádění potřebných kontrol pro hlášení došlo k neznámé chybě.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">V tuto chvíli nelze vytvořit vhodné podmínky pro hlášení, zkuste to prosím později..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Odesílání informací pro hlášení..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Při odesílání hlášení došlo k chybě.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Při odesílání hlášení došlo k neočekávané chybě: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Hlášení bylo úspěšně odesláno, děkujeme.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Pro hlášení je vyžadováno internetové připojení.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Hlášení</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Hlášení z GitHub</system:String>
 </ResourceDictionary>

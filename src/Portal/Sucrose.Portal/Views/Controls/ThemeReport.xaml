@@ -73,11 +73,7 @@
             <vcontrols:ExpanderCard
                 x:Name="Reporter"
                 Expandable="True"
-                IsExpand="True">
-                <vcontrols:ExpanderCard.HeaderFrame>
-                    <ComboBox MaxDropDownHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-                </vcontrols:ExpanderCard.HeaderFrame>
-            </vcontrols:ExpanderCard>
+                IsExpand="True" />
         </ui:Card>
     </Grid>
 </ui:ContentDialog>

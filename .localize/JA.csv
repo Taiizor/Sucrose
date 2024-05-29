@@ -293,11 +293,20 @@ Portal\Category\Portal.Category.JA.xaml,Portal.Category.UnderwaterandMarine,水�
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Vehicles,乗り物
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Vintage,ヴィンテージ
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.War,戦争
-Portal\Controls\Portal.Controls.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5KQS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.JA.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LkpBLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmVwb3J0L1BvcnRhbC5UaGVtZVJlcG9ydC5KQS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRXhwYW5kZXJDYXJkL1BvcnRhbC5FeHBhbmRlckNhcmQuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IldhbGxwYXBlckN5Y2xpbmcvUG9ydGFsLldhbGxwYXBlckN5Y2xpbmcuSkEueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc3BsYXlQcmVmZXJlbmNlcy9Qb3J0YWwuRGlzcGxheVByZWZlcmVuY2VzLkpBLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.Fill,フィル
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.None,なし
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.Uniform,均等
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.Stretch.UniformToFill,均等にフィル
+Portal\Enum\Portal.Enum.JA.xaml,,
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Spam,스팸
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Other,기타
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Nudity,나체
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Harmful,유해
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Violence,폭력
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.Malicious,악의적인
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.CopyrightViolation,저작권 침해
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.ReportType.MisleadingInformation,오해의 소지가 있는 정보
 Portal\Enum\Portal.Enum.JA.xaml,,
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.None,なし
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.SortModeType.Name,名前
@@ -651,6 +660,33 @@ Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Portal.ThemeImport.Close,
 Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,,
 Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Portal.ThemeImport.Info,テーマ情報
 Portal\Controls\ThemeImport\Portal.ThemeImport.JA.xaml,Portal.ThemeImport.Type,理由の説明
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Title,テーマの報告
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Close,閉じる
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.ThemeTitle,タイトル
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.ThemeDescription,説明
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter,報告
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Description,テーマを報告する理由を指定してください。
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Description.Text,追加のメモ:
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,報告の理由を詳細に説明してください。
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Preparing,報告の準備がまもなく開始されます..
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Checking,報告のための必要なチェックを実行しています..
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Checking.Error,報告のための必要なチェックを実行中に不明なエラーが発生しました。
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Checking.Status,現時点では報告に適した条件を作成できませんでしたので、後でもう一度お試しください..
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Sending,報告のための情報を送信しています..
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Sending.Error,報告の送信中にエラーが発生しました。
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Sending.Errored,報告の送信中に予期しないエラーが発生しました: {0}。
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Sending.Succeded,報告は正常に送信されました、ありがとうございます。
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Network,報告するにはインターネット接続が必要です。
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.Report,報告
+Portal\Controls\ThemeReport\Portal.ThemeReport.JA.xaml,Portal.ThemeReport.Reporter.GitHub,GitHubから報告
 Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.Title,テーマのレビュー
 Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,Portal.ThemeReview.Close,閉じる
 Portal\Controls\ThemeReview\Portal.ThemeReview.JA.xaml,,

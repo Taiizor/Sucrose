@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Relatório de Tema</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Fechar</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Título</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Descrição</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Relatar</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Especifique os seus motivos para relatar o tema.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Notas Adicionais:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Por favor, descreva em detalhe o motivo do relatório.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Preparações para relatar começarão em breve..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Verificações necessárias estão sendo realizadas para o relatório..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Ocorreu um erro desconhecido ao realizar as verificações necessárias para o relatório.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">Condições adequadas para relatar não puderam ser criadas no momento, por favor tente novamente mais tarde..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Enviando informações para relatar..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Ocorreu um erro ao enviar o relatório.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Ocorreu um erro inesperado ao enviar o relatório: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">O relatório foi enviado com sucesso, obrigado.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Uma conexão com a internet é necessária para relatar.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Relatar</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Relatar do GitHub</system:String>
 </ResourceDictionary>

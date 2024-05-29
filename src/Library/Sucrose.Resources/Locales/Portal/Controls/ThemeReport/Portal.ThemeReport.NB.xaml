@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Tema Rapportering</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Lukk</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Tittel</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Beskrivelse</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Rapport</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Spesifiser dine grunner for å rapportere temaet.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Tilleggsnotater:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Vennligst beskriv grunnen til rapporten i detalj.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Forberedelser for rapportering vil starte snart..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Nødvendige sjekker utføres for rapportering..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">En ukjent feil oppstod under nødvendige sjekker for rapportering.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">Egnede forhold for rapportering kunne ikke opprettes for øyeblikket, vennligst prøv igjen senere..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Sender informasjon for rapportering..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">En feil oppstod under sending av rapporten.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">En uventet feil oppstod under sending av rapporten: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Rapporten ble sendt vellykket, takk.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">En internettforbindelse er nødvendig for å rapportere.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Rapporter</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Rapporter fra GitHub</system:String>
 </ResourceDictionary>

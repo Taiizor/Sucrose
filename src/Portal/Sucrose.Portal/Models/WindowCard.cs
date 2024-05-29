@@ -6,18 +6,18 @@ namespace Sucrose.Portal.Models
     {
         public string Name { get; set; }
 
+        public string Value { get; set; }
+
         public string Description { get; set; }
 
         public SymbolRegular Icon { get; set; }
 
-        public string Value { get; set; }
-
-        public WindowCard(string name, string description, SymbolRegular icon, string value)
+        public WindowCard(string name, string value, string description, SymbolRegular icon)
         {
-            Name = name;
-            Description = description;
             Icon = icon;
+            Name = name;
             Value = value;
+            Description = description;
         }
     }
 }

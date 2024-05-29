@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Segnalazione Tema</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Chiudi</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Titolo</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Descrizione</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Segnala</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specifica i motivi per cui segnali il tema.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Note aggiuntive:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Descrivi in dettaglio il motivo della segnalazione.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Le preparazioni per la segnalazione inizieranno a breve..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Si stanno eseguendo i controlli necessari per la segnalazione..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Si è verificato un errore sconosciuto durante l'esecuzione dei controlli necessari per la segnalazione.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">Al momento non è stato possibile creare le condizioni adatte per la segnalazione, riprova più tardi..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Invio informazioni per la segnalazione..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Si è verificato un errore durante l'invio della segnalazione.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Si è verificato un errore imprevisto durante l'invio della segnalazione: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">La segnalazione è stata inviata con successo, grazie.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">È necessaria una connessione Internet per segnalare.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Segnala</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Segnala da GitHub</system:String>
 </ResourceDictionary>

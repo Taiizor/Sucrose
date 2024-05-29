@@ -293,11 +293,20 @@ Portal\Category\Portal.Category.SV.xaml,Portal.Category.UnderwaterandMarine,Unde
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Vehicles,Fordon
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Vintage,Vintage
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.War,Krig
-Portal\Controls\Portal.Controls.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5TVi54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.SV.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LlNWLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmVwb3J0L1BvcnRhbC5UaGVtZVJlcG9ydC5TVi54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRXhwYW5kZXJDYXJkL1BvcnRhbC5FeHBhbmRlckNhcmQuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IldhbGxwYXBlckN5Y2xpbmcvUG9ydGFsLldhbGxwYXBlckN5Y2xpbmcuU1YueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc3BsYXlQcmVmZXJlbmNlcy9Qb3J0YWwuRGlzcGxheVByZWZlcmVuY2VzLlNWLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.Fill,Fyll
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.None,Ingen
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.Uniform,Uniform
-Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.UniformToFill,Uniform att fylla
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.Stretch.UniformToFill,Uniform att Fylla
+Portal\Enum\Portal.Enum.SV.xaml,,
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.Spam,Skräppost
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.Other,Annat
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.Nudity,Nakenhet
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.Harmful,Skadligt
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.Violence,Våld
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.Malicious,Elakartad
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.CopyrightViolation,Upphovsrättsbrott
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.ReportType.MisleadingInformation,Vilseledande Information
 Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.None,Ingen
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.SortModeType.Name,Namn
@@ -315,7 +324,7 @@ Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.Fill,Fyll
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.None,Ingen
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.Uniform,Uniform
-Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.UniformToFill,Uniform att fylla
+Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.StretchType.UniformToFill,Uniform att Fylla
 Portal\Enum\Portal.Enum.SV.xaml,,
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CommunicationType.Pipe,Pipe
 Portal\Enum\Portal.Enum.SV.xaml,Portal.Enum.CommunicationType.Signal,Signal
@@ -651,6 +660,33 @@ Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Portal.ThemeImport.Close,
 Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,,
 Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Portal.ThemeImport.Info,Tema Information
 Portal\Controls\ThemeImport\Portal.ThemeImport.SV.xaml,Portal.ThemeImport.Type,Anledning för Import
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Title,Temarapportering
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Close,Stäng
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.ThemeTitle,Titel
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.ThemeDescription,Beskrivning
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter,Rapportera
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Description,Ange dina skäl för att rapportera temat.
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Description.Text,Ytterligare Anteckningar:
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Vänligen beskriv anledningen till rapporten i detalj.
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Preparing,Förberedelser för rapportering kommer att börja snart..
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Checking,Nödvändiga kontroller utförs för rapportering..
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Checking.Error,Ett okänt fel inträffade vid utförandet av nödvändiga kontroller för rapportering.
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Checking.Status,"Lämpliga förutsättningar för rapportering kunde inte skapas för tillfället, vänligen försök igen senare.."
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Sending,Skickar information för rapportering..
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Sending.Error,Ett fel uppstod vid sändning av rapporten.
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Sending.Errored,Ett oväntat fel uppstod vid sändning av rapporten: {0}.
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Sending.Succeded,"Rapporten skickades framgångsrikt, tack."
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Network,En internetanslutning krävs för att rapportera.
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Report,Rapportera
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.GitHub,Rapportera från GitHub
 Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.Title,Recensera Tema
 Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,Portal.ThemeReview.Close,Stäng
 Portal\Controls\ThemeReview\Portal.ThemeReview.SV.xaml,,

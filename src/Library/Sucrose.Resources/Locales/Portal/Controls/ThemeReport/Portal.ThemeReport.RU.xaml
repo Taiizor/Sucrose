@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Сообщить о Теме</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Закрыть</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Название</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Описание</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Сообщить</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Укажите причину сообщения о теме.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Дополнительные заметки:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Пожалуйста, подробно опишите причину сообщения.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Подготовка к сообщению начнется в ближайшее время..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Проводится необходимая проверка для сообщения..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Произошла неизвестная ошибка при проведении необходимой проверки для сообщения.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">В настоящее время невозможно создать подходящие условия для сообщения, пожалуйста, повторите попытку позже..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Отправка информации для сообщения..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Произошла ошибка при отправке сообщения.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Произошла непредвиденная ошибка при отправке сообщения: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Сообщение успешно отправлено, спасибо.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Для сообщения требуется подключение к Интернету.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Сообщить</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Сообщить из GitHub</system:String>
 </ResourceDictionary>

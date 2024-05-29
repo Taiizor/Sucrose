@@ -213,6 +213,8 @@ namespace Sucrose.Portal.Views.Controls
 
                         await Task.Delay(1000);
 
+                        Response = new();
+
                         if (await Task.Run(() => SSZEZ.Compress(Theme, TempFile)) != SSDECT.Pass)
                         {
                             State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Compress", "Error");

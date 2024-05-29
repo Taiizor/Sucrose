@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Звіт Про Тему</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Закрити</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Назва</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Опис</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Звіт</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Вкажіть причини звіту про тему.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Додаткові нотатки:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Будь ласка, детально опишіть причину звіту.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Підготовка до звіту незабаром розпочнеться..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Необхідні перевірки для звіту проводяться..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Сталася невідома помилка під час проведення необхідних перевірок для звіту.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">В даний момент неможливо створити відповідні умови для звіту, будь ласка, спробуйте пізніше..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Відправка інформації для звіту..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Сталася помилка під час відправки звіту.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Сталася несподівана помилка під час відправки звіту: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Звіт успішно відправлений, дякуємо.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Для звіту потрібне інтернет-з'єднання.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Звітувати</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Звітувати через GitHub</system:String>
 </ResourceDictionary>

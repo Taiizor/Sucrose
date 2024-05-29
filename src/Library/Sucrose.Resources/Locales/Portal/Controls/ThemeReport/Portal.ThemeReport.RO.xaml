@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Raportare Temă</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Închide</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Titlu</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Descriere</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Raport</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specificați motivele pentru raportarea temei.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Note suplimentare:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Vă rugăm să descrieți în detaliu motivul raportării.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Pregătirile pentru raportare vor începe în curând..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Se efectuează verificările necesare pentru raportare..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">A apărut o eroare necunoscută în timpul verificărilor necesare pentru raportare.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">Nu s-au putut crea condiții adecvate pentru raportare în acest moment, vă rugăm să încercați din nou mai târziu..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Trimiterea informațiilor pentru raportare..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">A apărut o eroare în timpul trimiterii raportului.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">A apărut o eroare neașteptată în timpul trimiterii raportului: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Raportul a fost trimis cu succes, vă mulțumim.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Este necesară o conexiune la internet pentru raportare.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Raportează</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Raportează din GitHub</system:String>
 </ResourceDictionary>

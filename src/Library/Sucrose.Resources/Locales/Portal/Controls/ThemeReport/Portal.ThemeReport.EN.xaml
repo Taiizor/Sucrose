@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Theme Reporting</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Close</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Title</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Description</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Report</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specify your reasons for reporting the theme.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Additional Notes:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Please describe the reason for the report in detail.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Preparations for reporting will begin shortly..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Necessary checks are being performed for reporting..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">An unknown error occurred while performing necessary checks for reporting.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">Suitable conditions for reporting could not be created at the moment, please try again later..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Sending information for reporting..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">An error occurred while sending the report.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">An unexpected error occurred while sending the report: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">The report was successfully sent, thank you.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">An internet connection is required to report.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Report</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Report from GitHub</system:String>
 </ResourceDictionary>

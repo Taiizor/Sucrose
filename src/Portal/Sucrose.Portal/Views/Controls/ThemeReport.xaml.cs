@@ -1,40 +1,29 @@
-﻿using Sucrose.Shared.Store.Interface;
+﻿using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
-using System.Net.Http.Headers;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
+using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+using Button = Wpf.Ui.Controls.Button;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMRD = Sucrose.Portal.Models.ReportData;
 using SRER = Sucrose.Resources.Extension.Resources;
-using SSDECYT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
-using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDERT = Sucrose.Shared.Dependency.Enum.ReportType;
-using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
-using Button = Wpf.Ui.Controls.Button;
-using SSSEPS = Sucrose.Shared.Space.Extension.ProgressStream;
-using SSSHC = Sucrose.Shared.Space.Helper.Clean;
-using SSSHGHD = Sucrose.Shared.Store.Helper.GitHub.Download;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
-using SSSHS = Sucrose.Shared.Store.Helper.Store;
-using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
-using SSSHU = Sucrose.Shared.Space.Helper.User;
-using SSSIR = Sucrose.Shared.Store.Interface.Root;
-using SSTHI = Sucrose.Shared.Theme.Helper.Info;
-using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
-using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
-using SSDECST = Sucrose.Shared.Dependency.Enum.CommandsType;
-using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
-using TextBox = Wpf.Ui.Controls.TextBox;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
+using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
+using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using TextBlock = Wpf.Ui.Controls.TextBlock;
-using System.Windows.Media;
+using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -43,8 +32,8 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class ThemeReport : ContentDialog, IDisposable
     {
-        private ComboBox ReportMode => (ComboBox)Reporter.HeaderFrame;
         internal KeyValuePair<string, SSSIW> Wallpaper = new();
+        private Button ReporterReport = new();
         private readonly SPEIL Loader = new();
         internal string Theme = string.Empty;
         internal SSTHI Info = new();
@@ -70,6 +59,13 @@ namespace Sucrose.Portal.Views.Controls
             Reporter.Title.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter");
             Reporter.Description.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Description");
 
+            ComboBox ReportMode = new()
+            {
+                MaxDropDownHeight = 200
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(ReportMode, ScrollBarVisibility.Auto);
+
             foreach (SSDERT Type in Enum.GetValues(typeof(SSDERT)))
             {
                 ReportMode.Items.Add(new ComboBoxItem()
@@ -81,12 +77,14 @@ namespace Sucrose.Portal.Views.Controls
 
             ReportMode.SelectedIndex = (int)SSDERT.Other;
 
+            Reporter.HeaderFrame = ReportMode;
+
             StackPanel ReporterContent = new();
 
             TextBlock ReporterDescriptionText = new()
             {
                 Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Description", "Text"),
-                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 0, 0, 10),
                 FontWeight = FontWeights.SemiBold
@@ -104,9 +102,22 @@ namespace Sucrose.Portal.Views.Controls
                 MinLines = 5,
             };
 
+            TextBlock ReporterState = new()
+            {
+                Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Reporting", "Preparing"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                TextAlignment = TextAlignment.Center,
+                Margin = new Thickness(0, 0, 0, 10),
+                Visibility = Visibility.Collapsed,
+                TextWrapping = TextWrapping.Wrap,
+                FontSize = 14
+            };
+
             Grid ReporterCustomContent = new();
 
-            Button ReporterReport = new()
+            ReporterReport = new()
             {
                 Content = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Report"),
                 HorizontalAlignment = HorizontalAlignment.Left,
@@ -124,10 +135,18 @@ namespace Sucrose.Portal.Views.Controls
 
             ReporterGitHub.Click += (s, e) =>
             {
-                string Title = Wallpaper.Key.Replace(" ", "%20");
-                string Location = $"{Wallpaper.Value.Source.Replace(" ", "%20").Split('/').LastOrDefault()}/{Title}";
+                if (string.IsNullOrEmpty(ReportDescription.Text) || string.IsNullOrWhiteSpace(ReportDescription.Text))
+                {
+                    ReportDescription.Focus();
+                }
+                else
+                {
+                    string Description = ReportDescription.Text;
+                    string Title = Wallpaper.Key.Replace(" ", "%20");
+                    string Location = $"{Wallpaper.Value.Source.Replace(" ", "%20").Split('/').LastOrDefault()}/{Title}";
 
-                SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECST.Report}{SMR.ValueSeparator}{SMR.StoreReportWebsite}&title={Title}&wallpaper-location={Location}");
+                    SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.StoreReportWebsite}&title={Title}&wallpaper-location={Location}&report-description={Description}");
+                }
             };
 
             ReporterCustomContent.Children.Add(ReporterReport);
@@ -135,10 +154,90 @@ namespace Sucrose.Portal.Views.Controls
 
             ReporterContent.Children.Add(ReporterDescriptionText);
             ReporterContent.Children.Add(ReportDescription);
-
+            ReporterContent.Children.Add(ReporterState);
             ReporterContent.Children.Add(ReporterCustomContent);
 
             Reporter.FooterCard = ReporterContent;
+
+            ReporterReport.Click += async (s, e) =>
+            {
+                if (string.IsNullOrEmpty(ReportDescription.Text) || string.IsNullOrWhiteSpace(ReportDescription.Text))
+                {
+                    ReportDescription.Focus();
+                }
+                else
+                {
+                    ReporterReport.IsEnabled = false;
+                    ReporterGitHub.IsEnabled = false;
+                    ReporterState.Visibility = Visibility.Visible;
+
+                    if (await SSSHN.GetHostEntryAsync())
+                    {
+                        using HttpClient Client = new();
+
+                        HttpResponseMessage Response = new();
+
+                        Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+                        ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Checking");
+
+                        await Task.Delay(1000);
+
+                        try
+                        {
+                            Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Check}/{SSSHU.GetGuid()}");
+                        }
+                        catch
+                        {
+                            ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Checking", "Error");
+                        }
+
+                        if (Response.IsSuccessStatusCode)
+                        {
+                            ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Sending");
+
+                            await Task.Delay(1000);
+
+                            Response = new();
+
+                            try
+                            {
+                                SPMRD ReportData = new(Wallpaper.Key, $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", ReportDescription.Text);
+
+                                StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
+
+                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Theme}/{SSSHU.GetGuid()}", Content);
+                            }
+                            catch
+                            {
+                                ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Sending", "Error");
+                            }
+
+                            if (Response.IsSuccessStatusCode)
+                            {
+                                ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Sending", "Succeded");
+                            }
+                            else
+                            {
+                                ReporterState.Text = string.Format(SRER.GetValue("Portal", "ThemeReport", "Reporter", "Sending", "Errored"), Response.StatusCode);
+                            }
+                        }
+                        else
+                        {
+                            ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Checking", "Status");
+                        }
+                    }
+                    else
+                    {
+                        ReporterState.Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Network");
+                    }
+
+                    await Task.Delay(3000);
+
+                    ReporterReport.IsEnabled = true;
+                    ReporterGitHub.IsEnabled = true;
+                }
+            };
         }
 
         private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -151,7 +250,7 @@ namespace Sucrose.Portal.Views.Controls
 
         protected override void OnButtonClick(ContentDialogButton Button)
         {
-            if (!true)
+            if (!ReporterReport.IsEnabled)
             {
                 return;
             }

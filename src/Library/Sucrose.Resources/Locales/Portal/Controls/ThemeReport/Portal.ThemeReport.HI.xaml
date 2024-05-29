@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">थीम रिपोर्टिंग</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">बंद करें</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">शीर्षक</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">विवरण</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">रिपोर्ट</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">कृपया थीम की रिपोर्टिंग के कारणों को निर्दिष्ट करें।</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">अतिरिक्त नोट्स:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">कृपया रिपोर्ट का कारण विस्तार से बताएं।</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">रिपोर्टिंग के लिए तैयारी जल्द ही शुरू होगी..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">रिपोर्टिंग के लिए आवश्यक जांच की जा रही है..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">रिपोर्टिंग के लिए आवश्यक जांच करते समय एक अज्ञात त्रुटि हुई।</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">इस समय रिपोर्टिंग के लिए उपयुक्त शर्तें बनाई नहीं जा सकीं, कृपया बाद में पुनः प्रयास करें..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">रिपोर्टिंग के लिए जानकारी भेजी जा रही है..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">रिपोर्ट भेजते समय एक त्रुटि हुई।</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">रिपोर्ट भेजते समय एक अप्रत्याशित त्रुटि हुई: {0}।</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">रिपोर्ट सफलतापूर्वक भेजी गई, धन्यवाद।</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">रिपोर्टिंग के लिए इंटरनेट कनेक्शन आवश्यक है।</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">रिपोर्ट</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">GitHub से रिपोर्ट करें</system:String>
 </ResourceDictionary>

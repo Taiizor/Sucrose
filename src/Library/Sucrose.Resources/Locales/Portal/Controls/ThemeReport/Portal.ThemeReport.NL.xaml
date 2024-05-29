@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Thema Rapportage</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Sluiten</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Titel</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Beschrijving</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Rapporteren</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specificeer uw redenen om het thema te rapporteren.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Aanvullende Notities:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Beschrijf de reden voor het rapport in detail.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Voorbereidingen voor rapportage beginnen binnenkort..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Noodzakelijke controles worden uitgevoerd voor rapportage..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Er is een onbekende fout opgetreden tijdens de noodzakelijke controles voor rapportage.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">Geschikte omstandigheden voor rapportage konden op dit moment niet worden gecreëerd, probeer het later opnieuw..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Informatie wordt verzonden voor rapportage..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Er is een fout opgetreden bij het verzenden van het rapport.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Er is een onverwachte fout opgetreden bij het verzenden van het rapport: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">Het rapport is succesvol verzonden, dank u.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Een internetverbinding is vereist om te rapporteren.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Rapporteren</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Rapporteren vanaf GitHub</system:String>
 </ResourceDictionary>

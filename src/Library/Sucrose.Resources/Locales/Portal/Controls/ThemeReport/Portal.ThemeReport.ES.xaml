@@ -2,12 +2,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Portal.ThemeReport.Title">Tema Bildirme</system:String>
-    <system:String x:Key="Portal.ThemeReport.Close">Kapat</system:String>
+    <system:String x:Key="Portal.ThemeReport.Title">Informe de Tema</system:String>
+    <system:String x:Key="Portal.ThemeReport.Close">Cerrar</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Başlık</system:String>
-    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Açıklama</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeTitle">Título</system:String>
+    <system:String x:Key="Portal.ThemeReport.ThemeDescription">Descripción</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
-    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Lütfen sorunu ayrıntılı olarak açıklayın.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter">Informe</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description">Especifique sus razones para informar sobre el tema.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Notas adicionales:</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Por favor describa la razón del informe en detalle.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Preparing">Las preparaciones para el informe comenzarán en breve..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking">Se están realizando las comprobaciones necesarias para el informe..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Error">Se produjo un error desconocido al realizar las comprobaciones necesarias para el informe.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Checking.Status">No se pudieron crear condiciones adecuadas para el informe en este momento, por favor intente nuevamente más tarde..</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending">Enviando información para el informe..</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Error">Se produjo un error al enviar el informe.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Errored">Se produjo un error inesperado al enviar el informe: {0}.</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Sending.Succeded">El informe se envió con éxito, gracias.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Network">Se requiere una conexión a Internet para informar.</system:String>
+
+    <system:String x:Key="Portal.ThemeReport.Reporter.Report">Informe</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.GitHub">Informe desde GitHub</system:String>
 </ResourceDictionary>

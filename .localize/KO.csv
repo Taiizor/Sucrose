@@ -293,11 +293,20 @@ Portal\Category\Portal.Category.KO.xaml,Portal.Category.UnderwaterandMarine,수�
 Portal\Category\Portal.Category.KO.xaml,Portal.Category.Vehicles,차량
 Portal\Category\Portal.Category.KO.xaml,Portal.Category.Vintage,빈티지
 Portal\Category\Portal.Category.KO.xaml,Portal.Category.War,전쟁
-Portal\Controls\Portal.Controls.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkV4cGFuZGVyQ2FyZC9Qb3J0YWwuRXhwYW5kZXJDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYWxscGFwZXJDeWNsaW5nL1BvcnRhbC5XYWxscGFwZXJDeWNsaW5nLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNwbGF5UHJlZmVyZW5jZXMvUG9ydGFsLkRpc3BsYXlQcmVmZXJlbmNlcy5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
+Portal\Controls\Portal.Controls.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJIZWxwL1BvcnRhbC5PdGhlckhlbHAuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lRWRpdC9Qb3J0YWwuVGhlbWVFZGl0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJTdG9yZUNhcmQvUG9ydGFsLlN0b3JlQ2FyZC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iT3RoZXJBYm91dC9Qb3J0YWwuT3RoZXJBYm91dC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iUGFnaW5hdGlvbi9Qb3J0YWwuUGFnaW5hdGlvbi5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVTaGFyZS9Qb3J0YWwuVGhlbWVTaGFyZS5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGlicmFyeUNhcmQvUG9ydGFsLkxpYnJhcnlDYXJkLktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZURlbGV0ZS9Qb3J0YWwuVGhlbWVEZWxldGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmV2aWV3L1BvcnRhbC5UaGVtZVJldmlldy5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVGhlbWVJbXBvcnQvUG9ydGFsLlRoZW1lSW1wb3J0LktPLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJUaGVtZUNyZWF0ZS9Qb3J0YWwuVGhlbWVDcmVhdGUuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlRoZW1lUmVwb3J0L1BvcnRhbC5UaGVtZVJlcG9ydC5LTy54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRXhwYW5kZXJDYXJkL1BvcnRhbC5FeHBhbmRlckNhcmQuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IldhbGxwYXBlckN5Y2xpbmcvUG9ydGFsLldhbGxwYXBlckN5Y2xpbmcuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc3BsYXlQcmVmZXJlbmNlcy9Qb3J0YWwuRGlzcGxheVByZWZlcmVuY2VzLktPLnhhbWwiIC8+DQogICAgPC9SZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg==
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.Fill,채우기
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.None,없음
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.Uniform,균일하게
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.Stretch.UniformToFill,균일하게 채우기
+Portal\Enum\Portal.Enum.KO.xaml,,
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.Spam,스팸
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.Other,기타
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.Nudity,나체
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.Harmful,유해
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.Violence,폭력
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.Malicious,악의적인
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.CopyrightViolation,저작권 침해
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.ReportType.MisleadingInformation,오해의 소지가 있는 정보
 Portal\Enum\Portal.Enum.KO.xaml,,
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.None,없음
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.SortModeType.Name,이름
@@ -651,6 +660,33 @@ Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,Portal.ThemeImport.Close,
 Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,,
 Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,Portal.ThemeImport.Info,테마 정보
 Portal\Controls\ThemeImport\Portal.ThemeImport.KO.xaml,Portal.ThemeImport.Type,유형
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Title,테마 보고
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Close,닫기
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.ThemeTitle,제목
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.ThemeDescription,설명
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter,보고
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Description,테마를 보고하는 이유를 명시하십시오.
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Description.Text,추가 메모:
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,보고 이유를 자세히 설명하십시오.
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Preparing,곧 보고 준비가 시작됩니다..
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Checking,보고를 위한 필수 확인을 수행 중입니다..
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Checking.Error,보고를 위한 필수 확인을 수행하는 동안 알 수 없는 오류가 발생했습니다.
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Checking.Status,현재 보고에 적합한 조건을 만들 수 없습니다. 나중에 다시 시도하십시오..
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Sending,보고를 위한 정보를 전송 중입니다..
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Sending.Error,보고를 전송하는 동안 오류가 발생했습니다.
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Sending.Errored,보고를 전송하는 동안 예기치 않은 오류가 발생했습니다: {0}.
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Sending.Succeded,"보고가 성공적으로 전송되었습니다, 감사합니다."
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Network,보고하려면 인터넷 연결이 필요합니다.
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Report,보고
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.GitHub,GitHub에서 보고
 Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.Title,테마 검토
 Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,Portal.ThemeReview.Close,닫기
 Portal\Controls\ThemeReview\Portal.ThemeReview.KO.xaml,,
