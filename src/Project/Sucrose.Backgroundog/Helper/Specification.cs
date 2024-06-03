@@ -6,7 +6,6 @@ using System.Net;
 using System.Text;
 using SBEAS = Sucrose.Backgroundog.Extension.AudioSession;
 using SBED = Sucrose.Backgroundog.Extension.Data;
-using SSSHO = Sucrose.Shared.Space.Helper.Object;
 using SBER = Sucrose.Backgroundog.Extension.Remote;
 using SBEUV = Sucrose.Backgroundog.Extension.UpdateVisitor;
 using SBEV = Sucrose.Backgroundog.Extension.Virtual;
@@ -32,6 +31,7 @@ using SSMI = Sucrose.Signal.Manage.Internal;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
+using SSSHO = Sucrose.Shared.Space.Helper.Object;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHF = Skylark.Wing.Helper.Fullscreen;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -340,6 +340,11 @@ namespace Sucrose.Backgroundog.Helper
                             SBMI.NetworkInterfaces = SSSHN.InstanceNetworkInterfaces();
 
                             SMMI.SystemSettingManager.SetSetting(SMC.NetworkInterfaces, SBMI.NetworkInterfaces);
+
+                            if (SBMI.NetworkInterfaces.Any() && (string.IsNullOrEmpty(SMMM.NetworkAdapter) || !SBMI.NetworkInterfaces.Contains(SMMM.NetworkAdapter)))
+                            {
+                                SMMI.BackgroundogSettingManager.SetSetting(SMC.NetworkAdapter, SBMI.NetworkInterfaces.FirstOrDefault());
+                            }
                         }
                         catch (Exception Exception)
                         {
