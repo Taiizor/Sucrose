@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">Příroda</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Noční Krajiny</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Vzory a Textury</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">Pixel Art</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Věda</system:String>

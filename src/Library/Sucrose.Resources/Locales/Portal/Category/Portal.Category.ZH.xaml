@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">自然</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">夜景</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">图案和纹理</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">像素艺术</system:String>
     <system:String x:Key="Portal.Category.Retro">复古</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>

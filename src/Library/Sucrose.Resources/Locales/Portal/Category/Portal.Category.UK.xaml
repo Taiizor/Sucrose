@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">Природа</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Нічні Пейзажі</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Візерунки та Текстури</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">Піксельне Мистецтво</system:String>
     <system:String x:Key="Portal.Category.Retro">Ретро</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Наука</system:String>

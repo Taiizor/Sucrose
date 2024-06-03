@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">자연</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">야경</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">패턴 및 질감</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">픽셀 아트</system:String>
     <system:String x:Key="Portal.Category.Retro">레트로</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">과학</system:String>

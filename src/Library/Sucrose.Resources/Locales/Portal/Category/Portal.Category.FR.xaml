@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">Nature</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Paysages Nocturnes</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Motifs &amp; Textures</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">Art Pixel</system:String>
     <system:String x:Key="Portal.Category.Retro">Rétro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Science</system:String>

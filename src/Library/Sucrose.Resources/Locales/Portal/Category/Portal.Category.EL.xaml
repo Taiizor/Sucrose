@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">Φύση</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Νυχτερινά Τοπία</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Μοτίβα και Υφές</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">Εικονοστοιχική Τέχνη</system:String>
     <system:String x:Key="Portal.Category.Retro">Ρετρό</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Επιστήμη</system:String>

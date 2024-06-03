@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">प्राकृतिक</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">रात्रि दृश्य</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">पैटर्न और टेक्सचर्स</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">पिक्सेल कला</system:String>
     <system:String x:Key="Portal.Category.Retro">रेट्रो</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">विज्ञान</system:String>

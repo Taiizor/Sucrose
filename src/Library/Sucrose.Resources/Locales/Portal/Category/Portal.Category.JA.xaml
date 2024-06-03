@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">自然</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">夜景</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">パターンとテクスチャ</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">ピクセルアート</system:String>
     <system:String x:Key="Portal.Category.Retro">レトロ</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>

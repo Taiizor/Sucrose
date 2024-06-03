@@ -42,6 +42,7 @@
     <system:String x:Key="Portal.Category.Nature">Natură</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Peisaje de Noapte</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Modele și Texturi</system:String>
+    <system:String x:Key="Portal.Category.PixelArt">Artă Pixel</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Știință</system:String>

@@ -74,6 +74,7 @@ namespace Sucrose.Portal.Manage
             { "Education", SymbolRegular.HatGraduation24 },
             { "Film and TV", SymbolRegular.MoviesAndTv24 },
             { "Technology", SymbolRegular.PhoneDesktop24 },
+            { "Pixel Art", SymbolRegular.CalligraphyPen24 },
             { "Science Fiction", SymbolRegular.Thinking24 },
             { "Black and White", SymbolRegular.DarkTheme24 },
             { "Sky", SymbolRegular.WeatherPartlyCloudyDay24 },
