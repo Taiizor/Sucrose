@@ -124,9 +124,9 @@ namespace Sucrose.Property
 
                     if (File.Exists(SPMI.InfoPath))
                     {
-                        SSTHI Info = SSTHI.ReadJson(SPMI.InfoPath);
+                        SPMI.Info = SSTHI.ReadJson(SPMI.InfoPath);
 
-                        if (Info.Type == SSDEWT.Web)
+                        if (SPMI.Info.Type == SSDEWT.Web)
                         {
                             SPMI.PropertiesCache = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Properties);
                             SPMI.PropertiesFile = Path.Combine(SPMI.PropertiesCache, $"{SPMI.LibrarySelected}.json");
