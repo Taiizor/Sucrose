@@ -9,7 +9,7 @@ namespace Sucrose.Shared.Store.Manage
 
         public static readonly HttpClient Client = new()
         {
-            Timeout = Timeout.InfiniteTimeSpan
+            Timeout = TimeSpan.FromSeconds(30) //Timeout.InfiniteTimeSpan
         };
 
         public static SPSSS StoreService { get; } = new();

@@ -58,7 +58,7 @@ namespace Sucrose.Portal.Views.Pages
 
                 if (Result)
                 {
-                    if (SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
+                    if (SSDMM.StoreType == SSDEST.Soferity && SSSHSD.Pattern(PatternFile, SMMM.UserAgent))
                     {
                         Root = SSSHS.DeserializeRoot(PatternFile);
                     }
