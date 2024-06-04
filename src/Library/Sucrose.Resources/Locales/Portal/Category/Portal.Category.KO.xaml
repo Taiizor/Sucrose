@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">애니메이션</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">건축 및 건물</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">미술 및 추상</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">인공지능</system:String>
     <system:String x:Key="Portal.Category.Artworks">미술 작품</system:String>
     <system:String x:Key="Portal.Category.Bard">바드</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">흑백</system:String>

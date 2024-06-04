@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">Аніме</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">Архітектура та Будівлі</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">Мистецтво та Абстракція</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">Штучний Iнтелект</system:String>
     <system:String x:Key="Portal.Category.Artworks">Художні Твори</system:String>
     <system:String x:Key="Portal.Category.Bard">Барди</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Чорно-біле</system:String>

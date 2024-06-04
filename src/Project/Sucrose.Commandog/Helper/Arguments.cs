@@ -147,8 +147,21 @@ namespace Sucrose.Commandog.Helper
                                         SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
                                     }
                                     break;
+                                case SSDECT.Interface:
+                                    if (Values.Count() > 1)
+                                    {
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    }
+                                    else
+                                    {
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    }
+                                    break;
                                 case SSDECT.PropertyA:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    break;
+                                case SSDECT.Reportdog:
+                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), string.Empty);
                                     break;
                                 case SSDECT.Scheduler:
                                     switch (SCHP.ArgumentValue<SSDESCT>(Values[0]))
@@ -167,16 +180,6 @@ namespace Sucrose.Commandog.Helper
                                             break;
                                         default:
                                             break;
-                                    }
-                                    break;
-                                case SSDECT.Interface:
-                                    if (Values.Count() > 1)
-                                    {
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
-                                    }
-                                    else
-                                    {
-                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                     }
                                     break;
                                 case SSDECT.Repository:

@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">动漫</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">建筑与建筑物</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">艺术与抽象</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">人工智能</system:String>
     <system:String x:Key="Portal.Category.Artworks">艺术作品</system:String>
     <system:String x:Key="Portal.Category.Bard">诗人</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">黑白</system:String>

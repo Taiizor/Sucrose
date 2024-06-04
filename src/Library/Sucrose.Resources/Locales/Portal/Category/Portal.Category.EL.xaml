@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">Κινούμενα Σχέδια Anime</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">Αρχιτεκτονική και Κτίρια</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">Τέχνη και Αφηρημένο</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">Τεχνητή Νοημοσύνη</system:String>
     <system:String x:Key="Portal.Category.Artworks">Έργα Τέχνης</system:String>
     <system:String x:Key="Portal.Category.Bard">Βαρδάρης</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Ασπρόμαυρα</system:String>

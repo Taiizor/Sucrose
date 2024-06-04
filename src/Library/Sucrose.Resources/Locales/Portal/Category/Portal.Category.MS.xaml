@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">Anime</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">Senibina dan Bangunan</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">Seni dan Abstrak</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">Kecerdasan Buatan</system:String>
     <system:String x:Key="Portal.Category.Artworks">Karya Seni</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Hitam dan Putih</system:String>

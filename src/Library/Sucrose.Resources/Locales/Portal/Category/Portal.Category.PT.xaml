@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">Anime</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">Arquitetura e Construções</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">Arte e Abstrato</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">Inteligência Artificial</system:String>
     <system:String x:Key="Portal.Category.Artworks">Obras de Arte</system:String>
     <system:String x:Key="Portal.Category.Bard">Bardo</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Preto e Branco</system:String>

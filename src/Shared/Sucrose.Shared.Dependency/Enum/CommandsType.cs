@@ -22,9 +22,10 @@
         StartupP,
         Official,
         Watchdog,
-        PropertyA,
-        Scheduler,
         Interface,
+        PropertyA,
+        Reportdog,
+        Scheduler,
         Repository,
         Discussions,
         Backgroundog

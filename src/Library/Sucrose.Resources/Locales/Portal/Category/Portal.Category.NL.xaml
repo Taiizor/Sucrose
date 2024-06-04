@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">Anime</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">Architectuur en Gebouwen</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">Kunst en Abstract</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">Kunstmatige Intelligentie</system:String>
     <system:String x:Key="Portal.Category.Artworks">Kunstwerken</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Zwart en Wit</system:String>

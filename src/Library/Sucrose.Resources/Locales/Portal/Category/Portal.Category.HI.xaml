@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">एनिमे</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">आर्किटेक्चर और इमारतें</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">कला और अल्परूप</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">कृत्रिम होशियारी</system:String>
     <system:String x:Key="Portal.Category.Artworks">कला कृतियाँ</system:String>
     <system:String x:Key="Portal.Category.Bard">गायक</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">काला और सफेद</system:String>

@@ -104,6 +104,8 @@
 
         public static readonly string Commandog = "Sucrose.Commandog.exe";
 
+        public static readonly string Reportdog = "Sucrose.Reportdog.exe";
+
         public static readonly string StartCommand = $"{StartCommandChar}";
 
         public static readonly string WebViewProcessName = "msedgewebview2";
@@ -151,6 +153,8 @@
         public static readonly string PropertyMutex = "{Sucrose-Wallpaper-Engine-Property}";
 
         public static readonly string LauncherMutex = "{Sucrose-Wallpaper-Engine-Launcher}";
+
+        public static readonly string ReportdogMutex = "{Sucrose-Wallpaper-Engine-Reportdog}";
 
         public static readonly string UserAgent = "Sucrose/1.4 (Wallpaper Engine) SucroseWebKit";
 

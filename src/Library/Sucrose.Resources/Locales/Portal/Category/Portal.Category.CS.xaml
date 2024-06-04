@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">Anime</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">Architektura a Budovy</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">Umění a Abstrakce</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">Umělá Inteligence</system:String>
     <system:String x:Key="Portal.Category.Artworks">Umělecká Díla</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Černobílá</system:String>

@@ -11,6 +11,7 @@
     <system:String x:Key="Portal.Category.Anime">Anime</system:String>
     <system:String x:Key="Portal.Category.ArchitectureandBuildings">Arkitektur och Byggnader</system:String>
     <system:String x:Key="Portal.Category.ArtandAbstract">Konst och Abstrakt</system:String>
+    <system:String x:Key="Portal.Category.ArtificialIntelligence">Artificiell Intelligens</system:String>
     <system:String x:Key="Portal.Category.Artworks">Konstverk</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Svart och Vitt</system:String>
