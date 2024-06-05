@@ -18,6 +18,8 @@
 
         public static readonly string LogFolder = "Log";
 
+        public static readonly string Online = "Online";
+
         public static readonly string Owner = "Taiizor";
 
         public static readonly Random Randomise = new();

@@ -55,11 +55,35 @@ namespace Sucrose.Shared.Space.Helper
             return string.Empty;
         }
 
+        public static string GetProcessor()
+        {
+            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
+
+            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            {
+                return SSSHM.Check(Object, "Name", string.Empty);
+            }
+
+            return string.Empty;
+        }
+
         public static string GetIdentifier()
         {
             WindowsIdentity Identity = WindowsIdentity.GetCurrent();
 
             return Identity.User.Value;
+        }
+
+        public static int GetNumberOfCores()
+        {
+            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
+
+            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            {
+                return SSSHM.Check(Object, "NumberOfCores", 0);
+            }
+
+            return 0;
         }
 
         public static string GetIdentifying()

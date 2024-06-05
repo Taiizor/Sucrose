@@ -132,7 +132,6 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private void InitializeViewModel()
         {
-            Memory = SSCHM.Get();
             Donater = GetDonater();
             Quoting = GetQuoting();
             Stretch = GetStretch();
@@ -142,6 +141,7 @@ namespace Sucrose.Portal.ViewModels.Windows
             Architecture = SSCHA.GetText();
             OperatingSystem = SSCHOS.Get();
             Backgrounder = GetBackgrounder();
+            Memory = SSCHM.GetCurrentProcess();
             WindowBackdropType = GetWindowBackdropType();
 
             _isInitialized = true;
@@ -304,7 +304,7 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private void Memory_Tick(object sender, EventArgs e)
         {
-            Memory = SSCHM.Get();
+            Memory = SSCHM.GetCurrentProcess();
             Dispose();
         }
 

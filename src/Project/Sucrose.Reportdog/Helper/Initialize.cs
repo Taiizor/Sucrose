@@ -8,6 +8,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SRMI = Sucrose.Reportdog.Manage.Internal;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
+using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
@@ -53,9 +54,37 @@ namespace Sucrose.Backgroundog.Helper
                     await PostError(e.FullPath);
                 };
 
+                TimerCallback Callback = InitializeTimer_Callback;
+                SRMI.InitializeTimer = new(Callback, null, 0, SRMI.InitializeTime);
+
                 SRMI.Watcher.EnableRaisingEvents = true;
 
                 await PostStatistic();
+            }
+        }
+
+        private static async Task GetOnline()
+        {
+            try
+            {
+                using HttpClient Client = new();
+
+                HttpResponseMessage Response = new();
+
+                Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+                try
+                {
+                    Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Online}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+                }
+                catch (Exception Exception)
+                {
+                    await SSWW.Watch_CatchException(Exception);
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
 
@@ -73,7 +102,7 @@ namespace Sucrose.Backgroundog.Helper
                 {
                     CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
 
-                    SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), Culture.Name, SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                    SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), SSSHU.GetProcessor(), SSCHM.GetTotalMemory(), Culture.Name, SSSHU.GetNumberOfCores(), SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
                     StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
@@ -146,11 +175,17 @@ namespace Sucrose.Backgroundog.Helper
             }
         }
 
+        private async void InitializeTimer_Callback(object State)
+        {
+            await GetOnline();
+        }
+
         public void Stop()
         {
             if (SRMI.Watcher != null)
             {
                 SRMI.Watcher.EnableRaisingEvents = false;
+                SRMI.InitializeTimer.Dispose();
                 SRMI.Watcher.Dispose();
                 SRMI.Watcher = null;
             }

@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class AnalyticsData(bool Adult, string User, string Model, string Store, int Startup, string Culture, string Version, string Framework, string CultureName, string Architecture, string Manufacturer, string DisplayScreen, string CultureDisplay, string OperatingSystem, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
+    internal class AnalyticsData(bool Adult, string User, string Model, string Store, int Startup, string Culture, string Version, string Framework, string Processor, long TotalMemory, string CultureName, int NumberOfCores, string Architecture, string Manufacturer, string DisplayScreen, string CultureDisplay, string OperatingSystem, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
     {
         public bool Adult { get; set; } = Adult;
 
@@ -18,7 +18,13 @@
 
         public string Framework { get; set; } = Framework;
 
+        public string Processor { get; set; } = Processor;
+
+        public long TotalMemory { get; set; } = TotalMemory;
+
         public string CultureName { get; set; } = CultureName;
+
+        public int NumberOfCores { get; set; } = NumberOfCores;
 
         public string Architecture { get; set; } = Architecture;
 

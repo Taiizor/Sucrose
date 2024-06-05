@@ -11,7 +11,8 @@ using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLCC = Sucrose.Shared.Launcher.Command.Close;
 using SSLCE = Sucrose.Shared.Launcher.Command.Engine;
 using SSLCI = Sucrose.Shared.Launcher.Command.Interface;
-using SSLCR = Sucrose.Shared.Launcher.Command.Report;
+using SSLCRG = Sucrose.Shared.Launcher.Command.Reportdog;
+using SSLCRT = Sucrose.Shared.Launcher.Command.Report;
 using SSLCS = Sucrose.Shared.Launcher.Command.Setting;
 using SSLCU = Sucrose.Shared.Launcher.Command.Update;
 using SSLHC = Sucrose.Shared.Launcher.Helper.Calculate;
@@ -52,6 +53,8 @@ namespace Sucrose.Shared.Launcher.Manager
             ContextMenuAdjustment();
 
             SSLCE.Command(false);
+
+            SSLCRG.Command();
         }
 
         public void Initialize()
@@ -274,7 +277,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
         private void CommandReport(object sender, EventArgs e)
         {
-            SSLCR.Command();
+            SSLCRT.Command();
         }
 
         private void CommandUpdate(object sender, EventArgs e)

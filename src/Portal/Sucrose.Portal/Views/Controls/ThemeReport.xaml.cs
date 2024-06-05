@@ -169,6 +169,7 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     ReporterReport.IsEnabled = false;
                     ReporterGitHub.IsEnabled = false;
+                    ReportDescription.IsReadOnly = true;
                     ReporterState.Visibility = Visibility.Visible;
 
                     if (await SSSHN.GetHostEntryAsync())
@@ -236,6 +237,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     ReporterReport.IsEnabled = true;
                     ReporterGitHub.IsEnabled = true;
+                    ReportDescription.IsReadOnly = false;
                 }
             };
         }

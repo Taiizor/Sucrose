@@ -20,6 +20,48 @@ namespace Sucrose.Shared.Space.Helper
             }
         }
 
+        public static int Check(ManagementObject Object, string Title, int Back)
+        {
+            try
+            {
+                string Value = $"{Object[Title]}";
+
+                if (string.IsNullOrEmpty(Value) || string.IsNullOrWhiteSpace(Value))
+                {
+                    return Back;
+                }
+                else
+                {
+                    return Convert.ToInt32(Value.TrimStart().TrimEnd());
+                }
+            }
+            catch
+            {
+                return Back;
+            }
+        }
+
+        public static long Check(ManagementObject Object, string Title, long Back)
+        {
+            try
+            {
+                string Value = $"{Object[Title]}";
+
+                if (string.IsNullOrEmpty(Value) || string.IsNullOrWhiteSpace(Value))
+                {
+                    return Back;
+                }
+                else
+                {
+                    return Convert.ToInt64(Value.TrimStart().TrimEnd());
+                }
+            }
+            catch
+            {
+                return Back;
+            }
+        }
+
         public static string Check(ManagementObject Object, string Title, string Back)
         {
             try
