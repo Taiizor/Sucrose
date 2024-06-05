@@ -1,16 +1,18 @@
-﻿using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
-using SEDST = Skylark.Enum.DisplayScreenType;
-using SEOST = Skylark.Enum.OperatingSystemType;
+﻿using Newtonsoft.Json.Linq;
 
 namespace Sucrose.Shared.Space.Model
 {
-    internal class DiagnosticsData(Guid Id, string Sid, Guid AppId, string Model, string Culture, string Version, Exception Exception, SEOST OperatingSystemType, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
+    internal class DiagnosticsData(Guid Id, Guid Sid, string App, Guid AppId, string User, string Model, string Culture, string Version, string Framework, JObject Exception, string CultureName, string Architecture, string Manufacturer, string CultureDisplay, string OperatingSystem, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
     {
         public Guid Id { get; set; } = Id;
 
-        public string Sid { get; set; } = Sid;
+        public Guid Sid { get; set; } = Sid;
+
+        public string App { get; set; } = App;
 
         public Guid AppId { get; set; } = AppId;
+
+        public string User { get; set; } = User;
 
         public string Model { get; set; } = Model;
 
@@ -18,9 +20,19 @@ namespace Sucrose.Shared.Space.Model
 
         public string Version { get; set; } = Version;
 
-        public Exception Exception { get; set; } = Exception;
+        public string Framework { get; set; } = Framework;
 
-        public SEOST OperatingSystemType { get; set; } = OperatingSystemType;
+        public JObject Exception { get; set; } = Exception;
+
+        public string CultureName { get; set; } = CultureName;
+
+        public string Architecture { get; set; } = Architecture;
+
+        public string Manufacturer { get; set; } = Manufacturer;
+
+        public string CultureDisplay { get; set; } = CultureDisplay;
+
+        public string OperatingSystem { get; set; } = OperatingSystem;
 
         public string ProcessArchitecture { get; set; } = ProcessArchitecture;
 

@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Globalization;
 using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
@@ -8,14 +10,23 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
+using SSCHF = Sucrose.Shared.Core.Helper.Framework;
+using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSHUE = Sucrose.Shared.Space.Helper.Unique;
+using SSSHUR = Sucrose.Shared.Space.Helper.User;
+using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
+using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SWHSI = Skylark.Wing.Helper.SystemInfo;
+using SWNM = Skylark.Wing.Native.Methods;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
-using SSSHU = Sucrose.Shared.Space.Helper.Unique;
 
 namespace Sucrose.Watchdog
 {
@@ -35,7 +46,7 @@ namespace Sucrose.Watchdog
                 await SSWW.Watch_FirstChanceException(Exception);
 
                 //Close();
-                //Message(Exception.Message);
+                //Message(Exception);
             };
 
             AppDomain.CurrentDomain.UnhandledException += async (s, e) =>
@@ -45,7 +56,7 @@ namespace Sucrose.Watchdog
                 await SSWW.Watch_GlobalUnhandledException(Exception);
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             TaskScheduler.UnobservedTaskException += async (s, e) =>
@@ -57,7 +68,7 @@ namespace Sucrose.Watchdog
                 e.SetObserved();
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             Current.DispatcherUnhandledException += async (s, e) =>
@@ -69,7 +80,7 @@ namespace Sucrose.Watchdog
                 e.Handled = true;
 
                 //Close();
-                Message(Exception.Message);
+                Message(Exception);
             };
 
             SHC.All = new CultureInfo(SMMM.Culture, true);
@@ -82,7 +93,7 @@ namespace Sucrose.Watchdog
             Shutdown();
         }
 
-        protected void Message(string Message)
+        protected void Message(Exception Exception)
         {
             if (HasError)
             {
@@ -90,28 +101,10 @@ namespace Sucrose.Watchdog
 
                 string Path = SMMI.WatchdogLogManager.LogFile();
 
-                switch (SSDMM.ThemeType)
-                {
-                    case SEWTT.Dark:
-                        SWVDEMB DarkMessageBox = new(Message, Path);
-                        DarkMessageBox.ShowDialog();
-                        break;
-                    default:
-                        SWVLEMB LightMessageBox = new(Message, Path);
-                        LightMessageBox.ShowDialog();
-                        break;
-                }
+                SSSHW.Start(SMR.Watchdog, Exception, Path);
 
                 Close();
             }
-        }
-
-        protected void Write(string FilePath, string FileContent)
-        {
-            using FileStream FileStream = new(FilePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
-            using StreamWriter Writer = new(FileStream);
-
-            Writer.Write(FileContent);
         }
 
         protected void Configure(string[] Args)
@@ -123,15 +116,26 @@ namespace Sucrose.Watchdog
 
                 if (Arguments.Any() && (Arguments.Count() == 3 || Arguments.Count() == 5))
                 {
+                    Guid Id = Guid.NewGuid();
                     string Log = Arguments[2];
+                    string Name = SSSHUR.GetName();
+                    string Model = SSSHUR.GetModel();
                     string Application = Arguments[0];
+                    Guid AppId = SSSHUE.GenerateGuid(Application);
+                    string Manufacturer = SSSHUR.GetManufacturer();
                     string Message = SSSHWE.Convert(Arguments[1]).Message;
+                    CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
                     string Text = Arguments.Count() == 5 ? Arguments[4] : string.Empty;
                     string Source = Arguments.Count() == 5 ? Arguments[3] : string.Empty;
 
-                    Write(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{SSSHU.GenerateGuid(Application)}_{Guid.NewGuid()}.json"), Arguments[1]);
+                    SSSMDD DiagnosticsData = new(Id, SSSHUE.GenerateGuid($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
-                    SSSHP.Kill(Application);
+                    SSSHW.Write(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{Id}.json"), JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented));
+
+                    if (Application != SMR.Watchdog)
+                    {
+                        SSSHP.Kill(Application);
+                    }
 
                     switch (SSDMM.ThemeType)
                     {

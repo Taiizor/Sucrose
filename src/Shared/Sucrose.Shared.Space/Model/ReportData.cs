@@ -1,4 +1,4 @@
-﻿namespace Sucrose.Portal.Models
+﻿namespace Sucrose.Shared.Space.Model
 {
     public class ReportData(string Title, string Category, string Location, string Description)
     {

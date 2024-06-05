@@ -74,7 +74,14 @@ namespace Sucrose.Shared.Space.Converter
                 return null;
             }
 
-            Exception exception = (Exception)Activator.CreateInstance(Type.GetType(serializableException.ClassName), serializableException.Message);
+            Type exceptionType = Type.GetType(serializableException.ClassName);
+
+            if (exceptionType == null)
+            {
+                exceptionType = typeof(Exception);
+            }
+
+            Exception exception = (Exception)Activator.CreateInstance(exceptionType, serializableException.Message);
             exception.HelpLink = serializableException.HelpURL;
 
             foreach (DictionaryEntry entry in serializableException.Data)

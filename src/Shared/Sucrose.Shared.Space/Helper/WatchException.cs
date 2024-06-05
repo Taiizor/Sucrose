@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SSSCEC = Sucrose.Shared.Space.Converter.ExceptionConverter;
+using SSSMDD = Sucrose.Shared.Space.Model.DiagnosticsData;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -11,6 +12,19 @@ namespace Sucrose.Shared.Space.Helper
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 Formatting = Formatting.Indented,
+                Converters =
+                {
+                    new SSSCEC()
+                }
+            });
+        }
+
+        public static string Convert(SSSMDD Data, Formatting Formatting = Formatting.Indented)
+        {
+            return JsonConvert.SerializeObject(Data, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                Formatting = Formatting,
                 Converters =
                 {
                     new SSSCEC()

@@ -42,5 +42,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interface\SerializableException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\StackFrameData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ReportData.cs" />
   </ItemGroup>
 </Project>

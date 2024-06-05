@@ -13,7 +13,7 @@ namespace Sucrose.Shared.Space.Helper
         {
             try
             {
-                return SSSHU.GenerateGuid($"{GetName()}-{GetModel()}-{GetSecurityIdentifier()}");
+                return SSSHU.GenerateGuid($"{GetName()}-{GetModel()}-{GetIdentifier()}");
             }
             catch
             {
@@ -55,6 +55,25 @@ namespace Sucrose.Shared.Space.Helper
             return string.Empty;
         }
 
+        public static string GetIdentifier()
+        {
+            WindowsIdentity Identity = WindowsIdentity.GetCurrent();
+
+            return Identity.User.Value;
+        }
+
+        public static string GetIdentifying()
+        {
+            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
+
+            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            {
+                return SSSHM.Check(Object, "IdentifyingNumber", string.Empty);
+            }
+
+            return string.Empty;
+        }
+
         public static string GetProfilePath()
         {
             return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
@@ -70,25 +89,6 @@ namespace Sucrose.Shared.Space.Helper
             }
 
             return string.Empty;
-        }
-
-        public static string GetIdentifyingNumber()
-        {
-            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
-
-            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
-            {
-                return SSSHM.Check(Object, "IdentifyingNumber", string.Empty);
-            }
-
-            return string.Empty;
-        }
-
-        public static string GetSecurityIdentifier()
-        {
-            WindowsIdentity Identity = WindowsIdentity.GetCurrent();
-
-            return Identity.User.Value;
         }
     }
 }

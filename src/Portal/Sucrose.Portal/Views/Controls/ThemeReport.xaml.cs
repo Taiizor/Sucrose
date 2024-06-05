@@ -12,7 +12,6 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMRD = Sucrose.Portal.Models.ReportData;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDERT = Sucrose.Shared.Dependency.Enum.ReportType;
@@ -20,6 +19,7 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
+using SSSMRD = Sucrose.Shared.Space.Model.ReportData;
 using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using TextBlock = Wpf.Ui.Controls.TextBlock;
@@ -202,7 +202,7 @@ namespace Sucrose.Portal.Views.Controls
 
                             try
                             {
-                                SPMRD ReportData = new(Wallpaper.Key, $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", ReportDescription.Text);
+                                SSSMRD ReportData = new(Wallpaper.Key, $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", ReportDescription.Text);
 
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
 
