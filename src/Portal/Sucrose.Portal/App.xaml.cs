@@ -56,70 +56,68 @@ namespace Sucrose.Portal
         private static readonly IHost _host = Host
             .CreateDefaultBuilder()
             .ConfigureAppConfiguration(configure =>
-                {
-                    configure.SetBasePath(AppContext.BaseDirectory);
-                }
-            )
+            {
+                configure.SetBasePath(AppContext.BaseDirectory);
+            })
             .ConfigureServices((context, services) =>
-                {
-                    // App Host
-                    services.AddHostedService<SPSAHS>();
+            {
+                // App Host
+                services.AddHostedService<SPSAHS>();
 
-                    // Page resolver service
-                    services.AddSingleton<IPageService, SPSPS>();
+                // Page resolver service
+                services.AddSingleton<IPageService, SPSPS>();
 
-                    // Theme manipulation
-                    services.AddSingleton<IThemeService, ThemeService>();
+                // Theme manipulation
+                services.AddSingleton<IThemeService, ThemeService>();
 
-                    // TaskBar manipulation
-                    services.AddSingleton<ITaskBarService, TaskBarService>();
+                // TaskBar manipulation
+                services.AddSingleton<ITaskBarService, TaskBarService>();
 
-                    // 
-                    services.AddSingleton<ISnackbarService, SnackbarService>();
+                // 
+                services.AddSingleton<ISnackbarService, SnackbarService>();
 
-                    // Service containing navigation, same as INavigationWindow... but without window
-                    services.AddSingleton<INavigationService, NavigationService>();
+                // Service containing navigation, same as INavigationWindow... but without window
+                services.AddSingleton<INavigationService, NavigationService>();
 
-                    // 
-                    services.AddSingleton<IContentDialogService, ContentDialogService>();
+                // 
+                services.AddSingleton<IContentDialogService, ContentDialogService>();
 
-                    // Main window with navigation
-                    services.AddSingleton<SPSCIW, SPVWMW>();
-                    services.AddSingleton<SPVMWMWVM>();
-                    services.AddSingleton<SPSWPS>();
+                // Main window with navigation
+                services.AddSingleton<SPSCIW, SPVWMW>();
+                services.AddSingleton<SPVMWMWVM>();
+                services.AddSingleton<SPSWPS>();
 
-                    // Views and ViewModels
-                    services.AddTransient<SPVPLP>();
-                    services.AddTransient<SPVMPLVM>();
+                // Views and ViewModels
+                services.AddTransient<SPVPLP>();
+                services.AddTransient<SPVMPLVM>();
 
-                    services.AddTransient<SPVPSP>();
-                    services.AddTransient<SPVMPSVM>();
+                services.AddTransient<SPVPSP>();
+                services.AddTransient<SPVMPSVM>();
 
-                    services.AddTransient<SPVPSDSP>();
-                    services.AddTransient<SPVMPDSVM>();
+                services.AddTransient<SPVPSDSP>();
+                services.AddTransient<SPVMPDSVM>();
 
-                    services.AddTransient<SPVPSGSP>();
-                    services.AddTransient<SPVMPGSVM>();
+                services.AddTransient<SPVPSGSP>();
+                services.AddTransient<SPVMPGSVM>();
 
-                    services.AddTransient<SPVPSOSP>();
-                    services.AddTransient<SPVMPOSVM>();
+                services.AddTransient<SPVPSOSP>();
+                services.AddTransient<SPVMPOSVM>();
 
-                    services.AddTransient<SPVPSPESP>();
-                    services.AddTransient<SPVMPPESVM>();
+                services.AddTransient<SPVPSPESP>();
+                services.AddTransient<SPVMPPESVM>();
 
-                    services.AddTransient<SPVPSPLSP>();
-                    services.AddTransient<SPVMPPLSVM>();
+                services.AddTransient<SPVPSPLSP>();
+                services.AddTransient<SPVMPPLSVM>();
 
-                    services.AddTransient<SPVPSSSP>();
-                    services.AddTransient<SPVMPSSVM>();
+                services.AddTransient<SPVPSSSP>();
+                services.AddTransient<SPVMPSSVM>();
 
-                    services.AddTransient<SPVPSWSP>();
-                    services.AddTransient<SPVMPWSVM>();
+                services.AddTransient<SPVPSWSP>();
+                services.AddTransient<SPVMPWSVM>();
 
-                    // Configuration
-                    services.Configure<SPMAC>(context.Configuration.GetSection(nameof(SPMAC)));
-                }
-            )
+                // Configuration
+                services.Configure<SPMAC>(context.Configuration.GetSection(nameof(SPMAC)));
+            })
             .Build();
 
         public App()

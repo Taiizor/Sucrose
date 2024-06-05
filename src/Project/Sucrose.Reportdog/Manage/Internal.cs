@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using SBHI = Sucrose.Backgroundog.Helper.Initialize;
-using Timer = System.Threading.Timer;
 using SMR = Sucrose.Memory.Readonly;
 
 namespace Sucrose.Reportdog.Manage
@@ -13,9 +12,7 @@ namespace Sucrose.Reportdog.Manage
 
         public static SBHI Initialize = new();
 
-        public static Timer InitializeTimer = null;
-
-        public static FileSystemWatcher FileWatcher = null;
+        public static FileSystemWatcher Watcher = null;
 
         public static readonly string Source = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder);
     }

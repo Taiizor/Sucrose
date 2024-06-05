@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.IO;
 using System.Windows;
 using Application = System.Windows.Application;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -14,6 +15,7 @@ using SSSHWE = Sucrose.Shared.Space.Helper.WatchException;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWVDEMB = Sucrose.Watchdog.View.DarkErrorMessageBox;
 using SWVLEMB = Sucrose.Watchdog.View.LightErrorMessageBox;
+using SSSHU = Sucrose.Shared.Space.Helper.Unique;
 
 namespace Sucrose.Watchdog
 {
@@ -104,6 +106,14 @@ namespace Sucrose.Watchdog
             }
         }
 
+        protected void Write(string FilePath, string FileContent)
+        {
+            using FileStream FileStream = new(FilePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
+            using StreamWriter Writer = new(FileStream);
+
+            Writer.Write(FileContent);
+        }
+
         protected void Configure(string[] Args)
         {
             if (Args.Any())
@@ -113,22 +123,24 @@ namespace Sucrose.Watchdog
 
                 if (Arguments.Any() && (Arguments.Count() == 3 || Arguments.Count() == 5))
                 {
-                    string Path = Arguments[2];
+                    string Log = Arguments[2];
                     string Application = Arguments[0];
                     string Message = SSSHWE.Convert(Arguments[1]).Message;
                     string Text = Arguments.Count() == 5 ? Arguments[4] : string.Empty;
                     string Source = Arguments.Count() == 5 ? Arguments[3] : string.Empty;
+
+                    Write(Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.ReportFolder, $"{SSSHU.GenerateGuid(Application)}_{Guid.NewGuid()}.json"), Arguments[1]);
 
                     SSSHP.Kill(Application);
 
                     switch (SSDMM.ThemeType)
                     {
                         case SEWTT.Dark:
-                            SWVDEMB DarkMessageBox = new(Message, Path, Source, Text);
+                            SWVDEMB DarkMessageBox = new(Message, Log, Source, Text);
                             DarkMessageBox.ShowDialog();
                             break;
                         default:
-                            SWVLEMB LightMessageBox = new(Message, Path, Source, Text);
+                            SWVLEMB LightMessageBox = new(Message, Log, Source, Text);
                             LightMessageBox.ShowDialog();
                             break;
                     }

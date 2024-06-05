@@ -1,11 +1,9 @@
 ﻿using System.Management;
-using System.Security.Cryptography;
 using System.Security.Principal;
-using SEET = Skylark.Enum.EncodeType;
-using SHE = Skylark.Helper.Encode;
 using SHG = Skylark.Helper.Guidly;
 using SMR = Sucrose.Memory.Readonly;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
+using SSSHU = Sucrose.Shared.Space.Helper.Unique;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -15,17 +13,12 @@ namespace Sucrose.Shared.Space.Helper
         {
             try
             {
-                return CreateGuid($"{GetName()}-{GetModel()}-{GetSecurityIdentifier()}");
+                return SSSHU.GenerateGuid($"{GetName()}-{GetModel()}-{GetSecurityIdentifier()}");
             }
             catch
             {
                 return SHG.TextToGuid(SMR.Guid);
             }
-        }
-
-        public static Guid NewGuid()
-        {
-            return Guid.NewGuid();
         }
 
         public static bool CheckGuid()
@@ -36,6 +29,18 @@ namespace Sucrose.Shared.Space.Helper
         public static string GetName()
         {
             return Environment.UserName;
+        }
+
+        public static string GetUUID()
+        {
+            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
+
+            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            {
+                return SSSHM.Check(Object, "UUID", string.Empty);
+            }
+
+            return string.Empty;
         }
 
         public static string GetModel()
@@ -55,16 +60,35 @@ namespace Sucrose.Shared.Space.Helper
             return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         }
 
+        public static string GetManufacturer()
+        {
+            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystem");
+
+            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            {
+                return SSSHM.Check(Object, "Manufacturer", string.Empty);
+            }
+
+            return string.Empty;
+        }
+
+        public static string GetIdentifyingNumber()
+        {
+            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
+
+            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            {
+                return SSSHM.Check(Object, "IdentifyingNumber", string.Empty);
+            }
+
+            return string.Empty;
+        }
+
         public static string GetSecurityIdentifier()
         {
             WindowsIdentity Identity = WindowsIdentity.GetCurrent();
 
             return Identity.User.Value;
-        }
-
-        private static Guid CreateGuid(string Value)
-        {
-            return SHG.ByteToGuid(MD5.Create().ComputeHash(SHE.GetBytes(Value, SEET.UTF8)));
         }
     }
 }

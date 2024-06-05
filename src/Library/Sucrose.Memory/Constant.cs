@@ -32,6 +32,8 @@
 
         public const string Volume = "Volume";
 
+        public const string Culture = "Culture";
+
         public const string Shuffle = "Shuffle";
 
         public const string Visible = "Visible";
@@ -71,8 +73,6 @@
         public const string UploadType = "UploadType";
 
         public const string ChannelType = "ChannelType";
-
-        public const string CultureName = "CultureName";
 
         public const string Information = "Information";
 

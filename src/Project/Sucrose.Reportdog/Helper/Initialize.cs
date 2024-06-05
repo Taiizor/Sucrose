@@ -7,21 +7,21 @@ namespace Sucrose.Backgroundog.Helper
     {
         public void Start()
         {
-            if (SRMI.FileWatcher == null)
+            if (SRMI.Watcher == null)
             {
                 if (!Directory.Exists(SRMI.Source))
                 {
                     Directory.CreateDirectory(SRMI.Source);
                 }
 
-                SRMI.FileWatcher = new()
+                SRMI.Watcher = new()
                 {
                     NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName,
                     Path = SRMI.Source,
                     Filter = "*.*"
                 };
 
-                SRMI.FileWatcher.Created += async (s, e) =>
+                SRMI.Watcher.Created += async (s, e) =>
                 {
                     if (File.Exists(e.FullPath))
                     {
@@ -31,16 +31,16 @@ namespace Sucrose.Backgroundog.Helper
                     }
                 };
 
-                SRMI.FileWatcher.EnableRaisingEvents = true;
+                SRMI.Watcher.EnableRaisingEvents = true;
             }
         }
 
         public void Stop()
         {
-            if (SRMI.FileWatcher != null)
+            if (SRMI.Watcher != null)
             {
-                SRMI.FileWatcher.EnableRaisingEvents = false;
-                SRMI.FileWatcher.Dispose();
+                SRMI.Watcher.EnableRaisingEvents = false;
+                SRMI.Watcher.Dispose();
             }
         }
 

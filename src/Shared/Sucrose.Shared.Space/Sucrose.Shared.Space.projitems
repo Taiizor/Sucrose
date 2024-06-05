@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extension\Lifecycle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Cycyling.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Copy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Unique.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Instance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Reset.cs" />
@@ -36,6 +37,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Live.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Processor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Temporary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\DiagnosticsData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\AnalyticsData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\SerializableException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interface\StackFrameData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />

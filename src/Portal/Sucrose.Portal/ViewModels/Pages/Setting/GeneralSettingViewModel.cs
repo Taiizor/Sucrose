@@ -532,7 +532,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewCulture != SMMM.Culture)
             {
                 SRHR.SetLanguage(NewCulture);
-                SMMI.GeneralSettingManager.SetSetting(SMC.CultureName, NewCulture);
+                SMMI.GeneralSettingManager.SetSetting(SMC.Culture, NewCulture);
 
                 SPMI.CultureService.CultureCode = NewCulture;
             }
