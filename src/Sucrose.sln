@@ -526,6 +526,7 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\Engine\Sucrose.Shared.Engine.CefSharp\Sucrose.Shared.Engine.CefSharp.projitems*{147951e5-e797-4a21-b65c-349ac8f58fc8}*SharedItemsImports = 13
+		Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems*{950e58de-9ca8-4aef-8b74-7790aa485c65}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems*{ff343d52-713b-44ff-a9bc-3435478f15fe}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Dependency\Sucrose.Shared.Dependency.projitems*{950e58de-9ca8-4aef-8b74-7790aa485c65}*SharedItemsImports = 5
 		Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems*{950e58de-9ca8-4aef-8b74-7790aa485c65}*SharedItemsImports = 5

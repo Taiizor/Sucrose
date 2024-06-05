@@ -1,16 +1,18 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class AnalyticsData(bool Adult, string Model, string Store, string Culture, string Startup, string Version, string Framework, string CultureName, string Architecture, string Manufacturer, string DisplayScreen, string CultureDisplay, string OperatingSystem, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
+    internal class AnalyticsData(bool Adult, string User, string Model, string Store, int Startup, string Culture, string Version, string Framework, string CultureName, string Architecture, string Manufacturer, string DisplayScreen, string CultureDisplay, string OperatingSystem, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
     {
         public bool Adult { get; set; } = Adult;
+
+        public string User { get; set; } = User;
 
         public string Model { get; set; } = Model;
 
         public string Store { get; set; } = Store;
 
-        public string Culture { get; set; } = Culture;
+        public int Startup { get; set; } = Startup;
 
-        public string Startup { get; set; } = Startup;
+        public string Culture { get; set; } = Culture;
 
         public string Version { get; set; } = Version;
 

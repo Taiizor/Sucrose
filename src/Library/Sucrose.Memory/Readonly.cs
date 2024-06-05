@@ -2,9 +2,11 @@
 {
     public static class Readonly
     {
-        public static readonly string Language = "EN";
-
         public static readonly string Check = "Check";
+
+        public static readonly string Error = "Error";
+
+        public static readonly string Language = "EN";
 
         public static readonly string Store = "Store";
 
@@ -56,6 +58,8 @@
 
         public static readonly string ReportFolder = "Report";
 
+        public static readonly string Statistic = "Statistic";
+
         public static readonly string Temporary = "Temporary";
 
         public static readonly char ValueSeparatorChar = '✖';
@@ -93,8 +97,6 @@
         public static readonly string Launcher = "Sucrose.Launcher.exe";
 
         public static readonly string Property = "Sucrose.Property.exe";
-
-        public static readonly string SoferityStatistics = "Statistics";
 
         public static readonly string Watchdog = "Sucrose.Watchdog.exe";
 

@@ -13,7 +13,7 @@ namespace Sucrose.Shared.Space.Helper
         {
             try
             {
-                return SSSHU.GenerateGuid($"{GetName()}-{GetModel()}-{GetIdentifier()}");
+                return SSSHU.Generate($"{GetName()}-{GetModel()}-{GetIdentifier()}");
             }
             catch
             {

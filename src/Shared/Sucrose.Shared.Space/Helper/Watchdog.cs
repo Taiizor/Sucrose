@@ -10,6 +10,14 @@ namespace Sucrose.Shared.Space.Helper
 {
     internal static class Watchdog
     {
+        public static string Read(string FilePath)
+        {
+            using FileStream FileStream = new(FilePath, FileMode.Open, FileAccess.Read, FileShare.None);
+            using StreamReader Reader = new(FileStream);
+
+            return Reader.ReadToEnd();
+        }
+
         public static void Write(string FilePath, string FileContent)
         {
             using FileStream FileStream = new(FilePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);

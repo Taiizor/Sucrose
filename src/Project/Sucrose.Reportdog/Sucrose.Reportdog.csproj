@@ -74,6 +74,11 @@
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <Reference Include="System.Web" />
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -82,6 +87,7 @@
         <ProjectReference Include="..\..\Library\Sucrose.Manager\Sucrose.Manager.csproj" />
     </ItemGroup>
 
+    <Import Project="..\..\Shared\Sucrose.Shared.Core\Sucrose.Shared.Core.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Live\Sucrose.Shared.Live.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Space\Sucrose.Shared.Space.projitems" Label="Shared" />
     <Import Project="..\..\Shared\Sucrose.Shared.Theme\Sucrose.Shared.Theme.projitems" Label="Shared" />

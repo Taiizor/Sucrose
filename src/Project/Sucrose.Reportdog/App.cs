@@ -3,11 +3,11 @@ using System.Text;
 using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SRHA = Sucrose.Reportdog.Helper.Attempt;
 using SRMI = Sucrose.Reportdog.Manage.Internal;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
-using SRHA = Sucrose.Reportdog.Helper.Attempt;
 
 namespace Sucrose.Reportdog
 {
