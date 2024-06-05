@@ -5,7 +5,7 @@ using SEET = Skylark.Enum.EncodeType;
 using SHE = Skylark.Helper.Encode;
 using SHG = Skylark.Helper.Guidly;
 using SMR = Sucrose.Memory.Readonly;
-using SSSHO = Sucrose.Shared.Space.Helper.Object;
+using SSSHM = Sucrose.Shared.Space.Helper.Management;
 
 namespace Sucrose.Shared.Space.Helper
 {
@@ -44,7 +44,7 @@ namespace Sucrose.Shared.Space.Helper
 
             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
             {
-                return SSSHO.Check(Object, "Model", string.Empty);
+                return SSSHM.Check(Object, "Model", string.Empty);
             }
 
             return string.Empty;

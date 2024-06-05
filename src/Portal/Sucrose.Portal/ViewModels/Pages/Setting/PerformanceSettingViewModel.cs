@@ -960,6 +960,7 @@ namespace Sucrose.Portal.ViewModels.Pages
         {
             Battery.IsExpand = !State;
             Battery.Expandable = !State;
+
             SMMI.BackgroundogSettingManager.SetSetting(SMC.PerformanceCounter, State);
 
             if (State)

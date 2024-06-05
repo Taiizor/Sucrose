@@ -47,6 +47,8 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMLM CommandogLogManager = new("Commandog-{0}.log");
 
+        public static readonly SMLM ReportdogLogManager = new("Reportdog-{0}.log");
+
         public static readonly SMLM AuroraLiveLogManager = new("AuroraLive-{0}.log");
 
         public static readonly SMLM NebulaLiveLogManager = new("NebulaLive-{0}.log");

@@ -54,9 +54,11 @@
 
         public static readonly string Repository = "Sucrose";
 
-        public static readonly char ValueSeparatorChar = '✖';
+        public static readonly string ReportFolder = "Report";
 
         public static readonly string Temporary = "Temporary";
+
+        public static readonly char ValueSeparatorChar = '✖';
 
         public static readonly string StoreFile = "Store.json";
 

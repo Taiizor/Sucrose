@@ -14,7 +14,10 @@ using SRER = Sucrose.Resources.Extension.Resources;
 using SSCECT = Sucrose.Shared.Core.Enum.ChannelType;
 using SSCEUT = Sucrose.Shared.Core.Enum.UpdateType;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
-using SSSMI = Sucrose.Shared.Store.Manage.Internal;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSPMI = Sucrose.Shared.Space.Manage.Internal;
+using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using TextBlock = System.Windows.Controls.TextBlock;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
@@ -517,6 +520,18 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void ReportStateChecked(bool State)
         {
             SMMI.GeneralSettingManager.SetSetting(SMC.Report, State);
+
+            if (State || SMMM.Statistics)
+            {
+                SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reportdog}{SMR.ValueSeparator}{SSSPMI.Reportdog}");
+            }
+            else if (!SMMM.Statistics)
+            {
+                if (SSSHP.Work(SMR.Reportdog))
+                {
+                    SSSHP.Kill(SMR.Reportdog);
+                }
+            }
         }
 
         private void ChannelTypeSelected(int Index)
@@ -567,6 +582,18 @@ namespace Sucrose.Portal.ViewModels.Pages
         private void StatisticsStateChecked(bool State)
         {
             SMMI.GeneralSettingManager.SetSetting(SMC.Statistics, State);
+
+            if (State || SMMM.Report)
+            {
+                SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Reportdog}{SMR.ValueSeparator}{SSSPMI.Reportdog}");
+            }
+            else if (!SMMM.Report)
+            {
+                if (SSSHP.Work(SMR.Reportdog))
+                {
+                    SSSHP.Kill(SMR.Reportdog);
+                }
+            }
         }
 
         private void UpdateLimitTypeSelected(int Index)
@@ -594,7 +621,7 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (TextBox.Text.Length == 93)
             {
                 SMMI.PrivateSettingManager.SetSetting(SMC.Key, TextBox.Text);
-                SSSMI.State = true;
+                SSSTMI.State = true;
             }
             else
             {

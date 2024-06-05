@@ -19,6 +19,7 @@ namespace Sucrose.Shared.Space.Helper
             SSSHP.Kill(SMR.Launcher);
             SSSHP.Kill(SMR.Property);
             SSSHP.Kill(SMR.Watchdog);
+            SSSHP.Kill(SMR.Reportdog);
             SSSHP.Kill(SMR.Backgroundog);
 
             await Task.Delay(TimeSpan.FromSeconds(3));

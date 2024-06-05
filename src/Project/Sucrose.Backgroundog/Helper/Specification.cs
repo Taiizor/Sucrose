@@ -30,8 +30,8 @@ using SSIB = Sucrose.Signal.Interface.Backgroundog;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
 using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
+using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
-using SSSHO = Sucrose.Shared.Space.Helper.Object;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHF = Skylark.Wing.Helper.Fullscreen;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -61,9 +61,9 @@ namespace Sucrose.Backgroundog.Helper
                             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                             {
                                 SBMI.CpuData.State = true;
-                                SBMI.CpuData.Fullname = SSSHO.Check(Object, "Name", string.Empty);
-                                SBMI.CpuData.Core = Convert.ToInt32(SSSHO.Check(Object, "NumberOfCores", "0"));
-                                SBMI.CpuData.Thread = Convert.ToInt32(SSSHO.Check(Object, "NumberOfLogicalProcessors", "0"));
+                                SBMI.CpuData.Fullname = SSSHM.Check(Object, "Name", string.Empty);
+                                SBMI.CpuData.Core = Convert.ToInt32(SSSHM.Check(Object, "NumberOfCores", "0"));
+                                SBMI.CpuData.Thread = Convert.ToInt32(SSSHM.Check(Object, "NumberOfLogicalProcessors", "0"));
 
                                 break;
                             }
@@ -89,14 +89,14 @@ namespace Sucrose.Backgroundog.Helper
                             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                             {
                                 SBMI.BiosData.State = true;
-                                SBMI.BiosData.Name = SSSHO.Check(Object, "Name", string.Empty);
-                                SBMI.BiosData.Caption = SSSHO.Check(Object, "Caption", string.Empty);
-                                SBMI.BiosData.Version = SSSHO.Check(Object, "Version", string.Empty);
-                                SBMI.BiosData.Description = SSSHO.Check(Object, "Description", string.Empty);
-                                SBMI.BiosData.ReleaseDate = SSSHO.Check(Object, "ReleaseDate", string.Empty);
-                                SBMI.BiosData.Manufacturer = SSSHO.Check(Object, "Manufacturer", string.Empty);
-                                SBMI.BiosData.SerialNumber = SSSHO.Check(Object, "SerialNumber", string.Empty);
-                                SBMI.BiosData.CurrentLanguage = SSSHO.Check(Object, "CurrentLanguage", string.Empty);
+                                SBMI.BiosData.Name = SSSHM.Check(Object, "Name", string.Empty);
+                                SBMI.BiosData.Caption = SSSHM.Check(Object, "Caption", string.Empty);
+                                SBMI.BiosData.Version = SSSHM.Check(Object, "Version", string.Empty);
+                                SBMI.BiosData.Description = SSSHM.Check(Object, "Description", string.Empty);
+                                SBMI.BiosData.ReleaseDate = SSSHM.Check(Object, "ReleaseDate", string.Empty);
+                                SBMI.BiosData.Manufacturer = SSSHM.Check(Object, "Manufacturer", string.Empty);
+                                SBMI.BiosData.SerialNumber = SSSHM.Check(Object, "SerialNumber", string.Empty);
+                                SBMI.BiosData.CurrentLanguage = SSSHM.Check(Object, "CurrentLanguage", string.Empty);
 
                                 break;
                             }
@@ -430,9 +430,9 @@ namespace Sucrose.Backgroundog.Helper
                             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                             {
                                 SBMI.MotherboardData.State = true;
-                                SBMI.MotherboardData.Product = SSSHO.Check(Object, "Product", string.Empty);
-                                SBMI.MotherboardData.Version = SSSHO.Check(Object, "Version", string.Empty);
-                                SBMI.MotherboardData.Manufacturer = SSSHO.Check(Object, "Manufacturer", string.Empty);
+                                SBMI.MotherboardData.Product = SSSHM.Check(Object, "Product", string.Empty);
+                                SBMI.MotherboardData.Version = SSSHM.Check(Object, "Version", string.Empty);
+                                SBMI.MotherboardData.Manufacturer = SSSHM.Check(Object, "Manufacturer", string.Empty);
 
                                 break;
                             }

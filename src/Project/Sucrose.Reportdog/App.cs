@@ -1,14 +1,15 @@
 ﻿using System.Globalization;
 using System.Text;
-using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SRMI = Sucrose.Reportdog.Manage.Internal;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
+using SRHA = Sucrose.Reportdog.Helper.Attempt;
 
-namespace Sucrose.Backgroundog
+namespace Sucrose.Reportdog
 {
     internal class App : IDisposable
     {
@@ -21,20 +22,22 @@ namespace Sucrose.Backgroundog
 
                 SHC.All = new CultureInfo(SMMM.Culture, true);
 
-                if (SSSHI.Basic(SMR.BackgroundogMutex, SMR.Backgroundog))
+                if (SSSHI.Basic(SMR.ReportdogMutex, SMR.Reportdog))
                 {
                     SSSHS.Apply();
 
-                    SBMI.Initialize.Start();
+                    SRMI.Initialize.Start();
 
                     do
                     {
-                        SBMI.Initialize.Dispose();
+                        await SRHA.Start();
 
-                        await Task.Delay(SBMI.AppTime);
-                    } while (SBMI.Exit);
+                        SRMI.Initialize.Dispose();
 
-                    SBMI.Initialize.Stop();
+                        await Task.Delay(SRMI.AppTime);
+                    } while (SRMI.Exit);
+
+                    SRMI.Initialize.Stop();
                 }
             }
             catch (Exception Exception)

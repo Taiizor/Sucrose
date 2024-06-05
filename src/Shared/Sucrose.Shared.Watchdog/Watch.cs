@@ -58,6 +58,8 @@ namespace Sucrose.Shared.Watchdog
             SMMI.WatchdogLogManager.Log(SELLT.Error, Text);
 #elif COMMANDOG
             SMMI.CommandogLogManager.Log(SELLT.Error, Text);
+#elif REPORTDOG
+            SMMI.ReportdogLogManager.Log(SELLT.Error, Text);
 #elif LIVE_AURORA
             SMMI.AuroraLiveLogManager.Log(SELLT.Error, Text);
 #elif LIVE_NEBULA

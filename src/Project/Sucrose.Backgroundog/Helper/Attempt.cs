@@ -9,10 +9,10 @@ namespace Sucrose.Backgroundog.Helper
     {
         public static async Task Start()
         {
-            int MaxAttempts = 5;
-            int IntervalSeconds = 1;
+            int MaxAttempt = 5;
+            int IntervalSecond = 1;
 
-            for (int Attempt = 0; Attempt < MaxAttempts; Attempt++)
+            for (int Attempt = 0; Attempt < MaxAttempt; Attempt++)
             {
                 if (SSSHL.Run())
                 {
@@ -21,7 +21,7 @@ namespace Sucrose.Backgroundog.Helper
                     return;
                 }
 
-                await Task.Delay(TimeSpan.FromSeconds(IntervalSeconds));
+                await Task.Delay(TimeSpan.FromSeconds(IntervalSecond));
             }
 
             SBMI.Exit = false;

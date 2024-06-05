@@ -6,8 +6,6 @@ namespace Sucrose.Pipe
 {
     public class PipeT(string PipeName)
     {
-        private string PipeName = PipeName;
-
         private bool ClientStarted;
         private bool ServerStarted;
 

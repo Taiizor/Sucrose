@@ -26,6 +26,11 @@ namespace Sucrose.Shared.Launcher.Command
                     SSLHK.StopSubprocess();
                 }
 
+                if (SSSHP.Work(SMR.Undo))
+                {
+                    SSSHP.Kill(SMR.Undo);
+                }
+
                 if (SSSHP.Work(SMR.Portal))
                 {
                     SSSHP.Kill(SMR.Portal);
@@ -36,9 +41,24 @@ namespace Sucrose.Shared.Launcher.Command
                     SSSHP.Kill(SMR.Update);
                 }
 
+                if (SSSHP.Work(SMR.Property))
+                {
+                    SSSHP.Kill(SMR.Property);
+                }
+
+                if (SSSHP.Work(SMR.Watchdog))
+                {
+                    SSSHP.Kill(SMR.Watchdog);
+                }
+
                 if (SSSHP.Work(SMR.Commandog))
                 {
                     SSSHP.Kill(SMR.Commandog);
+                }
+
+                if (SSSHP.Work(SMR.Reportdog))
+                {
+                    SSSHP.Kill(SMR.Reportdog);
                 }
 
                 if (SSSHP.Work(SMR.Backgroundog))
