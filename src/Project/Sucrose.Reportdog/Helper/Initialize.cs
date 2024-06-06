@@ -12,6 +12,7 @@ using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSHW = Sucrose.Shared.Space.Helper.Watchdog;
 using SSSMAD = Sucrose.Shared.Space.Model.AnalyticsData;
@@ -44,7 +45,7 @@ namespace Sucrose.Backgroundog.Helper
 
                 SRMI.Watcher = new()
                 {
-                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName,
+                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName | NotifyFilters.CreationTime,
                     Path = SRMI.Source,
                     Filter = "*.*"
                 };
@@ -67,19 +68,22 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                using HttpClient Client = new();
-
-                HttpResponseMessage Response = new();
-
-                Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
-
-                try
+                if (SSSHN.GetHostEntry())
                 {
-                    Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Online}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
-                }
-                catch (Exception Exception)
-                {
-                    await SSWW.Watch_CatchException(Exception);
+                    using HttpClient Client = new();
+
+                    HttpResponseMessage Response = new();
+
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+                    try
+                    {
+                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Online}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+                    }
+                    catch (Exception Exception)
+                    {
+                        await SSWW.Watch_CatchException(Exception);
+                    }
                 }
             }
             catch (Exception Exception)
@@ -92,32 +96,41 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                using HttpClient Client = new();
-
-                HttpResponseMessage Response = new();
-
-                Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
-
-                try
+                if (SSSHN.GetHostEntry())
                 {
-                    CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
+                    using HttpClient Client = new();
 
-                    SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), SSSHU.GetProcessor(), SSCHM.GetTotalMemory(), Culture.Name, SSSHU.GetNumberOfCores(), SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                    HttpResponseMessage Response = new();
 
-                    StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
-                    Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Statistic}/{SSSHU.GetGuid()}", Content);
+                    try
+                    {
+                        CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
+
+                        SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), SSSHU.GetProcessor(), SSCHM.GetTotalMemory(), Culture.Name, SSSHU.GetNumberOfCores(), SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+
+                        StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
+
+                        Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Statistic}/{SSSHU.GetGuid()}", Content);
+                    }
+                    catch (Exception Exception)
+                    {
+                        await SSWW.Watch_CatchException(Exception);
+
+                        await Task.Delay(3000);
+
+                        await PostStatistic();
+                    }
+
+                    if (!Response.IsSuccessStatusCode)
+                    {
+                        await Task.Delay(3000);
+
+                        await PostStatistic();
+                    }
                 }
-                catch (Exception Exception)
-                {
-                    await SSWW.Watch_CatchException(Exception);
-
-                    await Task.Delay(3000);
-
-                    await PostStatistic();
-                }
-
-                if (!Response.IsSuccessStatusCode)
+                else
                 {
                     await Task.Delay(3000);
 
@@ -138,34 +151,37 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                await Task.Delay(50);
-
-                if (File.Exists(Path))
+                if (SSSHN.GetHostEntry())
                 {
-                    using HttpClient Client = new();
+                    await Task.Delay(50);
 
-                    HttpResponseMessage Response = new();
-
-                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
-
-                    try
+                    if (File.Exists(Path))
                     {
-                        SSSMDD DiagnosticsData = JsonConvert.DeserializeObject<SSSMDD>(SSSHW.Read(Path));
+                        using HttpClient Client = new();
 
-                        StringContent Content = new(JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented), Encoding.UTF8, "application/json");
+                        HttpResponseMessage Response = new();
 
-                        Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Error}/{SSSHU.GetGuid()}", Content);
-                    }
-                    catch (Exception Exception)
-                    {
-                        await SSWW.Watch_CatchException(Exception);
-                    }
+                        Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
-                    if (Response.IsSuccessStatusCode)
-                    {
-                        await Task.Delay(50);
+                        try
+                        {
+                            SSSMDD DiagnosticsData = JsonConvert.DeserializeObject<SSSMDD>(SSSHW.Read(Path));
 
-                        File.Delete(Path);
+                            StringContent Content = new(JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented), Encoding.UTF8, "application/json");
+
+                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Error}/{SSSHU.GetGuid()}", Content);
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
+
+                        if (Response.IsSuccessStatusCode)
+                        {
+                            await Task.Delay(50);
+
+                            File.Delete(Path);
+                        }
                     }
                 }
             }
