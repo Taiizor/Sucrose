@@ -29,6 +29,7 @@ namespace Sucrose.Shared.Space.Converter
                 Message = exception.Message,
                 HResult = exception.HResult,
                 HelpURL = exception.HelpLink,
+                RawStackTrace = exception.StackTrace,
                 StackTrace = ParseStackTrace(exception),
                 ClassName = exception.GetType().FullName,
                 InnerException = ConvertToSerializableException(exception.InnerException)

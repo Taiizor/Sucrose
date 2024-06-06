@@ -21,98 +21,175 @@ namespace Sucrose.Shared.Space.Helper
             }
         }
 
-        public static bool CheckGuid()
-        {
-            return !SMR.Guid.Equals(SHG.GuidToText(GetGuid()));
-        }
-
         public static string GetName()
         {
-            return Environment.UserName;
+            try
+            {
+                return Environment.UserName;
+            }
+            catch
+            {
+                return SMR.Default;
+            }
         }
 
         public static string GetUUID()
         {
-            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
-
-            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            try
             {
-                return SSSHM.Check(Object, "UUID", string.Empty);
-            }
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
 
-            return string.Empty;
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    return SSSHM.Check(Object, "UUID", SMR.Default);
+                }
+
+                return SMR.Default;
+            }
+            catch
+            {
+                return SMR.Default;
+            }
+        }
+
+        public static int GetLanguage()
+        {
+            try
+            {
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_OperatingSystem");
+
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    return SSSHM.Check(Object, "OSLanguage", 0);
+                }
+
+                return 0;
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         public static string GetModel()
         {
-            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystem");
-
-            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            try
             {
-                return SSSHM.Check(Object, "Model", string.Empty);
-            }
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystem");
 
-            return string.Empty;
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    return SSSHM.Check(Object, "Model", SMR.Default);
+                }
+
+                return SMR.Default;
+            }
+            catch
+            {
+                return SMR.Default;
+            }
         }
 
         public static string GetProcessor()
         {
-            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
-
-            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            try
             {
-                return SSSHM.Check(Object, "Name", string.Empty);
-            }
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
 
-            return string.Empty;
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    return SSSHM.Check(Object, "Name", SMR.Default);
+                }
+
+                return SMR.Default;
+            }
+            catch
+            {
+                return SMR.Default;
+            }
         }
 
         public static string GetIdentifier()
         {
-            WindowsIdentity Identity = WindowsIdentity.GetCurrent();
+            try
+            {
+                WindowsIdentity Identity = WindowsIdentity.GetCurrent();
 
-            return Identity.User.Value;
+                return Identity.User.Value;
+            }
+            catch
+            {
+                return SMR.Default;
+            }
         }
 
         public static int GetNumberOfCores()
         {
-            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
-
-            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            try
             {
-                return SSSHM.Check(Object, "NumberOfCores", 0);
-            }
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
 
-            return 0;
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    return SSSHM.Check(Object, "NumberOfCores", 0);
+                }
+
+                return 0;
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         public static string GetIdentifying()
         {
-            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
-
-            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            try
             {
-                return SSSHM.Check(Object, "IdentifyingNumber", string.Empty);
-            }
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystemProduct");
 
-            return string.Empty;
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    return SSSHM.Check(Object, "IdentifyingNumber", SMR.Default);
+                }
+
+                return SMR.Default;
+            }
+            catch
+            {
+                return SMR.Default;
+            }
         }
 
         public static string GetProfilePath()
         {
-            return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            try
+            {
+                return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            }
+            catch
+            {
+                return SMR.Default;
+            }
         }
 
         public static string GetManufacturer()
         {
-            ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystem");
-
-            foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+            try
             {
-                return SSSHM.Check(Object, "Manufacturer", string.Empty);
-            }
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_ComputerSystem");
 
-            return string.Empty;
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    return SSSHM.Check(Object, "Manufacturer", SMR.Default);
+                }
+
+                return SMR.Default;
+            }
+            catch
+            {
+                return SMR.Default;
+            }
         }
     }
 }

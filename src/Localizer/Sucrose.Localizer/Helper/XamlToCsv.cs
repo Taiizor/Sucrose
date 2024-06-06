@@ -1,8 +1,8 @@
 ﻿using CsvHelper;
-using Skylark.Standard.Extension.Cryptology;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Xml;
+using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 
 namespace Sucrose.Localizer.Helper
 {
@@ -70,7 +70,7 @@ namespace Sucrose.Localizer.Helper
         {
             foreach (Match match in mergedMatches)
             {
-                localizationData[languageCode].Add($"{relativeFilePath}⁞Base64⁞{CryptologyExtension.TextToBase(match.Value)}");
+                localizationData[languageCode].Add($"{relativeFilePath}⁞Base64⁞{SSECCE.TextToBase(match.Value)}");
             }
         }
 

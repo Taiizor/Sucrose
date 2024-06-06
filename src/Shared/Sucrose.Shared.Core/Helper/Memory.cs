@@ -7,12 +7,27 @@ using SHN = Skylark.Helper.Numeric;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSSS = Skylark.Struct.Storage.StorageStruct;
+using SWNM = Skylark.Wing.Native.Methods;
 
 namespace Sucrose.Shared.Core.Helper
 {
     internal static class Memory
     {
         public static long GetTotalMemory()
+        {
+            ulong TotalMemory = 0;
+
+            SWNM.MEMORYSTATUSEX MemoryStatus = new();
+
+            if (SWNM.GlobalMemoryStatusEx(MemoryStatus))
+            {
+                TotalMemory = MemoryStatus.ullTotalPhys;
+            }
+
+            return Convert.ToInt64(TotalMemory);
+        }
+
+        public static long GetTotalMemory2()
         {
             long TotalMemory = 0;
 

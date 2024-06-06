@@ -70,9 +70,9 @@
     <ItemGroup>
         <PackageReference Include="NAudio" Version="2.2.1" />
         <PackageReference Include="NPSMLib" Version="0.9.14" />
-        <PackageReference Include="Skylark.Wing" Version="3.1.4.8" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.5.3" />
         <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.5.6" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.5.7" />
         <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.4-pre287" />
     </ItemGroup>
 

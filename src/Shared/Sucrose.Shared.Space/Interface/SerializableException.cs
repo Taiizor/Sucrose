@@ -16,6 +16,8 @@ namespace Sucrose.Shared.Space.Interface
 
         public IDictionary Data { get; set; }
 
+        public string RawStackTrace { get; set; }
+
         public List<StackFrameData> StackTrace { get; set; }
 
         public SerializableException InnerException { get; set; }

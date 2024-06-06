@@ -2,7 +2,7 @@
 
 namespace Sucrose.Shared.Space.Model
 {
-    internal class DiagnosticsData(Guid Id, Guid Sid, string App, Guid AppId, string User, string Model, string Culture, string Version, string Framework, JObject Exception, string CultureName, string Architecture, string Manufacturer, string CultureDisplay, string OperatingSystem, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
+    internal class DiagnosticsData(Guid Id, Guid Sid, string App, Guid AppId, string User, string Model, bool Server, string Culture, string Version, string Framework, JObject Exception, bool Workstation, string CultureName, string Architecture, string Manufacturer, string CultureDisplay, string OperatingSystem, string ProcessArchitecture, string OperatingSystemBuild, string ProcessorArchitecture, string OperatingSystemArchitecture)
     {
         public Guid Id { get; set; } = Id;
 
@@ -16,6 +16,8 @@ namespace Sucrose.Shared.Space.Model
 
         public string Model { get; set; } = Model;
 
+        public bool Server { get; set; } = Server;
+
         public string Culture { get; set; } = Culture;
 
         public string Version { get; set; } = Version;
@@ -23,6 +25,8 @@ namespace Sucrose.Shared.Space.Model
         public string Framework { get; set; } = Framework;
 
         public JObject Exception { get; set; } = Exception;
+
+        public bool Workstation { get; set; } = Workstation;
 
         public string CultureName { get; set; } = CultureName;
 

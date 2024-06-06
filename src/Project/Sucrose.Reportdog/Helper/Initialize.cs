@@ -68,7 +68,7 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                if (SSSHN.GetHostEntry())
+                if (SMMM.Statistics && SSSHN.GetHostEntry())
                 {
                     using HttpClient Client = new();
 
@@ -96,45 +96,48 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                if (SSSHN.GetHostEntry())
+                if (SMMM.Statistics)
                 {
-                    using HttpClient Client = new();
-
-                    HttpResponseMessage Response = new();
-
-                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
-
-                    try
+                    if (SSSHN.GetHostEntry())
                     {
-                        CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
+                        using HttpClient Client = new();
 
-                        SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), SSSHU.GetProcessor(), SSCHM.GetTotalMemory(), Culture.Name, SSSHU.GetNumberOfCores(), SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                        HttpResponseMessage Response = new();
 
-                        StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
+                        Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
-                        Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Statistic}/{SSSHU.GetGuid()}", Content);
+                        try
+                        {
+                            CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
+
+                            SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), SSCHOS.GetServer(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.DiscordState, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), SSSHU.GetProcessor(), SSCHM.GetTotalMemory(), SSCHOS.GetWorkstation(), Culture.Name, SSSHU.GetNumberOfCores(), SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetNumberOfProcessors(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+
+                            StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
+
+                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Statistic}/{SSSHU.GetGuid()}", Content);
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+
+                            await Task.Delay(3000);
+
+                            await PostStatistic();
+                        }
+
+                        if (!Response.IsSuccessStatusCode)
+                        {
+                            await Task.Delay(3000);
+
+                            await PostStatistic();
+                        }
                     }
-                    catch (Exception Exception)
+                    else
                     {
-                        await SSWW.Watch_CatchException(Exception);
-
                         await Task.Delay(3000);
 
                         await PostStatistic();
                     }
-
-                    if (!Response.IsSuccessStatusCode)
-                    {
-                        await Task.Delay(3000);
-
-                        await PostStatistic();
-                    }
-                }
-                else
-                {
-                    await Task.Delay(3000);
-
-                    await PostStatistic();
                 }
             }
             catch (Exception Exception)
@@ -151,7 +154,7 @@ namespace Sucrose.Backgroundog.Helper
         {
             try
             {
-                if (SSSHN.GetHostEntry())
+                if (SMMM.Report && SSSHN.GetHostEntry())
                 {
                     await Task.Delay(50);
 

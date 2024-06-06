@@ -34,6 +34,8 @@
 
         public static readonly string Content = "Content";
 
+        public static readonly string Default = "Default";
+
         public static readonly string SignalT = "SignalT";
 
         public static readonly string StoreSource = "src";
