@@ -11,6 +11,7 @@ using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHM = Sucrose.Shared.Core.Helper.Memory;
 using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSCMM = Sucrose.Shared.Core.Manage.Manager;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
@@ -78,7 +79,7 @@ namespace Sucrose.Backgroundog.Helper
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Online}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Online}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
                     }
                     catch (Exception Exception)
                     {
@@ -110,11 +111,11 @@ namespace Sucrose.Backgroundog.Helper
                         {
                             CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
 
-                            SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), SSCHOS.GetServer(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.DiscordState, SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), SSSHU.GetProcessor(), SSCHM.GetTotalMemory(), SSCHOS.GetWorkstation(), Culture.Name, SSSHU.GetNumberOfCores(), SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetNumberOfProcessors(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
+                            SSSMAD AnalyticsData = new(SMMM.Adult, SSSHU.GetName(), SSSHU.GetModel(), SSCHOS.GetServer(), $"{SSDMM.StoreType}", SMMM.Startup, SMMM.DiscordState, $"{SSCMM.UpdateType}", $"{SSCMM.ChannelType}", SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), SSSHU.GetProcessor(), SSCHM.GetTotalMemory(), SSCHOS.GetWorkstation(), Culture.Name, SSSHU.GetNumberOfCores(), SSCHA.GetText(), SSSHU.GetManufacturer(), $"{SMMM.DisplayScreenType}", Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetNumberOfProcessors(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 
                             StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Statistic}/{SSSHU.GetGuid()}", Content);
+                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Statistic}/{SSSHU.GetGuid()}", Content);
                         }
                         catch (Exception Exception)
                         {
@@ -172,7 +173,7 @@ namespace Sucrose.Backgroundog.Helper
 
                             StringContent Content = new(JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityReport}/{SMR.Error}/{SSSHU.GetGuid()}", Content);
+                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Error}/{SSSHU.GetGuid()}", Content);
                         }
                         catch (Exception Exception)
                         {
