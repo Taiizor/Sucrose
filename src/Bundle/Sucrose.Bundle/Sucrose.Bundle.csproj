@@ -86,9 +86,6 @@
     </ItemGroup>
     
     <ItemGroup>
-        <EmbeddedResource Include="Redist\VC_Redist_$(Platform).exe">
-            <LogicalName>Redist\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
-        </EmbeddedResource>
         <EmbeddedResource Include="SevenZip\7z-$(Platform)\**">
             <LogicalName>SevenZip\%(RecursiveDir)%(FileName)%(Extension)</LogicalName>
         </EmbeddedResource>

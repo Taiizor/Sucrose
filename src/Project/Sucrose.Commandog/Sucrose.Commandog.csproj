@@ -70,7 +70,7 @@
     <ItemGroup>
         <PackageReference Include="TaskScheduler" Version="2.11.0" />
         <PackageReference Include="Skylark.Wing" Version="3.1.5.4" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.5.9" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.6.1" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">

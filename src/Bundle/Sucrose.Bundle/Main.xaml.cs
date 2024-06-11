@@ -52,8 +52,6 @@ namespace Sucrose.Bundle
 
         private static string PackagesPath => Path.Combine(Path.GetTempPath(), Packages);
 
-        private static string RedistPath => Path.Combine(Path.GetTempPath(), Redist);
-
         private static string Url => "https://github.com/Taiizor/Sucrose";
 
         private static string TemporaryFile => "Sucrose.Backgroundog.sys";
@@ -81,8 +79,6 @@ namespace Sucrose.Bundle
         private static string Publisher => "Taiizor";
 
         private static string Packages => "Packages";
-
-        private static string Redist => "Redist";
 
         private static string Caches => "Caches";
 
@@ -116,40 +112,6 @@ namespace Sucrose.Bundle
             {
                 //
             }
-        }
-
-        private static async Task InstallRedist()
-        {
-            string Command = $"/q /norestart";
-
-#if X86
-            string Executable = Path.Combine(RedistPath, "VC_Redist_x86.exe");
-#elif X64
-            string Executable = Path.Combine(RedistPath, "VC_Redist_x64.exe");
-#else
-            string Executable = Path.Combine(RedistPath, "VC_Redist_ARM64.exe");
-#endif
-
-            ProcessStartInfo Starter = new()
-            {
-                Arguments = Command,
-                FileName = Executable,
-                CreateNoWindow = true,
-                UseShellExecute = false,
-                RedirectStandardError = false,
-                RedirectStandardOutput = false,
-                WindowStyle = ProcessWindowStyle.Hidden
-            };
-
-            using (Process Installer = new())
-            {
-                Installer.StartInfo = Starter;
-                Installer.Start();
-
-                Installer.WaitForExit();
-            }
-
-            await Task.CompletedTask;
         }
 
         private static async Task ExtractArchive()
@@ -427,7 +389,6 @@ namespace Sucrose.Bundle
 
             await Task.Delay(MaxDelay);
 
-            await ControlDirectory(RedistPath);
             await ControlDirectory(PackagePath);
             await ControlDirectory(PackagesPath);
             await ControlDirectory(SevenZipPath);
@@ -435,10 +396,6 @@ namespace Sucrose.Bundle
             await ControlDirectoryStable(InstallPath);
 
             await Task.Delay(MaxDelay);
-
-            await ExtractResources(Redist, RedistPath);
-
-            await Task.Delay(MinDelay);
 
             await ExtractResources(Caches, PackagePath);
 
@@ -471,10 +428,6 @@ namespace Sucrose.Bundle
                     await ExtractArchive(Path.Combine(Packages, $"{Application}.7z"), InstallPath);
                 }
             }
-
-            await Task.Delay(MinDelay);
-
-            await InstallRedist();
 
             await Task.Delay(MinDelay);
 
