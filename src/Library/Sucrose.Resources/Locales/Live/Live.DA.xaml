@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Meddelelse</system:String>
+
+    <system:String x:Key="Live.Close">Luk</system:String>
+    <system:String x:Key="Live.Continue">Fortsæt</system:String>
+    <system:String x:Key="Live.Download">Download</system:String>
+
+    <system:String x:Key="Live.Info.WebView">WebView Krav</system:String>
+    <system:String x:Key="Live.Info.CefSharp">CefSharp Krav</system:String>
+
+    <system:String x:Key="Live.Message.WebView">WebView2 Runtime er ikke installeret. WebView2 Runtime er en komponent, der muliggør brugen af moderne webteknologier i applikationer. Derfor er WebView2 Runtime påkrævet for at indstille det valgte tapet.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable er ikke installeret. VC++ Redistributable leverer nogle systemkomponenter, der er nødvendige for, at CefSharp fungerer korrekt. CefSharp er et framework, der muliggør brugen af moderne webteknologier i applikationer. Derfor er VC++ Redistributable påkrævet for at indstille det valgte tapet.</system:String>
+</ResourceDictionary>

@@ -1,16 +1,23 @@
 ﻿using CefSharp;
 using CefSharp.Wpf.HwndHost;
+using Microsoft.Win32;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Net.Http;
 using System.Windows;
 using Application = System.Windows.Application;
+using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECSVG = Sucrose.Shared.Engine.CefSharp.View.Gif;
 using SSECSVU = Sucrose.Shared.Engine.CefSharp.View.Url;
 using SSECSVV = Sucrose.Shared.Engine.CefSharp.View.Video;
@@ -20,6 +27,8 @@ using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSEVDMB = Sucrose.Shared.Engine.View.DarkMessageBox;
+using SSEVLMB = Sucrose.Shared.Engine.View.LightMessageBox;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSSHC = Sucrose.Shared.Space.Helper.Cycyling;
 using SSSHI = Sucrose.Shared.Space.Helper.Instance;
@@ -119,6 +128,95 @@ namespace Sucrose.Live.CefSharp
                 SSSHW.Start(SMR.CefSharpLive, Exception, Path);
 
                 Close();
+            }
+        }
+
+        protected bool Check()
+        {
+            try
+            {
+#if X86
+                string KeyPath = @"SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x86";
+#elif X64
+                string KeyPath = @"SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64";
+#else
+                string KeyPath = @"SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\ARM64";
+#endif
+
+                using RegistryKey Key = Registry.LocalMachine.OpenSubKey(KeyPath, false);
+
+                if (Key != null)
+                {
+                    object Version = Key.GetValue("Version");
+                    object Installed = Key.GetValue("Installed");
+
+                    if (Version != null && Installed != null && (int)Installed == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        protected void Checker()
+        {
+            if (Check())
+            {
+                Configure();
+            }
+            else
+            {
+                SSDEDT DialogResult;
+
+                string CloseText = SRER.GetValue("Live", "Close");
+                string ContinueText = SRER.GetValue("Live", "Continue");
+                string DownloadText = SRER.GetValue("Live", "Download");
+
+                string DialogInfo = SRER.GetValue("Live", "Info", "CefSharp");
+                string DialogMessage = SRER.GetValue("Live", "Message", "CefSharp");
+
+                string DialogTitle = string.Format(SRER.GetValue("Live", "Title"), "CefSharp");
+
+                switch (SSDMM.ThemeType)
+                {
+                    case SEWTT.Dark:
+                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, DownloadText, ContinueText, CloseText);
+                        DarkMessageBox.ShowDialog();
+
+                        DialogResult = DarkMessageBox.Result;
+                        break;
+                    default:
+                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, DownloadText, ContinueText, CloseText);
+                        LightMessageBox.ShowDialog();
+
+                        DialogResult = LightMessageBox.Result;
+                        break;
+                }
+
+                switch (DialogResult)
+                {
+                    case SSDEDT.Continue:
+                        Configure();
+                        break;
+                    case SSDEDT.Download:
+                        Downloader();
+                        break;
+                    default:
+                        Close();
+                        break;
+                }
             }
         }
 
@@ -290,6 +388,50 @@ namespace Sucrose.Live.CefSharp
             }
         }
 
+        protected async void Downloader()
+        {
+#if X64
+            string Url = "https://aka.ms/vs/17/release/vc_redist.x64.exe";
+            string File = Path.Combine(Path.GetTempPath(), "VC_redist.x64.exe");
+#elif X86
+            string Url = "https://aka.ms/vs/17/release/vc_redist.x86.exe";
+            string File = Path.Combine(Path.GetTempPath(), "VC_redist.x86.exe");
+#else
+            string Url = "https://aka.ms/vs/17/release/vc_redist.arm64.exe";
+            string File = Path.Combine(Path.GetTempPath(), "VC_redist.arm64.exe");
+#endif
+
+            HttpClient Client = new();
+
+            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+            HttpResponseMessage Response = await Client.GetAsync(Url);
+
+            Response.EnsureSuccessStatusCode();
+
+            using FileStream Stream = new(File, FileMode.Create, FileAccess.Write, FileShare.None);
+
+            await Response.Content.CopyToAsync(Stream);
+
+            await Stream.FlushAsync();
+            Stream.Close();
+
+            Process Installer = new()
+            {
+                StartInfo = new ProcessStartInfo()
+                {
+                    FileName = File,
+                    UseShellExecute = true
+                }
+            };
+
+            Installer.Start();
+
+            Installer.WaitForExit();
+
+            Checker();
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
@@ -315,7 +457,7 @@ namespace Sucrose.Live.CefSharp
                 }
                 else
                 {
-                    Configure();
+                    Checker();
                 }
             }
             else

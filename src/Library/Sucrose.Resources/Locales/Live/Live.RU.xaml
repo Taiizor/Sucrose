@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Уведомление</system:String>
+
+    <system:String x:Key="Live.Close">Закрыть</system:String>
+    <system:String x:Key="Live.Continue">Продолжить</system:String>
+    <system:String x:Key="Live.Download">Скачать</system:String>
+
+    <system:String x:Key="Live.Info.WebView">Требование WebView</system:String>
+    <system:String x:Key="Live.Info.CefSharp">Требование CefSharp</system:String>
+
+    <system:String x:Key="Live.Message.WebView">Runtime WebView2 не установлен. WebView2 Runtime - это компонент, который позволяет использовать современные веб-технологии в приложениях. Следовательно, WebView2 Runtime необходим для установки выбранного обоев.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable не установлен. VC++ Redistributable предоставляет некоторые системные компоненты, необходимые для правильной работы CefSharp. CefSharp - это фреймворк, который позволяет использовать современные веб-технологии в приложениях. Следовательно, VC++ Redistributable необходим для установки выбранного обоев.</system:String>
+</ResourceDictionary>

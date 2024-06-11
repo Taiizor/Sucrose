@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Benachrichtigung</system:String>
+
+    <system:String x:Key="Live.Close">Schließen</system:String>
+    <system:String x:Key="Live.Continue">Fortsetzen</system:String>
+    <system:String x:Key="Live.Download">Herunterladen</system:String>
+
+    <system:String x:Key="Live.Info.WebView">WebView-Anforderung</system:String>
+    <system:String x:Key="Live.Info.CefSharp">CefSharp-Anforderung</system:String>
+
+    <system:String x:Key="Live.Message.WebView">WebView2 Runtime ist nicht installiert. WebView2 Runtime ist eine Komponente, die die Nutzung moderner Webtechnologien in Anwendungen ermöglicht. Daher ist WebView2 Runtime erforderlich, um das ausgewählte Hintergrundbild festzulegen.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable ist nicht installiert. VC++ Redistributable stellt einige Systemkomponenten bereit, die für das ordnungsgemäße Funktionieren von CefSharp erforderlich sind. CefSharp ist ein Framework, das die Nutzung moderner Webtechnologien in Anwendungen ermöglicht. Daher ist VC++ Redistributable erforderlich, um das ausgewählte Hintergrundbild festzulegen.</system:String>
+</ResourceDictionary>

@@ -1,19 +1,27 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Net.Http;
 using System.Windows;
 using Application = System.Windows.Application;
+using SEWTT = Skylark.Enum.WindowsThemeType;
 using SHC = Skylark.Helper.Culture;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
+using SSDEDT = Sucrose.Shared.Dependency.Enum.DialogType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSEHC = Sucrose.Shared.Engine.Helper.Cycyling;
 using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSEVDMB = Sucrose.Shared.Engine.View.DarkMessageBox;
+using SSEVLMB = Sucrose.Shared.Engine.View.LightMessageBox;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSEWVVG = Sucrose.Shared.Engine.WebView.View.Gif;
 using SSEWVVU = Sucrose.Shared.Engine.WebView.View.Url;
@@ -119,6 +127,75 @@ namespace Sucrose.Live.WebView
                 SSSHW.Start(SMR.WebViewLive, Exception, Path);
 
                 Close();
+            }
+        }
+
+        protected bool Check()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(CoreWebView2Environment.GetAvailableBrowserVersionString()))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        protected void Checker()
+        {
+            if (Check())
+            {
+                Configure();
+            }
+            else
+            {
+                SSDEDT DialogResult;
+
+                string CloseText = SRER.GetValue("Live", "Close");
+                string ContinueText = SRER.GetValue("Live", "Continue");
+                string DownloadText = SRER.GetValue("Live", "Download");
+
+                string DialogInfo = SRER.GetValue("Live", "Info", "WebView");
+                string DialogMessage = SRER.GetValue("Live", "Message", "WebView");
+
+                string DialogTitle = string.Format(SRER.GetValue("Live", "Title"), "WebView");
+
+                switch (SSDMM.ThemeType)
+                {
+                    case SEWTT.Dark:
+                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, DownloadText, ContinueText, CloseText);
+                        DarkMessageBox.ShowDialog();
+
+                        DialogResult = DarkMessageBox.Result;
+                        break;
+                    default:
+                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, DownloadText, ContinueText, CloseText);
+                        LightMessageBox.ShowDialog();
+
+                        DialogResult = LightMessageBox.Result;
+                        break;
+                }
+
+                switch (DialogResult)
+                {
+                    case SSDEDT.Continue:
+                        Configure();
+                        break;
+                    case SSDEDT.Download:
+                        Downloader();
+                        break;
+                    default:
+                        Close();
+                        break;
+                }
             }
         }
 
@@ -285,6 +362,43 @@ namespace Sucrose.Live.WebView
             }
         }
 
+        protected async void Downloader()
+        {
+            string Url = "https://go.microsoft.com/fwlink/p/?LinkId=2124703";
+
+            string File = Path.Combine(Path.GetTempPath(), "MicrosoftEdgeWebView2Setup.exe");
+
+            HttpClient Client = new();
+
+            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+            HttpResponseMessage Response = await Client.GetAsync(Url);
+
+            Response.EnsureSuccessStatusCode();
+
+            using FileStream Stream = new(File, FileMode.Create, FileAccess.Write, FileShare.None);
+
+            await Response.Content.CopyToAsync(Stream);
+
+            await Stream.FlushAsync();
+            Stream.Close();
+
+            Process Installer = new()
+            {
+                StartInfo = new ProcessStartInfo()
+                {
+                    FileName = File,
+                    UseShellExecute = true
+                }
+            };
+
+            Installer.Start();
+
+            Installer.WaitForExit();
+
+            Checker();
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
@@ -310,7 +424,7 @@ namespace Sucrose.Live.WebView
                 }
                 else
                 {
-                    Configure();
+                    Checker();
                 }
             }
             else

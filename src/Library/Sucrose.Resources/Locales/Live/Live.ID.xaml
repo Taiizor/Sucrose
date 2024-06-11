@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Pemberitahuan</system:String>
+
+    <system:String x:Key="Live.Close">Tutup</system:String>
+    <system:String x:Key="Live.Continue">Lanjutkan</system:String>
+    <system:String x:Key="Live.Download">Unduh</system:String>
+
+    <system:String x:Key="Live.Info.WebView">Persyaratan WebView</system:String>
+    <system:String x:Key="Live.Info.CefSharp">Persyaratan CefSharp</system:String>
+
+    <system:String x:Key="Live.Message.WebView">WebView2 Runtime tidak terpasang. WebView2 Runtime adalah komponen yang memungkinkan penggunaan teknologi web modern dalam aplikasi. Oleh karena itu, WebView2 Runtime diperlukan untuk mengatur wallpaper yang dipilih.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable tidak terpasang. VC++ Redistributable menyediakan beberapa komponen sistem yang diperlukan agar CefSharp berfungsi dengan baik. CefSharp adalah kerangka kerja yang memungkinkan penggunaan teknologi web modern dalam aplikasi. Oleh karena itu, VC++ Redistributable diperlukan untuk mengatur wallpaper yang dipilih.</system:String>
+</ResourceDictionary>

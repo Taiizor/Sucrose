@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} 알림</system:String>
+
+    <system:String x:Key="Live.Close">닫기</system:String>
+    <system:String x:Key="Live.Continue">계속</system:String>
+    <system:String x:Key="Live.Download">다운로드</system:String>
+
+    <system:String x:Key="Live.Info.WebView">WebView 요구 사항</system:String>
+    <system:String x:Key="Live.Info.CefSharp">CefSharp 요구 사항</system:String>
+
+    <system:String x:Key="Live.Message.WebView">WebView2 Runtime이 설치되어 있지 않습니다. WebView2 Runtime은 응용 프로그램에서 현대적인 웹 기술을 사용할 수 있게 해주는 구성 요소입니다. 따라서 선택한 배경 화면을 설정하려면 WebView2 Runtime이 필요합니다.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable이 설치되어 있지 않습니다. VC++ Redistributable은 CefSharp이 올바르게 작동하기 위해 필요한 일부 시스템 구성 요소를 제공합니다. CefSharp은 응용 프로그램에서 현대적인 웹 기술을 사용할 수 있게 해주는 프레임워크입니다. 따라서 선택한 배경 화면을 설정하려면 VC++ Redistributable이 필요합니다.</system:String>
+</ResourceDictionary>

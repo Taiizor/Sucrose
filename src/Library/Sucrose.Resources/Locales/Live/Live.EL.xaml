@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Ειδοποίηση</system:String>
+
+    <system:String x:Key="Live.Close">Κλείσιμο</system:String>
+    <system:String x:Key="Live.Continue">Συνέχεια</system:String>
+    <system:String x:Key="Live.Download">Λήψη</system:String>
+
+    <system:String x:Key="Live.Info.WebView">Απαίτηση WebView</system:String>
+    <system:String x:Key="Live.Info.CefSharp">Απαίτηση CefSharp</system:String>
+
+    <system:String x:Key="Live.Message.WebView">Το WebView2 Runtime δεν είναι εγκατεστημένο. Το WebView2 Runtime είναι ένα στοιχείο που επιτρέπει τη χρήση σύγχρονων τεχνολογιών ιστού στις εφαρμογές. Επομένως, το WebView2 Runtime είναι απαραίτητο για την επιλογή της επιλεγμένης ταπετσαρίας.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">Το VC++ Redistributable δεν είναι εγκατεστημένο. Το VC++ Redistributable παρέχει ορισμένα στοιχεία συστήματος που είναι απαραίτητα για τη σωστή λειτουργία του CefSharp. Το CefSharp είναι ένα πλαίσιο που επιτρέπει τη χρήση σύγχρονων τεχνολογιών ιστού στις εφαρμογές. Επομένως, το VC++ Redistributable είναι απαραίτητο για την επιλογή της επιλεγμένης ταπετσαρίας.</system:String>
+</ResourceDictionary>

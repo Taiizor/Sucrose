@@ -1,5 +1,5 @@
 File,Key,Value
-Locale.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iVW5kby9VbmRvLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVcGRhdGUvVXBkYXRlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQb3J0YWwvUG9ydGFsLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJEaXNjb3JkL0Rpc2NvcmQuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkxhdW5jaGVyL0xhdW5jaGVyLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJQcm9wZXJ0eS9Qcm9wZXJ0eS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iV2F0Y2hkb2cvV2F0Y2hkb2cuSEkueGFtbCIgLz4NCiAgICA8L1Jlc291cmNlRGljdGlvbmFyeS5NZXJnZWREaWN0aW9uYXJpZXM+
+Locale.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTG9jYWxlLnhhbWwiIC8+DQoNCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIueGFtbCIgLz4NCg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGl2ZS9MaXZlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJVbmRvL1VuZG8uSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlVwZGF0ZS9VcGRhdGUuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlBvcnRhbC9Qb3J0YWwuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkRpc2NvcmQvRGlzY29yZC5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iTGF1bmNoZXIvTGF1bmNoZXIuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlByb3BlcnR5L1Byb3BlcnR5LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJXYXRjaGRvZy9XYXRjaGRvZy5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Discord\Discord.HI.xaml,Discord.BrowseButton,ब्राउज़ कर
 Discord\Discord.HI.xaml,Discord.Details,वॉलपेपर इंजन
 Discord\Discord.HI.xaml,Discord.DownloadButton,डाउनलोड कर
@@ -138,6 +138,17 @@ Launcher\Launcher.HI.xaml,,
 Launcher\Launcher.HI.xaml,Launcher.UpdateText.Done,अपडेट तैयार हो रहा है
 Launcher\Launcher.HI.xaml,Launcher.UpdateText.Check,अपडेट देख रहे हैं
 Launcher\Launcher.HI.xaml,Launcher.UpdateText.Progress,अपडेट प्रगति {0}
+Live\Live.HI.xaml,Live.Title,{0} सूचना
+Live\Live.HI.xaml,,
+Live\Live.HI.xaml,Live.Close,बंद करें
+Live\Live.HI.xaml,Live.Continue,जारी रखें
+Live\Live.HI.xaml,Live.Download,डाउनलोड करें
+Live\Live.HI.xaml,,
+Live\Live.HI.xaml,Live.Info.WebView,WebView आवश्यकताएँ
+Live\Live.HI.xaml,Live.Info.CefSharp,CefSharp आवश्यकताएँ
+Live\Live.HI.xaml,,
+Live\Live.HI.xaml,Live.Message.WebView,"WebView2 रनटाइम इंस्टॉल नहीं है। WebView2 रनटाइम एक घटक है जो अनुप्रयोगों में आधुनिक वेब तकनीकों के उपयोग को सक्षम बनाता है। इसलिए, चयनित वॉलपेपर सेट करने के लिए WebView2 रनटाइम की आवश्यकता होती है।"
+Live\Live.HI.xaml,Live.Message.CefSharp,"VC++ Redistributable इंस्टॉल नहीं है। VC++ Redistributable कुछ सिस्टम घटकों को प्रदान करता है जो CefSharp के सही ढंग से काम करने के लिए आवश्यक हैं। CefSharp एक फ्रेमवर्क है जो अनुप्रयोगों में आधुनिक वेब तकनीकों के उपयोग को सक्षम बनाता है। इसलिए, चयनित वॉलपेपर सेट करने के लिए VC++ Redistributable की आवश्यकता होती है।"
 Portal\Portal.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQXJlYS9Qb3J0YWwuQXJlYS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRW51bS9Qb3J0YWwuRW51bS5ISS54YW1sIiAvPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iQ2F0ZWdvcnkvUG9ydGFsLkNhdGVnb3J5LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJDb250cm9scy9Qb3J0YWwuQ29udHJvbHMuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlN0b3JlUGFnZS9Qb3J0YWwuU3RvcmVQYWdlLkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJNYWluV2luZG93L1BvcnRhbC5NYWluV2luZG93LkhJLnhhbWwiIC8+DQogICAgICAgIDxSZXNvdXJjZURpY3Rpb25hcnkgU291cmNlPSJMaWJyYXJ5UGFnZS9Qb3J0YWwuTGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNldHRpbmdQYWdlL1BvcnRhbC5TZXR0aW5nUGFnZS5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Property\Property.HI.xaml,Property.WindowTitle,Sucrose Property
 Property\Property.HI.xaml,,

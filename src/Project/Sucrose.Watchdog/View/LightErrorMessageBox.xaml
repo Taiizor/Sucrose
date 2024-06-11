@@ -18,9 +18,9 @@
 
     <Window.Resources>
         <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="#DDDDDD" />
             <Setter Property="Background" Value="#F0F0F0" />
             <Setter Property="Foreground" Value="#333333" />
-            <Setter Property="BorderBrush" Value="#DDDDDD" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Padding" Value="5" />
             <Setter Property="Template">

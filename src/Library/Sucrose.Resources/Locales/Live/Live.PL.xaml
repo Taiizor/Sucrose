@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Powiadomienie</system:String>
+
+    <system:String x:Key="Live.Close">Zamknij</system:String>
+    <system:String x:Key="Live.Continue">Kontynuuj</system:String>
+    <system:String x:Key="Live.Download">Pobierz</system:String>
+
+    <system:String x:Key="Live.Info.WebView">Wymaganie WebView</system:String>
+    <system:String x:Key="Live.Info.CefSharp">Wymaganie CefSharp</system:String>
+
+    <system:String x:Key="Live.Message.WebView">Runtime WebView2 nie jest zainstalowany. Runtime WebView2 to komponent umożliwiający korzystanie z nowoczesnych technologii internetowych w aplikacjach. Dlatego też Runtime WebView2 jest wymagany do ustawienia wybranej tapety.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable nie jest zainstalowany. VC++ Redistributable dostarcza niektóre składniki systemowe niezbędne do prawidłowego działania CefSharp. CefSharp to framework umożliwiający korzystanie z nowoczesnych technologii internetowych w aplikacjach. Dlatego też VC++ Redistributable jest wymagany do ustawienia wybranej tapety.</system:String>
+</ResourceDictionary>

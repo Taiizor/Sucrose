@@ -18,5 +18,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Source.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Setting\Browser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\DarkMessageBox.xaml.cs">
+      <DependentUpon>DarkMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\LightMessageBox.xaml.cs">
+      <DependentUpon>LightMessageBox.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)View\DarkMessageBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)View\LightMessageBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

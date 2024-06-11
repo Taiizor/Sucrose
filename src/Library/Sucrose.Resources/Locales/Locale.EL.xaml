@@ -6,6 +6,7 @@
         <ResourceDictionary Source="Discord/Discord.xaml" />
         <ResourceDictionary Source="Launcher/Launcher.xaml" />
 
+        <ResourceDictionary Source="Live/Live.EL.xaml" />
         <ResourceDictionary Source="Undo/Undo.EL.xaml" />
         <ResourceDictionary Source="Update/Update.EL.xaml" />
         <ResourceDictionary Source="Portal/Portal.EL.xaml" />

@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Notificare</system:String>
+
+    <system:String x:Key="Live.Close">Închide</system:String>
+    <system:String x:Key="Live.Continue">Continuă</system:String>
+    <system:String x:Key="Live.Download">Descarcă</system:String>
+
+    <system:String x:Key="Live.Info.WebView">Cerință WebView</system:String>
+    <system:String x:Key="Live.Info.CefSharp">Cerință CefSharp</system:String>
+
+    <system:String x:Key="Live.Message.WebView">Runtime-ul WebView2 nu este instalat. WebView2 Runtime este un component care permite utilizarea tehnologiilor web moderne în aplicații. Prin urmare, WebView2 Runtime este necesar pentru a seta tapetul selectat.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable nu este instalat. VC++ Redistributable furnizează unele componente de sistem necesare pentru ca CefSharp să funcționeze corect. CefSharp este un framework care permite utilizarea tehnologiilor web moderne în aplicații. Prin urmare, VC++ Redistributable este necesar pentru a seta tapetul selectat.</system:String>
+</ResourceDictionary>

@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} 通知</system:String>
+
+    <system:String x:Key="Live.Close">关闭</system:String>
+    <system:String x:Key="Live.Continue">继续</system:String>
+    <system:String x:Key="Live.Download">下载</system:String>
+
+    <system:String x:Key="Live.Info.WebView">WebView 要求</system:String>
+    <system:String x:Key="Live.Info.CefSharp">CefSharp 要求</system:String>
+
+    <system:String x:Key="Live.Message.WebView">未安装 WebView2 运行时。WebView2 运行时是一个组件，可在应用程序中使用现代 Web 技术。因此，需要 WebView2 运行时来设置选定的壁纸。</system:String>
+    <system:String x:Key="Live.Message.CefSharp">未安装 VC++ 可再发行组件。VC++ 可再发行组件提供了 CefSharp 正常运行所需的一些系统组件。CefSharp 是一个框架，使应用程序能够使用现代 Web 技术。因此，需要 VC++ 可再发行组件来设置选定的壁纸。</system:String>
+</ResourceDictionary>

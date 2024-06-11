@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Live.Title">{0} Bilgilendirmesi</system:String>
+
+    <system:String x:Key="Live.Close">Kapat</system:String>
+    <system:String x:Key="Live.Continue">Devam</system:String>
+    <system:String x:Key="Live.Download">İndir</system:String>
+
+    <system:String x:Key="Live.Info.WebView">WebView Gerekliliği Var</system:String>
+    <system:String x:Key="Live.Info.CefSharp">CefSharp Gerekliliği Var</system:String>
+
+    <system:String x:Key="Live.Message.WebView">WebView2 Runtime yüklü değil. WebView2 Runtime, modern web teknolojilerini uygulamalarda kullanabilmenizi sağlayan bir bileşendir. Bu yüzden seçilen duvar kağıdının ayarlanması için WebView2 Runtime gereklidir.</system:String>
+    <system:String x:Key="Live.Message.CefSharp">VC++ Redistributable yüklü değil. VC++ Redistributable, CefSharp'ın düzgün çalışması için gerekli olan bazı sistem bileşenlerini sağlar. CefSharp, modern web teknolojilerini uygulamalarda kullanabilmenizi sağlayan bir çerçevedir. Bu yüzden seçilen duvar kağıdının ayarlanması için VC++ Redistributable gereklidir.</system:String>
+</ResourceDictionary>

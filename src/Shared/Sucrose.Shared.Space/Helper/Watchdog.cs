@@ -12,6 +12,11 @@ namespace Sucrose.Shared.Space.Helper
     {
         public static string Read(string FilePath)
         {
+            if (!Directory.Exists(Path.GetDirectoryName(FilePath)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(FilePath));
+            }
+
             using FileStream FileStream = new(FilePath, FileMode.Open, FileAccess.Read, FileShare.None);
             using StreamReader Reader = new(FileStream);
 
@@ -20,6 +25,11 @@ namespace Sucrose.Shared.Space.Helper
 
         public static void Write(string FilePath, string FileContent)
         {
+            if (!Directory.Exists(Path.GetDirectoryName(FilePath)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(FilePath));
+            }
+
             using FileStream FileStream = new(FilePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
             using StreamWriter Writer = new(FileStream);
 
