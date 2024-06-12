@@ -754,7 +754,7 @@ window.onload = function () {
                     let center = [Math.floor((columns - 17 * options.ui_clock_scale) / 2), Math.floor((rows - 5 * options.ui_clock_scale) / 2)];
                     drawTextOnMask(hour + ":" + minute, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY, options.ui_clock_scale);
                 } else {
-                    let center = [Math.floor((columns - 5) / 2), Math.floor(rows / 2)];
+                    let center = [Math.floor((columns - 5) / 2), Math.floor((rows - 1) / 2)];
                     drawTextOnMatrix(hour + ":" + minute, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY);
                 }
                 break;
