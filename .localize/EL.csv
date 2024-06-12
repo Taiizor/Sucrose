@@ -143,6 +143,7 @@ Live\Live.EL.xaml,,
 Live\Live.EL.xaml,Live.Close,Κλείσιμο
 Live\Live.EL.xaml,Live.Continue,Συνέχεια
 Live\Live.EL.xaml,Live.Download,Λήψη
+Live\Live.EL.xaml,Live.Remember,Θυμάμαι
 Live\Live.EL.xaml,,
 Live\Live.EL.xaml,Live.Info.WebView,Απαίτηση WebView
 Live\Live.EL.xaml,Live.Info.CefSharp,Απαίτηση CefSharp

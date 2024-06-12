@@ -102,6 +102,8 @@ namespace Sucrose.Manager.Manage
 
         public static List<string> Showcase => SMMI.UserSettingManager.GetSetting(SMC.Showcase, new List<string>());
 
+        public static DateTime CefSharpTime => SMMI.UserSettingManager.GetSetting(SMC.CefSharpTime, new DateTime());
+
         public static int Volume => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.Volume, 100), 0, 100);
 
         public static int Startup => SHS.Clamp(SMMI.GeneralSettingManager.GetSettingStable(SMC.Startup, 0), 0, 10);
@@ -109,6 +111,8 @@ namespace Sucrose.Manager.Manage
         public static bool SignalRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.SignalRequired, false);
 
         public static SESNT ScreenType => SMMI.EngineSettingManager.GetSetting(SMC.ScreenType, SESNT.DisplayBound);
+
+        public static DateTime WebViewTime => SMMI.UserSettingManager.GetSetting(SMC.WebViewTime, new DateTime());
 
         public static DateTime UpdateTime => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateTime, new DateTime());
 

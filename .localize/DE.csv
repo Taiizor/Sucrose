@@ -143,6 +143,7 @@ Live\Live.DE.xaml,,
 Live\Live.DE.xaml,Live.Close,Schließen
 Live\Live.DE.xaml,Live.Continue,Fortsetzen
 Live\Live.DE.xaml,Live.Download,Herunterladen
+Live\Live.DE.xaml,Live.Remember,Erinnern
 Live\Live.DE.xaml,,
 Live\Live.DE.xaml,Live.Info.WebView,WebView-Anforderung
 Live\Live.DE.xaml,Live.Info.CefSharp,CefSharp-Anforderung

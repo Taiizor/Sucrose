@@ -151,7 +151,7 @@ namespace Sucrose.Live.WebView
 
         protected void Checker()
         {
-            if (Check())
+            if (Check() || SMMM.WebViewTime > DateTime.Now)
             {
                 Configure();
             }
@@ -162,6 +162,7 @@ namespace Sucrose.Live.WebView
                 string CloseText = SRER.GetValue("Live", "Close");
                 string ContinueText = SRER.GetValue("Live", "Continue");
                 string DownloadText = SRER.GetValue("Live", "Download");
+                string RememberText = SRER.GetValue("Live", "Remember");
 
                 string DialogInfo = SRER.GetValue("Live", "Info", "WebView");
                 string DialogMessage = SRER.GetValue("Live", "Message", "WebView");
@@ -171,13 +172,13 @@ namespace Sucrose.Live.WebView
                 switch (SSDMM.ThemeType)
                 {
                     case SEWTT.Dark:
-                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, DownloadText, ContinueText, CloseText);
+                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText);
                         DarkMessageBox.ShowDialog();
 
                         DialogResult = DarkMessageBox.Result;
                         break;
                     default:
-                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, DownloadText, ContinueText, CloseText);
+                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText);
                         LightMessageBox.ShowDialog();
 
                         DialogResult = LightMessageBox.Result;
@@ -192,11 +193,21 @@ namespace Sucrose.Live.WebView
                     case SSDEDT.Download:
                         Downloader();
                         break;
+                    case SSDEDT.Remember:
+                        Remember();
+                        break;
                     default:
                         Close();
                         break;
                 }
             }
+        }
+
+        protected void Remember()
+        {
+            SMMI.UserSettingManager.SetSetting(SMC.WebViewTime, DateTime.Now.AddDays(1));
+
+            Configure();
         }
 
         protected void Configure()

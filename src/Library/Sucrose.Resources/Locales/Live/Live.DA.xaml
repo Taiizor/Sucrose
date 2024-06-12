@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">Luk</system:String>
     <system:String x:Key="Live.Continue">Fortsæt</system:String>
     <system:String x:Key="Live.Download">Download</system:String>
+    <system:String x:Key="Live.Remember">Husk</system:String>
 
     <system:String x:Key="Live.Info.WebView">WebView Krav</system:String>
     <system:String x:Key="Live.Info.CefSharp">CefSharp Krav</system:String>

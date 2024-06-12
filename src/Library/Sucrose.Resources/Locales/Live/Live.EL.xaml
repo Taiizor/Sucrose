@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">Κλείσιμο</system:String>
     <system:String x:Key="Live.Continue">Συνέχεια</system:String>
     <system:String x:Key="Live.Download">Λήψη</system:String>
+    <system:String x:Key="Live.Remember">Θυμάμαι</system:String>
 
     <system:String x:Key="Live.Info.WebView">Απαίτηση WebView</system:String>
     <system:String x:Key="Live.Info.CefSharp">Απαίτηση CefSharp</system:String>

@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">Chiudi</system:String>
     <system:String x:Key="Live.Continue">Continua</system:String>
     <system:String x:Key="Live.Download">Scarica</system:String>
+    <system:String x:Key="Live.Remember">Ricorda</system:String>
 
     <system:String x:Key="Live.Info.WebView">Requisito WebView</system:String>
     <system:String x:Key="Live.Info.CefSharp">Requisito CefSharp</system:String>

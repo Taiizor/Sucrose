@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">बंद करें</system:String>
     <system:String x:Key="Live.Continue">जारी रखें</system:String>
     <system:String x:Key="Live.Download">डाउनलोड करें</system:String>
+    <system:String x:Key="Live.Remember">याद रखें</system:String>
 
     <system:String x:Key="Live.Info.WebView">WebView आवश्यकताएँ</system:String>
     <system:String x:Key="Live.Info.CefSharp">CefSharp आवश्यकताएँ</system:String>

@@ -15,7 +15,7 @@ namespace Sucrose.Shared.Engine.View
     {
         internal SSDEDT Result { get; private set; } = SSDEDT.None;
 
-        public DarkMessageBox(string DialogTitle, string DialogMessage, string DialogInfo, string DownloadText, string ContinueText, string CloseText)
+        public DarkMessageBox(string DialogTitle, string DialogMessage, string DialogInfo, string RememberText, string DownloadText, string ContinueText, string CloseText)
         {
             InitializeComponent();
 
@@ -28,6 +28,7 @@ namespace Sucrose.Shared.Engine.View
             Close_Button.Content = CloseText;
             Continue_Button.Content = ContinueText;
             Download_Button.Content = DownloadText;
+            Remember_Button.Content = RememberText;
 
             Download_Button.IsEnabled = SSSHN.GetHostEntry();
 
@@ -53,6 +54,13 @@ namespace Sucrose.Shared.Engine.View
             Result = SSDEDT.Download;
 
             SSSHS.Apply();
+
+            Close();
+        }
+
+        private void RememberButton_Click(object sender, RoutedEventArgs e)
+        {
+            Result = SSDEDT.Remember;
 
             Close();
         }

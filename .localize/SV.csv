@@ -143,6 +143,7 @@ Live\Live.SV.xaml,,
 Live\Live.SV.xaml,Live.Close,Stäng
 Live\Live.SV.xaml,Live.Continue,Fortsätt
 Live\Live.SV.xaml,Live.Download,Ladda Ner
+Live\Live.SV.xaml,Live.Remember,Kom Ihåg
 Live\Live.SV.xaml,,
 Live\Live.SV.xaml,Live.Info.WebView,WebView-Krav
 Live\Live.SV.xaml,Live.Info.CefSharp,CefSharp-Krav

@@ -5,6 +5,7 @@
         None,
         Close,
         Continue,
-        Download
+        Download,
+        Remember
     }
 }

@@ -143,6 +143,7 @@ Live\Live.NB.xaml,,
 Live\Live.NB.xaml,Live.Close,Lukk
 Live\Live.NB.xaml,Live.Continue,Fortsett
 Live\Live.NB.xaml,Live.Download,Last Ned
+Live\Live.NB.xaml,Live.Remember,Husk
 Live\Live.NB.xaml,,
 Live\Live.NB.xaml,Live.Info.WebView,WebView-Krav
 Live\Live.NB.xaml,Live.Info.CefSharp,CefSharp-Krav

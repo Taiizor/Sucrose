@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">Închide</system:String>
     <system:String x:Key="Live.Continue">Continuă</system:String>
     <system:String x:Key="Live.Download">Descarcă</system:String>
+    <system:String x:Key="Live.Remember">Amintiți-Vă</system:String>
 
     <system:String x:Key="Live.Info.WebView">Cerință WebView</system:String>
     <system:String x:Key="Live.Info.CefSharp">Cerință CefSharp</system:String>

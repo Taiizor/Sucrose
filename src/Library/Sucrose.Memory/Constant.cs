@@ -90,6 +90,10 @@
 
         public const string UploadValue = "UploadValue";
 
+        public const string WebViewTime = "WebViewTime";
+
+        public const string CefSharpTime = "CefSharpTime";
+
         public const string CycylingTime = "CycylingTime";
 
         public const string LibraryStart = "LibraryStart";

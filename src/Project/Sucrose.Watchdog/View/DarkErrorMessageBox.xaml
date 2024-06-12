@@ -54,8 +54,15 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
         <Border
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
             Margin="20"
             Background="#FF292929"
             BorderBrush="#FF707070"
@@ -94,6 +101,7 @@
         <Button
             x:Name="Show_Button"
             Grid.Row="1"
+            Grid.Column="0"
             Width="100"
             Height="25"
             Margin="20,0,0,20"
@@ -112,6 +120,7 @@
         <Button
             x:Name="Help_Button"
             Grid.Row="1"
+            Grid.Column="1"
             Width="100"
             Height="25"
             Margin="0,0,0,20"
@@ -130,6 +139,7 @@
         <Button
             x:Name="Close_Button"
             Grid.Row="1"
+            Grid.Column="2"
             Width="100"
             Height="25"
             Margin="0,0,20,20"

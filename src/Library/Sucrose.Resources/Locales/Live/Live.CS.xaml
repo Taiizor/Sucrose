@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">Zavřít</system:String>
     <system:String x:Key="Live.Continue">Pokračovat</system:String>
     <system:String x:Key="Live.Download">Stáhnout</system:String>
+    <system:String x:Key="Live.Remember">Pamatovat Si</system:String>
 
     <system:String x:Key="Live.Info.WebView">Požadavek WebView</system:String>
     <system:String x:Key="Live.Info.CefSharp">Požadavek CefSharp</system:String>

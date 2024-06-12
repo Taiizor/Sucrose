@@ -143,6 +143,7 @@ Live\Live.ID.xaml,,
 Live\Live.ID.xaml,Live.Close,Tutup
 Live\Live.ID.xaml,Live.Continue,Lanjutkan
 Live\Live.ID.xaml,Live.Download,Unduh
+Live\Live.ID.xaml,Live.Remember,Ingat
 Live\Live.ID.xaml,,
 Live\Live.ID.xaml,Live.Info.WebView,Persyaratan WebView
 Live\Live.ID.xaml,Live.Info.CefSharp,Persyaratan CefSharp

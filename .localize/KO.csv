@@ -143,6 +143,7 @@ Live\Live.KO.xaml,,
 Live\Live.KO.xaml,Live.Close,닫기
 Live\Live.KO.xaml,Live.Continue,계속
 Live\Live.KO.xaml,Live.Download,다운로드
+Live\Live.KO.xaml,Live.Remember,기억하다
 Live\Live.KO.xaml,,
 Live\Live.KO.xaml,Live.Info.WebView,WebView 요구 사항
 Live\Live.KO.xaml,Live.Info.CefSharp,CefSharp 요구 사항

@@ -54,8 +54,16 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
         <Border
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
             Margin="20"
             Background="#F0F0F0"
             BorderBrush="#DDDDDD"
@@ -94,6 +102,7 @@
         <Button
             x:Name="Download_Button"
             Grid.Row="1"
+            Grid.Column="0"
             Width="100"
             Height="25"
             Margin="20,0,0,20"
@@ -112,10 +121,11 @@
         <Button
             x:Name="Continue_Button"
             Grid.Row="1"
+            Grid.Column="1"
             Width="100"
             Height="25"
-            Margin="0,0,0,20"
-            HorizontalAlignment="Center"
+            Margin="0,0,5,20"
+            HorizontalAlignment="Right"
             Click="ContinueButton_Click"
             Content="Continue"
             Cursor="Hand">
@@ -128,8 +138,28 @@
             </Button.Effect>
         </Button>
         <Button
+            x:Name="Remember_Button"
+            Grid.Row="1"
+            Grid.Column="2"
+            Width="100"
+            Height="25"
+            Margin="5,0,0,20"
+            HorizontalAlignment="Left"
+            Click="RememberButton_Click"
+            Content="Remember"
+            Cursor="Hand">
+            <Button.Effect>
+                <DropShadowEffect
+                    Direction="315"
+                    Opacity="0.7"
+                    ShadowDepth="3"
+                    Color="#888888" />
+            </Button.Effect>
+        </Button>
+        <Button
             x:Name="Close_Button"
             Grid.Row="1"
+            Grid.Column="3"
             Width="100"
             Height="25"
             Margin="0,0,20,20"

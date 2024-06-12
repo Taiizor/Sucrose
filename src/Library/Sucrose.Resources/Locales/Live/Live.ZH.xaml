@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">关闭</system:String>
     <system:String x:Key="Live.Continue">继续</system:String>
     <system:String x:Key="Live.Download">下载</system:String>
+    <system:String x:Key="Live.Remember">记住</system:String>
 
     <system:String x:Key="Live.Info.WebView">WebView 要求</system:String>
     <system:String x:Key="Live.Info.CefSharp">CefSharp 要求</system:String>

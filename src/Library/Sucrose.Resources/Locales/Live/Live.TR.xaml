@@ -7,6 +7,7 @@
     <system:String x:Key="Live.Close">Kapat</system:String>
     <system:String x:Key="Live.Continue">Devam</system:String>
     <system:String x:Key="Live.Download">İndir</system:String>
+    <system:String x:Key="Live.Remember">Hatırla</system:String>
 
     <system:String x:Key="Live.Info.WebView">WebView Gerekliliği Var</system:String>
     <system:String x:Key="Live.Info.CefSharp">CefSharp Gerekliliği Var</system:String>
