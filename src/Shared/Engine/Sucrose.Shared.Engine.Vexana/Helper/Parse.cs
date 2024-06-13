@@ -39,9 +39,15 @@ namespace Sucrose.Shared.Engine.Vexana.Helper
             {
                 GifImage.SelectActiveFrame(Dimension, FrameIndex);
 
-                PropertyItem FrameDelayItem = GifImage.GetPropertyItem(0x5100);
+                PropertyItem FrameDelayItem = GifImage.PropertyItems.FirstOrDefault(pi => pi.Id == 0x5100);
 
-                int FrameDelay = BitConverter.ToInt32(FrameDelayItem.Value, FrameIndex * 4) * 10;
+                int FrameDelay = 100;
+
+                if (FrameDelayItem != null)
+                {
+                    FrameDelay = BitConverter.ToInt32(FrameDelayItem.Value, FrameIndex * 4) * 10;
+                }
+
                 FrameDurations[FrameIndex] = FrameDelay;
 
                 Image Frame = new Bitmap(GifImage.Width, GifImage.Height);

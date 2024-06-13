@@ -325,7 +325,7 @@ namespace Sucrose.Manager
 
         private class Settings
         {
-            public Dictionary<string, object> Properties { get; set; } = new Dictionary<string, object>();
+            public Dictionary<string, object> Properties { get; set; } = new();
         }
     }
 }
