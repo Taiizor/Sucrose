@@ -92,14 +92,24 @@ namespace Sucrose.Property.Controls
 
                 using (FileStream Source = new(FileDialog.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
-                    using FileStream Destination = new(Path.Combine(SPMI.Path, Data.Folder, FileName), FileMode.Create, FileAccess.Write);
+                    string Target = Path.Combine(SPMI.Path, Data.Folder, FileName);
+
+                    if (File.Exists(Target))
+                    {
+                        File.Delete(Target);
+                    }
+
+                    using FileStream Destination = new(Target, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
 
                     Source.CopyTo(Destination);
                 }
 
                 await Task.Delay(500);
 
-                Component.Items.Add(FileName);
+                if (!Component.Items.OfType<string>().Any(Item => Item == FileName))
+                {
+                    Component.Items.Add(FileName);
+                }
 
                 Component.SelectedValue = FileName;
             }
