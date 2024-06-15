@@ -73,7 +73,10 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 
                                     await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
                                     {
-                                        SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                        if (SSEWVMI.WebEngine.IsInitialized)
+                                        {
+                                            SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                        }
                                     });
                                 }
                             };
@@ -92,7 +95,10 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 
                                 await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
                                 {
-                                    SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                    if (SSEWVMI.WebEngine.IsInitialized)
+                                    {
+                                        SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                    }
                                 });
                             }
                         });

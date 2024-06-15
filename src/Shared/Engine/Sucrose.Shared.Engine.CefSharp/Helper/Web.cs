@@ -90,7 +90,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                                     await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
                                     {
-                                        SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                        if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized)
+                                        {
+                                            SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                        }
                                     });
                                 }
                             };
@@ -109,7 +112,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                                 await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
                                 {
-                                    SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                    if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized)
+                                    {
+                                        SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                    }
                                 });
                             }
                         });

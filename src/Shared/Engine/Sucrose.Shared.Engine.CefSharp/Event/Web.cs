@@ -24,7 +24,10 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
                 {
                     SSEMI.Properties = SSTHP.ReadJson(e.FullPath);
 
-                    SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                    if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized)
+                    {
+                        SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                    }
                 }
                 catch { }
             });

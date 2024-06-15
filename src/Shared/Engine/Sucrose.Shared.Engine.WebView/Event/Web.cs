@@ -23,7 +23,10 @@ namespace Sucrose.Shared.Engine.WebView.Event
                 {
                     SSEMI.Properties = SSTHP.ReadJson(e.FullPath);
 
-                    SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                    if (SSEWVMI.WebEngine.IsInitialized)
+                    {
+                        SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                    }
                 }
                 catch { }
             });
