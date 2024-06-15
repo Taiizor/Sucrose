@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Rapport</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Angiv dine grunde til at rapportere temaet.</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Indtast venligst en gyldig e-mailadresse (valgfri)</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Yderligere noter:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Beskriv venligst årsagen til rapporten i detaljer.</system:String>
 

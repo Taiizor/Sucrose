@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,Portal.ThemeReport.Reporter,Rapor
 Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,Portal.ThemeReport.Reporter.Description,Temayı raporlama nedenlerinizi belirtin.
 Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Lütfen geçerli bir mail adresi yazın (isteğe bağlı)
+Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,Portal.ThemeReport.Reporter.Description.Text,Ek Notlar:
 Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Lütfen rapor nedenini ayrıntılı olarak açıklayın.
 Portal\Controls\ThemeReport\Portal.ThemeReport.TR.xaml,,

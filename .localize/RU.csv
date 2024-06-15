@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,Portal.ThemeReport.Reporter,Сообщить
 Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,Portal.ThemeReport.Reporter.Description,Укажите причину сообщения о теме.
 Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,"Пожалуйста, введите действительный адрес электронной почты (необязательно)"
+Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,Portal.ThemeReport.Reporter.Description.Text,Дополнительные заметки:
 Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,"Пожалуйста, подробно опишите причину сообщения."
 Portal\Controls\ThemeReport\Portal.ThemeReport.RU.xaml,,

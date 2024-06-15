@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,Portal.ThemeReport.Reporter,Relatar
 Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,Portal.ThemeReport.Reporter.Description,Especifique os seus motivos para relatar o tema.
 Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,"Por favor, insira um endereço de e-mail válido (opcional)"
+Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,Portal.ThemeReport.Reporter.Description.Text,Notas Adicionais:
 Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,"Por favor, descreva em detalhe o motivo do relatório."
 Portal\Controls\ThemeReport\Portal.ThemeReport.PT.xaml,,

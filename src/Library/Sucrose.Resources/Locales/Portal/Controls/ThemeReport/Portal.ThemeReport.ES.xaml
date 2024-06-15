@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Informe</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Especifique sus razones para informar sobre el tema.</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Por favor, escriba una dirección de correo electrónico válida (opcional)</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Notas adicionales:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Por favor describa la razón del informe en detalle.</system:String>
 

@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,Portal.ThemeReport.Reporter,Rapport
 Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,Portal.ThemeReport.Reporter.Description,Angiv dine grunde til at rapportere temaet.
 Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Indtast venligst en gyldig e-mailadresse (valgfri)
+Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,Portal.ThemeReport.Reporter.Description.Text,Yderligere noter:
 Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Beskriv venligst årsagen til rapporten i detaljer.
 Portal\Controls\ThemeReport\Portal.ThemeReport.DA.xaml,,

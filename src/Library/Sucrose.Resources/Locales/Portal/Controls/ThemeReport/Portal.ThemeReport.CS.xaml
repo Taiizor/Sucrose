@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Hlášení</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Uveďte důvody pro hlášení tématu.</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Prosím, napište platnou e-mailovou adresu (volitelné)</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Další poznámky:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Podrobně popište důvod hlášení.</system:String>
 

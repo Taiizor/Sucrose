@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,Portal.ThemeReport.Reporter,Laporan
 Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,Portal.ThemeReport.Reporter.Description,Tentukan alasan Anda melaporkan tema tersebut.
 Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Silakan masukkan alamat email yang valid (opsional)
+Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,Portal.ThemeReport.Reporter.Description.Text,Catatan Tambahan:
 Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Harap jelaskan alasan laporan secara rinci.
 Portal\Controls\ThemeReport\Portal.ThemeReport.ID.xaml,,

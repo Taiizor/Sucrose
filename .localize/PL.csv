@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,Portal.ThemeReport.Reporter,Zgłoś
 Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,Portal.ThemeReport.Reporter.Description,Określ powody zgłoszenia tematu.
 Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Proszę podać poprawny adres e-mail (opcjonalnie)
+Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,Portal.ThemeReport.Reporter.Description.Text,Dodatkowe uwagi:
 Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Proszę szczegółowo opisać powód zgłoszenia.
 Portal\Controls\ThemeReport\Portal.ThemeReport.PL.xaml,,

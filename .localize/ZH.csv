@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter,报告
 Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Description,请说明报告该主题的原因。
 Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,请输入有效的电子邮件地址（可选）
+Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Description.Text,附加备注：
 Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,请详细描述报告原因。
 Portal\Controls\ThemeReport\Portal.ThemeReport.ZH.xaml,,

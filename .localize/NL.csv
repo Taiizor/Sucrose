@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Portal.ThemeReport.Reporter,Rapporteren
 Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Portal.ThemeReport.Reporter.Description,Specificeer uw redenen om het thema te rapporteren.
 Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Voer alstublieft een geldig e-mailadres in (optioneel)
+Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Portal.ThemeReport.Reporter.Description.Text,Aanvullende Notities:
 Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Beschrijf de reden voor het rapport in detail.
 Portal\Controls\ThemeReport\Portal.ThemeReport.NL.xaml,,

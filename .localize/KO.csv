@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter,보고
 Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Description,테마를 보고하는 이유를 명시하십시오.
 Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,유효한 이메일 주소를 입력하세요 (선택 사항)
+Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Description.Text,추가 메모:
 Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,보고 이유를 자세히 설명하십시오.
 Portal\Controls\ThemeReport\Portal.ThemeReport.KO.xaml,,

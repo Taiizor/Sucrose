@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Raport</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specificați motivele pentru raportarea temei.</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Vă rugăm să introduceți o adresă de email validă (opțional)</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Note suplimentare:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Vă rugăm să descrieți în detaliu motivul raportării.</system:String>
 

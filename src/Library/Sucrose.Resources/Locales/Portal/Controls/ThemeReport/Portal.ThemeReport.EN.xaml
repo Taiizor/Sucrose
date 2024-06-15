@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Report</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specify your reasons for reporting the theme.</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Please enter a valid email address (optional)</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Additional Notes:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Please describe the reason for the report in detail.</system:String>
 

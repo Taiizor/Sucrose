@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">報告</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">テーマを報告する理由を指定してください。</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">有効なメールアドレスを入力してください（オプション）</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">追加のメモ:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">報告の理由を詳細に説明してください。</system:String>
 

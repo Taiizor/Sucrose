@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Segnala</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specifica i motivi per cui segnali il tema.</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Si prega di inserire un indirizzo email valido (opzionale)</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Note aggiuntive:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Descrivi in dettaglio il motivo della segnalazione.</system:String>
 

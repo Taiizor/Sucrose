@@ -11,6 +11,8 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Bericht</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Geben Sie Ihre Gründe für die Meldung des Themas an.</system:String>
 
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Bitte geben Sie eine gültige E-Mail-Adresse ein (optional)</system:String>
+
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Zusätzliche Notizen:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Bitte beschreiben Sie den Grund für den Bericht ausführlich.</system:String>
 

@@ -6,6 +6,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -81,6 +83,16 @@ namespace Sucrose.Portal.Views.Controls
 
             StackPanel ReporterContent = new();
 
+            TextBox ReportContact = new()
+            {
+                PlaceholderText = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Contact", "Placeholder"),
+                TextWrapping = TextWrapping.WrapWithOverflow,
+                Margin = new Thickness(0, 0, 0, 10),
+                AcceptsReturn = false,
+                AcceptsTab = false,
+                MaxLength = 250
+            };
+
             TextBlock ReporterDescriptionText = new()
             {
                 Text = SRER.GetValue("Portal", "ThemeReport", "Reporter", "Description", "Text"),
@@ -152,6 +164,7 @@ namespace Sucrose.Portal.Views.Controls
             ReporterCustomContent.Children.Add(ReporterReport);
             ReporterCustomContent.Children.Add(ReporterGitHub);
 
+            ReporterContent.Children.Add(ReportContact);
             ReporterContent.Children.Add(ReporterDescriptionText);
             ReporterContent.Children.Add(ReportDescription);
             ReporterContent.Children.Add(ReporterState);
@@ -161,12 +174,17 @@ namespace Sucrose.Portal.Views.Controls
 
             ReporterReport.Click += async (s, e) =>
             {
-                if (string.IsNullOrEmpty(ReportDescription.Text) || string.IsNullOrWhiteSpace(ReportDescription.Text))
+                if (!string.IsNullOrEmpty(ReportContact.Text) && !SSTHV.IsMail(ReportContact.Text))
+                {
+                    ReportContact.Focus();
+                }
+                else if (string.IsNullOrEmpty(ReportDescription.Text) || string.IsNullOrWhiteSpace(ReportDescription.Text))
                 {
                     ReportDescription.Focus();
                 }
                 else
                 {
+                    ReportContact.IsReadOnly = true;
                     ReporterReport.IsEnabled = false;
                     ReporterGitHub.IsEnabled = false;
                     ReportDescription.IsReadOnly = true;
@@ -203,7 +221,7 @@ namespace Sucrose.Portal.Views.Controls
 
                             try
                             {
-                                SSSMRD ReportData = new(Wallpaper.Key, $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", ReportDescription.Text);
+                                SSSMRD ReportData = new(Wallpaper.Key, ReportContact.Text, SSCHV.GetText(), $"{(ReportMode.SelectedItem as ComboBoxItem).Tag}", $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", $"{Info.AppVersion}", ReportDescription.Text, $"{Info.Version}");
 
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
 
@@ -237,6 +255,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     ReporterReport.IsEnabled = true;
                     ReporterGitHub.IsEnabled = true;
+                    ReportContact.IsReadOnly = false;
                     ReportDescription.IsReadOnly = false;
                 }
             };

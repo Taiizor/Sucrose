@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter,Rapportera
 Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Description,Ange dina skäl för att rapportera temat.
 Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Vänligen ange en giltig e-postadress (valfritt)
+Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Description.Text,Ytterligare Anteckningar:
 Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Vänligen beskriv anledningen till rapporten i detalj.
 Portal\Controls\ThemeReport\Portal.ThemeReport.SV.xaml,,

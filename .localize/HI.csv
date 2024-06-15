@@ -683,6 +683,8 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter,रिपोर्ट
 Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Description,कृपया थीम की रिपोर्टिंग के कारणों को निर्दिष्ट करें।
 Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,कृपया एक मान्य ईमेल पता दर्ज करें (वैकल्पिक)
+Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Description.Text,अतिरिक्त नोट्स:
 Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,कृपया रिपोर्ट का कारण विस्तार से बताएं।
 Portal\Controls\ThemeReport\Portal.ThemeReport.HI.xaml,,
