@@ -43,6 +43,8 @@ namespace Sucrose.Portal.Views.Pages
             this.ViewModel = ViewModel;
             DataContext = this;
 
+            CheckLibrary();
+
             CheckShowcase();
 
             InitializeThemes();
@@ -75,6 +77,23 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.LibraryService = new();
 
             SPMI.LibraryService.CreatedWallpaper += LibraryService_CreatedWallpaper;
+        }
+
+        private void CheckLibrary()
+        {
+            string[] Locations = SMMM.LibraryLocation.Split(Path.DirectorySeparatorChar);
+
+            string Current = Locations.First() + Path.DirectorySeparatorChar;
+
+            foreach (string Location in Locations.Skip(1))
+            {
+                Current = Path.Combine(Current, Location);
+
+                if (!Directory.Exists(Current))
+                {
+                    Directory.CreateDirectory(Current);
+                }
+            }
         }
 
         private void CheckShowcase()
