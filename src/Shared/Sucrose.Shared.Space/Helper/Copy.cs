@@ -15,21 +15,30 @@ namespace Sucrose.Shared.Space.Helper
             {
                 foreach (string Record in Directory.GetFiles(Source))
                 {
-                    string DestinationFile = Path.Combine(Destination, Path.GetFileName(Record));
+                    if (File.Exists(Record))
+                    {
+                        string DestinationFile = Path.Combine(Destination, Path.GetFileName(Record));
 
-                    File.Copy(Record, DestinationFile, true);
+                        File.Copy(Record, DestinationFile, true);
+                    }
                 }
 
                 foreach (string SubDirectory in Directory.GetDirectories(Source))
                 {
-                    string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
+                    if (Directory.Exists(SubDirectory))
+                    {
+                        string DestinationSubDirectory = Path.Combine(Destination, Path.GetFileName(SubDirectory));
 
-                    Folder(SubDirectory, DestinationSubDirectory, Delete);
+                        Folder(SubDirectory, DestinationSubDirectory, Delete);
+                    }
                 }
 
                 if (Delete)
                 {
-                    Directory.Delete(Source, true);
+                    if (Directory.Exists(Source))
+                    {
+                        Directory.Delete(Source, true);
+                    }
                 }
             }
         }

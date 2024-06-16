@@ -30,13 +30,15 @@
 
         public static readonly string Key = string.Empty;
 
-        public static readonly string AppName = "Sucrose";
-
         public static readonly string Content = "Content";
 
         public static readonly string Default = "Default";
 
+        public static readonly string Library = "Library";
+
         public static readonly string SignalT = "SignalT";
+
+        public static readonly string AppName = "Sucrose";
 
         public static readonly string StoreSource = "src";
 

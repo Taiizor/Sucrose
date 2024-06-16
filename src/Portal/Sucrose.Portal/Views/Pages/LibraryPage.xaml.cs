@@ -7,6 +7,7 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
+using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
@@ -81,17 +82,36 @@ namespace Sucrose.Portal.Views.Pages
 
         private void CheckLibrary()
         {
-            string[] Locations = SMMM.LibraryLocation.Split(Path.DirectorySeparatorChar);
-
-            string Current = Locations.First() + Path.DirectorySeparatorChar;
-
-            foreach (string Location in Locations.Skip(1))
+            try
             {
-                Current = Path.Combine(Current, Location);
-
-                if (!Directory.Exists(Current))
+                if (!Directory.Exists(SMMM.LibraryLocation))
                 {
-                    Directory.CreateDirectory(Current);
+                    Directory.CreateDirectory(SMMM.LibraryLocation);
+
+                    if (!Directory.Exists(SMMM.LibraryLocation))
+                    {
+                        if (!Directory.Exists(SPMM.AlternativeLibrary))
+                        {
+                            Directory.CreateDirectory(SPMM.AlternativeLibrary);
+                        }
+
+                        if (SMMM.LibraryLocation != SPMM.AlternativeLibrary)
+                        {
+                            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, SPMM.AlternativeLibrary);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                if (!Directory.Exists(SPMM.AlternativeLibrary))
+                {
+                    Directory.CreateDirectory(SPMM.AlternativeLibrary);
+                }
+
+                if (SMMM.LibraryLocation != SPMM.AlternativeLibrary)
+                {
+                    SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, SPMM.AlternativeLibrary);
                 }
             }
         }
