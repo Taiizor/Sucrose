@@ -239,6 +239,7 @@
       "items": [
         "None",
         "Horizontal",
+        "Stacked",
         "Vertical"
       ]
     },
@@ -371,6 +372,16 @@
       "type": "checkbox",
       "value": false
     },
+    "ui_date_style": {
+      "text": "Style",
+      "type": "dropdown",
+      "value": 0,
+      "items": [
+        "Horizontal",
+        "Stacked",
+        "Vertical"
+      ]
+    },
     "ui_date_delimiter": {
       "type": "dropdown",
       "text": "Date Delimiter",
@@ -382,11 +393,6 @@
         ".",
         "/"
       ]
-    },
-    "ui_date_orientation": {
-      "text": "Vertical Orientation",
-      "type": "checkbox",
-      "value": false
     },
     "ui_date_scale": {
       "max": 10,

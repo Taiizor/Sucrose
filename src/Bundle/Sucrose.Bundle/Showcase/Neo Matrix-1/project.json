@@ -502,8 +502,12 @@
 						"value" : "1"
 					},
 					{
-						"label" : "Vertical",
+						"label" : "Stacked",
 						"value" : "2"
+					},
+					{
+						"label" : "Vertical",
+						"value" : "3"
 					}
 				],
 				"order" : 130,
@@ -688,7 +692,7 @@
 			},
 			"ui_date_year" : 
 			{
-				"condition" : "ui_date_date.value",
+				"condition" : "ui_date_date.value != 0",
 				"index" : 45,
 				"options" : 
 				[
@@ -712,7 +716,7 @@
 			},
 			"ui_date_order" : 
 			{
-				"condition" : "ui_date_date.value",
+				"condition" : "ui_date_date.value != 0",
 				"index" : 46,
 				"options" : 
 				[
@@ -731,7 +735,7 @@
 				"value" : "0"
 			},
 			"ui_date_monthname" : {
-				"condition" : "ui_date_date.value",
+				"condition" : "ui_date_date.value != 0",
 				"index" : 47,
 				"order" : 147,
 				"text" : "Month Name",
@@ -739,17 +743,41 @@
 				"value": false
 			},
 			"ui_date_allcaps" : {
-				"condition" : "ui_date_date.value",
+				"condition" : "ui_date_date.value != 0",
 				"index" : 48,
 				"order" : 148,
 				"text" : "All CAPS",
 				"type" : "bool",	
 				"value": false
 			},
+			"ui_date_style" : 
+			{
+				"condition" : "ui_date_date.value != 0",
+				"index" : 49,
+				"order" : 149,
+				"options" : 
+				[
+					{
+						"label" : "Horizontal",
+						"value" : "0"
+					},
+					{
+						"label" : "Stacked",
+						"value" : "1"
+					},
+					{
+						"label" : "Vertical",
+						"value" : "2"
+					}
+				],
+				"text" : "Style",
+				"type" : "combo",
+				"value" : "0"
+			},
 			"ui_date_delimiter" : 
 			{
-				"index" : 49,
-				"condition" : "ui_date_date.value && !ui_date_orientation.value",
+				"index" : 50,
+				"condition" : "ui_date_date.value != 0 && ui_date_orientation.value == 0",
 				"options" : 
 				[
 					{
@@ -773,23 +801,14 @@
 						"value" : "4"
 					}
 				],
-				"order" : 149,
+				"order" : 150,
 				"text" : "Date Delimiter",
 				"type" : "combo",
 				"value" : "0"
 			},
-			"ui_date_orientation" : 
-			{
-				"condition" : "ui_date_date.value",
-				"index" : 50,
-				"order" : 150,
-				"text" : "Vertical Orientation",
-				"type" : "bool",
-				"value" : false
-			},
 			"ui_date_scale" : 
 			{
-				"condition" : "ui_date_date.value",
+				"condition" : "ui_date_date.value != 0",
 				"fraction" : false,
 				"index" : 51,
 				"max" : 10,
@@ -801,7 +820,7 @@
 			},
 			"ui_date_positionx" : 
 			{
-				"condition" : "ui_date_date.value",
+				"condition" : "ui_date_date.value != 0",
 				"fraction" : false,
 				"index" : 52,
 				"max" : 100,
@@ -813,7 +832,7 @@
 			},
 			"ui_date_positiony" : 
 			{
-				"condition" : "ui_date_date.value",
+				"condition" : "ui_date_date.value != 0",
 				"fraction" : false,
 				"index" : 53,
 				"max" : 100,

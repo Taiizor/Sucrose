@@ -1,6 +1,6 @@
 window.onload = function () {
     //MARK: Update
-    const version = "v7.2.0";
+    const version = "v7.3.0";
 
     checkForUpdates = async () => {
         const url = 'https://api.github.com/repos/IPdotSetAF/NeoMatrix/tags';
@@ -63,7 +63,7 @@ window.onload = function () {
         ui_day_positionX: 0,
         ui_day_positionY: 0,
         ui_date_date: "0",
-        ui_date_orientation: false,
+        ui_date_style: "0",
         ui_date_year: "2",
         ui_date_order: "0",
         ui_date_monthName: false,
@@ -202,7 +202,7 @@ window.onload = function () {
             dateFolder.add(options, "ui_date_monthName").name("Month Name").onChange(updateMask);
             dateFolder.add(options, "ui_date_allCaps").name("All CAPS").onChange(updateMask);
             dateFolder.add(options, "ui_date_delimiter", optionsToDict(config.general.properties.ui_date_delimiter.options)).name("Delimiter").onChange(updateMask);
-            dateFolder.add(options, "ui_date_orientation").name("Vertical Orientation").onChange(updateMask);
+            dateFolder.add(options, "ui_date_style", optionsToDict(config.general.properties.ui_date_style.options)).name("Style").onChange(updateMask);
             dateFolder.add(options, "ui_date_scale").min(0).max(10).step(1).name("Scale").onChange(updateMask);
             const datePositionFolder = dateFolder.addFolder("Position");
             datePositionFolder.add(options, "ui_date_positionX").min(-100).max(100).step(1).name("X").onChange(updateMask);
@@ -346,8 +346,8 @@ window.onload = function () {
                 options.ui_date_date = properties.ui_date_date.value;
                 updateTime();
             }
-            if (properties.ui_date_orientation)
-                options.ui_date_orientation = properties.ui_date_orientation.value;
+            if (properties.ui_date_style)
+                options.ui_date_style = properties.ui_date_style.value;
             if (properties.ui_date_year)
                 options.ui_date_year = properties.ui_date_year.value;
             if (properties.ui_date_order)
@@ -364,7 +364,7 @@ window.onload = function () {
                 options.ui_date_positionX = properties.ui_date_positionx.value;
             if (properties.ui_date_positiony)
                 options.ui_date_positionY = properties.ui_date_positiony.value;
-            if (properties.ui_date_date || properties.ui_date_orientation || properties.ui_date_year ||
+            if (properties.ui_date_date || properties.ui_date_style || properties.ui_date_year ||
                 properties.ui_date_order || properties.ui_date_monthname || properties.ui_date_allcaps ||
                 properties.ui_date_delimiter || properties.ui_date_scale || properties.ui_date_positionx
                 || properties.ui_date_positiony)
@@ -541,8 +541,8 @@ window.onload = function () {
                 updateTime();
                 updateMask();
                 break;
-            case "ui_date_orientation":
-                options.ui_date_orientation = val.value;
+            case "ui_date_style":
+                options.ui_date_style = val.value;
                 updateMask();
                 break;
             case "ui_date_year":
@@ -725,6 +725,9 @@ window.onload = function () {
             hour = "0" + hour;
         if (minute < 10)
             minute = "0" + minute;
+
+        hour = hour.toString();
+        minute = minute.toString();
     }
 
     //MARK: Mask
@@ -750,22 +753,36 @@ window.onload = function () {
 
         switch (options.ui_clock_clock) {
             case "1": {
+                let clock = hour + ":" + minute;
                 if (options.ui_clock_scale > 0) {
                     let center = [Math.floor((columns - 17 * options.ui_clock_scale) / 2), Math.floor((rows - 5 * options.ui_clock_scale) / 2)];
-                    drawTextOnMask(hour + ":" + minute, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY, options.ui_clock_scale);
+                    drawTextOnMask(clock, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY, options.ui_clock_scale);
                 } else {
                     let center = [Math.floor((columns - 5) / 2), Math.floor((rows - 1) / 2)];
-                    drawTextOnMatrix(hour + ":" + minute, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY);
+                    drawTextOnMatrix(clock, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY);
                 }
                 break;
             }
             case "2": {
+                let clock = hour + "\\n" + minute;
                 if (options.ui_clock_scale > 0) {
                     let center = [Math.floor((columns - 7 * options.ui_clock_scale) / 2), Math.floor((rows - 11 * options.ui_clock_scale) / 2)];
-                    drawTextOnMask(hour + "\\n" + minute, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY, options.ui_clock_scale);
+                    drawTextOnMask(clock, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY, options.ui_clock_scale);
                 } else {
                     let center = [Math.floor((columns - 2) / 2), Math.floor((rows - 2) / 2)];
-                    drawTextOnMatrix(hour + "\\n" + minute, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY);
+                    drawTextOnMatrix(clock, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY);
+                }
+                break;
+            }
+            case "3": {
+                let h = hour.split("").join("\\n"), m = minute.split("").join("\\n");
+                let clock = h + "\\n" + m;
+                if (options.ui_clock_scale > 0) {
+                    let center = [Math.floor((columns - 3 * options.ui_clock_scale) / 2), Math.floor((rows - 23 * options.ui_clock_scale) / 2)];
+                    drawTextOnMask(clock, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY, options.ui_clock_scale);
+                } else {
+                    let center = [Math.floor((columns - 1) / 2), Math.floor((rows - 4) / 2)];
+                    drawTextOnMatrix(clock, center[0] + options.ui_clock_positionX, center[1] + options.ui_clock_positionY);
                 }
                 break;
             }
@@ -789,33 +806,48 @@ window.onload = function () {
         }
 
         if (options.ui_date_date != "0") {
-            var dateText = date.toString(), monthText, yearText = "", completeDate;
-            if (dateText.length < 2)
-                dateText = "0" + dateText;
+            var text3 = date.toString(), text2, text1 = "", completeDate;
+            if (text3.length < 2)
+                text3 = "0" + text3;
             if (options.ui_date_monthName) {
-                monthText = months[parseInt(options.ui_date_date) - 1][month - 1];
+                text2 = months[parseInt(options.ui_date_date) - 1][month - 1];
                 if (options.ui_date_allCaps)
-                    monthText = monthText.toUpperCase();
+                    text2 = text2.toUpperCase();
             } else {
-                monthText = month.toString();
-                if (monthText.length < 2)
-                    monthText = "0" + monthText;
+                text2 = month.toString();
+                if (text2.length < 2)
+                    text2 = "0" + text2;
             }
             switch (options.ui_date_year) {
                 case "1": {
-                    yearText = year.toString().substring(2, 4);
+                    text1 = year.toString().substring(2, 4);
                     break;
                 }
                 case "2": {
-                    yearText = year.toString();
+                    text1 = year.toString();
                     break;
                 }
             }
 
-            let delimiter = options.ui_date_orientation ? "" : dateDelimiters[parseInt(options.ui_date_delimiter)];
-            completeDate = yearText + (yearText.length > 0 ? delimiter : "") + (options.ui_date_order == "0" ? monthText + delimiter + dateText : dateText + delimiter + monthText);
-            if (options.ui_date_orientation)
-                completeDate = completeDate.split("").join("\\n");
+            if(options.ui_date_order == 1){
+                let tmp = text2;
+                text2 = text3;
+                text3 = tmp;
+            }
+
+            let delimiter = dateDelimiters[parseInt(options.ui_date_delimiter)];
+
+            switch (options.ui_date_style) {
+                case "0":
+                    completeDate = (text1.length > 0 ? [text1, text2, text3] : [text2, text3]).join(delimiter);
+                    break;
+                case "1":
+                    completeDate = (text1.length > 0 ? [text1, text2, text3] : [text2, text3]).join("\\n");
+                    break;
+                case "2":
+                    completeDate = (text1 + text2 + text3).split("").join("\\n");
+                    break;
+            }
 
             if (options.ui_date_scale > 0) {
                 let bb = getTextBoundingBox(completeDate, options.ui_date_scale);
@@ -1239,3 +1271,4 @@ window.onload = function () {
         return params;
     }
 };
+
