@@ -72,6 +72,8 @@ namespace Sucrose.Manager.Manage
 
         public static int TitleLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.TitleLength, 20), 10, 100);
 
+        public static int GpuUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.GpuUsage, 70), 0, 100);
+
         public static int CpuUsage => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.CpuUsage, 70), 0, 100);
 
         public static string GraphicAdapter => SMMI.BackgroundogSettingManager.GetSetting(SMC.GraphicAdapter, string.Empty);

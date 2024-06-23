@@ -27,7 +27,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Manage
 
         public static BrowserSettings CefSettings = new()
         {
-            WindowlessFrameRate = 144
+            WindowlessFrameRate = 60
         };
     }
 }

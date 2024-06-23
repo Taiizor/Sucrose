@@ -43,7 +43,7 @@ namespace Sucrose.Backgroundog.Struct.Data
         /// <summary>
         /// 
         /// </summary>
-        public string Fullname;
+        public string FullName;
     }
 
     /// <summary>

@@ -16,7 +16,7 @@ namespace Sucrose.Backgroundog.Extension
                 { "Core", SBMI.CpuData.Core },
                 { "State", SBMI.CpuData.State },
                 { "Thread", SBMI.CpuData.Thread },
-                { "Fullname", SBMI.CpuData.Fullname }
+                { "FullName", SBMI.CpuData.FullName }
             };
         }
 

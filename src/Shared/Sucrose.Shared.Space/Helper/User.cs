@@ -90,22 +90,45 @@ namespace Sucrose.Shared.Space.Helper
             }
         }
 
-        public static string GetProcessor()
+        public static string[] GetGraphic()
         {
             try
             {
-                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
+                List<string> Names = new();
+
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_VideoController");
 
                 foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                 {
-                    return SSSHM.Check(Object, "Name", SMR.Default);
+                    Names.Add(SSSHM.Check(Object, "Name", SMR.Default));
                 }
 
-                return SMR.Default;
+                return Names.ToArray();
             }
             catch
             {
-                return SMR.Default;
+                return new[] { SMR.Default };
+            }
+        }
+
+        public static string[] GetNetwork()
+        {
+            try
+            {
+                List<string> Names = new();
+
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_NetworkAdapter");
+
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    Names.Add(SSSHM.Check(Object, "Name", SMR.Default));
+                }
+
+                return Names.ToArray();
+            }
+            catch
+            {
+                return new[] { SMR.Default };
             }
         }
 
@@ -158,6 +181,27 @@ namespace Sucrose.Shared.Space.Helper
             catch
             {
                 return SMR.Default;
+            }
+        }
+
+        public static string[] GetProcessor()
+        {
+            try
+            {
+                List<string> Names = new();
+
+                ManagementObjectSearcher Searcher = new("SELECT * FROM Win32_Processor");
+
+                foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
+                {
+                    Names.Add(SSSHM.Check(Object, "Name", SMR.Default));
+                }
+
+                return Names.ToArray();
+            }
+            catch
+            {
+                return new[] { SMR.Default };
             }
         }
 

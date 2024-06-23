@@ -129,7 +129,7 @@ namespace Sucrose.Backgroundog.Manage
             Thread = 0,
             State = false,
             Name = string.Empty,
-            Fullname = string.Empty
+            FullName = string.Empty
         };
 
         public static SBSDBSS BiosData = new()

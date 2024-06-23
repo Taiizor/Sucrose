@@ -302,8 +302,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ComboBox NetworkAdapter = new()
             {
+                MaxDropDownHeight = 200,
                 MaxWidth = 700
             };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(NetworkAdapter, ScrollBarVisibility.Auto);
 
             if (SMMM.NetworkInterfaces.Any())
             {

@@ -47,6 +47,8 @@ namespace Sucrose.Shared.Dependency.Manage
 
         public static SSDEIMT InputModuleType => SMMI.EngineSettingManager.GetSetting(SMC.InputModuleType, SSDEIMT.RawInput);
 
+        public static SSDEPT GpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.GpuPerformance, SSDEPT.Resume);
+
         public static SSDEPT CpuPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.CpuPerformance, SSDEPT.Resume);
 
         public static SSDETT TransitionType => SMMI.CyclingSettingManager.GetSetting(SMC.TransitionType, SSDETT.Random);

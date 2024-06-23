@@ -44,6 +44,8 @@
 
         public const string Cycyling = "Cycyling";
 
+        public const string GpuUsage = "GpuUsage";
+
         public const string PingType = "PingType";
 
         public const string Showcase = "Showcase";
@@ -150,6 +152,8 @@
 
         public const string CpuPerformance = "CpuPerformance";
 
+        public const string GpuPerformance = "GpuPerformance";
+
         public const string SignalRequired = "SignalRequired";
 
         public const string TransitionType = "TransitionType";
@@ -223,6 +227,8 @@
         public const string BatteryPerformance = "BatteryPerformance";
 
         public const string DuplicateScreenType = "DuplicateScreenType";
+
+        public const string ProcessorInterfaces = "ProcessorInterfaces";
 
         public const string PausePerformanceType = "PausePerformanceType";
 

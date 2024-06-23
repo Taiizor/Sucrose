@@ -29,9 +29,9 @@ using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSIB = Sucrose.Signal.Interface.Backgroundog;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSMMS = Skylark.Struct.Monitor.MonitorStruct;
-using SSSHG = Sucrose.Shared.Space.Helper.Graphic;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHF = Skylark.Wing.Helper.Fullscreen;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -61,12 +61,14 @@ namespace Sucrose.Backgroundog.Helper
                             foreach (ManagementObject Object in Searcher.Get().Cast<ManagementObject>())
                             {
                                 SBMI.CpuData.State = true;
-                                SBMI.CpuData.Fullname = SSSHM.Check(Object, "Name", string.Empty);
+                                SBMI.CpuData.FullName = SSSHM.Check(Object, "Name", string.Empty);
                                 SBMI.CpuData.Core = Convert.ToInt32(SSSHM.Check(Object, "NumberOfCores", "0"));
                                 SBMI.CpuData.Thread = Convert.ToInt32(SSSHM.Check(Object, "NumberOfLogicalProcessors", "0"));
 
                                 break;
                             }
+
+                            SMMI.SystemSettingManager.SetSetting(SMC.ProcessorInterfaces, SSSHU.GetProcessor());
                         }
                         catch (Exception Exception)
                         {
@@ -317,9 +319,7 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         try
                         {
-                            string[] Interfaces = SSSHG.AllVideoController();
-
-                            SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, Interfaces);
+                            SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, SSSHU.GetGraphic());
                         }
                         catch (Exception Exception)
                         {

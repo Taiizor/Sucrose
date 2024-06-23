@@ -114,7 +114,11 @@ namespace Sucrose.Shared.Engine.Manage
             "--always-authorize-plugins",
             "--enable-npapi",
 
-            "--disable-speech-input"
+            "--disable-speech-input",
+
+            "--allow-file-access",
+            "--allow-file-access-from-files",
+            "--allow-universal-access-from-files"
         };
 
         public static Dictionary<string, string> CefArguments = new()
@@ -153,7 +157,11 @@ namespace Sucrose.Shared.Engine.Manage
             { "always-authorize-plugins", "1" },
             { "enable-npapi", "1" },
 
-            { "disable-speech-input", "1" }
+            { "disable-speech-input", "1" },
+
+            { "allow-file-access", "1" },
+            { "allow-file-access-from-files", "1" },
+            { "allow-universal-access-from-files", "1" }
         };
     }
 }
