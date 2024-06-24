@@ -178,7 +178,7 @@ namespace Sucrose.Manager.Manage
 
         public static bool Exit => SMMI.LauncherSettingManager.GetSetting(SMC.Exit, false);
 
-        public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, false);
+        public static bool Adult => SMMI.PortalSettingManager.GetSetting(SMC.Adult, true);
 
         public static bool Loop => SMMI.EngineSettingManager.GetSetting(SMC.Loop, true);
     }

@@ -56,7 +56,7 @@ namespace Sucrose.Portal.Views.Controls
             this.Agent = Agent;
             this.Theme = Theme;
             this.Wallpaper = Wallpaper;
-            this.Guid = Path.Combine(Wallpaper.Value.Source, Wallpaper.Key);
+            Guid = Path.Combine(Wallpaper.Value.Source, Wallpaper.Key);
 
             InitializeComponent();
         }
@@ -99,46 +99,72 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void DownloadTheme()
         {
-            do
+            try
             {
-                Keys = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-            } while (File.Exists(Path.Combine(SMMM.LibraryLocation, Keys)));
-
-            SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
-
-            string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
-            string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
-
-            switch (SSDMM.StoreType)
-            {
-                case SSDEST.GitHub:
-                    await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys, Key);
-                    break;
-                default:
-                    await SSSHSD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys);
-                    break;
-            }
-
-            await Task.Delay(100);
-
-            if (Directory.Exists(TemporaryPath))
-            {
-                SSSHC.Folder(TemporaryPath, LibraryPath);
-
-                if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+                do
                 {
-                    if (SMMM.StoreStart)
+                    Keys = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
+                } while (Directory.Exists(Path.Combine(SMMM.LibraryLocation, Keys)));
+
+                SSSTMI.StoreService.InfoChanged += (s, e) => StoreService_InfoChanged(Keys);
+
+                string LibraryPath = Path.Combine(SMMM.LibraryLocation, Keys);
+                string TemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store, SMR.Temporary, Keys);
+
+                switch (SSDMM.StoreType)
+                {
+                    case SSDEST.GitHub:
+                        await SSSHGHD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys, Key);
+                        break;
+                    default:
+                        await SSSHSD.Theme(Path.Combine(Wallpaper.Value.Source, Wallpaper.Key), TemporaryPath, Agent, Guid, Keys);
+                        break;
+                }
+
+                await Task.Delay(100);
+
+                if (Directory.Exists(TemporaryPath))
+                {
+                    SSSHC.Folder(TemporaryPath, LibraryPath);
+
+                    if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                     {
-                        SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
-
-                        if (SSSHL.Run())
+                        if (SMMM.StoreStart)
                         {
-                            SSLHK.Stop();
-                        }
+                            SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Keys));
 
-                        SSLHR.Start();
+                            if (SSSHL.Run())
+                            {
+                                SSLHK.Stop();
+                            }
+
+                            SSLHR.Start();
+                        }
                     }
                 }
+            }
+            catch
+            {
+                await Application.Current.Dispatcher.InvokeAsync(async () =>
+                {
+                    if (!string.IsNullOrEmpty(Keys) && SSSTMI.StoreService.Info.ContainsKey(Keys))
+                    {
+                        SSSTMI.StoreService.Info.Remove(Keys);
+                    }
+
+                    Download.ToolTip = null;
+
+                    DownloadRing.Visibility = Visibility.Collapsed;
+                    DownloadSymbol.Visibility = Visibility.Visible;
+
+                    DownloadSymbol.Foreground = SRER.GetResource<Brush>("PaletteRedBrush");
+                    DownloadSymbol.Symbol = SymbolRegular.CloudOff24;
+
+                    await Task.Delay(3000);
+
+                    DownloadSymbol.Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush");
+                    DownloadSymbol.Symbol = SymbolRegular.CloudArrowDown24;
+                });
             }
         }
 

@@ -326,7 +326,7 @@ namespace Sucrose.Portal.Views.Pages
                             do
                             {
                                 Name = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
-                            } while (File.Exists(Path.Combine(SMMM.LibraryLocation, Name)));
+                            } while (Directory.Exists(Path.Combine(SMMM.LibraryLocation, Name)));
 
                             Result = await Task.Run(() => SSZEZ.Extract(Record, Path.Combine(SMMM.LibraryLocation, Name)));
 
