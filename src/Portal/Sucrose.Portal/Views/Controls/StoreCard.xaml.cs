@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System.IO;
+using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,6 +18,7 @@ using SPEIL = Sucrose.Portal.Extension.ImageLoader;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
 using SRER = Sucrose.Resources.Extension.Resources;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -26,11 +30,14 @@ using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Store.Helper.Store;
 using SSSHSD = Sucrose.Shared.Store.Helper.Soferity.Download;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSID = Sucrose.Shared.Store.Interface.Data;
 using SSSIW = Sucrose.Shared.Store.Interface.Wallpaper;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SSSMSD = Sucrose.Shared.Space.Model.StoreData;
 using SSSTMI = Sucrose.Shared.Store.Manage.Internal;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
 namespace Sucrose.Portal.Views.Controls
@@ -76,6 +83,8 @@ namespace Sucrose.Portal.Views.Controls
                         DownloadRing.Visibility = Visibility.Visible;
                         DownloadSymbol.Visibility = Visibility.Collapsed;
 
+                        await Task.Run(StoreReport);
+
                         await Task.Run(DownloadTheme);
                     }
                     else
@@ -94,6 +103,38 @@ namespace Sucrose.Portal.Views.Controls
             {
                 DownloadSymbol.Visibility = Visibility.Hidden;
                 IncompatibleVersion.Visibility = Visibility.Visible;
+            }
+        }
+
+        private async void StoreReport()
+        {
+            try
+            {
+                if (SMMM.Statistics)
+                {
+                    using HttpClient Client = new();
+
+                    HttpResponseMessage Response = new();
+
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+                    try
+                    {
+                        SSSMSD StoreData = new(Wallpaper.Key, SSCHV.GetText(), $"{Wallpaper.Value.Source.Split('/').LastOrDefault()}/{Wallpaper.Key}", $"{Info.AppVersion}", $"{Info.Version}");
+
+                        StringContent Content = new(JsonConvert.SerializeObject(StoreData, Formatting.Indented), Encoding.UTF8, "application/json");
+
+                        Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Store}/{SSSHU.GetGuid()}", Content);
+                    }
+                    catch (Exception Exception)
+                    {
+                        await SSWW.Watch_CatchException(Exception);
+                    }
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
 
@@ -143,8 +184,10 @@ namespace Sucrose.Portal.Views.Controls
                     }
                 }
             }
-            catch
+            catch (Exception Exception)
             {
+                await SSWW.Watch_CatchException(Exception);
+
                 await Application.Current.Dispatcher.InvokeAsync(async () =>
                 {
                     if (!string.IsNullOrEmpty(Keys) && SSSTMI.StoreService.Info.ContainsKey(Keys))
