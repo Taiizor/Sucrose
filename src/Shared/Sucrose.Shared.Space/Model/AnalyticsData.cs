@@ -1,6 +1,6 @@
 ﻿namespace Sucrose.Shared.Space.Model
 {
-    internal class AnalyticsData(bool Exit, string Gif, bool Loop, string Url, string Web, bool Adult, string User, int Volume, string Input, string Model, bool Report, bool Server, string Store, string Video, int Startup, bool Discord, string Screen, bool Shuffle, string Update, bool Visible, string Channel, string Culture, string Library, string Stretch, string Version, string YouTube, string[] Graphic, string Framework, bool Statistics, bool StoreStart, bool Advertising, string Identifier, bool LibraryMove, string[] Processor, long TotalMemory, bool Workstation, string Application, string CultureName, string Identifying, bool InputDesktop, string InputModule, bool LibraryStart, bool StorePreview, int DeveloperPort, int NumberOfCores, int StoreDuration, string Architecture, bool DeveloperMode, bool DonateVisible, bool LibraryDelete, string Manufacturer, bool VolumeDesktop, string Communication, string DisplayScreen, bool LibraryConfirm, bool LibraryPreview, int StorePagination, string CpuPerformance, string CultureDisplay, string GpuPerformance, string GraphicAdapter, string NetworkAdapter, int AdvertisingDelay, string BackgroundImage, string OperatingSystem, int BackgroundOpacity, int LibraryPagination, string FocusPerformance, string PausePerformance, string SaverPerformance, int NumberOfProcessors, string BackgroundStretch, string MemoryPerformance, bool PerformanceCounter, string RemotePerformance, string BatteryPerformance, string NetworkPerformance, string VirtualPerformance, string ProcessArchitecture, string OperatingSystemBuild, string FullscreenPerformance, string ProcessorArchitecture, string OperatingSystemArchitecture)
+    internal class AnalyticsData(bool Exit, string Gif, bool Loop, string Url, string Web, bool Adult, string User, int Volume, string Input, string Model, bool Report, bool Server, string Store, string Video, int Startup, bool Discord, string Screen, bool Shuffle, string Update, bool Visible, string Channel, string Culture, string Graphic, string Library, string Network, string Stretch, string Version, string YouTube, string Framework, string Processor, bool Statistics, bool StoreStart, bool Advertising, string Identifier, bool LibraryMove, long TotalMemory, bool Workstation, string Application, string CultureName, string Identifying, bool InputDesktop, string InputModule, bool LibraryStart, bool StorePreview, int DeveloperPort, int NumberOfCores, int StoreDuration, string Architecture, bool DeveloperMode, bool DonateVisible, bool LibraryDelete, string Manufacturer, bool VolumeDesktop, string Communication, string DisplayScreen, bool LibraryConfirm, bool LibraryPreview, int StorePagination, string CpuPerformance, string CultureDisplay, string GpuPerformance, string GraphicAdapter, string NetworkAdapter, int AdvertisingDelay, string BackgroundImage, string OperatingSystem, int BackgroundOpacity, int LibraryPagination, string FocusPerformance, string PausePerformance, string SaverPerformance, int NumberOfProcessors, string BackgroundStretch, string MemoryPerformance, bool PerformanceCounter, string RemotePerformance, string BatteryPerformance, string NetworkPerformance, string VirtualPerformance, string ProcessArchitecture, string OperatingSystemBuild, string FullscreenPerformance, string ProcessorArchitecture, string OperatingSystemArchitecture)
     {
         public bool Exit { get; set; } = Exit;
 
@@ -46,7 +46,11 @@
 
         public string Culture { get; set; } = Culture;
 
+        public string Graphic { get; set; } = Graphic;
+
         public string Library { get; set; } = Library;
+
+        public string Network { get; set; } = Network;
 
         public string Stretch { get; set; } = Stretch;
 
@@ -54,9 +58,9 @@
 
         public string YouTube { get; set; } = YouTube;
 
-        public string[] Graphic { get; set; } = Graphic;
-
         public string Framework { get; set; } = Framework;
+
+        public string Processor { get; set; } = Processor;
 
         public bool Statistics { get; set; } = Statistics;
 
@@ -67,8 +71,6 @@
         public string Identifier { get; set; } = Identifier;
 
         public bool LibraryMove { get; set; } = LibraryMove;
-
-        public string[] Processor { get; set; } = Processor;
 
         public long TotalMemory { get; set; } = TotalMemory;
 

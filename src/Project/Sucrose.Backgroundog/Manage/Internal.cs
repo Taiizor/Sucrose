@@ -114,9 +114,11 @@ namespace Sucrose.Backgroundog.Manage
 
         public static int SpecificationMaxTime = InitializeTime * 30;
 
+        public static NowPlayingSessionManager SessionManager = null;
+
         public static int SpecificationLessTime = InitializeTime * 10;
 
-        public static NowPlayingSessionManager SessionManager = null;
+        public static string[] GraphicInterfaces = Array.Empty<string>();
 
         public static string[] NetworkInterfaces = Array.Empty<string>();
 

@@ -319,7 +319,14 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         try
                         {
-                            SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, SSSHU.GetGraphic());
+                            SBMI.GraphicInterfaces = SSSHU.GetGraphic();
+
+                            SMMI.SystemSettingManager.SetSetting(SMC.GraphicInterfaces, SBMI.GraphicInterfaces);
+
+                            if (SBMI.GraphicInterfaces.Any() && (string.IsNullOrEmpty(SMMM.GraphicAdapter) || !SBMI.GraphicInterfaces.Contains(SMMM.GraphicAdapter)))
+                            {
+                                SMMI.BackgroundogSettingManager.SetSetting(SMC.GraphicAdapter, SBMI.GraphicInterfaces.FirstOrDefault());
+                            }
                         }
                         catch (Exception Exception)
                         {
