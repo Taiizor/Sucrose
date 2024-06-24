@@ -418,6 +418,10 @@
 					{
 						"label" : "QT",
 						"value" : "25"
+					},
+					{
+						"label" : "Sucrose",
+						"value" : "26"
 					}
 				],
 				"order" : 123,

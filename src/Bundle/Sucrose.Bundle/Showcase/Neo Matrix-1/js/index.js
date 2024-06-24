@@ -631,7 +631,7 @@ window.onload = function () {
         "0123456789ABCDEF",
         "|."
     ];
-    var logo = null, logos = ["ipaf", "kali-1", "kali-2", "pardus", "ubuntu-1", "ubuntu-2", "windows-11", "windows-10-8", "windows-7", "visual-studio", "vs-code", "unity-1", "unity-2", "unreal", "python", "blazor", "docker", "flutter", "git", "blender", "angular", "c-sharp", "c-plus-plus", "qt"];
+    var logo = null, logos = ["ipaf", "kali-1", "kali-2", "pardus", "ubuntu-1", "ubuntu-2", "windows-11", "windows-10-8", "windows-7", "visual-studio", "vs-code", "unity-1", "unity-2", "unreal", "python", "blazor", "docker", "flutter", "git", "blender", "angular", "c-sharp", "c-plus-plus", "qt", "sucrose"];
     var debug = document.getElementById("debug"), logs = [];
     var year = "", month = "", date = "", day = "", hour = "", minute = "";
     var startTime, now, then, elapsed, letters, columns, rows, drops, staticChars;

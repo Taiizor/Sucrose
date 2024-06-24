@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 66 66" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+  <g>
+    <path fill="#caeae9" d="M65 42.09v5.58a5.16 5.16 0 0 1-5.16 5.16H6.16A5.16 5.16 0 0 1 1 47.67v-5.58z" data-original="#caeae9" class=""></path>
+    <path fill="#f56356" d="M35.06 47.44c0 1.15-.94 2.06-2.06 2.06-1.13 0-2.06-.91-2.06-2.06 0-1.13.94-2.04 2.06-2.04 1.13 0 2.06.92 2.06 2.04z" data-original="#f56356"></path>
+    <path fill="#caeae9" d="M21.97 60.69h.14c2.63 0 4.76-2.13 4.76-4.76v-3.11h12.26v3.11c0 2.63 2.13 4.76 4.76 4.76h.14z" data-original="#caeae9" class=""></path>
+    <path fill="#93d3d1" d="M47.75 65h-29.5c0-1.18.49-2.26 1.27-3.04.78-.8 1.84-1.27 3.04-1.27h20.88A4.31 4.31 0 0 1 47.75 65z" data-original="#93d3d1"></path>
+    <path fill="#6e6ece" d="m41.41 27.55 11.68-11.68L65 27.78V6.16A5.16 5.16 0 0 0 59.84 1H6.16A5.16 5.16 0 0 0 1 6.16v35.93l27.47-27.47z" data-original="#6e6ece" class=""></path>
+    <path fill="#7fd070" d="M28.47 14.62 1 42.09h25.87l14.54-14.54z" data-original="#7fd070"></path>
+    <path fill="#abec9b" d="M65 27.78 53.09 15.87 41.41 27.55 26.87 42.09H65z" data-original="#abec9b"></path>
+    <circle cx="13.19" cy="13.87" r="4.8" fill="#ffd404" transform="rotate(-80.8 13.19 13.874)" data-original="#ffd404"></circle>
+    <path d="M14.72 9.34c.16.48.27.99.27 1.53 0 2.65-2.15 4.8-4.8 4.8-.54 0-1.04-.11-1.53-.27.64 1.9 2.42 3.27 4.53 3.27 2.65 0 4.8-2.15 4.8-4.8 0-2.11-1.37-3.89-3.27-4.53z" opacity=".12" fill="#000000" data-original="#000000" class=""></path>
+    <path fill="#ffffff" d="M34.13 28.43c-.26 0-.51-.1-.71-.29l-4.49-4.49a.996.996 0 1 1 1.41-1.41l4.49 4.49a.996.996 0 0 1-.7 1.7z" opacity=".5" data-original="#ffffff"></path>
+    <path d="m26.87 42.09 14.54-14.54-2.12-2.12-16.66 16.66z" opacity=".12" fill="#000000" data-original="#000000" class=""></path>
+    <path d="M59.98 1.02c0 .05.01.09.01.14v41.5c0 2.85-2.31 5.17-5.16 5.17H1.16c-.05 0-.09-.01-.14-.01.08 2.78 2.35 5.02 5.14 5.02h53.68c2.85 0 5.16-2.32 5.16-5.17V6.16c0-2.8-2.24-5.07-5.02-5.14z" opacity=".12" fill="#000000" data-original="#000000" class=""></path>
+  </g>
+</svg>
