@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">'SystemMotherboard'の値が無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json'ファイルが無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json'ファイルが無効です</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">'PropertyLocalization'の値が無効です</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">予測不可能な結果</system:String>
 </ResourceDictionary>

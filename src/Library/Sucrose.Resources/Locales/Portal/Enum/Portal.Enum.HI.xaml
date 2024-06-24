@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">अमान्य 'SystemMotherboard' मूल्य</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' फ़ाइल अमान्य है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' फ़ाइल अमान्य है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">अमान्य 'PropertyLocalization' मूल्य</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">अप्रत्याशित परिणाम</system:String>
 </ResourceDictionary>

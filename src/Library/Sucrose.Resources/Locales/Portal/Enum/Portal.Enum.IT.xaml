@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Valore 'SystemMotherboard' non valido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Il file 'SucroseCompatible.json' è invalido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Il file 'SucroseProperties.json' è invalido</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">Valore 'PropertyLocalization' non valido</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Conseguenze Impreviste</system:String>
 </ResourceDictionary>

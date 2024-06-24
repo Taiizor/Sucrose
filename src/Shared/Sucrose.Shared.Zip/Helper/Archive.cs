@@ -204,6 +204,11 @@ namespace Sucrose.Shared.Zip.Helper
                     {
                         return SSDECT.PropertyList;
                     }
+
+                    if (Properties.PropertyLocalization != null && !Properties.PropertyLocalization.Any())
+                    {
+                        return SSDECT.PropertyLocalization;
+                    }
                 }
 
                 if (SSZHZ.CheckFile(Archive, SMR.SucroseCompatible))

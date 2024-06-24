@@ -425,6 +425,7 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.PropertyListener,�
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Недійсне значення 'SystemMotherboard'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Файл 'SucroseCompatible.json' недійсний
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Файл 'SucroseProperties.json' недійсний
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.PropertyLocalization,Недійсне значення 'PropertyLocalization'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Непередбачені Наслідки
 Portal\LibraryPage\Portal.LibraryPage.UK.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuVUsueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5VSy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\LibraryPage\Portal.LibraryPage.UK.xaml,,

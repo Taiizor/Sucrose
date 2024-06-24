@@ -14,6 +14,9 @@ namespace Sucrose.Shared.Theme.Helper
 
         [JsonProperty("PropertyList", Required = Required.Always)]
         public Dictionary<string, SSTMCM> PropertyList { get; set; } = new();
+
+        [JsonProperty("PropertyLocalization", Required = Required.Default)]
+        public Dictionary<string, Dictionary<string, string>> PropertyLocalization { get; set; } = null;
     }
 
     internal partial class Properties

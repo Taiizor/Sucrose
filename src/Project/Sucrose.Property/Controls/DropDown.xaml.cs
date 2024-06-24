@@ -1,4 +1,5 @@
-﻿using SPHP = Sucrose.Property.Helper.Properties;
+﻿using SPHL = Sucrose.Property.Helper.Localization;
+using SPHP = Sucrose.Property.Helper.Properties;
 using SSTMDDM = Sucrose.Shared.Theme.Model.DropDownModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
@@ -19,6 +20,9 @@ namespace Sucrose.Property.Controls
 
         private void InitializeData(string Key, SSTMDDM Data)
         {
+            Data.Text = SPHL.Convert(Data.Text);
+            Data.Items = SPHL.Convert(Data.Items);
+
             Label.Text = Data.Text;
             Component.ItemsSource = Data.Items;
             Component.SelectedIndex = Data.Value;
@@ -27,6 +31,8 @@ namespace Sucrose.Property.Controls
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
+                Data.Help = SPHL.Convert(Data.Help);
+
                 ToolTip HelpTip = new()
                 {
                     Content = Data.Help

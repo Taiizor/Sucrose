@@ -425,6 +425,7 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.PropertyListener,�
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,Μη έγκυρη τιμή 'SystemMotherboard'
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,Το αρχείο 'SucroseCompatible.json' δεν είναι έγκυρο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.InvalidProperties,Το αρχείο 'SucroseProperties.json' δεν είναι έγκυρο
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.PropertyLocalization,Μη έγκυρη τιμή 'PropertyLocalization'
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,Απρόβλεπτες συνέπειες
 Portal\LibraryPage\Portal.LibraryPage.EL.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuRUwueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5FTC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\LibraryPage\Portal.LibraryPage.EL.xaml,,

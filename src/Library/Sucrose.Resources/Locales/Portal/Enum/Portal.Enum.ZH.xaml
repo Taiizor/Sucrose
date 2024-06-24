@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">无效的'SystemMotherboard'值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' 文件无效</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' 文件无效</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">无效的'PropertyLocalization'值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">未预见的后果</system:String>
 </ResourceDictionary>

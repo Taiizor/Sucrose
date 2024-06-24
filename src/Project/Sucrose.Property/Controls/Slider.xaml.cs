@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls.Primitives;
+using SPHL = Sucrose.Property.Helper.Localization;
 using SPHP = Sucrose.Property.Helper.Properties;
 using SSTMSM = Sucrose.Shared.Theme.Model.SliderModel;
 using ToolTip = System.Windows.Controls.ToolTip;
@@ -20,6 +21,8 @@ namespace Sucrose.Property.Controls
 
         private void InitializeData(string Key, SSTMSM Data)
         {
+            Data.Text = SPHL.Convert(Data.Text);
+
             Label.Text = Data.Text;
             Component.Maximum = Data.Max;
             Component.Minimum = Data.Min;
@@ -35,6 +38,8 @@ namespace Sucrose.Property.Controls
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
+                Data.Help = SPHL.Convert(Data.Help);
+
                 ToolTip HelpTip = new()
                 {
                     Content = Data.Help

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SMR = Sucrose.Memory.Readonly;
+using SPHL = Sucrose.Property.Helper.Localization;
 using SPHP = Sucrose.Property.Helper.Properties;
 using SPMI = Sucrose.Property.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -24,6 +25,9 @@ namespace Sucrose.Property.Controls
 
         private void InitializeData(string Key, SSTMFDDM Data)
         {
+            Data.Text = SPHL.Convert(Data.Text);
+            Data.Value = SPHL.Convert(Data.Value);
+
             Component_Items(Data);
             Label.Text = Data.Text;
             Component.Text = Data.Value;
@@ -34,6 +38,8 @@ namespace Sucrose.Property.Controls
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
+                Data.Help = SPHL.Convert(Data.Help);
+
                 ToolTip HelpTip = new()
                 {
                     Content = Data.Help

@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Nilai 'SystemMotherboard' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Berkas 'SucroseCompatible.json' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Berkas 'SucroseProperties.json' tidak valid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">Nilai 'PropertyLocalization' tidak valid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Konsekuensi Tak Terduga</system:String>
 </ResourceDictionary>

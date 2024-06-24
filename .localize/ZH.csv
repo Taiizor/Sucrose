@@ -425,6 +425,7 @@ Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.PropertyListener,�
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,无效的'SystemMotherboard'值
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' 文件无效
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' 文件无效
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.PropertyLocalization,无效的'PropertyLocalization'值
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,未预见的后果
 Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuWkgueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5aSC54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\LibraryPage\Portal.LibraryPage.ZH.xaml,,

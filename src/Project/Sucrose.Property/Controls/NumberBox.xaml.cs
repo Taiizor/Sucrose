@@ -1,4 +1,5 @@
-﻿using SPHP = Sucrose.Property.Helper.Properties;
+﻿using SPHL = Sucrose.Property.Helper.Localization;
+using SPHP = Sucrose.Property.Helper.Properties;
 using SSTMNBM = Sucrose.Shared.Theme.Model.NumberBoxModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
@@ -19,6 +20,8 @@ namespace Sucrose.Property.Controls
 
         private void InitializeData(string Key, SSTMNBM Data)
         {
+            Data.Text = SPHL.Convert(Data.Text);
+
             Component.Maximum = Data.Max;
             Component.Minimum = Data.Min;
             Component.Value = Data.Value;
@@ -29,6 +32,8 @@ namespace Sucrose.Property.Controls
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
+                Data.Help = SPHL.Convert(Data.Help);
+
                 ToolTip HelpTip = new()
                 {
                     Content = Data.Help

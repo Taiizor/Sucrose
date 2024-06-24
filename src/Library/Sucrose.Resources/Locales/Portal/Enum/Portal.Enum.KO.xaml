@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">잘못된 'SystemMotherboard' 값</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' 파일이 잘못됨</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' 파일이 잘못됨</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">잘못된 'PropertyLocalization' 값</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">예상하지 못한 결과</system:String>
 </ResourceDictionary>

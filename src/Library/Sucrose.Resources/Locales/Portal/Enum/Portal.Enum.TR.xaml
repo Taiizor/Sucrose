@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Geçersiz 'SystemMotherboard' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">'SucroseCompatible.json' dosyası geçersiz</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">'SucroseProperties.json' dosyası geçersiz</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">Geçersiz 'PropertyLocalization' değeri</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Öngörülemeyen Sonuçlar</system:String>
 </ResourceDictionary>

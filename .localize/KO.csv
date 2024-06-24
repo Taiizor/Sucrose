@@ -425,6 +425,7 @@ Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.PropertyListener,�
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,잘못된 'SystemMotherboard' 값
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' 파일이 잘못됨
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' 파일이 잘못됨
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.PropertyLocalization,잘못된 'PropertyLocalization' 값
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,예상하지 못한 결과
 Portal\LibraryPage\Portal.LibraryPage.KO.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuS08ueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5LTy54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\LibraryPage\Portal.LibraryPage.KO.xaml,,

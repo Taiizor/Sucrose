@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Neplatná hodnota 'SystemMotherboard'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Soubor 'SucroseCompatible.json' je neplatný</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Soubor 'SucroseProperties.json' je neplatný</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">Neplatná hodnota 'PropertyLocalization'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Nepředvídatelné následky</system:String>
 </ResourceDictionary>

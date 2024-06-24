@@ -8,6 +8,7 @@ using CPicker = HandyControl.Controls.ColorPicker;
 using DrawingColor = System.Drawing.Color;
 using MediaColor = System.Windows.Media.Color;
 using SEWTT = Skylark.Enum.WindowsThemeType;
+using SPHL = Sucrose.Property.Helper.Localization;
 using SPHP = Sucrose.Property.Helper.Properties;
 using SPMM = Sucrose.Property.Manage.Manager;
 using SRER = Sucrose.Resources.Extension.Resources;
@@ -61,6 +62,9 @@ namespace Sucrose.Property.Controls
 
         private void InitializeData(string Key, SSTMCPM Data)
         {
+            Data.Text = SPHL.Convert(Data.Text);
+            Data.Value = SPHL.Convert(Data.Value);
+
             Label.Text = Data.Text;
             DrawingColor Color = SSECCE.HexToColor(Data.Value);
             Component.Color = MediaColor.FromArgb(Color.A, Color.R, Color.G, Color.B);
@@ -69,6 +73,8 @@ namespace Sucrose.Property.Controls
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
+                Data.Help = SPHL.Convert(Data.Help);
+
                 ToolTip HelpTip = new()
                 {
                     Content = Data.Help

@@ -1,4 +1,5 @@
-﻿using SPHP = Sucrose.Property.Helper.Properties;
+﻿using SPHL = Sucrose.Property.Helper.Localization;
+using SPHP = Sucrose.Property.Helper.Properties;
 using SSTMCBM = Sucrose.Shared.Theme.Model.CheckBoxModel;
 using ToolTip = System.Windows.Controls.ToolTip;
 using UserControl = System.Windows.Controls.UserControl;
@@ -19,6 +20,8 @@ namespace Sucrose.Property.Controls
 
         private void InitializeData(string Key, SSTMCBM Data)
         {
+            Data.Text = SPHL.Convert(Data.Text);
+
             Component.Content = Data.Text;
             Component.IsChecked = Data.Value;
 
@@ -27,6 +30,8 @@ namespace Sucrose.Property.Controls
 
             if (!string.IsNullOrEmpty(Data.Help))
             {
+                Data.Help = SPHL.Convert(Data.Help);
+
                 ToolTip HelpTip = new()
                 {
                     Content = Data.Help

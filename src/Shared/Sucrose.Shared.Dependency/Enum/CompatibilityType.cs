@@ -50,6 +50,7 @@
         SystemMotherboard,
         InvalidCompatible,
         InvalidProperties,
+        PropertyLocalization,
         UnforeseenConsequences
     }
 }

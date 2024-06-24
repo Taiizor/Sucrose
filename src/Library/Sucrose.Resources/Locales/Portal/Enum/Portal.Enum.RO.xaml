@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Valoare 'SystemMotherboard' nevalidă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Fișierul 'SucroseCompatible.json' este nevalid</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Fișierul 'SucroseProperties.json' este nevalid</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">Valoare 'PropertyLocalization' nevalidă</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Consecințe neprevăzute</system:String>
 </ResourceDictionary>

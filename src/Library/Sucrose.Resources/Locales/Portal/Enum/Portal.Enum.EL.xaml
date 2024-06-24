@@ -119,5 +119,6 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.SystemMotherboard">Μη έγκυρη τιμή 'SystemMotherboard'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidCompatible">Το αρχείο 'SucroseCompatible.json' δεν είναι έγκυρο</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.InvalidProperties">Το αρχείο 'SucroseProperties.json' δεν είναι έγκυρο</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.PropertyLocalization">Μη έγκυρη τιμή 'PropertyLocalization'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.UnforeseenConsequences">Απρόβλεπτες συνέπειες</system:String>
 </ResourceDictionary>

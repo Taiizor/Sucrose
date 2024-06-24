@@ -425,6 +425,7 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.PropertyListener,�
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.SystemMotherboard,अमान्य 'SystemMotherboard' मूल्य
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidCompatible,'SucroseCompatible.json' फ़ाइल अमान्य है
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.InvalidProperties,'SucroseProperties.json' फ़ाइल अमान्य है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.PropertyLocalization,अमान्य 'PropertyLocalization' मूल्य
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.UnforeseenConsequences,अप्रत्याशित परिणाम
 Portal\LibraryPage\Portal.LibraryPage.HI.xaml,Base64,ICAgIDxSZXNvdXJjZURpY3Rpb25hcnkuTWVyZ2VkRGljdGlvbmFyaWVzPg0KICAgICAgICA8UmVzb3VyY2VEaWN0aW9uYXJ5IFNvdXJjZT0iRnVsbExpYnJhcnlQYWdlL1BvcnRhbC5GdWxsTGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IkVtcHR5TGlicmFyeVBhZ2UvUG9ydGFsLkVtcHR5TGlicmFyeVBhZ2UuSEkueGFtbCIgLz4NCiAgICAgICAgPFJlc291cmNlRGljdGlvbmFyeSBTb3VyY2U9IlNlYXJjaExpYnJhcnlQYWdlL1BvcnRhbC5TZWFyY2hMaWJyYXJ5UGFnZS5ISS54YW1sIiAvPg0KICAgIDwvUmVzb3VyY2VEaWN0aW9uYXJ5Lk1lcmdlZERpY3Rpb25hcmllcz4=
 Portal\LibraryPage\Portal.LibraryPage.HI.xaml,,
