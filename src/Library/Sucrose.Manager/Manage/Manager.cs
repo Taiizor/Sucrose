@@ -16,9 +16,9 @@ namespace Sucrose.Manager.Manage
     {
         public static IList<char> Chars => Enumerable.Range('A', 'Z' - 'A' + 1).Concat(Enumerable.Range('a', 'z' - 'a' + 1)).Concat(Enumerable.Range('0', '9' - '0' + 1)).Select(C => (char)C).ToList();
 
-        public static Dictionary<string, string> CefArguments => SMMI.EngineSettingManager.GetSetting(SMC.CefArguments, new Dictionary<string, string>());
+        public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.Library));
 
-        public static string LibraryLocation => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryLocation, Path.Combine(SMR.DocumentsPath, SMR.AppName));
+        public static Dictionary<string, string> CefArguments => SMMI.EngineSettingManager.GetSetting(SMC.CefArguments, new Dictionary<string, string>());
 
         public static int UpdateLimitValue => SHS.Clamp(SMMI.UpdateSettingManager.GetSettingStable(SMC.UpdateLimitValue, 500), 0, 99999999);
 

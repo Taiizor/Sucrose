@@ -7,7 +7,6 @@ using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
-using SPMM = Sucrose.Portal.Manage.Manager;
 using SPVCTI = Sucrose.Portal.Views.Controls.ThemeImport;
 using SPVMPLVM = Sucrose.Portal.ViewModels.Pages.LibraryViewModel;
 using SPVPLELP = Sucrose.Portal.Views.Pages.Library.EmptyLibraryPage;
@@ -44,8 +43,6 @@ namespace Sucrose.Portal.Views.Pages
             this.ViewModel = ViewModel;
             DataContext = this;
 
-            CheckLibrary();
-
             CheckShowcase();
 
             InitializeThemes();
@@ -78,42 +75,6 @@ namespace Sucrose.Portal.Views.Pages
             SPMI.LibraryService = new();
 
             SPMI.LibraryService.CreatedWallpaper += LibraryService_CreatedWallpaper;
-        }
-
-        private void CheckLibrary()
-        {
-            try
-            {
-                if (!Directory.Exists(SMMM.LibraryLocation))
-                {
-                    Directory.CreateDirectory(SMMM.LibraryLocation);
-
-                    if (!Directory.Exists(SMMM.LibraryLocation))
-                    {
-                        if (!Directory.Exists(SPMM.AlternativeLibrary))
-                        {
-                            Directory.CreateDirectory(SPMM.AlternativeLibrary);
-                        }
-
-                        if (SMMM.LibraryLocation != SPMM.AlternativeLibrary)
-                        {
-                            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, SPMM.AlternativeLibrary);
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                if (!Directory.Exists(SPMM.AlternativeLibrary))
-                {
-                    Directory.CreateDirectory(SPMM.AlternativeLibrary);
-                }
-
-                if (SMMM.LibraryLocation != SPMM.AlternativeLibrary)
-                {
-                    SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, SPMM.AlternativeLibrary);
-                }
-            }
         }
 
         private void CheckShowcase()
@@ -208,6 +169,8 @@ namespace Sucrose.Portal.Views.Pages
             else
             {
                 Themes.Clear();
+
+                Directory.CreateDirectory(SMMM.LibraryLocation);
             }
 
             Dictionary<string, object> SortThemes = new();
