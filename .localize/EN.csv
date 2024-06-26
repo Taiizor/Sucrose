@@ -170,6 +170,7 @@ Property\Property.EN.xaml,Property.FileDropDown.Filter,All Files (*.*)|*.*
 Undo\Undo.EN.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.EN.xaml,,
 Undo\Undo.EN.xaml,Undo.QuestionMessage,Do you really want to uninstall Sucrose Wallpaper Engine?
+Undo\Undo.EN.xaml,Undo.QuestionDescription,"To remove with all settings, select Yes; to keep the settings and remove only, select No; and to cancel the removal process, select Cancel."
 Update\Update.EN.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.EN.xaml,,
 Update\Update.EN.xaml,Update.HelpText,Solve Problem

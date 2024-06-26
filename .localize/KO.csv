@@ -170,6 +170,7 @@ Property\Property.KO.xaml,Property.FileDropDown.Filter,모든 파일 (*.*)|*.*
 Undo\Undo.KO.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.KO.xaml,,
 Undo\Undo.KO.xaml,Undo.QuestionMessage,정말로 Sucrose Wallpaper Engine을(를) 제거하시겠습니까?
+Undo\Undo.KO.xaml,Undo.QuestionDescription,"모든 설정을 제거하려면 예를 선택하고, 설정을 유지하고 제거하려면 아니오를 선택하고, 제거 과정을 취소하려면 취소를 선택하세요."
 Update\Update.KO.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.KO.xaml,,
 Update\Update.KO.xaml,Update.HelpText,문제 해결

@@ -14,15 +14,17 @@ namespace Sucrose.Undo
     /// </summary>
     public partial class App : Application
     {
+        private static string Message => SRER.GetValue("Undo", "QuestionMessage") + Environment.NewLine + Environment.NewLine + SRER.GetValue("Undo", "QuestionDescription");
+
         private static string UninstallPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application);
+
+        private static string UninstallDataPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Application);
 
         private static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", Shortcut);
 
         private static string Desktop => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Shortcut);
 
         private static string RegistryName => @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
-
-        private static string Message => SRER.GetValue("Undo", "QuestionMessage");
 
         private static string Title => SRER.GetValue("Undo", "QuestionTitle");
 
@@ -137,16 +139,16 @@ namespace Sucrose.Undo
         {
             base.OnStartup(e);
 
-            MessageBoxResult Result = MessageBoxResult.Yes;
+            MessageBoxResult Result = MessageBoxResult.Cancel;
 
             SRHR.SetLanguage(SHC.CurrentUITwoLetterISOLanguageName);
 
             if (!e.Args.Any())
             {
-                Result = MessageBox.Show(Message, Title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                Result = MessageBox.Show(Message, Title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             }
 
-            if (Result == MessageBoxResult.Yes)
+            if (Result is MessageBoxResult.Yes or MessageBoxResult.No)
             {
                 await Task.Delay(Delay);
 
@@ -154,7 +156,18 @@ namespace Sucrose.Undo
 
                 await Task.Delay(Delay);
 
+                TerminateProcess(Application);
+
+                await Task.Delay(Delay);
+
                 DeleteDirectory(UninstallPath);
+
+                if (Result == MessageBoxResult.Yes)
+                {
+                    await Task.Delay(Delay);
+
+                    DeleteDirectory(UninstallDataPath);
+                }
 
                 await Task.Delay(Delay);
 

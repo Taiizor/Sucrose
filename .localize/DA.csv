@@ -170,6 +170,7 @@ Property\Property.DA.xaml,Property.FileDropDown.Filter,Alle filer (*.*)|*.*
 Undo\Undo.DA.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.DA.xaml,,
 Undo\Undo.DA.xaml,Undo.QuestionMessage,Ønsker du virkelig at afinstallere Sucrose Wallpaper Engine?
+Undo\Undo.DA.xaml,Undo.QuestionDescription,"Hvis du vil fjerne alle indstillinger, skal du vælge Ja, hvis du vil beholde indstillingerne og kun fjerne, skal du vælge Nej, og hvis du vil annullere fjernelsen, skal du vælge Annuller."
 Update\Update.DA.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.DA.xaml,,
 Update\Update.DA.xaml,Update.HelpText,Løs Problemet

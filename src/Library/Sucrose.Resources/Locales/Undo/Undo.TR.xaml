@@ -5,4 +5,5 @@
     <system:String x:Key="Undo.QuestionTitle">Sucrose Undo</system:String>
 
     <system:String x:Key="Undo.QuestionMessage">Sucrose Wallpaper Engine'yi gerçekten kaldırmak istiyor musunuz?</system:String>
+    <system:String x:Key="Undo.QuestionDescription">Tüm ayarlarıyla birlikte kaldırmak istiyorsanız Evet, ayarları saklayarak kaldırmak istiyorsanız Hayır ve kaldırma işlemini iptal etmek istiyorsanız lütfen İptal seçimini yapınız.</system:String>
 </ResourceDictionary>

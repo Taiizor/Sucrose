@@ -5,4 +5,5 @@
     <system:String x:Key="Undo.QuestionTitle">Sucrose Undo</system:String>
 
     <system:String x:Key="Undo.QuestionMessage">Adakah anda benar-benar ingin membuang Sucrose Wallpaper Engine?</system:String>
+    <system:String x:Key="Undo.QuestionDescription">Untuk menghapus dengan semua tetapan, pilih Ya; untuk mengekalkan tetapan dan hanya menghapuskan, pilih Tidak; dan untuk membatalkan proses penghapusan, pilih Batal.</system:String>
 </ResourceDictionary>

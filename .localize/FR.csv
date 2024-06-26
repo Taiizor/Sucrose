@@ -170,6 +170,7 @@ Property\Property.FR.xaml,Property.FileDropDown.Filter,Tous les fichiers (*.*)|*
 Undo\Undo.FR.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.FR.xaml,,
 Undo\Undo.FR.xaml,Undo.QuestionMessage,Voulez-vous vraiment désinstaller Sucrose Wallpaper Engine?
+Undo\Undo.FR.xaml,Undo.QuestionDescription,"Pour supprimer avec tous les paramètres, sélectionnez Oui; pour conserver les paramètres et supprimer seulement, sélectionnez Non; et pour annuler le processus de suppression, sélectionnez Annuler."
 Update\Update.FR.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.FR.xaml,,
 Update\Update.FR.xaml,Update.HelpText,Résoudre le Problème

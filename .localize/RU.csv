@@ -170,6 +170,7 @@ Property\Property.RU.xaml,Property.FileDropDown.Filter,Все файлы (*.*)|*
 Undo\Undo.RU.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.RU.xaml,,
 Undo\Undo.RU.xaml,Undo.QuestionMessage,Вы действительно хотите удалить Sucrose Wallpaper Engine?
+Undo\Undo.RU.xaml,Undo.QuestionDescription,"Чтобы удалить со всеми настройками, выберите Да; чтобы сохранить настройки и удалить только, выберите Нет; и чтобы отменить процесс удаления, выберите Отмена."
 Update\Update.RU.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.RU.xaml,,
 Update\Update.RU.xaml,Update.HelpText,Решить Проблему

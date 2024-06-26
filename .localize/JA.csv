@@ -170,6 +170,7 @@ Property\Property.JA.xaml,Property.FileDropDown.Filter,すべてのファイル 
 Undo\Undo.JA.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.JA.xaml,,
 Undo\Undo.JA.xaml,Undo.QuestionMessage,本当に Sucrose Wallpaper Engine をアンインストールしますか？
+Undo\Undo.JA.xaml,Undo.QuestionDescription,すべての設定を削除するには「はい」を選択し、設定を保持して削除するには「いいえ」を選択し、削除プロセスをキャンセルするには「キャンセル」を選択してください。
 Update\Update.JA.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.JA.xaml,,
 Update\Update.JA.xaml,Update.HelpText,問題を解決する

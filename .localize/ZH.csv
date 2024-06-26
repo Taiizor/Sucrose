@@ -170,6 +170,7 @@ Property\Property.ZH.xaml,Property.FileDropDown.Filter,所有文件 (*.*)|*.*
 Undo\Undo.ZH.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.ZH.xaml,,
 Undo\Undo.ZH.xaml,Undo.QuestionMessage,您真的要卸载 Sucrose Wallpaper Engine 吗？
+Undo\Undo.ZH.xaml,Undo.QuestionDescription,要删除所有设置，请选择“是”；要保留设置并仅删除，请选择“否”；要取消删除过程，请选择“取消”。
 Update\Update.ZH.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.ZH.xaml,,
 Update\Update.ZH.xaml,Update.HelpText,解决问题

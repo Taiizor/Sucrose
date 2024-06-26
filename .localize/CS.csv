@@ -170,6 +170,7 @@ Property\Property.CS.xaml,Property.FileDropDown.Filter,Všechny soubory (*.*)|*.
 Undo\Undo.CS.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.CS.xaml,,
 Undo\Undo.CS.xaml,Undo.QuestionMessage,Skutečně chcete odinstalovat program Sucrose Wallpaper Engine?
+Undo\Undo.CS.xaml,Undo.QuestionDescription,"Chcete-li odebrat všechny nastavení, vyberte Ano, chcete-li zachovat nastavení a odebrat pouze, vyberte Ne a chcete-li zrušit odebrání, vyberte Storno."
 Update\Update.CS.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.CS.xaml,,
 Update\Update.CS.xaml,Update.HelpText,Vyřešit Problém

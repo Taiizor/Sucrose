@@ -170,6 +170,7 @@ Property\Property.NL.xaml,Property.FileDropDown.Filter,Alle bestanden (*.*)|*.*
 Undo\Undo.NL.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.NL.xaml,,
 Undo\Undo.NL.xaml,Undo.QuestionMessage,Wil je Sucrose Wallpaper Engine echt verwijderen?
+Undo\Undo.NL.xaml,Undo.QuestionDescription,"Om alles met alle instellingen te verwijderen, selecteer Ja; om de instellingen te behouden en alleen te verwijderen, selecteer Nee; en om het verwijderingsproces te annuleren, selecteer Annuleren."
 Update\Update.NL.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.NL.xaml,,
 Update\Update.NL.xaml,Update.HelpText,Probleem Oplossen

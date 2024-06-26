@@ -170,6 +170,7 @@ Property\Property.RO.xaml,Property.FileDropDown.Filter,Toate fișierele (*.*)|*.
 Undo\Undo.RO.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.RO.xaml,,
 Undo\Undo.RO.xaml,Undo.QuestionMessage,Doriți cu adevărat să dezinstalați Sucrose Wallpaper Engine?
+Undo\Undo.RO.xaml,Undo.QuestionDescription,"Pentru a elimina cu toate setările, selectați Da; pentru a păstra setările și a elimina doar, selectați Nu; și pentru a anula procesul de eliminare, selectați Anulare."
 Update\Update.RO.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.RO.xaml,,
 Update\Update.RO.xaml,Update.HelpText,Rezolvă Problema

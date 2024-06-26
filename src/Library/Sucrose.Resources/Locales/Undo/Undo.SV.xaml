@@ -5,4 +5,5 @@
     <system:String x:Key="Undo.QuestionTitle">Sucrose Undo</system:String>
 
     <system:String x:Key="Undo.QuestionMessage">Vill du verkligen avinstallera Sucrose Wallpaper Engine?</system:String>
+    <system:String x:Key="Undo.QuestionDescription">För att ta bort med alla inställningar, välj Ja; för att behålla inställningarna och bara ta bort, välj Nej; och för att avbryta borttagningsprocessen, välj Avbryt.</system:String>
 </ResourceDictionary>

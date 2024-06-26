@@ -170,6 +170,7 @@ Property\Property.TR.xaml,Property.FileDropDown.Filter,Tüm Dosyalar (*.*)|*.*
 Undo\Undo.TR.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.TR.xaml,,
 Undo\Undo.TR.xaml,Undo.QuestionMessage,Sucrose Wallpaper Engine'yi gerçekten kaldırmak istiyor musunuz?
+Undo\Undo.TR.xaml,Undo.QuestionDescription,"Tüm ayarlarıyla birlikte kaldırmak istiyorsanız Evet, ayarları saklayarak kaldırmak istiyorsanız Hayır ve kaldırma işlemini iptal etmek istiyorsanız lütfen İptal seçimini yapınız."
 Update\Update.TR.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.TR.xaml,,
 Update\Update.TR.xaml,Update.HelpText,Sorunu Çöz

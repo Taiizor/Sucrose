@@ -170,6 +170,7 @@ Property\Property.HI.xaml,Property.FileDropDown.Filter,सभी फ़ाइल
 Undo\Undo.HI.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.HI.xaml,,
 Undo\Undo.HI.xaml,Undo.QuestionMessage,क्या आप वास्तव में Sucrose Wallpaper Engine को अनइंस्टॉल करना चाहते हैं?
+Undo\Undo.HI.xaml,Undo.QuestionDescription,"सभी सेटिंग्स के साथ हटाने के लिए, हां चुनें; सेटिंग्स को बनाए रखने और केवल हटाने के लिए, नहीं चुनें; और हटाने की प्रक्रिया को रद्द करने के लिए, रद्द करें चुनें।"
 Update\Update.HI.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.HI.xaml,,
 Update\Update.HI.xaml,Update.HelpText,समस्या को हल करें

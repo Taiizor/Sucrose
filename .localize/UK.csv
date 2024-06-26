@@ -170,6 +170,7 @@ Property\Property.UK.xaml,Property.FileDropDown.Filter,Усі файли (*.*)|*
 Undo\Undo.UK.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.UK.xaml,,
 Undo\Undo.UK.xaml,Undo.QuestionMessage,Ви дійсно хочете видалити Sucrose Wallpaper Engine?
+Undo\Undo.UK.xaml,Undo.QuestionDescription,"Щоб видалити всі налаштування, виберіть Так; щоб зберегти налаштування та видалити лише, виберіть Ні; і щоб скасувати процес видалення, виберіть Скасувати."
 Update\Update.UK.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.UK.xaml,,
 Update\Update.UK.xaml,Update.HelpText,Вирішити проблему

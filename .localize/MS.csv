@@ -170,6 +170,7 @@ Property\Property.MS.xaml,Property.FileDropDown.Filter,Semua Fail (*.*)|*.*
 Undo\Undo.MS.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.MS.xaml,,
 Undo\Undo.MS.xaml,Undo.QuestionMessage,Adakah anda benar-benar ingin membuang Sucrose Wallpaper Engine?
+Undo\Undo.MS.xaml,Undo.QuestionDescription,"Untuk menghapus dengan semua tetapan, pilih Ya; untuk mengekalkan tetapan dan hanya menghapuskan, pilih Tidak; dan untuk membatalkan proses penghapusan, pilih Batal."
 Update\Update.MS.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.MS.xaml,,
 Update\Update.MS.xaml,Update.HelpText,Selesaikan Masalah

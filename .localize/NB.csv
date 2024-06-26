@@ -170,6 +170,7 @@ Property\Property.NB.xaml,Property.FileDropDown.Filter,Alle filer (*.*)|*.*
 Undo\Undo.NB.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.NB.xaml,,
 Undo\Undo.NB.xaml,Undo.QuestionMessage,Ønsker du virkelig å avinstallere Sucrose Wallpaper Engine?
+Undo\Undo.NB.xaml,Undo.QuestionDescription,"For å fjerne med alle innstillinger, velg Ja; for å beholde innstillingene og bare fjerne, velg Nei; og for å avbryte fjerningsprosessen, velg Avbryt."
 Update\Update.NB.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.NB.xaml,,
 Update\Update.NB.xaml,Update.HelpText,Løs Problemet

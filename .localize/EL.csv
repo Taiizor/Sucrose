@@ -170,6 +170,7 @@ Property\Property.EL.xaml,Property.FileDropDown.Filter,Όλα τα αρχεία 
 Undo\Undo.EL.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.EL.xaml,,
 Undo\Undo.EL.xaml,Undo.QuestionMessage,Θέλετε πραγματικά να απεγκαταστήσετε το Sucrose Wallpaper Engine;
+Undo\Undo.EL.xaml,Undo.QuestionDescription,"Επιλέξτε Ναι για να αφαιρέσετε όλες τις ρυθμίσεις, Όχι για να διατηρήσετε τις ρυθμίσεις και να αφαιρέσετε μόνο και Ακύρωση για να ακυρώσετε την αφαίρεση."
 Update\Update.EL.xaml,Update.WindowTitle,Sucrose Update
 Update\Update.EL.xaml,,
 Update\Update.EL.xaml,Update.HelpText,Λύστε το Πρόβλημα

@@ -5,4 +5,5 @@
     <system:String x:Key="Undo.QuestionTitle">Sucrose Undo</system:String>
 
     <system:String x:Key="Undo.QuestionMessage">Θέλετε πραγματικά να απεγκαταστήσετε το Sucrose Wallpaper Engine;</system:String>
+    <system:String x:Key="Undo.QuestionDescription">Επιλέξτε Ναι για να αφαιρέσετε όλες τις ρυθμίσεις, Όχι για να διατηρήσετε τις ρυθμίσεις και να αφαιρέσετε μόνο και Ακύρωση για να ακυρώσετε την αφαίρεση.</system:String>
 </ResourceDictionary>

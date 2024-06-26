@@ -5,4 +5,5 @@
     <system:String x:Key="Undo.QuestionTitle">Sucrose Undo</system:String>
 
     <system:String x:Key="Undo.QuestionMessage">Skutečně chcete odinstalovat program Sucrose Wallpaper Engine?</system:String>
+    <system:String x:Key="Undo.QuestionDescription">Chcete-li odebrat všechny nastavení, vyberte Ano, chcete-li zachovat nastavení a odebrat pouze, vyberte Ne a chcete-li zrušit odebrání, vyberte Storno.</system:String>
 </ResourceDictionary>
