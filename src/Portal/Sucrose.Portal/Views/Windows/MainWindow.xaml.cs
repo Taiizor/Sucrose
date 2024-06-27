@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System.IO;
+using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,9 +21,14 @@ using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
+using SPVPSP = Sucrose.Portal.Views.Pages.StorePage;
 using SPVPSSSP = Sucrose.Portal.Views.Pages.Setting.SystemSettingPage;
+using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEACT = Sucrose.Shared.Dependency.Enum.ArgumentCommandsType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
+using SSSMSD = Sucrose.Shared.Space.Model.SearchData;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWHWT = Skylark.Wing.Helper.WindowsTheme;
 using SXAGAB = Sucrose.XamlAnimatedGif.AnimationBehavior;
 
@@ -32,6 +40,8 @@ namespace Sucrose.Portal.Views.Windows
     public partial class MainWindow : SPSCIW, IDisposable
     {
         private CancellationTokenSource Searching { get; set; }
+
+        private string ActivePage { get; set; }
 
         public SPVMWMWVM ViewModel { get; }
 
@@ -251,6 +261,38 @@ namespace Sucrose.Portal.Views.Windows
 
                 SPMI.SearchService.SearchText = SearchBox.Text;
 
+                if (!string.IsNullOrEmpty(SearchBox.Text) && !string.IsNullOrWhiteSpace(SearchBox.Text))
+                {
+                    try
+                    {
+                        if (SMMM.Statistics)
+                        {
+                            using HttpClient Client = new();
+
+                            HttpResponseMessage Response = new();
+
+                            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+                            try
+                            {
+                                SSSMSD SearchData = new(ActivePage, SearchBox.Text.Trim(), SSCHV.GetText());
+
+                                StringContent Content = new(JsonConvert.SerializeObject(SearchData, Formatting.Indented), Encoding.UTF8, "application/json");
+
+                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferitySearch}/{SSSHU.GetGuid()}", Content);
+                            }
+                            catch (Exception Exception)
+                            {
+                                await SSWW.Watch_CatchException(Exception);
+                            }
+                        }
+                    }
+                    catch (Exception Exception)
+                    {
+                        await SSWW.Watch_CatchException(Exception);
+                    }
+                }
+
                 Dispose();
             }
             catch (TaskCanceledException) { }
@@ -258,6 +300,13 @@ namespace Sucrose.Portal.Views.Windows
 
         private void RootView_Navigating(NavigationView sender, NavigatingCancelEventArgs args)
         {
+            ActivePage = Type.GetType($"{args.Page}") switch
+            {
+                Type T when T == typeof(SPVPLP) => "Library",
+                Type T when T == typeof(SPVPSP) => "Store",
+                _ => SMR.Unknown,
+            };
+
             Dispose();
         }
 

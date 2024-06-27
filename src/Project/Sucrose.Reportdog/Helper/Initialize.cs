@@ -79,7 +79,7 @@ namespace Sucrose.Backgroundog.Helper
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Online}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
+                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityOnline}/{SSSHU.GetGuid()}/{SRMI.InitializeTime / 1000}");
                     }
                     catch (Exception Exception)
                     {
@@ -115,7 +115,7 @@ namespace Sucrose.Backgroundog.Helper
 
                             StringContent Content = new(JsonConvert.SerializeObject(AnalyticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Statistic}/{SSSHU.GetGuid()}", Content);
+                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityStatistic}/{SSSHU.GetGuid()}", Content);
                         }
                         catch (Exception Exception)
                         {
@@ -173,7 +173,7 @@ namespace Sucrose.Backgroundog.Helper
 
                             StringContent Content = new(JsonConvert.SerializeObject(DiagnosticsData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Error}/{SSSHU.GetGuid()}", Content);
+                            Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityError}/{SSSHU.GetGuid()}", Content);
                         }
                         catch (Exception Exception)
                         {

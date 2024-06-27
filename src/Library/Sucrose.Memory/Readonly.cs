@@ -2,23 +2,15 @@
 {
     public static class Readonly
     {
-        public static readonly string Check = "Check";
-
-        public static readonly string Error = "Error";
-
         public static readonly string Language = "EN";
 
         public static readonly string Store = "Store";
-
-        public static readonly string Theme = "Theme";
 
         public static readonly string Bundle = "Bundle";
 
         public static readonly string GifFolder = "Gif";
 
         public static readonly string LogFolder = "Log";
-
-        public static readonly string Online = "Online";
 
         public static readonly string Owner = "Taiizor";
 
@@ -66,7 +58,13 @@
 
         public static readonly string ReportFolder = "Report";
 
-        public static readonly string Statistic = "Statistic";
+        public static readonly string SoferityCheck = "Check";
+
+        public static readonly string SoferityError = "Error";
+
+        public static readonly string SoferityStore = "Store";
+
+        public static readonly string SoferityTheme = "Theme";
 
         public static readonly string Temporary = "Temporary";
 
@@ -78,7 +76,13 @@
 
         public static readonly string SettingFolder = "Setting";
 
+        public static readonly string SoferityOnline = "Online";
+
         public static readonly string SoferityReport = "Report";
+
+        public static readonly string SoferitySearch = "Search";
+
+        public static readonly string SoferityUpdate = "Update";
 
         public static readonly string SoferityUpload = "Upload";
 
@@ -92,11 +96,15 @@
 
         public static readonly string PatternFile = "Pattern.json";
 
-        public static readonly string Update = "Sucrose.Update.exe";
-
         public static readonly string Portal = "Sucrose.Portal.exe";
 
+        public static readonly string SoferityFeedback = "Feedback";
+
+        public static readonly string Update = "Sucrose.Update.exe";
+
         public static readonly string GifContent = "GifContent.html";
+
+        public static readonly string SoferityStatistic = "Statistic";
 
         public static readonly string TaskName = "Autorun for Sucrose";
 

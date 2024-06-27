@@ -1,7 +1,10 @@
 ﻿using Downloader;
+using Newtonsoft.Json;
 using System.ComponentModel;
 using System.IO;
+using System.Net.Http;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -31,8 +34,11 @@ using SSIIR = Skylark.Standard.Interface.IReleases;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
+using SSSHU = Sucrose.Shared.Space.Helper.User;
+using SSSMUD = Sucrose.Shared.Space.Model.UpdateData;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SUMI = Sucrose.Update.Manage.Internal;
 using SUMM = Sucrose.Update.Manage.Manager;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
@@ -112,7 +118,7 @@ namespace Sucrose.Update.View
             {
                 await Task.Delay(MinDelay);
 
-                if (StepNetwork())
+                if (await StepNetwork())
                 {
                     await Task.Delay(MinDelay);
 
@@ -184,7 +190,7 @@ namespace Sucrose.Update.View
             }
         }
 
-        private bool StepNetwork()
+        private async Task<bool> StepNetwork()
         {
             try
             {
@@ -195,6 +201,35 @@ namespace Sucrose.Update.View
                     SSSHS.Apply();
 
                     SMMI.UpdateSettingManager.SetSetting(SMC.UpdateTime, DateTime.Now);
+
+                    try
+                    {
+                        if (SMMM.Statistics)
+                        {
+                            using HttpClient Client = new();
+
+                            HttpResponseMessage Response = new();
+
+                            Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
+
+                            try
+                            {
+                                SSSMUD UpdateData = new(SSCHV.GetText());
+
+                                StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), Encoding.UTF8, "application/json");
+
+                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityUpdate}/{SSSHU.GetGuid()}", Content);
+                            }
+                            catch (Exception Exception)
+                            {
+                                await SSWW.Watch_CatchException(Exception);
+                            }
+                        }
+                    }
+                    catch (Exception Exception)
+                    {
+                        await SSWW.Watch_CatchException(Exception);
+                    }
 
                     return true;
                 }
@@ -278,7 +313,7 @@ namespace Sucrose.Update.View
             {
                 Message.Text = SRER.GetValue("Update", "MessageText", "Comparing");
 
-                Version Current = new(SSCHV.GetText());
+                Version Current = SSCHV.Get();
                 Latest = SHV.Clear(Release.TagName);
 
                 if (SHV.Compare(Current, Latest) == SEVT.Latest)

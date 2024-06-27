@@ -204,7 +204,7 @@ namespace Sucrose.Portal.Views.Controls
 
                         try
                         {
-                            Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Check}/{SSSHU.GetGuid()}");
+                            Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
                         }
                         catch
                         {
@@ -225,7 +225,7 @@ namespace Sucrose.Portal.Views.Controls
 
                                 StringContent Content = new(JsonConvert.SerializeObject(ReportData, Formatting.Indented), Encoding.UTF8, "application/json");
 
-                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.Theme}/{SSSHU.GetGuid()}", Content);
+                                Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityReport}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}", Content);
                             }
                             catch
                             {

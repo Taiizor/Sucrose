@@ -198,7 +198,7 @@ namespace Sucrose.Portal.Views.Controls
 
                     try
                     {
-                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.Check}/{SSSHU.GetGuid()}");
+                        Response = await Client.GetAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityCheck}/{SSSHU.GetGuid()}");
                     }
                     catch
                     {
@@ -255,7 +255,7 @@ namespace Sucrose.Portal.Views.Controls
 
                                 try
                                 {
-                                    Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.Theme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
+                                    Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
                                 }
                                 catch
                                 {
