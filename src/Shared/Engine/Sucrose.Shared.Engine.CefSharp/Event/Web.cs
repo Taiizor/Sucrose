@@ -11,6 +11,7 @@ using SSEHP = Sucrose.Shared.Engine.Helper.Properties;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Shared.Engine.CefSharp.Event
 {
@@ -18,18 +19,21 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
     {
         private static async void PropertiesWatcher(object sender, FileSystemEventArgs e)
         {
-            await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+            await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
             {
                 try
                 {
                     SSEMI.Properties = SSTHP.ReadJson(e.FullPath);
 
-                    if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized)
+                    if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized && SSECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
                     {
                         SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
                     }
                 }
-                catch { }
+                catch (Exception Exception)
+                {
+                    await SSWW.Watch_CatchException(Exception);
+                }
             });
         }
 

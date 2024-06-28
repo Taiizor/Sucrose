@@ -11,6 +11,7 @@ using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSPSBSS = Sucrose.Shared.Pipe.Services.BackgroundogPipeService;
 using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -88,11 +89,18 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
                                 {
                                     SSPSBSS.Handler(e);
 
-                                    await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                    await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
                                     {
-                                        if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized)
+                                        try
                                         {
-                                            SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                            if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized && SSECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
+                                            {
+                                                SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                            }
+                                        }
+                                        catch (Exception Exception)
+                                        {
+                                            await SSWW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -110,11 +118,18 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
                             {
                                 SSSSBSS.Handler(s, e);
 
-                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
                                 {
-                                    if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized)
+                                    try
                                     {
-                                        SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                        if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized && SSECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
+                                        {
+                                            SSEHC.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                                        }
+                                    }
+                                    catch (Exception Exception)
+                                    {
+                                        await SSWW.Watch_CatchException(Exception);
                                     }
                                 });
                             }

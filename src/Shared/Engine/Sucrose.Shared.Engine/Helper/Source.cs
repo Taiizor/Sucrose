@@ -2,6 +2,7 @@
 using System.Net.Http;
 using SEDST = Skylark.Enum.DisplayScreenType;
 using SEST = Skylark.Enum.ScreenType;
+using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
@@ -214,6 +215,8 @@ namespace Sucrose.Shared.Engine.Helper
                     {
                         Timeout = Timeout.InfiniteTimeSpan
                     };
+
+                    Client.DefaultRequestHeaders.Add("User-Agent", SMMM.UserAgent);
 
                     using HttpResponseMessage Response = Client.GetAsync(Source).Result;
                     using Stream Content = Response.Content.ReadAsStreamAsync().Result;

@@ -10,6 +10,7 @@ using SSEWVHH = Sucrose.Shared.Engine.WebView.Helper.Handle;
 using SSEWVHW = Sucrose.Shared.Engine.WebView.Helper.Web;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHP = Sucrose.Shared.Theme.Helper.Properties;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Shared.Engine.WebView.Event
 {
@@ -17,7 +18,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
     {
         private static async void PropertiesWatcher(object sender, FileSystemEventArgs e)
         {
-            await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+            await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
             {
                 try
                 {
@@ -28,7 +29,10 @@ namespace Sucrose.Shared.Engine.WebView.Event
                         SSEHP.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
                     }
                 }
-                catch { }
+                catch (Exception Exception)
+                {
+                    await SSWW.Watch_CatchException(Exception);
+                }
             });
         }
 

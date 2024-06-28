@@ -10,6 +10,7 @@ using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSMI = Sucrose.Signal.Manage.Internal;
 using SSPSBSS = Sucrose.Shared.Pipe.Services.BackgroundogPipeService;
 using SSSSBSS = Sucrose.Shared.Signal.Services.BackgroundogSignalService;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -71,11 +72,18 @@ namespace Sucrose.Shared.Engine.WebView.Helper
                                 {
                                     SSPSBSS.Handler(e);
 
-                                    await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                    await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
                                     {
-                                        if (SSEWVMI.WebEngine.IsInitialized)
+                                        try
                                         {
-                                            SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                            if (SSEWVMI.WebEngine.IsInitialized)
+                                            {
+                                                SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                            }
+                                        }
+                                        catch (Exception Exception)
+                                        {
+                                            await SSWW.Watch_CatchException(Exception);
                                         }
                                     });
                                 }
@@ -93,11 +101,18 @@ namespace Sucrose.Shared.Engine.WebView.Helper
                             {
                                 SSSSBSS.Handler(s, e);
 
-                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
                                 {
-                                    if (SSEWVMI.WebEngine.IsInitialized)
+                                    try
                                     {
-                                        SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                        if (SSEWVMI.WebEngine.IsInitialized)
+                                        {
+                                            SSEHC.ExecuteTask(SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync);
+                                        }
+                                    }
+                                    catch (Exception Exception)
+                                    {
+                                        await SSWW.Watch_CatchException(Exception);
                                     }
                                 });
                             }

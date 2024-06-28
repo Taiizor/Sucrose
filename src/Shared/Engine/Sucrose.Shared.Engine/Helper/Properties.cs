@@ -4,6 +4,7 @@ using SESMIEN = Sucrose.Shared.Engine.Manage.Internal.ExecuteNormal;
 using SESMIET = Sucrose.Shared.Engine.Manage.Internal.ExecuteTask;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSTMCM = Sucrose.Shared.Theme.Model.ControlModel;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using Timer = System.Timers.Timer;
 
 namespace Sucrose.Shared.Engine.Helper
@@ -98,35 +99,49 @@ namespace Sucrose.Shared.Engine.Helper
             catch { }
         }
 
-        public static void ExecuteNormal(SESMIEN Function)
+        public static async void ExecuteTask(SESMIET Function)
         {
-            if (SSEMI.Initialized)
+            try
             {
-                if (SSEMI.Properties.PropertyList.Any())
+                if (SSEMI.Initialized)
                 {
-                    foreach (KeyValuePair<string, SSTMCM> Pair in SSEMI.Properties.PropertyList)
+                    SESMIEN AdaptedFunction = new(async (Script) =>
                     {
-                        string Key = Pair.Key;
-                        object Value = Pair.Value;
+                        await Function(Script);
+                    });
 
-                        string Script = JsonConvert.SerializeObject(Value, Formatting.Indented);
-
-                        Function(string.Format(SSEMI.Properties.PropertyListener, Key, Script));
-                    }
+                    ExecuteNormal(AdaptedFunction);
                 }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
 
-        public static void ExecuteTask(SESMIET Function)
+        public static async void ExecuteNormal(SESMIEN Function)
         {
-            if (SSEMI.Initialized)
+            try
             {
-                SESMIEN AdaptedFunction = new(async (Script) =>
+                if (SSEMI.Initialized)
                 {
-                    await Function(Script);
-                });
+                    if (SSEMI.Properties.PropertyList.Any())
+                    {
+                        foreach (KeyValuePair<string, SSTMCM> Pair in SSEMI.Properties.PropertyList)
+                        {
+                            string Key = Pair.Key;
+                            object Value = Pair.Value;
 
-                ExecuteNormal(AdaptedFunction);
+                            string Script = JsonConvert.SerializeObject(Value, Formatting.Indented);
+
+                            Function(string.Format(SSEMI.Properties.PropertyListener, Key, Script));
+                        }
+                    }
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
     }
