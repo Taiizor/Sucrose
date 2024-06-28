@@ -150,9 +150,9 @@ namespace Sucrose.Manager.Manage
 
         public static bool StorePreview => SMMI.PortalSettingManager.GetSetting(SMC.StorePreview, false);
 
-        public static bool LibraryStart => SMMI.EngineSettingManager.GetSetting(SMC.LibraryStart, false);
-
         public static bool InputDesktop => SMMI.EngineSettingManager.GetSetting(SMC.InputDesktop, false);
+
+        public static bool LibraryStart => SMMI.EngineSettingManager.GetSetting(SMC.LibraryStart, true);
 
         public static bool UpdateState => SMMI.UpdateSettingManager.GetSetting(SMC.UpdateState, false);
 
@@ -160,9 +160,9 @@ namespace Sucrose.Manager.Manage
 
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
 
-        public static bool StoreStart => SMMI.EngineSettingManager.GetSetting(SMC.StoreStart, false);
-
         public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMC.Statistics, true);
+
+        public static bool StoreStart => SMMI.EngineSettingManager.GetSetting(SMC.StoreStart, true);
 
         public static bool Cycyling => SMMI.CyclingSettingManager.GetSetting(SMC.Cycyling, false);
 
