@@ -148,6 +148,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool DiscordRefresh => SMMI.HookSettingManager.GetSetting(SMC.DiscordRefresh, true);
 
+        public static bool VolumeActive => SMMI.EngineSettingManager.GetSetting(SMC.VolumeActive, false);
+
         public static bool StorePreview => SMMI.PortalSettingManager.GetSetting(SMC.StorePreview, false);
 
         public static bool InputDesktop => SMMI.EngineSettingManager.GetSetting(SMC.InputDesktop, false);

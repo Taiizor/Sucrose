@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Hlasitost zvuku pro všechny tapety na ploše.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Přehrávat zvuk pouze při zaměření na plochu</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Přehrávat zvuk pouze, když jsou všechny aplikace potichu</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Místo Knihovny</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Umístění, kde budou uloženy témata přidané do vaší knihovny.</system:String>

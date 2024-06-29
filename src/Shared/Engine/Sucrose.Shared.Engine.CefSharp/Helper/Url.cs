@@ -1,5 +1,6 @@
 ﻿using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWEACAM = Skylark.Wing.Extension.AudioController.AudioManager;
 using SWEVPCAM = Skylark.Wing.Extension.VideoPlayerController.AudioManager;
 using SWNM = Skylark.Wing.Native.Methods;
@@ -16,9 +17,9 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                 //SSECSMI.CefEngine.Address = SSECSMI.Url;
 
-                if (SSECSMI.Processes.Any())
+                if (SSEMI.Processes.Any())
                 {
-                    foreach (int Process in SSECSMI.Processes.ToList())
+                    foreach (int Process in SSEMI.Processes.ToList())
                     {
                         _ = SWNM.DebugActiveProcessStop((uint)Process);
                     }
@@ -43,9 +44,9 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                 //SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
 
-                if (SSECSMI.Processes.Any())
+                if (SSEMI.Processes.Any())
                 {
-                    foreach (int Process in SSECSMI.Processes.ToList())
+                    foreach (int Process in SSEMI.Processes.ToList())
                     {
                         _ = SWNM.DebugActiveProcess((uint)Process);
                     }
@@ -60,9 +61,9 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
         public static async void SetVolume(int Volume)
         {
-            if (SSECSMI.Processes.Any())
+            if (SSEMI.Processes.Any())
             {
-                foreach (int Process in SSECSMI.Processes.ToList())
+                foreach (int Process in SSEMI.Processes.ToList())
                 {
                     try
                     {

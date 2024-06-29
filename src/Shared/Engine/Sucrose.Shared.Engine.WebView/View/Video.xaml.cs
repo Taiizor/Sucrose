@@ -4,6 +4,7 @@ using SMMM = Sucrose.Manager.Manage.Manager;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVEV = Sucrose.Shared.Engine.WebView.Event.Video;
 using SSEWVHV = Sucrose.Shared.Engine.WebView.Helper.Video;
@@ -36,6 +37,8 @@ namespace Sucrose.Shared.Engine.WebView.View
 
             Closing += (s, e) => SSEWVMI.WebEngine.Dispose();
             Loaded += (s, e) => SSEEH.WindowLoaded(this);
+
+            SSEHV.Start();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)

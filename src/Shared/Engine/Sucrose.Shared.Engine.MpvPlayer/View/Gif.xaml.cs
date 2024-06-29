@@ -30,8 +30,7 @@ namespace Sucrose.Shared.Engine.MpvPlayer.View
             SSEMPMI.MediaEngine = new(PlayerHost.Handle, SSEMPMI.MediaPath)
             {
                 AutoPlay = true,
-                Loop = SSEHD.GetLoop(),
-                Volume = SSEHD.GetVolume()
+                Loop = SSEHD.GetLoop()
             };
 
             SSEMPMI.MediaEngine.Load(SSEMPMI.Source);

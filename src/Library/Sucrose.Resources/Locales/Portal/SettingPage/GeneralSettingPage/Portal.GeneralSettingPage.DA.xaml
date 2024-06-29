@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Lydjustering gældende for alle tapeter.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Afspil kun lyd, når skrivebordet er i fokus</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Afspil lyd kun når alle applikationer er stille</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Biblioteksplacering</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Stedet, hvor de tilføjede temaer i dit bibliotek vil blive gemt.</system:String>

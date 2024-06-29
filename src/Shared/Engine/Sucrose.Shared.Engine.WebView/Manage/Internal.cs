@@ -18,8 +18,6 @@ namespace Sucrose.Shared.Engine.WebView.Manage
 
         public static WebEngine WebEngine = new();
 
-        public static List<int> Processes = new();
-
         public static string YouTube = string.Empty;
 
         public static IntPtr WebHandle = IntPtr.Zero;

@@ -6,6 +6,7 @@ using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
+using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEMPHV = Sucrose.Shared.Engine.MpvPlayer.Helper.Video;
 using SSEMPMI = Sucrose.Shared.Engine.MpvPlayer.Manage.Internal;
@@ -42,6 +43,8 @@ namespace Sucrose.Shared.Engine.MpvPlayer.View
 
             Closing += (s, e) => SSEMPMI.MediaEngine.Dispose();
             Loaded += (s, e) => SSEEH.WindowLoaded(this);
+
+            SSEHV.Start();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)

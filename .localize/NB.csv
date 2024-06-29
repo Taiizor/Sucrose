@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Lydvolumet som gjelder for alle bakgrunnsbilder.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Spill lyden bare når skrivebordet er i fokus
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Spill lyd kun når alle applikasjoner er stille
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplassering
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Plasseringen der temaene du legger til i biblioteket, lagres."

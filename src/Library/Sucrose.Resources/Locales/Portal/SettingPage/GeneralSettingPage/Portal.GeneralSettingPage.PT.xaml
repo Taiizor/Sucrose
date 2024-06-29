@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Volume aplicável a todos os papéis de parede.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Reproduzir som somente quando o foco está na área de trabalho</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Reproduzir som apenas quando todas as aplicações estiverem silenciadas</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Local da Biblioteca</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Local onde os temas adicionados à sua biblioteca serão armazenados.</system:String>

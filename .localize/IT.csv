@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Volume audio globale per tutti gli sfondi del desktop.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Riproduci l'audio solo quando il desktop è in primo piano
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Riproduci il suono solo quando tutte le applicazioni sono in silenzio
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.PrivateLibrary,Percorso della Libreria Privata
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Posizione in cui verranno salvati i temi aggiunti alla tua libreria.

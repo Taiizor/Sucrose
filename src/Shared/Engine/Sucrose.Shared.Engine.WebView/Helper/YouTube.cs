@@ -1,4 +1,5 @@
-﻿using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+﻿using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
+using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
 {
@@ -55,6 +56,15 @@ namespace Sucrose.Shared.Engine.WebView.Helper
         public static async void SetVolume(int Volume)
         {
             await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({Volume});");
+
+            if (SSEWVMI.Try < 3)
+            {
+                await Task.Run(() =>
+                {
+                    SSEWVMI.Try++;
+                    SSEWVHM.SetProcesses();
+                });
+            }
         }
 
         public static async void SetShuffle(bool State)

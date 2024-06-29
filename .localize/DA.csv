@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Lydjustering gældende for alle tapeter.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,"Afspil kun lyd, når skrivebordet er i fokus"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Afspil lyd kun når alle applikationer er stille
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplacering
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Stedet, hvor de tilføjede temaer i dit bibliotek vil blive gemt."

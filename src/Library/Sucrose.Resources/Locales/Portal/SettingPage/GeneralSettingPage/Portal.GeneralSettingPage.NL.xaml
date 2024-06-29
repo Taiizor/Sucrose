@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Geluidsvolume dat geldt voor alle wallpapers.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Speel geluid alleen af wanneer gefocust op het bureaublad</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Speel geluid af alleen wanneer alle applicaties zijn gedempt</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Bibliotheeklocatie</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Locatie waar toegevoegde thema's in uw bibliotheek worden opgeslagen.</system:String>

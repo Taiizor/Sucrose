@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">适用于所有壁纸的音量设置。</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">仅在桌面聚焦时播放声音</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">只有所有应用程序静音时才播放声音</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">个人库位置</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">存储您添加到库中的主题的位置。</system:String>

@@ -120,6 +120,8 @@
 
         public const string PipeRequired = "PipeRequired";
 
+        public const string VolumeActive = "VolumeActive";
+
         public const string AudioRequired = "AudioRequired";
 
         public const string DeveloperPort = "DeveloperPort";

@@ -325,6 +325,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             EngineVolume.HeaderFrame = Volume;
 
+            StackPanel VolumeContent = new()
+            {
+                Orientation = Orientation.Vertical
+            };
+
             CheckBox VolumeDesktop = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeDesktop"),
@@ -334,7 +339,20 @@ namespace Sucrose.Portal.ViewModels.Pages
             VolumeDesktop.Checked += (s, e) => VolumeDesktopChecked(true);
             VolumeDesktop.Unchecked += (s, e) => VolumeDesktopChecked(false);
 
-            EngineVolume.FooterCard = VolumeDesktop;
+            CheckBox VolumeActive = new()
+            {
+                Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeActive"),
+                Margin = new Thickness(0, 10, 0, 0),
+                IsChecked = SMMM.VolumeActive
+            };
+
+            VolumeActive.Checked += (s, e) => VolumeActiveChecked(true);
+            VolumeActive.Unchecked += (s, e) => VolumeActiveChecked(false);
+
+            VolumeContent.Children.Add(VolumeDesktop);
+            VolumeContent.Children.Add(VolumeActive);
+
+            EngineVolume.FooterCard = VolumeContent;
 
             Contents.Add(EngineVolume);
 
@@ -536,6 +554,11 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 SPMI.CultureService.CultureCode = NewCulture;
             }
+        }
+
+        private void VolumeActiveChecked(bool State)
+        {
+            SMMI.EngineSettingManager.SetSetting(SMC.VolumeActive, State);
         }
 
         private void VolumeDesktopChecked(bool State)

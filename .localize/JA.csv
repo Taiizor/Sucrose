@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.EngineVolume.Description,すべての壁紙に適用される音量設定。
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,デスクトップにフォーカスがあるときのみ音を再生
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,すべてのアプリケーションがミュートされているときのみ音を再生する
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary,ライブラリの場所
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,追加したテーマが保存される場所。

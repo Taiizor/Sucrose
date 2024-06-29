@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Nivelul global al sunetului pentru toate tapetele.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Redă sunet numai când focusul este pe desktop
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Redați sunetul doar când toate aplicațiile sunt în surdină
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary,Locația Bibliotecii Private
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Locația în care temele adăugate în biblioteca dvs. vor fi stocate.

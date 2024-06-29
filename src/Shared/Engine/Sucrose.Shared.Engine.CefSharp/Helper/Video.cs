@@ -1,6 +1,7 @@
 ﻿using CefSharp;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
 using SSECSHE = Sucrose.Shared.Engine.CefSharp.Helper.Evaluate;
+using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
@@ -40,11 +41,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             }
         }
 
-        public static void SetVolume(int Volume)
-        {
-            SSECSMI.CefEngine.ExecuteScriptAsync($"document.getElementsByTagName('video')[0].volume = {(Volume / 100d).ToString().Replace(" ", ".").Replace(",", ".")};");
-        }
-
         public static void SetStretch(SSDEST Stretch)
         {
             switch (Stretch)
@@ -63,6 +59,20 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
                     break;
                 default:
                     break;
+            }
+        }
+
+        public static async void SetVolume(int Volume)
+        {
+            SSECSMI.CefEngine.ExecuteScriptAsync($"document.getElementsByTagName('video')[0].volume = {(Volume / 100d).ToString().Replace(" ", ".").Replace(",", ".")};");
+
+            if (SSECSMI.Try < 3)
+            {
+                await Task.Run(() =>
+                {
+                    SSECSMI.Try++;
+                    SSECSHM.SetProcesses();
+                });
             }
         }
     }

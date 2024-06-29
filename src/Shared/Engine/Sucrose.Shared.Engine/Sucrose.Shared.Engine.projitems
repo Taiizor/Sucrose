@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Data.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Compatible.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Cycyling.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Volume.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Run.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Source.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manage\Internal.cs" />

@@ -28,9 +28,9 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                 //SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
 
-                if (SSECSMI.Processes.Any())
+                if (SSEMI.Processes.Any())
                 {
-                    foreach (int Process in SSECSMI.Processes.ToList())
+                    foreach (int Process in SSEMI.Processes.ToList())
                     {
                         _ = SWNM.DebugActiveProcessStop((uint)Process);
                     }
@@ -55,9 +55,9 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
                 //SSECSMI.CefEngine.Address = SSEHS.GetSource(Path).ToString();
 
-                if (SSECSMI.Processes.Any())
+                if (SSEMI.Processes.Any())
                 {
-                    foreach (int Process in SSECSMI.Processes.ToList())
+                    foreach (int Process in SSEMI.Processes.ToList())
                     {
                         _ = SWNM.DebugActiveProcess((uint)Process);
                     }
@@ -143,9 +143,9 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
 
         public static async void SetVolume(int Volume)
         {
-            if (SSECSMI.Processes.Any())
+            if (SSEMI.Processes.Any())
             {
-                foreach (int Process in SSECSMI.Processes.ToList())
+                foreach (int Process in SSEMI.Processes.ToList())
                 {
                     try
                     {

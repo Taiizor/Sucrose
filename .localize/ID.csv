@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Volume yang berlaku untuk semua wallpaper.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Mainkan suara hanya saat fokus di desktop
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Putar suara hanya ketika semua aplikasi dibisukan
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary,Lokasi Perpustakaan
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Lokasi tempat tema yang ditambahkan ke perpustakaan akan disimpan.

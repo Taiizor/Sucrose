@@ -15,11 +15,15 @@ namespace Sucrose.Shared.Engine.Manage
 
         public static bool Interaction = true;
 
-        public static SSTHP Properties = new();
+        public static SSTHC Compatible = new();
 
         public static bool Initialized = false;
 
-        public static SSTHC Compatible = new();
+        public static bool PauseVolume = false;
+
+        public static SSTHP Properties = new();
+
+        public static List<int> Processes = new();
 
         public static int IntermediateD3DWindow = 0;
 

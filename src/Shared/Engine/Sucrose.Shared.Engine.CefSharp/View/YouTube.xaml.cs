@@ -8,6 +8,7 @@ using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
+using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.View
@@ -43,6 +44,8 @@ namespace Sucrose.Shared.Engine.CefSharp.View
 
             Closing += (s, e) => SSECSMI.CefEngine.Dispose();
             Loaded += (s, e) => SSEEH.WindowLoaded(this);
+
+            SSEHV.Start();
         }
 
         private void GeneralTimer_Tick(object sender, EventArgs e)

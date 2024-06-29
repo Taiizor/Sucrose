@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Volume that applies to all wallpapers.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Play sound only when focused on the desktop</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Play sound only when all applications are silent</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Library Location</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Location where themes you add to your library are stored.</system:String>

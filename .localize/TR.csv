@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Tüm duvar kağıtları için geçerli olan ses seviyesi.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Sesi yalnızca masaüstü odaklandığında oynat
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Sesi yalnızca tüm uygulamalar sessizken oynat
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary,Kütüphane Konumu
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Kütüphanenize eklediğiniz temaların saklanacağı konum.

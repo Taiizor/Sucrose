@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using SMR = Sucrose.Memory.Readonly;
-using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHM = Sucrose.Shared.Space.Helper.Management;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
@@ -12,9 +12,9 @@ namespace Sucrose.Shared.Engine.WebView.Helper
             try
             {
                 Process.GetProcesses()
-                    .Where(Process => Process.ProcessName.Contains(SMR.WebViewProcessName) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName) && !SSEWVMI.Processes.Contains(Process.Id))
+                    .Where(Process => Process.ProcessName.Contains(SMR.WebViewProcessName) && SSSHM.GetCommandLine(Process).Contains(SMR.AppName) && !SSEMI.Processes.Contains(Process.Id))
                     .ToList()
-                    .ForEach(Process => SSEWVMI.Processes.Add(Process.Id));
+                    .ForEach(Process => SSEMI.Processes.Add(Process.Id));
             }
             catch { }
         }

@@ -1,4 +1,5 @@
 ﻿using SSDEST = Sucrose.Shared.Dependency.Enum.StretchType;
+using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
@@ -51,6 +52,15 @@ namespace Sucrose.Shared.Engine.WebView.Helper
         public static async void SetVolume(int Volume)
         {
             await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"document.getElementsByTagName('video')[0].volume = {(Volume / 100d).ToString().Replace(" ", ".").Replace(",", ".")};");
+
+            if (SSEWVMI.Try < 3)
+            {
+                await Task.Run(() =>
+                {
+                    SSEWVMI.Try++;
+                    SSEWVHM.SetProcesses();
+                });
+            }
         }
 
         public static async void SetStretch(SSDEST Stretch)

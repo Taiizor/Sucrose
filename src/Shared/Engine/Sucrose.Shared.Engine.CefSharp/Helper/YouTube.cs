@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using SSECSHE = Sucrose.Shared.Engine.CefSharp.Helper.Evaluate;
+using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
@@ -54,14 +55,23 @@ namespace Sucrose.Shared.Engine.CefSharp.Helper
             SSECSMI.CefEngine.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
         }
 
-        public static void SetVolume(int Volume)
-        {
-            SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({Volume});");
-        }
-
         public static void SetShuffle(bool State)
         {
             SSECSMI.CefEngine.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
+        }
+
+        public static async void SetVolume(int Volume)
+        {
+            SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({Volume});");
+
+            if (SSECSMI.Try < 3)
+            {
+                await Task.Run(() =>
+                {
+                    SSECSMI.Try++;
+                    SSECSHM.SetProcesses();
+                });
+            }
         }
     }
 }

@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Geluidsvolume dat geldt voor alle wallpapers.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Speel geluid alleen af wanneer gefocust op het bureaublad
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Speel geluid af alleen wanneer alle applicaties zijn gedempt
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary,Bibliotheeklocatie
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Locatie waar toegevoegde thema's in uw bibliotheek worden opgeslagen.

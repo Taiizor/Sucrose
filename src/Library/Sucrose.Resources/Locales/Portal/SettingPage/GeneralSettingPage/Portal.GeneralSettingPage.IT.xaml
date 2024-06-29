@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Volume audio globale per tutti gli sfondi del desktop.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Riproduci l'audio solo quando il desktop è in primo piano</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Riproduci il suono solo quando tutte le applicazioni sono in silenzio</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Percorso della Libreria Privata</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Posizione in cui verranno salvati i temi aggiunti alla tua libreria.</system:String>

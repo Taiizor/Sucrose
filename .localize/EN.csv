@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Volume that applies to all wallpapers.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Play sound only when focused on the desktop
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Play sound only when all applications are silent
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary,Library Location
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Location where themes you add to your library are stored.

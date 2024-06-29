@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Lydvolumet som gjelder for alle bakgrunnsbilder.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Spill lyden bare når skrivebordet er i fokus</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Spill lyd kun når alle applikasjoner er stille</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Biblioteksplassering</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Plasseringen der temaene du legger til i biblioteket, lagres.</system:String>

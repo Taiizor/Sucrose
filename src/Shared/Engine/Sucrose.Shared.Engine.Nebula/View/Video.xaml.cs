@@ -6,6 +6,7 @@ using SSEEH = Sucrose.Shared.Engine.Event.Handler;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
+using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSENEV = Sucrose.Shared.Engine.Nebula.Event.Video;
 using SSENHV = Sucrose.Shared.Engine.Nebula.Helper.Video;
@@ -40,6 +41,8 @@ namespace Sucrose.Shared.Engine.Nebula.View
             Loaded += (s, e) => SSEEH.WindowLoaded(this);
 
             SSENHV.SetVolume(SSEHD.GetVolume());
+
+            SSEHV.Start();
 
             SSENHV.Play();
         }

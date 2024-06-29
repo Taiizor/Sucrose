@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Η ένταση ήχου που ισχύει για όλα τα ταπετσαρίες.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Αναπαραγωγή ήχου μόνο όταν εστιάζετε στην επιφάνεια εργασίας</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Αναπαραγωγή ήχου μόνο όταν όλες οι εφαρμογές είναι σιωπηλές</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Τοποθεσία βιβλιοθήκης</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Η τοποθεσία όπου θα αποθηκεύονται τα θέματα που προσθέτετε στη βιβλιοθήκη σας.</system:String>

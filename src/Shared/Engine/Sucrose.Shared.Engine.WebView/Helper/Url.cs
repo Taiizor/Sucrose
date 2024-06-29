@@ -45,9 +45,9 @@ namespace Sucrose.Shared.Engine.WebView.Helper
 
         public static async void SetVolume(int Volume)
         {
-            if (SSEWVMI.Processes.Any())
+            if (SSEMI.Processes.Any())
             {
-                foreach (int Process in SSEWVMI.Processes.ToList())
+                foreach (int Process in SSEMI.Processes.ToList())
                 {
                     try
                     {

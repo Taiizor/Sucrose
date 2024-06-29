@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Hlasitost zvuku pro všechny tapety na ploše.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Přehrávat zvuk pouze při zaměření na plochu
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,"Přehrávat zvuk pouze, když jsou všechny aplikace potichu"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary,Místo Knihovny
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Umístění, kde budou uloženy témata přidané do vaší knihovny."

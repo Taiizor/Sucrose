@@ -19,8 +19,6 @@ namespace Sucrose.Shared.Engine.CefSharp.Manage
 
         public static IBrowserHost CefHost = null;
 
-        public static List<int> Processes = new();
-
         public static string YouTube = string.Empty;
 
         public static IntPtr CefHandle = IntPtr.Zero;

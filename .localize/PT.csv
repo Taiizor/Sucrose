@@ -833,6 +833,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.GeneralSettingPage.EngineVolume.Description,Volume aplicável a todos os papéis de parede.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Reproduzir som somente quando o foco está na área de trabalho
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Reproduzir som apenas quando todas as aplicações estiverem silenciadas
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.GeneralSettingPage.PrivateLibrary,Local da Biblioteca
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PT.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Local onde os temas adicionados à sua biblioteca serão armazenados.

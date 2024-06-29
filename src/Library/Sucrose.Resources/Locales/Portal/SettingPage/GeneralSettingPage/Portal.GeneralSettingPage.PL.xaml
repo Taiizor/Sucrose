@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">Głośność obowiązująca dla wszystkich tapet.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Odtwarzaj dźwięk tylko wtedy, gdy jesteś skoncentrowany na pulpicie</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Odtwarzaj dźwięk tylko wtedy, gdy wszystkie aplikacje są wyciszone</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Lokalizacja Biblioteki</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Lokalizacja, w której przechowywane są motywy, które dodajesz do swojej biblioteki.</system:String>

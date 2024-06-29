@@ -38,6 +38,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.Description">すべての壁紙に適用される音量設定。</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">デスクトップにフォーカスがあるときのみ音を再生</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">すべてのアプリケーションがミュートされているときのみ音を再生する</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">ライブラリの場所</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">追加したテーマが保存される場所。</system:String>
