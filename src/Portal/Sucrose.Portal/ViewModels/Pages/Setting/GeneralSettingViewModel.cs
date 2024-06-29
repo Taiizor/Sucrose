@@ -310,6 +310,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Slider Volume = new()
             {
+                AutoToolTipPlacement = AutoToolTipPlacement.TopLeft,
                 TickPlacement = TickPlacement.Both,
                 IsSelectionRangeEnabled = false,
                 IsMoveToPointEnabled = true,
