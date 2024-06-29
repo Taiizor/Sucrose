@@ -24,18 +24,27 @@ namespace Sucrose.Shared.Engine.Helper
                     {
                         foreach (Process Process in Process.GetProcesses().Where(Proc => !Proc.ProcessName.Contains(SMR.AppName) && !SSEMI.Processes.ToList().Any(Id => Id == Proc.Id) && !SSEMI.Applications.ToList().Any(App => App.Process.Id == Proc.Id)))
                         {
+                            bool? Muted;
+                            float? Volume;
+                            bool? AudioActive;
+
                             try
                             {
-                                bool? isMuted = SWEACAM.GetApplicationMute(Process.Id);
-                                float? volume = SWEACAM.GetApplicationVolume(Process.Id);
-                                bool? isAudioActive = SWEACAM.IsApplicationAudioActive(Process.Id);
+                                AudioActive = SWEACAM.IsApplicationAudioActive(Process.Id);
 
-                                if (volume != null && isMuted != null && isAudioActive != null)
+                                if (AudioActive != null && (bool)AudioActive)
                                 {
-                                    if (volume > 0 && !(bool)isMuted && (bool)isAudioActive)
+                                    Muted = SWEACAM.GetApplicationMute(Process.Id);
+
+                                    if (Muted != null && !(bool)Muted)
                                     {
-                                        SSEMI.PauseVolume = true;
-                                        return;
+                                        Volume = SWEACAM.GetApplicationVolume(Process.Id);
+
+                                        if (Volume != null && Volume > 0)
+                                        {
+                                            SSEMI.PauseVolume = true;
+                                            return;
+                                        }
                                     }
                                 }
                             }
@@ -43,16 +52,21 @@ namespace Sucrose.Shared.Engine.Helper
                             {
                                 try
                                 {
-                                    bool? isMuted = SWEVPCAM.GetApplicationMute(Process.Id);
-                                    float? volume = SWEVPCAM.GetApplicationVolume(Process.Id);
-                                    bool? isAudioActive = SWEVPCAM.IsApplicationAudioActive(Process.Id);
+                                    AudioActive = SWEVPCAM.IsApplicationAudioActive(Process.Id);
 
-                                    if (volume != null && isMuted != null && isAudioActive != null)
+                                    if (AudioActive != null && (bool)AudioActive)
                                     {
-                                        if (volume > 0 && !(bool)isMuted && (bool)isAudioActive)
+                                        Muted = SWEVPCAM.GetApplicationMute(Process.Id);
+
+                                        if (Muted != null && !(bool)Muted)
                                         {
-                                            SSEMI.PauseVolume = true;
-                                            return;
+                                            Volume = SWEVPCAM.GetApplicationVolume(Process.Id);
+
+                                            if (Volume != null && Volume > 0)
+                                            {
+                                                SSEMI.PauseVolume = true;
+                                                return;
+                                            }
                                         }
                                     }
                                 }
