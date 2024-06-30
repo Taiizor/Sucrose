@@ -44,6 +44,17 @@
                             BorderBrush="Transparent"
                             CornerRadius="15"
                             Cursor="Hand"
+                            NavigateUri="mailto:taiizor@vegalya.com">
+                            <ui:Image
+                                Height="32"
+                                CornerRadius="16"
+                                Source="pack://application:,,,/Assets/Social/Email.png" />
+                        </ui:HyperlinkButton>
+                        <ui:HyperlinkButton
+                            Appearance="Transparent"
+                            BorderBrush="Transparent"
+                            CornerRadius="15"
+                            Cursor="Hand"
                             NavigateUri="https://www.youtube.com/@iTaiizor">
                             <ui:Image
                                 Height="32"
