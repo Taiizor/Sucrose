@@ -198,25 +198,27 @@
 
         public const string StorePreviewHide = "StorePreviewHide";
 
-        public const string CommunicationType = "CommunicationType";
-
-        public const string DisplayScreenType = "DisplayScreenType";
-
-        public const string RemotePerformance = "RemotePerformance";
-
         public const string BackgroundOpacity = "BackgroundOpacity";
 
         public const string BackgroundStretch = "BackgroundStretch";
 
-        public const string LibraryPagination = "LibraryPagination";
+        public const string CommunicationType = "CommunicationType";
 
         public const string DescriptionLength = "DescriptionLength";
 
+        public const string DisplayScreenType = "DisplayScreenType";
+
         public const string GraphicInterfaces = "GraphicInterfaces";
+
+        public const string LibraryPagination = "LibraryPagination";
+
+        public const string MemoryPerformance = "MemoryPerformance";
 
         public const string NetworkInterfaces = "NetworkInterfaces";
 
-        public const string MemoryPerformance = "MemoryPerformance";
+        public const string RemotePerformance = "RemotePerformance";
+
+        public const string VolumeSensitivity = "VolumeSensitivity";
 
         public const string LibraryPreviewHide = "LibraryPreviewHide";
 

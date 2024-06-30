@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Redă sunet numai când focusul este pe desktop</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Redați sunetul doar când toate aplicațiile sunt în surdină</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Sensibilitate (Secunde):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Locația Bibliotecii Private</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Locația în care temele adăugate în biblioteca dvs. vor fi stocate.</system:String>

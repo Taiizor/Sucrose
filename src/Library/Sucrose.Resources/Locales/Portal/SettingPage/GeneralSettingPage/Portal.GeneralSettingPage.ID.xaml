@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Mainkan suara hanya saat fokus di desktop</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Putar suara hanya ketika semua aplikasi dibisukan</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Sensitivitas (Detik):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Lokasi Perpustakaan</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Lokasi tempat tema yang ditambahkan ke perpustakaan akan disimpan.</system:String>

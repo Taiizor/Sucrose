@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Проигрывать звук только при активном рабочем столе</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Воспроизводить звук только, когда все приложения без звука</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Чувствительность (Секунды):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Местоположение библиотеки</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Местоположение, где будут сохраняться добавленные вами обои.</system:String>

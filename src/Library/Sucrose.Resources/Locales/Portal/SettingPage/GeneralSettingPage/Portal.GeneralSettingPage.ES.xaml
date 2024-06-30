@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Reproducir sonido solo cuando esté enfocado en el escritorio</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Reproducir sonido solo cuando todas las aplicaciones estén silenciadas</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Sensibilidad (Segundos):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Ubicación de la Biblioteca</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Ubicación donde se almacenan los temas que agregas a tu biblioteca.</system:String>

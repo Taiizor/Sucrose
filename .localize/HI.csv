@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,आवाज केवल डेस्कटॉप पर फोकस होने पर प्ले करें
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,ध्वनि को केवल तब बजाएं जब सभी एप्लिकेशन्स म्यूट हों
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,संवेदनशीलता (सेकंड):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary,लाइब्रेरी स्थान
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,आपके द्वारपेच में जोड़े गए थीमों को संग्रहित करने के लिए स्थल का चयन करें।

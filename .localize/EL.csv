@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Αναπαραγωγή ήχου μόνο όταν εστιάζετε στην επιφάνεια εργασίας
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Αναπαραγωγή ήχου μόνο όταν όλες οι εφαρμογές είναι σιωπηλές
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Ευαισθησία (Δευτερόλεπτα):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary,Τοποθεσία βιβλιοθήκης
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Η τοποθεσία όπου θα αποθηκεύονται τα θέματα που προσθέτετε στη βιβλιοθήκη σας.

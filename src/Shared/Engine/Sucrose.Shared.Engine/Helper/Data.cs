@@ -19,23 +19,26 @@ namespace Sucrose.Shared.Engine.Helper
 
         public static int GetVolume()
         {
-            if (SMMM.VolumeActive)
+            if (SMMM.Volume > 0)
             {
-                if (SSEMI.PauseVolume)
+                if (SMMM.VolumeActive)
                 {
-                    return 0;
+                    if (SSEMI.PauseVolume)
+                    {
+                        return 0;
+                    }
                 }
-            }
 
-            if (SMMM.VolumeDesktop)
-            {
-                if (SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced())
+                if (SMMM.VolumeDesktop)
                 {
-                    return SMMM.Volume;
-                }
-                else
-                {
-                    return 0;
+                    if (SWUD.IsDesktopBasic() || SWUD.IsDesktopAdvanced())
+                    {
+                        return SMMM.Volume;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
 

@@ -28,15 +28,17 @@ namespace Sucrose.Manager.Manage
 
         public static int DescriptionLength => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.DescriptionLength, 25), 10, 100);
 
-        public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 30), 1, 100);
-
         public static int UploadValue => SHS.Clamp(SMMI.BackgroundogSettingManager.GetSettingStable(SMC.UploadValue, 800), 0, 99999999);
+
+        public static int LibraryPagination => SHS.Clamp(SMMI.PortalSettingManager.GetSettingStable(SMC.LibraryPagination, 30), 1, 100);
 
         public static string[] GraphicInterfaces => SMMI.SystemSettingManager.GetSetting(SMC.GraphicInterfaces, Array.Empty<string>());
 
         public static string[] NetworkInterfaces => SMMI.SystemSettingManager.GetSetting(SMC.NetworkInterfaces, Array.Empty<string>());
 
         public static int AdvertisingDelay => SHS.Clamp(SMMI.DonateSettingManager.GetSettingStable(SMC.AdvertisingDelay, 30), 30, 720);
+
+        public static int VolumeSensitivity => SHS.Clamp(SMMI.EngineSettingManager.GetSettingStable(SMC.VolumeSensitivity, 5), 1, 10);
 
         public static int PassingCycyling => SHS.Clamp(SMMI.CyclingSettingManager.GetSettingStable(SMC.PassingCycyling, 0), 0, 99999);
 

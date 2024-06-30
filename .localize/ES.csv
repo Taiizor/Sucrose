@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Reproducir sonido solo cuando esté enfocado en el escritorio
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Reproducir sonido solo cuando todas las aplicaciones estén silenciadas
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Sensibilidad (Segundos):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.PrivateLibrary,Ubicación de la Biblioteca
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Ubicación donde se almacenan los temas que agregas a tu biblioteca.

@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">바탕 화면에만 포커스를 맞춘 경우에만 소리를 재생합니다</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">모든 애플리케이션이 음소거 상태일 때만 소리 재생</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">민감도 (초):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">라이브러리 위치</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">추가한 테마가 저장될 위치입니다.</system:String>

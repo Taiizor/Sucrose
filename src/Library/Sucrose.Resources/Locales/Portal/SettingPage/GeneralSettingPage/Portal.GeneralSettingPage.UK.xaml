@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Звук відтворюється лише при фокусуванні на робочому столі</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Відтворювати звук лише тоді, коли всі програми приглушені</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Чутливість (Секунди):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Місце розташування бібліотеки</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Місце, де зберігатимуться теми, які ви додали до бібліотеки.</system:String>

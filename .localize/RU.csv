@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Проигрывать звук только при активном рабочем столе
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,"Воспроизводить звук только, когда все приложения без звука"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Чувствительность (Секунды):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary,Местоположение библиотеки
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Местоположение, где будут сохраняться добавленные вами обои."

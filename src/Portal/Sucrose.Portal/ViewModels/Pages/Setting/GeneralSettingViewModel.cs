@@ -331,6 +331,12 @@ namespace Sucrose.Portal.ViewModels.Pages
                 Orientation = Orientation.Vertical
             };
 
+            StackPanel VolumeCustomContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
             CheckBox VolumeDesktop = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeDesktop"),
@@ -343,15 +349,56 @@ namespace Sucrose.Portal.ViewModels.Pages
             CheckBox VolumeActive = new()
             {
                 Content = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeActive"),
-                Margin = new Thickness(0, 10, 0, 0),
                 IsChecked = SMMM.VolumeActive
             };
 
             VolumeActive.Checked += (s, e) => VolumeActiveChecked(true);
             VolumeActive.Unchecked += (s, e) => VolumeActiveChecked(false);
 
+            TextBlock VolumeSensitivityText = new()
+            {
+                Text = SRER.GetValue("Portal", "GeneralSettingPage", "EngineVolume", "VolumeSensitivity"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(20, 0, 10, 0)
+            };
+
+            //Slider VolumeSensitivity = new()
+            //{
+            //    AutoToolTipPlacement = AutoToolTipPlacement.TopLeft,
+            //    TickPlacement = TickPlacement.Both,
+            //    IsSelectionRangeEnabled = false,
+            //    Value = SMMM.VolumeSensitivity,
+            //    IsMoveToPointEnabled = true,
+            //    IsSnapToTickEnabled = true,
+            //    TickFrequency = 1,
+            //    Maximum = 10,
+            //    Minimum = 1,
+            //    Width = 120
+            //};
+
+            NumberBox VolumeSensitivity2 = new()
+            {
+                Icon = new SymbolIcon(SymbolRegular.Timer24),
+                IconPlacement = ElementPlacement.Left,
+                Value = SMMM.VolumeSensitivity,
+                ClearButtonEnabled = false,
+                MaxDecimalPlaces = 0,
+                MaxLength = 2,
+                Maximum = 10,
+                Minimum = 1
+            };
+
+            //VolumeSensitivity.ValueChanged += (s, e) => VolumeSensitivityChanged(VolumeSensitivity.Value);
+            VolumeSensitivity2.ValueChanged += (s, e) => VolumeSensitivity2Changed(VolumeSensitivity2.Value);
+
+            VolumeCustomContent.Children.Add(VolumeActive);
+            VolumeCustomContent.Children.Add(VolumeSensitivityText);
+            //VolumeCustomContent.Children.Add(VolumeSensitivity);
+            VolumeCustomContent.Children.Add(VolumeSensitivity2);
+
             VolumeContent.Children.Add(VolumeDesktop);
-            VolumeContent.Children.Add(VolumeActive);
+            VolumeContent.Children.Add(VolumeCustomContent);
 
             EngineVolume.FooterCard = VolumeContent;
 
@@ -608,6 +655,21 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SMMI.PortalSettingManager.SetSetting(SMC.BackgroundOpacity, NewValue);
 
                 SPMI.BackdropService.BackdropOpacity = NewValue;
+            }
+        }
+
+        //private void VolumeSensitivityChanged(double Value)
+        //{
+        //    SMMI.EngineSettingManager.SetSetting(SMC.VolumeSensitivity, Convert.ToInt32(Value));
+        //}
+
+        private void VolumeSensitivity2Changed(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.VolumeSensitivity)
+            {
+                SMMI.EngineSettingManager.SetSetting(SMC.VolumeSensitivity, NewValue);
             }
         }
 

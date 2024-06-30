@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,仅在桌面聚焦时播放声音
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,只有所有应用程序静音时才播放声音
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,灵敏度（秒：
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary,个人库位置
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,存储您添加到库中的主题的位置。

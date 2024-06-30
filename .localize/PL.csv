@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,"Odtwarzaj dźwięk tylko wtedy, gdy jesteś skoncentrowany na pulpicie"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,"Odtwarzaj dźwięk tylko wtedy, gdy wszystkie aplikacje są wyciszone"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Czułość (Sekundy):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.PrivateLibrary,Lokalizacja Biblioteki
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Lokalizacja, w której przechowywane są motywy, które dodajesz do swojej biblioteki."

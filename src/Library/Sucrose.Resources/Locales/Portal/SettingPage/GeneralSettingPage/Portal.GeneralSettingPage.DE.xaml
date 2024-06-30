@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Ton nur wiedergeben, wenn der Fokus auf dem Desktop liegt</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Ton abspielen, nur wenn alle Anwendungen stummgeschaltet sind</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Empfindlichkeit (Sekunden):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Bibliotheksstandort</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Ort, an dem Themes gespeichert werden, die Sie Ihrer Bibliothek hinzufügen.</system:String>

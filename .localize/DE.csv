@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,"Ton nur wiedergeben, wenn der Fokus auf dem Desktop liegt"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,"Ton abspielen, nur wenn alle Anwendungen stummgeschaltet sind"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Empfindlichkeit (Sekunden):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.PrivateLibrary,Bibliotheksstandort
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Ort, an dem Themes gespeichert werden, die Sie Ihrer Bibliothek hinzufügen."

@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Spela ljudet endast när skrivbordet är i fokus
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Spela ljud bara när alla applikationer är tysta
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Känslighet (Sekunder):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplats
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Plats där teman som läggs till i ditt bibliotek lagras.

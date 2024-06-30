@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Lire le son uniquement lorsque le bureau est en focus</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Lire le son uniquement lorsque toutes les applications sont en sourdine</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Sensibilité (Secondes):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Emplacement de la Bibliothèque</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Emplacement où les thèmes que vous ajoutez à votre bibliothèque sont stockés.</system:String>

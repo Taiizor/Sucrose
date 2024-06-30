@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Lire le son uniquement lorsque le bureau est en focus
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,Lire le son uniquement lorsque toutes les applications sont en sourdine
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Sensibilité (Secondes):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.PrivateLibrary,Emplacement de la Bibliothèque
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Emplacement où les thèmes que vous ajoutez à votre bibliothèque sont stockés.

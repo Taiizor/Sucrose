@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Sesi yalnızca masaüstü odaklandığında oynat</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Sesi yalnızca tüm uygulamalar sessizken oynat</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Hassasiyet (Saniye):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Kütüphane Konumu</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Kütüphanenize eklediğiniz temaların saklanacağı konum.</system:String>

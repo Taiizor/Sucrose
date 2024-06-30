@@ -834,6 +834,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeDesktop,Звук відтворюється лише при фокусуванні на робочому столі
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeActive,"Відтворювати звук лише тоді, коли всі програми приглушені"
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity,Чутливість (Секунди):
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary,Місце розташування бібліотеки
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Місце, де зберігатимуться теми, які ви додали до бібліотеки."

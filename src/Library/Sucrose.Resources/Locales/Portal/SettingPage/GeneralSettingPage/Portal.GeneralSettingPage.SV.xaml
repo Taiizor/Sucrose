@@ -39,6 +39,7 @@
 
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeDesktop">Spela ljudet endast när skrivbordet är i fokus</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeActive">Spela ljud bara när alla applikationer är tysta</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.EngineVolume.VolumeSensitivity">Känslighet (Sekunder):</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Biblioteksplats</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Plats där teman som läggs till i ditt bibliotek lagras.</system:String>
