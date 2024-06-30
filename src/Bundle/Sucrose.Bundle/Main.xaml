@@ -22,7 +22,7 @@
     <Grid>
         <Image
             Opacity="0.5"
-            Source="\Sucrose.Bundle;component\Assets\Background5.jpg"
+            Source="\Sucrose.Bundle;component\Assets\Background6.jpg"
             Stretch="UniformToFill" />
 
         <TextBlock
