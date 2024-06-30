@@ -21,7 +21,7 @@ namespace Sucrose.Portal.Extension
             }
             else
             {
-                Result = $"https://{GetAuthor()}.com";
+                Result = $"https://{GetAuthor()}.example.com";
             }
 
             return Result.ToLowerInvariant();

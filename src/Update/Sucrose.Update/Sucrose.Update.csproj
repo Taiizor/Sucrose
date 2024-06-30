@@ -66,15 +66,15 @@
             <TargetPath>$(AssemblyName).exe.config</TargetPath>
         </AppConfigWithTargetPath>
     </ItemGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="3.0.4" />
+        <PackageReference Include="Downloader" Version="3.1.2" />
         <PackageReference Include="SharpCompress" Version="0.37.2" />
         <PackageReference Include="Skylark.Wing" Version="3.1.5.7" />
-        <PackageReference Include="Downloader" Version="3.1.0-beta" />
         <PackageReference Include="Skylark.Standard" Version="3.1.6.2" />
     </ItemGroup>
-    
+
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <Reference Include="System.Web" />
         <Reference Include="System.Net.Http" />
