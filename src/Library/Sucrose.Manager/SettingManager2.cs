@@ -79,7 +79,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitReadLock();
+                if (_lock.IsReadLockHeld)
+                {
+                    _lock.ExitReadLock();
+                }
             }
 
             return back;
@@ -126,7 +129,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitReadLock();
+                if (_lock.IsReadLockHeld)
+                {
+                    _lock.ExitReadLock();
+                }
             }
 
             return back;
@@ -173,7 +179,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitReadLock();
+                if (_lock.IsReadLockHeld)
+                {
+                    _lock.ExitReadLock();
+                }
             }
 
             return back;
@@ -235,7 +244,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitWriteLock();
+                if (_lock.IsWriteLockHeld)
+                {
+                    _lock.ExitWriteLock();
+                }
             }
         }
 
@@ -270,7 +282,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitReadLock();
+                if (_lock.IsReadLockHeld)
+                {
+                    _lock.ExitReadLock();
+                }
             }
         }
 
@@ -307,7 +322,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitWriteLock();
+                if (_lock.IsWriteLockHeld)
+                {
+                    _lock.ExitWriteLock();
+                }
             }
         }
 

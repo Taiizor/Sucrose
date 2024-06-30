@@ -48,15 +48,18 @@ namespace Sucrose.Shared.Space.Converter
 
             List<SSSISFD> frameList = new();
 
-            foreach (StackFrame frame in frames)
+            if (frames.Any())
             {
-                frameList.Add(new SSSISFD
+                foreach (StackFrame frame in frames)
                 {
-                    FileName = frame.GetFileName(),
-                    Method = frame.GetMethod().ToString(),
-                    LineNumber = frame.GetFileLineNumber(),
-                    ColumnNumber = frame.GetFileColumnNumber()
-                });
+                    frameList.Add(new SSSISFD
+                    {
+                        FileName = frame.GetFileName(),
+                        Method = frame.GetMethod().ToString(),
+                        LineNumber = frame.GetFileLineNumber(),
+                        ColumnNumber = frame.GetFileColumnNumber()
+                    });
+                }
             }
 
             return frameList;
@@ -85,9 +88,12 @@ namespace Sucrose.Shared.Space.Converter
             Exception exception = (Exception)Activator.CreateInstance(exceptionType, serializableException.Message);
             exception.HelpLink = serializableException.HelpURL;
 
-            foreach (DictionaryEntry entry in serializableException.Data)
+            if (serializableException.Data != null && serializableException.Data.Count > 0)
             {
-                exception.Data.Add(entry.Key, entry.Value);
+                foreach (DictionaryEntry entry in serializableException.Data)
+                {
+                    exception.Data.Add(entry.Key, entry.Value);
+                }
             }
 
             if (serializableException.InnerException != null)

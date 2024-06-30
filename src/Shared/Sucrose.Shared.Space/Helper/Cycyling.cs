@@ -54,12 +54,28 @@ namespace Sucrose.Shared.Space.Helper
                     switch (SSDMM.TransitionType)
                     {
                         case SSDETT.Random:
-                            while (Index == Themes.IndexOf(LibrarySelected))
+                            while (string.IsNullOrEmpty(Selected))
                             {
-                                Index = SMR.Randomise.Next(Themes.Count);
-                            }
+                                while (Index == Themes.IndexOf(LibrarySelected))
+                                {
+                                    Index = SMR.Randomise.Next(Themes.Count);
+                                }
 
-                            Selected = Themes[Index];
+                                string Current = Themes[Index];
+
+                                string ThemePath = Path.Combine(SMMM.LibraryLocation, Current);
+                                string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
+
+                                if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
+                                {
+                                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                    {
+                                        Selected = Current;
+                                    }
+                                }
+                            }
                             break;
                         case SSDETT.Sequential:
                             if (Index < 0 || Index >= Themes.Count)
@@ -78,12 +94,18 @@ namespace Sucrose.Shared.Space.Helper
 
                             foreach (string Theme in Themes.Skip(Index))
                             {
-                                SSTHI Info = SSTHI.ReadJson(Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo));
+                                string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                                string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
-                                if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                                 {
-                                    Selected = Theme;
-                                    break;
+                                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                                    if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
+                                    {
+                                        Selected = Theme;
+                                        break;
+                                    }
                                 }
                             }
                             break;

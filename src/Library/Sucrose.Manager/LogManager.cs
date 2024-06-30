@@ -63,7 +63,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitWriteLock();
+                if (_lock.IsWriteLockHeld)
+                {
+                    _lock.ExitWriteLock();
+                }
             }
         }
 
@@ -106,7 +109,10 @@ namespace Sucrose.Manager
             }
             finally
             {
-                _lock.ExitWriteLock();
+                if (_lock.IsWriteLockHeld)
+                {
+                    _lock.ExitWriteLock();
+                }
             }
         }
 
