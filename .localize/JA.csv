@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.VersionTip,�
 Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.MenuInstall,インストール
 Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.MenuReport,レポート
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.JA.xaml,Portal.StoreCard.Incompatible,非互換
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Title,テーマの作成
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Create,作成
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Close,閉じる

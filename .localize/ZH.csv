@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,Portal.StoreCard.VersionTip,�
 Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,Portal.StoreCard.MenuInstall,安装
 Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,Portal.StoreCard.MenuReport,报告
+Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.ZH.xaml,Portal.StoreCard.Incompatible,不兼容
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Title,主题创建
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Create,创建
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Close,关闭

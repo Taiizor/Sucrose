@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.VersionTip,"
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuInstall,Pasang
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuReport,Laporkan
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.Incompatible,Tidak Kompatibel
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Title,Pembuatan Tema
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Create,Buat
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Close,Tutup

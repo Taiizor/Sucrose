@@ -9,4 +9,6 @@
 
     <system:String x:Key="Portal.StoreCard.MenuInstall">安装</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">报告</system:String>
+
+    <system:String x:Key="Portal.StoreCard.Incompatible">不兼容</system:String>
 </ResourceDictionary>

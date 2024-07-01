@@ -9,4 +9,6 @@
 
     <system:String x:Key="Portal.StoreCard.MenuInstall">Εγκατάσταση</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Αναφορά</system:String>
+
+    <system:String x:Key="Portal.StoreCard.Incompatible">Μη Συμβατό</system:String>
 </ResourceDictionary>

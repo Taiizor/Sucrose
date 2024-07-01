@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.VersionTip,�
 Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.MenuInstall,Установить
 Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.MenuReport,Сообщить о проблеме
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.RU.xaml,Portal.StoreCard.Incompatible,Несовместимый
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Title,Создание темы
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Create,Создать
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Close,Закрыть

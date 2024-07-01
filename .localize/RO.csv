@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,Portal.StoreCard.VersionTip,"
 Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,Portal.StoreCard.MenuInstall,Instalează
 Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,Portal.StoreCard.MenuReport,Raportează
+Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.RO.xaml,Portal.StoreCard.Incompatible,Incompatibil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Title,Creare Temă
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Create,Creează
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Close,Închide

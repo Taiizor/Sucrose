@@ -9,4 +9,6 @@
 
     <system:String x:Key="Portal.StoreCard.MenuInstall">Instalovat</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Nahlásit</system:String>
+
+    <system:String x:Key="Portal.StoreCard.Incompatible">Nekompatibilní</system:String>
 </ResourceDictionary>

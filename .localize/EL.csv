@@ -527,7 +527,7 @@ Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.Paused
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,,
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.Selected,Επιλέγεται
 Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,,
-Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.Incompatible,Μη συμβατό
+Portal\Controls\LibraryCard\Portal.LibraryCard.EL.xaml,Portal.LibraryCard.Incompatible,Μη Συμβατό
 Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Title,Σχετικά
 Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,Portal.OtherAbout.Close,Κλείσιμο
 Portal\Controls\OtherAbout\Portal.OtherAbout.EL.xaml,,
@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.VersionTip,"
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuInstall,Εγκατάσταση
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuReport,Αναφορά
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.Incompatible,Μη Συμβατό
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Title,Δημιουργία Θέματος
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Create,Δημιουργία
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Close,Κλείσιμο

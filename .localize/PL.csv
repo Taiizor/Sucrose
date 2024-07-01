@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.PL.xaml,Portal.StoreCard.VersionTip,"
 Portal\Controls\StoreCard\Portal.StoreCard.PL.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.PL.xaml,Portal.StoreCard.MenuInstall,Zainstaluj
 Portal\Controls\StoreCard\Portal.StoreCard.PL.xaml,Portal.StoreCard.MenuReport,Raport
+Portal\Controls\StoreCard\Portal.StoreCard.PL.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.PL.xaml,Portal.StoreCard.Incompatible,Niekompatybilny
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Title,Utwórz Motyw
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Create,Utwórz
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Close,Zamknij

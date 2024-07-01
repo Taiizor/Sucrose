@@ -24,5 +24,5 @@
 
     <system:String x:Key="Portal.LibraryCard.Selected">Επιλέγεται</system:String>
 
-    <system:String x:Key="Portal.LibraryCard.Incompatible">Μη συμβατό</system:String>
+    <system:String x:Key="Portal.LibraryCard.Incompatible">Μη Συμβατό</system:String>
 </ResourceDictionary>

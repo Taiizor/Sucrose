@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.VersionTip,"
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuInstall,Installeren
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuReport,Melden
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.Incompatible,Incompatibel
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Title,Thema Maken
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Create,Aanmaken
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Close,Sluiten

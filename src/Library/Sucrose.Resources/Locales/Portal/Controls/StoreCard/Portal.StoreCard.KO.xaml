@@ -9,4 +9,6 @@
 
     <system:String x:Key="Portal.StoreCard.MenuInstall">설치</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">신고</system:String>
+
+    <system:String x:Key="Portal.StoreCard.Incompatible">호환되지 않음</system:String>
 </ResourceDictionary>

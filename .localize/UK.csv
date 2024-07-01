@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.VersionTip,"
 Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.MenuInstall,Встановити
 Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.MenuReport,Повідомити
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.UK.xaml,Portal.StoreCard.Incompatible,Несумісний
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Title,Створення Теми
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Create,Створити
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Close,Закрити

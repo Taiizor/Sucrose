@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.VersionTip,�
 Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.MenuInstall,설치
 Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.MenuReport,신고
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.KO.xaml,Portal.StoreCard.Incompatible,호환되지 않음
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Title,테마 생성
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Create,생성
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Close,닫기

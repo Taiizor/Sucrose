@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.VersionTip,P
 Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.MenuInstall,Instalovat
 Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.MenuReport,Nahlásit
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.CS.xaml,Portal.StoreCard.Incompatible,Nekompatibilní
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Title,Vytvoření šablony
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Create,Vytvořit
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Close,Zavřít

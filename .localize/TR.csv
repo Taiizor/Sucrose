@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.VersionTip,B
 Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.MenuInstall,Yükle
 Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.MenuReport,Rapor
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.TR.xaml,Portal.StoreCard.Incompatible,Uyumsuz
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Title,Tema Oluşturma
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Create,Oluştur
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Close,Kapat

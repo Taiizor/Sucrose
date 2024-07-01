@@ -572,6 +572,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.VersionTip,S
 Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.MenuInstall,इंस्टॉल करें
 Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.MenuReport,रिपोर्ट करें
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.HI.xaml,Portal.StoreCard.Incompatible,असंगत
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Title,थीम बनाएं
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Create,बनाएं
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Close,बंद करें
