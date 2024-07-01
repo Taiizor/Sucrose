@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
@@ -305,6 +304,8 @@ namespace Sucrose.Portal.Views.Controls
 
         private void ContextMenu_Opened(object sender, RoutedEventArgs e)
         {
+            MenuInstall.Header = SRER.GetValue("Portal", "StoreCard", "MenuInstall");
+
             if (Info != null)
             {
                 MenuReport.IsEnabled = true;
@@ -317,14 +318,15 @@ namespace Sucrose.Portal.Views.Controls
             if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24 && Info != null && Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
             {
                 MenuInstall.IsEnabled = true;
-
-                MenuInstall.Header = SRER.GetValue("Portal", "StoreCard", "MenuInstall");
             }
             else
             {
                 MenuInstall.IsEnabled = false;
 
-                MenuInstall.Header = $"{SRER.GetValue("Portal", "StoreCard", "MenuInstall")} ({SRER.GetValue("Portal", "StoreCard", "Incompatible")})";
+                if (Info != null && Info.AppVersion.CompareTo(SHV.Entry()) > 0)
+                {
+                    MenuInstall.Header += $" ({SRER.GetValue("Portal", "StoreCard", "Incompatible")})";
+                }
             }
         }
 
