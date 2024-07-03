@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Update.Limit,İndirme Bant Genişliği Sınırı:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Auto,Otomatik Güncelleme
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Auto.Description,Güncelleme işleminin otomatik olarak denetlenip denetlenmeyeceği.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer,Geliştirici Araçları
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,Portal.OtherSettingPage.Developer.Description,WebView ve CefSharp motoru için geliştirici araçlarını yönetin.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.TR.xaml,,

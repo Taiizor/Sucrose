@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Update.Limit,Downloadbåndbreddegrænse:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Auto,Automatisk Opdatering
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Auto.Description,Om opdateringen skal kontrolleres automatisk.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer,Udviklerværktøjer
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,Portal.OtherSettingPage.Developer.Description,Administrer udviklerværktøjer til WebView og CefSharp-motor.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.DA.xaml,,

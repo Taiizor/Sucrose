@@ -168,6 +168,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool StoreStart => SMMI.EngineSettingManager.GetSetting(SMC.StoreStart, true);
 
+        public static bool AutoUpdate => SMMI.UpdateSettingManager.GetSetting(SMC.AutoUpdate, true);
+
         public static bool Cycyling => SMMI.CyclingSettingManager.GetSetting(SMC.Cycyling, false);
 
         public static bool Visible => SMMI.LauncherSettingManager.GetSetting(SMC.Visible, true);

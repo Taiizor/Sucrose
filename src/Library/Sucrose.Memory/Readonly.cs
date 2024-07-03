@@ -54,7 +54,7 @@
 
         public static readonly string Repository = "Sucrose";
 
-        public static readonly string SoferityVersion = "v3";
+        public static readonly string SoferityVersion = "v4";
 
         public static readonly string ReportFolder = "Report";
 
@@ -176,7 +176,7 @@
 
         public static readonly string ReportdogMutex = "{Sucrose-Wallpaper-Engine-Reportdog}";
 
-        public static readonly string UserAgent = "Sucrose/1.5 (Wallpaper Engine) SucroseWebKit";
+        public static readonly string UserAgent = "Sucrose/1.6 (Wallpaper Engine) SucroseWebKit";
 
         public static readonly string BrowseWebsite = $"https://github.com/{Owner}/{Repository}";
 

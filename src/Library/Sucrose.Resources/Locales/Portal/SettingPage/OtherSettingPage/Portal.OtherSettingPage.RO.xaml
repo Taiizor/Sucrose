@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limită Lățime de Bandă pentru Descărcare:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Actualizare Automată</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Dacă procesul de actualizare va fi verificat automat.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Instrumente de Dezvoltare</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Gestionați instrumentele de dezvoltare pentru motorul WebView și CefSharp.</system:String>
 

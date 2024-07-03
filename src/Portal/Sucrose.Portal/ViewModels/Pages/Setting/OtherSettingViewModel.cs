@@ -395,6 +395,28 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Update);
 
+            SPVCEC Auto = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0),
+                Expandable = false
+            };
+
+            Auto.LeftIcon.Symbol = SymbolRegular.Component2DoubleTapSwipeDown24; //ArrowCircleDownDouble24
+            Auto.Title.Text = SRER.GetValue("Portal", "OtherSettingPage", "Auto");
+            Auto.Description.Text = SRER.GetValue("Portal", "OtherSettingPage", "Auto", "Description");
+
+            ToggleSwitch AutoState = new()
+            {
+                IsChecked = SMMM.AutoUpdate
+            };
+
+            AutoState.Checked += (s, e) => AutoStateChecked(true);
+            AutoState.Unchecked += (s, e) => AutoStateChecked(false);
+
+            Auto.HeaderFrame = AutoState;
+
+            Contents.Add(Auto);
+
             TextBlock DeveloperArea = new()
             {
                 Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
@@ -505,6 +527,11 @@ namespace Sucrose.Portal.ViewModels.Pages
         public void OnNavigatedFrom()
         {
             //Dispose();
+        }
+
+        private void AutoStateChecked(bool State)
+        {
+            SMMI.UpdateSettingManager.SetSetting(SMC.AutoUpdate, State);
         }
 
         private void UpdateTypeSelected(int Index)

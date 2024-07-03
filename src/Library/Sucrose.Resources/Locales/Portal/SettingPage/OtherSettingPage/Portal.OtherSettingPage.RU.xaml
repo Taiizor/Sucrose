@@ -27,13 +27,16 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Пожалуйста, введите персональный ключ доступа</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Пожалуйста, введите действительный персональный ключ доступа</system:String>
 
-    <system:String x:Key="Portal.OtherSettingPage.Channel">Канал обновлений</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Канал Обновлений</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Канал, через который будет выполняться процесс обновления.</system:String>
 
-    <system:String x:Key="Portal.OtherSettingPage.Update">Метод обновления</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update">Метод Обновления</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">Способ, которым будет выполняться процесс обновления.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Лимит полосы пропускания загрузки:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Автоматическое Обновление</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Будет ли процесс обновления проверяться автоматически.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Инструменты разработчика</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Управление инструментами разработчика для движка WebView и CefSharp.</system:String>

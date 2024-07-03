@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Update.Limit,Nedlastingsbåndbreddegrense:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Auto,Automatisk Oppdatering
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Auto.Description,Om oppdateringsprosessen vil bli sjekket automatisk.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer,Utviklerverktøy
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,Portal.OtherSettingPage.Developer.Description,Administrer utviklerverktøy for WebView og CefSharp-motoren.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NB.xaml,,

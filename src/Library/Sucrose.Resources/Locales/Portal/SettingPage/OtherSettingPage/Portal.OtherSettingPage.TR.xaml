@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">İndirme Bant Genişliği Sınırı:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Otomatik Güncelleme</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Güncelleme işleminin otomatik olarak denetlenip denetlenmeyeceği.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Geliştirici Araçları</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView ve CefSharp motoru için geliştirici araçlarını yönetin.</system:String>
 

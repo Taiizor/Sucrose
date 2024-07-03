@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">ダウンロード帯域幅制限:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">自動更新</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">更新プロセスが自動的にチェックされるかどうか。</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">開発者ツール</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView および CefSharp エンジンの開発者ツールを管理します。</system:String>
 

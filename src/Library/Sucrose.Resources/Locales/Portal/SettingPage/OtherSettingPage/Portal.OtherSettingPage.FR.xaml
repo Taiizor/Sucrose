@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limite de Bande Passante de Téléchargement:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Mise à Jour Automatique</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Si le processus de mise à jour sera vérifié automatiquement.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Outils de Développeur</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Gérer les outils de développement pour le moteur WebView et CefSharp.</system:String>
 

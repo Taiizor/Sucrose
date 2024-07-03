@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Update.Limit,下载带宽限制:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Auto,自动更新
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Auto.Description,是否将自动检查更新过程。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Developer,开发工具
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,Portal.OtherSettingPage.Developer.Description,管理 WebView 和 CefSharp 引擎的开发者工具。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ZH.xaml,,

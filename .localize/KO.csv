@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Update.Limit,다운로드 대역폭 제한:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Auto,자동 업데이트
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Auto.Description,업데이트 프로세스가 자동으로 확인될지 여부입니다.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Developer,개발자 도구
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,Portal.OtherSettingPage.Developer.Description,WebView 및 CefSharp 엔진용 개발자 도구 관리.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.KO.xaml,,

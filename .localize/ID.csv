@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Update.Limit,Batas Lebar Pita Unduhan:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Auto,Pembaruan Otomatis
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Auto.Description,Apakah proses pembaruan akan diperiksa secara otomatis.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer,Alat Pengembang
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,Portal.OtherSettingPage.Developer.Description,Mengelola alat pengembang untuk mesin WebView dan CefSharp.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.ID.xaml,,

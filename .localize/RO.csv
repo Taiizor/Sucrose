@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Update.Limit,Limită Lățime de Bandă pentru Descărcare:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Auto,Actualizare Automată
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Auto.Description,Dacă procesul de actualizare va fi verificat automat.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Developer,Instrumente de Dezvoltare
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,Portal.OtherSettingPage.Developer.Description,Gestionați instrumentele de dezvoltare pentru motorul WebView și CefSharp.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.RO.xaml,,

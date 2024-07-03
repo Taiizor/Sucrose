@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">डाउनलोड बैंडविड्थ सीमा:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">स्वचालित अद्यतन</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">क्या अद्यतन प्रक्रिया स्वचालित रूप से जांची जाएगी।</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">डेवलपर टूल</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">WebView और CefSharp इंजन के लिए डेवलपर टूल्स का प्रबंधन करें।</system:String>
 

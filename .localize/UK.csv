@@ -871,13 +871,16 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.PersonalKey,"Будь ласка, введіть особистий ключ доступу"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Key.PersonalKey.Valid,"Будь ласка, введіть дійсний особистий ключ доступу"
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel,Канал оновлення
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel,Канал Оновлення
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Channel.Description,"Визначте канал, через який здійснювати оновлення."
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
-Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update,Спосіб оновлення
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update,Спосіб Оновлення
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update.Description,Визначте спосіб оновлення програми.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Update.Limit,Обмеження ширина смуги для завантаження:
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Auto,Автоматичне Оновлення
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Auto.Description,Чи буде процес оновлення перевірятися автоматично.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer,Інструменти розробника
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.UK.xaml,Portal.OtherSettingPage.Developer.Description,Керуйте інструментами розробника для движка WebView та CefSharp.

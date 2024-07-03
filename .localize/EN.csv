@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Update.Limit,Download Bandwidth Limit:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Auto,Automatic Update
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Auto.Description,Whether the update process will be checked automatically.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer,Developer Tools
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,Portal.OtherSettingPage.Developer.Description,Manage developer tools for WebView and CefSharp engine.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EN.xaml,,

@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Update.Limit,Had Lebar Jalur Muat Turun:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Auto,Kemas Kini Automatik
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Auto.Description,Sama ada proses kemas kini akan diperiksa secara automatik.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer,Alat Pembangun
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,Portal.OtherSettingPage.Developer.Description,Urus alat pembangun untuk enjin WebView dan CefSharp.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.MS.xaml,,

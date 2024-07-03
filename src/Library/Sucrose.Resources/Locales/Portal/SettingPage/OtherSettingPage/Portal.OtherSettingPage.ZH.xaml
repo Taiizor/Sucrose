@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">下载带宽限制:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">自动更新</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">是否将自动检查更新过程。</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">开发工具</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">管理 WebView 和 CefSharp 引擎的开发者工具。</system:String>
 

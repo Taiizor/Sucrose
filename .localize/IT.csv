@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Update.Limit,Limite di Larghezza di Banda per il Download:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Auto,Aggiornamento Automatico
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Auto.Description,Se il processo di aggiornamento verrà controllato automaticamente.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Developer,Strumenti di Sviluppo
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,Portal.OtherSettingPage.Developer.Description,Gestisci gli strumenti di sviluppo per il motore WebView e CefSharp.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.IT.xaml,,

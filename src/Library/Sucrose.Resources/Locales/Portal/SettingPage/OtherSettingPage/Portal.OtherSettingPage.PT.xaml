@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Limite de largura de banda de download:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Atualização Automática</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Se o processo de atualização será verificado automaticamente.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Ferramentas de Desenvolvedor</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Gerencie ferramentas de desenvolvedor para o motor WebView e CefSharp.</system:String>
 

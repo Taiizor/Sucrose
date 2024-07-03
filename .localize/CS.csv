@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Update.Limit,Limit Šířky Pásma Stahování:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Auto,Automatická Aktualizace
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Auto.Description,Zda má být aktualizace automaticky kontrolována.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer,Vývojářské Nástroje
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,Portal.OtherSettingPage.Developer.Description,Spravujte vývojářské nástroje pro motory WebView a CefSharp.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.CS.xaml,,

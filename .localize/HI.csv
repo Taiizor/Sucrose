@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Update.Limit,डाउनलोड बैंडविड्थ सीमा:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Auto,स्वचालित अद्यतन
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Auto.Description,क्या अद्यतन प्रक्रिया स्वचालित रूप से जांची जाएगी।
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Developer,डेवलपर टूल
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,Portal.OtherSettingPage.Developer.Description,WebView और CefSharp इंजन के लिए डेवलपर टूल्स का प्रबंधन करें।
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.HI.xaml,,

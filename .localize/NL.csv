@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Update.Limit,Downloadbandbreedtelimiet:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Auto,Automatische Update
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Auto.Description,Of het updateproces automatisch wordt gecontroleerd.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer,Ontwikkelaarshulpmiddelen
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,Portal.OtherSettingPage.Developer.Description,Beheer ontwikkelaarstools voor de WebView- en CefSharp-engine.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.NL.xaml,,

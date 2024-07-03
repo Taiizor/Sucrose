@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Update.Limit,Όριο Εύρους Ζώνης για Λήψη:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Auto,Αυτόματη Ενημέρωση
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Auto.Description,Εάν ο έλεγχος της ενημέρωσης θα γίνεται αυτόματα.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer,Εργαλεία Προγραμματιστή
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,Portal.OtherSettingPage.Developer.Description,Διαχείριση εργαλείων προγραμματιστή για τον κινητήρα WebView και CefSharp.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.EL.xaml,,

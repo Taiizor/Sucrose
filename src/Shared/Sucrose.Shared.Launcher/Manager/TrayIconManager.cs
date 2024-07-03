@@ -56,7 +56,10 @@ namespace Sucrose.Shared.Launcher.Manager
 
             SSLCRG.Command();
 
-            SSLCU.Command();
+            if (SMMM.AutoUpdate)
+            {
+                SSLCU.Command();
+            }
         }
 
         public void Initialize()

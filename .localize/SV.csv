@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Update.Limit,Nedladdningsbandbreddsbegränsning:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Auto,Automatisk Uppdatering
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Auto.Description,Om uppdateringsprocessen kommer att kontrolleras automatiskt.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer,Utvecklarverktyg
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,Portal.OtherSettingPage.Developer.Description,Hantera utvecklarverktyg för WebView och CefSharp-motorn.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.SV.xaml,,

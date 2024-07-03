@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Update.Limit,ダウンロード帯域幅制限:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Auto,自動更新
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Auto.Description,更新プロセスが自動的にチェックされるかどうか。
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Developer,開発者ツール
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,Portal.OtherSettingPage.Developer.Description,WebView および CefSharp エンジンの開発者ツールを管理します。
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.JA.xaml,,

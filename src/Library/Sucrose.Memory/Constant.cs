@@ -60,6 +60,8 @@
 
         public const string UserAgent = "UserAgent";
 
+        public const string AutoUpdate = "AutoUpdate";
+
         public const string PlayerType = "PlayerType";
 
         public const string Statistics = "Statistics";

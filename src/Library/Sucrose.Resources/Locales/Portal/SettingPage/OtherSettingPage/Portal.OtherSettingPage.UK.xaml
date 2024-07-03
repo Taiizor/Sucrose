@@ -27,13 +27,16 @@
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey">Будь ласка, введіть особистий ключ доступу</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Key.PersonalKey.Valid">Будь ласка, введіть дійсний особистий ключ доступу</system:String>
 
-    <system:String x:Key="Portal.OtherSettingPage.Channel">Канал оновлення</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Channel">Канал Оновлення</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Channel.Description">Визначте канал, через який здійснювати оновлення.</system:String>
 
-    <system:String x:Key="Portal.OtherSettingPage.Update">Спосіб оновлення</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Update">Спосіб Оновлення</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Update.Description">Визначте спосіб оновлення програми.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Обмеження ширина смуги для завантаження:</system:String>
+
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Автоматичне Оновлення</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Чи буде процес оновлення перевірятися автоматично.</system:String>
 
     <system:String x:Key="Portal.OtherSettingPage.Developer">Інструменти розробника</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Керуйте інструментами розробника для движка WebView та CefSharp.</system:String>

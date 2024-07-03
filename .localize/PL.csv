@@ -879,6 +879,9 @@ Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.Other
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Update.Limit,Limit Przepustowości Pobierania:
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Auto,Automatyczna Aktualizacja
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Auto.Description,Czy proces aktualizacji będzie sprawdzany automatycznie.
+Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Developer,Narzędzia Deweloperskie
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,Portal.OtherSettingPage.Developer.Description,Zarządzaj narzędziami dewelopera dla silnika WebView i CefSharp.
 Portal\SettingPage\OtherSettingPage\Portal.OtherSettingPage.PL.xaml,,

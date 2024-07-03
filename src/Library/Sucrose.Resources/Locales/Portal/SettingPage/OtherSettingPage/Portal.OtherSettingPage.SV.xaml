@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Nedladdningsbandbreddsbegränsning:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Automatisk Uppdatering</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Om uppdateringsprocessen kommer att kontrolleras automatiskt.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Utvecklarverktyg</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Hantera utvecklarverktyg för WebView och CefSharp-motorn.</system:String>
 

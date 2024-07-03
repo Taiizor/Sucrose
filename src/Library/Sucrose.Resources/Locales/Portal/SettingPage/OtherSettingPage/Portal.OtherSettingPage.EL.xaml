@@ -35,6 +35,9 @@
 
     <system:String x:Key="Portal.OtherSettingPage.Update.Limit">Όριο Εύρους Ζώνης για Λήψη:</system:String>
 
+    <system:String x:Key="Portal.OtherSettingPage.Auto">Αυτόματη Ενημέρωση</system:String>
+    <system:String x:Key="Portal.OtherSettingPage.Auto.Description">Εάν ο έλεγχος της ενημέρωσης θα γίνεται αυτόματα.</system:String>
+
     <system:String x:Key="Portal.OtherSettingPage.Developer">Εργαλεία Προγραμματιστή</system:String>
     <system:String x:Key="Portal.OtherSettingPage.Developer.Description">Διαχείριση εργαλείων προγραμματιστή για τον κινητήρα WebView και CefSharp.</system:String>
 
