@@ -27,6 +27,13 @@
             Opacity="0.9"
             Opened="ContextMenu_Opened">
             <ui:MenuItem
+                x:Name="MenuUpdate"
+                Click="MenuUpdate_Click"
+                Cursor="Hand"
+                Header="{DynamicResource Portal.StoreCard.MenuUpdate}"
+                Icon="{ui:SymbolIcon BoxSearch24}"
+                Visibility="Collapsed" />
+            <ui:MenuItem
                 x:Name="MenuInstall"
                 Click="MenuInstall_Click"
                 Cursor="Hand"
@@ -154,6 +161,7 @@
                             <ui:SymbolIcon
                                 x:Name="IncompatibleVersion"
                                 Width="36"
+                                Cursor="Hand"
                                 FontSize="36"
                                 Foreground="{DynamicResource PaletteRedBrush}"
                                 Symbol="BoxDismiss24"

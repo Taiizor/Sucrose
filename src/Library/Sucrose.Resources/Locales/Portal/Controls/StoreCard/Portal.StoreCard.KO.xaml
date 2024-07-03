@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">이 테마를 사용하려면 Sucrose를 업데이트하세요</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdate">업데이트 확인</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">설치</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">신고</system:String>
 

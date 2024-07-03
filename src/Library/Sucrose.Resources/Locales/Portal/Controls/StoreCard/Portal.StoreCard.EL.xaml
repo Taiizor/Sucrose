@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdate">Έλεγχος Για Ενημερώσεις</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">Εγκατάσταση</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Αναφορά</system:String>
 

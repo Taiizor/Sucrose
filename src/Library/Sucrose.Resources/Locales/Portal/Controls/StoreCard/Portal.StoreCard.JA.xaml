@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">このテーマを使用するには、Sucroseを更新してください</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdate">更新を確認</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">インストール</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">レポート</system:String>
 

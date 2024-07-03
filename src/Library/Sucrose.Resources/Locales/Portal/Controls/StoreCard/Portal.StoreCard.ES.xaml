@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">Actualiza Sucrose para poder usar este tema</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdate">Buscar Actualizaciones</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">Instalar</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Reportar</system:String>
 

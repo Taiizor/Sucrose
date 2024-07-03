@@ -19,6 +19,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCTR = Sucrose.Portal.Views.Controls.ThemeReport;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDEST = Sucrose.Shared.Dependency.Enum.StoreType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
@@ -99,10 +100,12 @@ namespace Sucrose.Portal.Views.Controls
                     }
                 }
             }
-            else
+            else if (Info != null)
             {
                 DownloadSymbol.Visibility = Visibility.Hidden;
                 IncompatibleVersion.Visibility = Visibility.Visible;
+
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
             }
         }
 
@@ -297,6 +300,11 @@ namespace Sucrose.Portal.Views.Controls
             Start();
         }
 
+        private void MenuUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+        }
+
         private void MenuInstall_Click(object sender, RoutedEventArgs e)
         {
             Start();
@@ -318,6 +326,8 @@ namespace Sucrose.Portal.Views.Controls
             if (DownloadSymbol.Symbol == SymbolRegular.CloudArrowDown24 && Info != null && Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
             {
                 MenuInstall.IsEnabled = true;
+
+                MenuUpdate.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -325,6 +335,8 @@ namespace Sucrose.Portal.Views.Controls
 
                 if (Info != null && Info.AppVersion.CompareTo(SHV.Entry()) > 0)
                 {
+                    MenuUpdate.Visibility = Visibility.Visible;
+
                     MenuInstall.Header += $" ({SRER.GetValue("Portal", "StoreCard", "Incompatible")})";
                 }
             }
