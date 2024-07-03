@@ -55,6 +55,8 @@ namespace Sucrose.Shared.Launcher.Manager
             SSLCE.Command(false);
 
             SSLCRG.Command();
+
+            SSLCU.Command();
         }
 
         public void Initialize()
