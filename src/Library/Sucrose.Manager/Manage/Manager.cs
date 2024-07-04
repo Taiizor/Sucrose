@@ -162,6 +162,8 @@ namespace Sucrose.Manager.Manage
 
         public static bool LibraryMove => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryMove, true);
 
+        public static bool HintTrayIcon => SMMI.UserSettingManager.GetSetting(SMC.HintTrayIcon, true);
+
         public static bool DiscordState => SMMI.HookSettingManager.GetSetting(SMC.DiscordState, true);
 
         public static bool Statistics => SMMI.GeneralSettingManager.GetSetting(SMC.Statistics, true);

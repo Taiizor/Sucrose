@@ -1,0 +1,9 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.TrayIcon.Title">Γραμμή Συστήματος</system:String>
+    <system:String x:Key="Portal.TrayIcon.Close">Κλείσιμο</system:String>
+
+    <system:String x:Key="Portal.TrayIcon.Message">Το Sucrose ελαχιστοποιήθηκε στη γραμμή συστήματος. Για να συνεχίσετε, κάντε δεξί κλικ στο εικονίδιο του Sucrose.</system:String>
+</ResourceDictionary>

@@ -1,0 +1,9 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.TrayIcon.Title">सिस्टम ट्रे</system:String>
+    <system:String x:Key="Portal.TrayIcon.Close">बंद करें</system:String>
+
+    <system:String x:Key="Portal.TrayIcon.Message">Sucrose को सिस्टम ट्रे में न्यूनतम किया गया है। कृपया जारी रखने के लिए Sucrose आइकन पर राइट-क्लिक करें।</system:String>
+</ResourceDictionary>

@@ -1,0 +1,9 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.TrayIcon.Title">Sistem Tepsisi</system:String>
+    <system:String x:Key="Portal.TrayIcon.Close">Kapat</system:String>
+
+    <system:String x:Key="Portal.TrayIcon.Message">Sucrose, sistem tepsisine küçültüldü. Devam etmek için lütfen Sucrose simgesine sağ tıklayın.</system:String>
+</ResourceDictionary>

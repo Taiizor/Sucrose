@@ -1,0 +1,9 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.TrayIcon.Title">Systeemvak</system:String>
+    <system:String x:Key="Portal.TrayIcon.Close">Sluiten</system:String>
+
+    <system:String x:Key="Portal.TrayIcon.Message">Sucrose is geminimaliseerd naar het systeemvak. Klik met de rechtermuisknop op het Sucrose-pictogram om door te gaan.</system:String>
+</ResourceDictionary>

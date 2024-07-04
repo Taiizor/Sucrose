@@ -1,0 +1,9 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Portal.TrayIcon.Title">Bandeja del sistema</system:String>
+    <system:String x:Key="Portal.TrayIcon.Close">Cerrar</system:String>
+
+    <system:String x:Key="Portal.TrayIcon.Message">Sucrose se ha minimizado a la bandeja del sistema. Por favor, haga clic derecho en el icono de Sucrose para continuar.</system:String>
+</ResourceDictionary>

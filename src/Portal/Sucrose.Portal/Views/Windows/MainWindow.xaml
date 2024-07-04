@@ -20,6 +20,7 @@
     d:DesignWidth="900"
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Closing="MainWindow_Closing"
     ContentRendered="MainWindow_ContentRendered"
     ExtendsContentIntoTitleBar="True"
     PreviewKeyDown="MainWindow_PreviewKeyDown"

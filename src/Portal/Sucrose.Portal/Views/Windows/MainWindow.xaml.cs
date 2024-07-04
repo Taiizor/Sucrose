@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -18,6 +19,7 @@ using SMR = Sucrose.Memory.Readonly;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPMM = Sucrose.Portal.Manage.Manager;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
+using SPVCTI = Sucrose.Portal.Views.Controls.TrayIcon;
 using SPVMWMWVM = Sucrose.Portal.ViewModels.Windows.MainWindowViewModel;
 using SPVPLP = Sucrose.Portal.Views.Pages.LibraryPage;
 using SPVPSGSP = Sucrose.Portal.Views.Pages.Setting.GeneralSettingPage;
@@ -229,6 +231,22 @@ namespace Sucrose.Portal.Views.Windows
             else
             {
                 ApplyGeneral();
+            }
+        }
+
+        private async void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            if (SMMM.HintTrayIcon)
+            {
+                e.Cancel = true;
+
+                SPVCTI TrayIcon = new();
+
+                await TrayIcon.ShowAsync();
+
+                TrayIcon.Dispose();
+
+                Close();
             }
         }
 

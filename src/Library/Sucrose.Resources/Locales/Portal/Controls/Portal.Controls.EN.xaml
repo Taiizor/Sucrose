@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="TrayIcon/Portal.TrayIcon.EN.xaml" />
         <ResourceDictionary Source="OtherHelp/Portal.OtherHelp.EN.xaml" />
         <ResourceDictionary Source="ThemeEdit/Portal.ThemeEdit.EN.xaml" />
         <ResourceDictionary Source="StoreCard/Portal.StoreCard.EN.xaml" />
