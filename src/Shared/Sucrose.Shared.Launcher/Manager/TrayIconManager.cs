@@ -58,7 +58,7 @@ namespace Sucrose.Shared.Launcher.Manager
 
             if (SMMM.AutoUpdate)
             {
-                SSLCU.Command();
+                SSLCU.Command(false);
             }
         }
 

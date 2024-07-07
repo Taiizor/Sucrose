@@ -97,7 +97,14 @@ namespace Sucrose.Commandog.Helper
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
                                     break;
                                 case SSDECT.Update:
-                                    SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    if (Values.Count() > 1)
+                                    {
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));
+                                    }
+                                    else
+                                    {
+                                        SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    }
                                     break;
                                 case SSDECT.Import:
                                     await SSSHI.Start(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]));

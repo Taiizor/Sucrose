@@ -70,8 +70,11 @@ namespace Sucrose.Update.View
 
         private static int MaxDelay => 5000;
 
-        public MainWindow()
+        private bool Silent;
+
+        public MainWindow(bool Silent)
         {
+            this.Silent = Silent;
             InitializeComponent();
         }
 
@@ -97,10 +100,13 @@ namespace Sucrose.Update.View
         {
             try
             {
-                SWNM.DWMWINDOWATTRIBUTE Attribute = SWNM.DWMWINDOWATTRIBUTE.WindowCornerPreference;
-                SWNM.DWM_WINDOW_CORNER_PREFERENCE Preference = SWNM.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+                if (!Silent)
+                {
+                    SWNM.DWMWINDOWATTRIBUTE Attribute = SWNM.DWMWINDOWATTRIBUTE.WindowCornerPreference;
+                    SWNM.DWM_WINDOW_CORNER_PREFERENCE Preference = SWNM.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
 
-                SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
+                    SWNM.DwmSetWindowAttribute(SWHWI.Handle(this), Attribute, ref Preference, (uint)Marshal.SizeOf(typeof(uint)));
+                }
             }
             catch
             {
@@ -138,15 +144,25 @@ namespace Sucrose.Update.View
                                 {
                                     await Task.Delay(MinDelay);
 
-                                    if (await StepDownloading())
+                                    if (StepSilent())
                                     {
-                                        State = false;
+                                        await Task.Delay(MinDelay);
+
+                                        if (await StepDownloading())
+                                        {
+                                            State = false;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+            }
+
+            if (Silent)
+            {
+                Close();
             }
 
             if (State)
@@ -188,6 +204,23 @@ namespace Sucrose.Update.View
 
                 return false;
             }
+        }
+
+        private bool StepSilent()
+        {
+            Show();
+
+            Opacity = 1;
+
+            Silent = false;
+
+            WindowCorner();
+
+            ShowInTaskbar = true;
+
+            Visibility = Visibility.Visible;
+
+            return true;
         }
 
         private async Task<bool> StepNetwork()

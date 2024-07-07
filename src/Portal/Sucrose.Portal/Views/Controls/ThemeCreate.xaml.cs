@@ -446,8 +446,8 @@ namespace Sucrose.Portal.Views.Controls
                         string Name;
                         string Theme;
                         string[] Tags;
-                        string Preview = "preview.gif";
-                        string Thumbnail = "thumbnail.jpg";
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(GifTags.Text))
                         {
@@ -592,8 +592,8 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Theme;
                         string[] Tags;
-                        string Preview = "preview.gif";
-                        string Thumbnail = "thumbnail.jpg";
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(UrlTags.Text))
                         {
@@ -715,8 +715,8 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Theme;
                         string[] Tags;
-                        string Preview = "preview.gif";
-                        string Thumbnail = "thumbnail.jpg";
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(WebTags.Text))
                         {
@@ -842,8 +842,8 @@ namespace Sucrose.Portal.Views.Controls
                         string Name;
                         string Theme;
                         string[] Tags;
-                        string Preview = "preview.gif";
-                        string Thumbnail = "thumbnail.jpg";
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(VideoTags.Text))
                         {
@@ -988,8 +988,8 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Theme;
                         string[] Tags;
-                        string Preview = "preview.gif";
-                        string Thumbnail = "thumbnail.jpg";
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(YouTubeTags.Text))
                         {
@@ -1112,8 +1112,8 @@ namespace Sucrose.Portal.Views.Controls
                         string Theme;
                         string[] Tags;
                         string Arguments;
-                        string Preview = "preview.gif";
-                        string Thumbnail = "thumbnail.jpg";
+                        string Preview = "Preview.gif";
+                        string Thumbnail = "Thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(ApplicationTags.Text))
                         {

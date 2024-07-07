@@ -96,9 +96,18 @@ namespace Sucrose.Update
             }
         }
 
-        protected void Configure()
+        protected void Configure(bool Silent)
         {
-            SUVMW MainWindow = new();
+            SUVMW MainWindow = new(Silent);
+
+            if (Silent)
+            {
+                MainWindow.Visibility = Visibility.Collapsed;
+                MainWindow.ShowInTaskbar = false;
+                MainWindow.Opacity = 0;
+                MainWindow.Hide();
+            }
+
             MainWindow.ShowDialog();
 
             Close();
@@ -125,7 +134,7 @@ namespace Sucrose.Update
             {
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, false);
 
-                Configure();
+                Configure(e.Args.Any());
             }
             else
             {

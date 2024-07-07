@@ -7,9 +7,16 @@ namespace Sucrose.Shared.Launcher.Command
 {
     internal static class Update
     {
-        public static void Command()
+        public static void Command(bool State = true)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+            if (State)
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+            }
+            else
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}{SMR.ValueSeparator}{State}");
+            }
         }
     }
 }
