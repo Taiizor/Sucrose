@@ -446,8 +446,8 @@ namespace Sucrose.Portal.Views.Controls
                         string Name;
                         string Theme;
                         string[] Tags;
-                        string Preview = "Preview.gif";
-                        string Thumbnail = "Thumbnail.jpg";
+                        string Preview = "preview.gif";
+                        string Thumbnail = "thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(GifTags.Text))
                         {
@@ -545,6 +545,8 @@ namespace Sucrose.Portal.Views.Controls
                         {
                             Tags = Tags,
                             Source = Name,
+                            License = null,
+                            Arguments = null,
                             Type = SSDEWT.Gif,
                             Preview = Preview,
                             Thumbnail = Thumbnail,
@@ -590,8 +592,8 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Theme;
                         string[] Tags;
-                        string Preview = "Preview.gif";
-                        string Thumbnail = "Thumbnail.jpg";
+                        string Preview = "preview.gif";
+                        string Thumbnail = "thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(UrlTags.Text))
                         {
@@ -664,6 +666,8 @@ namespace Sucrose.Portal.Views.Controls
                         SSTHI Info = new()
                         {
                             Tags = Tags,
+                            License = null,
+                            Arguments = null,
                             Type = SSDEWT.Url,
                             Preview = Preview,
                             Source = UrlUrl.Text,
@@ -711,8 +715,8 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Theme;
                         string[] Tags;
-                        string Preview = "Preview.gif";
-                        string Thumbnail = "Thumbnail.jpg";
+                        string Preview = "preview.gif";
+                        string Thumbnail = "thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(WebTags.Text))
                         {
@@ -787,6 +791,8 @@ namespace Sucrose.Portal.Views.Controls
                         SSTHI Info = new()
                         {
                             Tags = Tags,
+                            License = null,
+                            Arguments = null,
                             Type = SSDEWT.Web,
                             Preview = Preview,
                             Thumbnail = Thumbnail,
@@ -836,8 +842,8 @@ namespace Sucrose.Portal.Views.Controls
                         string Name;
                         string Theme;
                         string[] Tags;
-                        string Preview = "Preview.gif";
-                        string Thumbnail = "Thumbnail.jpg";
+                        string Preview = "preview.gif";
+                        string Thumbnail = "thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(VideoTags.Text))
                         {
@@ -935,6 +941,8 @@ namespace Sucrose.Portal.Views.Controls
                         {
                             Tags = Tags,
                             Source = Name,
+                            License = null,
+                            Arguments = null,
                             Preview = Preview,
                             Type = SSDEWT.Video,
                             Thumbnail = Thumbnail,
@@ -980,8 +988,8 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Theme;
                         string[] Tags;
-                        string Preview = "Preview.gif";
-                        string Thumbnail = "Thumbnail.jpg";
+                        string Preview = "preview.gif";
+                        string Thumbnail = "thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(YouTubeTags.Text))
                         {
@@ -1054,6 +1062,8 @@ namespace Sucrose.Portal.Views.Controls
                         SSTHI Info = new()
                         {
                             Tags = Tags,
+                            License = null,
+                            Arguments = null,
                             Preview = Preview,
                             Thumbnail = Thumbnail,
                             Type = SSDEWT.YouTube,
@@ -1101,8 +1111,9 @@ namespace Sucrose.Portal.Views.Controls
                     {
                         string Theme;
                         string[] Tags;
-                        string Preview = "Preview.gif";
-                        string Thumbnail = "Thumbnail.jpg";
+                        string Arguments;
+                        string Preview = "preview.gif";
+                        string Thumbnail = "thumbnail.jpg";
 
                         if (string.IsNullOrEmpty(ApplicationTags.Text))
                         {
@@ -1142,6 +1153,23 @@ namespace Sucrose.Portal.Views.Controls
                             }
                         }
 
+                        if (string.IsNullOrEmpty(ApplicationArguments.Text))
+                        {
+                            Arguments = null;
+                        }
+                        else
+                        {
+                            if (ApplicationArguments.Text.Length is > 250 || string.IsNullOrWhiteSpace(ApplicationArguments.Text))
+                            {
+                                ApplicationArguments.Focus();
+                                return;
+                            }
+                            else
+                            {
+                                Arguments = ApplicationArguments.Text;
+                            }
+                        }
+
                         do
                         {
                             SPMI.LibraryService.Theme = SHG.GenerateString(SMMM.Chars, 25, SMR.Randomise);
@@ -1177,7 +1205,9 @@ namespace Sucrose.Portal.Views.Controls
                         SSTHI Info = new()
                         {
                             Tags = Tags,
+                            License = null,
                             Preview = Preview,
+                            Arguments = Arguments,
                             Thumbnail = Thumbnail,
                             AppVersion = SSCHV.Get(),
                             Type = SSDEWT.Application,

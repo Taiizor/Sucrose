@@ -26,7 +26,6 @@
         VerticalAlignment="Center"
         Orientation="Vertical">
         <TextBlock
-            x:Name="Title"
             Margin="0,0,0,10"
             FontSize="16"
             FontWeight="Regular"

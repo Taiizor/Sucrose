@@ -368,7 +368,7 @@
                 AcceptsReturn="False"
                 AcceptsTab="False"
                 MaxLength="104"
-                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTags.Hint}" />
         </StackPanel>
 
         <StackPanel
@@ -497,7 +497,7 @@
                 AcceptsReturn="False"
                 AcceptsTab="False"
                 MaxLength="104"
-                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTags.Hint}" />
         </StackPanel>
 
         <StackPanel
@@ -643,7 +643,7 @@
                 AcceptsReturn="False"
                 AcceptsTab="False"
                 MaxLength="104"
-                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTags.Hint}" />
         </StackPanel>
 
         <StackPanel
@@ -825,7 +825,7 @@
                 AcceptsReturn="False"
                 AcceptsTab="False"
                 MaxLength="104"
-                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTags.Hint}" />
         </StackPanel>
 
         <StackPanel
@@ -954,7 +954,7 @@
                 AcceptsReturn="False"
                 AcceptsTab="False"
                 MaxLength="104"
-                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTags.Hint}" />
         </StackPanel>
 
         <StackPanel
@@ -1100,7 +1100,21 @@
                 AcceptsReturn="False"
                 AcceptsTab="False"
                 MaxLength="104"
-                PlaceholderText="{DynamicResource Portal.ThemeEdit.ThemeTags.Hint}" />
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeTags.Hint}" />
+
+            <TextBlock
+                Margin="0,12,0,0"
+                FontSize="16"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{DynamicResource Portal.ThemeCreate.ThemeArguments}"
+                TextWrapping="WrapWithOverflow" />
+            <ui:TextBox
+                x:Name="ApplicationArguments"
+                Margin="0,3,0,0"
+                AcceptsReturn="False"
+                AcceptsTab="False"
+                MaxLength="250"
+                PlaceholderText="{DynamicResource Portal.ThemeCreate.ThemeArguments.Hint}" />
         </StackPanel>
     </StackPanel>
 </ui:ContentDialog>
