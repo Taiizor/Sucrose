@@ -39,6 +39,11 @@
                                 <Setter TargetName="border" Property="Background" Value="#E5E5E5" />
                                 <Setter TargetName="border" Property="BorderBrush" Value="#888888" />
                             </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="#CCCCCC" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#AAAAAA" />
+                                <Setter Property="Foreground" Value="#666666" />
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -128,7 +133,8 @@
             HorizontalAlignment="Right"
             Click="ContinueButton_Click"
             Content="Continue"
-            Cursor="Hand">
+            Cursor="Hand"
+            IsEnabled="False">
             <Button.Effect>
                 <DropShadowEffect
                     Direction="315"
@@ -147,7 +153,8 @@
             HorizontalAlignment="Left"
             Click="RememberButton_Click"
             Content="Remember"
-            Cursor="Hand">
+            Cursor="Hand"
+            IsEnabled="False">
             <Button.Effect>
                 <DropShadowEffect
                     Direction="315"

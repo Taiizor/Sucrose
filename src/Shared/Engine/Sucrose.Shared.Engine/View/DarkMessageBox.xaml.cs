@@ -33,6 +33,19 @@ namespace Sucrose.Shared.Engine.View
             Download_Button.IsEnabled = SSSHN.GetHostEntry();
 
             SourceInitialized += DarkMessageBox_SourceInitialized;
+
+            Countdown();
+        }
+
+        private async void Countdown()
+        {
+            for (int Count = 3; Count >= 0; Count--)
+            {
+                await Task.Delay(1000);
+            }
+
+            Continue_Button.IsEnabled = true;
+            Remember_Button.IsEnabled = true;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
