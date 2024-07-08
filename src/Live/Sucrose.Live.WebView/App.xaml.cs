@@ -407,6 +407,8 @@ namespace Sucrose.Live.WebView
 
             Installer.WaitForExit();
 
+            await Task.Delay(1500);
+
             Checker();
         }
 

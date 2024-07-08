@@ -440,6 +440,8 @@ namespace Sucrose.Live.CefSharp
 
             Installer.WaitForExit();
 
+            await Task.Delay(1500);
+
             Checker();
         }
 
