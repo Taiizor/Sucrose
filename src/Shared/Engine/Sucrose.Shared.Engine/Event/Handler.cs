@@ -1,8 +1,13 @@
 ﻿using System.Windows;
 using SEDST = Skylark.Enum.DisplayScreenType;
+using SMR = Sucrose.Memory.Readonly;
+using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using SWE = Skylark.Wing.Engine;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWHWO = Skylark.Wing.Helper.WindowOperations;
@@ -13,117 +18,171 @@ namespace Sucrose.Shared.Engine.Event
 {
     internal static class Handler
     {
-        public static void WindowLoaded(Window Window)
+        public static async void WindowLoaded(Window Window)
         {
-            SSEMI.WindowHandle = SWHWI.Handle(Window);
-
-            //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
-            SWHWO.RemoveWindowFromTaskbar(SSEMI.WindowHandle);
-
-            //this hides the window from taskbar and also fixes crash when Win10-Win11 taskview is launched. 
-            Window.ShowInTaskbar = true;
-            Window.ShowInTaskbar = false;
-        }
-
-        public static void ContentRendered(Window Window)
-        {
-            switch (SSEHD.GetDisplayScreenType())
+            try
             {
-                case SEDST.SpanAcross:
-                    SWE.WallpaperWindow(Window, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
-                    break;
-                case SEDST.SameDuplicate:
-                    SWE.WallpaperWindow(Window, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
-                    break;
-                default:
-                    SWE.WallpaperWindow(Window, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
-                    break;
+                SSEMI.WindowHandle = SWHWI.Handle(Window);
+
+                //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
+                SWHWO.RemoveWindowFromTaskbar(SSEMI.WindowHandle);
+
+                //this hides the window from taskbar and also fixes crash when Win10-Win11 taskview is launched. 
+                Window.ShowInTaskbar = true;
+                Window.ShowInTaskbar = false;
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.RestartLive}{SMR.ValueSeparator}{SMR.Unknown}");
             }
         }
 
-        public static void ApplicationLoaded(SSDSHS Application)
+        public static async void ContentRendered(Window Window)
         {
-            //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
-            SWHWO.RemoveWindowFromTaskbar(Application.Handle);
-            SWHWO.RemoveWindowFromTaskbar(Application.MainWindowHandle);
+            try
+            {
+                switch (SSEHD.GetDisplayScreenType())
+                {
+                    case SEDST.SpanAcross:
+                        SWE.WallpaperWindow(Window, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
+                        break;
+                    case SEDST.SameDuplicate:
+                        SWE.WallpaperWindow(Window, SSEHD.GetDuplicateScreenType(), SSEHD.GetScreenType());
+                        break;
+                    default:
+                        SWE.WallpaperWindow(Window, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
+                        break;
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
 
-            SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
-            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_HIDE);
-
-            int Style = SWNM.GetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE);
-            SWNM.SetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE, Style & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
-
-            int MainWindowStyle = SWNM.GetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE);
-            SWNM.SetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE, MainWindowStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
-
-            SWHWO.BorderlessWinStyle(Application.Handle);
-            SWHWO.BorderlessWinStyle(Application.MainWindowHandle);
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.RestartLive}{SMR.ValueSeparator}{SMR.Unknown}");
+            }
         }
 
-        public static void ApplicationRendered(SSDSHS Application)
+        public static async void ApplicationLoaded(SSDSHS Application)
         {
-            switch (SSEHD.GetDisplayScreenType())
+            try
             {
-                case SEDST.SpanAcross:
-                    SWE.WallpaperProcess(Application.Process, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
-                    break;
-                case SEDST.SameDuplicate:
-                    SSEMI.Applications.ForEach(Application => SWE.WallpaperProcess(Application.Process, SSEMI.Applications.IndexOf(Application), SSEHD.GetScreenType()));
-                    break;
-                default:
-                    SWE.WallpaperProcess(Application.Process, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
-                    break;
-            }
+                //ShowInTaskbar = false : causing issue with Windows10-Windows11 Taskview.
+                SWHWO.RemoveWindowFromTaskbar(Application.Handle);
+                SWHWO.RemoveWindowFromTaskbar(Application.MainWindowHandle);
 
-            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+                SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+                SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+
+                int Style = SWNM.GetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE);
+                SWNM.SetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE, Style & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
+
+                int MainWindowStyle = SWNM.GetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE);
+                SWNM.SetWindowLong(Application.MainWindowHandle, (int)SWNM.GWL.GWL_STYLE, MainWindowStyle & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
+
+                SWHWO.BorderlessWinStyle(Application.Handle);
+                SWHWO.BorderlessWinStyle(Application.MainWindowHandle);
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.RestartLive}{SMR.ValueSeparator}{SMR.Unknown}");
+            }
         }
 
         public static async void DisplaySettingsChanged(Window Window)
         {
-            SSEMI.Displaying?.Cancel();
-
-            SSEMI.Displaying = new CancellationTokenSource();
-
-            Window.Hide();
-
             try
             {
-                await Task.Delay(2000, SSEMI.Displaying.Token);
+                SSEMI.Displaying?.Cancel();
 
-                SWUS.Initialize();
+                SSEMI.Displaying = new CancellationTokenSource();
 
-                await Task.Delay(500, SSEMI.Displaying.Token);
+                Window.Hide();
 
-                ContentRendered(Window);
+                try
+                {
+                    await Task.Delay(2000, SSEMI.Displaying.Token);
 
-                Window.Show();
+                    SWUS.Initialize();
+
+                    await Task.Delay(500, SSEMI.Displaying.Token);
+
+                    ContentRendered(Window);
+
+                    Window.Show();
+                }
+                catch (TaskCanceledException) { }
             }
-            catch (TaskCanceledException) { }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.RestartLive}{SMR.ValueSeparator}{SMR.Unknown}");
+            }
+        }
+
+        public static async void ApplicationRendered(SSDSHS Application)
+        {
+            try
+            {
+                switch (SSEHD.GetDisplayScreenType())
+                {
+                    case SEDST.SpanAcross:
+                        SWE.WallpaperProcess(Application.Process, SSEHD.GetExpandScreenType(), SSEHD.GetScreenType());
+                        break;
+                    case SEDST.SameDuplicate:
+                        SSEMI.Applications.ForEach(Application => SWE.WallpaperProcess(Application.Process, SSEMI.Applications.IndexOf(Application), SSEHD.GetScreenType()));
+                        break;
+                    default:
+                        SWE.WallpaperProcess(Application.Process, SSEHD.GetScreenIndex(), SSEHD.GetScreenType());
+                        break;
+                }
+
+                SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.RestartLive}{SMR.ValueSeparator}{SMR.Unknown}");
+            }
         }
 
         public static async void DisplaySettingsChanged(SSDSHS Application)
         {
-            SSEMI.Displaying?.Cancel();
-
-            SSEMI.Displaying = new CancellationTokenSource();
-
-            SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
-            SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_HIDE);
-
             try
             {
-                await Task.Delay(2000, SSEMI.Displaying.Token);
+                SSEMI.Displaying?.Cancel();
 
-                SWUS.Initialize();
+                SSEMI.Displaying = new CancellationTokenSource();
 
-                await Task.Delay(500, SSEMI.Displaying.Token);
+                SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_HIDE);
+                SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_HIDE);
 
-                ApplicationRendered(Application);
+                try
+                {
+                    await Task.Delay(2000, SSEMI.Displaying.Token);
 
-                SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
-                SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+                    SWUS.Initialize();
+
+                    await Task.Delay(500, SSEMI.Displaying.Token);
+
+                    ApplicationRendered(Application);
+
+                    SWNM.ShowWindow(Application.Handle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+                    SWNM.ShowWindow(Application.MainWindowHandle, (int)SWNM.SHOWWINDOW.SW_SHOW);
+                }
+                catch (TaskCanceledException) { }
             }
-            catch (TaskCanceledException) { }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.RestartLive}{SMR.ValueSeparator}{SMR.Unknown}");
+            }
         }
     }
 }

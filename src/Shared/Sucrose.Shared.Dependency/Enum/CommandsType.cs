@@ -28,6 +28,7 @@
         Scheduler,
         Repository,
         Discussions,
+        RestartLive,
         Backgroundog
     }
 

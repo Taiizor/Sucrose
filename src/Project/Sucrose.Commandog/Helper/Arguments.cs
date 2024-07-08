@@ -122,10 +122,9 @@ namespace Sucrose.Commandog.Helper
                                     SWHWS.SetStartup(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                     break;
                                 case SSDECT.Cycyling:
-                                    if (SSSHL.Run())
-                                    {
-                                        SSLHK.Stop();
-                                    }
+                                    SSLHK.Stop();
+
+                                    SSLHK.StopSubprocess();
 
                                     SSLHR.Start();
 
@@ -194,6 +193,22 @@ namespace Sucrose.Commandog.Helper
                                     break;
                                 case SSDECT.Discussions:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.RestartLive:
+                                    SSLHK.Stop();
+
+                                    SSLHK.StopSubprocess();
+
+                                    SSSHP.Kill(SMR.Backgroundog);
+
+                                    SSLHR.Start();
+
+                                    await Task.Delay(1500);
+
+                                    if (!SSSHL.Run())
+                                    {
+                                        SSLHR.Start();
+                                    }
                                     break;
                                 case SSDECT.Backgroundog:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]), string.Empty);
