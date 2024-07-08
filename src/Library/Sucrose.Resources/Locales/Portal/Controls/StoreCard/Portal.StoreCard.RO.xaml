@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">Pentru a utiliza acest aspect, actualizați Sucrose</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdating">Verificare Actualizări</system:String>
     <system:String x:Key="Portal.StoreCard.MenuUpdate">Verificați Actualizări</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">Instalează</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Raportează</system:String>

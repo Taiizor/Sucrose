@@ -570,7 +570,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.DescriptionT
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.VersionTip,"Για να χρησιμοποιήσετε αυτό το θέμα, ενημερώστε το Sucrose"
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,,
-Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuUpdate,Έλεγχος Για Ενημερώσεις
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuUpdating,Έλεγχος Για Ενημερώσεις
+Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuUpdate,Έλεγχος Ενημερώσεων
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuInstall,Εγκατάσταση
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,Portal.StoreCard.MenuReport,Αναφορά
 Portal\Controls\StoreCard\Portal.StoreCard.EL.xaml,,

@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">请更新 Sucrose 以使用此主题</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdating">正在检查更新</system:String>
     <system:String x:Key="Portal.StoreCard.MenuUpdate">检查更新</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">安装</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">报告</system:String>

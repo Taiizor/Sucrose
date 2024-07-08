@@ -136,7 +136,7 @@ Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.UpdateText,Auf Updates prüfen
 Launcher\Launcher.DE.xaml,,
 Launcher\Launcher.DE.xaml,Launcher.UpdateText.Done,Update wird vorbereitet
-Launcher\Launcher.DE.xaml,Launcher.UpdateText.Check,Auf Updates prüfen
+Launcher\Launcher.DE.xaml,Launcher.UpdateText.Check,Überprüfen auf Updates
 Launcher\Launcher.DE.xaml,Launcher.UpdateText.Progress,Update Fortschritt {0}
 Live\Live.DE.xaml,Live.Title,{0} Benachrichtigung
 Live\Live.DE.xaml,,
@@ -570,6 +570,7 @@ Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,Portal.StoreCard.DescriptionT
 Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,Portal.StoreCard.VersionTip,"Aktualisiere Sucrose, um dieses Thema verwenden zu können"
 Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,Portal.StoreCard.MenuUpdating,Überprüfen auf Updates
 Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,Portal.StoreCard.MenuUpdate,Auf Updates Prüfen
 Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,Portal.StoreCard.MenuInstall,Installieren
 Portal\Controls\StoreCard\Portal.StoreCard.DE.xaml,Portal.StoreCard.MenuReport,Bericht

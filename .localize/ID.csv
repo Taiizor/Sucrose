@@ -570,6 +570,7 @@ Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.DescriptionT
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.VersionTip,"Untuk menggunakan tema ini, perbarui Sucrose"
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,,
+Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuUpdating,Memeriksa Pembaruan
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuUpdate,Periksa Pembaruan
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuInstall,Pasang
 Portal\Controls\StoreCard\Portal.StoreCard.ID.xaml,Portal.StoreCard.MenuReport,Laporkan

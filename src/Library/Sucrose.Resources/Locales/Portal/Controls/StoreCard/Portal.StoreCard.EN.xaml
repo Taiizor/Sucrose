@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">Update Sucrose to use this theme</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdating">Checking for Updates</system:String>
     <system:String x:Key="Portal.StoreCard.MenuUpdate">Check for Updates</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">Install</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Report</system:String>

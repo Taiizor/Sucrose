@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">Для встановлення цієї теми, оновіть Sucrose</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdating">Перевірка Oновлень</system:String>
     <system:String x:Key="Portal.StoreCard.MenuUpdate">Перевірити Oновлення</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">Встановити</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Повідомити</system:String>

@@ -15,6 +15,7 @@
                                        Event=MouseEnter}"
     xf:Animations.Secondary="{xf:Animate BasedOn={StaticResource Leaved},
                                          Event=MouseLeave}"
+    Cursor="Hand"
     Loaded="StoreCard_Loaded"
     MouseEnter="StoreCard_MouseEnter"
     MouseLeave="StoreCard_MouseLeave"

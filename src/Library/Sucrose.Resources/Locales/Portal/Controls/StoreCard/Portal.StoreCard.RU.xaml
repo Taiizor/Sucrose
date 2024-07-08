@@ -7,6 +7,7 @@
 
     <system:String x:Key="Portal.StoreCard.VersionTip">Для использования этой темы обновите Sucrose</system:String>
 
+    <system:String x:Key="Portal.StoreCard.MenuUpdating">Проверка Oбновлений</system:String>
     <system:String x:Key="Portal.StoreCard.MenuUpdate">Проверить Oбновления</system:String>
     <system:String x:Key="Portal.StoreCard.MenuInstall">Установить</system:String>
     <system:String x:Key="Portal.StoreCard.MenuReport">Сообщить о проблеме</system:String>

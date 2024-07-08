@@ -570,7 +570,8 @@ Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.DescriptionT
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,,
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.VersionTip,"Om dit thema te gebruiken, update Sucrose"
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,,
-Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuUpdate,Controleren op Updates
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuUpdating,Controleren op Updates
+Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuUpdate,Controleer op Updates
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuInstall,Installeren
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,Portal.StoreCard.MenuReport,Melden
 Portal\Controls\StoreCard\Portal.StoreCard.NL.xaml,,

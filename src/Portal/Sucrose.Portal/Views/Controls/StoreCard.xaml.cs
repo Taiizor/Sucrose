@@ -302,7 +302,10 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuUpdate_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+            if (!SSSHP.Work(SSSMI.Update))
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+            }
         }
 
         private void MenuInstall_Click(object sender, RoutedEventArgs e)
@@ -336,6 +339,19 @@ namespace Sucrose.Portal.Views.Controls
                 if (Info != null && Info.AppVersion.CompareTo(SHV.Entry()) > 0)
                 {
                     MenuUpdate.Visibility = Visibility.Visible;
+
+                    if (SSSHP.Work(SSSMI.Update))
+                    {
+                        MenuUpdate.IsEnabled = false;
+
+                        MenuUpdate.Header = SRER.GetValue("Portal", "StoreCard", "MenuUpdating");
+                    }
+                    else
+                    {
+                        MenuUpdate.IsEnabled = true;
+
+                        MenuUpdate.Header = SRER.GetValue("Portal", "StoreCard", "MenuUpdate");
+                    }
 
                     MenuInstall.Header += $" ({SRER.GetValue("Portal", "StoreCard", "Incompatible")})";
                 }
@@ -464,6 +480,7 @@ namespace Sucrose.Portal.Views.Controls
                 }
                 else
                 {
+                    Cursor = Cursors.Arrow;
                     Warn.Visibility = Visibility.Visible;
                     Progress.Visibility = Visibility.Collapsed;
                 }
@@ -472,6 +489,7 @@ namespace Sucrose.Portal.Views.Controls
             }
             catch
             {
+                Cursor = Cursors.Arrow;
                 Warn.Visibility = Visibility.Visible;
                 Progress.Visibility = Visibility.Collapsed;
 

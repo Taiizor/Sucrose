@@ -35,6 +35,6 @@
     <system:String x:Key="Launcher.UpdateText">Auf Updates prüfen</system:String>
 
     <system:String x:Key="Launcher.UpdateText.Done">Update wird vorbereitet</system:String>
-    <system:String x:Key="Launcher.UpdateText.Check">Auf Updates prüfen</system:String>
+    <system:String x:Key="Launcher.UpdateText.Check">Überprüfen auf Updates</system:String>
     <system:String x:Key="Launcher.UpdateText.Progress">Update Fortschritt {0}</system:String>
 </ResourceDictionary>
