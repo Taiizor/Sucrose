@@ -1,75 +1,157 @@
-﻿using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
+﻿using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSEWVHM = Sucrose.Shared.Engine.WebView.Helper.Management;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Shared.Engine.WebView.Helper
 {
     internal static class YouTube
     {
-        public static async void Pause()
+        public static async void Load()
         {
-            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("pauseVideo();");
+            try
+            {
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SSEHD.GetVolume()});");
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("toggleFullScreen();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
 
         public static async void Play()
         {
-            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playVideo();");
-        }
-
-        public static async void Play2()
-        {
-            bool Playing = await GetPlay();
-
-            if (!Playing)
+            try
             {
-                Play();
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playVideo();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
 
         public static async void First()
         {
-            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playFirst();");
+            try
+            {
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("playFirst();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
+        }
+
+        public static async void Pause()
+        {
+            try
+            {
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("pauseVideo();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
+        }
+
+        public static async void Play2()
+        {
+            try
+            {
+                bool Playing = await GetPlay();
+
+                if (!Playing)
+                {
+                    Play();
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
 
         public static async Task<bool> GetEnd()
         {
-            string State = await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkVideoEnded();");
+            try
+            {
+                string State = await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkVideoEnded();");
 
-            bool.TryParse(State, out bool Result);
+                bool.TryParse(State, out bool Result);
 
-            return Result;
+                return Result;
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                return false;
+            }
         }
 
         public static async Task<bool> GetPlay()
         {
-            string State = await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkPlayingStatus();");
+            try
+            {
+                string State = await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"checkPlayingStatus();");
 
-            bool.TryParse(State, out bool Result);
+                bool.TryParse(State, out bool Result);
 
-            return Result;
+                return Result;
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                return false;
+            }
         }
 
         public static async void SetLoop(bool State)
         {
-            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
+            try
+            {
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
 
         public static async void SetVolume(int Volume)
         {
-            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({Volume});");
-
-            if (SSEWVMI.Try < 3)
+            try
             {
-                await Task.Run(() =>
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({Volume});");
+
+                if (SSEWVMI.Try < 3)
                 {
-                    SSEWVMI.Try++;
-                    SSEWVHM.SetProcesses();
-                });
+                    await Task.Run(() =>
+                    {
+                        SSEWVMI.Try++;
+                        SSEWVHM.SetProcesses();
+                    });
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
 
         public static async void SetShuffle(bool State)
         {
-            await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
+            try
+            {
+                await SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
     }
 }

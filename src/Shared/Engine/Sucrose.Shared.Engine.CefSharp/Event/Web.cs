@@ -17,24 +17,21 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 {
     internal static class Web
     {
-        private static async void PropertiesWatcher(object sender, FileSystemEventArgs e)
+        public static void CefEngineLoaded(object sender, RoutedEventArgs e)
         {
-            await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
-            {
-                try
-                {
-                    SSEMI.Properties = SSTHP.ReadJson(e.FullPath);
+            SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
+        }
 
-                    if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized && SSECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
-                    {
-                        SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
-                    }
-                }
-                catch (Exception Exception)
-                {
-                    await SSWW.Watch_CatchException(Exception);
-                }
-            });
+        public static void CefEngineInitializedChanged(object sender, EventArgs e)
+        {
+            if (SMMM.DeveloperMode)
+            {
+                SSECSMI.CefEngine.ShowDevTools();
+            }
+
+            SSECSHW.StartCompatible();
+
+            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
         public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
@@ -67,21 +64,24 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
             }
         }
 
-        public static void CefEngineInitializedChanged(object sender, EventArgs e)
+        private static async void PropertiesWatcher(object sender, FileSystemEventArgs e)
         {
-            if (SMMM.DeveloperMode)
+            await System.Windows.Application.Current.Dispatcher.InvokeAsync(async () =>
             {
-                SSECSMI.CefEngine.ShowDevTools();
-            }
+                try
+                {
+                    SSEMI.Properties = SSTHP.ReadJson(e.FullPath);
 
-            SSECSHW.StartCompatible();
-
-            SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
-        }
-
-        public static void CefEngineLoaded(object sender, RoutedEventArgs e)
-        {
-            SSECSMI.CefEngine.Address = SSEHS.GetSource(SSECSMI.Web).ToString();
+                    if (!SSECSMI.CefEngine.IsDisposed && SSECSMI.CefEngine.IsInitialized && SSECSMI.CefEngine.CanExecuteJavascriptInMainFrame)
+                    {
+                        SSEHP.ExecuteNormal(SSECSMI.CefEngine.ExecuteScriptAsync);
+                    }
+                }
+                catch (Exception Exception)
+                {
+                    await SSWW.Watch_CatchException(Exception);
+                }
+            });
         }
     }
 }

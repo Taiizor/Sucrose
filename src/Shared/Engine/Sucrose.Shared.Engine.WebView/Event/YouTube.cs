@@ -1,8 +1,8 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
+using SSEWVHYT = Sucrose.Shared.Engine.WebView.Helper.YouTube;
 using SSEWVMI = Sucrose.Shared.Engine.WebView.Manage.Internal;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 
@@ -12,8 +12,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
     {
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
-            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync($"setVolume({SSEHD.GetVolume()});");
-            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("toggleFullScreen();");
+            SSEWVHYT.Load();
 
             SSEMI.Initialized = true;
         }

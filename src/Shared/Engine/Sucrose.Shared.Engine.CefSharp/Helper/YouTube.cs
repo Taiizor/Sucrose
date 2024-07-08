@@ -2,75 +2,157 @@
 using SSECSHE = Sucrose.Shared.Engine.CefSharp.Helper.Evaluate;
 using SSECSHM = Sucrose.Shared.Engine.CefSharp.Helper.Management;
 using SSECSMI = Sucrose.Shared.Engine.CefSharp.Manage.Internal;
+using SSEHD = Sucrose.Shared.Engine.Helper.Data;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 
 namespace Sucrose.Shared.Engine.CefSharp.Helper
 {
     internal static class YouTube
     {
-        public static void Pause()
+        public static async void Load()
         {
-            SSECSMI.CefEngine.ExecuteScriptAsync("pauseVideo();");
+            try
+            {
+                SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({SSEHD.GetVolume()});");
+                SSECSMI.CefEngine.ExecuteScriptAsync("toggleFullScreen();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
 
-        public static void Play()
+        public static async void Play()
         {
-            SSECSMI.CefEngine.ExecuteScriptAsync("playVideo();");
+            try
+            {
+                SSECSMI.CefEngine.ExecuteScriptAsync("playVideo();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
+        }
+
+        public static async void First()
+        {
+            try
+            {
+                SSECSMI.CefEngine.ExecuteScriptAsync("playFirst();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
+        }
+
+        public static async void Pause()
+        {
+            try
+            {
+                SSECSMI.CefEngine.ExecuteScriptAsync("pauseVideo();");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
 
         public static async void Play2()
         {
-            bool Playing = await GetPlay();
-
-            if (!Playing)
+            try
             {
-                Play();
-            }
-        }
+                bool Playing = await GetPlay();
 
-        public static void First()
-        {
-            SSECSMI.CefEngine.ExecuteScriptAsync("playFirst();");
+                if (!Playing)
+                {
+                    Play();
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
 
         public static async Task<bool> GetEnd()
         {
-            string State = await SSECSHE.ScriptString($"checkVideoEnded();");
+            try
+            {
+                string State = await SSECSHE.ScriptString($"checkVideoEnded();");
 
-            bool.TryParse(State, out bool Result);
+                bool.TryParse(State, out bool Result);
 
-            return Result;
+                return Result;
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                return false;
+            }
         }
 
         public static async Task<bool> GetPlay()
         {
-            string State = await SSECSHE.ScriptString($"checkPlayingStatus();");
+            try
+            {
+                string State = await SSECSHE.ScriptString($"checkPlayingStatus();");
 
-            bool.TryParse(State, out bool Result);
+                bool.TryParse(State, out bool Result);
 
-            return Result;
+                return Result;
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+
+                return false;
+            }
         }
 
-        public static void SetLoop(bool State)
+        public static async void SetLoop(bool State)
         {
-            SSECSMI.CefEngine.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
-        }
-
-        public static void SetShuffle(bool State)
-        {
-            SSECSMI.CefEngine.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
+            try
+            {
+                SSECSMI.CefEngine.ExecuteScriptAsync($"setLoop({State.ToString().ToLower()});");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
         }
 
         public static async void SetVolume(int Volume)
         {
-            SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({Volume});");
-
-            if (SSECSMI.Try < 3)
+            try
             {
-                await Task.Run(() =>
+                SSECSMI.CefEngine.ExecuteScriptAsync($"setVolume({Volume});");
+
+                if (SSECSMI.Try < 3)
                 {
-                    SSECSMI.Try++;
-                    SSECSHM.SetProcesses();
-                });
+                    await Task.Run(() =>
+                    {
+                        SSECSMI.Try++;
+                        SSECSHM.SetProcesses();
+                    });
+                }
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
+            }
+        }
+
+        public static async void SetShuffle(bool State)
+        {
+            try
+            {
+                SSECSMI.CefEngine.ExecuteScriptAsync($"setShuffle({State.ToString().ToLower()});");
+            }
+            catch (Exception Exception)
+            {
+                await SSWW.Watch_CatchException(Exception);
             }
         }
     }

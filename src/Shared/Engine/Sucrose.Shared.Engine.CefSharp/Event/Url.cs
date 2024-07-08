@@ -12,9 +12,14 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
 {
     internal static class Url
     {
-        public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        public static void CefEngineInitialized(object sender, EventArgs e)
         {
             SSECSHM.SetProcesses();
+        }
+
+        public static void CefEngineLoaded(object sender, RoutedEventArgs e)
+        {
+            SSECSMI.CefEngine.Address = SSECSMI.Url;
         }
 
         public static void CefEngineInitializedChanged(object sender, EventArgs e)
@@ -36,12 +41,7 @@ namespace Sucrose.Shared.Engine.CefSharp.Event
             SSEMI.Initialized = SSECSMI.CefEngine.IsBrowserInitialized;
         }
 
-        public static void CefEngineLoaded(object sender, RoutedEventArgs e)
-        {
-            SSECSMI.CefEngine.Address = SSECSMI.Url;
-        }
-
-        public static void CefEngineInitialized(object sender, EventArgs e)
+        public static void CefEngineFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
             SSECSHM.SetProcesses();
         }

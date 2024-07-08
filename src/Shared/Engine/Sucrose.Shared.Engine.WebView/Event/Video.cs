@@ -1,6 +1,5 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHV = Sucrose.Shared.Engine.WebView.Helper.Video;
@@ -12,13 +11,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
     {
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
-            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].requestFullscreen();");
-            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].controls = false;");
-            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('video')[0].loop = true;");
-            SSEWVMI.WebEngine.CoreWebView2.ExecuteScriptAsync(SSEHS.GetVideoStyle());
-
-            SSEWVHV.SetStretch(SSEHD.GetStretch());
-            SSEWVHV.SetVolume(SSEHD.GetVolume());
+            SSEWVHV.Load();
 
             SSEMI.Initialized = true;
         }

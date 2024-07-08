@@ -16,7 +16,14 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     SESMIEN AdaptedFunction = new(async (Script) =>
                     {
-                        await Function(Script);
+                        try
+                        {
+                            await Function(Script);
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     });
 
                     ExecuteNormal(AdaptedFunction);
@@ -36,67 +43,158 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.LoopMode))
                     {
-                        Function(string.Format(SSEMI.Compatible.LoopMode, SSEHD.GetLoop()));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.LoopMode, SSEHD.GetLoop()));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemCpu))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemCpu, SSEMI.CpuData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemCpu, SSEMI.CpuData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemBios))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemBios, SSEMI.BiosData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemBios, SSEMI.BiosData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemDate))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemDate, SSEMI.DateData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemDate, SSEMI.DateData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemAudio))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemAudio, SSEMI.AudioData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemAudio, SSEMI.AudioData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.VolumeLevel))
                     {
-                        Function(string.Format(SSEMI.Compatible.VolumeLevel, SSEHD.GetVolume()));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.VolumeLevel, SSEHD.GetVolume()));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.ShuffleMode))
                     {
-                        Function(string.Format(SSEMI.Compatible.ShuffleMode, SSEHD.GetShuffle()));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.ShuffleMode, SSEHD.GetShuffle()));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.StretchMode))
                     {
-                        Function(string.Format(SSEMI.Compatible.StretchMode, SSEHD.GetStretch()));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.StretchMode, SSEHD.GetStretch()));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemMemory))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemMemory, SSEMI.MemoryData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemMemory, SSEMI.MemoryData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemBattery))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemBattery, SSEMI.BatteryData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemBattery, SSEMI.BatteryData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemGraphic))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemGraphic, SSEMI.GraphicData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemGraphic, SSEMI.GraphicData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemNetwork))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemNetwork, SSEMI.NetworkData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemNetwork, SSEMI.NetworkData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(SSEMI.Compatible.SystemMotherboard))
                     {
-                        Function(string.Format(SSEMI.Compatible.SystemMotherboard, SSEMI.MotherboardData));
+                        try
+                        {
+                            Function(string.Format(SSEMI.Compatible.SystemMotherboard, SSEMI.MotherboardData));
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     }
                 }
             }

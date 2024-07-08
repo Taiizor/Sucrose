@@ -107,7 +107,14 @@ namespace Sucrose.Shared.Engine.Helper
                 {
                     SESMIEN AdaptedFunction = new(async (Script) =>
                     {
-                        await Function(Script);
+                        try
+                        {
+                            await Function(Script);
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                        }
                     });
 
                     ExecuteNormal(AdaptedFunction);
@@ -134,7 +141,14 @@ namespace Sucrose.Shared.Engine.Helper
 
                             string Script = JsonConvert.SerializeObject(Value, Formatting.Indented);
 
-                            Function(string.Format(SSEMI.Properties.PropertyListener, Key, Script));
+                            try
+                            {
+                                Function(string.Format(SSEMI.Properties.PropertyListener, Key, Script));
+                            }
+                            catch (Exception Exception)
+                            {
+                                await SSWW.Watch_CatchException(Exception);
+                            }
                         }
                     }
                 }

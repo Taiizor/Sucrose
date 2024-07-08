@@ -1,6 +1,5 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SSEHD = Sucrose.Shared.Engine.Helper.Data;
 using SSEHS = Sucrose.Shared.Engine.Helper.Source;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSEWVHG = Sucrose.Shared.Engine.WebView.Helper.Gif;
@@ -12,8 +11,7 @@ namespace Sucrose.Shared.Engine.WebView.Event
     {
         public static void WebEngineDOMContentLoaded(object sender, CoreWebView2DOMContentLoadedEventArgs e)
         {
-            SSEWVHG.SetStretch(SSEHD.GetStretch());
-            SSEWVHG.SetLoop(SSEHD.GetLoop());
+            SSEWVHG.Load();
 
             SSEMI.Initialized = true;
         }
