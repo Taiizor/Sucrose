@@ -144,7 +144,7 @@ namespace Sucrose.Update.View
                                 {
                                     await Task.Delay(MinDelay);
 
-                                    if (StepSilent())
+                                    if (!Silent || StepSilent())
                                     {
                                         await Task.Delay(MinDelay);
 
@@ -208,19 +208,26 @@ namespace Sucrose.Update.View
 
         private bool StepSilent()
         {
-            Show();
+            try
+            {
+                Show();
 
-            Opacity = 1;
+                Opacity = 1;
 
-            Silent = false;
+                Silent = false;
 
-            WindowCorner();
+                WindowCorner();
 
-            ShowInTaskbar = true;
+                ShowInTaskbar = true;
 
-            Visibility = Visibility.Visible;
+                Visibility = Visibility.Visible;
 
-            return true;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private async Task<bool> StepNetwork()

@@ -105,7 +105,10 @@ namespace Sucrose.Portal.Views.Controls
                 DownloadSymbol.Visibility = Visibility.Hidden;
                 IncompatibleVersion.Visibility = Visibility.Visible;
 
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+                if (!SSSHP.Work(SSSMI.Update))
+                {
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+                }
             }
         }
 

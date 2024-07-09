@@ -387,6 +387,14 @@ namespace Sucrose.Portal.Views.Controls
             });
         }
 
+        private void IncompatibleVersion_Click(object sender, RoutedEventArgs e)
+        {
+            if (!SSSHP.Work(SSSMI.Update))
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Update}{SMR.ValueSeparator}{SSSMI.Update}");
+            }
+        }
+
         private void LibraryCard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (Info.AppVersion.CompareTo(SHV.Entry()) <= 0)
