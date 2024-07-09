@@ -90,6 +90,16 @@ namespace Sucrose.Shared.Space.Converter
 
             if (serializableException.Data != null && serializableException.Data.Count > 0)
             {
+                if (exception.Data == null)
+                {
+                    FieldInfo dataField = typeof(Exception).GetField("_data", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                    if (dataField != null)
+                    {
+                        dataField.SetValue(exception, new Dictionary<object, object>());
+                    }
+                }
+
                 foreach (DictionaryEntry entry in serializableException.Data)
                 {
                     exception.Data.Add(entry.Key, entry.Value);
