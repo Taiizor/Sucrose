@@ -71,8 +71,8 @@
         <PackageReference Include="WPF-UI" Version="3.0.4" />
         <PackageReference Include="Downloader" Version="3.1.2" />
         <PackageReference Include="SharpCompress" Version="0.37.2" />
-        <PackageReference Include="Skylark.Wing" Version="3.1.5.7" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.6.2" />
+        <PackageReference Include="Skylark.Wing" Version="3.1.5.8" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.6.3" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
