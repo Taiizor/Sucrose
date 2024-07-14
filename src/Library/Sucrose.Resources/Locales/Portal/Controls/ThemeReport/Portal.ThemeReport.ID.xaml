@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Laporan</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Tentukan alasan Anda melaporkan tema tersebut.</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Silakan masukkan alamat email yang valid (opsional)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Silakan masukkan alamat email yang valid</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Catatan Tambahan:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Harap jelaskan alasan laporan secara rinci.</system:String>

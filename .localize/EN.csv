@@ -689,7 +689,7 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,Portal.ThemeReport.Reporter,Report
 Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,Portal.ThemeReport.Reporter.Description,Specify your reasons for reporting the theme.
 Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,,
-Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Please enter a valid email address (optional)
+Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,Please enter a valid email address
 Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,Portal.ThemeReport.Reporter.Description.Text,Additional Notes:
 Portal\Controls\ThemeReport\Portal.ThemeReport.EN.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Please describe the reason for the report in detail.

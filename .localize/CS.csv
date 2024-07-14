@@ -689,7 +689,7 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Portal.ThemeReport.Reporter,Hlášení
 Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Portal.ThemeReport.Reporter.Description,Uveďte důvody pro hlášení tématu.
 Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,,
-Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,"Prosím, napište platnou e-mailovou adresu (volitelné)"
+Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,"Prosím, napište platnou e-mailovou adresu"
 Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Portal.ThemeReport.Reporter.Description.Text,Další poznámky:
 Portal\Controls\ThemeReport\Portal.ThemeReport.CS.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,Podrobně popište důvod hlášení.

@@ -689,7 +689,7 @@ Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Portal.ThemeReport.Reporter,Звіт
 Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Portal.ThemeReport.Reporter.Description,Вкажіть причини звіту про тему.
 Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,,
-Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,"Будь ласка, введіть дійсну адресу електронної пошти (необов'язково)"
+Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Portal.ThemeReport.Reporter.Contact.Placeholder,"Будь ласка, введіть дійсну адресу електронної пошти"
 Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,,
 Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Portal.ThemeReport.Reporter.Description.Text,Додаткові нотатки:
 Portal\Controls\ThemeReport\Portal.ThemeReport.UK.xaml,Portal.ThemeReport.Reporter.Description.Placeholder,"Будь ласка, детально опишіть причину звіту."

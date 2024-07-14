@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Сообщить</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Укажите причину сообщения о теме.</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Пожалуйста, введите действительный адрес электронной почты (необязательно)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Пожалуйста, введите действительный адрес электронной почты</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Дополнительные заметки:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Пожалуйста, подробно опишите причину сообщения.</system:String>

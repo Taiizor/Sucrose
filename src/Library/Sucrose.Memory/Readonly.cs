@@ -54,7 +54,7 @@
 
         public static readonly string Repository = "Sucrose";
 
-        public static readonly string SoferityVersion = "v4";
+        public static readonly string SoferityVersion = "v5";
 
         public static readonly string ReportFolder = "Report";
 

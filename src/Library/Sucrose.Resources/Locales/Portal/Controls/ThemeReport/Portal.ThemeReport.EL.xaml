@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Αναφορά</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Καθορίστε τους λόγους για την αναφορά του θέματος.</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email (προαιρετικό)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Πρόσθετες σημειώσεις:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Παρακαλώ περιγράψτε λεπτομερώς τον λόγο της αναφοράς.</system:String>

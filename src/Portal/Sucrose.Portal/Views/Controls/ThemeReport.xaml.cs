@@ -174,7 +174,7 @@ namespace Sucrose.Portal.Views.Controls
 
             ReporterReport.Click += async (s, e) =>
             {
-                if (!string.IsNullOrEmpty(ReportContact.Text) && !SSTHV.IsMail(ReportContact.Text))
+                if (string.IsNullOrEmpty(ReportContact.Text) || !SSTHV.IsMail(ReportContact.Text))
                 {
                     ReportContact.Focus();
                 }

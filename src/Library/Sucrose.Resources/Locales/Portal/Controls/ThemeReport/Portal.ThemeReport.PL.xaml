@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Zgłoś</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Określ powody zgłoszenia tematu.</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Proszę podać poprawny adres e-mail (opcjonalnie)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Proszę podać poprawny adres e-mail</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Dodatkowe uwagi:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Proszę szczegółowo opisać powód zgłoszenia.</system:String>

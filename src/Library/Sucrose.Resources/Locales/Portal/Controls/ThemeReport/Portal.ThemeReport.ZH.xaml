@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">报告</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">请说明报告该主题的原因。</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">请输入有效的电子邮件地址（可选）</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">请输入有效的电子邮件地址</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">附加备注：</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">请详细描述报告原因。</system:String>

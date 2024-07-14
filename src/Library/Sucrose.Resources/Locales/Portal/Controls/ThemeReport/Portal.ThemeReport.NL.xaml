@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Rapporteren</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Specificeer uw redenen om het thema te rapporteren.</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Voer alstublieft een geldig e-mailadres in (optioneel)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Voer alstublieft een geldig e-mailadres in</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Aanvullende Notities:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Beschrijf de reden voor het rapport in detail.</system:String>

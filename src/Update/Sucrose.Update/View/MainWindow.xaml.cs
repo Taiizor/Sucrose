@@ -254,7 +254,7 @@ namespace Sucrose.Update.View
 
                             try
                             {
-                                SSSMUD UpdateData = new(SSCHV.GetText());
+                                SSSMUD UpdateData = new(Silent, SSCHV.GetText());
 
                                 StringContent Content = new(JsonConvert.SerializeObject(UpdateData, Formatting.Indented), Encoding.UTF8, "application/json");
 

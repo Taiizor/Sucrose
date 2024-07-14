@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Rapor</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Temayı raporlama nedenlerinizi belirtin.</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Lütfen geçerli bir mail adresi yazın (isteğe bağlı)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Lütfen geçerli bir mail adresi yazın</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Ek Notlar:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Lütfen rapor nedenini ayrıntılı olarak açıklayın.</system:String>

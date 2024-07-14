@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">Rapportera</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">Ange dina skäl för att rapportera temat.</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Vänligen ange en giltig e-postadress (valfritt)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">Vänligen ange en giltig e-postadress</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">Ytterligare Anteckningar:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">Vänligen beskriv anledningen till rapporten i detalj.</system:String>

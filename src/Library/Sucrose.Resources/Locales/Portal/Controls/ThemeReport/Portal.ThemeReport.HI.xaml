@@ -11,7 +11,7 @@
     <system:String x:Key="Portal.ThemeReport.Reporter">रिपोर्ट</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description">कृपया थीम की रिपोर्टिंग के कारणों को निर्दिष्ट करें।</system:String>
 
-    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">कृपया एक मान्य ईमेल पता दर्ज करें (वैकल्पिक)</system:String>
+    <system:String x:Key="Portal.ThemeReport.Reporter.Contact.Placeholder">कृपया एक मान्य ईमेल पता दर्ज करें</system:String>
 
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Text">अतिरिक्त नोट्स:</system:String>
     <system:String x:Key="Portal.ThemeReport.Reporter.Description.Placeholder">कृपया रिपोर्ट का कारण विस्तार से बताएं।</system:String>
