@@ -34,6 +34,7 @@ using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
+using SSWW = Sucrose.Shared.Watchdog.Watch;
 using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
@@ -112,7 +113,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             ComboBox Startup = new();
 
-            Startup.SelectionChanged += (s, e) => StartupSelected(Startup.SelectedIndex);
+            Startup.SelectionChanged += (s, e) => StartupSelected(Startup, Startup.SelectedIndex);
 
             Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "None"));
             Startup.Items.Add(SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Startup", "Normal"));
@@ -514,44 +515,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
-        private void StartupSelected(int Index)
-        {
-            if (Index != SMMM.Startup)
-            {
-                switch (SMMM.Startup)
-                {
-                    case 1:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
-                        break;
-                    case 2:
-                        SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
-                        break;
-                    case 3:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Delete}");
-                        break;
-                    default:
-                        break;
-                }
-
-                SMMI.GeneralSettingManager.SetSetting(SMC.Startup, Index);
-
-                switch (Index)
-                {
-                    case 1:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
-                        break;
-                    case 2:
-                        SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
-                        break;
-                    case 3:
-                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Create}{SMR.ValueSeparator}{SSSMI.Launcher}");
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
         private void BackdropSelected(int Index)
         {
             if (Index != (int)SPMM.BackdropType)
@@ -776,6 +739,62 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
 
             LibraryLocation.IsEnabled = true;
+        }
+
+        private async void StartupSelected(ComboBox Startup, int Index)
+        {
+            if (Index != SMMM.Startup)
+            {
+                switch (SMMM.Startup)
+                {
+                    case 1:
+                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
+                        break;
+                    case 2:
+                        try
+                        {
+                            SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{false}");
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                            Startup.SelectedIndex = SMMM.Startup;
+                            return;
+                        }
+                        break;
+                    case 3:
+                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Delete}");
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (Index)
+                {
+                    case 1:
+                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Startup}{SMR.ValueSeparator}{SMR.AppName}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
+                        break;
+                    case 2:
+                        try
+                        {
+                            SSSHP.Runas(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.StartupP}{SMR.ValueSeparator}{SSSMI.Launcher}{SMR.ValueSeparator}{true}");
+                        }
+                        catch (Exception Exception)
+                        {
+                            await SSWW.Watch_CatchException(Exception);
+                            Startup.SelectedIndex = SMMM.Startup;
+                            return;
+                        }
+                        break;
+                    case 3:
+                        SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Scheduler}{SMR.ValueSeparator}{SSDESCT.Create}{SMR.ValueSeparator}{SSSMI.Launcher}");
+                        break;
+                    default:
+                        break;
+                }
+
+                SMMI.GeneralSettingManager.SetSetting(SMC.Startup, Index);
+            }
         }
 
         private void LibraryLocationOpenClick(Button LibraryLocation)

@@ -24,78 +24,134 @@
         HorizontalAlignment="Stretch"
         VerticalAlignment="Center"
         Orientation="Vertical">
-        <vcontrols:ExpanderCard
+        <ui:Button
             x:Name="WebPage"
-            Expandable="False"
-            LeftIconSymbol="WebAsset24">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Click="WebPage_Click"
-                    Cursor="Hand"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+            Margin="0"
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Click="WebPage_Click"
+            Cursor="Hand">
+            <vcontrols:ExpanderCard
+                x:Name="WebPageExpander"
+                Expandable="False"
+                IsEnabled="False"
+                LeftIconSymbol="WebAsset24">
+                <vcontrols:ExpanderCard.HeaderFrame>
+                    <ui:SymbolIcon
+                        Width="32"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Symbol="Open24" />
+                </vcontrols:ExpanderCard.HeaderFrame>
+            </vcontrols:ExpanderCard>
+        </ui:Button>
 
-        <vcontrols:ExpanderCard
+        <ui:Button
             x:Name="Documentation"
             Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="BookOpenGlobe24">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Click="Documentation_Click"
-                    Cursor="Hand"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Click="Documentation_Click"
+            Cursor="Hand">
+            <vcontrols:ExpanderCard
+                x:Name="DocumentationExpander"
+                Expandable="False"
+                IsEnabled="False"
+                LeftIconSymbol="BookOpenGlobe24">
+                <vcontrols:ExpanderCard.HeaderFrame>
+                    <ui:SymbolIcon
+                        Width="32"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Symbol="Open24" />
+                </vcontrols:ExpanderCard.HeaderFrame>
+            </vcontrols:ExpanderCard>
+        </ui:Button>
 
-        <vcontrols:ExpanderCard
+        <ui:Button
             x:Name="Repository"
             Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="CodeBlock24">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Click="Repository_Click"
-                    Cursor="Hand"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Click="Repository_Click"
+            Cursor="Hand">
+            <vcontrols:ExpanderCard
+                x:Name="RepositoryExpander"
+                Expandable="False"
+                IsEnabled="False"
+                LeftIconSymbol="CodeBlock24">
+                <vcontrols:ExpanderCard.HeaderFrame>
+                    <ui:SymbolIcon
+                        Width="32"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Symbol="Open24" />
+                </vcontrols:ExpanderCard.HeaderFrame>
+            </vcontrols:ExpanderCard>
+        </ui:Button>
 
-        <vcontrols:ExpanderCard
+        <ui:Button
             x:Name="Discussions"
             Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="GlobePerson24">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Click="Discussions_Click"
-                    Cursor="Hand"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Click="Discussions_Click"
+            Cursor="Hand">
+            <vcontrols:ExpanderCard
+                x:Name="DiscussionsExpander"
+                Expandable="False"
+                IsEnabled="False"
+                LeftIconSymbol="GlobePerson24">
+                <vcontrols:ExpanderCard.HeaderFrame>
+                    <ui:SymbolIcon
+                        Width="32"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Symbol="Open24" />
+                </vcontrols:ExpanderCard.HeaderFrame>
+            </vcontrols:ExpanderCard>
+        </ui:Button>
 
-        <vcontrols:ExpanderCard
+        <ui:Button
             x:Name="Report"
             Margin="0,3,0,0"
-            Expandable="False"
-            LeftIconSymbol="Bug24">
-            <vcontrols:ExpanderCard.HeaderFrame>
-                <ui:Button
-                    Appearance="Transparent"
-                    BorderBrush="Transparent"
-                    Click="Report_Click"
-                    Cursor="Hand"
-                    Icon="{ui:SymbolIcon LinkSquare24}" />
-            </vcontrols:ExpanderCard.HeaderFrame>
-        </vcontrols:ExpanderCard>
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Appearance="Transparent"
+            BorderBrush="Transparent"
+            Click="Report_Click"
+            Cursor="Hand">
+            <vcontrols:ExpanderCard
+                x:Name="ReportExpander"
+                Expandable="False"
+                IsEnabled="False"
+                LeftIconSymbol="Bug24">
+                <vcontrols:ExpanderCard.HeaderFrame>
+                    <ui:SymbolIcon
+                        Width="32"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Symbol="Open24" />
+                </vcontrols:ExpanderCard.HeaderFrame>
+            </vcontrols:ExpanderCard>
+        </ui:Button>
     </StackPanel>
 </ui:ContentDialog>

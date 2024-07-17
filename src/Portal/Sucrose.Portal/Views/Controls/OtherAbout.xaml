@@ -99,6 +99,17 @@
                             BorderBrush="Transparent"
                             CornerRadius="15"
                             Cursor="Hand"
+                            NavigateUri="https://www.reddit.com/user/iTaiizor">
+                            <ui:Image
+                                Height="32"
+                                CornerRadius="16"
+                                Source="pack://application:,,,/Assets/Social/Reddit.png" />
+                        </ui:HyperlinkButton>
+                        <ui:HyperlinkButton
+                            Appearance="Transparent"
+                            BorderBrush="Transparent"
+                            CornerRadius="15"
+                            Cursor="Hand"
                             NavigateUri="https://www.linkedin.com/in/Taiizor">
                             <ui:Image
                                 Height="32"
