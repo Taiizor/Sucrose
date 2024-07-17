@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net;
+using SMCEC = Sucrose.Manager.Converter.EnumConverter;
 using SMCIPAC = Sucrose.Manager.Converter.IPAddressConverter;
 using SMHR = Sucrose.Manager.Helper.Reader;
 using SMHW = Sucrose.Manager.Helper.Writer;
@@ -37,7 +38,7 @@ namespace Sucrose.Manager
                 Formatting = formatting,
                 Converters =
                 {
-                    //new SMCEC(),
+                    new SMCEC(),
                     new SMCIPAC(),
                     //new StringEnumConverter()
                 }

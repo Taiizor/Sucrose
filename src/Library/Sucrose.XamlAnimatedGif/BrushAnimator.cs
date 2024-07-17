@@ -1,7 +1,7 @@
+using Sucrose.XamlAnimatedGif.Decoding;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using Sucrose.XamlAnimatedGif.Decoding;
 
 namespace Sucrose.XamlAnimatedGif
 {

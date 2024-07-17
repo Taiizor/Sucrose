@@ -66,6 +66,8 @@ namespace Sucrose.Shared.Watchdog
             SMMI.NebulaLiveLogManager.Log(SELLT.Error, Text);
 #elif LIVE_VEXANA
             SMMI.VexanaLiveLogManager.Log(SELLT.Error, Text);
+#elif LIVE_XAVIER
+            SMMI.XavierLiveLogManager.Log(SELLT.Error, Text);
 #elif LIVE_WEBVIEW
             SMMI.WebViewLiveLogManager.Log(SELLT.Error, Text);
 #elif BACKGROUNDOG

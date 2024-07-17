@@ -55,6 +55,8 @@ namespace Sucrose.Manager.Manage
 
         public static readonly SMLM VexanaLiveLogManager = new("VexanaLive-{0}.log");
 
+        public static readonly SMLM XavierLiveLogManager = new("XavierLive-{0}.log");
+
         public static readonly SMLM WebViewLiveLogManager = new("WebViewLive-{0}.log");
 
         public static readonly SMLM BackgroundogLogManager = new("Backgroundog-{0}.log");

@@ -1,10 +1,10 @@
-﻿using System.IO;
+﻿using Sucrose.XamlAnimatedGif.Extensions;
+using System.IO;
 using System.IO.Packaging;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
-using Sucrose.XamlAnimatedGif.Extensions;
 
 namespace Sucrose.XamlAnimatedGif
 {

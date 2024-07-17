@@ -1,12 +1,12 @@
-﻿using System.ComponentModel;
+﻿using Sucrose.XamlAnimatedGif.Decoding;
+using Sucrose.XamlAnimatedGif.Extensions;
+using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using Sucrose.XamlAnimatedGif.Decoding;
-using Sucrose.XamlAnimatedGif.Extensions;
 
 namespace Sucrose.XamlAnimatedGif
 {

@@ -5,6 +5,7 @@
         AuroraLive,
         NebulaLive,
         VexanaLive,
+        XavierLive,
         WebViewLive,
         CefSharpLive,
 #if X86 || X64
@@ -15,6 +16,7 @@
     internal enum GifEngineType
     {
         Vexana = EngineType.VexanaLive,
+        Xavier = EngineType.XavierLive,
         WebView = EngineType.WebViewLive,
         CefSharp = EngineType.CefSharpLive,
 #if X86 || X64

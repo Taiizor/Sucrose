@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 using ImageEngine = System.Windows.Controls.Image;
 using SSEVSG = Sucrose.Shared.Engine.Vexana.Struct.Gif;
@@ -23,7 +24,8 @@ namespace Sucrose.Shared.Engine.Vexana.Manage
 
         public static ImageEngine ImageEngine = new()
         {
-            Stretch = Stretch.Fill
+            Stretch = Stretch.Fill,
+            StretchDirection = StretchDirection.Both
         };
 
         public static readonly DispatcherTimer ImageTimer = new()

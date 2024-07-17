@@ -1,5 +1,5 @@
-﻿using System.Windows.Markup;
-using Sucrose.XamlAnimatedGif.Properties;
+﻿using Sucrose.XamlAnimatedGif.Properties;
+using System.Windows.Markup;
 
 [assembly: XmlnsDefinition(XmlnsInfo.XmlNamespace, "Sucrose.XamlAnimatedGif")]
 [assembly: XmlnsPrefix(XmlnsInfo.XmlNamespace, "gif")]

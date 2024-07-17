@@ -136,6 +136,8 @@
 
         public static readonly string VexanaLive = "Sucrose.Live.Vexana.exe";
 
+        public static readonly string XavierLive = "Sucrose.Live.Xavier.exe";
+
         public static readonly string YouTubeContent = "YouTubeContent.html";
 
         public static readonly string WebViewLive = "Sucrose.Live.WebView.exe";

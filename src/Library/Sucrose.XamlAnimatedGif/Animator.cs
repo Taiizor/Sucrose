@@ -1,12 +1,12 @@
-﻿using System.IO;
+﻿using Sucrose.XamlAnimatedGif.Decoding;
+using Sucrose.XamlAnimatedGif.Decompression;
+using Sucrose.XamlAnimatedGif.Extensions;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using Sucrose.XamlAnimatedGif.Decoding;
-using Sucrose.XamlAnimatedGif.Decompression;
-using Sucrose.XamlAnimatedGif.Extensions;
 
 namespace Sucrose.XamlAnimatedGif
 {
@@ -189,6 +189,11 @@ namespace Sucrose.XamlAnimatedGif
         public void Pause()
         {
             _timingManager.Pause();
+        }
+
+        public void Resume()
+        {
+            _timingManager.Resume();
         }
 
         public bool IsPaused => _timingManager.IsPaused;
