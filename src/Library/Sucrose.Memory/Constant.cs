@@ -10,18 +10,6 @@
 
         public const string Loop = "Loop";
 
-        public const string AApp = "AApp";
-
-        public const string GApp = "GApp";
-
-        public const string UApp = "UApp";
-
-        public const string VApp = "VApp";
-
-        public const string YApp = "YApp";
-
-        public const string WApp = "WApp";
-
         public const string Adult = "Adult";
 
         public const string Video = "Video";
@@ -50,6 +38,8 @@
 
         public const string Showcase = "Showcase";
 
+        public const string GifEngine = "GifEngine";
+
         public const string InputType = "InputType";
 
         public const string PingValue = "PingValue";
@@ -58,7 +48,11 @@
 
         public const string ThemeType = "ThemeType";
 
+        public const string UrlEngine = "UrlEngine";
+
         public const string UserAgent = "UserAgent";
+
+        public const string WebEngine = "WebEngine";
 
         public const string AutoUpdate = "AutoUpdate";
 
@@ -94,6 +88,8 @@
 
         public const string UploadValue = "UploadValue";
 
+        public const string VideoEngine = "VideoEngine";
+
         public const string WebViewTime = "WebViewTime";
 
         public const string BackdropType = "BackdropType";
@@ -128,19 +124,21 @@
 
         public const string AudioRequired = "AudioRequired";
 
-        public const string DeveloperPort = "DeveloperPort";
+        public const string DeveloperMode = "DeveloperMode";
 
-        public const string DownloadValue = "DownloadValue";
+        public const string DeveloperPort = "DeveloperPort";
 
         public const string DonateVisible = "DonateVisible";
 
-        public const string LibraryDelete = "LibraryDelete";
+        public const string DownloadValue = "DownloadValue";
 
-        public const string VolumeDesktop = "VolumeDesktop";
+        public const string LibraryDelete = "LibraryDelete";
 
         public const string StoreDuration = "StoreDuration";
 
-        public const string DeveloperMode = "DeveloperMode";
+        public const string VolumeDesktop = "VolumeDesktop";
+
+        public const string YouTubeEngine = "YouTubeEngine";
 
         public const string LibraryPreview = "LibraryPreview";
 
@@ -201,6 +199,8 @@
         public const string FocusPerformance = "FocusPerformance";
 
         public const string StorePreviewHide = "StorePreviewHide";
+
+        public const string ApplicationEngine = "ApplicationEngine";
 
         public const string BackgroundOpacity = "BackgroundOpacity";
 

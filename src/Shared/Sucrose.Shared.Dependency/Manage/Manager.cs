@@ -19,6 +19,8 @@ namespace Sucrose.Shared.Dependency.Manage
 {
     internal static class Manager
     {
+        public static SSDEET ApplicationEngine => SMMI.EngineSettingManager.GetSetting(SMC.ApplicationEngine, (SSDEET)SSSMI.ApplicationEngine);
+
         public static SSDEPT FullscreenPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.FullscreenPerformance, SSDEPT.Resume);
 
         public static SSDEPPT PausePerformanceType => SMMI.BackgroundogSettingManager.GetSetting(SMC.PausePerformanceType, SSDEPPT.Light);
@@ -31,17 +33,21 @@ namespace Sucrose.Shared.Dependency.Manage
 
         public static SSDEPT BatteryPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.BatteryPerformance, SSDEPT.Resume);
 
+        public static SSDEET YouTubeEngine => SMMI.EngineSettingManager.GetSetting(SMC.YouTubeEngine, (SSDEET)SSSMI.YouTubeEngine);
+
         public static SSDEPT RemotePerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.RemotePerformance, SSDEPT.Resume);
 
         public static SSDEPT MemoryPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.MemoryPerformance, SSDEPT.Resume);
-
-        public static SSDECT CommunicationType => SMMI.BackgroundogSettingManager.GetSetting(SMC.CommunicationType, SSDECT.Signal);
 
         public static SSDEPT SaverPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.SaverPerformance, SSDEPT.Resume);
 
         public static SSDEPT FocusPerformance => SMMI.BackgroundogSettingManager.GetSetting(SMC.FocusPerformance, SSDEPT.Resume);
 
+        public static SSDECT CommunicationType => SMMI.BackgroundogSettingManager.GetSetting(SMC.CommunicationType, SSDECT.Pipe);
+
         public static SSDESKT LibrarySortKind => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortKind, SSDESKT.Descending);
+
+        public static SSDEET VideoEngine => SMMI.EngineSettingManager.GetSetting(SMC.VideoEngine, (SSDEET)SSSMI.VideoEngine);
 
         public static SSDESMT LibrarySortMode => SMMI.PortalSettingManager.GetSetting(SMC.LibrarySortMode, SSDESMT.Creation);
 
@@ -53,23 +59,17 @@ namespace Sucrose.Shared.Dependency.Manage
 
         public static SSDETT TransitionType => SMMI.CyclingSettingManager.GetSetting(SMC.TransitionType, SSDETT.Random);
 
-        public static SSDEET AApp => SMMI.EngineSettingManager.GetSetting(SMC.AApp, (SSDEET)SSSMI.ApplicationEngine);
+        public static SSDEET WebEngine => SMMI.EngineSettingManager.GetSetting(SMC.WebEngine, (SSDEET)SSSMI.WebEngine);
+
+        public static SSDEET UrlEngine => SMMI.EngineSettingManager.GetSetting(SMC.UrlEngine, (SSDEET)SSSMI.UrlEngine);
+
+        public static SSDEET GifEngine => SMMI.EngineSettingManager.GetSetting(SMC.GifEngine, (SSDEET)SSSMI.GifEngine);
 
         public static SSDESHT StretchType => SMMI.EngineSettingManager.GetSetting(SMC.StretchType, SSDESHT.Fill);
 
         public static SSDESET StoreType => SMMI.PortalSettingManager.GetSetting(SMC.StoreType, SSDESET.Soferity);
 
-        public static SSDEET YApp => SMMI.EngineSettingManager.GetSetting(SMC.YApp, (SSDEET)SSSMI.YouTubeEngine);
-
         public static SEWTT ThemeType => SMMI.GeneralSettingManager.GetSetting(SMC.ThemeType, SWHWT.GetTheme());
-
-        public static SSDEET VApp => SMMI.EngineSettingManager.GetSetting(SMC.VApp, (SSDEET)SSSMI.VideoEngine);
-
-        public static SSDEET GApp => SMMI.EngineSettingManager.GetSetting(SMC.GApp, (SSDEET)SSSMI.GifEngine);
-
-        public static SSDEET UApp => SMMI.EngineSettingManager.GetSetting(SMC.UApp, (SSDEET)SSSMI.UrlEngine);
-
-        public static SSDEET WApp => SMMI.EngineSettingManager.GetSetting(SMC.WApp, (SSDEET)SSSMI.WebEngine);
 
         public static Stretch DefaultBackgroundStretch => Stretch.UniformToFill;
 

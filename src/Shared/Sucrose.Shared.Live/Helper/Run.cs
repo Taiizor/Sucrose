@@ -36,22 +36,22 @@ namespace Sucrose.Shared.Live.Helper
                         switch (Info.Type)
                         {
                             case SSDEWT.Web:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.WApp]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.WebEngine]}");
                                 break;
                             case SSDEWT.Url:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.UApp]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.UrlEngine]}");
                                 break;
                             case SSDEWT.Gif:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.GApp]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.GifEngine]}");
                                 break;
                             case SSDEWT.Video:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.VApp]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.VideoEngine]}");
                                 break;
                             case SSDEWT.YouTube:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.YApp]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.YouTubeEngine]}");
                                 break;
                             case SSDEWT.Application:
-                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.AApp]}");
+                                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Live}{SMR.ValueSeparator}{SSSMI.EngineLive[SSDMM.ApplicationEngine]}");
                                 break;
                             default:
                                 break;
