@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">Cartoni Animati e Fumetti</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Città e Luoghi</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Nuvole e Cielo</system:String>
+    <system:String x:Key="Portal.Category.Colorful">Colorato</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Gradienti Colorati</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Fumetti</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Arte Digitale</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Pattern e Texture</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Arte Pixel</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Scienza</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">Fantascienza</system:String>
     <system:String x:Key="Portal.Category.Sky">Cielo</system:String>
+    <system:String x:Key="Portal.Category.Software">Software</system:String>
     <system:String x:Key="Portal.Category.Space">Spazio</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Supereroi</system:String>

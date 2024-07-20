@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">卡通与漫画</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">城市与地点</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">云和天空</system:String>
+    <system:String x:Key="Portal.Category.Colorful">多彩的</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">多彩渐变</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">漫画书</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">数字艺术</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">图案和纹理</system:String>
     <system:String x:Key="Portal.Category.PixelArt">像素艺术</system:String>
     <system:String x:Key="Portal.Category.Retro">复古</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">科幻小说</system:String>
     <system:String x:Key="Portal.Category.Sky">天空</system:String>
+    <system:String x:Key="Portal.Category.Software">软件</system:String>
     <system:String x:Key="Portal.Category.Space">太空</system:String>
     <system:String x:Key="Portal.Category.Sports">体育</system:String>
     <system:String x:Key="Portal.Category.Superheroes">超级英雄</system:String>

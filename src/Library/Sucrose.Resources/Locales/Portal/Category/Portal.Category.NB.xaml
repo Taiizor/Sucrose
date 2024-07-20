@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">Tegnefilm og Tegneserier</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Byer og Steder</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Skyer og Himmel</system:String>
+    <system:String x:Key="Portal.Category.Colorful">Fargerik</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Fargerike Gradients</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Tegneseriebøker</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digital Kunst</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Mønstre og Teksturer</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Pikselkunst</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Vitenskap</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">Science Fiction</system:String>
     <system:String x:Key="Portal.Category.Sky">Himmel</system:String>
+    <system:String x:Key="Portal.Category.Software">Programvare</system:String>
     <system:String x:Key="Portal.Category.Space">Rom</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Superhelter</system:String>

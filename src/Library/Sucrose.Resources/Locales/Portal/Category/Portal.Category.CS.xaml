@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">Kreslený Film a Komiksy</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Města a Místa</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Oblaka a Nebe</system:String>
+    <system:String x:Key="Portal.Category.Colorful">Barevný</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Barevné Gradienty</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Komiksy</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Digitální Umění</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Vzory a Textury</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Pixel Art</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Věda</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">Vědeckofantastický</system:String>
     <system:String x:Key="Portal.Category.Sky">Obloha</system:String>
+    <system:String x:Key="Portal.Category.Software">Software</system:String>
     <system:String x:Key="Portal.Category.Space">Vesmír</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Superhrdinové</system:String>

@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">アニメとコミック</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">都市と場所</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">雲と空</system:String>
+    <system:String x:Key="Portal.Category.Colorful">カラフル</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">カラフルなグラデーション</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">コミックブック</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">デジタルアート</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">パターンとテクスチャ</system:String>
     <system:String x:Key="Portal.Category.PixelArt">ピクセルアート</system:String>
     <system:String x:Key="Portal.Category.Retro">レトロ</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">サイエンスフィクション</system:String>
     <system:String x:Key="Portal.Category.Sky">空</system:String>
+    <system:String x:Key="Portal.Category.Software">ソフトウェア</system:String>
     <system:String x:Key="Portal.Category.Space">宇宙</system:String>
     <system:String x:Key="Portal.Category.Sports">スポーツ</system:String>
     <system:String x:Key="Portal.Category.Superheroes">スーパーヒーロー</system:String>

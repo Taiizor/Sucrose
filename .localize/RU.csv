@@ -265,6 +265,7 @@ Portal\Category\Portal.Category.RU.xaml,Portal.Category.BlackandWhite,Черно
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.CartoonandComics,Мультфильмы и Комиксы
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.CitiesandPlaces,Города и Места
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.CloudsandSkies,Облака и Небеса
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Colorful,Красочный
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.ColorfulGradients,Цветные Градиенты
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.ComicBooks,Комиксы
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.DigitalArt,Цифровое Искусство
@@ -292,10 +293,10 @@ Portal\Category\Portal.Category.RU.xaml,Portal.Category.Nightscapes,Ночные
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.PatternsandTextures,Узоры и Текстуры
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.PixelArt,Пиксельное Искусство
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Retro,Ретро
-Portal\Category\Portal.Category.RU.xaml,Portal.Category.RGB,RGB
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Science,Наука
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.ScienceFiction,Научная Фантастика
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Sky,Небо
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Software,Программное Oбеспечение
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Space,Космос
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Sports,Спорт
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Superheroes,Супергерои

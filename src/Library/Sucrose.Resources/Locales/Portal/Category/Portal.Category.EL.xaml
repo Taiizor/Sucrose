@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">Κινούμενα Σχέδια και Κόμικς</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Πόλεις και Τοποθεσίες</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Σύννεφα και Ουρανός</system:String>
+    <system:String x:Key="Portal.Category.Colorful">Πολύχρωμος</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Πολύχρωμα Διακυμάνσεις</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Κόμικς</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Ψηφιακή Τέχνη</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Μοτίβα και Υφές</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Εικονοστοιχική Τέχνη</system:String>
     <system:String x:Key="Portal.Category.Retro">Ρετρό</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Επιστήμη</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">Επιστημονική Φαντασία</system:String>
     <system:String x:Key="Portal.Category.Sky">Ουρανός</system:String>
+    <system:String x:Key="Portal.Category.Software">Λογισμικό</system:String>
     <system:String x:Key="Portal.Category.Space">Διάστημα</system:String>
     <system:String x:Key="Portal.Category.Sports">Αθλητισμός</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Υπερήρωες</system:String>

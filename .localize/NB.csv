@@ -265,6 +265,7 @@ Portal\Category\Portal.Category.NB.xaml,Portal.Category.BlackandWhite,Svart og H
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.CartoonandComics,Tegnefilm og Tegneserier
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.CitiesandPlaces,Byer og Steder
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.CloudsandSkies,Skyer og Himmel
+Portal\Category\Portal.Category.NB.xaml,Portal.Category.Colorful,Fargerik
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.ColorfulGradients,Fargerike Gradients
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.ComicBooks,Tegneseriebøker
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.DigitalArt,Digital Kunst
@@ -292,10 +293,10 @@ Portal\Category\Portal.Category.NB.xaml,Portal.Category.Nightscapes,Nattlandskap
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.PatternsandTextures,Mønstre og Teksturer
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.PixelArt,Pikselkunst
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Retro,Retro
-Portal\Category\Portal.Category.NB.xaml,Portal.Category.RGB,RGB
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Science,Vitenskap
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.ScienceFiction,Science Fiction
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Sky,Himmel
+Portal\Category\Portal.Category.NB.xaml,Portal.Category.Software,Programvare
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Space,Rom
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Sports,Sport
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Superheroes,Superhelter

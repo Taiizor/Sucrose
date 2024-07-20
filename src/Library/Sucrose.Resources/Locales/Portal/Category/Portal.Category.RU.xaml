@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">Мультфильмы и Комиксы</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Города и Места</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Облака и Небеса</system:String>
+    <system:String x:Key="Portal.Category.Colorful">Красочный</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Цветные Градиенты</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Комиксы</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Цифровое Искусство</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Узоры и Текстуры</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Пиксельное Искусство</system:String>
     <system:String x:Key="Portal.Category.Retro">Ретро</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Наука</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">Научная Фантастика</system:String>
     <system:String x:Key="Portal.Category.Sky">Небо</system:String>
+    <system:String x:Key="Portal.Category.Software">Программное Oбеспечение</system:String>
     <system:String x:Key="Portal.Category.Space">Космос</system:String>
     <system:String x:Key="Portal.Category.Sports">Спорт</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Супергерои</system:String>

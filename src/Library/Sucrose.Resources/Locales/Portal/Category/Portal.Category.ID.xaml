@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">Kartun dan Komik</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Kota dan Tempat</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Awan dan Langit</system:String>
+    <system:String x:Key="Portal.Category.Colorful">Berwarna-Warni</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Gradien Berwarna</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Komik</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Seni Digital</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Pola dan Tekstur</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Seni Piksel</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Ilmu Pengetahuan</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">Fiksi Ilmiah</system:String>
     <system:String x:Key="Portal.Category.Sky">Langit</system:String>
+    <system:String x:Key="Portal.Category.Software">Perangkat Lunak</system:String>
     <system:String x:Key="Portal.Category.Space">Luas Angkasa</system:String>
     <system:String x:Key="Portal.Category.Sports">Olahraga</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Pahlawan Super</system:String>

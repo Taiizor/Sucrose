@@ -265,6 +265,7 @@ Portal\Category\Portal.Category.ID.xaml,Portal.Category.BlackandWhite,Hitam dan 
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.CartoonandComics,Kartun dan Komik
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.CitiesandPlaces,Kota dan Tempat
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.CloudsandSkies,Awan dan Langit
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Colorful,Berwarna-Warni
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.ColorfulGradients,Gradien Berwarna
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.ComicBooks,Komik
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.DigitalArt,Seni Digital
@@ -292,10 +293,10 @@ Portal\Category\Portal.Category.ID.xaml,Portal.Category.Nightscapes,Pemandangan 
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.PatternsandTextures,Pola dan Tekstur
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.PixelArt,Seni Piksel
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Retro,Retro
-Portal\Category\Portal.Category.ID.xaml,Portal.Category.RGB,RGB
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Science,Ilmu Pengetahuan
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.ScienceFiction,Fiksi Ilmiah
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Sky,Langit
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Software,Perangkat Lunak
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Space,Luas Angkasa
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Sports,Olahraga
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Superheroes,Pahlawan Super

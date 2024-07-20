@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">Desene animate și Benzi Desenate</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Orașe și Locuri</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Norii și Cerul</system:String>
+    <system:String x:Key="Portal.Category.Colorful">Colorat</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">Gradienți Colorați</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">Benzi desenate</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">Artă Digitală</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">Modele și Texturi</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Artă Pixel</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">Știință</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">Științifico-Fantastic</system:String>
     <system:String x:Key="Portal.Category.Sky">Cer</system:String>
+    <system:String x:Key="Portal.Category.Software">Software</system:String>
     <system:String x:Key="Portal.Category.Space">Spațiu</system:String>
     <system:String x:Key="Portal.Category.Sports">Sport</system:String>
     <system:String x:Key="Portal.Category.Superheroes">Supereroi</system:String>

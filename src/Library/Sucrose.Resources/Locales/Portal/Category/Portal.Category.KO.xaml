@@ -18,6 +18,7 @@
     <system:String x:Key="Portal.Category.CartoonandComics">만화 및 만화책</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">도시 및 장소</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">구름 및 하늘</system:String>
+    <system:String x:Key="Portal.Category.Colorful">다채로운</system:String>
     <system:String x:Key="Portal.Category.ColorfulGradients">다채로운 그라데이션</system:String>
     <system:String x:Key="Portal.Category.ComicBooks">만화책</system:String>
     <system:String x:Key="Portal.Category.DigitalArt">디지털 아트</system:String>
@@ -45,10 +46,10 @@
     <system:String x:Key="Portal.Category.PatternsandTextures">패턴 및 질감</system:String>
     <system:String x:Key="Portal.Category.PixelArt">픽셀 아트</system:String>
     <system:String x:Key="Portal.Category.Retro">레트로</system:String>
-    <system:String x:Key="Portal.Category.RGB">RGB</system:String>
     <system:String x:Key="Portal.Category.Science">과학</system:String>
     <system:String x:Key="Portal.Category.ScienceFiction">과학 소설</system:String>
     <system:String x:Key="Portal.Category.Sky">하늘</system:String>
+    <system:String x:Key="Portal.Category.Software">소프트웨어</system:String>
     <system:String x:Key="Portal.Category.Space">우주</system:String>
     <system:String x:Key="Portal.Category.Sports">스포츠</system:String>
     <system:String x:Key="Portal.Category.Superheroes">슈퍼히어로</system:String>

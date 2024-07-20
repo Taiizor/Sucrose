@@ -265,6 +265,7 @@ Portal\Category\Portal.Category.DE.xaml,Portal.Category.BlackandWhite,Schwarz &a
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.CartoonandComics,Cartoon &amp; Comics
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.CitiesandPlaces,Städte &amp; Orte
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.CloudsandSkies,Wolken &amp; Himmel
+Portal\Category\Portal.Category.DE.xaml,Portal.Category.Colorful,Farbenfroh
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.ColorfulGradients,Farbige Verläufe
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.ComicBooks,Comicbücher
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.DigitalArt,Digitale Kunst
@@ -292,10 +293,10 @@ Portal\Category\Portal.Category.DE.xaml,Portal.Category.Nightscapes,Nachtlandsch
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.PatternsandTextures,Muster &amp; Texturen
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.PixelArt,Pixelkunst
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.Retro,Retro
-Portal\Category\Portal.Category.DE.xaml,Portal.Category.RGB,RGB
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.Science,Wissenschaft
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.ScienceFiction,Science-Fiction
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.Sky,Himmel
+Portal\Category\Portal.Category.DE.xaml,Portal.Category.Software,Software
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.Space,Weltraum
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.Sports,Sport
 Portal\Category\Portal.Category.DE.xaml,Portal.Category.Superheroes,Superhelden
