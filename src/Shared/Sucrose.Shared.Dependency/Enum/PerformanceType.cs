@@ -25,6 +25,7 @@
     {
         Not,
         Cpu,
+        Gpu,
         Focus,
         Saver,
         Memory,

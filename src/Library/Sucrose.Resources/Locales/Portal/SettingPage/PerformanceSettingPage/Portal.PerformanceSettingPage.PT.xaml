@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Uso da CPU (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Uso de GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">O que acontece com o papel de parede com base nas configurações de uso de GPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">A lista de unidades de processamento gráfico ainda não foi criada</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Uso de GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Uso de Memória</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">O que acontecerá com o papel de parede com base nas configurações de uso de memória.</system:String>
 

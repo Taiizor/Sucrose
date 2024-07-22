@@ -184,7 +184,7 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             NumberBox CpuUsage = new()
             {
-                Icon = new SymbolIcon(SymbolRegular.DeveloperBoard24),
+                Icon = new SymbolIcon(SymbolRegular.ArrowTrendingLines24),
                 IconPlacement = ElementPlacement.Left,
                 Margin = new Thickness(0, 0, 10, 0),
                 ClearButtonEnabled = false,
@@ -203,6 +203,124 @@ namespace Sucrose.Portal.ViewModels.Pages
             Cpu.FooterCard = CpuContent;
 
             Contents.Add(Cpu);
+
+            SPVCEC Gpu = new()
+            {
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            Gpu.LeftIcon.Symbol = SymbolRegular.VideoPerson24;
+            Gpu.Title.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Gpu");
+            Gpu.Description.Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Gpu", "Description");
+
+            ComboBox GpuPerformance = new();
+
+            GpuPerformance.SelectionChanged += (s, e) => GpuPerformanceSelected(GpuPerformance.SelectedIndex);
+
+            foreach (SSDEPT Type in Enum.GetValues(typeof(SSDEPT)))
+            {
+                GpuPerformance.Items.Add(SRER.GetValue("Portal", "Enum", "PerformanceType", $"{Type}"));
+            }
+
+            GpuPerformance.SelectedIndex = (int)SSDMM.GpuPerformance;
+
+            Gpu.HeaderFrame = GpuPerformance;
+
+            StackPanel GpuContent = new();
+
+            StackPanel GpuAdapterContent = new()
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            TextBlock GpuAdapterText = new()
+            {
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Gpu", "GpuAdapter"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            ComboBox GpuAdapter = new()
+            {
+                MaxDropDownHeight = 200,
+                MaxWidth = 700
+            };
+
+            ScrollViewer.SetVerticalScrollBarVisibility(GpuAdapter, ScrollBarVisibility.Auto);
+
+            if (SMMM.GraphicInterfaces.Any())
+            {
+                GpuAdapter.SelectionChanged += (s, e) => GpuAdapterSelected($"{GpuAdapter.SelectedValue}");
+
+                foreach (string Interface in SMMM.GraphicInterfaces)
+                {
+                    GpuAdapter.Items.Add(Interface);
+                }
+
+                string SelectedAdapter = SMMM.GraphicAdapter;
+
+                if (string.IsNullOrEmpty(SelectedAdapter))
+                {
+                    GpuAdapter.SelectedIndex = 0;
+                }
+                else
+                {
+                    GpuAdapter.SelectedValue = SelectedAdapter;
+                }
+            }
+            else
+            {
+                GpuAdapter.Items.Add(new ComboBoxItem()
+                {
+                    Content = SRER.GetValue("Portal", "PerformanceSettingPage", "Gpu", "GpuAdapter", "Empty"),
+                    IsSelected = true
+                });
+            }
+
+            StackPanel GpuUsageContent = new()
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            TextBlock GpuUsageText = new()
+            {
+                Text = SRER.GetValue("Portal", "PerformanceSettingPage", "Gpu", "GpuUsage"),
+                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 10, 0),
+                FontWeight = FontWeights.SemiBold
+            };
+
+            NumberBox GpuUsage = new()
+            {
+                Icon = new SymbolIcon(SymbolRegular.ArrowTrendingSparkle24),
+                IconPlacement = ElementPlacement.Left,
+                Margin = new Thickness(0, 0, 10, 0),
+                ClearButtonEnabled = false,
+                Value = SMMM.GpuUsage,
+                MaxDecimalPlaces = 0,
+                Maximum = 100,
+                MaxLength = 3,
+                Minimum = 0
+            };
+
+            GpuUsage.ValueChanged += (s, e) => GpuUsageChanged(GpuUsage.Value);
+
+            GpuAdapterContent.Children.Add(GpuAdapterText);
+            GpuAdapterContent.Children.Add(GpuAdapter);
+
+            GpuUsageContent.Children.Add(GpuUsageText);
+            GpuUsageContent.Children.Add(GpuUsage);
+
+            GpuContent.Children.Add(GpuAdapterContent);
+            GpuContent.Children.Add(GpuUsageContent);
+
+            Gpu.FooterCard = GpuContent;
+
+            Contents.Add(Gpu);
 
             SPVCEC Memory = new()
             {
@@ -773,6 +891,24 @@ namespace Sucrose.Portal.ViewModels.Pages
             }
         }
 
+        private void GpuUsageChanged(double? Value)
+        {
+            int NewValue = Convert.ToInt32(Value);
+
+            if (NewValue != SMMM.GpuUsage)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.GpuUsage, NewValue);
+            }
+        }
+
+        private void GpuAdapterSelected(string Value)
+        {
+            if (Value != SMMM.GraphicAdapter)
+            {
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.GraphicAdapter, Value);
+            }
+        }
+
         private void CpuPerformanceSelected(int Index)
         {
             if (Index != (int)SSDMM.CpuPerformance)
@@ -780,6 +916,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                 SSDEPT Type = (SSDEPT)Index;
 
                 SMMI.BackgroundogSettingManager.SetSetting(SMC.CpuPerformance, Type);
+            }
+        }
+
+        private void GpuPerformanceSelected(int Index)
+        {
+            if (Index != (int)SSDMM.GpuPerformance)
+            {
+                SSDEPT Type = (SSDEPT)Index;
+
+                SMMI.BackgroundogSettingManager.SetSetting(SMC.GpuPerformance, Type);
             }
         }
 

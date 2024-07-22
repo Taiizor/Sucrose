@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU 사용률 (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU 사용</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">GPU 사용 설정에 따라 배경 화면에 어떤 일이 발생하는지.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">그래픽 처리 장치 목록이 아직 생성되지 않았습니다</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU 사용 (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">메모리 사용량</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">메모리 사용 설정에 따라 배경화면이 어떻게 작동할지.</system:String>
 

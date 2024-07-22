@@ -140,23 +140,23 @@
 
         public const string YouTubeEngine = "YouTubeEngine";
 
-        public const string LibraryPreview = "LibraryPreview";
-
-        public const string LibraryConfirm = "LibraryConfirm";
-
         public const string AdaptiveLayout = "AdaptiveLayout";
 
         public const string AdaptiveMargin = "AdaptiveMargin";
 
+        public const string CpuPerformance = "CpuPerformance";
+
         public const string DiscordRefresh = "DiscordRefresh";
+
+        public const string GpuPerformance = "GpuPerformance";
 
         public const string GraphicAdapter = "GraphicAdapter";
 
+        public const string LibraryPreview = "LibraryPreview";
+
+        public const string LibraryConfirm = "LibraryConfirm";
+
         public const string NetworkAdapter = "NetworkAdapter";
-
-        public const string CpuPerformance = "CpuPerformance";
-
-        public const string GpuPerformance = "GpuPerformance";
 
         public const string SignalRequired = "SignalRequired";
 

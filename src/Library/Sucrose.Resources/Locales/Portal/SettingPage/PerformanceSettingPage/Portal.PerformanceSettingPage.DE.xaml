@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-Auslastung (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU-Nutzung</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Was mit dem Hintergrundbild basierend auf Ihren GPU-Nutzungseinstellungen passiert.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Die Liste der Grafikprozessoren wurde noch nicht erstellt</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU-Nutzung (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Speicherauslastung</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Was mit dem Hintergrundbild basierend auf Ihren Speicherauslastungseinstellungen passiert.</system:String>
 

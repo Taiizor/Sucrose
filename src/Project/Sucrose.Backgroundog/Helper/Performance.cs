@@ -1,6 +1,7 @@
 ﻿using Skylark.Enum;
 using Skylark.Standard.Extension.Storage;
 using System.Diagnostics;
+using SBEG = Sucrose.Backgroundog.Extension.Graphic;
 using SBMI = Sucrose.Backgroundog.Manage.Internal;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -25,6 +26,11 @@ namespace Sucrose.Backgroundog.Helper
         public static async Task Start()
         {
             if (await CpuPerformance())
+            {
+                return;
+            }
+
+            if (await GpuPerformance())
             {
                 return;
             }
@@ -159,6 +165,37 @@ namespace Sucrose.Backgroundog.Helper
                     {
                         SBMI.Performance = SSDMM.CpuPerformance;
                         SBMI.CategoryPerformance = SSDECPT.Cpu;
+                        SBMI.Condition = true;
+                        Lifecycle();
+
+                        return true;
+                    }
+                    else
+                    {
+                        Count++;
+                    }
+
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+            }
+
+            return false;
+        }
+
+        private static async Task<bool> GpuPerformance()
+        {
+            if (SSDMM.GpuPerformance != SSDEPT.Resume)
+            {
+                int Count = 0;
+                int MaxCount = 5;
+                SSDEPT Performance = SSDMM.GpuPerformance;
+
+                while (SBMI.GraphicData.State && SMMM.GpuUsage > 0 && SBEG.Performance() && SSDMM.GpuPerformance == Performance)
+                {
+                    if (Count >= MaxCount)
+                    {
+                        SBMI.Performance = SSDMM.GpuPerformance;
+                        SBMI.CategoryPerformance = SSDECPT.Gpu;
                         SBMI.Condition = true;
                         Lifecycle();
 

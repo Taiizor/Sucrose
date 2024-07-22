@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Využití CPU (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Využití GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití GPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Seznam grafických procesorů zatím nebyl dosud vytvořen</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Využití GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Využití Paměti</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití paměti.</system:String>
 

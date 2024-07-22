@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-brug (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Gpu,GPU Brug
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Gpu.Description,Hvad der skal ske med tapetet baseret på dine GPU-brugsindstillinger.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Grafikbehandlingsenhederne er endnu ikke oprettet
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Brug (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Memory,Hukommelsesbrug
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Memory.Description,Hvad der skal ske med tapetet baseret på dine hukommelsesbrugsindstillinger.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
@@ -923,7 +931,7 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.Description,Hvad der skal ske med tapetet baseret på dine netværksbrugsindstillinger.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Netværksadapter:
-Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Listen over netværksadaptere er ikke blevet oprettet endnu.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,Listen over netværksadaptere er ikke blevet oprettet endnu
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Upload-størrelse:
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DA.xaml,,

@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU 使用率 (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Gpu,Utilizzo GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Gpu.Description,Cosa succede allo sfondo in base alle impostazioni di utilizzo della GPU.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,La lista delle unità di elaborazione grafica non è ancora stata creata
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Utilizzo GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Memory,メモリ 使用率
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,Portal.PerformanceSettingPage.Memory.Description,メモリ 使用率の設定による壁紙の動作。
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.JA.xaml,,

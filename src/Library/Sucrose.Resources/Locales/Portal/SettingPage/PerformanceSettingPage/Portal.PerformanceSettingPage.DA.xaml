@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-brug (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU Brug</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Hvad der skal ske med tapetet baseret på dine GPU-brugsindstillinger.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Grafikbehandlingsenhederne er endnu ikke oprettet</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU Brug (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Hukommelsesbrug</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Hvad der skal ske med tapetet baseret på dine hukommelsesbrugsindstillinger.</system:String>
 
@@ -29,7 +37,7 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">Hvad der skal ske med tapetet baseret på dine netværksbrugsindstillinger.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Netværksadapter:</system:String>
-    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Listen over netværksadaptere er ikke blevet oprettet endnu.</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">Listen over netværksadaptere er ikke blevet oprettet endnu</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Upload-størrelse:</system:String>
 

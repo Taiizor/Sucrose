@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-användning (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Gpu,GPU Användning
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Gpu.Description,Vad som händer med bakgrundsbilden baserat på dina GPU-användningsinställningar.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Listan över grafiska processorer har ännu inte skapats
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Användning (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Memory,Minnesanvändning
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,Portal.PerformanceSettingPage.Memory.Description,Dina minnesanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.SV.xaml,,

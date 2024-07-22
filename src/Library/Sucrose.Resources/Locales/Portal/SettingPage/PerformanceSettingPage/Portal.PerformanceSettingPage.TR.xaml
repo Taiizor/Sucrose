@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">İşlemci Kullanımı (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Ekran Kartı Kullanımı</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Ekran kartı kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">Ekran Kartı:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Ekran kartları listesi henüz oluşturulmadı</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Ekran Kartı Kullanımı (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Bellek Kullanımı</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Bellek kullanımı ayarlarınız sonucunda duvar kağıdına ne olacağı.</system:String>
 

@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Processor Usage (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Graphics Usage</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">What happens to the wallpaper based on your graphics usage settings.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">Graphics Processing Unit:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">The graphic processing units list has not been created yet</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Graphics Usage (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Memory Usage</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">What happens to the wallpaper based on your memory usage settings.</system:String>
 
@@ -29,7 +37,7 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Network.Description">What happens to the wallpaper based on your network usage settings.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter">Network Adapter:</system:String>
-    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">No network adapters list created yet</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty">The network adapters list has not been created yet</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Network.NetworkUpload">Upload Size:</system:String>
 

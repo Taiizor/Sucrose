@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Χρήση Επεξεργαστή (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Gpu,Χρήση GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Gpu.Description,Τι συμβαίνει με το φόντο με βάση τις ρυθμίσεις χρήσης GPU σας.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Η λίστα των μονάδων επεξεργασίας γραφικών δεν έχει δημιουργηθεί ακόμα
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Χρήση GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Memory,Χρήση Μνήμης
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,Portal.PerformanceSettingPage.Memory.Description,Πώς θα επηρεάσει η ρύθμιση της χρήσης μνήμης το ταπετσαρία.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EL.xaml,,

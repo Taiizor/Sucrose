@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-bruk (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Gpu,GPU Bruk
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Gpu.Description,Hva som skjer med bakgrunnsbildet basert på GPU-bruksinnstillingene dine.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Listen over grafikkprosessorer er ennå ikke opprettet
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Bruk (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Memory,Minnebruk
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,Portal.PerformanceSettingPage.Memory.Description,Hvordan tapetet skal reagere på dine minnebrukinnstillinger.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NB.xaml,,

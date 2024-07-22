@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Processor Usage (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Gpu,Graphics Usage
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Gpu.Description,What happens to the wallpaper based on your graphics usage settings.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,Graphics Processing Unit:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,The graphic processing units list has not been created yet
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Graphics Usage (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Memory,Memory Usage
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Memory.Description,What happens to the wallpaper based on your memory usage settings.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
@@ -923,7 +931,7 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.Description,What happens to the wallpaper based on your network usage settings.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter,Network Adapter:
-Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,No network adapters list created yet
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkAdapter.Empty,The network adapters list has not been created yet
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,Portal.PerformanceSettingPage.Network.NetworkUpload,Upload Size:
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.EN.xaml,,

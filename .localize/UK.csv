@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Використання процесора (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Gpu,Використання GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Gpu.Description,Що відбувається зі шпалерами на основі налаштувань використання GPU.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Список графічних процесорів ще не створено
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Використання GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Memory,Використання пам'яті
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,Portal.PerformanceSettingPage.Memory.Description,Як використання пам'яті впливає на робочий стіл.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.UK.xaml,,

@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Penggunaan CPU (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Gpu,Penggunaan GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Gpu.Description,Apa yang berlaku pada latar belakang berdasarkan tetapan penggunaan GPU anda.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Senarai unit pemproses grafik belum dibuat
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Penggunaan GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Memory,Penggunaan Memori
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,Portal.PerformanceSettingPage.Memory.Description,Apa yang akan berlaku pada dinding semasa tetapan penggunaan memori anda.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.MS.xaml,,

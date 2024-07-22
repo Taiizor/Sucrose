@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Використання процесора (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Використання GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Що відбувається зі шпалерами на основі налаштувань використання GPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Список графічних процесорів ще не створено</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Використання GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Використання пам'яті</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Як використання пам'яті впливає на робочий стіл.</system:String>
 

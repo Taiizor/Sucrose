@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Uso da CPU (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Gpu,Uso de GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Gpu.Description,O que acontece com o papel de parede com base nas configurações de uso de GPU.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,A lista de unidades de processamento gráfico ainda não foi criada
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Uso de GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Memory,Uso de Memória
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,Portal.PerformanceSettingPage.Memory.Description,O que acontecerá com o papel de parede com base nas configurações de uso de memória.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PT.xaml,,

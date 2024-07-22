@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Penggunaan CPU (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Penggunaan GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Apa yang berlaku pada latar belakang berdasarkan tetapan penggunaan GPU anda.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Senarai unit pemproses grafik belum dibuat</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Penggunaan GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Penggunaan Memori</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Apa yang akan berlaku pada dinding semasa tetapan penggunaan memori anda.</system:String>
 

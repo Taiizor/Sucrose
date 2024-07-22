@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-Auslastung (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Gpu,GPU-Nutzung
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Gpu.Description,Was mit dem Hintergrundbild basierend auf Ihren GPU-Nutzungseinstellungen passiert.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Die Liste der Grafikprozessoren wurde noch nicht erstellt
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU-Nutzung (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Memory,Speicherauslastung
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,Portal.PerformanceSettingPage.Memory.Description,Was mit dem Hintergrundbild basierend auf Ihren Speicherauslastungseinstellungen passiert.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.DE.xaml,,

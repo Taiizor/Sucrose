@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Использование ЦП (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Gpu,Использование GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Gpu.Description,Что происходит с обоями в зависимости от настроек использования GPU.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Список графических процессоров еще не создан
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Использование GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Memory,Использование памяти
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,Portal.PerformanceSettingPage.Memory.Description,Определяет влияние ваших настроек использования памяти на обои.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.RU.xaml,,

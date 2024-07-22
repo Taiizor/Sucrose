@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">सीपीयू उपयोग (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU उपयोग</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">आपकी GPU उपयोग सेटिंग्स के आधार पर वॉलपेपर के साथ क्या होता है।</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">ग्राफिक प्रोसेसिंग यूनिट्स की सूची अभी तक बनाई नहीं गई है</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU उपयोग (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">मेमोरी उपयोग</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">मेमोरी उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।</system:String>
 

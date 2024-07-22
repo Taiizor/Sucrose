@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Использование ЦП (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Использование GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Что происходит с обоями в зависимости от настроек использования GPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Список графических процессоров еще не создан</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Использование GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Использование памяти</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Определяет влияние ваших настроек использования памяти на обои.</system:String>
 

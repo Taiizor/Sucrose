@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-bruk (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU Bruk</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Hva som skjer med bakgrunnsbildet basert på GPU-bruksinnstillingene dine.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Listen over grafikkprosessorer er ennå ikke opprettet</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU Bruk (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Minnebruk</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Hvordan tapetet skal reagere på dine minnebrukinnstillinger.</system:String>
 

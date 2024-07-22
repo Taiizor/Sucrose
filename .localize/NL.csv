@@ -909,10 +909,18 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Communication,Communicatietype
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Communication.Description,Bepaalt de methode om berichten te verzenden naar thema's van het type Web.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
-Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Cpu,CPU-gebruik
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Cpu,CPU-Gebruik
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Cpu.Description,Het effect van uw CPU-gebruiksinstellingen op de achtergrondafbeelding.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,CPU-gebruik (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Gpu,GPU Gebruik
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Gpu.Description,Wat er met de achtergrondafbeelding gebeurt op basis van je GPU-gebruikinstellingen.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,De lijst met grafische verwerkingsunits is nog niet aangemaakt
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU Gebruik (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Memory,Geheugengebruik
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.NL.xaml,Portal.PerformanceSettingPage.Memory.Description,Het effect van uw geheugengebruiksinstellingen op de achtergrondafbeelding.

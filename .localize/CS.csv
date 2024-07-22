@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Využití CPU (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Gpu,Využití GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Gpu.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití GPU."
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Seznam grafických procesorů zatím nebyl dosud vytvořen
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Využití GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Memory,Využití Paměti
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,Portal.PerformanceSettingPage.Memory.Description,"Určuje, jaký bude výsledek duhovky v závislosti na nastavení využití paměti."
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.CS.xaml,,

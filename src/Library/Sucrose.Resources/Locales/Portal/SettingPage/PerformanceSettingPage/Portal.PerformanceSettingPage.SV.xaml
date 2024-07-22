@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-användning (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU Användning</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Vad som händer med bakgrundsbilden baserat på dina GPU-användningsinställningar.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Listan över grafiska processorer har ännu inte skapats</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU Användning (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Minnesanvändning</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Dina minnesanvändningsinställningar kommer att påverka vad som händer med bakgrundsbilden.</system:String>
 

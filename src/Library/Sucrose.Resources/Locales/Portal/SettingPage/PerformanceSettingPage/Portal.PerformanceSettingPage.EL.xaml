@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Χρήση Επεξεργαστή (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Χρήση GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Τι συμβαίνει με το φόντο με βάση τις ρυθμίσεις χρήσης GPU σας.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Η λίστα των μονάδων επεξεργασίας γραφικών δεν έχει δημιουργηθεί ακόμα</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Χρήση GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Χρήση Μνήμης</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Πώς θα επηρεάσει η ρύθμιση της χρήσης μνήμης το ταπετσαρία.</system:String>
 

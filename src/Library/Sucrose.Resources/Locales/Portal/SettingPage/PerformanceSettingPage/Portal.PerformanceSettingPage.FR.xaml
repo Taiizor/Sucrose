@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Utilisation du Processeur (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Utilisation du GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Ce qui se passe avec le fond d'écran en fonction de vos paramètres d'utilisation du GPU.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">La liste des unités de traitement graphique n'a pas encore été créée</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Utilisation du GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Utilisation de la Mémoire</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Ce qui se passe avec l'arrière-plan en fonction de vos paramètres d'utilisation de la mémoire.</system:String>
 

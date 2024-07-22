@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,Użycie CPU (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Gpu,Użycie GPU
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Gpu.Description,Co się dzieje z tapetą w zależności od ustawień użycia GPU.
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,Lista jednostek przetwarzania grafiki nie została jeszcze utworzona
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,Użycie GPU (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Memory,Użycie Pamięci
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,Portal.PerformanceSettingPage.Memory.Description,Co dzieje się z tapetą na podstawie ustawień użycia pamięci.
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.PL.xaml,,

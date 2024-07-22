@@ -914,6 +914,14 @@ Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Cpu.CpuUsage,सीपीयू उपयोग (%):
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Gpu,GPU उपयोग
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Gpu.Description,आपकी GPU उपयोग सेटिंग्स के आधार पर वॉलपेपर के साथ क्या होता है।
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter,GPU:
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty,ग्राफिक प्रोसेसिंग यूनिट्स की सूची अभी तक बनाई नहीं गई है
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Gpu.GpuUsage,GPU उपयोग (%):
+Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory,मेमोरी उपयोग
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,Portal.PerformanceSettingPage.Memory.Description,मेमोरी उपयोग सेटिंग्स के परिणामस्वरूप वॉलपेपर पर क्या होने वाला है।
 Portal\SettingPage\PerformanceSettingPage\Portal.PerformanceSettingPage.HI.xaml,,

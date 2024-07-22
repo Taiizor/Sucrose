@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU使用率 (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU 使用率</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">根据您的 GPU 使用设置，壁纸会发生什么。</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">图形处理单元列表尚未创建</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU 使用率 (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">内存使用</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">根据您的内存使用设置，将影响壁纸。</system:String>
 

@@ -20,6 +20,14 @@
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">Utilizare Procesor (%):</system:String>
 
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">Utilizare GPU</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Ce se întâmplă cu imaginea de fundal în funcție de setările de utilizare a GPU-ului.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">Lista unităților de procesare grafică nu a fost încă creată</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">Utilizare GPU (%):</system:String>
+
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Utilizare Memorii</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Ce se întâmplă cu fundalul temei dvs. în funcție de setările de utilizare a memoriei.</system:String>
 

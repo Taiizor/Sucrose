@@ -15,10 +15,18 @@
     <system:String x:Key="Portal.PerformanceSettingPage.Communication">Communicatietype</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Communication.Description">Bepaalt de methode om berichten te verzenden naar thema's van het type Web.</system:String>
 
-    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-gebruik</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Cpu">CPU-Gebruik</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.Description">Het effect van uw CPU-gebruiksinstellingen op de achtergrondafbeelding.</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Cpu.CpuUsage">CPU-gebruik (%):</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu">GPU Gebruik</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.Description">Wat er met de achtergrondafbeelding gebeurt op basis van je GPU-gebruikinstellingen.</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter">GPU:</system:String>
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuAdapter.Empty">De lijst met grafische verwerkingsunits is nog niet aangemaakt</system:String>
+
+    <system:String x:Key="Portal.PerformanceSettingPage.Gpu.GpuUsage">GPU Gebruik (%):</system:String>
 
     <system:String x:Key="Portal.PerformanceSettingPage.Memory">Geheugengebruik</system:String>
     <system:String x:Key="Portal.PerformanceSettingPage.Memory.Description">Het effect van uw geheugengebruiksinstellingen op de achtergrondafbeelding.</system:String>
