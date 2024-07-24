@@ -111,7 +111,7 @@ namespace Sucrose.Portal.Views.Pages
         {
             if (Directory.Exists(SMMM.LibraryLocation))
             {
-                if (Themes.Any())
+                if (Themes != null && Themes.Any())
                 {
                     foreach (string Theme in Themes.ToList())
                     {
@@ -173,53 +173,56 @@ namespace Sucrose.Portal.Views.Pages
                 Directory.CreateDirectory(SMMM.LibraryLocation);
             }
 
-            Dictionary<string, object> SortThemes = new();
-
             Searches.Clear();
 
-            foreach (string Theme in Themes)
+            if (Themes != null && Themes.Any())
             {
-                string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
-                SSTHI Info = SSTHI.ReadJson(InfoPath);
+                Dictionary<string, object> SortThemes = new();
 
-                IEnumerable<string> SearchText = Info.Title.Split(' ')
-                           .Concat(Info.Description.Split(' '))
-                           .Concat(Info.Tags ?? Array.Empty<string>());
-
-                Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
-
-                if (SSDMM.LibrarySortMode == SSDESMT.Name)
+                foreach (string Theme in Themes.ToList())
                 {
-                    SortThemes.Add(Theme, Info.Title);
+                    string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
+                    SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                    IEnumerable<string> SearchText = Info.Title.Split(' ')
+                               .Concat(Info.Description.Split(' '))
+                               .Concat(Info.Tags ?? Array.Empty<string>());
+
+                    Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
+
+                    if (SSDMM.LibrarySortMode == SSDESMT.Name)
+                    {
+                        SortThemes.Add(Theme, Info.Title);
+                    }
+                    else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
+                    {
+                        SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
+                    }
+                    else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
+                    {
+                        SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
+                    }
                 }
-                else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
+
+                if (SSDMM.LibrarySortKind == SSDESKT.Ascending)
                 {
-                    SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
+                    SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
                 }
-                else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
+                else
                 {
-                    SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
+                    SortThemes = SortThemes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
                 }
-            }
 
-            if (SSDMM.LibrarySortKind == SSDESKT.Ascending)
-            {
-                SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-            }
-            else
-            {
-                SortThemes = SortThemes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-            }
+                Themes.Clear();
+                Themes.AddRange(SortThemes.Select(Theme => Theme.Key));
 
-            Themes.Clear();
-            Themes.AddRange(SortThemes.Select(Theme => Theme.Key));
-
-            SMMI.ThemesSettingManager.SetSetting(SMC.Themes, Themes);
+                SMMI.ThemesSettingManager.SetSetting(SMC.Themes, Themes);
+            }
         }
 
         private async Task Start(bool Progress = false)
         {
-            if (Themes.Any())
+            if (Themes != null && Themes.Any())
             {
                 FullLibraryPage = new(Searches, Themes);
 
