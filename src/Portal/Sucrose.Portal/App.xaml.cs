@@ -1,9 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sucrose.Portal.Dependency;
+using Sucrose.Portal.Extension;
 using System.Globalization;
 using System.Windows;
 using Wpf.Ui;
+using SEAT = Skylark.Enum.AssemblyType;
+using SHA = Skylark.Helper.Assemblies;
 using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -11,7 +15,6 @@ using SMR = Sucrose.Memory.Readonly;
 using SPMAC = Sucrose.Portal.Models.AppConfig;
 using SPSAHS = Sucrose.Portal.Services.ApplicationHostService;
 using SPSCIW = Sucrose.Portal.Services.Contracts.IWindow;
-using SPSPS = Sucrose.Portal.Services.PageService;
 using SPSWPS = Sucrose.Portal.Services.WindowsProviderService;
 using SPVMPDSVM = Sucrose.Portal.ViewModels.Pages.DonateSettingViewModel;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
@@ -61,33 +64,23 @@ namespace Sucrose.Portal
             })
             .ConfigureServices((context, services) =>
             {
+                // Navigation
+                services.AddNavigationViewPageProvider();
+
                 // App Host
                 services.AddHostedService<SPSAHS>();
 
-                // Page resolver service
-                services.AddSingleton<IPageService, SPSPS>();
-
-                // Theme manipulation
-                services.AddSingleton<IThemeService, ThemeService>();
-
-                // TaskBar manipulation
-                services.AddSingleton<ITaskBarService, TaskBarService>();
-
-                // 
-                services.AddSingleton<ISnackbarService, SnackbarService>();
-
-                // Service containing navigation, same as INavigationWindow... but without window
-                services.AddSingleton<INavigationService, NavigationService>();
-
-                // 
-                services.AddSingleton<IContentDialogService, ContentDialogService>();
-
-                // Main window with navigation
+                // Main window container with navigation
                 services.AddSingleton<SPSCIW, SPVWMW>();
                 services.AddSingleton<SPVMWMWVM>();
+                services.AddSingleton<IThemeService, ThemeService>();
+                services.AddSingleton<ITaskBarService, TaskBarService>();
+                services.AddSingleton<ISnackbarService, SnackbarService>();
+                services.AddSingleton<INavigationService, NavigationService>();
+                services.AddSingleton<IContentDialogService, ContentDialogService>();
                 services.AddSingleton<SPSWPS>();
 
-                // Views and ViewModels
+                // Top-level pages
                 services.AddTransient<SPVPLP>();
                 services.AddTransient<SPVMPLVM>();
 
@@ -114,6 +107,12 @@ namespace Sucrose.Portal
 
                 services.AddTransient<SPVPSWSP>();
                 services.AddTransient<SPVMPWSVM>();
+
+                // All other pages and view models
+                _ = services.AddTransientFromNamespace("Sucrose.Portal.Views", SHA.Assemble(SEAT.Executing));
+                _ = services.AddTransientFromNamespace(
+                    "Sucrose.Portal.ViewModels", SHA.Assemble(SEAT.Executing)
+                );
 
                 // Configuration
                 services.Configure<SPMAC>(context.Configuration.GetSection(nameof(SPMAC)));
@@ -177,6 +176,16 @@ namespace Sucrose.Portal
         public static T GetService<T>() where T : class
         {
             return _host.Services.GetService(typeof(T)) as T ?? null;
+        }
+
+        /// <summary>
+        /// Gets registered service.
+        /// </summary>
+        /// <typeparam name="T">Type of the service to get.</typeparam>
+        /// <returns>Instance of the service or <see langword="null"/>.</returns>
+        public static T GetRequiredService<T>() where T : class
+        {
+            return _host.Services.GetRequiredService<T>();
         }
 
         protected void Close()

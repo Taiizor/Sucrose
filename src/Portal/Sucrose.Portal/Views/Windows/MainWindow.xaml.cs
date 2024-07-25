@@ -86,8 +86,8 @@ namespace Sucrose.Portal.Views.Windows
             RootView.SetServiceProvider(ServiceProvider);
 
             NavigationService.SetNavigationControl(RootView);
+            ContentDialogService.SetDialogHost(RootContentDialog);
             SnackbarService.SetSnackbarPresenter(SnackbarPresenter);
-            ContentDialogService.SetContentPresenter(RootContentDialog);
 
             SPMI.ServiceProvider = ServiceProvider;
             SPMI.SnackbarService = SnackbarService;

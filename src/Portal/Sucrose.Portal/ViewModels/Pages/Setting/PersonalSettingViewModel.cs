@@ -17,7 +17,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class PersonalSettingViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class PersonalSettingViewModel : ViewModel, IDisposable
     {
         [ObservableProperty]
         private List<UIElement> _Contents = new();
@@ -653,16 +653,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             Contents.Add(Library);
 
             _isInitialized = true;
-        }
-
-        public void OnNavigatedTo()
-        {
-            //
-        }
-
-        public void OnNavigatedFrom()
-        {
-            //Dispose();
         }
 
         private void SortKindSelected(int Index)

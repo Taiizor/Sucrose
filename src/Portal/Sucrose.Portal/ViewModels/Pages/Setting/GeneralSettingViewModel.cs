@@ -39,7 +39,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class GeneralSettingViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class GeneralSettingViewModel : ViewModel, IDisposable
     {
         [ObservableProperty]
         private List<UIElement> _Contents = new();
@@ -86,7 +86,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxDropDownHeight = 200
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(Localization, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(Localization, ScrollBarVisibility.Auto);
 
             Localization.SelectionChanged += (s, e) => LocalizationSelected(Localization.SelectedIndex);
 
@@ -483,16 +483,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             _isInitialized = true;
         }
 
-        public void OnNavigatedTo()
-        {
-            //
-        }
-
-        public void OnNavigatedFrom()
-        {
-            //Dispose();
-        }
-
         private void NotifySelected(int Index)
         {
             if (Index != (SMMM.Visible ? 0 : 1))
@@ -527,18 +517,9 @@ namespace Sucrose.Portal.ViewModels.Pages
                     Theme = ApplicationTheme.Light;
                 }
 
-                if (Type != WindowBackdropType.None)
-                {
-                    WindowBackdrop.RemoveBackground(Application.Current.MainWindow);
-                }
-                else
-                {
-                    WindowBackdrop.RemoveBackdrop(Application.Current.MainWindow);
-                }
-
-                ApplicationThemeManager.Apply(Theme, Type, true, true);
+                ApplicationThemeManager.Apply(Theme, Type, true);
                 WindowBackdrop.ApplyBackdrop(Application.Current.MainWindow, Type);
-                WindowBackgroundManager.UpdateBackground(Application.Current.MainWindow, Theme, Type, true);
+                WindowBackgroundManager.UpdateBackground(Application.Current.MainWindow, Theme, Type);
 
                 SMMI.PortalSettingManager.SetSetting(SMC.BackdropType, Type);
             }

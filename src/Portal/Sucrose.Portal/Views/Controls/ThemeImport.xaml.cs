@@ -15,7 +15,7 @@ namespace Sucrose.Portal.Views.Controls
         internal List<SSDECT> Types = new();
         internal List<string> Messages = new();
 
-        public ThemeImport() : base(SPMI.ContentDialogService.GetContentPresenter())
+        public ThemeImport() : base(SPMI.ContentDialogService.GetDialogHost())
         {
             InitializeComponent();
         }

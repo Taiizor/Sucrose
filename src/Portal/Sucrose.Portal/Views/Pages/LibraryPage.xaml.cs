@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
-using Wpf.Ui.Controls;
+using Wpf.Ui.Abstractions.Controls;
 using SHG = Skylark.Helper.Generator;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;

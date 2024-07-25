@@ -13,7 +13,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class DonateSettingViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class DonateSettingViewModel : ViewModel, IDisposable
     {
         [ObservableProperty]
         private List<UIElement> _Contents = new();
@@ -145,16 +145,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             Contents.Add(Advertising);
 
             _isInitialized = true;
-        }
-
-        public void OnNavigatedTo()
-        {
-            //
-        }
-
-        public void OnNavigatedFrom()
-        {
-            //Dispose();
         }
 
         private void DonateVisibleSelected(int Index)

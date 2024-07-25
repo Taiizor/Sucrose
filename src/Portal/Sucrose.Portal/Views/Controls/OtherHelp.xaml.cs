@@ -1,7 +1,7 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using Wpf.Ui.Controls;
 using SMR = Sucrose.Memory.Readonly;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -14,7 +14,7 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class OtherHelp : ContentDialog, IDisposable
     {
-        public OtherHelp() : base(SPMI.ContentDialogService.GetContentPresenter())
+        public OtherHelp(ContentPresenter? contentPresenter) : base(contentPresenter)
         {
             InitializeComponent();
         }

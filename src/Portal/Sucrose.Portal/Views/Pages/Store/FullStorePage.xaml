@@ -43,9 +43,9 @@
                 PaneDisplayMode="Left" />
         </controls:SizeConstrainingContainer>
 
-        <controls:SizeConstrainingContainer Grid.Column="1" Margin="7,0,0,0">
-            <ScrollViewer x:Name="PageScroll" VerticalScrollBarVisibility="Auto">
-                <StackPanel>
+        <controls:SizeConstrainingContainer Grid.Column="1">
+            <ui:DynamicScrollViewer x:Name="PageScroll" VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="7,0,10,0">
                     <controls:StoreStackPanel
                         x:Name="ThemeStore"
                         HorizontalAlignment="Left"
@@ -55,7 +55,7 @@
                         Margin="0,10,0,10"
                         HorizontalAlignment="Center" />
                 </StackPanel>
-            </ScrollViewer>
+            </ui:DynamicScrollViewer>
         </controls:SizeConstrainingContainer>
     </Grid>
 </Page>

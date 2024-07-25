@@ -47,7 +47,7 @@
             </ui:TitleBar.Icon>
         </ui:TitleBar>
 
-        <ScrollViewer
+        <ui:DynamicScrollViewer
             Grid.Row="1"
             Margin="20,10,10,20"
             HorizontalScrollBarVisibility="Disabled"
@@ -90,6 +90,6 @@
                         ToolTipService.ToolTip="{DynamicResource Property.RestoreTip}" />
                 </Grid>
             </StackPanel>
-        </ScrollViewer>
+        </ui:DynamicScrollViewer>
     </Grid>
 </ui:FluentWindow>

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
-using Wpf.Ui.Controls;
+using Wpf.Ui.Abstractions.Controls;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
 using SPVMPSVM = Sucrose.Portal.ViewModels.Pages.StoreViewModel;

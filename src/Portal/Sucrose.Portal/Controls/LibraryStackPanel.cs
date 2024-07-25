@@ -44,8 +44,8 @@ namespace Sucrose.Portal.Controls
 
                 foreach (UIElement child in InternalChildren)
                 {
-                    child.Measure(availableSize);
-                    double childWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
+                    child.Measure(new Size(double.PositiveInfinity, availableSize.Height));
+                    double childWidth = Math.Min((child as FrameworkElement)?.MaxWidth ?? double.PositiveInfinity, child.DesiredSize.Width) + ItemMargin.Left + ItemMargin.Right;
 
                     if (x + childWidth > availableSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
                     {
@@ -53,10 +53,12 @@ namespace Sucrose.Portal.Controls
                         y += rowHeight;
 
                         rowHeight = 0;
+
                         itemsInCurrentRow = 0;
                     }
 
                     rowHeight = Math.Max(rowHeight, child.DesiredSize.Height + ItemMargin.Top + ItemMargin.Bottom);
+
                     x += childWidth;
 
                     itemsInCurrentRow++;
@@ -70,7 +72,7 @@ namespace Sucrose.Portal.Controls
 
         protected override Size ArrangeOverride(Size finalSize)
         {
-            double totalWidth = 0;
+            double yOffset = 0;
             double rowWidth = 0;
             double rowHeight = 0;
             int itemsInCurrentRow = 0;
@@ -80,47 +82,60 @@ namespace Sucrose.Portal.Controls
                 for (int i = 0; i < InternalChildren.Count; i++)
                 {
                     UIElement child = InternalChildren[i];
-                    child.Measure(new Size(double.PositiveInfinity, finalSize.Height));
 
-                    double childWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
+                    double childMinWidth = (child as FrameworkElement)?.MinWidth ?? 0;
+                    double childMaxWidth = (child as FrameworkElement)?.MaxWidth ?? double.PositiveInfinity;
+                    double childWidth = Math.Max(childMinWidth, Math.Min(childMaxWidth, child.DesiredSize.Width)) + ItemMargin.Left + ItemMargin.Right;
                     double childHeight = child.DesiredSize.Height + ItemMargin.Top + ItemMargin.Bottom;
 
                     if (rowWidth + childWidth > finalSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
                     {
-                        double widthRatio = finalSize.Width / rowWidth;
-                        double xOffset = 0;
+                        DistributeExtraSpace(finalSize.Width, rowWidth, itemsInCurrentRow, i - itemsInCurrentRow, i, yOffset, rowHeight);
 
-                        for (int j = i - itemsInCurrentRow; j < i; j++)
-                        {
-                            UIElement rowChild = InternalChildren[j];
-                            rowChild.Arrange(new Rect(new Point(xOffset + ItemMargin.Left, rowHeight + ItemMargin.Top), new Size(rowChild.DesiredSize.Width * widthRatio, rowChild.DesiredSize.Height)));
-                            xOffset += (rowChild.DesiredSize.Width * widthRatio) + ItemMargin.Left + ItemMargin.Right;
-                        }
-
-                        totalWidth = Math.Max(totalWidth, rowWidth);
+                        yOffset += rowHeight;
                         rowWidth = 0;
-                        rowHeight += childHeight;
+                        rowHeight = 0;
                         itemsInCurrentRow = 0;
                     }
 
                     rowWidth += childWidth;
+                    rowHeight = Math.Max(rowHeight, childHeight);
                     itemsInCurrentRow++;
                 }
 
-                double remainingWidthRatio = finalSize.Width / rowWidth;
-                double remainingXOffset = 0;
-
-                for (int i = InternalChildren.Count - itemsInCurrentRow; i < InternalChildren.Count; i++)
+                if (itemsInCurrentRow > 0)
                 {
-                    UIElement rowChild = InternalChildren[i];
-                    rowChild.Arrange(new Rect(new Point(remainingXOffset + ItemMargin.Left, rowHeight + ItemMargin.Top), new Size(rowChild.DesiredSize.Width * remainingWidthRatio, rowChild.DesiredSize.Height)));
-                    remainingXOffset += (rowChild.DesiredSize.Width * remainingWidthRatio) + ItemMargin.Left + ItemMargin.Right;
+                    DistributeExtraSpace(finalSize.Width, rowWidth, itemsInCurrentRow, InternalChildren.Count - itemsInCurrentRow, InternalChildren.Count, yOffset, rowHeight);
                 }
-
-                totalWidth = Math.Max(totalWidth, rowWidth);
             }
 
-            return new Size(totalWidth, rowHeight);
+            return new Size(finalSize.Width, yOffset + rowHeight);
+        }
+
+        private void DistributeExtraSpace(double totalWidth, double rowWidth, int itemsInRow, int startIndex, int endIndex, double yOffset, double rowHeight)
+        {
+            double extraSpace = totalWidth - rowWidth;
+            double extraSpacePerItem = extraSpace / itemsInRow;
+            double xOffset = (extraSpace > 0) ? 0 : (totalWidth - rowWidth) / 2;
+
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                UIElement child = InternalChildren[i];
+
+                if (child.Visibility != Visibility.Visible)
+                {
+                    continue;
+                }
+
+                double childMinWidth = (child as FrameworkElement)?.MinWidth ?? 0;
+                double desiredWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
+                double childMaxWidth = (child as FrameworkElement)?.MaxWidth ?? double.PositiveInfinity;
+                double finalChildWidth = Math.Max(childMinWidth, Math.Min(childMaxWidth, desiredWidth + extraSpacePerItem));
+
+                double childHeight = child.DesiredSize.Height;
+                child.Arrange(new Rect(new Point(xOffset + ItemMargin.Left, yOffset + ItemMargin.Top), new Size(finalChildWidth - ItemMargin.Left - ItemMargin.Right, childHeight)));
+                xOffset += finalChildWidth;
+            }
         }
 
         public void Dispose()

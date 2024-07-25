@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Wpf.Ui.Controls;
+using Wpf.Ui.Abstractions.Controls;
 using SPVMPSSVM = Sucrose.Portal.ViewModels.Pages.SystemSettingViewModel;
 
 namespace Sucrose.Portal.Views.Pages.Setting

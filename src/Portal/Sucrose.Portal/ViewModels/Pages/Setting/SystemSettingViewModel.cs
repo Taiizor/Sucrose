@@ -25,7 +25,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class SystemSettingViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class SystemSettingViewModel : ViewModel, IDisposable
     {
         private string StoreTemporaryPath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.CacheFolder, SMR.Store);
 
@@ -391,14 +391,8 @@ namespace Sucrose.Portal.ViewModels.Pages
             _isInitialized = true;
         }
 
-        public void OnNavigatedTo()
+        public override void OnNavigatedFrom()
         {
-            //
-        }
-
-        public void OnNavigatedFrom()
-        {
-            //Dispose();
             InitializeTimer.Stop();
         }
 

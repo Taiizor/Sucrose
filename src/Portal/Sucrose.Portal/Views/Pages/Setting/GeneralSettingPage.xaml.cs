@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Wpf.Ui.Controls;
+using Wpf.Ui.Abstractions.Controls;
 using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVMPGSVM = Sucrose.Portal.ViewModels.Pages.GeneralSettingViewModel;
 

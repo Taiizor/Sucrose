@@ -4,11 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{DynamicResource Portal.EmptyLibraryPage.Title}"
     AllowDrop="True"
     mc:Ignorable="d">
 
-    <ScrollViewer
+    <ui:DynamicScrollViewer
         Margin="10,0,10,0"
         HorizontalScrollBarVisibility="Disabled"
         VerticalScrollBarVisibility="Disabled">
@@ -31,5 +32,5 @@
                 TextAlignment="Center"
                 TextWrapping="WrapWithOverflow" />
         </StackPanel>
-    </ScrollViewer>
+    </ui:DynamicScrollViewer>
 </Page>

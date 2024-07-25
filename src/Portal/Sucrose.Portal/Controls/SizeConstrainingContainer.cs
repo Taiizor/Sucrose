@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Wpf.Ui.Controls;
 
 namespace Sucrose.Portal.Controls
 {
@@ -43,7 +44,7 @@ namespace Sucrose.Portal.Controls
         }
     }
 
-    public class ResizableContainer : ScrollViewer
+    public class ResizableContainer : DynamicScrollViewer
     {
         public ResizableContainer()
         {

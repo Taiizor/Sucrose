@@ -23,7 +23,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class PerformanceSettingViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class PerformanceSettingViewModel : ViewModel, IDisposable
     {
         [ObservableProperty]
         private List<UIElement> _Contents = new();
@@ -248,7 +248,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxWidth = 700
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(GpuAdapter, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(GpuAdapter, ScrollBarVisibility.Auto);
 
             if (SMMM.GraphicInterfaces.Any())
             {
@@ -424,7 +424,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxWidth = 700
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(NetworkAdapter, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(NetworkAdapter, ScrollBarVisibility.Auto);
 
             if (SMMM.NetworkInterfaces.Any())
             {
@@ -490,7 +490,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxDropDownHeight = 200
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(NetworkUploadType, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(NetworkUploadType, ScrollBarVisibility.Auto);
 
             NetworkUploadType.SelectionChanged += (s, e) => NetworkUploadTypeSelected(NetworkUploadType.SelectedIndex);
 
@@ -536,7 +536,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxDropDownHeight = 200
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(NetworkDownloadType, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(NetworkDownloadType, ScrollBarVisibility.Auto);
 
             NetworkDownloadType.SelectionChanged += (s, e) => NetworkDownloadTypeSelected(NetworkDownloadType.SelectedIndex);
 
@@ -582,7 +582,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxDropDownHeight = 200
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(NetworkPingType, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(NetworkPingType, ScrollBarVisibility.Auto);
 
             NetworkPingType.SelectionChanged += (s, e) => NetworkPingTypeSelected($"{NetworkPingType.SelectedValue}");
 
@@ -821,16 +821,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             Contents.Add(Focus);
 
             _isInitialized = true;
-        }
-
-        public void OnNavigatedTo()
-        {
-            //
-        }
-
-        public void OnNavigatedFrom()
-        {
-            //Dispose();
         }
 
         private SymbolRegular BatterySymbol(int Value)

@@ -68,7 +68,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="WPF-UI" Version="3.0.4" />
+        <PackageReference Include="WPF-UI" Version="4.0.0-rc.1" />
         <PackageReference Include="Downloader" Version="3.1.2" />
         <PackageReference Include="SharpCompress" Version="0.37.2" />
         <PackageReference Include="Skylark.Wing" Version="3.1.5.9" />
@@ -81,7 +81,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.5.21227.3" />
     </ItemGroup>
 
     <ItemGroup>

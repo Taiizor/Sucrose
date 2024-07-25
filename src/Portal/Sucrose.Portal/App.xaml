@@ -23,16 +23,17 @@
                 ScaleX="{StaticResource NormalScaleFactor}"
                 ScaleY="{StaticResource NormalScaleFactor}" />
 
-
             <xf:AnimationSettings
                 x:Key="Leaved"
                 Kind="ScaleXFrom,ScaleYFrom"
                 ScaleX="{StaticResource NormalScaleFactor}"
                 ScaleY="{StaticResource NormalScaleFactor}" />
 
+            <helpers:ThemeToIndexConverter x:Key="ThemeToIndexConverter" />
             <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
             <helpers:NameToPageTypeConverter x:Key="NameToPageTypeConverter" />
             <helpers:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+            <helpers:PaneDisplayModeToIndexConverter x:Key="PaneDisplayModeToIndexConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

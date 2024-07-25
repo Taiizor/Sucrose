@@ -5,17 +5,17 @@
         <security>
             <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
                 <!-- UAC Bildirim Seçenekleri
-             Windows Kullanıcı Hesabı Denetimi düzeyini değiştirmek istiyorsanız 
-             requestedExecutionLevel düğümünü aşağıdakilerden biriyle değiştirin.
+                     Windows Kullanıcı Hesabı Denetimi düzeyini değiştirmek istiyorsanız 
+                     requestedExecutionLevel düğümünü aşağıdakilerden biriyle değiştirin.
 
-        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
-        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
-        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+                <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+                <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+                <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-            requestedExecutionLevel öğesini belirtmek, dosya ve kayıt defteri sanallaştırmasını devre dışı bırakır. 
-            Uygulamanız geriye doğru uyumluluk için bu sanallaştırmayı gerektiriyorsa, bu öğeyi
-            kaldırın.
-        -->
+                    requestedExecutionLevel öğesini belirtmek, dosya ve kayıt defteri sanallaştırmasını devre dışı bırakır. 
+                    Uygulamanız geriye doğru uyumluluk için bu sanallaştırmayı gerektiriyorsa, bu öğeyi
+                    kaldırın.
+                -->
                 <requestedExecutionLevel level="asInvoker" uiAccess="false" />
             </requestedPrivileges>
         </security>
@@ -57,6 +57,7 @@
             <!--<dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">false</dpiAware>-->
             
             <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/PM</dpiAware>
+            <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
             <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2, PerMonitor</dpiAwareness>
         </windowsSettings>
     </application>

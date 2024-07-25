@@ -3,10 +3,8 @@ using System.Windows;
 
 namespace Sucrose.Portal.Services
 {
-    public class WindowsProviderService(IServiceProvider ServiceProvider)
+    public class WindowsProviderService(IServiceProvider serviceProvider)
     {
-        private readonly IServiceProvider _ServiceProvider = ServiceProvider;
-
         public void Show<T>() where T : class
         {
             if (!typeof(Window).IsAssignableFrom(typeof(T)))
@@ -14,13 +12,10 @@ namespace Sucrose.Portal.Services
                 throw new InvalidOperationException($"The window class should be derived from {typeof(Window)}.");
             }
 
-            if (_ServiceProvider.GetService<T>() is not Window WindowInstance)
-            {
-                throw new InvalidOperationException("Window is not registered as service.");
-            }
+            Window windowInstance = serviceProvider.GetService<T>() as Window ?? throw new InvalidOperationException("Window is not registered as service.");
 
-            WindowInstance.Owner = Application.Current.MainWindow;
-            WindowInstance.Show();
+            windowInstance.Owner = Application.Current.MainWindow;
+            windowInstance.Show();
         }
     }
 }

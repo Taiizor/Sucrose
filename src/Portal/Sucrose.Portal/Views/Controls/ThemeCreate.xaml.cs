@@ -1,10 +1,12 @@
 ﻿using System.IO;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Wpf.Ui.Controls;
+using Button = Wpf.Ui.Controls.Button;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
@@ -30,7 +32,7 @@ namespace Sucrose.Portal.Views.Controls
     {
         private readonly SPETL Loader = new();
 
-        public ThemeCreate() : base(SPMI.ContentDialogService.GetContentPresenter())
+        public ThemeCreate(ContentPresenter? contentPresenter) : base(contentPresenter)
         {
             InitializeComponent();
         }

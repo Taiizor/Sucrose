@@ -40,7 +40,7 @@ namespace Sucrose.Portal.Views.Controls
         internal string Theme = string.Empty;
         internal SSTHI Info = new();
 
-        public ThemeReport() : base(SPMI.ContentDialogService.GetContentPresenter())
+        public ThemeReport() : base(SPMI.ContentDialogService.GetDialogHost())
         {
             InitializeComponent();
         }
@@ -66,7 +66,7 @@ namespace Sucrose.Portal.Views.Controls
                 MaxDropDownHeight = 200
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(ReportMode, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(ReportMode, ScrollBarVisibility.Auto);
 
             foreach (SSDERT Type in Enum.GetValues(typeof(SSDERT)))
             {

@@ -31,14 +31,14 @@
             Margin="0,10,0,10"
             Background="{DynamicResource ControlFillColorDefaultBrush}"
             CornerRadius="5">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ui:DynamicScrollViewer VerticalScrollBarVisibility="Auto">
                 <WrapPanel
                     x:Name="Contents"
                     Margin="10"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Orientation="Horizontal" />
-            </ScrollViewer>
+            </ui:DynamicScrollViewer>
         </Border>
 
         <vcontrols:ExpanderCard

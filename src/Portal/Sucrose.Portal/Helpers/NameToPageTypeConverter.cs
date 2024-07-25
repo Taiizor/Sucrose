@@ -7,14 +7,14 @@ namespace Sucrose.Portal.Helpers
         private static readonly Type[] PageTypes = Assembly
             .GetExecutingAssembly()
             .GetTypes()
-            .Where(t => t.Namespace?.StartsWith("Sucrose.Portal.Views.Pages") ?? false)
+            .Where(type => type.Namespace?.StartsWith("Sucrose.Portal.Views.Pages") ?? false)
             .ToArray();
 
-        public static Type Convert(string pageName)
+        public static Type? Convert(string pageName)
         {
             pageName = pageName.Trim().ToLower() + "page";
 
-            return PageTypes.FirstOrDefault(singlePageType => singlePageType.Name.ToLower() == pageName);
+            return PageTypes.FirstOrDefault(singlePageType => singlePageType.Name.Equals(pageName, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }

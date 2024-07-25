@@ -145,8 +145,8 @@
                             Grid.Row="0"
                             Grid.Column="0"
                             HorizontalAlignment="Stretch"
-                            MaxDropDownHeight="200"
-                            ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                            ui:DynamicScrollViewer.VerticalScrollBarVisibility="Auto"
+                            MaxDropDownHeight="200" />
 
                         <ui:Button
                             x:Name="Publisher"

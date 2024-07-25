@@ -9,7 +9,6 @@ using SEEST = Skylark.Enum.ExpandScreenType;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SPVCDD = Sucrose.Portal.Views.Controls.Display.Duplicate;
 using SPVCDE = Sucrose.Portal.Views.Controls.Display.Expand;
 using SPVCDS = Sucrose.Portal.Views.Controls.Display.Screen;
@@ -35,7 +34,7 @@ namespace Sucrose.Portal.Views.Controls
 
         private StackPanel ExpanderCustomContent = new();
 
-        public DisplayPreferences() : base(SPMI.ContentDialogService.GetContentPresenter())
+        public DisplayPreferences(ContentPresenter? contentPresenter) : base(contentPresenter)
         {
             InitializeComponent();
         }

@@ -25,7 +25,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class WallpaperSettingViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class WallpaperSettingViewModel : ViewModel, IDisposable
     {
         [ObservableProperty]
         private List<UIElement> _Contents = new();
@@ -433,16 +433,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             Contents.Add(ApplicationPlayer);
 
             _isInitialized = true;
-        }
-
-        public void OnNavigatedTo()
-        {
-            //
-        }
-
-        public void OnNavigatedFrom()
-        {
-            //Dispose();
         }
 
         private void LoopStateChecked(bool State)

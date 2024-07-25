@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using Wpf.Ui;
 using Wpf.Ui.Controls;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -38,10 +39,12 @@ using WUAT = Wpf.Ui.Appearance.ApplicationThemeManager;
 
 namespace Sucrose.Portal.ViewModels.Windows
 {
-    public partial class MainWindowViewModel : ObservableObject, IDisposable
+    public partial class MainWindowViewModel : ViewModel, IDisposable
     {
         [ObservableProperty]
         private WindowBackdropType _WindowBackdropType = GetWindowBackdropType();
+
+        private readonly IContentDialogService _ContentDialogService;
 
         [ObservableProperty]
         private Stretch _Stretch = SSDMM.DefaultBackgroundStretch;
@@ -85,11 +88,13 @@ namespace Sucrose.Portal.ViewModels.Windows
 
         private bool _isInitialized;
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IContentDialogService contentDialogService)
         {
             if (!_isInitialized)
             {
                 InitializeViewModel();
+
+                _ContentDialogService = contentDialogService;
 
                 Timer.Interval = TimeSpan.FromSeconds(1);
                 Timer.Tick += Memory_Tick;
@@ -218,24 +223,19 @@ namespace Sucrose.Portal.ViewModels.Windows
             if (SSDMM.ThemeType == SEWTT.Dark)
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Light);
-                WUAT.Apply(WUAAT.Light, GetWindowBackdropType(), true, true);
+                WUAT.Apply(WUAAT.Light, GetWindowBackdropType(), true);
             }
             else
             {
                 SMMI.GeneralSettingManager.SetSetting(SMC.ThemeType, SEWTT.Dark);
-                WUAT.Apply(WUAAT.Dark, GetWindowBackdropType(), true, true);
-            }
-
-            if (GetWindowBackdropType() == WindowBackdropType.None)
-            {
-                WindowBackdrop.RemoveBackdrop(Application.Current.MainWindow);
+                WUAT.Apply(WUAAT.Dark, GetWindowBackdropType(), true);
             }
         }
 
         [RelayCommand]
         private async Task OnOtherHelp()
         {
-            SPVCOH OtherHelp = new();
+            SPVCOH OtherHelp = new(_ContentDialogService.GetDialogHost());
 
             await OtherHelp.ShowAsync();
 
@@ -245,7 +245,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private async Task OnOtherAbout()
         {
-            SPVCOA OtherAbout = new();
+            SPVCOA OtherAbout = new(_ContentDialogService.GetDialogHost());
 
             await OtherAbout.ShowAsync();
 
@@ -255,7 +255,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private async Task OnCreateWallpaper()
         {
-            SPVCTC ThemeCreate = new();
+            SPVCTC ThemeCreate = new(_ContentDialogService.GetDialogHost());
 
             ContentDialogResult Result = await ThemeCreate.ShowAsync();
 
@@ -285,7 +285,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private async Task OnWallpaperCycling()
         {
-            SPVCWC WallpaperCycling = new();
+            SPVCWC WallpaperCycling = new(_ContentDialogService.GetDialogHost());
 
             await WallpaperCycling.ShowAsync();
 
@@ -295,7 +295,7 @@ namespace Sucrose.Portal.ViewModels.Windows
         [RelayCommand]
         private async Task OnDisplayPreferences()
         {
-            SPVCDP DisplayPreferences = new();
+            SPVCDP DisplayPreferences = new(_ContentDialogService.GetDialogHost());
 
             await DisplayPreferences.ShowAsync();
 

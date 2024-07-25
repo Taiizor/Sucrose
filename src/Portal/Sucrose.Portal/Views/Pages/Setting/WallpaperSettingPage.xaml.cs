@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Wpf.Ui.Controls;
+using Wpf.Ui.Abstractions.Controls;
 using SPVMPWSVM = Sucrose.Portal.ViewModels.Pages.WallpaperSettingViewModel;
 
 namespace Sucrose.Portal.Views.Pages.Setting

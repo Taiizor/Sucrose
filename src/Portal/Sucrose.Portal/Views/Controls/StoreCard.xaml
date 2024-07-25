@@ -9,7 +9,7 @@
     xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
     MinWidth="260"
     MinHeight="160"
-    MaxWidth="360"
+    MaxWidth="400"
     MaxHeight="160"
     xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Entered},
                                        Event=MouseEnter}"

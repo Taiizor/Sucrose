@@ -17,7 +17,7 @@
             FontSize="16" />
         <ComboBox
             x:Name="Component"
-            MaxDropDownHeight="200"
-            ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            ui:DynamicScrollViewer.VerticalScrollBarVisibility="Auto"
+            MaxDropDownHeight="200" />
     </StackPanel>
 </UserControl>

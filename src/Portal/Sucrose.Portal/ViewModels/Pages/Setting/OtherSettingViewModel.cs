@@ -23,7 +23,7 @@ using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class OtherSettingViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class OtherSettingViewModel : ViewModel, IDisposable
     {
         [ObservableProperty]
         private List<UIElement> _Contents = new();
@@ -361,7 +361,7 @@ namespace Sucrose.Portal.ViewModels.Pages
                 MaxDropDownHeight = 200
             };
 
-            ScrollViewer.SetVerticalScrollBarVisibility(UpdateLimitType, ScrollBarVisibility.Auto);
+            DynamicScrollViewer.SetVerticalScrollBarVisibility(UpdateLimitType, ScrollBarVisibility.Auto);
 
             UpdateLimitType.SelectionChanged += (s, e) => UpdateLimitTypeSelected(UpdateLimitType.SelectedIndex);
 
@@ -517,16 +517,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             Contents.Add(Developer);
 
             _isInitialized = true;
-        }
-
-        public void OnNavigatedTo()
-        {
-            //
-        }
-
-        public void OnNavigatedFrom()
-        {
-            //Dispose();
         }
 
         private void AutoStateChecked(bool State)

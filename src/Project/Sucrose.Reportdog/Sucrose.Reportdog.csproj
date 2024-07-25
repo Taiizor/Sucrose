@@ -78,7 +78,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
-        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.5.21227.3" />
     </ItemGroup>
 
     <ItemGroup>

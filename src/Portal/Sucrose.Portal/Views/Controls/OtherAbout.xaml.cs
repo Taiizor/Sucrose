@@ -1,10 +1,10 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using SHC = Skylark.Helper.Culture;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 
@@ -15,7 +15,7 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class OtherAbout : ContentDialog, IDisposable
     {
-        public OtherAbout() : base(SPMI.ContentDialogService.GetContentPresenter())
+        public OtherAbout(ContentPresenter? contentPresenter) : base(contentPresenter)
         {
             InitializeComponent();
         }

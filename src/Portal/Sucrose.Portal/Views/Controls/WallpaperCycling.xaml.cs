@@ -4,7 +4,6 @@ using Wpf.Ui.Controls;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
-using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDETT = Sucrose.Shared.Dependency.Enum.TransitionType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
@@ -16,7 +15,7 @@ namespace Sucrose.Portal.Views.Controls
     /// </summary>
     public partial class WallpaperCycling : ContentDialog, IDisposable
     {
-        public WallpaperCycling() : base(SPMI.ContentDialogService.GetContentPresenter())
+        public WallpaperCycling(ContentPresenter? contentPresenter) : base(contentPresenter)
         {
             InitializeComponent();
         }

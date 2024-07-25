@@ -1,18 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Wpf.Ui.Controls;
-
-namespace Sucrose.Portal.ViewModels.Pages
+﻿namespace Sucrose.Portal.ViewModels.Pages
 {
-    public partial class LibraryViewModel : ObservableObject, INavigationAware, IDisposable
+    public partial class LibraryViewModel : ViewModel, IDisposable
     {
-        public void OnNavigatedTo()
-        {
-        }
-
-        public void OnNavigatedFrom()
-        {
-        }
-
         public void Dispose()
         {
             GC.Collect();
