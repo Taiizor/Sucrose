@@ -31,7 +31,9 @@ namespace Sucrose.Portal.Controls
         {
             double x = 0;
             double y = 0;
+
             double rowHeight = 0;
+
             int itemsInCurrentRow = 0;
 
             if (InternalChildren.Count >= 0)
@@ -45,6 +47,7 @@ namespace Sucrose.Portal.Controls
                 foreach (UIElement child in InternalChildren)
                 {
                     child.Measure(new Size(double.PositiveInfinity, availableSize.Height));
+
                     double childWidth = Math.Min((child as FrameworkElement)?.MaxWidth ?? double.PositiveInfinity, child.DesiredSize.Width) + ItemMargin.Left + ItemMargin.Right;
 
                     if (x + childWidth > availableSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
@@ -73,8 +76,10 @@ namespace Sucrose.Portal.Controls
         protected override Size ArrangeOverride(Size finalSize)
         {
             double yOffset = 0;
+
             double rowWidth = 0;
             double rowHeight = 0;
+
             int itemsInCurrentRow = 0;
 
             if (InternalChildren.Count >= 0)
@@ -85,21 +90,25 @@ namespace Sucrose.Portal.Controls
 
                     double childMinWidth = (child as FrameworkElement)?.MinWidth ?? 0;
                     double childMaxWidth = (child as FrameworkElement)?.MaxWidth ?? double.PositiveInfinity;
-                    double childWidth = Math.Max(childMinWidth, Math.Min(childMaxWidth, child.DesiredSize.Width)) + ItemMargin.Left + ItemMargin.Right;
+
                     double childHeight = child.DesiredSize.Height + ItemMargin.Top + ItemMargin.Bottom;
+                    double childWidth = Math.Max(childMinWidth, Math.Min(childMaxWidth, child.DesiredSize.Width)) + ItemMargin.Left + ItemMargin.Right;
 
                     if (rowWidth + childWidth > finalSize.Width || (MaxItemsPerRow > 0 && itemsInCurrentRow >= MaxItemsPerRow))
                     {
                         DistributeExtraSpace(finalSize.Width, rowWidth, itemsInCurrentRow, i - itemsInCurrentRow, i, yOffset, rowHeight);
 
                         yOffset += rowHeight;
+
                         rowWidth = 0;
                         rowHeight = 0;
+
                         itemsInCurrentRow = 0;
                     }
 
                     rowWidth += childWidth;
                     rowHeight = Math.Max(rowHeight, childHeight);
+
                     itemsInCurrentRow++;
                 }
 
@@ -116,24 +125,25 @@ namespace Sucrose.Portal.Controls
         {
             double extraSpace = totalWidth - rowWidth;
             double extraSpacePerItem = extraSpace / itemsInRow;
+
             double xOffset = (extraSpace > 0) ? 0 : (totalWidth - rowWidth) / 2;
 
             for (int i = startIndex; i < endIndex; i++)
             {
                 UIElement child = InternalChildren[i];
 
-                if (child.Visibility != Visibility.Visible)
-                {
-                    continue;
-                }
-
                 double childMinWidth = (child as FrameworkElement)?.MinWidth ?? 0;
+
                 double desiredWidth = child.DesiredSize.Width + ItemMargin.Left + ItemMargin.Right;
+
                 double childMaxWidth = (child as FrameworkElement)?.MaxWidth ?? double.PositiveInfinity;
+
                 double finalChildWidth = Math.Max(childMinWidth, Math.Min(childMaxWidth, desiredWidth + extraSpacePerItem));
 
                 double childHeight = child.DesiredSize.Height;
+
                 child.Arrange(new Rect(new Point(xOffset + ItemMargin.Left, yOffset + ItemMargin.Top), new Size(finalChildWidth - ItemMargin.Left - ItemMargin.Right, childHeight)));
+
                 xOffset += finalChildWidth;
             }
         }

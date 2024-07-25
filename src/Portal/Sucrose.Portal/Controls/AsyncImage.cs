@@ -20,14 +20,19 @@ namespace Sucrose.Portal.Controls
             Source = await Task.Run(() =>
             {
                 using FileStream stream = File.OpenRead(imagePath);
-                BitmapImage bi = new();
-                bi.BeginInit();
-                bi.CacheOption = BitmapCacheOption.OnLoad;
-                bi.StreamSource = stream;
-                bi.DecodePixelWidth = 360;
-                bi.EndInit();
-                bi.Freeze();
-                return bi;
+
+                BitmapImage bitmap = new();
+
+                bitmap.BeginInit();
+
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.StreamSource = stream;
+                bitmap.DecodePixelWidth = 360;
+
+                bitmap.EndInit();
+                bitmap.Freeze();
+
+                return bitmap;
             });
         }
 

@@ -9,7 +9,8 @@ namespace Sucrose.Portal.Controls
         public SizeConstrainingContainer()
         {
             SizeChanged += SizeConstrainingContainer_SizeChanged;
-            HorizontalAlignment = HorizontalAlignment.Left;
+
+            HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
         }
 
