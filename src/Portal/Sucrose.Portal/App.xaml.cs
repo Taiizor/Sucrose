@@ -2,10 +2,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sucrose.Portal.Dependency;
-using Sucrose.Portal.Extension;
 using System.Globalization;
 using System.Windows;
 using Wpf.Ui;
+using Wpf.Ui.DependencyInjection;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
 using SHC = Skylark.Helper.Culture;
@@ -109,10 +109,8 @@ namespace Sucrose.Portal
                 services.AddTransient<SPVMPWSVM>();
 
                 // All other pages and view models
-                _ = services.AddTransientFromNamespace("Sucrose.Portal.Views", SHA.Assemble(SEAT.Executing));
-                _ = services.AddTransientFromNamespace(
-                    "Sucrose.Portal.ViewModels", SHA.Assemble(SEAT.Executing)
-                );
+                services.AddTransientFromNamespace("Sucrose.Portal.Views", SHA.Assemble(SEAT.Executing));
+                services.AddTransientFromNamespace("Sucrose.Portal.ViewModels", SHA.Assemble(SEAT.Executing));
 
                 // Configuration
                 services.Configure<SPMAC>(context.Configuration.GetSection(nameof(SPMAC)));

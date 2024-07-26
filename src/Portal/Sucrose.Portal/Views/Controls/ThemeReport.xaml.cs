@@ -157,7 +157,7 @@ namespace Sucrose.Portal.Views.Controls
                     string Title = Wallpaper.Key.Replace(" ", "%20");
                     string Location = $"{Wallpaper.Value.Source.Replace(" ", "%20").Split('/').LastOrDefault()}/{Title}";
 
-                    SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.StoreReportWebsite}&title={Title}&wallpaper-location={Location}&report-description={Description}");
+                    SSSHP.Run(SSSPMI.Commandog, $"{SMR.StartCommand}{SSDECT.Report}{SMR.ValueSeparator}{SMR.StoreReportWebsite}&title={Title}&app-version={SSCHV.GetText()}&wallpaper-location={Location}&wallpaper-version={Info.Version}&wallpaper-app-version={Info.AppVersion}&report-reason={(ReportMode.SelectedItem as ComboBoxItem).Tag}&report-description={Description}");
                 }
             };
 

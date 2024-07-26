@@ -31,9 +31,9 @@ namespace Sucrose.Portal.Controls
         {
             double x = 0;
             double y = 0;
-			
+
             double rowHeight = 0;
-			
+
             int itemsInCurrentRow = 0;
 
             if (InternalChildren.Count >= 0)
