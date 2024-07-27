@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Deshacer</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Seleccionar Archivo Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Archivos Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Seleccionar Archivo de Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">Archivos de Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Arrastra y suelta tu archivo gif aquí</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Arrastre y suelte su archivo de video aquí</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Seleccionar Archivo de Aplicación</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Archivos de Aplicación (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Entendido</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Advertencia de Acceso</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">No tienes permiso para acceder al archivo seleccionado.</system:String>
 </ResourceDictionary>

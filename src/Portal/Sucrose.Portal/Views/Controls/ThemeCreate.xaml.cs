@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using MessageBox = Wpf.Ui.Controls.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEAT = Skylark.Enum.AssemblyType;
 using SHA = Skylark.Helper.Assemblies;
@@ -19,6 +20,7 @@ using SPMI = Sucrose.Portal.Manage.Internal;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSTHV = Sucrose.Shared.Theme.Helper.Various;
@@ -121,31 +123,6 @@ namespace Sucrose.Portal.Views.Controls
             GifRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
         }
 
-        private void WebSource_Click(object sender, RoutedEventArgs e)
-        {
-            Button Button = sender as Button;
-
-            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
-
-            OpenFileDialog FileDialog = new()
-            {
-                Filter = SRER.GetValue("Portal", "ThemeCreate", "WebSource", "Filter"),
-                FilterIndex = 1,
-
-                Title = SRER.GetValue("Portal", "ThemeCreate", "WebSource", "Title"),
-
-                InitialDirectory = Startup
-            };
-
-            if (FileDialog.ShowDialog() == true)
-            {
-                Button.Content = FileDialog.FileName;
-                Button.BorderBrush = WebThumbnail.BorderBrush;
-                WebTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
-                WebDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Web);
-            }
-        }
-
         private void VideoArea_DragOver(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop) || e.AllowedEffects.HasFlag(DragDropEffects.Copy) == false)
@@ -171,18 +148,32 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     foreach (string Record in Files)
                     {
-                        string Extension = Path.GetExtension(Record).ToLowerInvariant();
-
-                        if (Extension is ".gif")
+                        if (SSSHA.File(Record))
                         {
-                            GifDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(Record), SSDEWT.Gif);
-                            GifTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(Record));
-                            GifImagine.Source = await Loader.LoadAsync(Record);
-                            GifDelete.Visibility = Visibility.Visible;
-                            GifIcon.Visibility = Visibility.Collapsed;
-                            GifText.Visibility = Visibility.Collapsed;
-                            GifRectangle.Stroke = Brushes.SeaGreen;
-                            break;
+                            string Extension = Path.GetExtension(Record).ToLowerInvariant();
+
+                            if (Extension is ".gif")
+                            {
+                                GifDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(Record), SSDEWT.Gif);
+                                GifTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(Record));
+                                GifImagine.Source = await Loader.LoadAsync(Record);
+                                GifDelete.Visibility = Visibility.Visible;
+                                GifIcon.Visibility = Visibility.Collapsed;
+                                GifText.Visibility = Visibility.Collapsed;
+                                GifRectangle.Stroke = Brushes.SeaGreen;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox Warning = new()
+                            {
+                                Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                                Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                                CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                            };
+
+                            await Warning.ShowDialogAsync();
                         }
                     }
                 }
@@ -223,28 +214,6 @@ namespace Sucrose.Portal.Views.Controls
             }
         }
 
-        private void ThemePreview_Click(object sender, RoutedEventArgs e)
-        {
-            Button Button = sender as Button;
-
-            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
-
-            OpenFileDialog FileDialog = new()
-            {
-                Filter = SRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Filter"),
-                FilterIndex = 1,
-
-                Title = SRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Title"),
-
-                InitialDirectory = Startup
-            };
-
-            if (FileDialog.ShowDialog() == true)
-            {
-                Button.Content = FileDialog.FileName;
-            }
-        }
-
         private async void VideoArea_Drop(object sender, DragEventArgs e)
         {
             VideoRectangle.Stroke = SRER.GetResource<Brush>("TextFillColorDisabledBrush");
@@ -257,18 +226,32 @@ namespace Sucrose.Portal.Views.Controls
                 {
                     foreach (string Record in Files)
                     {
-                        string Extension = Path.GetExtension(Record).ToLowerInvariant();
-
-                        if (Extension is ".mp4" or ".avi" or ".mov" or ".mkv" or ".ogv" or ".flv" or ".wmv" or ".hevc" or ".webm" or ".mpeg" or ".mpeg1" or ".mpeg2" or ".mpeg4")
+                        if (SSSHA.File(Record))
                         {
-                            VideoDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(Record), SSDEWT.Video);
-                            VideoTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(Record));
-                            VideoImagine.Source = await Loader.LoadAsync(Record);
-                            VideoDelete.Visibility = Visibility.Visible;
-                            VideoIcon.Visibility = Visibility.Collapsed;
-                            VideoText.Visibility = Visibility.Collapsed;
-                            VideoRectangle.Stroke = Brushes.SeaGreen;
-                            break;
+                            string Extension = Path.GetExtension(Record).ToLowerInvariant();
+
+                            if (Extension is ".mp4" or ".avi" or ".mov" or ".mkv" or ".ogv" or ".flv" or ".wmv" or ".hevc" or ".webm" or ".mpeg" or ".mpeg1" or ".mpeg2" or ".mpeg4")
+                            {
+                                VideoDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(Record), SSDEWT.Video);
+                                VideoTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(Record));
+                                VideoImagine.Source = await Loader.LoadAsync(Record);
+                                VideoDelete.Visibility = Visibility.Visible;
+                                VideoIcon.Visibility = Visibility.Collapsed;
+                                VideoText.Visibility = Visibility.Collapsed;
+                                VideoRectangle.Stroke = Brushes.SeaGreen;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox Warning = new()
+                            {
+                                Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                                Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                                CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                            };
+
+                            await Warning.ShowDialogAsync();
                         }
                     }
                 }
@@ -311,7 +294,100 @@ namespace Sucrose.Portal.Views.Controls
             WebSource.Content = SRER.GetValue("Portal", "ThemeCreate", "ThemeWeb", "Hint");
         }
 
-        private void ThemeThumbnail_Click(object sender, RoutedEventArgs e)
+        private async void WebSource_Click(object sender, RoutedEventArgs e)
+        {
+            Button Button = sender as Button;
+
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "WebSource", "Filter"),
+                FilterIndex = 1,
+
+                Title = SRER.GetValue("Portal", "ThemeCreate", "WebSource", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                if (SSSHA.File(FileDialog.FileName))
+                {
+                    Button.Content = FileDialog.FileName;
+                    Button.BorderBrush = WebThumbnail.BorderBrush;
+                    WebTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
+                    WebDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Web);
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
+                }
+            }
+        }
+
+        private void ApplicationCreate_Click(object sender, RoutedEventArgs e)
+        {
+            IsPrimaryButtonEnabled = true;
+            CreateCard.Visibility = Visibility.Collapsed;
+            ApplicationCard.Visibility = Visibility.Visible;
+
+            ApplicationAuthor.Text = SPETC.GetAuthor();
+            ApplicationContact.Text = SPETC.GetContact();
+        }
+
+        private async void ThemePreview_Click(object sender, RoutedEventArgs e)
+        {
+            Button Button = sender as Button;
+
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Filter"),
+                FilterIndex = 1,
+
+                Title = SRER.GetValue("Portal", "ThemeCreate", "ThemePreview", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                if (SSSHA.File(FileDialog.FileName))
+                {
+                    Button.Content = FileDialog.FileName;
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
+                }
+            }
+        }
+
+        private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key is Key.Enter or Key.Escape)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private async void ThemeThumbnail_Click(object sender, RoutedEventArgs e)
         {
             Button Button = sender as Button;
 
@@ -329,50 +405,21 @@ namespace Sucrose.Portal.Views.Controls
 
             if (FileDialog.ShowDialog() == true)
             {
-                Button.Content = FileDialog.FileName;
-            }
-        }
+                if (SSSHA.File(FileDialog.FileName))
+                {
+                    Button.Content = FileDialog.FileName;
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                    };
 
-        private void ApplicationCreate_Click(object sender, RoutedEventArgs e)
-        {
-            IsPrimaryButtonEnabled = true;
-            CreateCard.Visibility = Visibility.Collapsed;
-            ApplicationCard.Visibility = Visibility.Visible;
-
-            ApplicationAuthor.Text = SPETC.GetAuthor();
-            ApplicationContact.Text = SPETC.GetContact();
-        }
-
-        private void ApplicationSource_Click(object sender, RoutedEventArgs e)
-        {
-            Button Button = sender as Button;
-
-            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
-
-            OpenFileDialog FileDialog = new()
-            {
-                Filter = SRER.GetValue("Portal", "ThemeCreate", "ApplicationSource", "Filter"),
-                FilterIndex = 1,
-
-                Title = SRER.GetValue("Portal", "ThemeCreate", "ApplicationSource", "Title"),
-
-                InitialDirectory = Startup
-            };
-
-            if (FileDialog.ShowDialog() == true)
-            {
-                Button.Content = FileDialog.FileName;
-                Button.BorderBrush = ApplicationThumbnail.BorderBrush;
-                ApplicationTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
-                ApplicationDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Application);
-            }
-        }
-
-        private void ContentDialog_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key is Key.Enter or Key.Escape)
-            {
-                e.Handled = true;
+                    await Warning.ShowDialogAsync();
+                }
             }
         }
 
@@ -401,6 +448,125 @@ namespace Sucrose.Portal.Views.Controls
                     using FileStream OutputFileStream = new(ExtractFilePath, FileMode.OpenOrCreate);
 
                     await ResourceStream.CopyToAsync(OutputFileStream);
+                }
+            }
+        }
+
+        private async void ApplicationSource_Click(object sender, RoutedEventArgs e)
+        {
+            Button Button = sender as Button;
+
+            string Startup = File.Exists($"{Button.Content}") ? Path.GetDirectoryName($"{Button.Content}") : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "ApplicationSource", "Filter"),
+                FilterIndex = 1,
+
+                Title = SRER.GetValue("Portal", "ThemeCreate", "ApplicationSource", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                if (SSSHA.File(FileDialog.FileName))
+                {
+                    Button.Content = FileDialog.FileName;
+                    Button.BorderBrush = ApplicationThumbnail.BorderBrush;
+                    ApplicationTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
+                    ApplicationDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Application);
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
+                }
+            }
+        }
+
+        private async void GifArea_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            string Startup = Loader != null && !string.IsNullOrEmpty($"{Loader.SourceUri}") && File.Exists(Loader.SourceUri.LocalPath) ? Path.GetDirectoryName(Loader.SourceUri.LocalPath) : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "DragDrop", "Gif", "Filter"),
+                FilterIndex = 1,
+
+                Title = SRER.GetValue("Portal", "ThemeCreate", "DragDrop", "Gif", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                if (SSSHA.File(FileDialog.FileName))
+                {
+                    GifDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Gif);
+                    GifTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
+                    GifImagine.Source = await Loader.LoadAsync(FileDialog.FileName);
+                    GifDelete.Visibility = Visibility.Visible;
+                    GifIcon.Visibility = Visibility.Collapsed;
+                    GifText.Visibility = Visibility.Collapsed;
+                    GifRectangle.Stroke = Brushes.SeaGreen;
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
+                }
+            }
+        }
+
+        private async void VideoArea_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            string Startup = Loader != null && !string.IsNullOrEmpty($"{Loader.SourceUri}") && File.Exists(Loader.SourceUri.LocalPath) ? Path.GetDirectoryName(Loader.SourceUri.LocalPath) : SMR.DesktopPath;
+
+            OpenFileDialog FileDialog = new()
+            {
+                Filter = SRER.GetValue("Portal", "ThemeCreate", "DragDrop", "Video", "Filter"),
+                FilterIndex = 1,
+
+                Title = SRER.GetValue("Portal", "ThemeCreate", "DragDrop", "Video", "Title"),
+
+                InitialDirectory = Startup
+            };
+
+            if (FileDialog.ShowDialog() == true)
+            {
+                if (SSSHA.File(FileDialog.FileName))
+                {
+                    VideoDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Video);
+                    VideoTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
+                    VideoImagine.Source = await Loader.LoadAsync(FileDialog.FileName);
+                    VideoDelete.Visibility = Visibility.Visible;
+                    VideoIcon.Visibility = Visibility.Collapsed;
+                    VideoText.Visibility = Visibility.Collapsed;
+                    VideoRectangle.Stroke = Brushes.SeaGreen;
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Access", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
                 }
             }
         }

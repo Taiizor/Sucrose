@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Delete,Fortryd
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Vælg Gif-fil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Vælg Videofil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Videofiler (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Gif,Træk og slip din Gif-fil her
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.DragDrop.Video,Træk og slip din videofil her
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ApplicationSource.Title,Vælg Programfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Programfiler (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Access.Close,Forstået
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Access.Title,Adgangsvarsel
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Access.Message,Du har ikke tilladelse til at få adgang til den valgte fil.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Title,Slet Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Delete,Slet
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DA.xaml,Portal.ThemeDelete.Close,Luk

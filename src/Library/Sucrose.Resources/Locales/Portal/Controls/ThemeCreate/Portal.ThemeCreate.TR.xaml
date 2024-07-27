@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Geri Al</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Gif Dosyası Seç</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Gif Dosyaları (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Video Dosyası Seç</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">Video Dosyaları (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Gif dosyanızı buraya sürükleyin ve bırakın</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Video dosyanızı buraya sürükleyin ve bırakın</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Uygulama Dosyası Seç</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Uygulama Dosyaları (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Anladım</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Erişim Uyarısı</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">Seçtiğiniz dosyaya erişim yetkiniz bulunmamakta.</system:String>
 </ResourceDictionary>

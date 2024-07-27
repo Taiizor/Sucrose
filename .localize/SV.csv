@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Delete,Ångra
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Välj Gif-fil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Välj Videofil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Videofiler (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Gif,Dra och släpp din gif-fil här
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.DragDrop.Video,Dra och släpp din video-fil här
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ApplicationSource.Title,Välj Applikationsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Applikationsfiler (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Access.Close,Förstått
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Access.Title,Åtkomstvarning
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Access.Message,Du har inte behörighet att få åtkomst till den valda filen.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Title,Ta bort Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Delete,Ta bort
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.SV.xaml,Portal.ThemeDelete.Close,Stäng

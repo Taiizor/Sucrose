@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Delete,Удалить
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Выберите файл Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Файлы Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Выберите Видеофайл
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Видеофайлы (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Gif,Перетащите и отпустите ваш файл Gif сюда
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.DragDrop.Video,Перетащите и отпустите ваш видеофайл сюда
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ApplicationSource.Title,Выберите Файл Приложения
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Файлы Приложений (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Access.Close,Понял
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Access.Title,Предупреждение о доступе
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Access.Message,У вас нет разрешения на доступ к выбранному файлу.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Title,Удаление темы
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Delete,Удалить
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RU.xaml,Portal.ThemeDelete.Close,Закрыть

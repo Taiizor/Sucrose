@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.DragDrop.Delete,Cofnij
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Wybierz Plik Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Pliki Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Wybierz Plik Wideo
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Pliki Wideo (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.DragDrop.Gif,Przeciągnij i upuść swój plik gif tutaj
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.DragDrop.Video,Przeciągnij i upuść swój plik wideo tutaj
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Wybierz Plik Aplikacji
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Pliki Aplikacji (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Access.Close,Zrozumiałem
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Access.Title,Ostrzeżenie o Dostępie
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.PL.xaml,Portal.ThemeCreate.Access.Message,Nie masz uprawnień do dostępu do wybranego pliku.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PL.xaml,Portal.ThemeDelete.Title,Usuń Temat
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PL.xaml,Portal.ThemeDelete.Delete,Usuń
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.PL.xaml,Portal.ThemeDelete.Close,Zamknij

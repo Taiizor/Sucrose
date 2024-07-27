@@ -48,7 +48,13 @@
     <system:String x:Key="Portal.ThemeCreate.ThemeTags.Hint">Voer geldige thema-tags in</system:String>
     <system:String x:Key="Portal.ThemeCreate.ThemeArguments.Hint">Voer geldige applicatie-argumenten in</system:String>
 
-    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Ongedaan maken</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Ongedaan Maken</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Selecteer Gif-bestand</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Gif-bestanden (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Selecteer Videobestand</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">Videobestanden (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Sleep en zet hier je gif-bestand</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Sleep en zet hier je videobestand</system:String>
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Selecteer Toepassingsbestand</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Toepassingsbestanden (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Begrepen</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Toegangswaarschuwing</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">U heeft geen toestemming om toegang te krijgen tot het geselecteerde bestand.</system:String>
 </ResourceDictionary>

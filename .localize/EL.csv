@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Delete,Αναίρεση
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Επιλέξτε Αρχείο Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Αρχεία Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Επιλέξτε Αρχείο Βίντεο
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Αρχεία Βίντεο (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Gif,Σύρετε και αποθέστε το αρχείο GIF εδώ
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.DragDrop.Video,Σύρετε και αποθέστε το αρχείο video εδώ
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Επιλέξτε Αρχείο εφαρμογής
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Αρχεία Εφαρμογών (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Access.Close,Κατάλαβα
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Access.Title,Προειδοποίηση Πρόσβασης
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Access.Message,Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Title,Διαγραφή Θέματος
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Delete,Διαγραφή
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.EL.xaml,Portal.ThemeDelete.Close,Κλείσιμο

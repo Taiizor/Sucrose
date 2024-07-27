@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Delete,元に戻す
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Gif ファイルを選択
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif ファイル (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Video.Title,ビデオファイルを選択
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,ビデオファイル (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Gif,Gifファイルをここにドラッグアンドドロップ
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.DragDrop.Video,ビデオファイルをここにドラッグアンドドロップ
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ApplicationSource.Title,アプリケーションファイルを選択
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ApplicationSource.Filter,アプリケーションファイル (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Access.Close,わかりました
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Access.Title,アクセス警告
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Access.Message,選択したファイルにアクセスする権限がありません。
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Title,テーマの削除
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Delete,削除
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.JA.xaml,Portal.ThemeDelete.Close,閉じる

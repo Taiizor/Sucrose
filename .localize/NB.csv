@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.DragDrop.Delete,Angre
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Velg Gif-fil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-filer (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Velg Videofil
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Videofiler (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.DragDrop.Gif,Dra og slipp Gif-filen din her
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.DragDrop.Video,Dra og slipp videofilen din her
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ApplicationSource.Title,Velg Programfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Programfiler (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Access.Close,Forstått
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Access.Title,Tilgangsvarsel
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Access.Message,Du har ikke tillatelse til å få tilgang til den valgte filen.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,Portal.ThemeDelete.Title,Slett Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,Portal.ThemeDelete.Delete,Slett
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NB.xaml,Portal.ThemeDelete.Close,Lukk

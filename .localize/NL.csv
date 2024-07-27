@@ -627,7 +627,13 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeC
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeTags.Hint,Voer geldige thema-tags in
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ThemeArguments.Hint,Voer geldige applicatie-argumenten in
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
-Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Delete,Ongedaan maken
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Delete,Ongedaan Maken
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Selecteer Gif-bestand
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-bestanden (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Selecteer Videobestand
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Videobestanden (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Gif,Sleep en zet hier je gif-bestand
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.DragDrop.Video,Sleep en zet hier je videobestand
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Selecteer Toepassingsbestand
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Toepassingsbestanden (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Access.Close,Begrepen
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Access.Title,Toegangswaarschuwing
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Access.Message,U heeft geen toestemming om toegang te krijgen tot het geselecteerde bestand.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Title,Thema Verwijderen
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Delete,Verwijderen
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.NL.xaml,Portal.ThemeDelete.Close,Sluiten

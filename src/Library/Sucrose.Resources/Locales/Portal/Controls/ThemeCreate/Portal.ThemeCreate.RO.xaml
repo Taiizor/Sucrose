@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Anulează</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Selectați Fișier Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Fișiere Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Selectați Fișier Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">Fișiere Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Trageți și lăsați fișierul Gif aici</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Trageți și lăsați fișierul video aici</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Selectați Fișierul de Aplicație</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Fișiere de Aplicație (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Am înțeles</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Avertisment de Acces</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">Nu aveți permisiunea de a accesa fișierul selectat.</system:String>
 </ResourceDictionary>

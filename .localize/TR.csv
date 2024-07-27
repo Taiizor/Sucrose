@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Delete,Geri Al
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Gif Dosyası Seç
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif Dosyaları (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Video Dosyası Seç
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Video Dosyaları (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Gif,Gif dosyanızı buraya sürükleyin ve bırakın
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.DragDrop.Video,Video dosyanızı buraya sürükleyin ve bırakın
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ApplicationSource.Title,Uygulama Dosyası Seç
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Uygulama Dosyaları (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Access.Close,Anladım
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Access.Title,Erişim Uyarısı
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.TR.xaml,Portal.ThemeCreate.Access.Message,Seçtiğiniz dosyaya erişim yetkiniz bulunmamakta.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Title,Tema Silme
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Delete,Sil
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.TR.xaml,Portal.ThemeDelete.Close,Kapat

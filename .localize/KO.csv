@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Delete,되돌리기
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Gif 파일 선택
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif 파일 (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Video.Title,비디오 파일 선택
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,비디오 파일 (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Gif,Gif 파일을 이곳으로 끌어다 놓고 놓으세요
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.DragDrop.Video,비디오 파일을 이곳으로 끌어다 놓고 놓으세요
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ApplicationSource.Title,응용 프로그램 파일 선택
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.ApplicationSource.Filter,응용 프로그램 파일 (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Access.Close,알겠습니다
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Access.Title,접근 경고
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.KO.xaml,Portal.ThemeCreate.Access.Message,선택한 파일에 접근할 권한이 없습니다.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Title,테마 삭제
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Delete,삭제
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.KO.xaml,Portal.ThemeDelete.Close,닫기

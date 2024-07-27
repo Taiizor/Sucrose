@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.DragDrop.Delete,Batal
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Pilih Fail Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Fail Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Pilih Fail Video
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Fail Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.DragDrop.Gif,Seret dan lepaskan fail Gif anda di sini
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.DragDrop.Video,Seret dan lepaskan fail Video anda di sini
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ApplicationSource.Title,Pilih Fail Aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Fail Aplikasi (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Access.Close,Faham
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Access.Title,Amaran Akses
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Access.Message,Anda tidak mempunyai kebenaran untuk mengakses fail yang dipilih.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Portal.ThemeDelete.Title,Padam Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Portal.ThemeDelete.Delete,Padam
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.MS.xaml,Portal.ThemeDelete.Close,Tutup

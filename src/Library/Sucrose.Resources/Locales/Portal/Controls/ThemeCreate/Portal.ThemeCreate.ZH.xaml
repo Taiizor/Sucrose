@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">撤销</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">选择 Gif 文件</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Gif 文件 (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">选择视频文件</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">视频文件 (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">将您的 Gif 文件拖放到这里</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">将您的视频文件拖放到这里</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">选择应用程序文件</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">应用程序文件 (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">明白</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">访问警告</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">您没有权限访问所选文件。</system:String>
 </ResourceDictionary>

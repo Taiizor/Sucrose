@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.DragDrop.Delete,Rückgängig
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Gif-Datei Auswählen
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif-Dateien (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Videodatei Auswählen
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Videodateien (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.DragDrop.Gif,Ziehen und Ablegen Sie Ihre Gif-Datei hier
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.DragDrop.Video,Ziehen und Ablegen Sie Ihre Videodatei hier
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.ApplicationSource.Title,Anwendungsdatei Auswählen
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Anwendungsdateien (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.Access.Close,Verstanden
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.Access.Title,Zugriffswarnung
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DE.xaml,Portal.ThemeCreate.Access.Message,"Sie haben keine Berechtigung, auf die ausgewählte Datei zuzugreifen."
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DE.xaml,Portal.ThemeDelete.Title,Thema Löschen
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DE.xaml,Portal.ThemeDelete.Delete,Löschen
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.DE.xaml,Portal.ThemeDelete.Close,Schließen

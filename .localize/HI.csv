@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Delete,पूर्व वस्तुओं को हटाएँ
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Gif फ़ाइल चुनें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Gif फ़ाइलें (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Video.Title,वीडियो फ़ाइल चुनें
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,वीडियो फ़ाइलें (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Gif,अपनी Gif फ़ाइल यहां खींचें और छोड़ें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.DragDrop.Video,अपनी वीडियो फ़ाइल यहां खींचें और छोड़ें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ApplicationSource.Title,एप्लिकेशन फ़ाइल चुनें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ApplicationSource.Filter,एप्लिकेशन फ़ाइलें (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Access.Close,समझ गया
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Access.Title,प्रवेश चेतावनी
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Access.Message,आपको चयनित फ़ाइल तक पहुंचने की अनुमति नहीं है।
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Title,थीम हटाना
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Delete,हटाएं
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.HI.xaml,Portal.ThemeDelete.Close,बंद करें

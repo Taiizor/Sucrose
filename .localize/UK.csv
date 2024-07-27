@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Delete,Скасувати
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Виберіть Файл Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Файли Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Виберіть Відеофайл
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Відеофайли (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Gif,Перетягніть тут свій файл GIF і відпустіть
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.DragDrop.Video,Перетягніть сюди свій файл відео і відпустіть
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ApplicationSource.Title,Виберіть Файл додатка
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Файли додатків (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Access.Close,Зрозуміло
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Access.Title,Попередження про доступ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Access.Message,У вас немає дозволу на доступ до вибраного файлу.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Title,Видалення Теми
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Delete,Видалити
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Close,Закрити

@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Annulla</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Seleziona File Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">File Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Seleziona File Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">File Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Trascina e rilascia il file GIF qui</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Trascina e rilascia il file video qui</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Seleziona File di Applicazione</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">File Applicazione (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Capito</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Avviso di Accesso</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">Non hai il permesso di accedere al file selezionato.</system:String>
 </ResourceDictionary>

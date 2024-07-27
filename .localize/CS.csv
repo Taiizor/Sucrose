@@ -629,8 +629,14 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Delete,Odstranit
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Vyberte soubor Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Soubory Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Vyberte soubor Videa
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Soubory Videa (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Gif,Přetáhněte sem svůj Gif soubor
-Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Video,Přetáhněte sem svůj video soubor
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.DragDrop.Video,Přetáhněte sem svůj Video soubor
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail.Title,Vybrat náhled
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ThemeThumbnail.Filter,Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp)|*.png;*.jpg;*.jpeg;*.tiff;*.webp
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ApplicationSource.Title,Vyberte Soubor Aplikace
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Soubory Aplikací (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Access.Close,Rozumím
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Access.Title,Upozornění na přístup
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Access.Message,Nemáte oprávnění k přístupu k vybranému souboru.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Title,Smazání tématu
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Delete,Smazat
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.CS.xaml,Portal.ThemeDelete.Close,Zavřít

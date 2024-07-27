@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">되돌리기</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Gif 파일 선택</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Gif 파일 (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">비디오 파일 선택</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">비디오 파일 (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Gif 파일을 이곳으로 끌어다 놓고 놓으세요</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">비디오 파일을 이곳으로 끌어다 놓고 놓으세요</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">응용 프로그램 파일 선택</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">응용 프로그램 파일 (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">알겠습니다</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">접근 경고</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">선택한 파일에 접근할 권한이 없습니다.</system:String>
 </ResourceDictionary>

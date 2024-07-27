@@ -208,9 +208,11 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
                 AllowDrop="True"
+                Cursor="Hand"
                 DragLeave="GifArea_DragLeave"
                 DragOver="GifArea_DragOver"
-                Drop="GifArea_Drop">
+                Drop="GifArea_Drop"
+                MouseLeftButtonUp="GifArea_MouseLeftButtonUp">
                 <Grid.Background>
                     <VisualBrush Stretch="UniformToFill">
                         <VisualBrush.Visual>
@@ -665,9 +667,11 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
                 AllowDrop="True"
+                Cursor="Hand"
                 DragLeave="VideoArea_DragLeave"
                 DragOver="VideoArea_DragOver"
-                Drop="VideoArea_Drop">
+                Drop="VideoArea_Drop"
+                MouseLeftButtonUp="VideoArea_MouseLeftButtonUp">
                 <Grid.Background>
                     <VisualBrush Stretch="UniformToFill">
                         <VisualBrush.Visual>

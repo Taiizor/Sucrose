@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.DragDrop.Delete,Anulează
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Selectați Fișier Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Fișiere Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Selectați Fișier Video
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Fișiere Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.DragDrop.Gif,Trageți și lăsați fișierul Gif aici
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.DragDrop.Video,Trageți și lăsați fișierul video aici
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ApplicationSource.Title,Selectați Fișierul de Aplicație
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Fișiere de Aplicație (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Access.Close,Am înțeles
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Access.Title,Avertisment de Acces
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Access.Message,Nu aveți permisiunea de a accesa fișierul selectat.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Portal.ThemeDelete.Title,Ștergere Temă
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Portal.ThemeDelete.Delete,Șterge
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Portal.ThemeDelete.Close,Închide

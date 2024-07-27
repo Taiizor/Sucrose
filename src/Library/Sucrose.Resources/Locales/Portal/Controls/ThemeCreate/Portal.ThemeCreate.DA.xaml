@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Fortryd</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Vælg Gif-fil</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Gif-filer (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Vælg Videofil</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">Videofiler (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Træk og slip din Gif-fil her</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Træk og slip din videofil her</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Vælg Programfil</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Programfiler (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Forstået</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Adgangsvarsel</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">Du har ikke tilladelse til at få adgang til den valgte fil.</system:String>
 </ResourceDictionary>

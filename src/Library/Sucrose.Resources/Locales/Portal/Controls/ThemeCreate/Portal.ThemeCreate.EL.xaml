@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Αναίρεση</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Επιλέξτε Αρχείο Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Αρχεία Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Επιλέξτε Αρχείο Βίντεο</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">Αρχεία Βίντεο (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Σύρετε και αποθέστε το αρχείο GIF εδώ</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Σύρετε και αποθέστε το αρχείο video εδώ</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Επιλέξτε Αρχείο εφαρμογής</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Αρχεία Εφαρμογών (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Κατάλαβα</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Προειδοποίηση Πρόσβασης</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.</system:String>
 </ResourceDictionary>

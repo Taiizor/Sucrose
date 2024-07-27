@@ -629,6 +629,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ThemeA
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Delete,Batalkan
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Gif.Title,Pilih Berkas Gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Gif.Filter,Berkas Gif (*.gif)|*.gif
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Video.Title,Pilih Berkas Video
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Video.Filter,Berkas Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Gif,Seret dan lepas file gif Anda di sini
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.DragDrop.Video,Seret dan lepas file video Anda di sini
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
@@ -643,6 +649,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.WebSou
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ApplicationSource.Title,Pilih File Aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ApplicationSource.Filter,File Aplikasi (*.exe)|*.exe
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Access.Close,Mengerti
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Access.Title,Peringatan Akses
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Access.Message,Anda tidak memiliki izin untuk mengakses file yang dipilih.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Title,Hapus Tema
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Delete,Hapus
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.ID.xaml,Portal.ThemeDelete.Close,Tutup

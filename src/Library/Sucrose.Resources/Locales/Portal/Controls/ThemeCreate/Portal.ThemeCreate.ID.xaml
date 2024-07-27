@@ -50,6 +50,12 @@
 
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Delete">Batalkan</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Title">Pilih Berkas Gif</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif.Filter">Berkas Gif (*.gif)|*.gif</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Title">Pilih Berkas Video</system:String>
+    <system:String x:Key="Portal.ThemeCreate.DragDrop.Video.Filter">Berkas Video (*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4)|*.mp4;*.avi;*.mov;*.mkv;*.ogv;*.flv;*.wmv;*.hevc;*.webm;*.mpeg;*.mpeg1;*.mpeg2;*.mpeg4</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Gif">Seret dan lepas file gif Anda di sini</system:String>
     <system:String x:Key="Portal.ThemeCreate.DragDrop.Video">Seret dan lepas file video Anda di sini</system:String>
 
@@ -64,4 +70,8 @@
 
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Pilih File Aplikasi</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">File Aplikasi (*.exe)|*.exe</system:String>
+
+    <system:String x:Key="Portal.ThemeCreate.Access.Close">Mengerti</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Peringatan Akses</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Message">Anda tidak memiliki izin untuk mengakses file yang dipilih.</system:String>
 </ResourceDictionary>
