@@ -29,6 +29,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Achtergrondafbeelding Selecteren</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Selecteer een achtergrondafbeelding</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access">Helaas heb je geen toestemming om toegang te krijgen tot het geselecteerde afbeeldingsbestand</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Achtergrond Passend maken:</system:String>
 
@@ -44,6 +45,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Bibliotheeklocatie</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Locatie waar toegevoegde thema's in uw bibliotheek worden opgeslagen.</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access">Helaas hebt u geen toegang tot de nieuwe locatie</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Selecteer alstublieft een lege map</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Even geduld, locatie wordt gewijzigd</system:String>
 

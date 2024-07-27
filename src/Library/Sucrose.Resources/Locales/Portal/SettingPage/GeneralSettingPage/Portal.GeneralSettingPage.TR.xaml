@@ -29,6 +29,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Arkaplan Resmi Seç</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Bir arkaplan resmi seçin</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Resim Dosyaları (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access">Maalesef seçtiğiniz resim dosyasına erişim yetkiniz bulunmuyor</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Arkaplan Boyutlandırma:</system:String>
 
@@ -44,6 +45,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Kütüphane Konumu</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Kütüphanenize eklediğiniz temaların saklanacağı konum.</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access">Maalesef yeni konuma erişiminiz bulunmuyor</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Lütfen boş bir klasör seçin</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Konum değiştirilirken lütfen biraz bekleyin</system:String>
 

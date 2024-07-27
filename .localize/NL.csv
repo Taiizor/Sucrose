@@ -167,6 +167,10 @@ Property\Property.NL.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.NL.xaml,,
 Property\Property.NL.xaml,Property.FileDropDown.Tip,Selecteer een bestand
 Property\Property.NL.xaml,Property.FileDropDown.Filter,Alle bestanden (*.*)|*.*
+Property\Property.NL.xaml,,
+Property\Property.NL.xaml,Property.FileDropDown.Access.Close,Begrepen
+Property\Property.NL.xaml,Property.FileDropDown.Access.Title,Toegangswaarschuwing
+Property\Property.NL.xaml,Property.FileDropDown.Access.Message,U heeft geen toestemming om toegang te krijgen tot het geselecteerde bestand.
 Undo\Undo.NL.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.NL.xaml,,
 Undo\Undo.NL.xaml,Undo.QuestionMessage,Wil je Sucrose Wallpaper Engine echt verwijderen?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Achtergrondafbeelding Selecteren
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Selecteer een achtergrondafbeelding
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Afbeeldingsbestanden (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Helaas heb je geen toestemming om toegang te krijgen tot het geselecteerde afbeeldingsbestand
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Achtergrond Passend maken:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary,Bibliotheeklocatie
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Locatie waar toegevoegde thema's in uw bibliotheek worden opgeslagen.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Helaas hebt u geen toegang tot de nieuwe locatie
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Selecteer alstublieft een lege map
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Even geduld, locatie wordt gewijzigd"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,

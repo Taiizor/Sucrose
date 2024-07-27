@@ -29,6 +29,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Selecionar Imagem de Fundo</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Selecione uma imagem de fundo</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Arquivos de Imagem (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access">Infelizmente, você não tem permissão para acessar o arquivo de imagem selecionado</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Esticar Fundo:</system:String>
 
@@ -44,6 +45,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Local da Biblioteca</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Local onde os temas adicionados à sua biblioteca serão armazenados.</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access">Infelizmente, você não tem acesso ao novo local</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Por favor, selecione uma pasta vazia</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Por favor, aguarde enquanto a localização está sendo movida</system:String>
 

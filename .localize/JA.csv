@@ -167,6 +167,10 @@ Property\Property.JA.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.JA.xaml,,
 Property\Property.JA.xaml,Property.FileDropDown.Tip,ファイルを選択
 Property\Property.JA.xaml,Property.FileDropDown.Filter,すべてのファイル (*.*)|*.*
+Property\Property.JA.xaml,,
+Property\Property.JA.xaml,Property.FileDropDown.Access.Close,わかりました
+Property\Property.JA.xaml,Property.FileDropDown.Access.Title,アクセス警告
+Property\Property.JA.xaml,Property.FileDropDown.Access.Message,選択したファイルにアクセスする権限がありません。
 Undo\Undo.JA.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.JA.xaml,,
 Undo\Undo.JA.xaml,Undo.QuestionMessage,本当に Sucrose Wallpaper Engine をアンインストールしますか？
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,背景画像を選択
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,背景画像を選択
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,画像ファイル (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,残念ながら、選択した画像ファイルにアクセスする権限がありません
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,背景の拡大縮小:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary,ライブラリの場所
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,追加したテーマが保存される場所。
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,残念ながら、新しい場所にアクセスできません
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,空のフォルダを選択してください
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,場所を移動する際、お待ちください
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,

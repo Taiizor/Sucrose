@@ -167,6 +167,10 @@ Property\Property.SV.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.SV.xaml,,
 Property\Property.SV.xaml,Property.FileDropDown.Tip,Välj en fil
 Property\Property.SV.xaml,Property.FileDropDown.Filter,Alla filer (*.*)|*.*
+Property\Property.SV.xaml,,
+Property\Property.SV.xaml,Property.FileDropDown.Access.Close,Förstått
+Property\Property.SV.xaml,Property.FileDropDown.Access.Title,Åtkomstvarning
+Property\Property.SV.xaml,Property.FileDropDown.Access.Message,Du har inte behörighet att få åtkomst till den valda filen.
 Undo\Undo.SV.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.SV.xaml,,
 Undo\Undo.SV.xaml,Undo.QuestionMessage,Vill du verkligen avinstallera Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Välj bakgrundsbild
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Välj en bakgrundsbild
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Bilddokument (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Tyvärr har du inte behörighet att komma åt den valda bildfilen
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Bakgrundsanpassning:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplats
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Plats där teman som läggs till i ditt bibliotek lagras.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Tyvärr har du inte tillgång till den nya platsen
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Vänligen välj en tom mapp
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Vänta en stund när platsen flyttas
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,

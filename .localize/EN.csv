@@ -167,6 +167,10 @@ Property\Property.EN.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.EN.xaml,,
 Property\Property.EN.xaml,Property.FileDropDown.Tip,Select a file
 Property\Property.EN.xaml,Property.FileDropDown.Filter,All Files (*.*)|*.*
+Property\Property.EN.xaml,,
+Property\Property.EN.xaml,Property.FileDropDown.Access.Close,Got It
+Property\Property.EN.xaml,Property.FileDropDown.Access.Title,Access Warning
+Property\Property.EN.xaml,Property.FileDropDown.Access.Message,You do not have permission to access the selected file.
 Undo\Undo.EN.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.EN.xaml,,
 Undo\Undo.EN.xaml,Undo.QuestionMessage,Do you really want to uninstall Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Select Background Image
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Select a background image
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Image Files (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"Unfortunately, you dont have permission to access the selected image file"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Background Stretch:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary,Library Location
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Location where themes you add to your library are stored.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"Unfortunately, you dont have access to the new location"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Please select an empty folder
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Please wait while the location is being changed
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,

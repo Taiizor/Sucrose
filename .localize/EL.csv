@@ -167,6 +167,10 @@ Property\Property.EL.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.EL.xaml,,
 Property\Property.EL.xaml,Property.FileDropDown.Tip,Επιλογή αρχείου
 Property\Property.EL.xaml,Property.FileDropDown.Filter,Όλα τα αρχεία (*.*)|*.*
+Property\Property.EL.xaml,,
+Property\Property.EL.xaml,Property.FileDropDown.Access.Close,Κατάλαβα
+Property\Property.EL.xaml,Property.FileDropDown.Access.Title,Προειδοποίηση Πρόσβασης
+Property\Property.EL.xaml,Property.FileDropDown.Access.Message,Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.
 Undo\Undo.EL.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.EL.xaml,,
 Undo\Undo.EL.xaml,Undo.QuestionMessage,Θέλετε πραγματικά να απεγκαταστήσετε το Sucrose Wallpaper Engine;
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Επιλέξτε εικόνα φόντου
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Επιλέξτε μια εικόνα φόντου
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Αρχεία εικόνας (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Δυστυχώς δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο εικόνας
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Επέκταση του φόντου:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary,Τοποθεσία βιβλιοθήκης
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Η τοποθεσία όπου θα αποθηκεύονται τα θέματα που προσθέτετε στη βιβλιοθήκη σας.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Δυστυχώς δεν έχετε πρόσβαση στη νέα τοποθεσία
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Παρακαλώ επιλέξτε έναν κενό φάκελο
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Παρακαλώ περιμένετε λίγο κατά τη μετακίνηση της τοποθεσίας
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,

@@ -29,6 +29,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Välj bakgrundsbild</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Välj en bakgrundsbild</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">Bilddokument (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access">Tyvärr har du inte behörighet att komma åt den valda bildfilen</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Bakgrundsanpassning:</system:String>
 
@@ -44,6 +45,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Biblioteksplats</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Plats där teman som läggs till i ditt bibliotek lagras.</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access">Tyvärr har du inte tillgång till den nya platsen</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Vänligen välj en tom mapp</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Vänta en stund när platsen flyttas</system:String>
 

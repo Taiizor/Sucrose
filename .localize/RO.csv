@@ -167,6 +167,10 @@ Property\Property.RO.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.RO.xaml,,
 Property\Property.RO.xaml,Property.FileDropDown.Tip,Selectați un fișier
 Property\Property.RO.xaml,Property.FileDropDown.Filter,Toate fișierele (*.*)|*.*
+Property\Property.RO.xaml,,
+Property\Property.RO.xaml,Property.FileDropDown.Access.Close,Am înțeles
+Property\Property.RO.xaml,Property.FileDropDown.Access.Title,Avertisment de Acces
+Property\Property.RO.xaml,Property.FileDropDown.Access.Message,Nu aveți permisiunea de a accesa fișierul selectat.
 Undo\Undo.RO.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.RO.xaml,,
 Undo\Undo.RO.xaml,Undo.QuestionMessage,Doriți cu adevărat să dezinstalați Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Selectați Imagine de Fundal
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Alegeți o imagine de fundal
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Fișiere imagine (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"Din păcate, nu aveți permisiunea de a accesa fișierul imagine selectat"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Redimensionare Fundal:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary,Locația Bibliotecii Private
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Locația în care temele adăugate în biblioteca dvs. vor fi stocate.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"Din păcate, nu aveți acces la noua locație"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Vă rugăm să selectați un director gol
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Așteptați puțin când se schimbă locația
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,

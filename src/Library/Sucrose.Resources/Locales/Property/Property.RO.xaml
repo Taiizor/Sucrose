@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">Selectați un fișier</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">Toate fișierele (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">Am înțeles</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">Avertisment de Acces</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">Nu aveți permisiunea de a accesa fișierul selectat.</system:String>
 </ResourceDictionary>

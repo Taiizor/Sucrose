@@ -29,6 +29,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">Seleziona Sfondo</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">Seleziona un'immagine di sfondo</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">File Immagine (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access">Sfortunatamente, non hai il permesso di accedere al file immagine selezionato</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">Estensione Sfondo:</system:String>
 
@@ -44,6 +45,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">Percorso della Libreria Privata</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">Posizione in cui verranno salvati i temi aggiunti alla tua libreria.</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access">Sfortunatamente, non hai accesso alla nuova posizione</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">Seleziona una cartella vuota</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">Attendi mentre il percorso viene modificato</system:String>
 

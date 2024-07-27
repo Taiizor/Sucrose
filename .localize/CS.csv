@@ -167,6 +167,10 @@ Property\Property.CS.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.CS.xaml,,
 Property\Property.CS.xaml,Property.FileDropDown.Tip,Vyberte soubor
 Property\Property.CS.xaml,Property.FileDropDown.Filter,Všechny soubory (*.*)|*.*
+Property\Property.CS.xaml,,
+Property\Property.CS.xaml,Property.FileDropDown.Access.Close,Rozumím
+Property\Property.CS.xaml,Property.FileDropDown.Access.Title,Upozornění na přístup
+Property\Property.CS.xaml,Property.FileDropDown.Access.Message,Nemáte oprávnění k přístupu k vybranému souboru.
 Undo\Undo.CS.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.CS.xaml,,
 Undo\Undo.CS.xaml,Undo.QuestionMessage,Skutečně chcete odinstalovat program Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Vybrat Obrázek Pozadí
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Vyberte obrázek pozadí
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Obrázky (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Bohužel nemáte oprávnění k přístupu k vybranému souboru obrázku
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Roztáhnout Pozadí:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary,Místo Knihovny
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Umístění, kde budou uloženy témata přidané do vaší knihovny."
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Bohužel nemáte přístup k nové poloze
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Vyberte prázdný adresář, prosím"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Počkejte prosím, dokud se adresář přesune"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,

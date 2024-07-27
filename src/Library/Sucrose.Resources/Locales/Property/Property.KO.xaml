@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">파일 선택</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">모든 파일 (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">알겠습니다</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">접근 경고</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">선택한 파일에 접근할 권한이 없습니다.</system:String>
 </ResourceDictionary>

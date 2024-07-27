@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">एक फ़ाइल का चयन करें</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">सभी फ़ाइलें (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">समझ गया</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">प्रवेश चेतावनी</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">आपको चयनित फ़ाइल तक पहुंचने की अनुमति नहीं है।</system:String>
 </ResourceDictionary>

@@ -167,6 +167,10 @@ Property\Property.DA.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.DA.xaml,,
 Property\Property.DA.xaml,Property.FileDropDown.Tip,Vælg en fil
 Property\Property.DA.xaml,Property.FileDropDown.Filter,Alle filer (*.*)|*.*
+Property\Property.DA.xaml,,
+Property\Property.DA.xaml,Property.FileDropDown.Access.Close,Forstået
+Property\Property.DA.xaml,Property.FileDropDown.Access.Title,Adgangsvarsel
+Property\Property.DA.xaml,Property.FileDropDown.Access.Message,Du har ikke tilladelse til at få adgang til den valgte fil.
 Undo\Undo.DA.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.DA.xaml,,
 Undo\Undo.DA.xaml,Undo.QuestionMessage,Ønsker du virkelig at afinstallere Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Vælg baggrundsbillede
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Vælg et baggrundsbillede
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Billedfiler (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,Desværre har du ikke tilladelse til at få adgang til den valgte billedfil
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Baggrundsstørrelse:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary,Biblioteksplacering
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Stedet, hvor de tilføjede temaer i dit bibliotek vil blive gemt."
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,Desværre har du ikke adgang til den nye placering
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Vælg venligst en tom mappe
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Vent venligst, mens placeringen ændres"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,

@@ -167,6 +167,10 @@ Property\Property.UK.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.UK.xaml,,
 Property\Property.UK.xaml,Property.FileDropDown.Tip,Виберіть файл
 Property\Property.UK.xaml,Property.FileDropDown.Filter,Усі файли (*.*)|*.*
+Property\Property.UK.xaml,,
+Property\Property.UK.xaml,Property.FileDropDown.Access.Close,Зрозуміло
+Property\Property.UK.xaml,Property.FileDropDown.Access.Title,Попередження про доступ
+Property\Property.UK.xaml,Property.FileDropDown.Access.Message,У вас немає дозволу на доступ до вибраного файлу.
 Undo\Undo.UK.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.UK.xaml,,
 Undo\Undo.UK.xaml,Undo.QuestionMessage,Ви дійсно хочете видалити Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Обрати фонове зображення
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Вибрати фонове зображення
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Зображення (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"На жаль, у вас немає дозволу на доступ до вибраного файлу зображення"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Розтягнути фон:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary,Місце розташування бібліотеки
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Місце, де зберігатимуться теми, які ви додали до бібліотеки."
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"На жаль, ви не маєте доступу до нового місця розташування"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Будь ласка, оберіть порожню папку"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Зачекайте трохи, поки папку переміщується"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,

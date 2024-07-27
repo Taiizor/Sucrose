@@ -167,6 +167,10 @@ Property\Property.ID.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.ID.xaml,,
 Property\Property.ID.xaml,Property.FileDropDown.Tip,Pilih sebuah file
 Property\Property.ID.xaml,Property.FileDropDown.Filter,Semua File (*.*)|*.*
+Property\Property.ID.xaml,,
+Property\Property.ID.xaml,Property.FileDropDown.Access.Close,Mengerti
+Property\Property.ID.xaml,Property.FileDropDown.Access.Title,Peringatan Akses
+Property\Property.ID.xaml,Property.FileDropDown.Access.Message,Anda tidak memiliki izin untuk mengakses file yang dipilih.
 Undo\Undo.ID.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.ID.xaml,,
 Undo\Undo.ID.xaml,Undo.QuestionMessage,Apakah Anda benar-benar ingin menghapus Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Pilih Gambar Latar Belakang
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Pilih gambar latar belakang
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,File Gambar (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"Maaf, Anda tidak memiliki izin untuk mengakses file gambar yang dipilih"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Perbesar Latar Belakang:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary,Lokasi Perpustakaan
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,Lokasi tempat tema yang ditambahkan ke perpustakaan akan disimpan.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"Sayangnya, Anda tidak memiliki akses ke lokasi baru"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,Harap pilih folder kosong
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,Tunggu sebentar saat lokasi dipindahkan
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,

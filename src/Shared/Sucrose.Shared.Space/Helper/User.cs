@@ -136,7 +136,7 @@ namespace Sucrose.Shared.Space.Helper
         {
             try
             {
-                WindowsIdentity Identity = WindowsIdentity.GetCurrent();
+                WindowsIdentity Identity = GetIdentity();
 
                 return Identity.User.Value;
             }
@@ -233,6 +233,30 @@ namespace Sucrose.Shared.Space.Helper
             catch
             {
                 return SMR.Default;
+            }
+        }
+
+        public static WindowsIdentity GetIdentity()
+        {
+            try
+            {
+                return WindowsIdentity.GetCurrent();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static WindowsPrincipal GetPrincipal(WindowsIdentity Identity)
+        {
+            try
+            {
+                return new WindowsPrincipal(Identity);
+            }
+            catch
+            {
+                return null;
             }
         }
     }

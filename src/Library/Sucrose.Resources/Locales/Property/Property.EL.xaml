@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">Επιλογή αρχείου</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">Όλα τα αρχεία (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">Κατάλαβα</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">Προειδοποίηση Πρόσβασης</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.</system:String>
 </ResourceDictionary>

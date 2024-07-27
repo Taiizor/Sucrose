@@ -167,6 +167,10 @@ Property\Property.ZH.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.ZH.xaml,,
 Property\Property.ZH.xaml,Property.FileDropDown.Tip,选择文件
 Property\Property.ZH.xaml,Property.FileDropDown.Filter,所有文件 (*.*)|*.*
+Property\Property.ZH.xaml,,
+Property\Property.ZH.xaml,Property.FileDropDown.Access.Close,明白
+Property\Property.ZH.xaml,Property.FileDropDown.Access.Title,访问警告
+Property\Property.ZH.xaml,Property.FileDropDown.Access.Message,您没有权限访问所选文件。
 Undo\Undo.ZH.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.ZH.xaml,,
 Undo\Undo.ZH.xaml,Undo.QuestionMessage,您真的要卸载 Sucrose Wallpaper Engine 吗？
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,选择背景图像
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,选择一个背景图像
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,图像文件 (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,抱歉，您没有权限访问所选图片文件
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,背景缩放：
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary,个人库位置
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,存储您添加到库中的主题的位置。
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,抱歉，您无权访问新位置
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,请选择一个空文件夹
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,请稍等，正在移动位置
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,

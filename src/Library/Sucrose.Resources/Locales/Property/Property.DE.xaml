@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">Datei auswählen</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">Alle Dateien (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">Verstanden</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">Zugriffswarnung</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">Sie haben keine Berechtigung, auf die ausgewählte Datei zuzugreifen.</system:String>
 </ResourceDictionary>

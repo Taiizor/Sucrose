@@ -167,6 +167,10 @@ Property\Property.RU.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.RU.xaml,,
 Property\Property.RU.xaml,Property.FileDropDown.Tip,Выберите файл
 Property\Property.RU.xaml,Property.FileDropDown.Filter,Все файлы (*.*)|*.*
+Property\Property.RU.xaml,,
+Property\Property.RU.xaml,Property.FileDropDown.Access.Close,Понял
+Property\Property.RU.xaml,Property.FileDropDown.Access.Title,Предупреждение о доступе
+Property\Property.RU.xaml,Property.FileDropDown.Access.Message,У вас нет разрешения на доступ к выбранному файлу.
 Undo\Undo.RU.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.RU.xaml,,
 Undo\Undo.RU.xaml,Undo.QuestionMessage,Вы действительно хотите удалить Sucrose Wallpaper Engine?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,Выбрать фоновое изображение
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,Выберите фоновое изображение
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,Изображения (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"К сожалению, у вас нет прав доступа к выбранному файлу изображения"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,Размер фона:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary,Местоположение библиотеки
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,"Местоположение, где будут сохраняться добавленные вами обои."
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"К сожалению, у вас нет доступа к новому местоположению"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,"Пожалуйста, выберите пустую папку"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"Подождите, пока местоположение изменится"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,

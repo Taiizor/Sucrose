@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">选择文件</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">所有文件 (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">明白</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">访问警告</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">您没有权限访问所选文件。</system:String>
 </ResourceDictionary>

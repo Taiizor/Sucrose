@@ -167,6 +167,10 @@ Property\Property.HI.xaml,Property.ColorPicker.Popup.Title,Sucrose Property Colo
 Property\Property.HI.xaml,,
 Property\Property.HI.xaml,Property.FileDropDown.Tip,एक फ़ाइल का चयन करें
 Property\Property.HI.xaml,Property.FileDropDown.Filter,सभी फ़ाइलें (*.*)|*.*
+Property\Property.HI.xaml,,
+Property\Property.HI.xaml,Property.FileDropDown.Access.Close,समझ गया
+Property\Property.HI.xaml,Property.FileDropDown.Access.Title,प्रवेश चेतावनी
+Property\Property.HI.xaml,Property.FileDropDown.Access.Message,आपको चयनित फ़ाइल तक पहुंचने की अनुमति नहीं है।
 Undo\Undo.HI.xaml,Undo.QuestionTitle,Sucrose Undo
 Undo\Undo.HI.xaml,,
 Undo\Undo.HI.xaml,Undo.QuestionMessage,क्या आप वास्तव में Sucrose Wallpaper Engine को अनइंस्टॉल करना चाहते हैं?
@@ -833,6 +837,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title,बैकग्राउंड चित्र का चयन करें
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select,किसी बैकग्राउंड चित्र का चयन करें
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter,चित्र फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access,"क्षमा करें, आपके पास चयनित छवि फ़ाइल तक पहुँचने की अनुमति नहीं है"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch,बैकग्राउंड मोड:
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
@@ -848,6 +853,7 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary,लाइब्रेरी स्थान
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.Description,आपके द्वारपेच में जोड़े गए थीमों को संग्रहित करने के लिए स्थल का चयन करें।
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access,"दुर्भाग्य से, आपको नई स्थान तक पहुंच नहीं है"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty,कृपया खाली फ़ोल्डर का चयन करें
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move,"कृपया कुछ समय इंतजार करें, स्थान बदलते समय"
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,

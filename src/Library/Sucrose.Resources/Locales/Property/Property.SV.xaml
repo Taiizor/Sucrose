@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">Välj en fil</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">Alla filer (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">Förstått</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">Åtkomstvarning</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">Du har inte behörighet att få åtkomst till den valda filen.</system:String>
 </ResourceDictionary>

@@ -18,4 +18,8 @@
 
     <system:String x:Key="Property.FileDropDown.Tip">Vyberte soubor</system:String>
     <system:String x:Key="Property.FileDropDown.Filter">Všechny soubory (*.*)|*.*</system:String>
+
+    <system:String x:Key="Property.FileDropDown.Access.Close">Rozumím</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Title">Upozornění na přístup</system:String>
+    <system:String x:Key="Property.FileDropDown.Access.Message">Nemáte oprávnění k přístupu k vybranému souboru.</system:String>
 </ResourceDictionary>

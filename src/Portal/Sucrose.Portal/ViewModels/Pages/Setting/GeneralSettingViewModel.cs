@@ -30,6 +30,7 @@ using SSIL = Sucrose.Signal.Interface.Launcher;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
 using SSMI = Sucrose.Signal.Manage.Internal;
+using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
@@ -624,8 +625,10 @@ namespace Sucrose.Portal.ViewModels.Pages
             SMMI.EngineSettingManager.SetSetting(SMC.Volume, Convert.ToInt32(Value));
         }
 
-        private void BackgroundImageClick(Button BackgroundImage)
+        private async void BackgroundImageClick(Button BackgroundImage)
         {
+            BackgroundImage.IsEnabled = false;
+
             string Startup = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SMR.DesktopPath : Path.GetDirectoryName(SMMM.BackgroundImage);
 
             OpenFileDialog FileDialog = new()
@@ -638,16 +641,32 @@ namespace Sucrose.Portal.ViewModels.Pages
                 InitialDirectory = Startup
             };
 
-            if (FileDialog.ShowDialog() == true)
+            if (FileDialog.ShowDialog() == true && !string.IsNullOrEmpty(FileDialog.FileName))
             {
                 string Destination = FileDialog.FileName;
 
-                BackgroundImage.Content = Destination;
+                if (Destination != SMMM.BackgroundImage)
+                {
+                    if (SSSHA.File(Destination))
+                    {
+                        BackgroundImage.Content = Destination;
 
-                SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, Destination);
+                        SMMI.PortalSettingManager.SetSetting(SMC.BackgroundImage, Destination);
 
-                SPMI.BackdropService.BackdropImage = Destination;
+                        SPMI.BackdropService.BackdropImage = Destination;
+                    }
+                    else
+                    {
+                        BackgroundImage.Content = SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Access");
+
+                        await Task.Delay(3000);
+
+                        BackgroundImage.Content = string.IsNullOrEmpty(SMMM.BackgroundImage) ? SRER.GetValue("Portal", "GeneralSettingPage", "WindowBackdrop", "BackgroundImage", "Select") : SMMM.BackgroundImage;
+                    }
+                }
             }
+
+            BackgroundImage.IsEnabled = true;
         }
 
         private async void LibraryLocationClick(Button LibraryLocation)
@@ -667,52 +686,63 @@ namespace Sucrose.Portal.ViewModels.Pages
 
                 if (Destination != SMMM.LibraryLocation)
                 {
-                    if (!SMMM.LibraryMove || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
+                    if (SSSHA.Directory(Destination))
                     {
-                        LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Move");
-
-                        if (SMMM.LibraryMove)
+                        if (!SMMM.LibraryMove || (!Directory.GetFiles(Destination).Any() && !Directory.GetDirectories(Destination).Any()))
                         {
-                            if (SSSHL.Run())
+                            LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Move");
+
+                            if (SMMM.LibraryMove)
                             {
-                                SSLHK.Stop();
+                                if (SSSHL.Run())
+                                {
+                                    SSLHK.Stop();
 
-                                await Task.Delay(500);
+                                    await Task.Delay(500);
 
-                                await Task.Run(() => SSSHC.Folder(SMMM.LibraryLocation, Destination));
+                                    await Task.Run(() => SSSHC.Folder(SMMM.LibraryLocation, Destination));
 
-                                await Task.Delay(500);
+                                    await Task.Delay(500);
 
-                                SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
+                                    SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
 
-                                SSLHR.Start();
+                                    SSLHR.Start();
+                                }
+                                else
+                                {
+                                    await Task.Run(() => SSSHC.Folder(SMMM.LibraryLocation, Destination));
+
+                                    await Task.Delay(500);
+
+                                    SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
+                                }
                             }
                             else
                             {
-                                await Task.Run(() => SSSHC.Folder(SMMM.LibraryLocation, Destination));
-
-                                await Task.Delay(500);
+                                if (SSSHL.Run())
+                                {
+                                    SSLHK.Stop();
+                                }
 
                                 SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
                             }
+
+                            LibraryLocation.Content = Destination;
                         }
                         else
                         {
-                            if (SSSHL.Run())
-                            {
-                                SSLHK.Stop();
-                            }
+                            LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Empty");
 
-                            SMMI.LibrarySettingManager.SetSetting(SMC.LibraryLocation, Destination);
+                            await Task.Delay(3000);
+
+                            LibraryLocation.Content = SMMM.LibraryLocation;
                         }
-
-                        LibraryLocation.Content = Destination;
                     }
                     else
                     {
-                        LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Empty");
+                        LibraryLocation.Content = SRER.GetValue("Portal", "GeneralSettingPage", "PrivateLibrary", "LibraryLocation", "Access");
 
-                        await Task.Delay(2000);
+                        await Task.Delay(3000);
 
                         LibraryLocation.Content = SMMM.LibraryLocation;
                     }

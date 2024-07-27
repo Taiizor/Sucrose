@@ -29,6 +29,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Title">बैकग्राउंड चित्र का चयन करें</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Select">किसी बैकग्राउंड चित्र का चयन करें</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Filter">चित्र फ़ाइलें (*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif)|*.png;*.jpg;*.jpeg;*.tiff;*.webp;*.gif</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackgroundImage.Access">क्षमा करें, आपके पास चयनित छवि फ़ाइल तक पहुँचने की अनुमति नहीं है</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.WindowBackdrop.BackdropStretch">बैकग्राउंड मोड:</system:String>
 
@@ -44,6 +45,7 @@
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary">लाइब्रेरी स्थान</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.Description">आपके द्वारपेच में जोड़े गए थीमों को संग्रहित करने के लिए स्थल का चयन करें।</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Access">दुर्भाग्य से, आपको नई स्थान तक पहुंच नहीं है</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Empty">कृपया खाली फ़ोल्डर का चयन करें</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.PrivateLibrary.LibraryLocation.Move">कृपया कुछ समय इंतजार करें, स्थान बदलते समय</system:String>
 
