@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' 값이 너무 많음</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">테마가 지원하지 않는 유형용으로 만들어짐</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' 값이 비어 있거나 너무 김</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">관련 파일에 접근할 권한이 없습니다</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' 값이 비어 있거나 너무 김</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">테마 파일이 보관함의 루트 디렉터리에 없습니다</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' 파일을 찾을 수 없음</system:String>

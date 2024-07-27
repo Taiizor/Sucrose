@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Pass,Başarılı S
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' çok fazla değere sahip
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Type,"Tema, uygulamanın desteklemediği bir tür için oluşturulmuş"
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Title,'Title' değeri boş veya çok uzun
+Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Access,İlgili dosyaya erişim yetkiniz bulunmuyor
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Author,'Author' değeri boş veya çok uzun
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Folder,Tema dosyaları arşivin ana dizininde değil
 Portal\Enum\Portal.Enum.TR.xaml,Portal.Enum.CompatibilityType.Source,'Source' dosyası bulunamadı
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Günlük Dosyasını Kaydet
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Access.Close,Anladım
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Access.Title,Erişim Uyarısı
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.TR.xaml,Portal.SystemSettingPage.Access.Message,Seçtiğiniz konuma erişim yetkiniz bulunmamakta.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.TR.xaml,Portal.WallpaperSettingPage.InputMode,Etkileşim Yöntemi

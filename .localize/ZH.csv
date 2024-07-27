@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Pass,通过
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' 包含太多值
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Type,主题针对应用不支持的类型创建
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Title,'Title' 值为空或太长
+Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Access,您没有权限访问相关文件
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Author,'Author' 值为空或太长
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Folder,主题文件不在存档的根目录中
 Portal\Enum\Portal.Enum.ZH.xaml,Portal.Enum.CompatibilityType.Source,'Source' 文件未找到
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,保存日志文件
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.SystemSettingPage.Access.Close,明白了
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.SystemSettingPage.Access.Title,访问警告
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.ZH.xaml,Portal.SystemSettingPage.Access.Message,您无权访问所选位置。
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.ZH.xaml,Portal.WallpaperSettingPage.InputMode,交互方法

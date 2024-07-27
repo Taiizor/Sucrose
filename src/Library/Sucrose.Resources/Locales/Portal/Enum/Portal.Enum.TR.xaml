@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' çok fazla değere sahip</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema, uygulamanın desteklemediği bir tür için oluşturulmuş</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' değeri boş veya çok uzun</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">İlgili dosyaya erişim yetkiniz bulunmuyor</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' değeri boş veya çok uzun</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Tema dosyaları arşivin ana dizininde değil</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' dosyası bulunamadı</system:String>

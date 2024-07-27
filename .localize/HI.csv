@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Pass,सफल प
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' में बहुत सारे मूल्य हैं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Type,"थीम, ऐसे एक प्रकार के आवश्यकता नहीं है, जो ऐप्लिकेशन से संगत नहीं है"
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Title,'Title' मान खाली है या बहुत लंबा है
+Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Access,आपके पास संबंधित फ़ाइल तक पहुँचने की अनुमति नहीं है
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Author,'Author' मूल्य खाली है या बहुत लंबा है
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Folder,थीम फ़ाइलें आर्काइव के रूट निर्देशिका में नहीं हैं
 Portal\Enum\Portal.Enum.HI.xaml,Portal.Enum.CompatibilityType.Source,'Source' फ़ाइल नहीं मिल सकी
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,लॉग फ़ाइल सहेजें
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Access.Close,समझ गया
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Access.Title,प्रवेश चेतावनी
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.HI.xaml,Portal.SystemSettingPage.Access.Message,आपके पास चयनित स्थान तक पहुंचने की अनुमति नहीं है।
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.HI.xaml,Portal.WallpaperSettingPage.InputMode,अंतराक्रिया विधि

@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Protokolldatei Speichern</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-Dateien (*.zip)|*.zip|Alle Dateien (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Verstanden</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Zugriffswarnung</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Sie haben keine Berechtigung, auf den ausgewählten Ort zuzugreifen.</system:String>
 </ResourceDictionary>

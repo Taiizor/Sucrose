@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Pass,Успешн�
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Tags,Слишком много значений в 'Tags'
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Type,"Тема создана для типа, который не поддерживается этим приложением"
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Title,Значение 'Title' отсутствует или слишком длинное
+Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Access,У вас нет разрешения на доступ к соответствующему файлу
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Author,Значение 'Author' отсутствует или слишком длинное
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Folder,Файлы тем не находятся в корневом каталоге архива
 Portal\Enum\Portal.Enum.RU.xaml,Portal.Enum.CompatibilityType.Source,Файл 'Source' не найден
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Сохранить файл журнала
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Файлы ZIP (*.zip)|*.zip|Все файлы (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Access.Close,Понял
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Access.Title,Предупреждение о Доступе
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RU.xaml,Portal.SystemSettingPage.Access.Message,У вас нет прав доступа к выбранному местоположению.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RU.xaml,Portal.WallpaperSettingPage.InputMode,Метод Взаимодействия

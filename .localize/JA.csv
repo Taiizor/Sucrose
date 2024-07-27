@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Pass,成功
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Tags,'Tags'は多すぎる値を持っています
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Type,テーマはアプリケーションでサポートされていないタイプのために作成されました
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Title,'Title'の値は空または非常に長いです
+Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Access,関連するファイルにアクセスする権限がありません
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Author,'Author'の値は空または非常に長いです
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Folder,テーマファイルはアーカイブのルートディレクトリにありません
 Portal\Enum\Portal.Enum.JA.xaml,Portal.Enum.CompatibilityType.Source,'Source'ファイルが見つかりませんでした
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,ログ ファイルの保存
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Access.Close,わかりました
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Access.Title,アクセス警告
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.JA.xaml,Portal.SystemSettingPage.Access.Message,選択した場所にアクセスする権限がありません。
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.JA.xaml,Portal.WallpaperSettingPage.InputMode,インタラクション メソッド

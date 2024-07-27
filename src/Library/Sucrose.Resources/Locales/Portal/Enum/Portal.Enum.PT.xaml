@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' com muitos valores</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema criado para um tipo não suportado pela aplicação</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Valor 'Title' vazio ou muito longo</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Você não tem permissão para acessar o arquivo relevante</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Valor 'Author' vazio ou muito longo</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Os arquivos de tema não estão no diretório raiz do arquivo</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Arquivo 'Source' não encontrado</system:String>

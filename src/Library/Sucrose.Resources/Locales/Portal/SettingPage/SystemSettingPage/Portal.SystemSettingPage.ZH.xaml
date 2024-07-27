@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">保存日志文件</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP 文件 (*.zip)|*.zip|所有文件 (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">明白了</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">访问警告</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">您无权访问所选位置。</system:String>
 </ResourceDictionary>

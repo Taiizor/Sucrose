@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Pass,Succesvol
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' bevat te veel waarden
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Type,Thema is gemaakt voor een niet-ondersteund type
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Title,'Title' is leeg of te lang
+Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Access,U heeft geen toestemming om toegang te krijgen tot het betreffende bestand
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Author,'Author' is leeg of te lang
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Folder,Themabestanden bevinden zich niet in de hoofdmap van het archief
 Portal\Enum\Portal.Enum.NL.xaml,Portal.Enum.CompatibilityType.Source,Bestand 'Source' niet gevonden
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Logbestand Opslaan
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Access.Close,Begrepen
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Access.Title,Toegangswaarschuwing
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NL.xaml,Portal.SystemSettingPage.Access.Message,U heeft geen toestemming om toegang te krijgen tot de geselecteerde locatie.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NL.xaml,Portal.WallpaperSettingPage.InputMode,Interactiemethode

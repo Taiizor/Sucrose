@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Günlük Dosyasını Kaydet</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Anladım</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Erişim Uyarısı</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Seçtiğiniz konuma erişim yetkiniz bulunmamakta.</system:String>
 </ResourceDictionary>

@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Guardar Archivo de Registro</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Archivos ZIP (*.zip)|*.zip|Todos los Archivos (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Entendido</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Advertencia de Acceso</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">No tienes permiso para acceder a la ubicación seleccionada.</system:String>
 </ResourceDictionary>

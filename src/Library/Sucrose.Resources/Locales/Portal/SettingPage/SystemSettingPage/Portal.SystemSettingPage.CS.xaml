@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Uložit soubor záznamu</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP soubory (*.zip)|*.zip|Všechny soubory (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Rozumím</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Upozornění na Přístup</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Nemáte oprávnění k přístupu na vybranou lokaci.</system:String>
 </ResourceDictionary>

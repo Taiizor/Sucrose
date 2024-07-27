@@ -3,6 +3,7 @@ using SHV = Skylark.Helper.Versionly;
 using SMR = Sucrose.Memory.Readonly;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDEWT = Sucrose.Shared.Dependency.Enum.WallpaperType;
+using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSTHC = Sucrose.Shared.Theme.Helper.Compatible;
 using SSTHF = Sucrose.Shared.Theme.Helper.Filter;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
@@ -21,6 +22,11 @@ namespace Sucrose.Shared.Zip.Helper
                 if (!File.Exists(Archive))
                 {
                     return SSDECT.NotFound;
+                }
+
+                if (!SSSHA.File(Archive))
+                {
+                    return SSDECT.Access;
                 }
 
                 if (Path.GetExtension(Archive) != ".zip")

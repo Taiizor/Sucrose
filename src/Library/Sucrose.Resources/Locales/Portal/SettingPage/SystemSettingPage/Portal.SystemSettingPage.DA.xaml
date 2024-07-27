@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Gem Logfil</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Forstået</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Adgangs Advarsel</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Du har ikke adgang til den valgte placering.</system:String>
 </ResourceDictionary>

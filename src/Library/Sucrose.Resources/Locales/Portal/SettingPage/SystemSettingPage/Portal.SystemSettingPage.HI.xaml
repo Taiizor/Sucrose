@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">लॉग फ़ाइल सहेजें</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP फ़ाइलें (*.zip)|*.zip|सभी फ़ाइलें (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">समझ गया</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">प्रवेश चेतावनी</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">आपके पास चयनित स्थान तक पहुंचने की अनुमति नहीं है।</system:String>
 </ResourceDictionary>

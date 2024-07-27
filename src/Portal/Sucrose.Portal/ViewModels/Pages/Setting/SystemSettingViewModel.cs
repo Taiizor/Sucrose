@@ -9,6 +9,7 @@ using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using DialogResult = System.Windows.Forms.DialogResult;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
+using MessageBox = Wpf.Ui.Controls.MessageBox;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
@@ -17,6 +18,7 @@ using SMV = Sucrose.Memory.Valuable;
 using SPVCEC = Sucrose.Portal.Views.Controls.ExpanderCard;
 using SRER = Sucrose.Resources.Extension.Resources;
 using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHT = Sucrose.Shared.Space.Helper.Temporary;
 using SSSMI = Sucrose.Shared.Space.Manage.Internal;
@@ -459,48 +461,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Temp}{SMR.ValueSeparator}{StoreTemporaryPath}{SMR.ValueSeparator}{SSSMI.Launcher}");
         }
 
-        private void SettingBackupExportClick(Button SettingBackupExport)
-        {
-            SettingBackupExport.IsEnabled = false;
-
-            FolderBrowserDialog BrowserDialog = new()
-            {
-                ShowNewFolderButton = true
-            };
-
-            if (BrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(BrowserDialog.SelectedPath))
-            {
-                string Destination = BrowserDialog.SelectedPath;
-
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Export}{SMR.ValueSeparator}{Destination}{SMR.ValueSeparator}{SSSMI.Launcher}");
-            }
-            else
-            {
-                SettingBackupExport.IsEnabled = true;
-            }
-        }
-
-        private void SettingBackupImportClick(Button SettingBackupImport)
-        {
-            SettingBackupImport.IsEnabled = false;
-
-            FolderBrowserDialog BrowserDialog = new()
-            {
-                ShowNewFolderButton = true
-            };
-
-            if (BrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(BrowserDialog.SelectedPath))
-            {
-                string Destination = BrowserDialog.SelectedPath;
-
-                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Import}{SMR.ValueSeparator}{Destination}{SMR.ValueSeparator}{SSSMI.Launcher}");
-            }
-            else
-            {
-                SettingBackupImport.IsEnabled = true;
-            }
-        }
-
         private void LibraryTemporaryStartClick(Button LibraryTemporaryStart)
         {
             LibraryTemporaryStart.IsEnabled = false;
@@ -538,6 +498,80 @@ namespace Sucrose.Portal.ViewModels.Pages
                 LibraryTemporaryHint.Text = string.Format(SRER.GetValue("Portal", "SystemSettingPage", "LibraryTemporary", "Hint"), LibraryTemporarySize);
             }
             catch { }
+        }
+
+        private async void SettingBackupExportClick(Button SettingBackupExport)
+        {
+            SettingBackupExport.IsEnabled = false;
+
+            FolderBrowserDialog BrowserDialog = new()
+            {
+                ShowNewFolderButton = true
+            };
+
+            if (BrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(BrowserDialog.SelectedPath))
+            {
+                string Destination = BrowserDialog.SelectedPath;
+
+                if (SSSHA.Directory(Destination))
+                {
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Export}{SMR.ValueSeparator}{Destination}{SMR.ValueSeparator}{SSSMI.Launcher}");
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "SystemSettingPage", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "SystemSettingPage", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "SystemSettingPage", "Access", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
+
+                    SettingBackupExport.IsEnabled = true;
+                }
+            }
+            else
+            {
+                SettingBackupExport.IsEnabled = true;
+            }
+        }
+
+        private async void SettingBackupImportClick(Button SettingBackupImport)
+        {
+            SettingBackupImport.IsEnabled = false;
+
+            FolderBrowserDialog BrowserDialog = new()
+            {
+                ShowNewFolderButton = true
+            };
+
+            if (BrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(BrowserDialog.SelectedPath))
+            {
+                string Destination = BrowserDialog.SelectedPath;
+
+                if (SSSHA.Directory(Destination))
+                {
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.Import}{SMR.ValueSeparator}{Destination}{SMR.ValueSeparator}{SSSMI.Launcher}");
+                }
+                else
+                {
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "SystemSettingPage", "Access", "Title"),
+                        Content = SRER.GetValue("Portal", "SystemSettingPage", "Access", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "SystemSettingPage", "Access", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
+
+                    SettingBackupImport.IsEnabled = true;
+                }
+            }
+            else
+            {
+                SettingBackupImport.IsEnabled = true;
+            }
         }
 
         public void Dispose()

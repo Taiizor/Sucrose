@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Pass,Επιτυχ�
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' περιλαμβάνει πολλές τιμές
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Type,Το θέμα δημιουργήθηκε για έναν τύπο που η εφαρμογή δεν υποστηρίζει
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Title,Η τιμή 'Title' είναι άδεια ή πολύ μεγάλη
+Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Access,Δεν έχετε δικαίωμα πρόσβασης στο σχετικό αρχείο
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Author,Η τιμή 'Author' είναι άδεια ή πολύ μεγάλη
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Folder,Τα αρχεία θεμάτων δεν βρίσκονται στον ριζικό κατάλογο του αρχείου
 Portal\Enum\Portal.Enum.EL.xaml,Portal.Enum.CompatibilityType.Source,Το αρχείο 'Source' δεν βρέθηκε
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Αποθήκευση Αρχείου Καταγραφής
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Αρχεία ZIP (*.zip)|*.zip|Όλοι οι Τύποι Αρχείων (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Access.Close,Κατάλαβα
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Access.Title,Προειδοποίηση Πρόσβασης
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EL.xaml,Portal.SystemSettingPage.Access.Message,Δεν έχετε άδεια πρόσβασης στην επιλεγμένη τοποθεσία.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EL.xaml,Portal.WallpaperSettingPage.InputMode,Μέθοδος Αλληλεπίδρασης

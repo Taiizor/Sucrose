@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' hat zu viele Werte</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Das Theme ist für einen nicht unterstützten Typ erstellt</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Der 'Title' Wert ist leer oder zu lang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Sie haben keine Berechtigung, auf die betreffende Datei zuzugreifen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Der 'Author' Wert ist leer oder zu lang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Themendateien befinden sich nicht im Stammverzeichnis des Archivs</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Die 'Source' Datei wurde nicht gefunden</system:String>

@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Pass,Успішн�
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Tags,Занадто багато значень у 'Tags'
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Type,"Тема призначена для типу, який програма не підтримує"
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Title,Значення 'Title' порожнє або занадто довге
+Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Access,Ви не маєте дозволу на доступ до відповідного файлу
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Author,Значення 'Author' порожнє або занадто довге
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Folder,Файли тем не знаходяться в кореневому каталозі архіву
 Portal\Enum\Portal.Enum.UK.xaml,Portal.Enum.CompatibilityType.Source,Файл 'Source' не знайдено
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Зберегти файл журналу
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Access.Close,Зрозуміло
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Access.Title,Попередження Про Доступ
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.UK.xaml,Portal.SystemSettingPage.Access.Message,У вас немає дозволу на доступ до вибраного місця.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.UK.xaml,Portal.WallpaperSettingPage.InputMode,Метод Взаємодії

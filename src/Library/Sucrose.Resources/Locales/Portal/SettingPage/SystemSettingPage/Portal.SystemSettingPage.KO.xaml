@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">로그 파일 저장</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">알겠습니다</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">접근 경고</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">선택한 위치에 접근할 권한이 없습니다.</system:String>
 </ResourceDictionary>

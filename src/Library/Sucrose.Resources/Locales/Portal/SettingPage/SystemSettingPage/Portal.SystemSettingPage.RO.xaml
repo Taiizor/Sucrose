@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Salvează Fișierul Jurnal</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Înțeles</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Avertisment de Acces</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Nu aveți permisiunea de a accesa locația selectată.</system:String>
 </ResourceDictionary>

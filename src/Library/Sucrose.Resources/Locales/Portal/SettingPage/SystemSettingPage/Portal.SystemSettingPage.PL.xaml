@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Zapisz Plik Dziennika</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Pliki ZIP (*.zip)|*.zip|Wszystkie Pliki (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Zrozumiałem</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Ostrzeżenie Dostępu</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Nie masz uprawnień do dostępu do wybranej lokalizacji.</system:String>
 </ResourceDictionary>

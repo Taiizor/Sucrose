@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' περιλαμβάνει πολλές τιμές</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Το θέμα δημιουργήθηκε για έναν τύπο που η εφαρμογή δεν υποστηρίζει</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Η τιμή 'Title' είναι άδεια ή πολύ μεγάλη</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Δεν έχετε δικαίωμα πρόσβασης στο σχετικό αρχείο</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Η τιμή 'Author' είναι άδεια ή πολύ μεγάλη</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Τα αρχεία θεμάτων δεν βρίσκονται στον ριζικό κατάλογο του αρχείου</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Το αρχείο 'Source' δεν βρέθηκε</system:String>

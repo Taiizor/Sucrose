@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' ma zbyt wiele wartości</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Motyw został stworzony dla nieobsługiwanego typu</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Wartość 'Title' jest pusta lub zbyt długa</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Nie masz uprawnień do dostępu do odpowiedniego pliku</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Wartość 'Author' jest pusta lub zbyt długa</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Pliki motywów nie znajdują się w głównym katalogu archiwum</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Brak pliku 'Source'</system:String>

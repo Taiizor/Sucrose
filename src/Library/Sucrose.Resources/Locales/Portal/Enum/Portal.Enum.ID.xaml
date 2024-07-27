@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' memiliki terlalu banyak nilai</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Tema dibuat untuk jenis yang tidak didukung oleh aplikasi</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Nilai 'Title' kosong atau terlalu panjang</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Anda tidak memiliki izin untuk mengakses file yang relevan</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Nilai 'Author' kosong atau terlalu panjang</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">File tema tidak berada di direktori root arsip</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Berkas 'Source' tidak ditemukan</system:String>

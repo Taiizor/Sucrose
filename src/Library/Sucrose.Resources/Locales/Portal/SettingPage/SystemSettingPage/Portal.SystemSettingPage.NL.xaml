@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Logbestand Opslaan</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-bestanden (*.zip)|*.zip|Alle bestanden (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Begrepen</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Toegangswaarschuwing</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">U heeft geen toestemming om toegang te krijgen tot de geselecteerde locatie.</system:String>
 </ResourceDictionary>

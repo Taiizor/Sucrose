@@ -109,6 +109,11 @@ namespace Sucrose.Portal.Views.Pages
 
         private void InitializeThemes()
         {
+            if (Searches != null && Searches.Any())
+            {
+                Searches.Clear();
+            }
+
             if (Directory.Exists(SMMM.LibraryLocation))
             {
                 if (Themes != null && Themes.Any())
@@ -165,6 +170,51 @@ namespace Sucrose.Portal.Views.Pages
                         }
                     }
                 }
+
+                if (Themes != null && Themes.Any())
+                {
+                    Dictionary<string, object> SortThemes = new();
+
+                    foreach (string Theme in Themes.ToList())
+                    {
+                        string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
+                        SSTHI Info = SSTHI.ReadJson(InfoPath);
+
+                        IEnumerable<string> SearchText = Info.Title.Split(' ')
+                                   .Concat(Info.Description.Split(' '))
+                                   .Concat(Info.Tags ?? Array.Empty<string>());
+
+                        Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
+
+                        if (SSDMM.LibrarySortMode == SSDESMT.Name)
+                        {
+                            SortThemes.Add(Theme, Info.Title);
+                        }
+                        else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
+                        {
+                            SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
+                        }
+                        else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
+                        {
+                            SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
+                        }
+                    }
+
+                    if (SortThemes != null && SortThemes.Any())
+                    {
+                        if (SSDMM.LibrarySortKind == SSDESKT.Ascending)
+                        {
+                            SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
+                        }
+                        else
+                        {
+                            SortThemes = SortThemes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
+                        }
+
+                        Themes.Clear();
+                        Themes.AddRange(SortThemes.Select(Theme => Theme.Key));
+                    }
+                }
             }
             else
             {
@@ -173,51 +223,7 @@ namespace Sucrose.Portal.Views.Pages
                 Directory.CreateDirectory(SMMM.LibraryLocation);
             }
 
-            Searches.Clear();
-
-            if (Themes != null && Themes.Any())
-            {
-                Dictionary<string, object> SortThemes = new();
-
-                foreach (string Theme in Themes.ToList())
-                {
-                    string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
-                    SSTHI Info = SSTHI.ReadJson(InfoPath);
-
-                    IEnumerable<string> SearchText = Info.Title.Split(' ')
-                               .Concat(Info.Description.Split(' '))
-                               .Concat(Info.Tags ?? Array.Empty<string>());
-
-                    Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
-
-                    if (SSDMM.LibrarySortMode == SSDESMT.Name)
-                    {
-                        SortThemes.Add(Theme, Info.Title);
-                    }
-                    else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
-                    {
-                        SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
-                    }
-                    else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
-                    {
-                        SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
-                    }
-                }
-
-                if (SSDMM.LibrarySortKind == SSDESKT.Ascending)
-                {
-                    SortThemes = SortThemes.OrderBy(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-                }
-                else
-                {
-                    SortThemes = SortThemes.OrderByDescending(Theme => Theme.Value).ToDictionary(Theme => Theme.Key, Theme => Theme.Value);
-                }
-
-                Themes.Clear();
-                Themes.AddRange(SortThemes.Select(Theme => Theme.Key));
-
-                SMMI.ThemesSettingManager.SetSetting(SMC.Themes, Themes);
-            }
+            SMMI.ThemesSettingManager.SetSetting(SMC.Themes, Themes);
         }
 
         private async Task Start(bool Progress = false)

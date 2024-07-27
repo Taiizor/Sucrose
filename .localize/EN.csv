@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Pass,Successful Re
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' has too many values
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Type,The theme is created for an unsupported type
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Title,'Title' value is empty or too long
+Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Access,You dont have permission to access the relevant file
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Author,'Author' value is empty or too long
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Folder,Theme files are not in the root directory of the archive
 Portal\Enum\Portal.Enum.EN.xaml,Portal.Enum.CompatibilityType.Source,'Source' file not found
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Save Log File
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Access.Close,Understood
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Access.Title,Access Warning
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.EN.xaml,Portal.SystemSettingPage.Access.Message,You dont have permission to access the selected location.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.EN.xaml,Portal.WallpaperSettingPage.InputMode,Interaction Method

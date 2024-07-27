@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags'は多すぎる値を持っています</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">テーマはアプリケーションでサポートされていないタイプのために作成されました</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title'の値は空または非常に長いです</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">関連するファイルにアクセスする権限がありません</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author'の値は空または非常に長いです</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">テーマファイルはアーカイブのルートディレクトリにありません</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source'ファイルが見つかりませんでした</system:String>

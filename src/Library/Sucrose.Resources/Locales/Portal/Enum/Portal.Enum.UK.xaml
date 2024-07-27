@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Занадто багато значень у 'Tags'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Тема призначена для типу, який програма не підтримує</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Значення 'Title' порожнє або занадто довге</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Ви не маєте дозволу на доступ до відповідного файлу</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Значення 'Author' порожнє або занадто довге</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Файли тем не знаходяться в кореневому каталозі архіву</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Файл 'Source' не знайдено</system:String>

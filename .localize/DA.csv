@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Pass,Succesfuld
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' indeholder for mange værdier
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Type,Tema er oprettet til en ukendt typen
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Title,'Title' er enten tomt eller for langt
+Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Access,Du har ikke adgang til den pågældende fil
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Author,'Author' er enten tomt eller for langt
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Folder,Temafiler er ikke i rodmappe af arkivet
 Portal\Enum\Portal.Enum.DA.xaml,Portal.Enum.CompatibilityType.Source,Kunne ikke finde 'Source'-filen
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Gem Logfil
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP Filer (*.zip)|*.zip|Alle Filer (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Access.Close,Forstået
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Access.Title,Adgangs Advarsel
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.DA.xaml,Portal.SystemSettingPage.Access.Message,Du har ikke adgang til den valgte placering.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.DA.xaml,Portal.WallpaperSettingPage.InputMode,Interaktionsmetode

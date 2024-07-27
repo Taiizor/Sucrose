@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Зберегти файл журналу</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Файли ZIP (*.zip)|*.zip|Всі файли (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Зрозуміло</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Попередження Про Доступ</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">У вас немає дозволу на доступ до вибраного місця.</system:String>
 </ResourceDictionary>

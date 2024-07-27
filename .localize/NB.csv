@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Pass,Vellykket res
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' har for mange verdier
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Type,Tema er opprettet for en type som ikke støttes av applikasjonen
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Title,'Title' verdien er tom eller for lang
+Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Access,Du har ikke tillatelse til å få tilgang til den aktuelle filen
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Author,'Author' verdien er tom eller for lang
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Folder,Temafiler er ikke i rotkatalogen til arkivet
 Portal\Enum\Portal.Enum.NB.xaml,Portal.Enum.CompatibilityType.Source,'Source' filen ble ikke funnet
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Lagre Loggfil
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.SystemSettingPage.Access.Close,Forstått
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.SystemSettingPage.Access.Title,Tilgangsvarsling
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.NB.xaml,Portal.SystemSettingPage.Access.Message,Du har ikke tillatelse til å få tilgang til den valgte plasseringen.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.NB.xaml,Portal.WallpaperSettingPage.InputMode,Interaksjonsmetode

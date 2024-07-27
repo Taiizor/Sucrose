@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">För många 'Tags'</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Temat är skapat för en typ som inte stöds av applikationen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' är tomt eller för långt</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Du har inte behörighet att komma åt den aktuella filen</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' är tomt eller för långt</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Temafilerna finns inte i rotkatalogen för arkivet</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Filen 'Source' kunde inte hittas</system:String>

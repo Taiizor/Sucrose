@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">Tagy obsahují příliš mnoho hodnot</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">Téma vytvořeno pro typ, který aplikace nepodporuje</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">Hodnota 'Title' je prázdná nebo příliš dlouhá</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">Nemáte oprávnění k přístupu k příslušnému souboru</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">Hodnota 'Author' je prázdná nebo příliš dlouhá</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">Soubory témat nejsou ve složce kořenového adresáře archivu</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">Soubor 'Source' nebyl nalezen</system:String>

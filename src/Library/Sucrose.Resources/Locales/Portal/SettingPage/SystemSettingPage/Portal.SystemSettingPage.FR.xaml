@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Enregistrer le Fichier Journal</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Fichiers ZIP (*.zip)|*.zip|Tous les Fichiers (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Compris</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Avertissement d'Accès</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Vous n'avez pas la permission d'accéder à l'emplacement sélectionné.</system:String>
 </ResourceDictionary>

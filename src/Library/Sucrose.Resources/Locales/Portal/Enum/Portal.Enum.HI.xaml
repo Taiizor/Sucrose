@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' में बहुत सारे मूल्य हैं</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">थीम, ऐसे एक प्रकार के आवश्यकता नहीं है, जो ऐप्लिकेशन से संगत नहीं है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' मान खाली है या बहुत लंबा है</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">आपके पास संबंधित फ़ाइल तक पहुँचने की अनुमति नहीं है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' मूल्य खाली है या बहुत लंबा है</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">थीम फ़ाइलें आर्काइव के रूट निर्देशिका में नहीं हैं</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' फ़ाइल नहीं मिल सकी</system:String>

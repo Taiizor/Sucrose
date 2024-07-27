@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Salva il file di registro</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">File ZIP (*.zip)|*.zip|Tutti i file (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Capito</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Avviso di Accesso</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Non hai il permesso di accedere alla posizione selezionata.</system:String>
 </ResourceDictionary>

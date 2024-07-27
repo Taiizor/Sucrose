@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Simpan Fail Harian</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Faham</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Amaran Akses</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Anda tidak mempunyai kebenaran untuk mengakses lokasi yang dipilih.</system:String>
 </ResourceDictionary>

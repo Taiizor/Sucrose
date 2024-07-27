@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Pass,Rezultat de s
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Tags,Prea multe valori pentru 'Tags'
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Type,"Tema creată pentru un tip nepotrivit, neprovizionat de aplicație"
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Title,Valoarea 'Title' este goală sau prea lungă
+Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Access,Nu aveți permisiunea de a accesa fișierul relevant
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Author,Valoarea 'Author' este goală sau prea lungă
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Folder,Fișierele temei nu sunt în directorul rădăcină al arhivei
 Portal\Enum\Portal.Enum.RO.xaml,Portal.Enum.CompatibilityType.Source,Fișierul 'Source' nu a fost găsit
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Salvează Fișierul Jurnal
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Fișiere ZIP (*.zip)|*.zip|Toate Fișierele (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.SystemSettingPage.Access.Close,Înțeles
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.SystemSettingPage.Access.Title,Avertisment de Acces
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.RO.xaml,Portal.SystemSettingPage.Access.Message,Nu aveți permisiunea de a accesa locația selectată.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.RO.xaml,Portal.WallpaperSettingPage.InputMode,Metoda de Interacțiune

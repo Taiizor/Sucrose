@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Spara Loggfil</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alla filer (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Förstått</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Åtkomstvarning</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Du har inte behörighet att komma åt den valda platsen.</system:String>
 </ResourceDictionary>

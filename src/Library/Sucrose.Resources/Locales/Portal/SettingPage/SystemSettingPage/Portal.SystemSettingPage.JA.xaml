@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">ログ ファイルの保存</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP ファイル (*.zip)|*.zip|すべてのファイル (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">わかりました</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">アクセス警告</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">選択した場所にアクセスする権限がありません。</system:String>
 </ResourceDictionary>

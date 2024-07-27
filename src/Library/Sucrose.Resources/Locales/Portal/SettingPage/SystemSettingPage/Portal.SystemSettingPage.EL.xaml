@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Αποθήκευση Αρχείου Καταγραφής</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">Αρχεία ZIP (*.zip)|*.zip|Όλοι οι Τύποι Αρχείων (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Κατάλαβα</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Προειδοποίηση Πρόσβασης</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Δεν έχετε άδεια πρόσβασης στην επιλεγμένη τοποθεσία.</system:String>
 </ResourceDictionary>

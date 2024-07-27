@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Pass,Berjaya
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' terlalu banyak nilai
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Type,Temanya dibuat untuk jenis yang tidak disokong oleh aplikasi
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Title,Nilai 'Title' kosong atau terlalu panjang
+Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Access,Anda tidak mempunyai kebenaran untuk mengakses fail yang berkaitan
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Author,Nilai 'Author' kosong atau terlalu panjang
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Folder,Fail tema tidak berada dalam direktori utama arkib
 Portal\Enum\Portal.Enum.MS.xaml,Portal.Enum.CompatibilityType.Source,Fail 'Source' tidak dijumpai
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,Simpan Fail Harian
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,Fail ZIP (*.zip)|*.zip|Semua Fail (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Portal.SystemSettingPage.Access.Close,Faham
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Portal.SystemSettingPage.Access.Title,Amaran Akses
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.MS.xaml,Portal.SystemSettingPage.Access.Message,Anda tidak mempunyai kebenaran untuk mengakses lokasi yang dipilih.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.MS.xaml,Portal.WallpaperSettingPage.InputMode,Kaedah Interaksi

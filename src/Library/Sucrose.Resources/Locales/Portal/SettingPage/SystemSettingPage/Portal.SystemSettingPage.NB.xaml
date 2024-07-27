@@ -52,4 +52,8 @@
 
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogTitle">Lagre Loggfil</system:String>
     <system:String x:Key="Portal.SystemSettingPage.Log.SaveDialogFilter">ZIP-filer (*.zip)|*.zip|Alle filer (*.*)|*.*</system:String>
+
+    <system:String x:Key="Portal.SystemSettingPage.Access.Close">Forstått</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Title">Tilgangsvarsling</system:String>
+    <system:String x:Key="Portal.SystemSettingPage.Access.Message">Du har ikke tillatelse til å få tilgang til den valgte plasseringen.</system:String>
 </ResourceDictionary>

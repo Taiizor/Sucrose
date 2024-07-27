@@ -78,6 +78,7 @@
     <system:String x:Key="Portal.Enum.CompatibilityType.Tags">'Tags' 包含太多值</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Type">主题针对应用不支持的类型创建</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Title">'Title' 值为空或太长</system:String>
+    <system:String x:Key="Portal.Enum.CompatibilityType.Access">您没有权限访问相关文件</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Author">'Author' 值为空或太长</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Folder">主题文件不在存档的根目录中</system:String>
     <system:String x:Key="Portal.Enum.CompatibilityType.Source">'Source' 文件未找到</system:String>

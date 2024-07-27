@@ -390,6 +390,7 @@ Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Pass,성공
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Tags,'Tags' 값이 너무 많음
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Type,테마가 지원하지 않는 유형용으로 만들어짐
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Title,'Title' 값이 비어 있거나 너무 김
+Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Access,관련 파일에 접근할 권한이 없습니다
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Author,'Author' 값이 비어 있거나 너무 김
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Folder,테마 파일이 보관함의 루트 디렉터리에 없습니다
 Portal\Enum\Portal.Enum.KO.xaml,Portal.Enum.CompatibilityType.Source,'Source' 파일을 찾을 수 없음
@@ -1086,6 +1087,10 @@ Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.Sys
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Log.SaveDialogTitle,로그 파일 저장
 Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Log.SaveDialogFilter,ZIP 파일 (*.zip)|*.zip|모든 파일 (*.*)|*.*
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,,
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Access.Close,알겠습니다
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Access.Title,접근 경고
+Portal\SettingPage\SystemSettingPage\Portal.SystemSettingPage.KO.xaml,Portal.SystemSettingPage.Access.Message,선택한 위치에 접근할 권한이 없습니다.
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.Title,WallpaperSettingPage
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,,
 Portal\SettingPage\WallpaperSettingPage\Portal.WallpaperSettingPage.KO.xaml,Portal.WallpaperSettingPage.InputMode,상호 작용 방법

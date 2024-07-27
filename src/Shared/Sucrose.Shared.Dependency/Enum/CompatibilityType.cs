@@ -9,6 +9,7 @@
         Tags,
         Type,
         Title,
+        Access,
         Author,
         Folder,
         Source,
