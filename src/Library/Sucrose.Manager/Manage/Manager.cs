@@ -130,7 +130,11 @@ namespace Sucrose.Manager.Manage
 
         public static bool PipeRequired => SMMI.BackgroundogSettingManager.GetSetting(SMC.PipeRequired, false);
 
+        public static bool CefsharpContinue => SMMI.UserSettingManager.GetSetting(SMC.CefsharpContinue, false);
+
         public static string UserAgent => SMMI.GeneralSettingManager.GetSetting(SMC.UserAgent, SMR.UserAgent);
+
+        public static bool WebViewContinue => SMMI.UserSettingManager.GetSetting(SMC.WebViewContinue, false);
 
         public static bool LibraryConfirm => SMMI.LibrarySettingManager.GetSetting(SMC.LibraryConfirm, true);
 

@@ -13,7 +13,7 @@ namespace Sucrose.Shared.Engine.View
     {
         internal SSDEDT Result { get; private set; } = SSDEDT.None;
 
-        public LightMessageBox(string DialogTitle, string DialogMessage, string DialogInfo, string RememberText, string DownloadText, string ContinueText, string CloseText)
+        public LightMessageBox(string DialogTitle, string DialogMessage, string DialogInfo, string RememberText, string DownloadText, string ContinueText, string CloseText, bool Check)
         {
             InitializeComponent();
 
@@ -30,7 +30,10 @@ namespace Sucrose.Shared.Engine.View
 
             Download_Button.IsEnabled = SSSHN.GetHostEntry();
 
-            Countdown();
+            if (Check)
+            {
+                Countdown();
+            }
         }
 
         private async void Countdown()

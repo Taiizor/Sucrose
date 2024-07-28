@@ -163,6 +163,7 @@ namespace Sucrose.Portal.Views.Controls
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
             bool Confirm = SMMM.LibraryConfirm;
+
             ContentDialogResult Result = ContentDialogResult.None;
 
             if (Confirm)
@@ -203,7 +204,13 @@ namespace Sucrose.Portal.Views.Controls
                     }
                 });
 
-                await Task.Run(() => Directory.Delete(Theme, true));
+                await Task.Run(() =>
+                {
+                    if (Directory.Exists(Theme))
+                    {
+                        Directory.Delete(Theme, true);
+                    }
+                });
             }
         }
 

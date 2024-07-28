@@ -159,6 +159,8 @@ namespace Sucrose.Live.WebView
             {
                 SSDEDT DialogResult;
 
+                bool Check = SMMM.WebViewContinue;
+
                 string CloseText = SRER.GetValue("Live", "Close");
                 string ContinueText = SRER.GetValue("Live", "Continue");
                 string DownloadText = SRER.GetValue("Live", "Download");
@@ -172,13 +174,13 @@ namespace Sucrose.Live.WebView
                 switch (SSDMM.ThemeType)
                 {
                     case SEWTT.Dark:
-                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText);
+                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText, Check);
                         DarkMessageBox.ShowDialog();
 
                         DialogResult = DarkMessageBox.Result;
                         break;
                     default:
-                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText);
+                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText, Check);
                         LightMessageBox.ShowDialog();
 
                         DialogResult = LightMessageBox.Result;
@@ -191,6 +193,7 @@ namespace Sucrose.Live.WebView
                         Configure();
                         break;
                     case SSDEDT.Download:
+                        SMMI.UserSettingManager.SetSetting(SMC.WebViewContinue, true);
                         Downloader();
                         break;
                     case SSDEDT.Remember:
@@ -377,7 +380,7 @@ namespace Sucrose.Live.WebView
         {
             string Url = "https://go.microsoft.com/fwlink/p/?LinkId=2124703";
 
-            string File = Path.Combine(Path.GetTempPath(), "MicrosoftEdgeWebView2Setup.exe");
+            string File = Path.Combine(Path.GetTempPath(), $"MicrosoftEdgeWebView2Setup.{Guid.NewGuid()}.exe");
 
             HttpClient Client = new();
 

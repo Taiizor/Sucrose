@@ -182,23 +182,27 @@
 
         public const string UpdateLimitType = "UpdateLimitType";
 
-        public const string UpdateLimitValue = "UpdateLimitValue";
-
-        public const string ClosePerformance = "ClosePerformance";
-
-        public const string PausePerformance = "PausePerformance";
-
-        public const string AdvertisingState = "AdvertisingState";
+        public const string WebViewContinue = "WebViewContinue";
 
         public const string AdvertisingDelay = "AdvertisingDelay";
 
-        public const string ExpandScreenType = "ExpandScreenType";
+        public const string AdvertisingState = "AdvertisingState";
 
-        public const string SaverPerformance = "SaverPerformance";
+        public const string CefsharpContinue = "CefsharpContinue";
+
+        public const string ClosePerformance = "ClosePerformance";
+
+        public const string ExpandScreenType = "ExpandScreenType";
 
         public const string FocusPerformance = "FocusPerformance";
 
+        public const string PausePerformance = "PausePerformance";
+
+        public const string SaverPerformance = "SaverPerformance";
+
         public const string StorePreviewHide = "StorePreviewHide";
+
+        public const string UpdateLimitValue = "UpdateLimitValue";
 
         public const string ApplicationEngine = "ApplicationEngine";
 

@@ -16,6 +16,7 @@ using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSDESKT = Sucrose.Shared.Dependency.Enum.SortKindType;
 using SSDESMT = Sucrose.Shared.Dependency.Enum.SortModeType;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
+using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
@@ -129,7 +130,7 @@ namespace Sucrose.Portal.Views.Pages
                         {
                             Themes.Remove(Theme);
 
-                            if (Directory.Exists(ThemePath) && SMMM.LibraryDelete)
+                            if (Directory.Exists(ThemePath) && SMMM.LibraryDelete && SSSHA.Directory(ThemePath))
                             {
                                 Directory.Delete(ThemePath, true);
 
@@ -159,7 +160,7 @@ namespace Sucrose.Portal.Views.Pages
                                 Themes.Add(Path.GetFileName(Folder));
                             }
                         }
-                        else if (SMMM.LibraryDelete)
+                        else if (SMMM.LibraryDelete && SSSHA.Directory(Folder))
                         {
                             Directory.Delete(Folder, true);
 

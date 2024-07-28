@@ -180,6 +180,8 @@ namespace Sucrose.Live.CefSharp
             {
                 SSDEDT DialogResult;
 
+                bool Check = SMMM.CefsharpContinue;
+
                 string CloseText = SRER.GetValue("Live", "Close");
                 string ContinueText = SRER.GetValue("Live", "Continue");
                 string DownloadText = SRER.GetValue("Live", "Download");
@@ -193,13 +195,13 @@ namespace Sucrose.Live.CefSharp
                 switch (SSDMM.ThemeType)
                 {
                     case SEWTT.Dark:
-                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText);
+                        SSEVDMB DarkMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText, Check);
                         DarkMessageBox.ShowDialog();
 
                         DialogResult = DarkMessageBox.Result;
                         break;
                     default:
-                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText);
+                        SSEVLMB LightMessageBox = new(DialogTitle, DialogMessage, DialogInfo, RememberText, DownloadText, ContinueText, CloseText, Check);
                         LightMessageBox.ShowDialog();
 
                         DialogResult = LightMessageBox.Result;
@@ -212,6 +214,7 @@ namespace Sucrose.Live.CefSharp
                         Configure();
                         break;
                     case SSDEDT.Download:
+                        SMMI.UserSettingManager.SetSetting(SMC.CefsharpContinue, true);
                         Downloader();
                         break;
                     case SSDEDT.Remember:
@@ -403,13 +406,13 @@ namespace Sucrose.Live.CefSharp
         {
 #if X64
             string Url = "https://aka.ms/vs/17/release/vc_redist.x64.exe";
-            string File = Path.Combine(Path.GetTempPath(), "VC_redist.x64.exe");
+            string File = Path.Combine(Path.GetTempPath(), $"VC_redist.x64.{Guid.NewGuid()}.exe");
 #elif X86
             string Url = "https://aka.ms/vs/17/release/vc_redist.x86.exe";
-            string File = Path.Combine(Path.GetTempPath(), "VC_redist.x86.exe");
+            string File = Path.Combine(Path.GetTempPath(), $"VC_redist.x86.{Guid.NewGuid()}.exe");
 #else
             string Url = "https://aka.ms/vs/17/release/vc_redist.arm64.exe";
-            string File = Path.Combine(Path.GetTempPath(), "VC_redist.arm64.exe");
+            string File = Path.Combine(Path.GetTempPath(), $"VC_redist.arm64.{Guid.NewGuid()}.exe");
 #endif
 
             HttpClient Client = new();
