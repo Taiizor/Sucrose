@@ -19,6 +19,7 @@ using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSSHA = Sucrose.Shared.Space.Helper.Access;
 using SSSHC = Sucrose.Shared.Space.Helper.Copy;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
+using SSTHV = Sucrose.Shared.Theme.Helper.Various;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
 using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
@@ -84,8 +85,9 @@ namespace Sucrose.Portal.Views.Pages
 
             if (Directory.Exists(ShowcasePath))
             {
-                List<string> Showcase = SMMM.Showcase;
                 bool State = false;
+
+                List<string> Showcase = SMMM.Showcase;
 
                 if (!Directory.Exists(SMMM.LibraryLocation))
                 {
@@ -126,18 +128,33 @@ namespace Sucrose.Portal.Views.Pages
                         string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
                         string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
-                        if (!Directory.Exists(ThemePath) || !File.Exists(InfoPath) || !SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                        if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
                         {
-                            Themes.Remove(Theme);
+                            string InfoContent = SSTHI.ReadInfo(InfoPath);
 
-                            if (Directory.Exists(ThemePath) && SMMM.LibraryDelete && SSSHA.Directory(ThemePath))
+                            if (SSTHI.CheckJson(InfoContent))
                             {
-                                Directory.Delete(ThemePath, true);
+                                SSTHI Info = SSTHI.FromJson(InfoContent);
 
-                                if (File.Exists(PropertiesFile))
+                                string PreviewPath = Path.Combine(ThemePath, Info.Preview);
+                                string ThumbnailPath = Path.Combine(ThemePath, Info.Thumbnail);
+
+                                if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(ThemePath, Info.Source))))
                                 {
-                                    File.Delete(PropertiesFile);
+                                    continue;
                                 }
+                            }
+                        }
+
+                        Themes.Remove(Theme);
+
+                        if (Directory.Exists(ThemePath) && SMMM.LibraryDelete && SSSHA.Directory(ThemePath))
+                        {
+                            Directory.Delete(ThemePath, true);
+
+                            if (File.Exists(PropertiesFile))
+                            {
+                                File.Delete(PropertiesFile);
                             }
                         }
                     }
@@ -153,14 +170,26 @@ namespace Sucrose.Portal.Views.Pages
                         string PropertiesFile = Path.Combine(PropertiesCache, $"{Path.GetFileName(Folder)}.json");
                         string InfoPath = Path.Combine(Folder, SMR.SucroseInfo);
 
-                        if (File.Exists(InfoPath) && SSTHI.CheckJson(SSTHI.ReadInfo(InfoPath)))
+                        if (File.Exists(InfoPath))
                         {
-                            if (!Themes.Contains(Path.GetFileName(Folder)))
+                            string InfoContent = SSTHI.ReadInfo(InfoPath);
+
+                            if (SSTHI.CheckJson(InfoContent))
                             {
-                                Themes.Add(Path.GetFileName(Folder));
+                                SSTHI Info = SSTHI.FromJson(InfoContent);
+
+                                string PreviewPath = Path.Combine(Folder, Info.Preview);
+                                string ThumbnailPath = Path.Combine(Folder, Info.Thumbnail);
+
+                                if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && !Themes.Contains(Path.GetFileName(Folder)) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(Folder, Info.Source))))
+                                {
+                                    Themes.Add(Path.GetFileName(Folder));
+                                    continue;
+                                }
                             }
                         }
-                        else if (SMMM.LibraryDelete && SSSHA.Directory(Folder))
+
+                        if (SMMM.LibraryDelete && SSSHA.Directory(Folder))
                         {
                             Directory.Delete(Folder, true);
 
