@@ -66,7 +66,7 @@ namespace Sucrose.Manager
 
                             Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                            if (settings.Properties.TryGetValue(key, out object value))
+                            if (settings != null && settings.Properties != null && settings.Properties.TryGetValue(key, out object value))
                             {
                                 return ConvertToType<T>(value);
                             }
@@ -116,7 +116,7 @@ namespace Sucrose.Manager
 
                             Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                            if (settings.Properties.TryGetValue(key, out object value))
+                            if (settings != null && settings.Properties != null && settings.Properties.TryGetValue(key, out object value))
                             {
                                 return JsonConvert.DeserializeObject<T>(value.ToString());
                             }
@@ -166,7 +166,7 @@ namespace Sucrose.Manager
 
                             Settings settings = JsonConvert.DeserializeObject<Settings>(json, _serializerSettings);
 
-                            if (settings.Properties.TryGetValue(key, out object value))
+                            if (settings != null && settings.Properties != null && settings.Properties.TryGetValue(key, out object value))
                             {
                                 return ConvertToType<T>(value);
                             }

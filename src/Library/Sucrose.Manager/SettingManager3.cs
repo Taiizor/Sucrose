@@ -55,7 +55,7 @@ namespace Sucrose.Manager
 
         public T GetSetting<T>(string key, T back = default)
         {
-            if (_settings.Properties.TryGetValue(key, out object value))
+            if (_settings != null && _settings.Properties != null && _settings.Properties.TryGetValue(key, out object value))
             {
                 return ConvertToType<T>(value);
             }
@@ -65,7 +65,7 @@ namespace Sucrose.Manager
 
         public T GetSettingStable<T>(string key, T back = default)
         {
-            if (_settings.Properties.TryGetValue(key, out object value))
+            if (_settings != null && _settings.Properties != null && _settings.Properties.TryGetValue(key, out object value))
             {
                 return JsonConvert.DeserializeObject<T>(value.ToString());
             }
@@ -75,7 +75,7 @@ namespace Sucrose.Manager
 
         public T GetSettingAddress<T>(string key, T back = default)
         {
-            if (_settings.Properties.TryGetValue(key, out object value))
+            if (_settings != null && _settings.Properties != null && _settings.Properties.TryGetValue(key, out object value))
             {
                 return ConvertToType<T>(value);
             }
