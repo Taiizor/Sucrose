@@ -162,7 +162,7 @@ namespace Sucrose.Portal.Views.Pages
 
                 string[] Folders = Directory.GetDirectories(SMMM.LibraryLocation);
 
-                if (Folders.Any())
+                if (Folders != null && Folders.Any())
                 {
                     foreach (string Folder in Folders)
                     {
