@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">शिक्षा</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">मोहक जंगल</system:String>
     <system:String x:Key="Portal.Category.Fantasy">काल्पनिक</system:String>
+    <system:String x:Key="Portal.Category.Fashion">फैशन</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">फिल्म और टीवी</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">खाना और पीना</system:String>
     <system:String x:Key="Portal.Category.Galaxy">गैलेक्सी</system:String>

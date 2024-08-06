@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">교육</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">마법의 숲</system:String>
     <system:String x:Key="Portal.Category.Fantasy">판타지</system:String>
+    <system:String x:Key="Portal.Category.Fashion">패션</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">영화 및 TV</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">음식 및 음료</system:String>
     <system:String x:Key="Portal.Category.Galaxy">은하</system:String>

@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Uddannelse</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Fortryllede Skove</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasi</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Mode</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film og TV</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Mad og Drikkevarer</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Galakse</system:String>

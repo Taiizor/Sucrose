@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Vzdělání</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Zakouzlené Lesy</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantazie</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Móda</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film a Televize</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Jídlo a Nápoje</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Galaxie</system:String>

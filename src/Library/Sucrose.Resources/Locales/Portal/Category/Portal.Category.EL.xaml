@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Εκπαίδευση</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Μαγικά Δάση</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Φαντασία</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Μόδα</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Ταινία και Τηλεόραση</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Φαγητό και Ποτά</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Γαλαξίας</system:String>

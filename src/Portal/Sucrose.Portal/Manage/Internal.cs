@@ -69,6 +69,7 @@ namespace Sucrose.Portal.Manage
             { "Food and Drinks", SymbolRegular.Food24 },
             { "Dynamic", SymbolRegular.ClockToolbox24 },
             { "System", SymbolRegular.ChartMultiple24 },
+            { "Fashion", SymbolRegular.Accessibility24 },
             { "Animation", SymbolRegular.StarEmphasis24 },
             { "Cities and Places", SymbolRegular.City24 },
             { "Education", SymbolRegular.HatGraduation24 },

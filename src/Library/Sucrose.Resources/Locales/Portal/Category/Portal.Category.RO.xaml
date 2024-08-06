@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Educație</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Păduri Fermecate</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantezie</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Modă</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film și TV</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Mâncare și Băuturi</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Galaxie</system:String>

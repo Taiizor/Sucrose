@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Образование</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Волшебные Леса</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Фэнтези</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Мода</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Фильм и ТВ</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Еда и Напитки</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Галактика</system:String>

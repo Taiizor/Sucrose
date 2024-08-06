@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Pendidikan</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Hutan yang Dikecapi</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasi</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Fesyen</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Filem dan TV</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Makanan dan Minuman</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Galaksi</system:String>

@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Освіта</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Зачаровані Ліси</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Фентезі</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Мода</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Фільми та Телебачення</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Їжа та Напої</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Галактика</system:String>

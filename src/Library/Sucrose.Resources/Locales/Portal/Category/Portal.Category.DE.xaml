@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Bildung</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Verzauberte Wälder</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasie</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Mode</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film &amp; Fernsehen</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Essen &amp; Getränke</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Galaxie</system:String>

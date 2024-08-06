@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Onderwijs</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Betoverde Bossen</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantasie</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Mode</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film en TV</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Eten en Drinken</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Melkweg</system:String>

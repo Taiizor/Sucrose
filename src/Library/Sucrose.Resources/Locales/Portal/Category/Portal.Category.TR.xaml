@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">Eğitim</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">Büyülü Ormanlar</system:String>
     <system:String x:Key="Portal.Category.Fantasy">Fantezi</system:String>
+    <system:String x:Key="Portal.Category.Fashion">Moda</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">Film ve Dizi</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">Yiyecek ve İçecekler</system:String>
     <system:String x:Key="Portal.Category.Galaxy">Galaksi</system:String>

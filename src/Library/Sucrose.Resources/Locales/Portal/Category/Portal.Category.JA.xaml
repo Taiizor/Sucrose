@@ -26,6 +26,7 @@
     <system:String x:Key="Portal.Category.Education">教育</system:String>
     <system:String x:Key="Portal.Category.EnchantedForests">魔法の森</system:String>
     <system:String x:Key="Portal.Category.Fantasy">ファンタジー</system:String>
+    <system:String x:Key="Portal.Category.Fashion">ファッション</system:String>
     <system:String x:Key="Portal.Category.FilmandTV">映画とテレビ</system:String>
     <system:String x:Key="Portal.Category.FoodandDrinks">食べ物と飲み物</system:String>
     <system:String x:Key="Portal.Category.Galaxy">銀河</system:String>
