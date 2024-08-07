@@ -1,48 +1,48 @@
 <div align="left">
-  <h4>English | <a href="README.zh-CN.md">中文 (Chinese)</a></h4>
+  <h4><a href="README.md">English</a> | 中文</a></h4>
   <br>
   <br>
 </div>
 
 <div align="center">
   <img alt="Sucrose Logo" height="150" src=".images/Logo.png" />
-  <h2>Sucrose Wallpaper Engine</h2>
+  <h2>Sucrose Wallpaper Engine (Sucrose 壁纸引擎)</h2>
 </div>
 
 <div align="center">
   <span>
-    <b>Sucrose</b> is a versatile wallpaper engine that brings a wide range of interactive themes to life on your desktop. With light and dark theme options, you can choose the appearance that suits your personal preferences. You can create your own wallpapers simply or in detail, and it supports multiple screens and all screen resolutions for a seamless experience across various display configurations.
+    <b>Sucrose</b> 是一个多功能的壁纸引擎，可以在你的桌面上呈现各种互动主题。它提供了明亮和暗黑主题选项，你可以选择符合个人偏好的外观。你可以简单地或详细地创建自己的壁纸，它支持多屏幕和所有屏幕分辨率，确保在各种显示配置下获得无缝体验。
   </span>
   <br>
   <br>
   <span>
-    Completely open-source and free, <b>Sucrose</b> doesn't require any payments for any features, granting users full access. You can create media-responsive wallpapers using the <b>Sucrose Audio API</b> and design wallpapers with system status indicators using the <b>Sucrose System API</b>. Additionally, you can use any website as a wallpaper using <b>CefSharp</b> and <b>WebView</b>.
+    完全开源且免费的 <b>Sucrose</b> 不需要任何支付，用户可以完全访问所有功能。你可以使用 <b>Sucrose Audio API</b> 创建响应媒体的壁纸，并使用 <b>Sucrose System API</b> 设计带有系统状态指示器的壁纸。此外，你还可以使用 <b>CefSharp</b> 和 <b>WebView</b> 将任何网站作为壁纸。
   </span>
   <br>
   <br>
   <span>
-    <b>Sucrose</b> allows you to create your own custom themes and share them with friends or the <b>Sucrose Community</b>. You can explore and download themes offered by users directly from the <b>Sucrose Store</b>.
+	<b>Sucrose</b> 允许你创建自己的自定义主题并与朋友或 <b>Sucrose 社区</b> 分享。你可以直接从 <b>Sucrose 商店</b> 探索和下载用户提供的主题。
   </span>
   <br>
   <br>
   <span>
-    In terms of performance, it ensures smooth performance by optimizing CPU and GPU usage. It automatically pauses wallpapers when fullscreen applications/games are running to conserve resources, and it has a power-saving mode that pauses wallpapers when running on battery power, such as on laptops.
+    在性能方面，它通过优化 CPU 和 GPU 使用来确保流畅的性能。当全屏应用程序/游戏运行时，它会自动暂停壁纸以节省资源，并且它具有一个省电模式，在电池供电（例如笔记本电脑）时暂停壁纸。
   </span>
   <br>
   <br>
   <span>
-    <b>Sucrose</b> is a powerful tool for personalizing and animating your desktop. It enables users to express their creativity and fully customize their desktop experiences.
+    <b>Sucrose</b> 是一个强大的工具，用于个性化和动画化您的桌面。它使用户能够表达他们的创造力，并完全自定义他们的桌面体验。
   </span>
 </div>
 
 <h4 align="center">
-  <a href="https://github.com/Taiizor/Sucrose/issues">Issues</a> ●
-  <a href="https://github.com/Taiizor/Sucrose/discussions">Discussions</a> ●
-  <a href="https://github.com/Taiizor/Sucrose/wiki">Documentation</a> ●
-  <a href="https://github.com/Taiizor/Store">Store</a> ●
-  <a href="https://www.youtube.com/playlist?list=PLPU_0X-WyJi6VbMMaTOTXuU6EVGiy_Kqx">Feature</a> ●
-  <a href="https://www.youtube.com/playlist?list=PLPU_0X-WyJi7WSUHItUfxbr71ORthre19">Preview</a> ●
-  <a href="https://www.youtube.com/playlist?list=PLPU_0X-WyJi5eNcBrRkEg9uoGX0R1Z5SY">Tutorial</a> ●
+  <a href="https://github.com/Taiizor/Sucrose/issues">问题</a> ●
+  <a href="https://github.com/Taiizor/Sucrose/discussions">讨论</a> ●
+  <a href="https://github.com/Taiizor/Sucrose/wiki">文档</a> ●
+  <a href="https://github.com/Taiizor/Store">商店</a> ●
+  <a href="https://www.youtube.com/playlist?list=PLPU_0X-WyJi6VbMMaTOTXuU6EVGiy_Kqx">功能</a> ●
+  <a href="https://www.youtube.com/playlist?list=PLPU_0X-WyJi7WSUHItUfxbr71ORthre19">预览</a> ●
+  <a href="https://www.youtube.com/playlist?list=PLPU_0X-WyJi5eNcBrRkEg9uoGX0R1Z5SY">教程</a> ●
   <a href="https://discord.gg/nxG977byXb">Discord</a>
 </h4>
 
@@ -54,26 +54,26 @@
 
 <div align="center">
 
-  [![License](https://img.shields.io/github/license/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/blob/develop/LICENSE)
-  [![Download Counts](https://img.shields.io/github/downloads/Taiizor/Sucrose/total.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases)
-  [![Contributors](https://img.shields.io/github/contributors/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/graphs/contributors)
-  [![Stars Count](https://img.shields.io/github/stars/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/stargazers)
-  [![Forks Count](https://img.shields.io/github/forks/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/network/members)
-  [![Watchers Count](https://img.shields.io/github/watchers/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/watchers)
+  [![License](https://img.shields.io/github/license/Taiizor/Sucrose.svg?style=for-the-badge&label=许可证)](https://github.com/Taiizor/Sucrose/blob/develop/LICENSE)
+  [![Download Counts](https://img.shields.io/github/downloads/Taiizor/Sucrose/total.svg?style=for-the-badge&label=下载)](https://github.com/Taiizor/Sucrose/releases)
+  [![Contributors](https://img.shields.io/github/contributors/Taiizor/Sucrose?style=for-the-badge&label=贡献者)](https://github.com/Taiizor/Sucrose/graphs/contributors)
+  [![Stars Count](https://img.shields.io/github/stars/Taiizor/Sucrose.svg?style=for-the-badge&label=明星)](https://github.com/Taiizor/Sucrose/stargazers)
+  [![Forks Count](https://img.shields.io/github/forks/Taiizor/Sucrose.svg?style=for-the-badge&label=分支)](https://github.com/Taiizor/Sucrose/network/members)
+  [![Watchers Count](https://img.shields.io/github/watchers/Taiizor/Sucrose.svg?style=for-the-badge&label=观察者)](https://github.com/Taiizor/Sucrose/watchers)
 
-  [![Issues Count](https://img.shields.io/github/issues/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/issues)
-  [![Pull Request Count](https://img.shields.io/github/issues-pr/Taiizor/Sucrose.svg?style=for-the-badge)](https://github.com/Taiizor/Sucrose/pulls)
-  [![Follow](https://img.shields.io/github/followers/Taiizor.svg?style=for-the-badge&label=Follow)](https://github.com/Taiizor)
+  [![Issues Count](https://img.shields.io/github/issues/Taiizor/Sucrose.svg?style=for-the-badge&label=问题)](https://github.com/Taiizor/Sucrose/issues)
+  [![Pull Request Count](https://img.shields.io/github/issues-pr/Taiizor/Sucrose.svg?style=for-the-badge&label=拉取请求)](https://github.com/Taiizor/Sucrose/pulls)
+  [![Follow](https://img.shields.io/github/followers/Taiizor.svg?style=for-the-badge&label=关注)](https://github.com/Taiizor)
   [![Discord Server](https://img.shields.io/discord/932386235538878534?label=Discord&style=for-the-badge)](https://discord.gg/nxG977byXb)
 
-  [![Pre-Release](https://img.shields.io/github/v/release/Taiizor/Sucrose?include_prereleases&label=Pre-Release&style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases/latest)
-  [![Pre-Release Date](https://img.shields.io/github/release-date-pre/Taiizor/Sucrose?label=Pre-Release%20Date&style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases/latest)
+  [![Pre-Release](https://img.shields.io/github/v/release/Taiizor/Sucrose?include_prereleases&label=预发行版&style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases/latest)
+  [![Pre-Release Date](https://img.shields.io/github/release-date-pre/Taiizor/Sucrose?label=预发行日期&style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases/latest)
 
-  [![Release](https://img.shields.io/github/v/release/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases/latest)
-  [![Release Date](https://img.shields.io/github/release-date/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/releases/latest)
+  [![Release](https://img.shields.io/github/v/release/Taiizor/Sucrose?style=for-the-badge&label=发布)](https://github.com/Taiizor/Sucrose/releases/latest)
+  [![Release Date](https://img.shields.io/github/release-date/Taiizor/Sucrose?style=for-the-badge&label=发布日期)](https://github.com/Taiizor/Sucrose/releases/latest)
 
-  [![Code Size](https://img.shields.io/github/languages/code-size/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
-  [![Repo Size](https://img.shields.io/github/repo-size/Taiizor/Sucrose?style=for-the-badge)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
+  [![Code Size](https://img.shields.io/github/languages/code-size/Taiizor/Sucrose?style=for-the-badge&label=代码大小)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
+  [![Repo Size](https://img.shields.io/github/repo-size/Taiizor/Sucrose?style=for-the-badge&label=仓库大小)](https://github.com/Taiizor/Sucrose/archive/refs/heads/develop.zip)
 
   <!--[![Windows Support](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/store/apps/XP8JGPBHTJGLC)
   [![Xbox Support](https://img.shields.io/badge/Xbox-107C10?style=for-the-badge&logo=xbox&logoColor=white)](https://www.microsoft.com/store/apps/XP8JGPBHTJGLC)
@@ -88,116 +88,116 @@
 </div>
 
 <div align="center">
-  <h2>Features</h2>
+  <h2>功能</h2>
   <p>
-    <em>Take a moment, preview GIF clips may take some time to load.</em>
+    <em>请稍等，预览 GIF 剪辑可能需要一些时间来加载。</em>
   </p>
 </div>
 
 <div align="center">
-  <h4>Wallpaper Varieties</h4>
+  <h4>壁纸种类</h4>
   <table align="center" style="margin:auto">
     <tr>
-      <th>Theme Type</th>
-      <th>Example</th>
-      <th>Interactive</th>
-      <th>Resolution</th>
-      <th>Performance</th>
+      <th>主题类型</th>
+      <th>示例</th>
+      <th>互动</th>
+      <th>分辨率</th>
+      <th>性能</th>
     </tr>
     <tr align="center">
       <td>Gif</td>
       <td>
         <img src=".screenshots/Gif.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/RGB/Asus ROG-1">Asus ROG</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/RGB/Asus ROG-1">Asus ROG</a> 主题
       </td>
-      <td>No</td>
-      <td>Variable</td>
-      <td>Fixed</td>
+      <td>否</td>
+      <td>可变</td>
+      <td>固定</td>
     </tr>
     <tr align="center">
       <td>Url</td>
       <td>
         <img src=".screenshots/Url.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Dynamic/The 25th Hour-1">The 25th Hour</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Dynamic/The 25th Hour-1">The 25th Hour</a> 主题
       </td>
-      <td>Yes</td>
-      <td>Fixed</td>
-      <td>Variable</td>
+      <td>是</td>
+      <td>固定</td>
+      <td>可变</td>
     </tr>
     <tr align="center">
       <td>Web</td>
       <td>
         <img src=".screenshots/Web.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animals/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Animals/Cat vs Ball of Wool-1">Cat vs Ball of Wool</a> 主题
       </td>
-      <td>Yes</td>
-      <td>Fixed</td>
-      <td>Variable</td>
+      <td>是</td>
+      <td>固定</td>
+      <td>可变</td>
     </tr>
     <tr align="center">
       <td>Video</td>
       <td>
         <img src=".screenshots/Video.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Vehicles/Batmobile Pursuit-1">Batmobile Pursuit</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Vehicles/Batmobile Pursuit-1">Batmobile Pursuit</a> 主题
       </td>
-      <td>No</td>
-      <td>Variable</td>
-      <td>Fixed</td>
+      <td>否</td>
+      <td>可变</td>
+      <td>固定</td>
     </tr>
     <tr align="center">
       <td>YouTube</td>
       <td>
 	    <img src=".screenshots/YouTube.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Space/Floating in Space-1">Floating in Space</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Space/Floating in Space-1">Floating in Space</a> 主题
       </td>
-      <td>No</td>
-      <td>Fixed</td>
-      <td>Variable</td>
+      <td>否</td>
+      <td>固定</td>
+      <td>可变</td>
     </tr>
     <tr align="center">
       <td>Application</td>
       <td>
         <img src=".screenshots/Application.gif" width="256" height="144" />
-        <br><a href="https://github.com/BayatGames/RedRunner">Red Runner</a> Theme
+        <br><a href="https://github.com/BayatGames/RedRunner">Red Runner</a> 主题
       </td>
-      <td>Yes</td>
-      <td>Fixed</td>
-      <td>Variable</td>
+      <td>是</td>
+      <td>固定</td>
+      <td>可变</td>
     </tr>
   </table>
 </div>
 
 <div align="center">
   <div>
-    <h4>More Features</h4>
-    <p>● Light and Dark theme feature.</p>
-    <p>● Create your own wallpapers simply or in detail.</p>
-    <p>● Supports multiple screens and all screen resolutions.</p>
-    <p>● Customize various wallpaper engines and plugins freely.</p>
-    <p>● Completely open-source and free, no feature requires payment.</p>
-    <p>● Create media-responsive wallpapers using the Sucrose Audio API.</p>
-    <p>● Determine the fate of the wallpaper based on system performance.</p>
-    <p>● Create wallpapers that display system status using the Sucrose System API.</p>
-    <p>● You can use any website you want as a wallpaper with CefSharp and WebView.</p>
-    <p>● Automatically switch between different wallpapers at specified time intervals or randomly.</p>
+    <h4>更多功能</h4>
+    <p>● 轻松切换明亮和黑暗主题。</p>
+    <p>● 自由定制各种壁纸引擎和插件。</p>
+    <p>● 根据系统性能决定壁纸的命运。</p>
+    <p>● 简单或详细地创建自己的壁纸。</p>
+    <p>● 支持多个屏幕和所有屏幕分辨率。</p>
+    <p>● 完全开源和免费，所有功能无需支付。</p>
+    <p>● 使用 Sucrose Audio API 创建响应媒体的壁纸。</p>
+    <p>● 根据指定的时间间隔或随机自动切换不同的壁纸。</p>
+    <p>● 使用 CefSharp 和 WebView 将任何网站用作壁纸。</p>
+    <p>● 使用 Sucrose System API 创建显示系统状态的壁纸。</p>
   </div>
 
   <div>
-    <h4>Create and Share Themes</h4>
-    <p>● Create your own custom themes and share them with friends or the Sucrose community.</p>
-    <p>● Explore a gallery of user-submitted themes and download them directly from the Sucrose store.</p>
+    <h4>创建和分享主题</h4>
+    <p>● 创建自己的自定义主题，并与朋友或 Sucrose 社区分享。</p>
+    <p>● 探索用户提交的主题画廊，并直接从 Sucrose 商店下载。</p>
   </div>
 
   <div>
-    <h4>Performance</h4>
-    <p>● Optimize CPU and GPU usage for smooth performance.</p>
-    <p>● Power-saving mode to pause wallpapers when running on battery (laptops).</p>
-    <p>● Auto-pause wallpapers when fullscreen applications/games run to conserve resources.</p>
+    <h4>性能</h4>
+    <p>● 优化 CPU 和 GPU 使用以实现流畅的性能。</p>
+    <p>● 节能模式，在使用电池（笔记本电脑）时暂停壁纸。</p>
+    <p>● 在全屏应用程序/游戏运行时自动暂停壁纸以节省资源。</p>
   </div>
 </div>
 
 <div align="center">
-  <h2>Download</h2>
+  <h2>下载</h2>
 
   <strong>Microsoft Store</strong>
 
@@ -351,31 +351,31 @@
 </div>
 
 <div align="center">
-  <h2>Support</h2>
-  <p>We appreciate any contribution to Sucrose. Here are some ways to support the project:</p>
+  <h2>支持</h2>
+  <p>我们感激对 Sucrose 的任何贡献。以下是支持该项目的一些方式：</p>
 
   <div>
-    <h4>Developer</h4>
-    <p>● Contribute to the codebase and help improve Sucrose.</p>
+    <h4>开发者</h4>
+    <p>● 参与代码库的贡献并帮助改进 Sucrose。</p>
   </div>
 
   <div>
-    <h4>Designer</h4>
-    <p>● Improve the UI/UX of Sucrose for a better user experience.</p>
+    <h4>设计师</h4>
+    <p>● 改进 Sucrose 的 UI/UX，以提供更好的用户体验。</p>
   </div>
 
   <div>
-    <h4>Localization</h4>
-    <p>● Help translate Sucrose into more languages to reach a broader audience.</p>
+    <h4>本地化</h4>
+    <p>● 帮助将 Sucrose 翻译成更多语言，以触及更广泛的受众。</p>
   </div>
 
   <div>
-    <h4>Feedback &amp; Bug Reports</h4>
-    <p>● Suggest new features or report bugs to help us improve Sucrose.</p>
+    <h4>反馈与错误报告</h4>
+    <p>● 提出新功能建议或报告错误，帮助我们改进 Sucrose。</p>
   </div>
 
   <div>
-    <h4>Spread the Word</h4>
-    <p>● Star this repository and share your experiences with Sucrose on social media.</p>
+    <h4>传播消息</h4>
+    <p>● 给这个仓库加星并在社交媒体上分享您与 Sucrose 的经历。</p>
   </div>
 </div>
