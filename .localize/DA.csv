@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritet
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planlagt
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Jeg Forstår
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Adgangsrettigheder Advarsel
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Du skal have administrative rettigheder for at ændre opstartstilstanden.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.NotifyIcon,Meddelelsesområdesymbol
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Synligheden af ikonet i systembakken. Sucrose vil fortsætte med at køre skjult.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DA.xaml,,

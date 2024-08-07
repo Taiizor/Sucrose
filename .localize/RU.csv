@@ -835,7 +835,11 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Приоритетные
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Планировщик
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
-Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon,Значок уведомления
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Понял
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Предупреждение о Правах Администратора
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Вам нужны права администратора для изменения состояния запуска.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon,Значок Yведомления
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Видимость значка в системном лотке. Приложение Sucrose будет работать скрыто.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RU.xaml,Portal.GeneralSettingPage.NotifyIcon.Notify.Show,Показать

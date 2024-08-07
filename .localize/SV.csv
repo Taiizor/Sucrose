@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioriterad
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planerad
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Förstått
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Administratörsbehörighetsvarning
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Du behöver administratörsbehörighet för att ändra startstatus.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.NotifyIcon,Meddelandefältssymbol
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Synlighet för systemfältet. Sucrose kommer att fortsätta köra i bakgrunden.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.SV.xaml,,

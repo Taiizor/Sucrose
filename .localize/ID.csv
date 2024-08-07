@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritas
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Penjadwal
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Dimengerti
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Peringatan Hak Administrator
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Anda memerlukan hak administrator untuk mengubah status startup.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.NotifyIcon,Ikona Notifikasi
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Tampilkan ikon di tray sistem. Sucrose akan tetap berjalan secara tersembunyi.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ID.xaml,,

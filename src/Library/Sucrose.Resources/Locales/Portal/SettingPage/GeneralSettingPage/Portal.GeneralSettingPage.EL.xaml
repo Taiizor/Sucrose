@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Υψηλή Προτεραιότητα</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Χρονοδιάγραμμα</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Κατάλαβα</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Προειδοποίηση Δικαιωμάτων Διαχειριστή</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Για να αλλάξετε την κατάσταση εκκίνησης, πρέπει να έχετε δικαιώματα διαχειριστή.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Εικονίδιο ενημερώσεων</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Ορατότητα του εικονιδίου ενημερώσεων στη γραμμή εργασιών του συστήματος. Το Sucrose θα συνεχίσει να λειτουργεί στο παρασκήνιο.</system:String>
 

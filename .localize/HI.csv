@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,प्राथमिकता
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,समय सूचीकरण
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,समझ गया
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,प्रशासनिक अधिकार चेतावनी
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,स्टार्टअप स्थिति बदलने के लिए आपको प्रशासनिक अधिकार की आवश्यकता है।
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.NotifyIcon,सूचना चिन्ह
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,सिस्टम ट्रे दर्शानी. Sucrose गुप्त रूप से जारी रहेगा।
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.HI.xaml,,

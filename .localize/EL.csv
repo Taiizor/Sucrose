@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Υψηλή Προτεραιότητα
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Χρονοδιάγραμμα
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Κατάλαβα
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Προειδοποίηση Δικαιωμάτων Διαχειριστή
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,"Για να αλλάξετε την κατάσταση εκκίνησης, πρέπει να έχετε δικαιώματα διαχειριστή."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.NotifyIcon,Εικονίδιο ενημερώσεων
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Ορατότητα του εικονιδίου ενημερώσεων στη γραμμή εργασιών του συστήματος. Το Sucrose θα συνεχίσει να λειτουργεί στο παρασκήνιο.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EL.xaml,,

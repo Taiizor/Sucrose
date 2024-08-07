@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioritas</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Penjadwal</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Dimengerti</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Peringatan Hak Administrator</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Anda memerlukan hak administrator untuk mengubah status startup.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Ikona Notifikasi</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Tampilkan ikon di tray sistem. Sucrose akan tetap berjalan secara tersembunyi.</system:String>
 

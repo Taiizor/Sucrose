@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priorität
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Zeitplan
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Verstanden
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Administratorrechte Warnung
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,"Um den Startmodus zu ändern, benötigen Sie Administratorrechte."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.NotifyIcon,Benachrichtigungssymbol im Bereich
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Sichtbarkeit im Systembereich. Sucrose wird diskret weiterlaufen.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.DE.xaml,,

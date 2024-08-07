@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritar
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planificat
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Am Înțeles
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Atenționare Drepturi de Administrator
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Aveți nevoie de drepturi de administrator pentru a modifica starea de pornire.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.NotifyIcon,Iconiță de Notificare
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Vizibilitatea în zona de notificare a sistemului. Sucrose va continua să ruleze în mod discret.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.RO.xaml,,

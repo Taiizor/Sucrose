@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,З високим пріоритетом
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,За розкладом
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Зрозуміло
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Попередження Прав Aдміністратора
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,"Щоб змінити статус запуску, вам потрібні права адміністратора."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.NotifyIcon,Піктограма в області сповіщень
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Видимість піктограми в системному треї. Програма Sucrose буде працювати в фоновому режимі.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.UK.xaml,,

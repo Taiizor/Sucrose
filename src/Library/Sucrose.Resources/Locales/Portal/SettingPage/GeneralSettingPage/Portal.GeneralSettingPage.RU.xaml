@@ -15,7 +15,11 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Приоритетные</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Планировщик</system:String>
 
-    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Значок уведомления</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Понял</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Предупреждение о Правах Администратора</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Вам нужны права администратора для изменения состояния запуска.</system:String>
+
+    <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Значок Yведомления</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Видимость значка в системном лотке. Приложение Sucrose будет работать скрыто.</system:String>
 
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Notify.Show">Показать</system:String>

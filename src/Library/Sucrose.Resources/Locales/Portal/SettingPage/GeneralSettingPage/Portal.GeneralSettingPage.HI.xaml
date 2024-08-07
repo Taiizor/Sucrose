@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">प्राथमिकता</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">समय सूचीकरण</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">समझ गया</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">प्रशासनिक अधिकार चेतावनी</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">स्टार्टअप स्थिति बदलने के लिए आपको प्रशासनिक अधिकार की आवश्यकता है।</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">सूचना चिन्ह</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">सिस्टम ट्रे दर्शानी. Sucrose गुप्त रूप से जारी रहेगा।</system:String>
 

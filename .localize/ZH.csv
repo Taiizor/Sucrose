@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,优先
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,计划任务
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,明白
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,管理员权限警告
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,您需要管理员权限才能更改启动状态。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.NotifyIcon,通知图标
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,系统托盘的可见性。Sucrose将继续以隐藏的方式运行。
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ZH.xaml,,

@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priorität</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Zeitplan</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Verstanden</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Administratorrechte Warnung</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Um den Startmodus zu ändern, benötigen Sie Administratorrechte.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Benachrichtigungssymbol im Bereich</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Sichtbarkeit im Systembereich. Sucrose wird diskret weiterlaufen.</system:String>
 

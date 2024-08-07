@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priorita
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Plánovač
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Rozumím
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Varování Administrátora
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Pro změnu stavu spuštění při startu musíte mít administrátorská práva.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.NotifyIcon,Ikona V Oznámení
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Viditelnost ikony v systémovém oznamovacím prostoru. Sucrose bude nadále běžet v pozadí.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.CS.xaml,,

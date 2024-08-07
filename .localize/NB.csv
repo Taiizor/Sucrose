@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritet
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planlegger
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Forstått
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Administratorrettigheter Advarsel
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Du trenger administratorrettigheter for å endre oppstartsstatusen.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.NotifyIcon,Varslingsikon
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Synlighet for systemstatusfeltet. Sucrose vil fortsette å kjøre i bakgrunnen på en diskret måte.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NB.xaml,,

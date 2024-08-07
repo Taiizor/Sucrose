@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Öncelikli
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Zamanlayıcı
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Anladım
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Yönetici Hakları Uyarısı
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Başlangıçta çalıştır durumunu değiştirmeniz için yönetici haklarına sahip olmanız gerekmekte.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.NotifyIcon,Bildirim Alanı Simgesi
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam edecek.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.TR.xaml,,

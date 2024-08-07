@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,우선 순위
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,스케줄러
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,알겠습니다
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,관리자 권한 경고
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,시작 상태를 변경하려면 관리자 권한이 필요합니다.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.NotifyIcon,알림 아이콘
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,시스템 트레이 가시성. Sucrose가 은밀하게 계속 실행됩니다.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.KO.xaml,,

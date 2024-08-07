@@ -10,6 +10,7 @@ using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using DialogResult = System.Windows.Forms.DialogResult;
 using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
+using MessageBox = Wpf.Ui.Controls.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SEOST = Skylark.Enum.OperatingSystemType;
 using SEWTT = Skylark.Enum.WindowsThemeType;
@@ -770,6 +771,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                         {
                             await SSWW.Watch_CatchException(Exception);
                             Startup.SelectedIndex = SMMM.Startup;
+
+                            MessageBox Warning = new()
+                            {
+                                Title = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Warning", "Title"),
+                                Content = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Warning", "Message"),
+                                CloseButtonText = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Warning", "Close")
+                            };
+
+                            await Warning.ShowDialogAsync();
+
                             return;
                         }
                         break;
@@ -794,6 +805,16 @@ namespace Sucrose.Portal.ViewModels.Pages
                         {
                             await SSWW.Watch_CatchException(Exception);
                             Startup.SelectedIndex = SMMM.Startup;
+
+                            MessageBox Warning = new()
+                            {
+                                Title = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Warning", "Title"),
+                                Content = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Warning", "Message"),
+                                CloseButtonText = SRER.GetValue("Portal", "GeneralSettingPage", "ApplicationStartup", "Warning", "Close")
+                            };
+
+                            await Warning.ShowDialogAsync();
+
                             return;
                         }
                         break;

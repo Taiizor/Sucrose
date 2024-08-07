@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priorytet
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Harmonogram
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Zrozumiałem
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Ostrzeżenie o Prawach Administratora
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,"Aby zmienić stan uruchamiania, musisz mieć prawa administratora."
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.NotifyIcon,Ikona w Obszarze Powiadomień
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Widoczność w obszarze systemowym. Sucrose będzie działać dyskretnie.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.PL.xaml,,

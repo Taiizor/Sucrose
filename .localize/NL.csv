@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioriteit
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planner
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Begrijp ik
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Beheerder Rechten Waarschuwing
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,U hebt beheerdersrechten nodig om de opstartstatus te wijzigen.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.NotifyIcon,Systeemvakpictogram
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Zichtbaarheid van het systeemvak. Sucrose blijft op de achtergrond actief.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.NL.xaml,,

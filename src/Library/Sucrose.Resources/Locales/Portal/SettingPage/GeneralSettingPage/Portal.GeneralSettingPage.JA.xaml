@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">優先</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">スケジューラ</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">了解しました</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">管理者権限警告</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">起動時の状態を変更するには、管理者権限が必要です。</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">通知アイコン</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">システムトレイの表示設定。Sucroseは非表示のままで動作します。</system:String>
 

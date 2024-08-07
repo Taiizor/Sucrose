@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">우선 순위</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">스케줄러</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">알겠습니다</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">관리자 권한 경고</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">시작 상태를 변경하려면 관리자 권한이 필요합니다.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">알림 아이콘</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">시스템 트레이 가시성. Sucrose가 은밀하게 계속 실행됩니다.</system:String>
 

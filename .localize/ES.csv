@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioridad
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Programador
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Entendido
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Advertencia de Derechos de Administrador
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Necesitas derechos de administrador para cambiar el estado de inicio.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.NotifyIcon,Icono en la Bandeja de Notificaciones
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Visibilidad en la bandeja del sistema. Sucrose seguirá funcionando discretamente.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.ES.xaml,,

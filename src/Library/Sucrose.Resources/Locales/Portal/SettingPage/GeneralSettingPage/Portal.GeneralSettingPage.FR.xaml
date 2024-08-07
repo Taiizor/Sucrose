@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priorité</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Planificateur</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Compris</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Avertissement des Droits Administratifs</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Vous devez avoir des droits d'administrateur pour modifier l'état de démarrage.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Icône de la Zone de Notification</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Visibilité dans la zone système. Sucrose continuera de fonctionner discrètement.</system:String>
 

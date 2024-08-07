@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">优先</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">计划任务</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">明白</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">管理员权限警告</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">您需要管理员权限才能更改启动状态。</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">通知图标</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">系统托盘的可见性。Sucrose将继续以隐藏的方式运行。</system:String>
 

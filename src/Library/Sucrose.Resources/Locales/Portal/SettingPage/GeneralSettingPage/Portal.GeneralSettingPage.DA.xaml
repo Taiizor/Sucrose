@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioritet</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Planlagt</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Jeg Forstår</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Adgangsrettigheder Advarsel</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Du skal have administrative rettigheder for at ændre opstartstilstanden.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Meddelelsesområdesymbol</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Synligheden af ikonet i systembakken. Sucrose vil fortsætte med at køre skjult.</system:String>
 

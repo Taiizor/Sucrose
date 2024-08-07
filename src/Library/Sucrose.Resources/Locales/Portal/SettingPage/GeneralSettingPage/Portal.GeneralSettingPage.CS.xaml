@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Priorita</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Plánovač</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Rozumím</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Varování Administrátora</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Pro změnu stavu spuštění při startu musíte mít administrátorská práva.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Ikona V Oznámení</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Viditelnost ikony v systémovém oznamovacím prostoru. Sucrose bude nadále běžet v pozadí.</system:String>
 

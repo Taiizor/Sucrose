@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">З високим пріоритетом</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">За розкладом</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Зрозуміло</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Попередження Прав Aдміністратора</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Щоб змінити статус запуску, вам потрібні права адміністратора.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Піктограма в області сповіщень</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Видимість піктограми в системному треї. Програма Sucrose буде працювати в фоновому режимі.</system:String>
 

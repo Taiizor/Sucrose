@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioriteit</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Planner</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Begrijp ik</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Beheerder Rechten Waarschuwing</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">U hebt beheerdersrechten nodig om de opstartstatus te wijzigen.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Systeemvakpictogram</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Zichtbaarheid van het systeemvak. Sucrose blijft op de achtergrond actief.</system:String>
 

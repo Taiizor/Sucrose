@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Öncelikli</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Zamanlayıcı</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Anladım</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Yönetici Hakları Uyarısı</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Başlangıçta çalıştır durumunu değiştirmeniz için yönetici haklarına sahip olmanız gerekmekte.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Bildirim Alanı Simgesi</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Sistem tepsisi görünürlüğü. Sucrose gizli bir şekilde çalışmaya devam edecek.</system:String>
 

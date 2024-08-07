@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priority
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Scheduler
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Understood
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Administrator Rights Warning
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,You need administrator rights to change the startup status.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.NotifyIcon,Notification Area Icon
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Visibility in the system tray. Sucrose will continue to run discreetly.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.EN.xaml,,

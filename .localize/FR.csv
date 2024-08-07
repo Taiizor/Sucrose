@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priorité
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Planificateur
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Compris
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Avertissement des Droits Administratifs
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Vous devez avoir des droits d'administrateur pour modifier l'état de démarrage.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.NotifyIcon,Icône de la Zone de Notification
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Visibilité dans la zone système. Sucrose continuera de fonctionner discrètement.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.FR.xaml,,

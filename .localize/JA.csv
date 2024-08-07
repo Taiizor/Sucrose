@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,優先
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,スケジューラ
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,了解しました
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,管理者権限警告
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,起動時の状態を変更するには、管理者権限が必要です。
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.NotifyIcon,通知アイコン
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,システムトレイの表示設定。Sucroseは非表示のままで動作します。
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.JA.xaml,,

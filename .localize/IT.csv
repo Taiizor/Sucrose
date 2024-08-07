@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Priorità
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Schedulatore
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Capito
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Avviso Diritti Amministrativi
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,È necessario disporre di diritti amministrativi per modificare lo stato di avvio.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.NotifyIcon,Icona di Notifica
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Visibilità nell'area delle notifiche. Sucrose continuerà a funzionare in background in modo discreto.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.IT.xaml,,

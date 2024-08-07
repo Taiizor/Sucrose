@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioridad</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Programador</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Entendido</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Advertencia de Derechos de Administrador</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Necesitas derechos de administrador para cambiar el estado de inicio.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Icono en la Bandeja de Notificaciones</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Visibilidad en la bandeja del sistema. Sucrose seguirá funcionando discretamente.</system:String>
 

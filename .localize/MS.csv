@@ -835,6 +835,10 @@ Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.G
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority,Prioritas
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler,Penjadwal
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,,
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Close,Faham
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Title,Amaran Hak Pentadbir
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.ApplicationStartup.Warning.Message,Anda memerlukan hak pentadbir untuk menukar status permulaan.
+Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,,
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.NotifyIcon,Ikon Notifikasi
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,Portal.GeneralSettingPage.NotifyIcon.Description,Tray sistem yang terlihat. Sucrose akan terus berjalan secara tersembunyi.
 Portal\SettingPage\GeneralSettingPage\Portal.GeneralSettingPage.MS.xaml,,

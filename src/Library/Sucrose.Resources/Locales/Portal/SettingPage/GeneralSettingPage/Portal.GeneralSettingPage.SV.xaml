@@ -15,6 +15,10 @@
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Priority">Prioriterad</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Startup.Scheduler">Planerad</system:String>
 
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Close">Förstått</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Title">Administratörsbehörighetsvarning</system:String>
+    <system:String x:Key="Portal.GeneralSettingPage.ApplicationStartup.Warning.Message">Du behöver administratörsbehörighet för att ändra startstatus.</system:String>
+
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon">Meddelandefältssymbol</system:String>
     <system:String x:Key="Portal.GeneralSettingPage.NotifyIcon.Description">Synlighet för systemfältet. Sucrose kommer att fortsätta köra i bakgrunden.</system:String>
 

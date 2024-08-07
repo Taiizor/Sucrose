@@ -15,9 +15,14 @@ using SEST = Skylark.Enum.StorageType;
 using SHA = Skylark.Helper.Assemblies;
 using SHN = Skylark.Helper.Numeric;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
-using SWHS = Skylark.Wing.Helper.Shortcut;
+using SWHSB = Skylark.Wing.Helper.ShortcutBasic;
+using SWHSD = Skylark.Wing.Helper.ShortcutDefault;
 using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWNM = Skylark.Wing.Native.Methods;
+
+#if NET6_0_OR_GREATER
+using SWHSR = Skylark.Wing.Helper.ShortcutRuntime;
+#endif
 
 namespace Sucrose.Bundle
 {
@@ -431,8 +436,62 @@ namespace Sucrose.Bundle
 
             await Task.Delay(MinDelay);
 
-            SWHS.Create(Desktop, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
-            SWHS.Create(StartMenu, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+            if (File.Exists(Launcher))
+            {
+                if (Directory.Exists(Path.GetDirectoryName(Desktop)))
+                {
+                    bool DesktopShortcut = true;
+
+#if NET6_0_OR_GREATER
+                    try
+                    {
+                        SWHSR.Create(Path.GetDirectoryName(Desktop), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
+
+                        DesktopShortcut = false;
+                    }
+                    catch { }
+#endif
+
+                    if (DesktopShortcut)
+                    {
+                        try
+                        {
+                            SWHSB.Create(Desktop, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
+                        }
+                        catch
+                        {
+                            SWHSD.Create(Desktop, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+                        }
+                    }
+                }
+
+                if (Directory.Exists(Path.GetDirectoryName(StartMenu)))
+                {
+                    bool StartMenuShortcut = true;
+
+#if NET6_0_OR_GREATER
+                    try
+                    {
+                        SWHSR.Create(Path.GetDirectoryName(StartMenu), Shortcut, Text, null, Launcher, null, Path.GetDirectoryName(Launcher), null, SWNM.WindowStyle.Normal);
+
+                        StartMenuShortcut = false;
+                    }
+                    catch { }
+#endif
+
+                    if (StartMenuShortcut)
+                    {
+                        try
+                        {
+                            SWHSB.Create(StartMenu, Launcher, Path.GetDirectoryName(Launcher), null, null, SWNM.ShortcutWindowStyles.WshNormalFocus, Text, 0);
+                        }
+                        catch
+                        {
+                            SWHSD.Create(StartMenu, Launcher, null, Path.GetDirectoryName(Launcher), null, Text);
+                        }
+                    }
+                }
+            }
 
             await Task.Delay(MinDelay);
 
