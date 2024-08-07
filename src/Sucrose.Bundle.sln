@@ -8,32 +8,26 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3943FC00-5155-481C-ABD2-2F1E094589A0}"
 	ProjectSection(SolutionItems) = preProject
 		..\.editorconfig = ..\.editorconfig
-		..\NuGet.Config = ..\NuGet.Config
 		..\global.json = ..\global.json
+		..\NuGet.Config = ..\NuGet.Config
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
-		Release|Any CPU = Release|Any CPU
 		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|ARM64.ActiveCfg = Debug|ARM64
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|ARM64.Build.0 = Debug|ARM64
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|x64.ActiveCfg = Debug|x64
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|x64.Build.0 = Debug|x64
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|x86.ActiveCfg = Debug|x86
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Debug|x86.Build.0 = Debug|x86
-		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Release|ARM64.ActiveCfg = Release|ARM64
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Release|ARM64.Build.0 = Release|ARM64
 		{4C1CC7B4-90B7-4EB5-BBC0-217172A86259}.Release|x64.ActiveCfg = Release|x64

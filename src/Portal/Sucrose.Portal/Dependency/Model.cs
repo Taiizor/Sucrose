@@ -23,7 +23,7 @@ namespace Sucrose.Portal.Dependency
                             continue;
                         }
 
-                        _ = services.AddTransient(type);
+                        services.AddTransient(type);
                     }
                 }
             }

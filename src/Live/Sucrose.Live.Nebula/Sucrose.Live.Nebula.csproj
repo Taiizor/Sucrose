@@ -21,7 +21,8 @@
         <UseWPF>true</UseWPF>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
-        <Platforms>AnyCPU;ARM64;x64;x86</Platforms>
+        <Platforms>ARM64;x64;x86</Platforms>
+        <RuntimeIdentifiers>win-arm64;win-x64;win-x86</RuntimeIdentifiers>
         <DefineConstants>$(DefineConstants);ENGINE;LIVE_NEBULA</DefineConstants>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
@@ -29,7 +30,9 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <ApplicationManifest>App.manifest</ApplicationManifest>
-        <OutputPath>..\..\Sucrose\Live\Nebula\$(Platform)</OutputPath>
+        <OutputPath Condition="'$(PlatformTarget)' == 'x86'">..\..\Sucrose\Live\Nebula\x86</OutputPath>
+        <OutputPath Condition="'$(PlatformTarget)' == 'x64'">..\..\Sucrose\Live\Nebula\x64</OutputPath>
+        <OutputPath Condition="'$(PlatformTarget)' == 'arm64'">..\..\Sucrose\Live\Nebula\ARM64</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup>
