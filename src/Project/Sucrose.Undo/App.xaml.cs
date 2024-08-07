@@ -171,9 +171,6 @@ namespace Sucrose.Undo
 
                 await Task.Delay(Delay);
 
-                RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true);
-                HomeKey?.DeleteSubKey(Application, false);
-
                 if (File.Exists(Desktop))
                 {
                     File.Delete(Desktop);
@@ -183,6 +180,11 @@ namespace Sucrose.Undo
                 {
                     File.Delete(StartMenu);
                 }
+
+                await Task.Delay(Delay);
+
+                RegistryKey HomeKey = Registry.CurrentUser.OpenSubKey(RegistryName, true);
+                HomeKey?.DeleteSubKey(Application, false);
 
                 await Task.Delay(Delay);
             }

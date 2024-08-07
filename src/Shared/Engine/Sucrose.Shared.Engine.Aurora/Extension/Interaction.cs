@@ -3,6 +3,7 @@ using Linearstar.Windows.RawInput.Native;
 using System.Windows.Interop;
 using Application = System.Windows.Application;
 using Point = System.Drawing.Point;
+using SEDST = Skylark.Enum.DisplayScreenType;
 using SEIT = Skylark.Enum.InputType;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SSDEIMT = Sucrose.Shared.Dependency.Enum.InputModuleType;
@@ -10,9 +11,12 @@ using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSDSHS = Sucrose.Shared.Dependency.Struct.HandleStruct;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SWHC = Skylark.Wing.Helper.Calculate;
+using SWHDM = Skylark.Wing.Helper.DisplayManager;
+using SWIIDM = Skylark.Wing.Interface.IDisplayManager;
 using SWNM = Skylark.Wing.Native.Methods;
 using SWUD = Skylark.Wing.Utility.Desktop;
 using Timer = System.Timers.Timer;
+using SSEAEA = Sucrose.Shared.Engine.Aurora.Event.Application;
 
 namespace Sucrose.Shared.Engine.Aurora.Extension
 {
@@ -23,8 +27,6 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
             if (SSEMI.Interaction)
             {
                 SSEMI.Interaction = false;
-
-                return;
 
                 IntPtr HWND = SSEMI.WindowHandle;
 
@@ -79,46 +81,70 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
         {
             try
             {
-                //The low-order word specifies the x-coordinate of the cursor, the high-order word specifies the y-coordinate of the cursor.
-                //ref: https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-mousemove
-
-                uint lParam = Convert.ToUInt32(Y);
-
-                lParam <<= 16;
-                lParam |= Convert.ToUInt32(X);
+                SWIIDM DisplayManager = new SWHDM();
+                Skylark.Wing.Helper.DisplayMonitor display = DisplayManager.GetDisplayMonitorFromPoint(new Point(X, Y));
 
                 foreach (SSDSHS Application in SSEMI.Applications)
                 {
-                    SWNM.PostMessageW(Application.Handle, Message, wParam, (UIntPtr)lParam);
+                    if (display.Index == SSEMI.Applications.IndexOf(Application) + 1 || SMMM.DisplayScreenType == SEDST.SpanAcross)
+                    {
+                        //The low-order word specifies the x-coordinate of the cursor, the high-order word specifies the y-coordinate of the cursor.
+                        //ref: https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-mousemove
+
+                        uint lParam = Convert.ToUInt32(Y);
+
+                        lParam <<= 16;
+                        lParam |= Convert.ToUInt32(X);
+
+                        IntPtr Handle = SWNM.FindWindowEx(SSEAEA.FindWindowByProcessId(Application.Process.Id), IntPtr.Zero, null, null);
+
+                        SWNM.PostMessageW(Handle, Message, wParam, (UIntPtr)lParam);
+                        SWNM.PostMessageW(Application.Handle, Message, wParam, (UIntPtr)lParam);
+                        SWNM.PostMessageW(Application.MainWindowHandle, Message, wParam, (UIntPtr)lParam);
+
+                        SWNM.PostMessageW(SWNM.FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Engine", null), Message, wParam, (UIntPtr)lParam);
+                    }
                 }
             }
             catch { }
         }
 
-        private static void ForwardMessageKeyboard(int Message, IntPtr wParam, int ScanCode, bool IsPressed)
+        private static void ForwardMessageKeyboard(int X, int Y, int Message, IntPtr wParam, int ScanCode, bool IsPressed)
         {
             try
             {
-                //ref:
-                //https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-keydown
-                //https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-keyup
-
-                uint lParam = 1u; //press
-
-                lParam |= (uint)ScanCode << 16; //oem code
-                lParam |= 1u << 24; //extended key
-                lParam |= 0u << 29; //context code; Note: Alt key combos wont't work
-
-                /*
-                 * Same as:
-                 * lParam = isPressed ? (lParam |= 0u << 30) : (lParam |= 1u << 30); //prev key state
-                 * lParam = isPressed ? (lParam |= 0u << 31) : (lParam |= 1u << 31); //transition state
-                 */
-                lParam = IsPressed ? lParam : (lParam |= 3u << 30);
+                SWIIDM DisplayManager = new SWHDM();
+                Skylark.Wing.Helper.DisplayMonitor display = DisplayManager.GetDisplayMonitorFromPoint(new Point(X, Y));
 
                 foreach (SSDSHS Application in SSEMI.Applications)
                 {
-                    SWNM.PostMessageW(Application.Handle, Message, wParam, (UIntPtr)lParam);
+                    if (display.Index == SSEMI.Applications.IndexOf(Application) + 1 || SMMM.DisplayScreenType == SEDST.SpanAcross)
+                    {
+                        //ref:
+                        //https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-keydown
+                        //https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-keyup
+
+                        uint lParam = 1u; //press
+
+                        lParam |= (uint)ScanCode << 16; //oem code
+                        lParam |= 1u << 24; //extended key
+                        lParam |= 0u << 29; //context code; Note: Alt key combos wont't work
+
+                        /*
+                         * Same as:
+                         * lParam = isPressed ? (lParam |= 0u << 30) : (lParam |= 1u << 30); //prev key state
+                         * lParam = isPressed ? (lParam |= 0u << 31) : (lParam |= 1u << 31); //transition state
+                         */
+                        lParam = IsPressed ? lParam : (lParam |= 3u << 30);
+
+                        IntPtr Handle = SWNM.FindWindowEx(SSEAEA.FindWindowByProcessId(Application.Process.Id), IntPtr.Zero, null, null);
+
+                        SWNM.PostMessageW(Handle, Message, wParam, (UIntPtr)lParam);
+                        SWNM.PostMessageW(Application.Handle, Message, wParam, (UIntPtr)lParam);
+                        SWNM.PostMessageW(Application.MainWindowHandle, Message, wParam, (UIntPtr)lParam);
+
+                        SWNM.PostMessageW(SWNM.FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Engine", null), Message, wParam, (UIntPtr)lParam);
+                    }
                 }
             }
             catch { }
@@ -128,51 +154,37 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
         {
             try
             {
-                if (Message == (int)SWNM.WM.INPUT && SSEMI.IsDesktop)
+                if (Message == (int)SWNM.WM.INPUT && SSEMI.IsDesktop && SWNM.GetCursorPos(out SWNM.POINT P))
                 {
                     RawInputData Data = RawInputData.FromHandle(lParam);
+
+                    Point Position = SWHC.MousePosition(P.X, P.Y, SMMM.DisplayScreenType);
 
                     switch (Data)
                     {
                         case RawInputMouseData Mouse:
-                            if (!SWNM.GetCursorPos(out SWNM.POINT P))
-                            {
-                                break;
-                            }
-
-                            Point Position = SWHC.MousePosition(P.X, P.Y, SMMM.DisplayScreenType);
-
                             switch (Mouse.Mouse.Buttons)
                             {
                                 case RawMouseButtonFlags.MiddleButtonDown:
                                     ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.MBUTTONDOWN, (IntPtr)0x0010);
-                                    //SSECSMI.CefHost?.SendMouseClickEvent(Position.X, Position.Y, MouseButtonType.Middle, false, 1, CefEventFlags.None);
                                     break;
                                 case RawMouseButtonFlags.MiddleButtonUp:
                                     ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.MBUTTONUP, (IntPtr)0x0010);
-                                    //SSECSMI.CefHost?.SendMouseClickEvent(Position.X, Position.Y, MouseButtonType.Middle, true, 1, CefEventFlags.None);
                                     break;
                                 case RawMouseButtonFlags.LeftButtonDown:
                                     ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.LBUTTONDOWN, (IntPtr)0x0001);
-                                    //SSECSMI.CefHost?.SendMouseClickEvent(Position.X, Position.Y, MouseButtonType.Left, false, 1, CefEventFlags.None);
                                     break;
                                 case RawMouseButtonFlags.LeftButtonUp:
                                     ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.LBUTTONUP, (IntPtr)0x0001);
-                                    //SSECSMI.CefHost?.SendMouseClickEvent(Position.X, Position.Y, MouseButtonType.Left, true, 1, CefEventFlags.None);
                                     break;
                                 case RawMouseButtonFlags.RightButtonDown:
-                                    //issue: click being skipped; desktop already has its own rightclick contextmenu.
-                                    //ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.RBUTTONDOWN, (IntPtr)0x0002);
-                                    //SSECSMI.CefHost?.SendMouseClickEvent(Position.X, Position.Y, MouseButtonType.Right, false, 1, CefEventFlags.None);
+                                    ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.RBUTTONDOWN, (IntPtr)0x0002);
                                     break;
                                 case RawMouseButtonFlags.RightButtonUp:
-                                    //issue: click being skipped; desktop already has its own rightclick contextmenu.
-                                    //ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.RBUTTONUP, (IntPtr)0x0002);
-                                    //SSECSMI.CefHost?.SendMouseClickEvent(Position.X, Position.Y, MouseButtonType.Right, true, 1, CefEventFlags.None);
+                                    ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.RBUTTONUP, (IntPtr)0x0002);
                                     break;
                                 case RawMouseButtonFlags.None:
                                     ForwardMessageMouse(Position.X, Position.Y, (int)SWNM.WM.MOUSEMOVE, (IntPtr)0x0020);
-                                    //SSECSMI.CefHost?.SendMouseMoveEvent(Position.X, Position.Y, false, CefEventFlags.None);
                                     break;
                                 case RawMouseButtonFlags.MouseWheel:
                                     int MouseData = Mouse.Mouse.ButtonData;
@@ -185,7 +197,7 @@ namespace Sucrose.Shared.Engine.Aurora.Extension
                             }
                             break;
                         case RawInputKeyboardData Keyboard:
-                            ForwardMessageKeyboard((int)Keyboard.Keyboard.WindowMessage, (IntPtr)Keyboard.Keyboard.VirutalKey, Keyboard.Keyboard.ScanCode, Keyboard.Keyboard.Flags != RawKeyboardFlags.Up);
+                            ForwardMessageKeyboard(Position.X, Position.Y, (int)Keyboard.Keyboard.WindowMessage, (IntPtr)Keyboard.Keyboard.VirutalKey, Keyboard.Keyboard.ScanCode, Keyboard.Keyboard.Flags != RawKeyboardFlags.Up);
                             break;
                     }
                 }

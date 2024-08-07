@@ -14,6 +14,7 @@ using SSEHR = Sucrose.Shared.Engine.Helper.Run;
 using SSEHV = Sucrose.Shared.Engine.Helper.Volume;
 using SSEMI = Sucrose.Shared.Engine.Manage.Internal;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
+using SWHWI = Skylark.Wing.Helper.WindowInterop;
 using SWUS = Skylark.Wing.Utility.Screene;
 
 namespace Sucrose.Shared.Engine.Aurora.View
@@ -31,6 +32,13 @@ namespace Sucrose.Shared.Engine.Aurora.View
             SSEAMI.ApplicationArguments = Arguments;
             SSEAMI.ApplicationName = Path.GetFileName(Application);
             SMMI.AuroraSettingManager.SetSetting(SMC.App, SSEAMI.ApplicationName);
+
+            SourceInitialized += (s, e) =>
+            {
+                SSEMI.WindowHandle = SWHWI.Handle(this);
+
+                SSEAEA.ApplicationEngine();
+            };
 
             Closing += (s, e) => SSSHP.Kill(SSEAMI.Application);
             Closed += (s, e) => SSSHP.Kill(SSEAMI.Application);
@@ -63,8 +71,6 @@ namespace Sucrose.Shared.Engine.Aurora.View
             SystemEvents.DisplaySettingsChanged += (s, e) => SSEMI.Applications.ForEach(Application => SSEEH.DisplaySettingsChanged(Application));
 
             SSEAHA.SetVolume(SSEHD.GetVolume());
-
-            SSEAEA.ApplicationEngine();
 
             SSEHV.Start();
         }
