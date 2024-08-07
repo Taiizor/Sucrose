@@ -207,26 +207,31 @@ namespace Sucrose.Portal.Views.Pages
 
                     foreach (string Theme in Themes.ToList())
                     {
-                        string InfoPath = Path.Combine(SMMM.LibraryLocation, Theme, SMR.SucroseInfo);
-                        SSTHI Info = SSTHI.ReadJson(InfoPath);
+                        string ThemePath = Path.Combine(SMMM.LibraryLocation, Theme);
+                        string InfoPath = Path.Combine(ThemePath, SMR.SucroseInfo);
 
-                        IEnumerable<string> SearchText = Info.Title.Split(' ')
-                                   .Concat(Info.Description.Split(' '))
-                                   .Concat(Info.Tags ?? Array.Empty<string>());
+                        if (Directory.Exists(ThemePath) && File.Exists(InfoPath))
+                        {
+                            SSTHI Info = SSTHI.ReadJson(InfoPath);
 
-                        Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
+                            IEnumerable<string> SearchText = Info.Title.Split(' ')
+                                       .Concat(Info.Description.Split(' '))
+                                       .Concat(Info.Tags ?? Array.Empty<string>());
 
-                        if (SSDMM.LibrarySortMode == SSDESMT.Name)
-                        {
-                            SortThemes.Add(Theme, Info.Title);
-                        }
-                        else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
-                        {
-                            SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
-                        }
-                        else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
-                        {
-                            SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
+                            Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
+
+                            if (SSDMM.LibrarySortMode == SSDESMT.Name)
+                            {
+                                SortThemes.Add(Theme, Info.Title);
+                            }
+                            else if (SSDMM.LibrarySortMode == SSDESMT.Creation)
+                            {
+                                SortThemes.Add(Theme, Directory.GetCreationTime(Path.Combine(SMMM.LibraryLocation, Theme)));
+                            }
+                            else if (SSDMM.LibrarySortMode == SSDESMT.Modification)
+                            {
+                                SortThemes.Add(Theme, File.GetLastWriteTime(InfoPath));
+                            }
                         }
                     }
 
