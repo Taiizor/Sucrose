@@ -1,0 +1,23 @@
+{
+  "PropertyListener": "SucrosePropertyListener('{0}', {1});",
+  "PropertyList": {
+    "backgroundImage": {
+      "type": "filedropdown",
+      "value": "ivy.png",
+      "title": "Select Background Image",
+      "text": "Background (.jpg, .png, .webm)",
+      "desc": "All Images",
+      "filter": "*.jpg|*.jpeg|*.png|*.webm",
+      "folder": "media/bg"
+    },
+    "foregroundImage": {
+      "type": "filedropdown",
+      "value": "default.png",
+      "title": "Select Foreground Image",
+      "text": "Foreground (.jpg, .png, .webm)",
+      "desc": "All Images",
+      "filter": "*.jpg|*.jpeg|*.png|*.webm",
+      "folder": "media/fg"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "AppVersion": "24.7.13.0",
+  "Version": "1.0.0.2",
+  "Title": "Neomorphic Music Player",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "Neomorphic Music Player",
+  "Author": "Roden",
+  "License": "License.txt",
+  "Contact": "https://codepen.io/RodenKerthin",
+  "Type": 2,
+  "Source": "Player.html",
+  "Tags": [
+    "Media"
+  ],
+  "Arguments": null
+}

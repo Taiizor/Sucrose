@@ -1,0 +1,15 @@
+{
+  "AppVersion": "24.7.1.0",
+  "Version": "1.0.0.4",
+  "Title": "Bing Wallpaper",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Description": "You can use it to greet every day with a beautiful wallpaper. In this theme, you can view Bing's daily wallpaper.",
+  "Author": "Taiizor",
+  "License": null,
+  "Contact": "https://github.com/Taiizor",
+  "Type": 2,
+  "Source": "Bing.html",
+  "Tags": null,
+  "Arguments": null
+}

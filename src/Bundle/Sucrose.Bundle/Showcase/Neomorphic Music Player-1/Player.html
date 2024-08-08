@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Neomorphic Music Player 🎧 (repeat, random, loop, switch)</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body style="pointer-events: none">
+        <!-- partial:index.partial.html -->
+        <div class="container" id="container">
+            <div class="player" id="player">
+                <div class="contentWrapper">
+                    <div class="musicSwitch" hidden>
+                        <div class="button _prev" id="prev"></div>
+                        <div class="button _next" id="next"></div>
+                    </div>
+                    <div id="jsAlbum">
+                        <div class="album _play" id="wheel">
+                            <div class="album__internal" id="cover"></div>
+                        </div>
+                    </div>
+                    <div class="musicInfo">
+                        <h1 class="musicInfo__name" id="title">Title</h1>
+                        <h2 class="musicInfo__author" id="artist">Artist</h2>
+                    </div>
+                    <div class="musicTime">
+                        <p class="musicTime__current">00:00</p>
+                        <p class="musicTime__last">00:00</p>
+                    </div>
+                    <div class="musicBar" id="progress">
+                        <div class="musicBar__length" id="length">
+                            <div class="button musicBar__circle">
+                                <div class="musicBar__circlePoint"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="musicOrder">
+                        <div class="musicOrder__loop _loop" id="loop"></div>
+                        <div class="musicOrder__shuffle" id="shuffle"></div>
+                    </div>
+                    <div class="musicControl">
+                        <div class="button musicControl__backward" id="backward"></div>
+                        <div class="button musicControl__play _play" id="play"></div>
+                        <div class="button musicControl__forward" id="forward"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- partial -->
+        <script src="./js/script.js"></script>
+    </body>
+</html>
