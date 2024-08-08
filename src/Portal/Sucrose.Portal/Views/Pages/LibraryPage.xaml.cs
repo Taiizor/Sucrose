@@ -181,9 +181,13 @@ namespace Sucrose.Portal.Views.Pages
                                 string PreviewPath = Path.Combine(Folder, Info.Preview);
                                 string ThumbnailPath = Path.Combine(Folder, Info.Thumbnail);
 
-                                if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && !Themes.Contains(Path.GetFileName(Folder)) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(Folder, Info.Source))))
+                                if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(Folder, Info.Source))))
                                 {
-                                    Themes.Add(Path.GetFileName(Folder));
+                                    if (!Themes.Contains(Path.GetFileName(Folder)))
+                                    {
+                                        Themes.Add(Path.GetFileName(Folder));
+                                    }
+
                                     continue;
                                 }
                             }
@@ -253,7 +257,10 @@ namespace Sucrose.Portal.Views.Pages
             }
             else
             {
-                Themes.Clear();
+                if (Themes != null && Themes.Any())
+                {
+                    Themes.Clear();
+                }
 
                 Directory.CreateDirectory(SMMM.LibraryLocation);
             }
