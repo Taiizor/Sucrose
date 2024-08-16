@@ -30,9 +30,9 @@ namespace Sucrose.Shared.Space.Manage
 
         public static string This => Path.GetDirectoryName(App);
 
-        public static string Folder => Path.Combine(This, @"..\");
-
         public static string App => SHA.Assemble(SEAT.Executing).Location;
+
+        public static string Folder => Directory.GetParent(This).FullName;
 
         public static string Portal => Path.Combine(Folder, Path.GetFileNameWithoutExtension(SMR.Portal), SMR.Portal);
 

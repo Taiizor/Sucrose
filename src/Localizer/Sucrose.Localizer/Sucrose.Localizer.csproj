@@ -19,6 +19,7 @@
         <RootNamespace>$(AssemblyName)</RootNamespace>
         <UseWindowsForms>false</UseWindowsForms>
         <UseWPF>false</UseWPF>
+        <Optimize>false</Optimize>
         <AnalysisLevel>preview</AnalysisLevel>
         <LangVersion>preview</LangVersion>
         <Platforms>ARM64;x64;x86</Platforms>
