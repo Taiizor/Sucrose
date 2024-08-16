@@ -219,8 +219,8 @@ namespace Sucrose.Portal.Views.Pages
                             SSTHI Info = SSTHI.ReadJson(InfoPath);
 
                             IEnumerable<string> SearchText = Info.Title.Split(' ')
-                                       .Concat(Info.Description.Split(' '))
-                                       .Concat(Info.Tags ?? Array.Empty<string>());
+                                .Concat(Info.Description.Split(' '))
+                                .Concat(Info.Tags?.SelectMany(Tag => Tag.Split(' ')) ?? Array.Empty<string>());
 
                             Searches.Add(Theme, string.Join(" ", SearchText.Select(Word => Word.ToLowerInvariant()).Distinct()));
 
