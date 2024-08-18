@@ -16,41 +16,6 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="BorderBrush" Value="#DDDDDD" />
-            <Setter Property="Background" Value="#F0F0F0" />
-            <Setter Property="Foreground" Value="#333333" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Padding" Value="5" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                            Name="border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#E5E5E5" />
-                                <Setter TargetName="border" Property="BorderBrush" Value="#888888" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Background" Value="#CCCCCC" />
-                                <Setter TargetName="border" Property="BorderBrush" Value="#AAAAAA" />
-                                <Setter Property="Foreground" Value="#666666" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="#F5F5F5" />
@@ -114,7 +79,8 @@
             HorizontalAlignment="Left"
             Click="DownloadButton_Click"
             Content="Download"
-            Cursor="Hand">
+            Cursor="Hand"
+            Style="{StaticResource SucroseLightButton}">
             <Button.Effect>
                 <DropShadowEffect
                     Direction="315"
@@ -134,7 +100,8 @@
             Click="ContinueButton_Click"
             Content="Continue"
             Cursor="Hand"
-            IsEnabled="False">
+            IsEnabled="False"
+            Style="{StaticResource SucroseLightButton}">
             <Button.Effect>
                 <DropShadowEffect
                     Direction="315"
@@ -154,7 +121,8 @@
             Click="RememberButton_Click"
             Content="Remember"
             Cursor="Hand"
-            IsEnabled="False">
+            IsEnabled="False"
+            Style="{StaticResource SucroseLightButton}">
             <Button.Effect>
                 <DropShadowEffect
                     Direction="315"
@@ -173,7 +141,8 @@
             HorizontalAlignment="Right"
             Click="CloseButton_Click"
             Content="Close"
-            Cursor="Hand">
+            Cursor="Hand"
+            Style="{StaticResource SucroseLightButton}">
             <Button.Effect>
                 <DropShadowEffect
                     Direction="315"
