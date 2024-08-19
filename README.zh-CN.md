@@ -108,7 +108,7 @@
       <td>Gif</td>
       <td>
         <img src=".screenshots/Gif.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/RGB/Asus ROG-1">Asus ROG</a> 主题
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Colorful/Asus ROG-1">Asus ROG</a> 主题
       </td>
       <td>否</td>
       <td>可变</td>

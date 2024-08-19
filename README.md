@@ -108,7 +108,7 @@
       <td>Gif</td>
       <td>
         <img src=".screenshots/Gif.gif" width="256" height="144" />
-        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/RGB/Asus ROG-1">Asus ROG</a> Theme
+        <br><a href="https://github.com/Taiizor/Store/blob/develop/src/Colorful/Asus ROG-1">Asus ROG</a> Theme
       </td>
       <td>No</td>
       <td>Variable</td>
