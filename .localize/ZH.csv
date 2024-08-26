@@ -227,6 +227,7 @@ Update\Update.ZH.xaml,Update.MessageText.Extracting.Not,已下载的文件无法
 Update\Update.ZH.xaml,Update.MessageText.Extracting.Error,无法提取已下载的文件
 Watchdog\Watchdog.ZH.xaml,Watchdog.HelpButton,帮助
 Watchdog\Watchdog.ZH.xaml,Watchdog.CloseButton,关闭
+Watchdog\Watchdog.ZH.xaml,Watchdog.ErrorEmpty,很抱歉，无法捕获错误详细信息。
 Watchdog\Watchdog.ZH.xaml,Watchdog.ErrorMessage,出现了意外错误：
 Watchdog\Watchdog.ZH.xaml,Watchdog.ErrorTitle,错误
 Watchdog\Watchdog.ZH.xaml,Watchdog.HideButton,隐藏

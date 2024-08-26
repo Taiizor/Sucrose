@@ -227,6 +227,7 @@ Update\Update.EN.xaml,Update.MessageText.Extracting.Not,THE DOWNLOADED FILE IS N
 Update\Update.EN.xaml,Update.MessageText.Extracting.Error,THE DOWNLOADED FILE COULD NOT BE EXTRACTED
 Watchdog\Watchdog.EN.xaml,Watchdog.HelpButton,Help
 Watchdog\Watchdog.EN.xaml,Watchdog.CloseButton,Close
+Watchdog\Watchdog.EN.xaml,Watchdog.ErrorEmpty,"Unfortunately, error details could not be captured."
 Watchdog\Watchdog.EN.xaml,Watchdog.ErrorMessage,An unexpected error occurred:
 Watchdog\Watchdog.EN.xaml,Watchdog.ErrorTitle,Error
 Watchdog\Watchdog.EN.xaml,Watchdog.HideButton,Hide

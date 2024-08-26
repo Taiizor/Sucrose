@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">सहायता</system:String>
     <system:String x:Key="Watchdog.CloseButton">बंद करें</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">दुर्भाग्यवश, त्रुटि का विवरण पकड़ा नहीं जा सका।</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">एक अप्रत्याशित त्रुटि हुई:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">त्रुटि</system:String>
     <system:String x:Key="Watchdog.HideButton">छिपाएँ</system:String>

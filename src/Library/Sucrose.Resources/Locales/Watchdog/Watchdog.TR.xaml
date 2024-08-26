@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Yardım</system:String>
     <system:String x:Key="Watchdog.CloseButton">Çıkış</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Maalesef hata detayları yakalanamadı.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Beklenmeyen bir hata oluştu:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Hata</system:String>
     <system:String x:Key="Watchdog.HideButton">Sakla</system:String>

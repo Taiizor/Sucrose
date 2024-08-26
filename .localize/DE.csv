@@ -227,6 +227,7 @@ Update\Update.DE.xaml,Update.MessageText.Extracting.Not,DIE HERUNTERGELADENE DAT
 Update\Update.DE.xaml,Update.MessageText.Extracting.Error,DIE HERUNTERGELADENE DATEI KONNTE NICHT EXTRAHIEREN WERDEN
 Watchdog\Watchdog.DE.xaml,Watchdog.HelpButton,Helfen
 Watchdog\Watchdog.DE.xaml,Watchdog.CloseButton,Ausfahrt
+Watchdog\Watchdog.DE.xaml,Watchdog.ErrorEmpty,Leider konnten die Fehlerdetails nicht erfasst werden.
 Watchdog\Watchdog.DE.xaml,Watchdog.ErrorMessage,Ein unerwarteter Fehler ist aufgetreten:
 Watchdog\Watchdog.DE.xaml,Watchdog.ErrorTitle,Fehler
 Watchdog\Watchdog.DE.xaml,Watchdog.HideButton,Verstecken

@@ -227,6 +227,7 @@ Update\Update.DA.xaml,Update.MessageText.Extracting.Not,DEN DOWNLOADEDE FIL KAN 
 Update\Update.DA.xaml,Update.MessageText.Extracting.Error,DEN DOWNLOADEDE FIL KUNNE IKKE EKSTRAHERES
 Watchdog\Watchdog.DA.xaml,Watchdog.HelpButton,Hjælp
 Watchdog\Watchdog.DA.xaml,Watchdog.CloseButton,Luk
+Watchdog\Watchdog.DA.xaml,Watchdog.ErrorEmpty,Desværre kunne fejloplysningerne ikke fanges.
 Watchdog\Watchdog.DA.xaml,Watchdog.ErrorMessage,Der opstod en uventet fejl:
 Watchdog\Watchdog.DA.xaml,Watchdog.ErrorTitle,Fejl
 Watchdog\Watchdog.DA.xaml,Watchdog.HideButton,Skjul

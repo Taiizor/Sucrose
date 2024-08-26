@@ -227,6 +227,7 @@ Update\Update.NL.xaml,Update.MessageText.Extracting.Not,HET GEDOWNLOADE BESTAND 
 Update\Update.NL.xaml,Update.MessageText.Extracting.Error,HET GEDOWNLOADE BESTAND KON NIET WORDEN GEËXTRAHEERD
 Watchdog\Watchdog.NL.xaml,Watchdog.HelpButton,Help
 Watchdog\Watchdog.NL.xaml,Watchdog.CloseButton,Afsluiten
+Watchdog\Watchdog.NL.xaml,Watchdog.ErrorEmpty,Helaas konden de foutdetails niet worden vastgelegd.
 Watchdog\Watchdog.NL.xaml,Watchdog.ErrorMessage,Er is een onverwachte fout opgetreden:
 Watchdog\Watchdog.NL.xaml,Watchdog.ErrorTitle,Fout
 Watchdog\Watchdog.NL.xaml,Watchdog.HideButton,Verbergen

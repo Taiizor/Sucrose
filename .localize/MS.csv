@@ -227,6 +227,7 @@ Update\Update.MS.xaml,Update.MessageText.Extracting.Not,FAIL YANG DIDOWNLOAD TID
 Update\Update.MS.xaml,Update.MessageText.Extracting.Error,FAIL YANG DIDOWNLOAD TIDAK DAPAT DIKSTRRAK
 Watchdog\Watchdog.MS.xaml,Watchdog.HelpButton,Bantuan
 Watchdog\Watchdog.MS.xaml,Watchdog.CloseButton,Tutup
+Watchdog\Watchdog.MS.xaml,Watchdog.ErrorEmpty,"Malangnya, butiran ralat tidak dapat ditangkap."
 Watchdog\Watchdog.MS.xaml,Watchdog.ErrorMessage,Ralat yang tidak dijangka berlaku:
 Watchdog\Watchdog.MS.xaml,Watchdog.ErrorTitle,Ralat
 Watchdog\Watchdog.MS.xaml,Watchdog.HideButton,Sembunyikan

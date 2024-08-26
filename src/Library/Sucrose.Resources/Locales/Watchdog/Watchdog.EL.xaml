@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Βοήθεια</system:String>
     <system:String x:Key="Watchdog.CloseButton">Έξοδος</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Δυστυχώς, δεν μπόρεσαν να καταγραφούν λεπτομέρειες του σφάλματος.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Προέκυψε μια απροσδόκητη σφάλμα:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Σφάλμα</system:String>
     <system:String x:Key="Watchdog.HideButton">Απόκρυψη</system:String>

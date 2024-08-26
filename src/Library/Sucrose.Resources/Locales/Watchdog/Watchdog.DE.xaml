@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Helfen</system:String>
     <system:String x:Key="Watchdog.CloseButton">Ausfahrt</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Leider konnten die Fehlerdetails nicht erfasst werden.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Ein unerwarteter Fehler ist aufgetreten:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Fehler</system:String>
     <system:String x:Key="Watchdog.HideButton">Verstecken</system:String>

@@ -227,6 +227,7 @@ Update\Update.UK.xaml,Update.MessageText.Extracting.Not,ЗАВАНТАЖЕНИЙ
 Update\Update.UK.xaml,Update.MessageText.Extracting.Error,ЗАВАНТАЖЕНИЙ ФАЙЛ НЕ ВДАЛОСЯ РОЗПАКУВАТИ
 Watchdog\Watchdog.UK.xaml,Watchdog.HelpButton,Допомога
 Watchdog\Watchdog.UK.xaml,Watchdog.CloseButton,Вихід
+Watchdog\Watchdog.UK.xaml,Watchdog.ErrorEmpty,"На жаль, не вдалося захопити деталі помилки."
 Watchdog\Watchdog.UK.xaml,Watchdog.ErrorMessage,Сталася непередбачена помилка:
 Watchdog\Watchdog.UK.xaml,Watchdog.ErrorTitle,Помилка
 Watchdog\Watchdog.UK.xaml,Watchdog.HideButton,Приховати

@@ -227,6 +227,7 @@ Update\Update.CS.xaml,Update.MessageText.Extracting.Not,STÁHNUTÝ SOUBOR NENÍ 
 Update\Update.CS.xaml,Update.MessageText.Extracting.Error,STÁHNUTÝ SOUBOR NELZE ROZBALIT
 Watchdog\Watchdog.CS.xaml,Watchdog.HelpButton,Pomoc
 Watchdog\Watchdog.CS.xaml,Watchdog.CloseButton,Zavřít
+Watchdog\Watchdog.CS.xaml,Watchdog.ErrorEmpty,Bohužel se nepodařilo zachytit podrobnosti o chybě.
 Watchdog\Watchdog.CS.xaml,Watchdog.ErrorMessage,Nastala neočekávaná chyba:
 Watchdog\Watchdog.CS.xaml,Watchdog.ErrorTitle,Chyba
 Watchdog\Watchdog.CS.xaml,Watchdog.HideButton,Skrýt

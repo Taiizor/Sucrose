@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Ajuda</system:String>
     <system:String x:Key="Watchdog.CloseButton">Fechar</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Infelizmente, não foi possível capturar os detalhes do erro.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Ocorreu um erro inesperado:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Erro</system:String>
     <system:String x:Key="Watchdog.HideButton">Ocultar</system:String>

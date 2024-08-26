@@ -227,6 +227,7 @@ Update\Update.EL.xaml,Update.MessageText.Extracting.Not,ΤΟ ΚΑΤΕΒΑΣΜΕ�
 Update\Update.EL.xaml,Update.MessageText.Extracting.Error,ΤΟ ΚΑΤΕΒΑΣΜΕΝΟ ΑΡΧΕΙΟ ΔΕΝ ΗΤΑΝ ΕΦΙΚΤΟ ΝΑ ΑΠΟΣΥΜΠΙΕΣΤΕΙ
 Watchdog\Watchdog.EL.xaml,Watchdog.HelpButton,Βοήθεια
 Watchdog\Watchdog.EL.xaml,Watchdog.CloseButton,Έξοδος
+Watchdog\Watchdog.EL.xaml,Watchdog.ErrorEmpty,"Δυστυχώς, δεν μπόρεσαν να καταγραφούν λεπτομέρειες του σφάλματος."
 Watchdog\Watchdog.EL.xaml,Watchdog.ErrorMessage,Προέκυψε μια απροσδόκητη σφάλμα:
 Watchdog\Watchdog.EL.xaml,Watchdog.ErrorTitle,Σφάλμα
 Watchdog\Watchdog.EL.xaml,Watchdog.HideButton,Απόκρυψη

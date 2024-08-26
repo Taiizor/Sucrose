@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Hjälp</system:String>
     <system:String x:Key="Watchdog.CloseButton">Stäng</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Tyvärr kunde felinformation inte fångas.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Ett oväntat fel uppstod:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Fel</system:String>
     <system:String x:Key="Watchdog.HideButton">Dölj</system:String>

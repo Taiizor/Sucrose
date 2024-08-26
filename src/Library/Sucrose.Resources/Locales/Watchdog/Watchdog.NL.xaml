@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Help</system:String>
     <system:String x:Key="Watchdog.CloseButton">Afsluiten</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Helaas konden de foutdetails niet worden vastgelegd.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Er is een onverwachte fout opgetreden:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Fout</system:String>
     <system:String x:Key="Watchdog.HideButton">Verbergen</system:String>

@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Допомога</system:String>
     <system:String x:Key="Watchdog.CloseButton">Вихід</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">На жаль, не вдалося захопити деталі помилки.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Сталася непередбачена помилка:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Помилка</system:String>
     <system:String x:Key="Watchdog.HideButton">Приховати</system:String>

@@ -227,6 +227,7 @@ Update\Update.HI.xaml,Update.MessageText.Extracting.Not,डाउनलोड �
 Update\Update.HI.xaml,Update.MessageText.Extracting.Error,डाउनलोड की गई फ़ाइल को निकाला नहीं जा सका
 Watchdog\Watchdog.HI.xaml,Watchdog.HelpButton,सहायता
 Watchdog\Watchdog.HI.xaml,Watchdog.CloseButton,बंद करें
+Watchdog\Watchdog.HI.xaml,Watchdog.ErrorEmpty,"दुर्भाग्यवश, त्रुटि का विवरण पकड़ा नहीं जा सका।"
 Watchdog\Watchdog.HI.xaml,Watchdog.ErrorMessage,एक अप्रत्याशित त्रुटि हुई:
 Watchdog\Watchdog.HI.xaml,Watchdog.ErrorTitle,त्रुटि
 Watchdog\Watchdog.HI.xaml,Watchdog.HideButton,छिपाएँ

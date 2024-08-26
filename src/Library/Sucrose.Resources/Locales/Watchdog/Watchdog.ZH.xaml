@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">帮助</system:String>
     <system:String x:Key="Watchdog.CloseButton">关闭</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">很抱歉，无法捕获错误详细信息。</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">出现了意外错误：</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">错误</system:String>
     <system:String x:Key="Watchdog.HideButton">隐藏</system:String>

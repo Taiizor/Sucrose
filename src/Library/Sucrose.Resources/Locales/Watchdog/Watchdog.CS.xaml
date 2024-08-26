@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Pomoc</system:String>
     <system:String x:Key="Watchdog.CloseButton">Zavřít</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Bohužel se nepodařilo zachytit podrobnosti o chybě.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Nastala neočekávaná chyba:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Chyba</system:String>
     <system:String x:Key="Watchdog.HideButton">Skrýt</system:String>

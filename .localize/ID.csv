@@ -227,6 +227,7 @@ Update\Update.ID.xaml,Update.MessageText.Extracting.Not,BERKAS YANG DIUNDUH TIDA
 Update\Update.ID.xaml,Update.MessageText.Extracting.Error,BERKAS YANG DIUNDUH TIDAK DAPAT DIEKSTRAK
 Watchdog\Watchdog.ID.xaml,Watchdog.HelpButton,Bantuan
 Watchdog\Watchdog.ID.xaml,Watchdog.CloseButton,Tutup
+Watchdog\Watchdog.ID.xaml,Watchdog.ErrorEmpty,"Sayangnya, detail kesalahan tidak dapat ditangkap."
 Watchdog\Watchdog.ID.xaml,Watchdog.ErrorMessage,Tidak terduga terjadi kesalahan:
 Watchdog\Watchdog.ID.xaml,Watchdog.ErrorTitle,Kesalahan
 Watchdog\Watchdog.ID.xaml,Watchdog.HideButton,Sembunyikan

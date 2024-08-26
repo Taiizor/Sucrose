@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Ajutor</system:String>
     <system:String x:Key="Watchdog.CloseButton">Închide</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Din păcate, nu au putut fi capturate detaliile erorii.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">A apărut o eroare neașteptată:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Eroare</system:String>
     <system:String x:Key="Watchdog.HideButton">Ascunde</system:String>

@@ -227,6 +227,7 @@ Update\Update.TR.xaml,Update.MessageText.Extracting.Not,İNDİRİLEN DOSYA KULLA
 Update\Update.TR.xaml,Update.MessageText.Extracting.Error,İNDİRİLEN DOSYA ÇIKARILAMADI
 Watchdog\Watchdog.TR.xaml,Watchdog.HelpButton,Yardım
 Watchdog\Watchdog.TR.xaml,Watchdog.CloseButton,Çıkış
+Watchdog\Watchdog.TR.xaml,Watchdog.ErrorEmpty,Maalesef hata detayları yakalanamadı.
 Watchdog\Watchdog.TR.xaml,Watchdog.ErrorMessage,Beklenmeyen bir hata oluştu:
 Watchdog\Watchdog.TR.xaml,Watchdog.ErrorTitle,Hata
 Watchdog\Watchdog.TR.xaml,Watchdog.HideButton,Sakla

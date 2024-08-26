@@ -227,6 +227,7 @@ Update\Update.RO.xaml,Update.MessageText.Extracting.Not,FIȘIERUL DESCĂRCAT NU 
 Update\Update.RO.xaml,Update.MessageText.Extracting.Error,NU S-A PUTUT EXTRAGE FIȘIERUL DESCĂRCAT
 Watchdog\Watchdog.RO.xaml,Watchdog.HelpButton,Ajutor
 Watchdog\Watchdog.RO.xaml,Watchdog.CloseButton,Închide
+Watchdog\Watchdog.RO.xaml,Watchdog.ErrorEmpty,"Din păcate, nu au putut fi capturate detaliile erorii."
 Watchdog\Watchdog.RO.xaml,Watchdog.ErrorMessage,A apărut o eroare neașteptată:
 Watchdog\Watchdog.RO.xaml,Watchdog.ErrorTitle,Eroare
 Watchdog\Watchdog.RO.xaml,Watchdog.HideButton,Ascunde

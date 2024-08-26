@@ -227,6 +227,7 @@ Update\Update.JA.xaml,Update.MessageText.Extracting.Not,ダウンロードした
 Update\Update.JA.xaml,Update.MessageText.Extracting.Error,ダウンロードしたファイルを展開できませんでした
 Watchdog\Watchdog.JA.xaml,Watchdog.HelpButton,ヘルプ
 Watchdog\Watchdog.JA.xaml,Watchdog.CloseButton,閉じる
+Watchdog\Watchdog.JA.xaml,Watchdog.ErrorEmpty,申し訳ありませんが、エラーディテールをキャプチャできませんでした。
 Watchdog\Watchdog.JA.xaml,Watchdog.ErrorMessage,予期しないエラーが発生しました:
 Watchdog\Watchdog.JA.xaml,Watchdog.ErrorTitle,エラー
 Watchdog\Watchdog.JA.xaml,Watchdog.HideButton,非表示

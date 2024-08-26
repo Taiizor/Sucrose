@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">도움말</system:String>
     <system:String x:Key="Watchdog.CloseButton">닫기</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">안타깝게도 오류 세부 정보를 캡처할 수 없습니다.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">예기치 않은 오류가 발생했습니다:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">오류</system:String>
     <system:String x:Key="Watchdog.HideButton">숨기기</system:String>

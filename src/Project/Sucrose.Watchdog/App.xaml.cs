@@ -9,6 +9,7 @@ using SHC = Skylark.Helper.Culture;
 using SMMI = Sucrose.Manager.Manage.Internal;
 using SMMM = Sucrose.Manager.Manage.Manager;
 using SMR = Sucrose.Memory.Readonly;
+using SRER = Sucrose.Resources.Extension.Resources;
 using SRHR = Sucrose.Resources.Helper.Resources;
 using SSCHA = Sucrose.Shared.Core.Helper.Architecture;
 using SSCHF = Sucrose.Shared.Core.Helper.Framework;
@@ -16,6 +17,7 @@ using SSCHOS = Sucrose.Shared.Core.Helper.OperatingSystem;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSDMM = Sucrose.Shared.Dependency.Manage.Manager;
 using SSECCE = Skylark.Standard.Extension.Cryptology.CryptologyExtension;
+using SSSHE = Sucrose.Shared.Space.Helper.Exceptioner;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHUE = Sucrose.Shared.Space.Helper.Unique;
 using SSSHUR = Sucrose.Shared.Space.Helper.User;
@@ -107,7 +109,7 @@ namespace Sucrose.Watchdog
             }
         }
 
-        protected void Configure(string[] Args)
+        protected async void Configure(string[] Args)
         {
             if (Args.Any())
             {
@@ -123,10 +125,10 @@ namespace Sucrose.Watchdog
                     string Application = Arguments[0];
                     Guid AppId = SSSHUE.Generate(Application);
                     string Manufacturer = SSSHUR.GetManufacturer();
-                    string Message = SSSHWE.Convert(Arguments[1]).Message;
                     CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
                     string Text = Arguments.Count() == 5 ? Arguments[4] : string.Empty;
                     string Source = Arguments.Count() == 5 ? Arguments[3] : string.Empty;
+                    string Message = await SSSHE.GetMessage(SSSHWE.Convert(Arguments[1]), SRER.GetValue("Watchdog", "ErrorEmpty"), SMR.ExceptionSplit);
 
                     SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 

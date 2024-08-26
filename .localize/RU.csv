@@ -227,6 +227,7 @@ Update\Update.RU.xaml,Update.MessageText.Extracting.Not,ЗАГРУЖЕННЫЙ �
 Update\Update.RU.xaml,Update.MessageText.Extracting.Error,НЕ УДАЛОСЬ ИЗВЛЕЧЬ ЗАГРУЖЕННЫЙ ФАЙЛ
 Watchdog\Watchdog.RU.xaml,Watchdog.HelpButton,Помощь
 Watchdog\Watchdog.RU.xaml,Watchdog.CloseButton,Закрыть
+Watchdog\Watchdog.RU.xaml,Watchdog.ErrorEmpty,"К сожалению, детали ошибки не были захвачены."
 Watchdog\Watchdog.RU.xaml,Watchdog.ErrorMessage,Произошла непредвиденная ошибка:
 Watchdog\Watchdog.RU.xaml,Watchdog.ErrorTitle,Ошибка
 Watchdog\Watchdog.RU.xaml,Watchdog.HideButton,Скрыть

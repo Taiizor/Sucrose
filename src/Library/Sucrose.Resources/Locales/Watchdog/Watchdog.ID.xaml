@@ -4,6 +4,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Watchdog.HelpButton">Bantuan</system:String>
     <system:String x:Key="Watchdog.CloseButton">Tutup</system:String>
+    <system:String x:Key="Watchdog.ErrorEmpty">Sayangnya, detail kesalahan tidak dapat ditangkap.</system:String>
     <system:String x:Key="Watchdog.ErrorMessage">Tidak terduga terjadi kesalahan:</system:String>
     <system:String x:Key="Watchdog.ErrorTitle">Kesalahan</system:String>
     <system:String x:Key="Watchdog.HideButton">Sembunyikan</system:String>

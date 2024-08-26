@@ -227,6 +227,7 @@ Update\Update.SV.xaml,Update.MessageText.Extracting.Not,DEN NERLADDATA FILN ÄR 
 Update\Update.SV.xaml,Update.MessageText.Extracting.Error,DEN NERLADDATA FILN KUNDE INTE EXTRAHAR
 Watchdog\Watchdog.SV.xaml,Watchdog.HelpButton,Hjälp
 Watchdog\Watchdog.SV.xaml,Watchdog.CloseButton,Stäng
+Watchdog\Watchdog.SV.xaml,Watchdog.ErrorEmpty,Tyvärr kunde felinformation inte fångas.
 Watchdog\Watchdog.SV.xaml,Watchdog.ErrorMessage,Ett oväntat fel uppstod:
 Watchdog\Watchdog.SV.xaml,Watchdog.ErrorTitle,Fel
 Watchdog\Watchdog.SV.xaml,Watchdog.HideButton,Dölj

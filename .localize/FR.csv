@@ -227,6 +227,7 @@ Update\Update.FR.xaml,Update.MessageText.Extracting.Not,LE FICHIER TÉLÉCHARGÉ
 Update\Update.FR.xaml,Update.MessageText.Extracting.Error,LE FICHIER TÉLÉCHARGÉ N'A PAS PU ÊTRE EXTRAIT
 Watchdog\Watchdog.FR.xaml,Watchdog.HelpButton,Aide
 Watchdog\Watchdog.FR.xaml,Watchdog.CloseButton,Fermer
+Watchdog\Watchdog.FR.xaml,Watchdog.ErrorEmpty,"Malheureusement, les détails de l'erreur n'ont pas pu être capturés."
 Watchdog\Watchdog.FR.xaml,Watchdog.ErrorMessage,Une erreur inattendue est apparue:
 Watchdog\Watchdog.FR.xaml,Watchdog.ErrorTitle,Erreur
 Watchdog\Watchdog.FR.xaml,Watchdog.HideButton,Cacher

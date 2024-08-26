@@ -227,6 +227,7 @@ Update\Update.PL.xaml,Update.MessageText.Extracting.Not,POBRANY PLIK NIE MOŻE B
 Update\Update.PL.xaml,Update.MessageText.Extracting.Error,NIE MOŻNA WYPYCHAĆ POBRANEGO PLIKU
 Watchdog\Watchdog.PL.xaml,Watchdog.HelpButton,Pomoc
 Watchdog\Watchdog.PL.xaml,Watchdog.CloseButton,Zamknąć
+Watchdog\Watchdog.PL.xaml,Watchdog.ErrorEmpty,"Niestety, nie udało się uchwycić szczegółów błędu."
 Watchdog\Watchdog.PL.xaml,Watchdog.ErrorMessage,Wystąpił nieoczekiwany błąd:
 Watchdog\Watchdog.PL.xaml,Watchdog.ErrorTitle,Błąd
 Watchdog\Watchdog.PL.xaml,Watchdog.HideButton,Ukrywać

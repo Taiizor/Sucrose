@@ -56,6 +56,8 @@
 
         public static readonly string SoferityVersion = "v5";
 
+        public static readonly string ExceptionSplit = " -> ";
+
         public static readonly string ReportFolder = "Report";
 
         public static readonly string SoferityCheck = "Check";

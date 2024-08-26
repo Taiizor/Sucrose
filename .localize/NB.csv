@@ -227,6 +227,7 @@ Update\Update.NB.xaml,Update.MessageText.Extracting.Not,DEN NEDLASTEDE FILEN ER 
 Update\Update.NB.xaml,Update.MessageText.Extracting.Error,DEN NEDLASTEDE FILEN KUNNE IKKE EKSTRAHERES
 Watchdog\Watchdog.NB.xaml,Watchdog.HelpButton,Hjelp
 Watchdog\Watchdog.NB.xaml,Watchdog.CloseButton,Lukk
+Watchdog\Watchdog.NB.xaml,Watchdog.ErrorEmpty,Dessverre kunne ikke feildetaljene fanges opp.
 Watchdog\Watchdog.NB.xaml,Watchdog.ErrorMessage,Det oppstod en uventet feil:
 Watchdog\Watchdog.NB.xaml,Watchdog.ErrorTitle,Feil
 Watchdog\Watchdog.NB.xaml,Watchdog.HideButton,Skjul

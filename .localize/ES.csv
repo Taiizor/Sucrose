@@ -227,6 +227,7 @@ Update\Update.ES.xaml,Update.MessageText.Extracting.Not,EL ARCHIVO DESCARGADO NO
 Update\Update.ES.xaml,Update.MessageText.Extracting.Error,NO SE PUDO EXTRAER EL ARCHIVO DESCARGADO
 Watchdog\Watchdog.ES.xaml,Watchdog.HelpButton,Ayuda
 Watchdog\Watchdog.ES.xaml,Watchdog.CloseButton,Cerca
+Watchdog\Watchdog.ES.xaml,Watchdog.ErrorEmpty,"Desafortunadamente, no se pudieron capturar los detalles del error."
 Watchdog\Watchdog.ES.xaml,Watchdog.ErrorMessage,Ocurrió un error inesperado:
 Watchdog\Watchdog.ES.xaml,Watchdog.ErrorTitle,Error
 Watchdog\Watchdog.ES.xaml,Watchdog.HideButton,Esconder

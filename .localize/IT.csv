@@ -227,6 +227,7 @@ Update\Update.IT.xaml,Update.MessageText.Extracting.Not,IL FILE SCARICATO NON È
 Update\Update.IT.xaml,Update.MessageText.Extracting.Error,IMPOSSIBILE ESTRARRE IL FILE SCARICATO
 Watchdog\Watchdog.IT.xaml,Watchdog.HelpButton,Aiuto
 Watchdog\Watchdog.IT.xaml,Watchdog.CloseButton,Chiudi
+Watchdog\Watchdog.IT.xaml,Watchdog.ErrorEmpty,"Sfortunatamente, i dettagli dell'errore non sono stati catturati."
 Watchdog\Watchdog.IT.xaml,Watchdog.ErrorMessage,Si è verificato un errore inaspettato:
 Watchdog\Watchdog.IT.xaml,Watchdog.ErrorTitle,Errore
 Watchdog\Watchdog.IT.xaml,Watchdog.HideButton,Nascondi
