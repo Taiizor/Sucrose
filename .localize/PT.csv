@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.PT.xaml,Portal.Category.ArtificialIntelligence,I
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.Artworks,Obras de Arte
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.Bard,Bardo
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.BlackandWhite,Preto e Branco
+Portal\Category\Portal.Category.PT.xaml,Portal.Category.Brands,Marcas
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.CartoonandComics,Desenhos Animados e Quadrinhos
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.CitiesandPlaces,Cidades e Lugares
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.CloudsandSkies,Nuvens e Céus
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.PT.xaml,Portal.Category.Music,Música
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.Nature,Natureza
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.Nightscapes,Paisagens Noturnas
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.PatternsandTextures,Padrões e Texturas
+Portal\Category\Portal.Category.PT.xaml,Portal.Category.Persons,Pessoas
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.PixelArt,Arte Pixel
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.Retro,Retrô
 Portal\Category\Portal.Category.PT.xaml,Portal.Category.Science,Ciência
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Size,O tamanho do tema compactado está sendo verificado..
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,O tema compactado não pode ser carregado porque excede {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Check,A integridade do tema compactado está sendo verificada antes do upload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Ocorreu um erro ao verificar a integridade do tema compactado.
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,Portal.ThemeShare.ThemePublish.Upload,O tema compactado está sendo preparado para upload..
 Portal\Controls\ThemeShare\Portal.ThemeShare.PT.xaml,,

@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.SV.xaml,Portal.Category.ArtificialIntelligence,A
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Artworks,Konstverk
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Bard,Bard
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.BlackandWhite,Svart och Vitt
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Brands,Varumärken
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.CartoonandComics,Tecknat och Serier
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.CitiesandPlaces,Städer och Platser
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.CloudsandSkies,Moln och Himmel
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.SV.xaml,Portal.Category.Music,Musik
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Nature,Natur
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Nightscapes,Nattlandskap
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.PatternsandTextures,Mönster och Texturer
+Portal\Category\Portal.Category.SV.xaml,Portal.Category.Persons,Personer
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.PixelArt,Pixelkonst
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.SV.xaml,Portal.Category.Science,Vetenskap
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Size,Storleken på det komprimerade temat kontrolleras..
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Det komprimerade temat kan inte laddas upp eftersom det överskrider {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Check,Den komprimerade temats integritet kontrolleras innan uppladdning..
+Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Ett fel inträffade vid kontroll av integriteten hos det komprimerade temat.
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,Portal.ThemeShare.ThemePublish.Upload,Det komprimerade temat förbereds för uppladdning..
 Portal\Controls\ThemeShare\Portal.ThemeShare.SV.xaml,,

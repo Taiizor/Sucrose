@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">アートワーク</system:String>
     <system:String x:Key="Portal.Category.Bard">吟遊詩人</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">白黒</system:String>
+    <system:String x:Key="Portal.Category.Brands">ブランド</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">アニメとコミック</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">都市と場所</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">雲と空</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">自然</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">夜景</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">パターンとテクスチャ</system:String>
+    <system:String x:Key="Portal.Category.Persons">人物</system:String>
     <system:String x:Key="Portal.Category.PixelArt">ピクセルアート</system:String>
     <system:String x:Key="Portal.Category.Retro">レトロ</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>

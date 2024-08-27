@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Έργα Τέχνης</system:String>
     <system:String x:Key="Portal.Category.Bard">Βαρδάρης</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Ασπρόμαυρα</system:String>
+    <system:String x:Key="Portal.Category.Brands">Μάρκες</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Κινούμενα Σχέδια και Κόμικς</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Πόλεις και Τοποθεσίες</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Σύννεφα και Ουρανός</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Φύση</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Νυχτερινά Τοπία</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Μοτίβα και Υφές</system:String>
+    <system:String x:Key="Portal.Category.Persons">Πρόσωπα</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Εικονοστοιχική Τέχνη</system:String>
     <system:String x:Key="Portal.Category.Retro">Ρετρό</system:String>
     <system:String x:Key="Portal.Category.Science">Επιστήμη</system:String>

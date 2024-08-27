@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Стиснену тему не можна завантажити, оскільки вона перевищує {0} МB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Перевіряється цілісність стиснутої теми перед завантаженням..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Сталася помилка під час перевірки цілісності стиснутої теми.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Стиснена тема готується до завантаження..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Стиснена тема завантажується..</system:String>

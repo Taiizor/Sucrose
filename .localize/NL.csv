@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.NL.xaml,Portal.Category.ArtificialIntelligence,K
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.Artworks,Kunstwerken
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.Bard,Bard
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.BlackandWhite,Zwart en Wit
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Brands,Merken
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.CartoonandComics,Cartoon en Strips
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.CitiesandPlaces,Steden en Plaatsen
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.CloudsandSkies,Wolken en Luchten
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.NL.xaml,Portal.Category.Music,Muziek
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.Nature,Natuur
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.Nightscapes,Nachtlandschappen
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.PatternsandTextures,Patronen en Texturen
+Portal\Category\Portal.Category.NL.xaml,Portal.Category.Persons,Personen
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.PixelArt,Pixelkunst
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.NL.xaml,Portal.Category.Science,Wetenschap
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Size,De grootte van het gecomprimeerde thema wordt gecontroleerd..
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Het gecomprimeerde thema kan niet worden geüpload omdat het groter is dan {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Check,De integriteit van het gecomprimeerde thema wordt gecontroleerd voordat het wordt geüpload..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Er is een fout opgetreden bij het controleren van de integriteit van het gecomprimeerde thema.
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,Portal.ThemeShare.ThemePublish.Upload,Het gecomprimeerde thema wordt voorbereid voor uploaden..
 Portal\Controls\ThemeShare\Portal.ThemeShare.NL.xaml,,

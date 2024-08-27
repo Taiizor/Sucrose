@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Komprimované téma nelze nahrát, protože přesahuje {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Před nahráním je kontrolována integrita komprimovaného motivu..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Při kontrole integrity komprimovaného motivu došlo k chybě.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Komprimované téma se připravuje k nahrání..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Komprimované téma se nahrává..</system:String>

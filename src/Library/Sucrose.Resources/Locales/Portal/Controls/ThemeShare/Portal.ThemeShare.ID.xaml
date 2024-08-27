@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Tema yang dikompresi tidak dapat diunggah karena melebihi {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Integritas tema terkompresi sedang diperiksa sebelum diunggah..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Terjadi kesalahan saat memeriksa integritas tema terkompresi.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Tema yang dikompresi sedang dipersiapkan untuk diunggah..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Tema yang dikompresi sedang diunggah..</system:String>

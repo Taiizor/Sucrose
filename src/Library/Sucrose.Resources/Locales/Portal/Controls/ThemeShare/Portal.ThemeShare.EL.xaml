@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Το συμπιεσμένο θέμα δεν μπορεί να ανέβει επειδή υπερβαίνει τα {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Ελέγχεται η ακεραιότητα του συμπιεσμένου θέματος πριν από τη μεταφόρτωση..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Παρουσιάστηκε σφάλμα κατά τον έλεγχο της ακεραιότητας του συμπιεσμένου θέματος.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Το συμπιεσμένο θέμα προετοιμάζεται για ανέβασμα..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Το συμπιεσμένο θέμα ανεβαίνει..</system:String>

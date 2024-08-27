@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Umělecká Díla</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Černobílá</system:String>
+    <system:String x:Key="Portal.Category.Brands">Značky</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Kreslený Film a Komiksy</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Města a Místa</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Oblaka a Nebe</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Příroda</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Noční Krajiny</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Vzory a Textury</system:String>
+    <system:String x:Key="Portal.Category.Persons">Osoby</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Pixel Art</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.Science">Věda</system:String>

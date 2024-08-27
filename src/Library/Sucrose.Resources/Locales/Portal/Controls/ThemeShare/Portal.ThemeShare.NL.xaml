@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Het gecomprimeerde thema kan niet worden geüpload omdat het groter is dan {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">De integriteit van het gecomprimeerde thema wordt gecontroleerd voordat het wordt geüpload..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Er is een fout opgetreden bij het controleren van de integriteit van het gecomprimeerde thema.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Het gecomprimeerde thema wordt voorbereid voor uploaden..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Het gecomprimeerde thema wordt geüpload..</system:String>

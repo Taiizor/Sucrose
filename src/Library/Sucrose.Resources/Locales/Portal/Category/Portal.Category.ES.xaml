@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Obras de Arte</system:String>
     <system:String x:Key="Portal.Category.Bard">Bardo</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Blanco y Negro</system:String>
+    <system:String x:Key="Portal.Category.Brands">Marcas</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Dibujos Animados y Cómics</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Ciudades y Lugares</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Nubes y Cielos</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Naturaleza</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Paisajes Nocturnos</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Patrones y Texturas</system:String>
+    <system:String x:Key="Portal.Category.Persons">Personas</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Arte Pixel</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.Science">Ciencia</system:String>

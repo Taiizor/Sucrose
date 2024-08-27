@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.HI.xaml,Portal.Category.ArtificialIntelligence,�
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Artworks,कला कृतियाँ
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Bard,गायक
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.BlackandWhite,काला और सफेद
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Brands,ब्रांड
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.CartoonandComics,कार्टून और कॉमिक्स
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.CitiesandPlaces,शहर और स्थान
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.CloudsandSkies,बादल और आसमान
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.HI.xaml,Portal.Category.Music,संगीत
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Nature,प्राकृतिक
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Nightscapes,रात्रि दृश्य
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.PatternsandTextures,पैटर्न और टेक्सचर्स
+Portal\Category\Portal.Category.HI.xaml,Portal.Category.Persons,व्यक्तियों
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.PixelArt,पिक्सेल कला
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Retro,रेट्रो
 Portal\Category\Portal.Category.HI.xaml,Portal.Category.Science,विज्ञान
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Size,संकुचित थीम का आकार जांचा जा रहा है..
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,संकुचित थीम को अपलोड नहीं किया जा सकता क्योंकि यह {0} MB से अधिक है।
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Check,अपलोड करने से पहले संपीड़ित थीम की अखंडता की जाँच की जा रही है..
+Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Check.Error,संपीड़ित थीम की अखंडता की जाँच करते समय एक त्रुटि हुई।
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,Portal.ThemeShare.ThemePublish.Upload,संकुचित थीम को अपलोड के लिए तैयार किया जा रहा है..
 Portal\Controls\ThemeShare\Portal.ThemeShare.HI.xaml,,

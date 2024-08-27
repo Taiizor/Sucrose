@@ -47,6 +47,7 @@ namespace Sucrose.Portal.Manage
 
         public static readonly Dictionary<string, SymbolRegular> CategoryIcons = new()
         {
+            { "Brands", SymbolRegular.Tag24 },
             { "Game", SymbolRegular.Games24 },
             { "Time", SymbolRegular.Clock24 },
             { "Retro", SymbolRegular.Color24 },
@@ -54,6 +55,7 @@ namespace Sucrose.Portal.Manage
             { "Fantasy", SymbolRegular.Crown20 },
             { "Line Art", SymbolRegular.Line24 },
             { "Galaxy", SymbolRegular.Rocket24 },
+            { "Persons", SymbolRegular.Person24 },
             { "Anime", SymbolRegular.Filmstrip24 },
             { "Science", SymbolRegular.Syringe24 },
             { "Nature", SymbolRegular.EarthLeaf24 },

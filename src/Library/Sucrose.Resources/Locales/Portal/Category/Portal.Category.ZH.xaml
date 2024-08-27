@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">艺术作品</system:String>
     <system:String x:Key="Portal.Category.Bard">诗人</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">黑白</system:String>
+    <system:String x:Key="Portal.Category.Brands">品牌</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">卡通与漫画</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">城市与地点</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">云和天空</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">自然</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">夜景</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">图案和纹理</system:String>
+    <system:String x:Key="Portal.Category.Persons">人物</system:String>
     <system:String x:Key="Portal.Category.PixelArt">像素艺术</system:String>
     <system:String x:Key="Portal.Category.Retro">复古</system:String>
     <system:String x:Key="Portal.Category.Science">科学</system:String>

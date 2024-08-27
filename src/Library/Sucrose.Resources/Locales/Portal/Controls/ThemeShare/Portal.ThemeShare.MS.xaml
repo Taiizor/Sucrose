@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Tema yang dimampatkan tidak dapat dimuat naik kerana melebihi {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Integriti tema yang dimampatkan sedang diperiksa sebelum dimuat naik..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Ralat berlaku semasa memeriksa integriti tema yang dimampatkan.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Tema yang dimampatkan sedang disediakan untuk dimuat naik..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Tema yang dimampatkan sedang dimuat naik..</system:String>

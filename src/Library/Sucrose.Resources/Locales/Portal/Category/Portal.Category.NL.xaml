@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Kunstwerken</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Zwart en Wit</system:String>
+    <system:String x:Key="Portal.Category.Brands">Merken</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Cartoon en Strips</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Steden en Plaatsen</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Wolken en Luchten</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Natuur</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Nachtlandschappen</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Patronen en Texturen</system:String>
+    <system:String x:Key="Portal.Category.Persons">Personen</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Pixelkunst</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.Science">Wetenschap</system:String>

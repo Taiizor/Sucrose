@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Sanat Eserleri</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Siyah ve Beyaz</system:String>
+    <system:String x:Key="Portal.Category.Brands">Markalar</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Çizgi Film ve Çizgi Roman</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Şehirler ve Yerler</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Bulutlar ve Gökyüzü</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Doğa</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Gece Manzaraları</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Desenler ve Dokular</system:String>
+    <system:String x:Key="Portal.Category.Persons">Kişiler</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Piksel Sanatı</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.Science">Bilim</system:String>

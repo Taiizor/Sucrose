@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.UK.xaml,Portal.Category.ArtificialIntelligence,�
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Artworks,Художні Твори
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Bard,Барди
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.BlackandWhite,Чорно-біле
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Brands,Бренди
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.CartoonandComics,Мультфільми та Комікси
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.CitiesandPlaces,Міста та Місця
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.CloudsandSkies,Хмари та Небо
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.UK.xaml,Portal.Category.Music,Музика
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Nature,Природа
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Nightscapes,Нічні Пейзажі
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.PatternsandTextures,Візерунки та Текстури
+Portal\Category\Portal.Category.UK.xaml,Portal.Category.Persons,Особи
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.PixelArt,Піксельне Мистецтво
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Retro,Ретро
 Portal\Category\Portal.Category.UK.xaml,Portal.Category.Science,Наука
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Size,Перевіряється розмір стисненої теми..
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Стиснену тему не можна завантажити, оскільки вона перевищує {0} МB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Check,Перевіряється цілісність стиснутої теми перед завантаженням..
+Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Сталася помилка під час перевірки цілісності стиснутої теми.
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,Portal.ThemeShare.ThemePublish.Upload,Стиснена тема готується до завантаження..
 Portal\Controls\ThemeShare\Portal.ThemeShare.UK.xaml,,

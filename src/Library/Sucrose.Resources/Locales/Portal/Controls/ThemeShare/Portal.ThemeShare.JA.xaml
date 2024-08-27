@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">圧縮されたテーマは{0} MBを超えているため、アップロードできません。</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">圧縮されたテーマの整合性がアップロード前にチェックされています..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">圧縮されたテーマの整合性を確認中にエラーが発生しました。</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">圧縮されたテーマがアップロードの準備をしています..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">圧縮されたテーマがアップロードされています..</system:String>

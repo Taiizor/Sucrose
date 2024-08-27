@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Le thème compressé ne peut pas être téléchargé car il dépasse {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">L'intégrité du thème compressé est vérifiée avant le téléchargement..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Une erreur s'est produite lors de la vérification de l'intégrité du thème compressé.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Le thème compressé est en cours de préparation pour le téléchargement..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Le thème compressé est en cours de téléchargement..</system:String>

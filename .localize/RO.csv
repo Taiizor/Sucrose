@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.RO.xaml,Portal.Category.ArtificialIntelligence,I
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.Artworks,Lucrări de Artă
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.Bard,Bard
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.BlackandWhite,Alb și Negru
+Portal\Category\Portal.Category.RO.xaml,Portal.Category.Brands,Mărci
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.CartoonandComics,Desene animate și Benzi Desenate
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.CitiesandPlaces,Orașe și Locuri
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.CloudsandSkies,Norii și Cerul
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.RO.xaml,Portal.Category.Music,Muzică
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.Nature,Natură
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.Nightscapes,Peisaje de Noapte
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.PatternsandTextures,Modele și Texturi
+Portal\Category\Portal.Category.RO.xaml,Portal.Category.Persons,Persoane
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.PixelArt,Artă Pixel
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.RO.xaml,Portal.Category.Science,Știință
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Size,Dimensiunea temei comprimate este verificată..
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema comprimată nu poate fi încărcată deoarece depășește {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Check,Integritatea temei comprimate este verificată înainte de încărcare..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Check.Error,A apărut o eroare în timpul verificării integrității temei comprimate.
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,Portal.ThemeShare.ThemePublish.Upload,Tema comprimată este pregătită pentru încărcare..
 Portal\Controls\ThemeShare\Portal.ThemeShare.RO.xaml,,

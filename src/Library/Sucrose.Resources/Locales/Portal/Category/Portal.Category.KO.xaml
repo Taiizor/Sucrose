@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">미술 작품</system:String>
     <system:String x:Key="Portal.Category.Bard">바드</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">흑백</system:String>
+    <system:String x:Key="Portal.Category.Brands">브랜드</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">만화 및 만화책</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">도시 및 장소</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">구름 및 하늘</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">자연</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">야경</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">패턴 및 질감</system:String>
+    <system:String x:Key="Portal.Category.Persons">사람들</system:String>
     <system:String x:Key="Portal.Category.PixelArt">픽셀 아트</system:String>
     <system:String x:Key="Portal.Category.Retro">레트로</system:String>
     <system:String x:Key="Portal.Category.Science">과학</system:String>

@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Tema comprimată nu poate fi încărcată deoarece depășește {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Integritatea temei comprimate este verificată înainte de încărcare..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">A apărut o eroare în timpul verificării integrității temei comprimate.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Tema comprimată este pregătită pentru încărcare..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Tema comprimată este încărcată..</system:String>

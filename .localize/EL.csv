@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.EL.xaml,Portal.Category.ArtificialIntelligence,�
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Artworks,Έργα Τέχνης
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Bard,Βαρδάρης
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.BlackandWhite,Ασπρόμαυρα
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Brands,Μάρκες
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.CartoonandComics,Κινούμενα Σχέδια και Κόμικς
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.CitiesandPlaces,Πόλεις και Τοποθεσίες
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.CloudsandSkies,Σύννεφα και Ουρανός
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.EL.xaml,Portal.Category.Music,Μουσική
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Nature,Φύση
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Nightscapes,Νυχτερινά Τοπία
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.PatternsandTextures,Μοτίβα και Υφές
+Portal\Category\Portal.Category.EL.xaml,Portal.Category.Persons,Πρόσωπα
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.PixelArt,Εικονοστοιχική Τέχνη
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Retro,Ρετρό
 Portal\Category\Portal.Category.EL.xaml,Portal.Category.Science,Επιστήμη
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Size,Ελέγχεται το μέγεθος του συμπιεσμένου θέματος..
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Το συμπιεσμένο θέμα δεν μπορεί να ανέβει επειδή υπερβαίνει τα {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Check,Ελέγχεται η ακεραιότητα του συμπιεσμένου θέματος πριν από τη μεταφόρτωση..
+Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Παρουσιάστηκε σφάλμα κατά τον έλεγχο της ακεραιότητας του συμπιεσμένου θέματος.
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,Portal.ThemeShare.ThemePublish.Upload,Το συμπιεσμένο θέμα προετοιμάζεται για ανέβασμα..
 Portal\Controls\ThemeShare\Portal.ThemeShare.EL.xaml,,

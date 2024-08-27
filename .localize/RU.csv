@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.RU.xaml,Portal.Category.ArtificialIntelligence,�
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Artworks,произведения искусства
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Bard,Бард
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.BlackandWhite,Черно-белые
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Brands,Бренды
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.CartoonandComics,Мультфильмы и Комиксы
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.CitiesandPlaces,Города и Места
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.CloudsandSkies,Облака и Небеса
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.RU.xaml,Portal.Category.Music,Музыка
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Nature,Природа
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Nightscapes,Ночные Пейзажи
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.PatternsandTextures,Узоры и Текстуры
+Portal\Category\Portal.Category.RU.xaml,Portal.Category.Persons,Люди
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.PixelArt,Пиксельное Искусство
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Retro,Ретро
 Portal\Category\Portal.Category.RU.xaml,Portal.Category.Science,Наука
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Size,Проверяется размер сжатой темы..
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Сжатую тему невозможно загрузить, так как она превышает {0} MB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Check,Проверка целостности сжатой темы перед загрузкой..
+Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Произошла ошибка при проверке целостности сжатой темы.
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,Portal.ThemeShare.ThemePublish.Upload,Сжатая тема готовится к загрузке..
 Portal\Controls\ThemeShare\Portal.ThemeShare.RU.xaml,,

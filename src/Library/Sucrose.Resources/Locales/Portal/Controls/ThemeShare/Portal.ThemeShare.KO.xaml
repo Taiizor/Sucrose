@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">압축된 테마가 {0} MB를 초과하여 업로드할 수 없습니다.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">압축된 테마의 무결성이 업로드 전에 확인되고 있습니다..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">압축된 테마의 무결성을 확인하는 동안 오류가 발생했습니다.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">압축된 테마를 업로드 준비 중입니다..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">압축된 테마를 업로드 중입니다..</system:String>

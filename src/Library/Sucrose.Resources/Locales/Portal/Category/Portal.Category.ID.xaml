@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Karya Seni</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Hitam dan Putih</system:String>
+    <system:String x:Key="Portal.Category.Brands">Merek</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Kartun dan Komik</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Kota dan Tempat</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Awan dan Langit</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Alam</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Pemandangan Malam</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Pola dan Tekstur</system:String>
+    <system:String x:Key="Portal.Category.Persons">Orang</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Seni Piksel</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.Science">Ilmu Pengetahuan</system:String>

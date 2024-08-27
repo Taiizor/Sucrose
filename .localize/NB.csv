@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.NB.xaml,Portal.Category.ArtificialIntelligence,K
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Artworks,Kunstverk
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Bard,Skald
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.BlackandWhite,Svart og Hvitt
+Portal\Category\Portal.Category.NB.xaml,Portal.Category.Brands,Merker
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.CartoonandComics,Tegnefilm og Tegneserier
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.CitiesandPlaces,Byer og Steder
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.CloudsandSkies,Skyer og Himmel
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.NB.xaml,Portal.Category.Music,Musikk
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Nature,Natur
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Nightscapes,Nattlandskap
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.PatternsandTextures,Mønstre og Teksturer
+Portal\Category\Portal.Category.NB.xaml,Portal.Category.Persons,Personer
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.PixelArt,Pikselkunst
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.NB.xaml,Portal.Category.Science,Vitenskap
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Size,Størrelsen på det komprimerte temaet blir sjekket..
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Det komprimerte temaet kan ikke lastes opp fordi det overstiger {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Check,Integriteten til det komprimerte temaet sjekkes før opplasting..
+Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Check.Error,En feil oppstod under kontrollen av integriteten til det komprimerte temaet.
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,Portal.ThemeShare.ThemePublish.Upload,Det komprimerte temaet blir forberedt for opplastning..
 Portal\Controls\ThemeShare\Portal.ThemeShare.NB.xaml,,

@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">压缩主题的大小超过 {0} MB，无法上传。</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">正在检查压缩主题的完整性，然后再上传..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">检查压缩主题的完整性时出错。</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">压缩主题正在准备上传..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">压缩主题正在上传..</system:String>

@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.ES.xaml,Portal.Category.ArtificialIntelligence,I
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.Artworks,Obras de Arte
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.Bard,Bardo
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.BlackandWhite,Blanco y Negro
+Portal\Category\Portal.Category.ES.xaml,Portal.Category.Brands,Marcas
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.CartoonandComics,Dibujos Animados y Cómics
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.CitiesandPlaces,Ciudades y Lugares
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.CloudsandSkies,Nubes y Cielos
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.ES.xaml,Portal.Category.Music,Música
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.Nature,Naturaleza
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.Nightscapes,Paisajes Nocturnos
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.PatternsandTextures,Patrones y Texturas
+Portal\Category\Portal.Category.ES.xaml,Portal.Category.Persons,Personas
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.PixelArt,Arte Pixel
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.ES.xaml,Portal.Category.Science,Ciencia
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Size,Se está comprobando el tamaño del tema comprimido..
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,El tema comprimido no se puede cargar porque supera los {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Check,Se está comprobando la integridad del tema comprimido antes de subirlo..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Ocurrió un error al comprobar la integridad del tema comprimido.
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,Portal.ThemeShare.ThemePublish.Upload,El tema comprimido se está preparando para cargarlo..
 Portal\Controls\ThemeShare\Portal.ThemeShare.ES.xaml,,

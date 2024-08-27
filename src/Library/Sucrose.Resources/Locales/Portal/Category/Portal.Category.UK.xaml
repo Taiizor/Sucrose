@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Художні Твори</system:String>
     <system:String x:Key="Portal.Category.Bard">Барди</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Чорно-біле</system:String>
+    <system:String x:Key="Portal.Category.Brands">Бренди</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Мультфільми та Комікси</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Міста та Місця</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Хмари та Небо</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Природа</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Нічні Пейзажі</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Візерунки та Текстури</system:String>
+    <system:String x:Key="Portal.Category.Persons">Особи</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Піксельне Мистецтво</system:String>
     <system:String x:Key="Portal.Category.Retro">Ретро</system:String>
     <system:String x:Key="Portal.Category.Science">Наука</system:String>

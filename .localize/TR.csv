@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.TR.xaml,Portal.Category.ArtificialIntelligence,Y
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.Artworks,Sanat Eserleri
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.Bard,Bard
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.BlackandWhite,Siyah ve Beyaz
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Brands,Markalar
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.CartoonandComics,Çizgi Film ve Çizgi Roman
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.CitiesandPlaces,Şehirler ve Yerler
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.CloudsandSkies,Bulutlar ve Gökyüzü
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.TR.xaml,Portal.Category.Music,Müzik
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.Nature,Doğa
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.Nightscapes,Gece Manzaraları
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.PatternsandTextures,Desenler ve Dokular
+Portal\Category\Portal.Category.TR.xaml,Portal.Category.Persons,Kişiler
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.PixelArt,Piksel Sanatı
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.TR.xaml,Portal.Category.Science,Bilim
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Size,Sıkıştırılan temanın boyutu kontrol ediliyor..
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Sıkıştırılan temanın boyutu {0} MB'den büyük olduğu için karşıya yüklenemiyor.
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Check,Sıkıştırılan temanın karşıya yüklenmeden önce bütünlüğü kontrol ediliyor..
+Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Sıkıştırılan temanın bütünlüğü kontrol edilirken bir hata meydana geldi.
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,Portal.ThemeShare.ThemePublish.Upload,Sıkıştırılan tema karşıya yüklemek için hazırlanıyor..
 Portal\Controls\ThemeShare\Portal.ThemeShare.TR.xaml,,

@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Il tema compresso non può essere caricato perché supera i {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">L'integrità del tema compresso viene controllata prima del caricamento..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Si è verificato un errore durante il controllo dell'integrità del tema compresso.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Il tema compresso viene preparato per il caricamento..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Il tema compresso viene caricato..</system:String>

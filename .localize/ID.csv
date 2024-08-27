@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.ID.xaml,Portal.Category.ArtificialIntelligence,K
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Artworks,Karya Seni
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Bard,Bard
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.BlackandWhite,Hitam dan Putih
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Brands,Merek
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.CartoonandComics,Kartun dan Komik
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.CitiesandPlaces,Kota dan Tempat
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.CloudsandSkies,Awan dan Langit
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.ID.xaml,Portal.Category.Music,Musik
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Nature,Alam
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Nightscapes,Pemandangan Malam
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.PatternsandTextures,Pola dan Tekstur
+Portal\Category\Portal.Category.ID.xaml,Portal.Category.Persons,Orang
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.PixelArt,Seni Piksel
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.ID.xaml,Portal.Category.Science,Ilmu Pengetahuan
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Size,Ukuran tema yang dikompresi sedang diperiksa..
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,Tema yang dikompresi tidak dapat diunggah karena melebihi {0} MB.
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Check,Integritas tema terkompresi sedang diperiksa sebelum diunggah..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Terjadi kesalahan saat memeriksa integritas tema terkompresi.
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,Portal.ThemeShare.ThemePublish.Upload,Tema yang dikompresi sedang dipersiapkan untuk diunggah..
 Portal\Controls\ThemeShare\Portal.ThemeShare.ID.xaml,,

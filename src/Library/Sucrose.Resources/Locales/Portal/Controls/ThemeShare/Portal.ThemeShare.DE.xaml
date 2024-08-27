@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Das komprimierte Thema kann nicht hochgeladen werden, da es {0} MB überschreitet.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Die Integrität des komprimierten Themas wird vor dem Hochladen überprüft..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Beim Überprüfen der Integrität des komprimierten Themas ist ein Fehler aufgetreten.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Das komprimierte Thema wird zum Hochladen vorbereitet..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Das komprimierte Thema wird hochgeladen..</system:String>

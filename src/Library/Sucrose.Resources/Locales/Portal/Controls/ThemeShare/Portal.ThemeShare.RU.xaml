@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Сжатую тему невозможно загрузить, так как она превышает {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Проверка целостности сжатой темы перед загрузкой..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Произошла ошибка при проверке целостности сжатой темы.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Сжатая тема готовится к загрузке..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Сжатая тема загружается..</system:String>

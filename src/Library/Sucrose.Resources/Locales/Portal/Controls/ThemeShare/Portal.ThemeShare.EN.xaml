@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">The compressed theme cannot be uploaded because it exceeds {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">The integrity of the compressed theme is being checked before uploading..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">An error occurred while checking the integrity of the compressed theme.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">The compressed theme is being prepared for upload..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">The compressed theme is being uploaded..</system:String>

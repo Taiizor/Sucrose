@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Sıkıştırılan temanın boyutu {0} MB'den büyük olduğu için karşıya yüklenemiyor.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Sıkıştırılan temanın karşıya yüklenmeden önce bütünlüğü kontrol ediliyor..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Sıkıştırılan temanın bütünlüğü kontrol edilirken bir hata meydana geldi.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Sıkıştırılan tema karşıya yüklemek için hazırlanıyor..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Sıkıştırılan tema karşıya yükleniyor..</system:String>

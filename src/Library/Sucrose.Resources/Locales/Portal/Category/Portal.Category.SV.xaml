@@ -15,6 +15,7 @@
     <system:String x:Key="Portal.Category.Artworks">Konstverk</system:String>
     <system:String x:Key="Portal.Category.Bard">Bard</system:String>
     <system:String x:Key="Portal.Category.BlackandWhite">Svart och Vitt</system:String>
+    <system:String x:Key="Portal.Category.Brands">Varumärken</system:String>
     <system:String x:Key="Portal.Category.CartoonandComics">Tecknat och Serier</system:String>
     <system:String x:Key="Portal.Category.CitiesandPlaces">Städer och Platser</system:String>
     <system:String x:Key="Portal.Category.CloudsandSkies">Moln och Himmel</system:String>
@@ -45,6 +46,7 @@
     <system:String x:Key="Portal.Category.Nature">Natur</system:String>
     <system:String x:Key="Portal.Category.Nightscapes">Nattlandskap</system:String>
     <system:String x:Key="Portal.Category.PatternsandTextures">Mönster och Texturer</system:String>
+    <system:String x:Key="Portal.Category.Persons">Personer</system:String>
     <system:String x:Key="Portal.Category.PixelArt">Pixelkonst</system:String>
     <system:String x:Key="Portal.Category.Retro">Retro</system:String>
     <system:String x:Key="Portal.Category.Science">Vetenskap</system:String>

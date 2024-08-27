@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.CS.xaml,Portal.Category.ArtificialIntelligence,U
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.Artworks,Umělecká Díla
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.Bard,Bard
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.BlackandWhite,Černobílá
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Brands,Značky
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.CartoonandComics,Kreslený Film a Komiksy
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.CitiesandPlaces,Města a Místa
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.CloudsandSkies,Oblaka a Nebe
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.CS.xaml,Portal.Category.Music,Hudba
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.Nature,Příroda
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.Nightscapes,Noční Krajiny
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.PatternsandTextures,Vzory a Textury
+Portal\Category\Portal.Category.CS.xaml,Portal.Category.Persons,Osoby
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.PixelArt,Pixel Art
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.CS.xaml,Portal.Category.Science,Věda
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Size,Kontroluje se velikost komprimovaného tématu..
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Komprimované téma nelze nahrát, protože přesahuje {0} MB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Check,Před nahráním je kontrolována integrita komprimovaného motivu..
+Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Při kontrole integrity komprimovaného motivu došlo k chybě.
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,Portal.ThemeShare.ThemePublish.Upload,Komprimované téma se připravuje k nahrání..
 Portal\Controls\ThemeShare\Portal.ThemeShare.CS.xaml,,

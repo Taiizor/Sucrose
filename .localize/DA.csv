@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.DA.xaml,Portal.Category.ArtificialIntelligence,K
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.Artworks,Kunstværker
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.Bard,Bard
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.BlackandWhite,Sort og Hvid
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Brands,Mærker
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.CartoonandComics,Tegnefilm og Tegneserier
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.CitiesandPlaces,Byer og Steder
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.CloudsandSkies,Skyer og Himle
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.DA.xaml,Portal.Category.Music,Musik
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.Nature,Natur
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.Nightscapes,Nataktig Udsigt
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.PatternsandTextures,Mønstre og Teksturer
+Portal\Category\Portal.Category.DA.xaml,Portal.Category.Persons,Personer
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.PixelArt,Pixelkunst
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.Retro,Retro
 Portal\Category\Portal.Category.DA.xaml,Portal.Category.Science,Videnskab
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Size,Størrelsen af det komprimerede tema bliver kontrolleret..
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,"Det komprimerede tema kan ikke uploades, da det overstiger {0} MB."
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Check,"Komprimerede tema kontrolleres for integritet, før det uploades.."
+Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Check.Error,Der opstod en fejl under kontrol af integriteten af det komprimerede tema.
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,Portal.ThemeShare.ThemePublish.Upload,Det komprimerede tema forberedes til upload..
 Portal\Controls\ThemeShare\Portal.ThemeShare.DA.xaml,,

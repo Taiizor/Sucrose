@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.ZH.xaml,Portal.Category.ArtificialIntelligence,�
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Artworks,艺术作品
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Bard,诗人
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.BlackandWhite,黑白
+Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Brands,品牌
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.CartoonandComics,卡通与漫画
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.CitiesandPlaces,城市与地点
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.CloudsandSkies,云和天空
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Music,音乐
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Nature,自然
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Nightscapes,夜景
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.PatternsandTextures,图案和纹理
+Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Persons,人物
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.PixelArt,像素艺术
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Retro,复古
 Portal\Category\Portal.Category.ZH.xaml,Portal.Category.Science,科学
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Size,正在检查压缩主题的大小..
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,压缩主题的大小超过 {0} MB，无法上传。
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Check,正在检查压缩主题的完整性，然后再上传..
+Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Check.Error,检查压缩主题的完整性时出错。
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,Portal.ThemeShare.ThemePublish.Upload,压缩主题正在准备上传..
 Portal\Controls\ThemeShare\Portal.ThemeShare.ZH.xaml,,

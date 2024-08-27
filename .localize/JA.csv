@@ -267,6 +267,7 @@ Portal\Category\Portal.Category.JA.xaml,Portal.Category.ArtificialIntelligence,�
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Artworks,アートワーク
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Bard,吟遊詩人
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.BlackandWhite,白黒
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Brands,ブランド
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.CartoonandComics,アニメとコミック
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.CitiesandPlaces,都市と場所
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.CloudsandSkies,雲と空
@@ -297,6 +298,7 @@ Portal\Category\Portal.Category.JA.xaml,Portal.Category.Music,音楽
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Nature,自然
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Nightscapes,夜景
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.PatternsandTextures,パターンとテクスチャ
+Portal\Category\Portal.Category.JA.xaml,Portal.Category.Persons,人物
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.PixelArt,ピクセルアート
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Retro,レトロ
 Portal\Category\Portal.Category.JA.xaml,Portal.Category.Science,科学
@@ -771,6 +773,9 @@ Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Size,圧縮されたテーマのサイズが確認されています..
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Size.Exceeded,圧縮されたテーマは{0} MBを超えているため、アップロードできません。
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Check,圧縮されたテーマの整合性がアップロード前にチェックされています..
+Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Check.Error,圧縮されたテーマの整合性を確認中にエラーが発生しました。
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,Portal.ThemeShare.ThemePublish.Upload,圧縮されたテーマがアップロードの準備をしています..
 Portal\Controls\ThemeShare\Portal.ThemeShare.JA.xaml,,

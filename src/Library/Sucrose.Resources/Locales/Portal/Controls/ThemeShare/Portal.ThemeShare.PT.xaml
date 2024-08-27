@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">O tema compactado não pode ser carregado porque excede {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">A integridade do tema compactado está sendo verificada antes do upload..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Ocorreu um erro ao verificar a integridade do tema compactado.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">O tema compactado está sendo preparado para upload..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">O tema compactado está sendo carregado..</system:String>

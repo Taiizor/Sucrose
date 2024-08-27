@@ -26,6 +26,7 @@ using SSSHU = Sucrose.Shared.Space.Helper.User;
 using SSSIR = Sucrose.Shared.Store.Interface.Root;
 using SSTHI = Sucrose.Shared.Theme.Helper.Info;
 using SSZEZ = Sucrose.Shared.Zip.Extension.Zip;
+using SSZHA = Sucrose.Shared.Zip.Helper.Archive;
 
 namespace Sucrose.Portal.Views.Controls
 {
@@ -236,39 +237,50 @@ namespace Sucrose.Portal.Views.Controls
                             }
                             else
                             {
-                                State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload");
+                                State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Check");
 
                                 await Task.Delay(1000);
 
-                                Progress.IsIndeterminate = false;
-
-                                using MultipartFormDataContent Content = new();
-                                using FileStream FileStream = new(TempFile, FileMode.Open, FileAccess.Read);
-                                using StreamContent FileContent = new(new SSSEPS(FileStream, TempSize, ReportProgress));
-
-                                FileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/zip");
-                                Content.Add(FileContent, "file", Path.GetFileName(TempFile));
-
-                                State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Start");
-
-                                await Task.Delay(1000);
-
-                                try
+                                if (await Task.Run(() => SSZHA.Check(TempFile)) != SSDECT.Pass)
                                 {
-                                    Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
-                                }
-                                catch
-                                {
-                                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Error");
-                                }
-
-                                if (Response.IsSuccessStatusCode)
-                                {
-                                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Succeded");
+                                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Check", "Error");
                                 }
                                 else
                                 {
-                                    State.Text = string.Format(SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Errored"), Response.StatusCode);
+                                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload");
+
+                                    await Task.Delay(1000);
+
+                                    Progress.IsIndeterminate = false;
+
+                                    using MultipartFormDataContent Content = new();
+                                    using FileStream FileStream = new(TempFile, FileMode.Open, FileAccess.Read);
+                                    using StreamContent FileContent = new(new SSSEPS(FileStream, TempSize, ReportProgress));
+
+                                    FileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/zip");
+                                    Content.Add(FileContent, "file", Path.GetFileName(TempFile));
+
+                                    State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Start");
+
+                                    await Task.Delay(1000);
+
+                                    try
+                                    {
+                                        Response = await Client.PostAsync($"{SMR.SoferityWebsite}/{SMR.SoferityVersion}/{SMR.SoferityUpload}/{SMR.SoferityTheme}/{SSSHU.GetGuid()}/{(Category.SelectedItem as ComboBoxItem).Tag}", Content);
+                                    }
+                                    catch
+                                    {
+                                        State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Error");
+                                    }
+
+                                    if (Response.IsSuccessStatusCode)
+                                    {
+                                        State.Text = SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Succeded");
+                                    }
+                                    else
+                                    {
+                                        State.Text = string.Format(SRER.GetValue("Portal", "ThemeShare", "ThemePublish", "Upload", "Errored"), Response.StatusCode);
+                                    }
                                 }
                             }
                         }

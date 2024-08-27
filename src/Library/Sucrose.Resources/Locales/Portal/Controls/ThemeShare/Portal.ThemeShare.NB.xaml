@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Det komprimerte temaet kan ikke lastes opp fordi det overstiger {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Integriteten til det komprimerte temaet sjekkes før opplasting..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">En feil oppstod under kontrollen av integriteten til det komprimerte temaet.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Det komprimerte temaet blir forberedt for opplastning..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Det komprimerte temaet lastes opp..</system:String>

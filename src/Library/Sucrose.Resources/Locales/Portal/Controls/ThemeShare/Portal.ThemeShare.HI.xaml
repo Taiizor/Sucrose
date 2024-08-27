@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">संकुचित थीम को अपलोड नहीं किया जा सकता क्योंकि यह {0} MB से अधिक है।</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">अपलोड करने से पहले संपीड़ित थीम की अखंडता की जाँच की जा रही है..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">संपीड़ित थीम की अखंडता की जाँच करते समय एक त्रुटि हुई।</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">संकुचित थीम को अपलोड के लिए तैयार किया जा रहा है..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">संकुचित थीम अपलोड की जा रही है..</system:String>

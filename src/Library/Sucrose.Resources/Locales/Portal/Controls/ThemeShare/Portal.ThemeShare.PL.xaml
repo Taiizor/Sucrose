@@ -27,6 +27,9 @@
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Size.Exceeded">Skompresowany temat nie może zostać przesłany, ponieważ przekracza {0} MB.</system:String>
 
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check">Przed przesłaniem sprawdzana jest integralność skompresowanego motywu..</system:String>
+    <system:String x:Key="Portal.ThemeShare.ThemePublish.Check.Error">Wystąpił błąd podczas sprawdzania integralności skompresowanego motywu.</system:String>
+
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload">Przygotowanie skompresowanego tematu do przesłania..</system:String>
 
     <system:String x:Key="Portal.ThemeShare.ThemePublish.Upload.Start">Trwa przesyłanie skompresowanego tematu..</system:String>
