@@ -61,7 +61,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
                     Stream.Dispose();
                     FStream.Dispose();
 
-                    return true;
+                    return SSSHS.CheckRoot(Store);
                 }
             }
             catch
@@ -118,7 +118,7 @@ namespace Sucrose.Shared.Store.Helper.Soferity
                     Stream.Dispose();
                     FStream.Dispose();
 
-                    return true;
+                    return SSSHS.CheckRoot(Pattern);
                 }
             }
             catch

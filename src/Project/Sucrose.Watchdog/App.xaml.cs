@@ -109,7 +109,7 @@ namespace Sucrose.Watchdog
             }
         }
 
-        protected async void Configure(string[] Args)
+        protected void Configure(string[] Args)
         {
             if (Args.Any())
             {
@@ -128,7 +128,7 @@ namespace Sucrose.Watchdog
                     CultureInfo Culture = new(SWNM.GetUserDefaultUILanguage());
                     string Text = Arguments.Count() == 5 ? Arguments[4] : string.Empty;
                     string Source = Arguments.Count() == 5 ? Arguments[3] : string.Empty;
-                    string Message = await SSSHE.GetMessage(SSSHWE.Convert(Arguments[1]), SRER.GetValue("Watchdog", "ErrorEmpty"), SMR.ExceptionSplit);
+                    string Message = SSSHE.GetMessage(SSSHWE.Convert(Arguments[1]), SRER.GetValue("Watchdog", "ErrorEmpty"), SMR.ExceptionSplit);
 
                     SSSMDD DiagnosticsData = new(Id, SSSHUE.Generate($"{Name}-{Model}-{Manufacturer}"), Application, AppId, Name, Model, SSCHOS.GetServer(), SMMM.Culture.ToUpperInvariant(), SSCHV.GetText(), SSCHF.GetName(), JObject.Parse(Arguments[1]), SSCHOS.GetWorkstation(), Culture.Name, SSCHA.GetText(), Manufacturer, Culture.NativeName, SSCHOS.GetText(), SSCHOS.GetProcessArchitectureText(), SSCHV.GetOSText(), SSCHOS.GetProcessorArchitecture(), SWHSI.GetSystemInfoArchitecture());
 

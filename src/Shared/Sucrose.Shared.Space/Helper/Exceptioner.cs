@@ -1,10 +1,8 @@
-﻿using SSWW = Sucrose.Shared.Watchdog.Watch;
-
-namespace Sucrose.Shared.Space.Helper
+﻿namespace Sucrose.Shared.Space.Helper
 {
     internal static class Exceptioner
     {
-        public static async Task<string> GetMessage(Exception Error, string Empty, string Split)
+        public static string GetMessage(Exception Error, string Empty, string Split)
         {
             try
             {
@@ -30,8 +28,6 @@ namespace Sucrose.Shared.Space.Helper
             }
             catch (Exception Exception)
             {
-                await SSWW.Watch_CatchException(Exception);
-
                 return Exception.Message;
             }
         }

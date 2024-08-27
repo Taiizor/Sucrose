@@ -66,7 +66,7 @@ namespace Sucrose.Shared.Store.Helper.GitHub
                             Stream.Dispose();
                             FStream.Dispose();
 
-                            return true;
+                            return SSSHS.CheckRoot(Store);
                         }
 
                         break;
