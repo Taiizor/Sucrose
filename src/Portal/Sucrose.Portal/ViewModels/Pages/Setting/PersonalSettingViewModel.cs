@@ -362,87 +362,6 @@ namespace Sucrose.Portal.ViewModels.Pages
 
             Contents.Add(Preview);
 
-            SPVCEC Theme = new()
-            {
-                Margin = new Thickness(0, 10, 0, 0)
-            };
-
-            Theme.LeftIcon.Symbol = SymbolRegular.DrawText24;
-            Theme.Title.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme");
-            Theme.Description.Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme", "Description");
-
-            StackPanel ThemeContent = new();
-
-            StackPanel ThemeTitleContent = new()
-            {
-                Orientation = Orientation.Horizontal
-            };
-
-            TextBlock TitleLengthText = new()
-            {
-                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme", "TitleLength"),
-                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold
-            };
-
-            NumberBox TitleLength = new()
-            {
-                Icon = new SymbolIcon(SymbolRegular.TextCaseTitle24),
-                IconPlacement = ElementPlacement.Left,
-                ClearButtonEnabled = false,
-                Value = SMMM.TitleLength,
-                MaxDecimalPlaces = 0,
-                MaxLength = 3,
-                Maximum = 100,
-                Minimum = 10
-            };
-
-            TitleLength.ValueChanged += (s, e) => TitleLengthChanged(TitleLength.Value);
-
-            StackPanel ThemeDescriptionContent = new()
-            {
-                Orientation = Orientation.Horizontal,
-                Margin = new Thickness(0, 10, 0, 0)
-            };
-
-            TextBlock DescriptionLengthText = new()
-            {
-                Text = SRER.GetValue("Portal", "PersonalSettingPage", "Theme", "DescriptionLength"),
-                Foreground = SRER.GetResource<Brush>("TextFillColorPrimaryBrush"),
-                VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(0, 0, 10, 0),
-                FontWeight = FontWeights.SemiBold
-            };
-
-            NumberBox DescriptionLength = new()
-            {
-                Icon = new SymbolIcon(SymbolRegular.TextDescription24),
-                IconPlacement = ElementPlacement.Left,
-                Value = SMMM.DescriptionLength,
-                ClearButtonEnabled = false,
-                MaxDecimalPlaces = 0,
-                MaxLength = 3,
-                Maximum = 100,
-                Minimum = 10
-            };
-
-            DescriptionLength.ValueChanged += (s, e) => DescriptionLengthChanged(DescriptionLength.Value);
-
-            ThemeTitleContent.Children.Add(TitleLengthText);
-            ThemeTitleContent.Children.Add(TitleLength);
-
-            ThemeDescriptionContent.Children.Add(DescriptionLengthText);
-            ThemeDescriptionContent.Children.Add(DescriptionLength);
-
-            ThemeContent.Children.Add(ThemeTitleContent);
-            ThemeContent.Children.Add(ThemeDescriptionContent);
-
-            Theme.FooterCard = ThemeContent;
-
-            Contents.Add(Theme);
-
             SPVCEC Adaptive = new()
             {
                 Margin = new Thickness(0, 10, 0, 0)
@@ -711,16 +630,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             SMMI.PortalSettingManager.SetSetting(SMC.LibraryPreview, State);
         }
 
-        private void TitleLengthChanged(double? Value)
-        {
-            int NewValue = Convert.ToInt32(Value);
-
-            if (NewValue != SMMM.TitleLength)
-            {
-                SMMI.PortalSettingManager.SetSetting(SMC.TitleLength, NewValue);
-            }
-        }
-
         private void StoreStartStateChecked(bool State)
         {
             SMMI.EngineSettingManager.SetSetting(SMC.StoreStart, State);
@@ -788,16 +697,6 @@ namespace Sucrose.Portal.ViewModels.Pages
             if (NewValue != SMMM.LibraryPagination)
             {
                 SMMI.PortalSettingManager.SetSetting(SMC.LibraryPagination, NewValue);
-            }
-        }
-
-        private void DescriptionLengthChanged(double? Value)
-        {
-            int NewValue = Convert.ToInt32(Value);
-
-            if (NewValue != SMMM.DescriptionLength)
-            {
-                SMMI.PortalSettingManager.SetSetting(SMC.DescriptionLength, NewValue);
             }
         }
 

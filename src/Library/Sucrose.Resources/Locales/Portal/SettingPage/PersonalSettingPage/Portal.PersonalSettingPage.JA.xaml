@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">ライブラリ プレビュー:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">詳細を非表示にする:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">テーマのカスタマイズ</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">表示されるテーマの名前や説明をカスタマイズします。</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">タイトルの長さ（文字）:</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">説明の長さ（文字）:</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">適応型レイアウト</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">表示されるテーマのレイアウトや間隔をカスタマイズします。</system:String>
 

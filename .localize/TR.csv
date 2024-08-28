@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Kütüphane Önizlemesi:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Detayların Gizlenmesi:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme,Tema Özelleştirme
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme.Description,Görüntülenen temaların ismini veya açıklamasını özelleştirin.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Başlık Uzunluğu (Karakter):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Açıklama Uzunluğu (Karakter):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adaptive,Uyarlanabilir Düzen
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,Portal.PersonalSettingPage.Adaptive.Description,Görüntülenen temaların düzenini veya mesafesini özelleştirin.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.TR.xaml,,

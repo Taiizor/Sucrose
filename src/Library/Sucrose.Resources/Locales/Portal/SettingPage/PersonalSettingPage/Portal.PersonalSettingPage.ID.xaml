@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Pratinjau Perpustakaan:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Sembunyikan Rincian:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Penyesuaian Tema</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Sesuaikan nama atau deskripsi tema yang ditampilkan.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Panjang Judul (Karakter):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Panjang Deskripsi (Karakter):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Tata Letak Adaptif</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Sesuaikan tata letak atau jarak tema yang ditampilkan.</system:String>
 

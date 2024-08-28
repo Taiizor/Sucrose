@@ -82,8 +82,6 @@
 
         public const string StretchType = "StretchType";
 
-        public const string TitleLength = "TitleLength";
-
         public const string UpdateState = "UpdateState";
 
         public const string UploadValue = "UploadValue";
@@ -211,8 +209,6 @@
         public const string BackgroundStretch = "BackgroundStretch";
 
         public const string CommunicationType = "CommunicationType";
-
-        public const string DescriptionLength = "DescriptionLength";
 
         public const string DisplayScreenType = "DisplayScreenType";
 

@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">라이브러리 미리 보기:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">세부 정보 숨김:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">테마 사용자 정의</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">표시된 테마의 이름 또는 설명을 사용자 정의합니다.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">제목 길이 (문자):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">설명 길이 (문자):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">적응형 레이아웃</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">표시된 테마의 레이아웃이나 간격을 사용자 정의합니다.</system:String>
 

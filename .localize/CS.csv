@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Náhled Knižnice:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skrýt Detaily:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme,Vlastní Názvy Tématu
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme.Description,Upřesněte názvy nebo popisky zobrazených témat.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Délka Názvu (Znaky):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Délka Popisku (Znaky):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adaptive,Přizpůsobivé Rozložení
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,Portal.PersonalSettingPage.Adaptive.Description,Upravte rozložení nebo vzdálenost mezi zobrazenými tématy.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.CS.xaml,,

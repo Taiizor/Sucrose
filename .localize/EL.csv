@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Προεπισκόπηση Βιβλιοθήκης:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Απόκρυψη Λεπτομερειών:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme,Προσαρμογή Θεμάτων
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme.Description,Προσαρμόστε τα ονόματα ή τις περιγραφές των θεμάτων που εμφανίζονται.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Μήκος Τίτλου (Χαρακτήρες):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Μήκος Περιγραφής (Χαρακτήρες):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adaptive,Προσαρμοστική Διάταξη
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,Portal.PersonalSettingPage.Adaptive.Description,Προσαρμόστε τη διάταξη ή τις αποστάσεις των θεμάτων που εμφανίζονται.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.EL.xaml,,

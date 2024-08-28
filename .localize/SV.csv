@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Biblioteksförhandsvisning:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Dölj detaljer:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme,Teman Anpassning
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme.Description,Anpassa namnet eller beskrivningen för de visade temana.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Rubrik Längd (tecken):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Beskrivning Längd (tecken):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adaptive,Anpassningsbar Layout
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,Portal.PersonalSettingPage.Adaptive.Description,Anpassa layouten eller avståndet för de visade temana.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.SV.xaml,,

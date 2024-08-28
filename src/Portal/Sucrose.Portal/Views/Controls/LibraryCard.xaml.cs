@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
-using SHA = Skylark.Helper.Adaptation;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
 using SMMI = Sucrose.Manager.Manage.Internal;
@@ -80,8 +79,8 @@ namespace Sucrose.Portal.Views.Controls
             ThemeTitle.ToolTip = TitleTip;
             ThemeDescription.ToolTip = DescriptionTip;
 
-            ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
-            ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
+            ThemeTitle.Text = Info.Title;
+            ThemeDescription.Text = Info.Description;
         }
 
         private void MenuUse_Click(object sender, RoutedEventArgs e)

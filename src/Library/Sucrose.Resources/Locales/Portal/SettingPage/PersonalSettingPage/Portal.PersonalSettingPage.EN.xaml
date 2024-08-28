@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Library Preview:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Hide Details:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Theme Customization</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Customize the name or description of displayed themes.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Title Length (Characters):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Description Length (Characters):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Adaptive Layout</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Customize the layout or spacing of displayed themes.</system:String>
 

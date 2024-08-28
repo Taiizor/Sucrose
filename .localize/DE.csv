@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Bibliotheks-Vorschau:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Details Ausblenden:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Theme,Theme-Anpassung
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Theme.Description,Passen Sie den Namen oder die Beschreibung der angezeigten Themes an.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Titellänge (Zeichen):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Beschreibungslänge (Zeichen):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Adaptive,Adaptive Layout
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,Portal.PersonalSettingPage.Adaptive.Description,Passen Sie das Layout oder den Abstand der angezeigten Themes an.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DE.xaml,,

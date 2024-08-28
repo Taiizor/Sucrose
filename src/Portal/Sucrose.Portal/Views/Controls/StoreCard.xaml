@@ -125,24 +125,34 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <ui:TextBlock
-                        x:Name="ThemeTitle"
+                    <Canvas
+                        x:Name="Titler"
                         Grid.Row="0"
-                        Margin="5,5,5,0"
-                        FontSize="16"
-                        FontWeight="Bold"
-                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        Text="{DynamicResource Portal.StoreCard.TitleText}"
-                        TextWrapping="Wrap" />
-                    <ui:TextBlock
-                        x:Name="ThemeDescription"
+                        Margin="5,5,5,25">
+                        <ui:TextBlock
+                            x:Name="ThemeTitle"
+                            Width="{Binding ActualWidth, ElementName=Titler}"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                            Text="{DynamicResource Portal.StoreCard.TitleText}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="NoWrap" />
+                    </Canvas>
+                    <Canvas
+                        x:Name="Descriptioner"
                         Grid.Row="1"
-                        Margin="5,0,5,5"
-                        FontSize="12"
-                        FontWeight="SemiBold"
-                        Foreground="{DynamicResource TextPlaceholderColorBrush}"
-                        Text="{DynamicResource Portal.StoreCard.DescriptionText}"
-                        TextWrapping="Wrap" />
+                        Margin="5,0,5,20">
+                        <ui:TextBlock
+                            x:Name="ThemeDescription"
+                            Width="{Binding ActualWidth, ElementName=Descriptioner}"
+                            FontSize="12"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource TextPlaceholderColorBrush}"
+                            Text="{DynamicResource Portal.StoreCard.DescriptionText}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="NoWrap" />
+                    </Canvas>
 
                     <ui:Button
                         x:Name="Download"

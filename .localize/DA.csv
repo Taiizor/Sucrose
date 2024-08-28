@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Biblioteksforhåndsvisning:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skjul detaljer:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme,Tema Tilpasning
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme.Description,Tilpas navnet eller beskrivelsen af de viste temaer.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Titellængde (tegn):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Beskrivelseslængde (tegn):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adaptive,Tilpasning
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,Portal.PersonalSettingPage.Adaptive.Description,Tilpas layoutet eller afstanden af de viste temaer.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.DA.xaml,,

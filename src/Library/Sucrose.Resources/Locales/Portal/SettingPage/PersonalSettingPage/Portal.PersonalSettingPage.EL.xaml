@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Προεπισκόπηση Βιβλιοθήκης:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Απόκρυψη Λεπτομερειών:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Προσαρμογή Θεμάτων</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Προσαρμόστε τα ονόματα ή τις περιγραφές των θεμάτων που εμφανίζονται.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Μήκος Τίτλου (Χαρακτήρες):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Μήκος Περιγραφής (Χαρακτήρες):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Προσαρμοστική Διάταξη</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Προσαρμόστε τη διάταξη ή τις αποστάσεις των θεμάτων που εμφανίζονται.</system:String>
 

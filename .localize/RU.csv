@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Предварительный просмотр в библиотеке:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Скрывать детали:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme,Настройка тем
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme.Description,Настройте название или описание отображаемых тем.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Длина заголовка (символов):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Длина описания (символов):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adaptive,Адаптивный макет
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,Portal.PersonalSettingPage.Adaptive.Description,Настройте макет или расстояние отображаемых тем.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.RU.xaml,,

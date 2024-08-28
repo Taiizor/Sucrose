@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Podgląd Biblioteki:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ukryj Szczegóły:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Dostosowanie Tematu</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Dostosuj nazwę lub opis wyświetlanych tematów.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Długość Tytułu (Znaki):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Długość Opisu (Znaki):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Dostosowanie Układu</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Dostosuj układ lub odstępy wyświetlanych tematów.</system:String>
 

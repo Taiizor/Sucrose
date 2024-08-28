@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">库预览:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">隐藏详细信息:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">主题自定义</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">自定义显示的主题名称或描述。</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">标题长度 (字符):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">描述长度 (字符):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">自适应布局</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">自定义主题的布局或间距。</system:String>
 

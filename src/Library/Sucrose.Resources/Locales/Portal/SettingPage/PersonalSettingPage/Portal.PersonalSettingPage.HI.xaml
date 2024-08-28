@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">लाइब्रेरी पूर्वावलोकन:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">विवरण छिपाएं:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">थीम व्यक्तिकरण</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">दिखाए जाने वाले थीमों का नाम या विवरण व्यक्तिकरण करें।</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">शीर्षक लम्बाई (अक्षर):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">विवरण लम्बाई (अक्षर):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">सामग्री अनुरूप अद्यतन</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">दिखाए जाने वाले थीम का अद्यतन अंदाज या दूरी करें।</system:String>
 

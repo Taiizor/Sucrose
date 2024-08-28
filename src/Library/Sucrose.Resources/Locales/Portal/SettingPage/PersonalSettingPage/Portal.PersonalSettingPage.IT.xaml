@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Anteprima della Libreria:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Nascondi Dettagli:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Personalizza i Temi</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personalizza il nome o la descrizione dei temi visualizzati.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Lunghezza del Titolo (Caratteri):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Lunghezza della Descrizione (Caratteri):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Layout Adattivo</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Personalizza il layout o la distanza tra i temi visualizzati.</system:String>
 

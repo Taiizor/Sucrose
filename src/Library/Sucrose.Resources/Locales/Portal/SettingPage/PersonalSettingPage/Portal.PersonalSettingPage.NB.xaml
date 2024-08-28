@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotek Forhåndsvisning:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skjul Detaljer:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Tema Tilpasning</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Tilpass navnet eller beskrivelsen på temaene som vises.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Tittel Lengde (Tegn):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Beskrivelse Lengde (Tegn):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Tilpassbar Oppsett</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Tilpass oppsettet eller avstanden mellom temaene som vises.</system:String>
 

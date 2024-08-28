@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Pratonton Perpustakaan:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Sembunyikan Butiran:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Penyesuaian Tema</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Penyesuaian nama atau huraian tema yang dipaparkan.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Panjang Tajuk (Aksara):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Panjang Huraian (Aksara):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Larasan Adaptif</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Penyesuaian susunan atau jarak tema yang dipaparkan.</system:String>
 

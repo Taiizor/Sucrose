@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Vista Previa de la Biblioteca:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ocultar Detalles:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Personalización de Temas</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personaliza el nombre o la descripción de los temas mostrados.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Longitud del Título (Caracteres):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Longitud de la Descripción (Caracteres):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Diseño Adaptativo</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Personaliza el diseño o el espacio de los temas mostrados.</system:String>
 

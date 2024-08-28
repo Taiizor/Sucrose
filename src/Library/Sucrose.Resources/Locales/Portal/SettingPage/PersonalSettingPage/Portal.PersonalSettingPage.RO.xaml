@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Previzualizare Bibliotecă:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Ascunde Detaliile:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Personalizare Temă</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Personalizați numele sau descrierea temelor afișate.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Lungime Titlu (Caractere):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Lungime Descriere (Caractere):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Aspect Adaptabil</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Personalizați aspectul sau distanța dintre temele afișate.</system:String>
 

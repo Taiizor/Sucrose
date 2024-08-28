@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,ライブラリ プレビュー:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,詳細を非表示にする:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme,テーマのカスタマイズ
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme.Description,表示されるテーマの名前や説明をカスタマイズします。
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme.TitleLength,タイトルの長さ（文字）:
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,説明の長さ（文字）:
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adaptive,適応型レイアウト
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,Portal.PersonalSettingPage.Adaptive.Description,表示されるテーマのレイアウトや間隔をカスタマイズします。
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.JA.xaml,,

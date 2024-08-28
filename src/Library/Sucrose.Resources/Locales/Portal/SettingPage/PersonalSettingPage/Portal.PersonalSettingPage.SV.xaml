@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Biblioteksförhandsvisning:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Dölj detaljer:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Teman Anpassning</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Anpassa namnet eller beskrivningen för de visade temana.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Rubrik Längd (tecken):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Beskrivning Längd (tecken):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Anpassningsbar Layout</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Anpassa layouten eller avståndet för de visade temana.</system:String>
 

@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Náhled Knižnice:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Skrýt Detaily:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Vlastní Názvy Tématu</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Upřesněte názvy nebo popisky zobrazených témat.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Délka Názvu (Znaky):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Délka Popisku (Znaky):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Přizpůsobivé Rozložení</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Upravte rozložení nebo vzdálenost mezi zobrazenými tématy.</system:String>
 

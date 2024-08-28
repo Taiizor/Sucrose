@@ -7,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
-using SHA = Skylark.Helper.Adaptation;
 using SHG = Skylark.Helper.Generator;
 using SHV = Skylark.Helper.Versionly;
 using SMC = Sucrose.Memory.Constant;
@@ -439,8 +438,8 @@ namespace Sucrose.Portal.Views.Controls
                     ThemeTitle.ToolTip = TitleTip;
                     ThemeDescription.ToolTip = DescriptionTip;
 
-                    ThemeTitle.Text = Info.Title.Length > SMMM.TitleLength ? $"{SHA.Cut(Info.Title, SMMM.TitleLength)}..." : Info.Title;
-                    ThemeDescription.Text = Info.Description.Length > SMMM.DescriptionLength ? $"{SHA.Cut(Info.Description, SMMM.DescriptionLength)}..." : Info.Description;
+                    ThemeTitle.Text = Info.Title;
+                    ThemeDescription.Text = Info.Description;
 
                     string ImagePath = Path.Combine(Theme, Info.Thumbnail);
 

@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Bibliotheekvoorbeeld:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Details Verbergen:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Themaaanpassing</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Pas de naam of beschrijving van weergegeven thema's aan.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Titellengte (karakters):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Beschrijvingslengte (karakters):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Aanpasbaar Lay-out</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Pas de lay-out of afstand van weergegeven thema's aan.</system:String>
 

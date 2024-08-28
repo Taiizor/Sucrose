@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Предварительный просмотр в библиотеке:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Скрывать детали:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Настройка тем</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Настройте название или описание отображаемых тем.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Длина заголовка (символов):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Длина описания (символов):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Адаптивный макет</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Настройте макет или расстояние отображаемых тем.</system:String>
 

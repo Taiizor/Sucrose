@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Pratinjau Perpustakaan:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Sembunyikan Rincian:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme,Penyesuaian Tema
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme.Description,Sesuaikan nama atau deskripsi tema yang ditampilkan.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Panjang Judul (Karakter):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Panjang Deskripsi (Karakter):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adaptive,Tata Letak Adaptif
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,Portal.PersonalSettingPage.Adaptive.Description,Sesuaikan tata letak atau jarak tema yang ditampilkan.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ID.xaml,,

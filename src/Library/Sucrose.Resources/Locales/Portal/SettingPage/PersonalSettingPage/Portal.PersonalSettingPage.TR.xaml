@@ -38,13 +38,6 @@
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreview">Kütüphane Önizlemesi:</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Preview.LibraryPreviewHide">Detayların Gizlenmesi:</system:String>
 
-    <system:String x:Key="Portal.PersonalSettingPage.Theme">Tema Özelleştirme</system:String>
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.Description">Görüntülenen temaların ismini veya açıklamasını özelleştirin.</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.TitleLength">Başlık Uzunluğu (Karakter):</system:String>
-
-    <system:String x:Key="Portal.PersonalSettingPage.Theme.DescriptionLength">Açıklama Uzunluğu (Karakter):</system:String>
-
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive">Uyarlanabilir Düzen</system:String>
     <system:String x:Key="Portal.PersonalSettingPage.Adaptive.Description">Görüntülenen temaların düzenini veya mesafesini özelleştirin.</system:String>
 

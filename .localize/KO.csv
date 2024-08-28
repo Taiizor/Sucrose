@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,라이브러리 미리 보기:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,세부 정보 숨김:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme,테마 사용자 정의
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme.Description,표시된 테마의 이름 또는 설명을 사용자 정의합니다.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme.TitleLength,제목 길이 (문자):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,설명 길이 (문자):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adaptive,적응형 레이아웃
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,Portal.PersonalSettingPage.Adaptive.Description,표시된 테마의 레이아웃이나 간격을 사용자 정의합니다.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.KO.xaml,,

@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,库预览:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,隐藏详细信息:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Theme,主题自定义
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Theme.Description,自定义显示的主题名称或描述。
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Theme.TitleLength,标题长度 (字符):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,描述长度 (字符):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Adaptive,自适应布局
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,Portal.PersonalSettingPage.Adaptive.Description,自定义主题的布局或间距。
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.ZH.xaml,,

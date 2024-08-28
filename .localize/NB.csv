@@ -1022,13 +1022,6 @@ Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Preview.LibraryPreview,Bibliotek Forhåndsvisning:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Preview.LibraryPreviewHide,Skjul Detaljer:
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Theme,Tema Tilpasning
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Theme.Description,Tilpass navnet eller beskrivelsen på temaene som vises.
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Theme.TitleLength,Tittel Lengde (Tegn):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,,
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Theme.DescriptionLength,Beskrivelse Lengde (Tegn):
-Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,,
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Adaptive,Tilpassbar Oppsett
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,Portal.PersonalSettingPage.Adaptive.Description,Tilpass oppsettet eller avstanden mellom temaene som vises.
 Portal\SettingPage\PersonalSettingPage\Portal.PersonalSettingPage.NB.xaml,,
