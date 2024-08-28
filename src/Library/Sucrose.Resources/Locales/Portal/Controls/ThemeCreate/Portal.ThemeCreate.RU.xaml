@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Выберите Файл Приложения</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Файлы Приложений (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Понял</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Важное Уведомление</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Выбранный файл будет включен в тему вместе со всеми другими файлами и папками в каталоге.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Понял</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Предупреждение о доступе</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">У вас нет разрешения на доступ к выбранному файлу.</system:String>

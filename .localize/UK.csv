@@ -655,8 +655,12 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ApplicationSource.Title,Виберіть Файл додатка
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Файли додатків (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Copy.Close,Зрозумів
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Copy.Title,Важливе Попередження
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Copy.Message,Вибраний файл буде включений у тему разом з усіма іншими файлами та папками в каталозі.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Access.Close,Зрозуміло
-Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Access.Title,Попередження про доступ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Access.Title,Попередження про Доступ
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.UK.xaml,Portal.ThemeCreate.Access.Message,У вас немає дозволу на доступ до вибраного файлу.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Title,Видалення Теми
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.UK.xaml,Portal.ThemeDelete.Delete,Видалити

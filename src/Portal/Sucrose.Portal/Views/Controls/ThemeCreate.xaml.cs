@@ -318,6 +318,15 @@ namespace Sucrose.Portal.Views.Controls
                     Button.BorderBrush = WebThumbnail.BorderBrush;
                     WebTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
                     WebDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Web);
+
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Copy", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Copy", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Copy", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
                 }
                 else
                 {
@@ -476,6 +485,15 @@ namespace Sucrose.Portal.Views.Controls
                     Button.BorderBrush = ApplicationThumbnail.BorderBrush;
                     ApplicationTitle.Text = SPETC.GetTitle(Path.GetFileNameWithoutExtension(FileDialog.FileName));
                     ApplicationDescription.Text = SPETC.GetDescription(Path.GetFileNameWithoutExtension(FileDialog.FileName), SSDEWT.Application);
+
+                    MessageBox Warning = new()
+                    {
+                        Title = SRER.GetValue("Portal", "ThemeCreate", "Copy", "Title"),
+                        Content = SRER.GetValue("Portal", "ThemeCreate", "Copy", "Message"),
+                        CloseButtonText = SRER.GetValue("Portal", "ThemeCreate", "Copy", "Close")
+                    };
+
+                    await Warning.ShowDialogAsync();
                 }
                 else
                 {

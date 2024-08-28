@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ApplicationSource.Title,选择应用程序文件
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.ApplicationSource.Filter,应用程序文件 (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Copy.Close,明白了
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Copy.Title,重要提示
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Copy.Message,所选文件将与目录中的所有其他文件和文件夹一起包含在主题中。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Access.Close,明白
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Access.Title,访问警告
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ZH.xaml,Portal.ThemeCreate.Access.Message,您没有权限访问所选文件。

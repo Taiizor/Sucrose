@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Επιλέξτε Αρχείο εφαρμογής
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Αρχεία Εφαρμογών (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Copy.Close,Κατάλαβα
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Copy.Title,Σημαντική Προειδοποίηση
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Copy.Message,Το επιλεγμένο αρχείο θα συμπεριληφθεί στο θέμα μαζί με όλα τα υπόλοιπα αρχεία και φακέλους στον συγκεκριμένο κατάλογο.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Access.Close,Κατάλαβα
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Access.Title,Προειδοποίηση Πρόσβασης
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.EL.xaml,Portal.ThemeCreate.Access.Message,Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.

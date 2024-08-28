@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ApplicationSource.Title,Välj Applikationsfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Applikationsfiler (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Copy.Close,Förstått
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Copy.Title,Viktigt Meddelande
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Copy.Message,Den valda filen kommer att inkluderas i temat tillsammans med alla andra filer och mappar i katalogen.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Access.Close,Förstått
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Access.Title,Åtkomstvarning
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.SV.xaml,Portal.ThemeCreate.Access.Message,Du har inte behörighet att få åtkomst till den valda filen.

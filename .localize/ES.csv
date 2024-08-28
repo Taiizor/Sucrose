@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.ApplicationSource.Title,Seleccionar Archivo de Aplicación
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Archivos de Aplicación (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.Copy.Close,Entendido
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.Copy.Title,Aviso Importante
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.Copy.Message,El archivo seleccionado se incluirá en el tema junto con todos los demás archivos y carpetas del directorio.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.Access.Close,Entendido
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.Access.Title,Advertencia de Acceso
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ES.xaml,Portal.ThemeCreate.Access.Message,No tienes permiso para acceder al archivo seleccionado.

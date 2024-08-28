@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">选择应用程序文件</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">应用程序文件 (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">明白了</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">重要提示</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">所选文件将与目录中的所有其他文件和文件夹一起包含在主题中。</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">明白</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">访问警告</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">您没有权限访问所选文件。</system:String>

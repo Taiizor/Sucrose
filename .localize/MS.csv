@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ApplicationSource.Title,Pilih Fail Aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Fail Aplikasi (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Copy.Close,Faham
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Copy.Title,Notis Penting
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Copy.Message,Fail yang dipilih akan dimasukkan ke dalam tema bersama dengan semua fail dan folder lain dalam direktori.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Access.Close,Faham
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Access.Title,Amaran Akses
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.MS.xaml,Portal.ThemeCreate.Access.Message,Anda tidak mempunyai kebenaran untuk mengakses fail yang dipilih.

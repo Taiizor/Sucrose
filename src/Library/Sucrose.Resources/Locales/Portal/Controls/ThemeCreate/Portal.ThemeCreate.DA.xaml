@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Vælg Programfil</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Programfiler (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Forstået</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Vigtig Advarsel</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Den valgte fil vil blive inkluderet i temaet sammen med alle andre filer og mapper i den pågældende mappe.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Forstået</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Adgangsvarsel</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Du har ikke tilladelse til at få adgang til den valgte fil.</system:String>

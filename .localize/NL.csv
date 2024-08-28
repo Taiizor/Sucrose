@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ApplicationSource.Title,Selecteer Toepassingsbestand
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Toepassingsbestanden (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Copy.Close,Begrepen
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Copy.Title,Belangrijke Mededeling
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Copy.Message,Het geselecteerde bestand wordt samen met alle andere bestanden en mappen in de directory opgenomen in het thema.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Access.Close,Begrepen
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Access.Title,Toegangswaarschuwing
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NL.xaml,Portal.ThemeCreate.Access.Message,U heeft geen toestemming om toegang te krijgen tot het geselecteerde bestand.

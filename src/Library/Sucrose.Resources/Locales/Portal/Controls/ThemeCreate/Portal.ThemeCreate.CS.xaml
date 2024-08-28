@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Vyberte Soubor Aplikace</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Soubory Aplikací (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Rozumím</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Důležité Upozornění</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Vybraný soubor bude zahrnut do motivu spolu se všemi ostatními soubory a složkami v daném adresáři.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Rozumím</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Upozornění na přístup</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Nemáte oprávnění k přístupu k vybranému souboru.</system:String>

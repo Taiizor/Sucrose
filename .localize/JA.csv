@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ApplicationSource.Title,アプリケーションファイルを選択
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.ApplicationSource.Filter,アプリケーションファイル (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Copy.Close,わかりました
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Copy.Title,重要なお知らせ
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Copy.Message,選択されたファイルは、そのディレクトリ内の他のすべてのファイルやフォルダと一緒にテーマに含まれます。
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Access.Close,わかりました
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Access.Title,アクセス警告
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.JA.xaml,Portal.ThemeCreate.Access.Message,選択したファイルにアクセスする権限がありません。

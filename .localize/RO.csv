@@ -655,7 +655,11 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ApplicationSource.Title,Selectați Fișierul de Aplicație
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Fișiere de Aplicație (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
-Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Access.Close,Am înțeles
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Copy.Close,Am Înțeles
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Copy.Title,Notificare Importantă
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Copy.Message,Fișierul selectat va fi inclus în tema împreună cu toate celelalte fișiere și foldere din director.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Access.Close,Am Înțeles
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Access.Title,Avertisment de Acces
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RO.xaml,Portal.ThemeCreate.Access.Message,Nu aveți permisiunea de a accesa fișierul selectat.
 Portal\Controls\ThemeDelete\Portal.ThemeDelete.RO.xaml,Portal.ThemeDelete.Title,Ștergere Temă

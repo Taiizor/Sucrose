@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ApplicationSource.Title,Velg Programfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Programfiler (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Copy.Close,Forstått
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Copy.Title,Viktig Advarsel
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Copy.Message,Den valgte filen vil bli inkludert i temaet sammen med alle andre filer og mapper i katalogen.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Access.Close,Forstått
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Access.Title,Tilgangsvarsel
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.NB.xaml,Portal.ThemeCreate.Access.Message,Du har ikke tillatelse til å få tilgang til den valgte filen.

@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Selecteer Toepassingsbestand</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Toepassingsbestanden (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Begrepen</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Belangrijke Mededeling</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Het geselecteerde bestand wordt samen met alle andere bestanden en mappen in de directory opgenomen in het thema.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Begrepen</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Toegangswaarschuwing</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">U heeft geen toestemming om toegang te krijgen tot het geselecteerde bestand.</system:String>

@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ApplicationSource.Title,एप्लिकेशन फ़ाइल चुनें
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.ApplicationSource.Filter,एप्लिकेशन फ़ाइलें (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Copy.Close,समझ गया
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Copy.Title,महत्वपूर्ण सूचना
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Copy.Message,चयनित फ़ाइल को उस निर्देशिका में अन्य सभी फ़ाइलों और फ़ोल्डरों के साथ थीम में शामिल किया जाएगा।
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Access.Close,समझ गया
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Access.Title,प्रवेश चेतावनी
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.HI.xaml,Portal.ThemeCreate.Access.Message,आपको चयनित फ़ाइल तक पहुंचने की अनुमति नहीं है।

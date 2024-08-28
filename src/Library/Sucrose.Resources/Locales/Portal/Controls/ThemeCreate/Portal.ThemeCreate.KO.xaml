@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">응용 프로그램 파일 선택</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">응용 프로그램 파일 (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">알겠습니다</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">중요 공지</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">선택한 파일은 해당 디렉토리의 다른 모든 파일 및 폴더와 함께 테마에 포함됩니다.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">알겠습니다</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">접근 경고</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">선택한 파일에 접근할 권한이 없습니다.</system:String>

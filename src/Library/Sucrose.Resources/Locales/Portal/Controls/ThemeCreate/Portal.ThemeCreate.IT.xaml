@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Seleziona File di Applicazione</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">File Applicazione (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Ho Capito</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Avviso Importante</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Il file selezionato sarà incluso nel tema insieme a tutti gli altri file e cartelle nella directory.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Capito</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Avviso di Accesso</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Non hai il permesso di accedere al file selezionato.</system:String>

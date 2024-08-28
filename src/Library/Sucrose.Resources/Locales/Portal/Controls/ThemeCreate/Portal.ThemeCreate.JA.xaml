@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">アプリケーションファイルを選択</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">アプリケーションファイル (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">わかりました</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">重要なお知らせ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">選択されたファイルは、そのディレクトリ内の他のすべてのファイルやフォルダと一緒にテーマに含まれます。</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">わかりました</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">アクセス警告</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">選択したファイルにアクセスする権限がありません。</system:String>

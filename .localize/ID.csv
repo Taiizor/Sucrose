@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ApplicationSource.Title,Pilih File Aplikasi
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.ApplicationSource.Filter,File Aplikasi (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Copy.Close,Mengerti
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Copy.Title,Pemberitahuan Penting
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Copy.Message,File yang dipilih akan dimasukkan ke dalam tema bersama dengan semua file dan folder lain di direktori.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Access.Close,Mengerti
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Access.Title,Peringatan Akses
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.ID.xaml,Portal.ThemeCreate.Access.Message,Anda tidak memiliki izin untuk mengakses file yang dipilih.

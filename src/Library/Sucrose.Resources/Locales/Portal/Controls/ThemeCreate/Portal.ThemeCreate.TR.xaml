@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Uygulama Dosyası Seç</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Uygulama Dosyaları (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Anladım</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Önemli Uyarı</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Seçtiğiniz dosya, bulunduğu dizindeki diğer tüm dosya ve klasörlerle birlikte temaya dahil edilecektir.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Anladım</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Erişim Uyarısı</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Seçtiğiniz dosyaya erişim yetkiniz bulunmamakta.</system:String>

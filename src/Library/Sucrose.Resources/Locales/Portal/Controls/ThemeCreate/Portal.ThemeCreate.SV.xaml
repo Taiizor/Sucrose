@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Välj Applikationsfil</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Applikationsfiler (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Förstått</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Viktigt Meddelande</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Den valda filen kommer att inkluderas i temat tillsammans med alla andra filer och mappar i katalogen.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Förstått</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Åtkomstvarning</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Du har inte behörighet att få åtkomst till den valda filen.</system:String>

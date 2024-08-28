@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Wybierz Plik Aplikacji</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Pliki Aplikacji (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Zrozumiałem</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Ważne Powiadomienie</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Wybrany plik zostanie dołączony do motywu wraz ze wszystkimi innymi plikami i folderami w katalogu.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Zrozumiałem</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Ostrzeżenie o Dostępie</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Nie masz uprawnień do dostępu do wybranego pliku.</system:String>

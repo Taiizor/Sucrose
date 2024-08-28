@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ApplicationSource.Title,Vyberte Soubor Aplikace
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Soubory Aplikací (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Copy.Close,Rozumím
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Copy.Title,Důležité Upozornění
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Copy.Message,Vybraný soubor bude zahrnut do motivu spolu se všemi ostatními soubory a složkami v daném adresáři.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Access.Close,Rozumím
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Access.Title,Upozornění na přístup
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.CS.xaml,Portal.ThemeCreate.Access.Message,Nemáte oprávnění k přístupu k vybranému souboru.

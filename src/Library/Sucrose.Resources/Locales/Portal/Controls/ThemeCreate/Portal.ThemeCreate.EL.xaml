@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Επιλέξτε Αρχείο εφαρμογής</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Αρχεία Εφαρμογών (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Κατάλαβα</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Σημαντική Προειδοποίηση</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Το επιλεγμένο αρχείο θα συμπεριληφθεί στο θέμα μαζί με όλα τα υπόλοιπα αρχεία και φακέλους στον συγκεκριμένο κατάλογο.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Κατάλαβα</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Προειδοποίηση Πρόσβασης</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Δεν έχετε δικαίωμα πρόσβασης στο επιλεγμένο αρχείο.</system:String>

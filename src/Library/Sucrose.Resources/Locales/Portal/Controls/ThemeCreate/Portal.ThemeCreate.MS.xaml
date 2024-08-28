@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Pilih Fail Aplikasi</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Fail Aplikasi (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Faham</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Notis Penting</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Fail yang dipilih akan dimasukkan ke dalam tema bersama dengan semua fail dan folder lain dalam direktori.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Faham</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">Amaran Akses</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">Anda tidak mempunyai kebenaran untuk mengakses fail yang dipilih.</system:String>

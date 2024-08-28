@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ApplicationSource.Title,Выберите Файл Приложения
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Файлы Приложений (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Copy.Close,Понял
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Copy.Title,Важное Уведомление
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Copy.Message,Выбранный файл будет включен в тему вместе со всеми другими файлами и папками в каталоге.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Access.Close,Понял
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Access.Title,Предупреждение о доступе
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.RU.xaml,Portal.ThemeCreate.Access.Message,У вас нет разрешения на доступ к выбранному файлу.

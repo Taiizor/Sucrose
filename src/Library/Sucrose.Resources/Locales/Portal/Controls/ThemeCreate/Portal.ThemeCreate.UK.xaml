@@ -71,7 +71,11 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">Виберіть Файл додатка</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">Файли додатків (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">Зрозумів</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">Важливе Попередження</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">Вибраний файл буде включений у тему разом з усіма іншими файлами та папками в каталозі.</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">Зрозуміло</system:String>
-    <system:String x:Key="Portal.ThemeCreate.Access.Title">Попередження про доступ</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Access.Title">Попередження про Доступ</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">У вас немає дозволу на доступ до вибраного файлу.</system:String>
 </ResourceDictionary>

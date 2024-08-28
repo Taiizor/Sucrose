@@ -71,6 +71,10 @@
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Title">एप्लिकेशन फ़ाइल चुनें</system:String>
     <system:String x:Key="Portal.ThemeCreate.ApplicationSource.Filter">एप्लिकेशन फ़ाइलें (*.exe)|*.exe</system:String>
 
+    <system:String x:Key="Portal.ThemeCreate.Copy.Close">समझ गया</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Title">महत्वपूर्ण सूचना</system:String>
+    <system:String x:Key="Portal.ThemeCreate.Copy.Message">चयनित फ़ाइल को उस निर्देशिका में अन्य सभी फ़ाइलों और फ़ोल्डरों के साथ थीम में शामिल किया जाएगा।</system:String>
+
     <system:String x:Key="Portal.ThemeCreate.Access.Close">समझ गया</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Title">प्रवेश चेतावनी</system:String>
     <system:String x:Key="Portal.ThemeCreate.Access.Message">आपको चयनित फ़ाइल तक पहुंचने की अनुमति नहीं है।</system:String>

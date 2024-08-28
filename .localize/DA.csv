@@ -655,6 +655,10 @@ Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ApplicationSource.Title,Vælg Programfil
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.ApplicationSource.Filter,Programfiler (*.exe)|*.exe
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Copy.Close,Forstået
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Copy.Title,Vigtig Advarsel
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Copy.Message,Den valgte fil vil blive inkluderet i temaet sammen med alle andre filer og mapper i den pågældende mappe.
+Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,,
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Access.Close,Forstået
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Access.Title,Adgangsvarsel
 Portal\Controls\ThemeCreate\Portal.ThemeCreate.DA.xaml,Portal.ThemeCreate.Access.Message,Du har ikke tilladelse til at få adgang til den valgte fil.
