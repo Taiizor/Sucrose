@@ -39,10 +39,10 @@ namespace Sucrose.Pipe.Helper
 
             if (!string.IsNullOrEmpty(message))
             {
-                StreamWriter writer = new(_pipeClient);
+                _writer = new(_pipeClient);
 
-                writer.WriteLine(message);
-                writer.Flush();
+                _writer.WriteLine(message);
+                _writer.Flush();
             }
         }
 

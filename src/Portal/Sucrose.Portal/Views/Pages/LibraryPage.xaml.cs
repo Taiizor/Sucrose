@@ -132,7 +132,7 @@ namespace Sucrose.Portal.Views.Pages
                         {
                             string InfoContent = SSTHI.ReadInfo(InfoPath);
 
-                            if (SSTHI.CheckJson(InfoContent))
+                            if (InfoContent != null && SSTHI.CheckJson(InfoContent))
                             {
                                 SSTHI Info = SSTHI.FromJson(InfoContent);
 
@@ -174,7 +174,7 @@ namespace Sucrose.Portal.Views.Pages
                         {
                             string InfoContent = SSTHI.ReadInfo(InfoPath);
 
-                            if (SSTHI.CheckJson(InfoContent))
+                            if (InfoContent != null && SSTHI.CheckJson(InfoContent))
                             {
                                 SSTHI Info = SSTHI.FromJson(InfoContent);
 
