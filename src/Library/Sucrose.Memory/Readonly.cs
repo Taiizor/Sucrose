@@ -38,8 +38,6 @@
 
         public static readonly string PipeServerName = ".";
 
-        public static readonly char SearchSplitChar = 'ꕥ';
-
         public static readonly string Showcase = "Showcase";
 
         public static readonly string SoferityFile = "File";
@@ -121,8 +119,6 @@
         public static readonly string ImageContent = "ImageContent.html";
 
         public static readonly string VideoContent = "VideoContent.html";
-
-        public static readonly string SearchSplit = $"{SearchSplitChar}";
 
         public static readonly string Commandog = "Sucrose.Commandog.exe";
 
