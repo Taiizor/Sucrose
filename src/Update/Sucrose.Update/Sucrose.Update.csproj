@@ -74,7 +74,7 @@
     <ItemGroup>
         <PackageReference Include="Downloader" Version="3.1.2" />
         <PackageReference Include="WPF-UI" Version="4.0.0-rc.2" />
-        <PackageReference Include="SharpCompress" Version="0.37.2" />
+        <PackageReference Include="SharpCompress" Version="0.38.0" />
         <PackageReference Include="Skylark.Wing" Version="3.1.6.4" />
         <PackageReference Include="Skylark.Standard" Version="3.1.6.5" />
     </ItemGroup>

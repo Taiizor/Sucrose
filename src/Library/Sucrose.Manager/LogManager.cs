@@ -11,8 +11,6 @@ namespace Sucrose.Manager
         private int threadId;
         private SELT logType;
         private string logFilePath;
-        private static object lockObject = new();
-        private readonly ReaderWriterLockSlim _lock;
 
         public LogManager(string logFileName, SELT logType = SELT.All)
         {
@@ -23,8 +21,6 @@ namespace Sucrose.Manager
             logFilePath = Path.Combine(SMR.AppDataPath, SMR.AppName, SMR.LogFolder, string.Format(logFileName, SMV.LogFileDate));
 
             Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
-
-            _lock = new ReaderWriterLockSlim(); //ReaderWriterLock
         }
 
         public void Log(SELLT level, string message)
@@ -34,39 +30,24 @@ namespace Sucrose.Manager
                 return;
             }
 
-            _lock.EnterWriteLock();
+            using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
 
             try
             {
-                lock (lockObject)
+                try
                 {
-                    using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
-
-                    try
-                    {
-                        try
-                        {
-                            Mutex.WaitOne();
-                        }
-                        catch
-                        {
-                            //
-                        }
-
-                        SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
-                    }
-                    finally
-                    {
-                        Mutex.ReleaseMutex();
-                    }
+                    Mutex.WaitOne();
                 }
+                catch
+                {
+                    //
+                }
+
+                SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
             }
             finally
             {
-                if (_lock.IsWriteLockHeld)
-                {
-                    _lock.ExitWriteLock();
-                }
+                Mutex.ReleaseMutex();
             }
         }
 
@@ -77,42 +58,27 @@ namespace Sucrose.Manager
                 return;
             }
 
-            _lock.EnterWriteLock();
+            using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
 
             try
             {
-                lock (lockObject)
+                try
                 {
-                    using Mutex Mutex = new(false, Path.GetFileName(logFilePath));
+                    Mutex.WaitOne();
+                }
+                catch
+                {
+                    //
+                }
 
-                    try
-                    {
-                        try
-                        {
-                            Mutex.WaitOne();
-                        }
-                        catch
-                        {
-                            //
-                        }
-
-                        foreach (string message in messages)
-                        {
-                            SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
-                        }
-                    }
-                    finally
-                    {
-                        Mutex.ReleaseMutex();
-                    }
+                foreach (string message in messages)
+                {
+                    SMHW.WriteBasic(logFilePath, $"[{SMV.LogFileTime}] ~ [{SMR.LogDescription}-{threadId}/{level}] ~ [{message}]");
                 }
             }
             finally
             {
-                if (_lock.IsWriteLockHeld)
-                {
-                    _lock.ExitWriteLock();
-                }
+                Mutex.ReleaseMutex();
             }
         }
 
