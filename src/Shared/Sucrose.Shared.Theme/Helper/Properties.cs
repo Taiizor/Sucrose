@@ -47,7 +47,9 @@ namespace Sucrose.Shared.Theme.Helper
 
         public static string ReadProperties(string Path)
         {
-            return File.ReadAllText(Path);
+            string Content = File.ReadAllText(Path);
+
+            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
         }
 
         public static void WriteJson(string Path, Properties Properties)

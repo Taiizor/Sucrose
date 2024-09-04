@@ -19,7 +19,9 @@ namespace Sucrose.Shared.Store.Helper
 
         public static string Json(string Store)
         {
-            return File.ReadAllText(Store);
+            string Content = File.ReadAllText(Store);
+
+            return string.IsNullOrWhiteSpace(Content) ? string.Empty : Content;
         }
 
         public static bool CheckRoot(string Store)

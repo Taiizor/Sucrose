@@ -14,6 +14,8 @@ namespace Sucrose.Shared.Core.Enum
         NET_8_0,
         [DisplayAttribute(Name = ".NET 9.0", Description = ".NET_9.0")]
         NET_9_0,
+        [DisplayAttribute(Name = ".NET 10.0", Description = ".NET_10.0")]
+        NET_10_0,
         [DisplayAttribute(Name = ".NET Framework 4.8", Description = ".NET_Framework_4.8")]
         NET_Framework_4_8,
         [DisplayAttribute(Name = ".NET Framework 4.8.1", Description = ".NET_Framework_4.8.1")]
