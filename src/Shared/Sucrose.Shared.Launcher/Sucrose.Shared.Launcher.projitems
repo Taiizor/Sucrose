@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Command\Reportdog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Setting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Property.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Command\Version.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Update.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Close.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\Engine.cs" />

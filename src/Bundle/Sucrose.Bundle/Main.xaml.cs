@@ -14,6 +14,7 @@ using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
 using SHA = Skylark.Helper.Assemblies;
 using SHN = Skylark.Helper.Numeric;
+using SHV = Skylark.Helper.Versionly;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SWHSB = Skylark.Wing.Helper.ShortcutBasic;
 using SWHSD = Skylark.Wing.Helper.ShortcutDefault;
@@ -64,6 +65,8 @@ namespace Sucrose.Bundle
         private static string TemporaryFolder => "Sucrose.Backgroundog";
 
         private static string QuietUninstall => $"\"{Uninstall}\" -s";
+
+        private static string Version => $"{SHV.Auto(SEAT.Entry)}";
 
         private static string Executable => "Sucrose.Launcher.exe";
 
@@ -338,8 +341,6 @@ namespace Sucrose.Bundle
 
         private static void SetUninstall()
         {
-            Assembly Entry = SHA.Assemble(SEAT.Entry);
-
 #if NET48_OR_GREATER
             FileInfo File = new(Process.GetCurrentProcess().MainModule.FileName);
 #else
@@ -362,12 +363,12 @@ namespace Sucrose.Bundle
             AppKey.SetValue("Publisher", Publisher, RegistryValueKind.String);
             AppKey.SetValue("Comments", Description, RegistryValueKind.String);
             AppKey.SetValue("DisplayIcon", Launcher, RegistryValueKind.String);
+            AppKey.SetValue("BundleVersion", Version, RegistryValueKind.String);
+            AppKey.SetValue("DisplayVersion", Version, RegistryValueKind.String);
             AppKey.SetValue("PublisherName", Publisher, RegistryValueKind.String);
             AppKey.SetValue("UninstallString", Uninstall, RegistryValueKind.String);
             AppKey.SetValue("InstallLocation", InstallPath, RegistryValueKind.String);
             AppKey.SetValue("QuietUninstallString", QuietUninstall, RegistryValueKind.String);
-            AppKey.SetValue("BundleVersion", Entry.GetName().Version, RegistryValueKind.String);
-            AppKey.SetValue("DisplayVersion", Entry.GetName().Version, RegistryValueKind.String);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

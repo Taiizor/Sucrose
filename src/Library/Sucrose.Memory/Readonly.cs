@@ -210,6 +210,8 @@
 
         public static readonly string GitHubRawWebsite = $"https://raw.githubusercontent.com/{Owner}/{StoreRepository}/{Branch}";
 
+        public static readonly string LocalAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
         public static readonly string StoreReportWebsite = $"https://github.com/{Owner}/{StoreRepository}/issues/new?assignees=&labels=wallpaper&projects=&template=wallpaper_report.yaml";
     }
 }

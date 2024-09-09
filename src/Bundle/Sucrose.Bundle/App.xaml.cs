@@ -100,6 +100,7 @@ namespace Sucrose.Bundle
             if (Exception != null)
             {
                 MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, "Error Information", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 Close();
             }
         }
@@ -111,7 +112,9 @@ namespace Sucrose.Bundle
             if (Exception != null)
             {
                 MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, "Error Information", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 e.Handled = true;
+
                 Close();
             }
         }

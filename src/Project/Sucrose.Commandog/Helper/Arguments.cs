@@ -6,6 +6,7 @@ using SSDECT = Sucrose.Shared.Dependency.Enum.CommandsType;
 using SSDESCT = Sucrose.Shared.Dependency.Enum.SchedulerCommandsType;
 using SSLHK = Sucrose.Shared.Live.Helper.Kill;
 using SSLHR = Sucrose.Shared.Live.Helper.Run;
+using SSSHD = Sucrose.Shared.Space.Helper.Delete;
 using SSSHE = Sucrose.Shared.Space.Helper.Export;
 using SSSHI = Sucrose.Shared.Space.Helper.Import;
 using SSSHL = Sucrose.Shared.Space.Helper.Live;
@@ -190,6 +191,9 @@ namespace Sucrose.Commandog.Helper
                                     break;
                                 case SSDECT.Repository:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));
+                                    break;
+                                case SSDECT.Versioning:
+                                    SSSHD.Folder(SCHP.ArgumentValue<string>(Values[0]), SCHP.ArgumentValue<string>(Values[1]), SCHP.ArgumentValue<bool>(Values[2]));
                                     break;
                                 case SSDECT.Discussions:
                                     SSSHP.Run(SCHP.ArgumentValue<string>(Values[0]));

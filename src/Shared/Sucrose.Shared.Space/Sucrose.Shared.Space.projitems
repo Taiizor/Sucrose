@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extension\ProgressStream.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\Lifecycle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Access.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Delete.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Exceptioner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Folder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\Cycyling.cs" />

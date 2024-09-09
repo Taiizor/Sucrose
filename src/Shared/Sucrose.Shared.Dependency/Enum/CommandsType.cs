@@ -27,6 +27,7 @@
         Reportdog,
         Scheduler,
         Repository,
+        Versioning,
         Discussions,
         RestartLive,
         Backgroundog

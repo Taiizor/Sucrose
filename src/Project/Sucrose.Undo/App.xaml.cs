@@ -75,7 +75,7 @@ namespace Sucrose.Undo
                     }
                 }
 
-                string[] Folders = Directory.GetDirectories(Location);
+                string[] Folders = Directory.GetDirectories(Location, "*", SearchOption.AllDirectories);
 
                 if (Folders.Any())
                 {
@@ -199,6 +199,7 @@ namespace Sucrose.Undo
             if (Exception != null)
             {
                 MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, "Error Information", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 Close();
             }
         }
@@ -210,7 +211,9 @@ namespace Sucrose.Undo
             if (Exception != null)
             {
                 MessageBox.Show(Exception.Message + Environment.NewLine + Environment.NewLine + Exception.StackTrace, "Error Information", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 e.Handled = true;
+
                 Close();
             }
         }
