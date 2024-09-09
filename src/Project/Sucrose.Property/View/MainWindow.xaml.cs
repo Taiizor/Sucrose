@@ -153,106 +153,127 @@ namespace Sucrose.Property.View
 
         private async void Delete_Click(object sender, RoutedEventArgs e)
         {
-            Restore.IsEnabled = false;
-            Refresh.IsEnabled = false;
-            Delete.IsEnabled = false;
-
-            SPMI.EngineLive = SMMM.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run();
-
-            if (SPMI.EngineLive)
+            if (Directory.Exists(SPMI.Path))
             {
-                SSLHK.Stop();
-            }
+                Restore.IsEnabled = false;
+                Refresh.IsEnabled = false;
+                Delete.IsEnabled = false;
 
-            await Task.Delay(250);
+                SPMI.EngineLive = SMMM.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run();
 
-            File.Delete(SPMI.PropertiesFile);
+                if (SPMI.EngineLive)
+                {
+                    SSLHK.Stop();
+                }
 
-            await Task.Delay(250);
-
-            File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
-
-            SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
-
-            if (SPMI.EngineLive)
-            {
                 await Task.Delay(250);
 
-                SSLHR.Start();
+                File.Delete(SPMI.PropertiesFile);
+
+                await Task.Delay(250);
+
+                File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
+
+                SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
+
+                if (SPMI.EngineLive)
+                {
+                    await Task.Delay(250);
+
+                    SSLHR.Start();
+                }
+
+                await Task.Delay(250);
+
+                Container_Controls();
+
+                await Task.Delay(250);
+
+                MainWindow_Calculate();
+
+                await Task.Delay(250);
+
+                SPMI.EngineLive = false;
+
+                Delete.IsEnabled = true;
+                Refresh.IsEnabled = true;
+                Restore.IsEnabled = true;
             }
-
-            await Task.Delay(250);
-
-            Container_Controls();
-
-            await Task.Delay(250);
-
-            MainWindow_Calculate();
-
-            await Task.Delay(250);
-
-            SPMI.EngineLive = false;
-
-            Delete.IsEnabled = true;
-            Refresh.IsEnabled = true;
-            Restore.IsEnabled = true;
+            else
+            {
+                Close();
+            }
         }
 
         private async void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            Restore.IsEnabled = false;
-            Refresh.IsEnabled = false;
-            Delete.IsEnabled = false;
+            if (Directory.Exists(SPMI.Path))
+            {
+                Restore.IsEnabled = false;
+                Refresh.IsEnabled = false;
+                Delete.IsEnabled = false;
 
-            SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
+                SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
 
-            await Task.Delay(250);
+                await Task.Delay(250);
 
-            Container_Controls();
+                Container_Controls();
 
-            await Task.Delay(250);
+                await Task.Delay(250);
 
-            MainWindow_Calculate();
+                MainWindow_Calculate();
 
-            await Task.Delay(250);
+                await Task.Delay(250);
 
-            Delete.IsEnabled = true;
-            Refresh.IsEnabled = true;
-            Restore.IsEnabled = true;
+                Delete.IsEnabled = true;
+                Refresh.IsEnabled = true;
+                Restore.IsEnabled = true;
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private async void Restore_Click(object sender, RoutedEventArgs e)
         {
-            Restore.IsEnabled = false;
-            Refresh.IsEnabled = false;
-            Delete.IsEnabled = false;
-
-            File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
-
-            if (SMMM.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
+            if (Directory.Exists(SPMI.Path))
             {
+                Restore.IsEnabled = false;
+                Refresh.IsEnabled = false;
+                Delete.IsEnabled = false;
+
+                File.Copy(SPMI.PropertiesPath, SPMI.PropertiesFile, true);
+
+                if (SMMM.LibrarySelected == SPMI.LibrarySelected && SSSHL.Run())
+                {
+                    await Task.Delay(250);
+
+                    File.Copy(SPMI.PropertiesPath, SPMI.WatcherFile.Replace("*", $"{Guid.NewGuid()}"), true);
+                }
+
                 await Task.Delay(250);
 
-                File.Copy(SPMI.PropertiesPath, SPMI.WatcherFile.Replace("*", $"{Guid.NewGuid()}"), true);
+                SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
+
+                await Task.Delay(250);
+
+                Container_Controls();
+
+                await Task.Delay(250);
+
+                MainWindow_Calculate();
+
+                await Task.Delay(250);
+
+                Delete.IsEnabled = true;
+                Refresh.IsEnabled = true;
+                Restore.IsEnabled = true;
             }
-
-            await Task.Delay(250);
-
-            SPMI.Properties = SSTHP.ReadJson(SPMI.PropertiesFile);
-
-            await Task.Delay(250);
-
-            Container_Controls();
-
-            await Task.Delay(250);
-
-            MainWindow_Calculate();
-
-            await Task.Delay(250);
-
-            Delete.IsEnabled = true;
-            Refresh.IsEnabled = true;
-            Restore.IsEnabled = true;
+            else
+            {
+                Close();
+            }
         }
 
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)

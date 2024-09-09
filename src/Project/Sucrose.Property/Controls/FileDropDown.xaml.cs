@@ -78,61 +78,64 @@ namespace Sucrose.Property.Controls
 
         private async Task Command_Click(SSTMFDDM Data)
         {
-            string Filter = $"{Data.Desc} ({Data.Filter.Replace("|", ", ")})|{Data.Filter.Replace('|', ';')}";
-
-            Filter += $"|{SRER.GetValue("Property", "FileDropDown", "Filter")}";
-
-            OpenFileDialog FileDialog = new()
+            if (Directory.Exists(SPMI.Path))
             {
-                Filter = Filter,
-                FilterIndex = 1,
+                string Filter = $"{Data.Desc} ({Data.Filter.Replace("|", ", ")})|{Data.Filter.Replace('|', ';')}";
 
-                Title = Data.Title,
+                Filter += $"|{SRER.GetValue("Property", "FileDropDown", "Filter")}";
 
-                Multiselect = false,
-
-                InitialDirectory = SMR.DesktopPath
-            };
-
-            if (FileDialog.ShowDialog() == true)
-            {
-                if (SSSHA.File(FileDialog.FileName))
+                OpenFileDialog FileDialog = new()
                 {
-                    string FileName = Path.GetFileName(FileDialog.FileName);
+                    Filter = Filter,
+                    FilterIndex = 1,
 
-                    using (FileStream Source = new(FileDialog.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    Title = Data.Title,
+
+                    Multiselect = false,
+
+                    InitialDirectory = SMR.DesktopPath
+                };
+
+                if (FileDialog.ShowDialog() == true)
+                {
+                    if (SSSHA.File(FileDialog.FileName))
                     {
-                        string Target = Path.Combine(SPMI.Path, Data.Folder, FileName);
+                        string FileName = Path.GetFileName(FileDialog.FileName);
 
-                        if (File.Exists(Target))
+                        using (FileStream Source = new(FileDialog.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                         {
-                            File.Delete(Target);
+                            string Target = Path.Combine(SPMI.Path, Data.Folder, FileName);
+
+                            if (File.Exists(Target))
+                            {
+                                File.Delete(Target);
+                            }
+
+                            using FileStream Destination = new(Target, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+                            Source.CopyTo(Destination);
                         }
 
-                        using FileStream Destination = new(Target, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+                        await Task.Delay(500);
 
-                        Source.CopyTo(Destination);
+                        if (!Component.Items.OfType<string>().Any(Item => Item == FileName))
+                        {
+                            Component.Items.Add(FileName);
+                        }
+
+                        Component.SelectedValue = FileName;
                     }
-
-                    await Task.Delay(500);
-
-                    if (!Component.Items.OfType<string>().Any(Item => Item == FileName))
+                    else
                     {
-                        Component.Items.Add(FileName);
+                        MessageBox Warning = new()
+                        {
+                            Title = SRER.GetValue("Property", "FileDropDown", "Access", "Title"),
+                            Content = SRER.GetValue("Property", "FileDropDown", "Access", "Message"),
+                            CloseButtonText = SRER.GetValue("Property", "FileDropDown", "Access", "Close")
+                        };
+
+                        await Warning.ShowDialogAsync();
                     }
-
-                    Component.SelectedValue = FileName;
-                }
-                else
-                {
-                    MessageBox Warning = new()
-                    {
-                        Title = SRER.GetValue("Property", "FileDropDown", "Access", "Title"),
-                        Content = SRER.GetValue("Property", "FileDropDown", "Access", "Message"),
-                        CloseButtonText = SRER.GetValue("Property", "FileDropDown", "Access", "Close")
-                    };
-
-                    await Warning.ShowDialogAsync();
                 }
             }
 

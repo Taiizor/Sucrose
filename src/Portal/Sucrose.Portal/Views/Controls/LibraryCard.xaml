@@ -38,6 +38,8 @@
                 Header="{DynamicResource Portal.LibraryCard.MenuUse}"
                 Icon="{ui:SymbolIcon Checkmark24}" />
             <ui:MenuItem
+                x:Name="MenuPreview"
+                Click="MenuPreview_Click"
                 Cursor="Hand"
                 Header="{DynamicResource Portal.LibraryCard.MenuPreview}"
                 Icon="{ui:SymbolIcon Eye24}"

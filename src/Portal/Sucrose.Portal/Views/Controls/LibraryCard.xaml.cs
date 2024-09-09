@@ -46,20 +46,23 @@ namespace Sucrose.Portal.Views.Controls
 
         private void Use()
         {
-            if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
+            if (Directory.Exists(Theme))
             {
-                if (SMMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
+                if ((!SMMM.ClosePerformance && !SMMM.PausePerformance) || !SSSHP.Work(SSSMI.Backgroundog))
                 {
-                    SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
-
-                    if (SSSHL.Run())
+                    if (SMMM.LibrarySelected != Path.GetFileName(Theme) || !SSSHL.Run())
                     {
-                        SSLHK.Stop();
+                        SMMI.LibrarySettingManager.SetSetting(SMC.LibrarySelected, Path.GetFileName(Theme));
+
+                        if (SSSHL.Run())
+                        {
+                            SSLHK.Stop();
+                        }
+
+                        SSLHR.Start();
+
+                        Cursor = Cursors.Arrow;
                     }
-
-                    SSLHR.Start();
-
-                    Cursor = Cursors.Arrow;
                 }
             }
         }
@@ -93,12 +96,26 @@ namespace Sucrose.Portal.Views.Controls
 
         private void MenuFind_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(Theme);
+            if (Directory.Exists(Theme))
+            {
+                SSSHP.Run(Theme);
+            }
+        }
+
+        private void MenuPreview_Click(object sender, RoutedEventArgs e)
+        {
+            if (Directory.Exists(Theme))
+            {
+                return;
+            }
         }
 
         private void MenuCustomize_Click(object sender, RoutedEventArgs e)
         {
-            SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.PropertyA}{SMR.ValueSeparator}{SSSMI.Property}{SMR.ValueSeparator}{Path.GetFileName(Theme)}");
+            if (Directory.Exists(Theme))
+            {
+                SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECT.PropertyA}{SMR.ValueSeparator}{SSSMI.Property}{SMR.ValueSeparator}{Path.GetFileName(Theme)}");
+            }
         }
 
         private void MenuCyclingAdd_Click(object sender, RoutedEventArgs e)
@@ -115,48 +132,57 @@ namespace Sucrose.Portal.Views.Controls
 
         private async void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
-            SPVCTE ThemeEdit = new()
+            if (Directory.Exists(Theme))
             {
-                Info = Info,
-                Theme = Theme
-            };
+                SPVCTE ThemeEdit = new()
+                {
+                    Info = Info,
+                    Theme = Theme
+                };
 
-            ContentDialogResult Result = await ThemeEdit.ShowAsync();
+                ContentDialogResult Result = await ThemeEdit.ShowAsync();
 
-            if (Result == ContentDialogResult.Primary)
-            {
-                Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
+                if (Result == ContentDialogResult.Primary)
+                {
+                    Info = SSTHI.ReadJson(Path.Combine(Theme, SMR.SucroseInfo));
 
-                UpdateInfo();
+                    UpdateInfo();
+                }
+
+                ThemeEdit.Dispose();
             }
-
-            ThemeEdit.Dispose();
         }
 
         private async void MenuShare_Click(object sender, RoutedEventArgs e)
         {
-            SPVCTS ThemeShare = new()
+            if (Directory.Exists(Theme))
             {
-                Info = Info,
-                Theme = Theme
-            };
+                SPVCTS ThemeShare = new()
+                {
+                    Info = Info,
+                    Theme = Theme
+                };
 
-            await ThemeShare.ShowAsync();
+                await ThemeShare.ShowAsync();
 
-            ThemeShare.Dispose();
+                ThemeShare.Dispose();
+            }
         }
 
         private async void MenuReview_Click(object sender, RoutedEventArgs e)
         {
-            SPVCTR ThemeReview = new()
+            if (Directory.Exists(Theme))
             {
-                Info = Info,
-                Theme = Theme
-            };
+                SPVCTR ThemeReview = new()
+                {
+                    Info = Info,
+                    Theme = Theme
+                };
 
-            await ThemeReview.ShowAsync();
+                await ThemeReview.ShowAsync();
 
-            ThemeReview.Dispose();
+                ThemeReview.Dispose();
+            }
         }
 
         private async void MenuDelete_Click(object sender, RoutedEventArgs e)
