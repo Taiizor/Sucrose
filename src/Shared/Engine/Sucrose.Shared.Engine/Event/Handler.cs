@@ -51,7 +51,6 @@ namespace Sucrose.Shared.Engine.Event
                 int Style = SWNM.GetWindowLong(Engine, (int)SWNM.GWL.GWL_STYLE);
                 SWNM.SetWindowLong(Engine, (int)SWNM.GWL.GWL_STYLE, Style & ~((int)SWNM.WindowStyles.WS_CAPTION | (int)SWNM.WindowStyles.WS_THICKFRAME | (int)SWNM.WindowStyles.WS_MINIMIZE | (int)SWNM.WindowStyles.WS_MAXIMIZE | (int)SWNM.WindowStyles.WS_SYSMENU | (int)SWNM.WindowStyles.WS_DLGFRAME | (int)SWNM.WindowStyles.WS_BORDER | (int)SWNM.WindowStyles.WS_EX_CLIENTEDGE));
 
-
                 SWHWO.BorderlessWinStyle(Engine);
             }
             catch (Exception Exception)
