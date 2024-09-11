@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using Wpf.Ui.TaskBar;
 using SECNT = Skylark.Enum.ClearNumericType;
 using SEMST = Skylark.Enum.ModeStorageType;
 using SEST = Skylark.Enum.StorageType;
@@ -26,15 +27,18 @@ using SSCHF = Sucrose.Shared.Core.Helper.Framework;
 using SSCHU = Sucrose.Shared.Core.Helper.Update;
 using SSCHV = Sucrose.Shared.Core.Helper.Version;
 using SSCMM = Sucrose.Shared.Core.Manage.Manager;
-using SSDECT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
+using SSDECST = Sucrose.Shared.Dependency.Enum.CommandsType;
+using SSDECYT = Sucrose.Shared.Dependency.Enum.CompatibilityType;
 using SSESSE = Skylark.Standard.Extension.Storage.StorageExtension;
 using SSHG = Skylark.Standard.Helper.GitHub;
 using SSIIA = Skylark.Standard.Interface.IAssets;
 using SSIIR = Skylark.Standard.Interface.IReleases;
+using SSSHE = Sucrose.Shared.Space.Helper.Extension;
 using SSSHN = Sucrose.Shared.Space.Helper.Network;
 using SSSHP = Sucrose.Shared.Space.Helper.Processor;
 using SSSHS = Sucrose.Shared.Space.Helper.Security;
 using SSSHU = Sucrose.Shared.Space.Helper.User;
+using SSSMI = Sucrose.Shared.Space.Manage.Internal;
 using SSSMUD = Sucrose.Shared.Space.Model.UpdateData;
 using SSSZEZ = Sucrose.Shared.SevenZip.Extension.Zip;
 using SSSZHZ = Sucrose.Shared.SevenZip.Helper.Zip;
@@ -84,11 +88,13 @@ namespace Sucrose.Update.View
 
             Back.BeginInit();
 
-            Back.UriSource = SMR.Randomise.Next(3) switch
+            Back.UriSource = SMR.Randomise.Next(5) switch
             {
                 0 => new Uri("pack://application:,,,/Assets/Back1.jpg", UriKind.RelativeOrAbsolute),
                 1 => new Uri("pack://application:,,,/Assets/Back2.jpg", UriKind.RelativeOrAbsolute),
-                _ => new Uri("pack://application:,,,/Assets/Back3.jpg", UriKind.RelativeOrAbsolute),
+                2 => new Uri("pack://application:,,,/Assets/Back3.jpg", UriKind.RelativeOrAbsolute),
+                3 => new Uri("pack://application:,,,/Assets/Back4.jpg", UriKind.RelativeOrAbsolute),
+                _ => new Uri("pack://application:,,,/Assets/Back5.jpg", UriKind.RelativeOrAbsolute),
             };
 
             Back.EndInit();
@@ -446,6 +452,8 @@ namespace Sucrose.Update.View
                 Message.Visibility = Visibility.Visible;
                 Progress.Visibility = Visibility.Hidden;
 
+                TaskBarProgress.SetState(this, TaskBarProgressState.None);
+
                 if (HasBundle)
                 {
                     await Task.Delay(MinDelay);
@@ -486,17 +494,19 @@ namespace Sucrose.Update.View
                 Message.Visibility = Visibility.Visible;
                 Progress.Visibility = Visibility.Hidden;
 
+                TaskBarProgress.SetState(this, TaskBarProgressState.None);
+
                 if (HasBundle)
                 {
                     if (await Task.Run(() => SSSZHZ.CheckArchive(Bundle)))
                     {
-                        SSDECT Result = await Task.Run(() => SSSZEZ.Extract(Bundle, SUMM.CachePath));
+                        SSDECYT Result = await Task.Run(() => SSSZEZ.Extract(Bundle, SUMM.CachePath));
 
-                        if (Result == SSDECT.Pass)
+                        if (Result == SSDECYT.Pass)
                         {
                             await Task.Delay(MinDelay);
 
-                            Bundle = Path.ChangeExtension(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
+                            Bundle = SSSHE.Change(Bundle, SSCHU.GetDescription(SSCEUT.Executable));
 
                             Message.Text = SRER.GetValue("Update", "MessageText", "Extracting", "Executing");
 
@@ -623,7 +633,36 @@ namespace Sucrose.Update.View
         {
             Dispose();
 
-            await Reloader();
+            if (SUMI.Trying && !string.IsNullOrWhiteSpace(SUMI.Source))
+            {
+                SUMI.Trying = false;
+
+                Reload.IsEnabled = false;
+
+                Reload.Content = SRER.GetValue("Update", "ReloadText", "Browser", "Opening");
+
+                await Task.Delay(MinDelay);
+
+                if (SUMI.UpdateType == SSCEUT.Compressed)
+                {
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECST.Bundle}{SMR.ValueSeparator}{SSSHE.Change(SUMI.Source, SSCHU.GetDescription(SSCEUT.Executable))}");
+                }
+                else
+                {
+                    SSSHP.Run(SSSMI.Commandog, $"{SMR.StartCommand}{SSDECST.Bundle}{SMR.ValueSeparator}{SUMI.Source}");
+                }
+                Reload.Content = SRER.GetValue("Update", "ReloadText", "Browser", "Opened");
+
+                await Task.Delay(MaxDelay);
+
+                Reload.IsEnabled = true;
+
+                Reload.Content = SRER.GetValue("Update", "ReloadText");
+            }
+            else
+            {
+                await Reloader();
+            }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -665,6 +704,8 @@ namespace Sucrose.Update.View
                     Progress.Visibility = Visibility.Visible;
                 }
 
+                TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 0);
+
                 SMMI.UpdateSettingManager.SetSetting(SMC.UpdateState, true);
             });
         }
@@ -676,6 +717,8 @@ namespace Sucrose.Update.View
                 if (e.Error != null || e.Cancelled)
                 {
                     HasBundle = false;
+
+                    SUMI.Trying = true;
 
                     if (e.Error != null)
                     {
@@ -690,15 +733,21 @@ namespace Sucrose.Update.View
                     Message.Visibility = Visibility.Visible;
                     Progress.Visibility = Visibility.Hidden;
 
+                    TaskBarProgress.SetState(this, TaskBarProgressState.Error);
+
                     await Task.Delay(MaxDelay);
 
                     Message.Visibility = Visibility.Hidden;
                     Reload.Visibility = Visibility.Visible;
+
+                    TaskBarProgress.SetState(this, TaskBarProgressState.None);
                 }
                 else
                 {
                     Ring.Progress = 100;
                     Progress.Value = 100;
+
+                    TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, 100);
 
                     await Task.Delay(MinDelay);
 
@@ -723,6 +772,8 @@ namespace Sucrose.Update.View
             {
                 Ring.Progress = e.ProgressPercentage;
                 Progress.Value = e.ProgressPercentage;
+
+                TaskBarProgress.SetValue(this, TaskBarProgressState.Normal, Convert.ToInt32(e.ProgressPercentage));
             });
         }
 

@@ -8,6 +8,9 @@
 
     <system:String x:Key="Update.ReloadText">RIPROVA</system:String>
 
+    <system:String x:Key="Update.ReloadText.Browser.Opened">APERTO NEL BROWSER</system:String>
+    <system:String x:Key="Update.ReloadText.Browser.Opening">APERTURA NEL BROWSER</system:String>
+
     <system:String x:Key="Update.MessageText.Preparing">PREPARAZIONE DEI PREPARATIVI NECESSARI</system:String>
 
     <system:String x:Key="Update.MessageText.Temporary">CONTROLLO DELLE POSIZIONI TEMPORANEE</system:String>

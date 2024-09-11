@@ -181,6 +181,9 @@ Update\Update.MS.xaml,Update.HelpText,Selesaikan Masalah
 Update\Update.MS.xaml,,
 Update\Update.MS.xaml,Update.ReloadText,COBA LAGI
 Update\Update.MS.xaml,,
+Update\Update.MS.xaml,Update.ReloadText.Browser.Opened,DIBUKA DALAM PELAYAR
+Update\Update.MS.xaml,Update.ReloadText.Browser.Opening,SEDANG DIBUKA DALAM PELAYAR
+Update\Update.MS.xaml,,
 Update\Update.MS.xaml,Update.MessageText.Preparing,SEDANG MENYEDIAKAN SEDIAAN PERLU
 Update\Update.MS.xaml,,
 Update\Update.MS.xaml,Update.MessageText.Temporary,MEMERIKSA LOKASI SEMENTARA

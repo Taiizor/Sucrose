@@ -181,6 +181,9 @@ Update\Update.HI.xaml,Update.HelpText,समस्या को हल करे
 Update\Update.HI.xaml,,
 Update\Update.HI.xaml,Update.ReloadText,पुनः प्रयास करें
 Update\Update.HI.xaml,,
+Update\Update.HI.xaml,Update.ReloadText.Browser.Opened,ब्राउज़र में खोला गया
+Update\Update.HI.xaml,Update.ReloadText.Browser.Opening,ब्राउज़र में खुल रहा है
+Update\Update.HI.xaml,,
 Update\Update.HI.xaml,Update.MessageText.Preparing,आवश्यक तैयारियों को तैयार कर रहे हैं
 Update\Update.HI.xaml,,
 Update\Update.HI.xaml,Update.MessageText.Temporary,तात्कालिक स्थानों की जाँच कर रहे हैं

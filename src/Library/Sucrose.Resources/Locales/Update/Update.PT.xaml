@@ -8,6 +8,9 @@
 
     <system:String x:Key="Update.ReloadText">TENTAR NOVAMENTE</system:String>
 
+    <system:String x:Key="Update.ReloadText.Browser.Opened">ABERTO NO NAVEGADOR</system:String>
+    <system:String x:Key="Update.ReloadText.Browser.Opening">ABRINDO NO NAVEGADOR</system:String>
+
     <system:String x:Key="Update.MessageText.Preparing">PREPARANDO PREPARAÇÕES NECESSÁRIAS</system:String>
 
     <system:String x:Key="Update.MessageText.Temporary">VERIFICANDO LOCAIS TEMPORÁRIOS</system:String>

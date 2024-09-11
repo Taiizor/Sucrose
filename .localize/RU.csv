@@ -181,6 +181,9 @@ Update\Update.RU.xaml,Update.HelpText,Решить Проблему
 Update\Update.RU.xaml,,
 Update\Update.RU.xaml,Update.ReloadText,ПОВТОРИТЬ ПОПЫТКУ
 Update\Update.RU.xaml,,
+Update\Update.RU.xaml,Update.ReloadText.Browser.Opened,ОТКРЫТО В БРАУЗЕРЕ
+Update\Update.RU.xaml,Update.ReloadText.Browser.Opening,ОТКРЫВАЕТСЯ В БРАУЗЕРЕ
+Update\Update.RU.xaml,,
 Update\Update.RU.xaml,Update.MessageText.Preparing,ПОДГОТОВКА НЕОБХОДИМЫХ ПРИГОТОВЛЕНИЙ
 Update\Update.RU.xaml,,
 Update\Update.RU.xaml,Update.MessageText.Temporary,ПРОВЕРКА ВРЕМЕННЫХ МЕСТОПОЛОЖЕНИЙ

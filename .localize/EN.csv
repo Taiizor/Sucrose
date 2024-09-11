@@ -181,6 +181,9 @@ Update\Update.EN.xaml,Update.HelpText,Solve Problem
 Update\Update.EN.xaml,,
 Update\Update.EN.xaml,Update.ReloadText,TRY AGAIN
 Update\Update.EN.xaml,,
+Update\Update.EN.xaml,Update.ReloadText.Browser.Opened,OPENED IN BROWSER
+Update\Update.EN.xaml,Update.ReloadText.Browser.Opening,OPENING IN BROWSER
+Update\Update.EN.xaml,,
 Update\Update.EN.xaml,Update.MessageText.Preparing,PREPARING NECESSARY PREPARATIONS
 Update\Update.EN.xaml,,
 Update\Update.EN.xaml,Update.MessageText.Temporary,CHECKING TEMPORARY LOCATIONS

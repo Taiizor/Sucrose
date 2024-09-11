@@ -10,6 +10,8 @@ namespace Sucrose.Update.Manage
 {
     internal static class Internal
     {
+        public static bool Trying = false;
+
         public static string Source = string.Empty;
 
         public static DownloadService DownloadService;

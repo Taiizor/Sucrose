@@ -181,6 +181,9 @@ Update\Update.CS.xaml,Update.HelpText,Vyřešit Problém
 Update\Update.CS.xaml,,
 Update\Update.CS.xaml,Update.ReloadText,ZKUSIT ZNOVU
 Update\Update.CS.xaml,,
+Update\Update.CS.xaml,Update.ReloadText.Browser.Opened,OTEVŘENO V PROHLÍŽEČI
+Update\Update.CS.xaml,Update.ReloadText.Browser.Opening,OTEVÍRÁ SE V PROHLÍŽEČI
+Update\Update.CS.xaml,,
 Update\Update.CS.xaml,Update.MessageText.Preparing,PŘÍPRAVA NEZBYTNÝCH PŘÍPRAV
 Update\Update.CS.xaml,,
 Update\Update.CS.xaml,Update.MessageText.Temporary,KONTROLA DOČASNÝCH UMÍSTĚNÍ

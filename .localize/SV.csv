@@ -181,6 +181,9 @@ Update\Update.SV.xaml,Update.HelpText,Lös Problemet
 Update\Update.SV.xaml,,
 Update\Update.SV.xaml,Update.ReloadText,FÖRSÖK IGEN
 Update\Update.SV.xaml,,
+Update\Update.SV.xaml,Update.ReloadText.Browser.Opened,ÖPPNAT I WEBBLÄSAREN
+Update\Update.SV.xaml,Update.ReloadText.Browser.Opening,ÖPPNAS I WEBBLÄSAREN
+Update\Update.SV.xaml,,
 Update\Update.SV.xaml,Update.MessageText.Preparing,FÖRBEREDER NÖDVÄNDIGA FÖRBEREDELSER
 Update\Update.SV.xaml,,
 Update\Update.SV.xaml,Update.MessageText.Temporary,KONTROLLERAR TEMPORÄRA PLATSER

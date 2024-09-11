@@ -181,6 +181,9 @@ Update\Update.ES.xaml,Update.HelpText,Resolver el Problema
 Update\Update.ES.xaml,,
 Update\Update.ES.xaml,Update.ReloadText,INTENTAR DE NUEVO
 Update\Update.ES.xaml,,
+Update\Update.ES.xaml,Update.ReloadText.Browser.Opened,ABIERTO EN EL NAVEGADOR
+Update\Update.ES.xaml,Update.ReloadText.Browser.Opening,ABRIENDO EN EL NAVEGADOR
+Update\Update.ES.xaml,,
 Update\Update.ES.xaml,Update.MessageText.Preparing,PREPARANDO PREPARATIVOS NECESARIOS
 Update\Update.ES.xaml,,
 Update\Update.ES.xaml,Update.MessageText.Temporary,COMPROBANDO UBICACIONES TEMPORALES

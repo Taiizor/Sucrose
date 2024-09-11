@@ -181,6 +181,9 @@ Update\Update.PL.xaml,Update.HelpText,Rozwiązać Problem
 Update\Update.PL.xaml,,
 Update\Update.PL.xaml,Update.ReloadText,SPRÓBUJ PONOWNIE
 Update\Update.PL.xaml,,
+Update\Update.PL.xaml,Update.ReloadText.Browser.Opened,OTWARTE W PRZEGLĄDARCE
+Update\Update.PL.xaml,Update.ReloadText.Browser.Opening,OTWIERA SIĘ W PRZEGLĄDARCE
+Update\Update.PL.xaml,,
 Update\Update.PL.xaml,Update.MessageText.Preparing,PRZYGOTOWYWANIE NIEZBĘDNYCH PRZYGOTOWAŃ
 Update\Update.PL.xaml,,
 Update\Update.PL.xaml,Update.MessageText.Temporary,SPRAWDZANIE LOKALIZACJI TYMCZASOWYCH

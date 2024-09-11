@@ -181,6 +181,9 @@ Update\Update.KO.xaml,Update.HelpText,문제 해결
 Update\Update.KO.xaml,,
 Update\Update.KO.xaml,Update.ReloadText,다시 시도
 Update\Update.KO.xaml,,
+Update\Update.KO.xaml,Update.ReloadText.Browser.Opened,브라우저에서 열림
+Update\Update.KO.xaml,Update.ReloadText.Browser.Opening,브라우저에서 열리는 중
+Update\Update.KO.xaml,,
 Update\Update.KO.xaml,Update.MessageText.Preparing,필요한 준비를 진행 중입니다
 Update\Update.KO.xaml,,
 Update\Update.KO.xaml,Update.MessageText.Temporary,임시 위치를 확인 중입니다

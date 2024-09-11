@@ -181,6 +181,9 @@ Update\Update.ZH.xaml,Update.HelpText,解决问题
 Update\Update.ZH.xaml,,
 Update\Update.ZH.xaml,Update.ReloadText,重试
 Update\Update.ZH.xaml,,
+Update\Update.ZH.xaml,Update.ReloadText.Browser.Opened,在浏览器中打开
+Update\Update.ZH.xaml,Update.ReloadText.Browser.Opening,正在浏览器中打开
+Update\Update.ZH.xaml,,
 Update\Update.ZH.xaml,Update.MessageText.Preparing,准备必要的准备工作
 Update\Update.ZH.xaml,,
 Update\Update.ZH.xaml,Update.MessageText.Temporary,检查临时位置

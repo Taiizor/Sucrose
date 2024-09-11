@@ -181,6 +181,9 @@ Update\Update.FR.xaml,Update.HelpText,Résoudre le Problème
 Update\Update.FR.xaml,,
 Update\Update.FR.xaml,Update.ReloadText,ESSAYER ENCORE
 Update\Update.FR.xaml,,
+Update\Update.FR.xaml,Update.ReloadText.Browser.Opened,OUVERT DANS LE NAVIGATEUR
+Update\Update.FR.xaml,Update.ReloadText.Browser.Opening,OUVERTURE DANS LE NAVIGATEUR
+Update\Update.FR.xaml,,
 Update\Update.FR.xaml,Update.MessageText.Preparing,PRÉPARATION DES PRÉPARATIFS NÉCESSAIRES
 Update\Update.FR.xaml,,
 Update\Update.FR.xaml,Update.MessageText.Temporary,VÉRIFICATION DES EMPLACEMENTS TEMPORAIRES

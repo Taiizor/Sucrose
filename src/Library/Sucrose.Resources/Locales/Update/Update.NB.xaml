@@ -8,6 +8,9 @@
 
     <system:String x:Key="Update.ReloadText">PRØV IGJEN</system:String>
 
+    <system:String x:Key="Update.ReloadText.Browser.Opened">ÅPNET I NETTLESER</system:String>
+    <system:String x:Key="Update.ReloadText.Browser.Opening">ÅPNER I NETTLESER</system:String>
+
     <system:String x:Key="Update.MessageText.Preparing">FORBEREDER NØDVENDIGE FORBEREDELSER</system:String>
 
     <system:String x:Key="Update.MessageText.Temporary">SJEKKER MIDlERTIDIGE LOKASJONER</system:String>

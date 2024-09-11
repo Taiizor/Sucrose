@@ -181,6 +181,9 @@ Update\Update.NB.xaml,Update.HelpText,Løs Problemet
 Update\Update.NB.xaml,,
 Update\Update.NB.xaml,Update.ReloadText,PRØV IGJEN
 Update\Update.NB.xaml,,
+Update\Update.NB.xaml,Update.ReloadText.Browser.Opened,ÅPNET I NETTLESER
+Update\Update.NB.xaml,Update.ReloadText.Browser.Opening,ÅPNER I NETTLESER
+Update\Update.NB.xaml,,
 Update\Update.NB.xaml,Update.MessageText.Preparing,FORBEREDER NØDVENDIGE FORBEREDELSER
 Update\Update.NB.xaml,,
 Update\Update.NB.xaml,Update.MessageText.Temporary,SJEKKER MIDlERTIDIGE LOKASJONER

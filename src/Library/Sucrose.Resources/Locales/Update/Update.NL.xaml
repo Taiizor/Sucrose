@@ -8,6 +8,9 @@
 
     <system:String x:Key="Update.ReloadText">PROBEER OPNIEUW</system:String>
 
+    <system:String x:Key="Update.ReloadText.Browser.Opened">GEOPEND IN DE BROWSER</system:String>
+    <system:String x:Key="Update.ReloadText.Browser.Opening">WORDT GEOPEND IN DE BROWSER</system:String>
+
     <system:String x:Key="Update.MessageText.Preparing">VOORBEREIDING VAN NOODZAKELIJKE VOORBEREIDINGEN</system:String>
 
     <system:String x:Key="Update.MessageText.Temporary">CONTROLEREN VAN TIJDELIJKE LOCATIES</system:String>

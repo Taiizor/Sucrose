@@ -202,7 +202,7 @@ namespace Sucrose.Shared.Engine.Helper
                     Directory.CreateDirectory(CachePath);
                 }
 
-                //string LocalSource = Path.Combine(CachePath, Path.ChangeExtension(Path.GetRandomFileName(), Path.GetExtension(Source)));
+                //string LocalSource = Path.Combine(CachePath, SSSHE.Change(Path.GetRandomFileName(), Path.GetExtension(Source)));
                 string LocalSource = Path.Combine(CachePath, $"{SSECCE.TextToMD5(Source)}{Path.GetExtension(Source)}");
 
                 if (File.Exists(LocalSource))

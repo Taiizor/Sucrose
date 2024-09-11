@@ -8,6 +8,9 @@
 
     <system:String x:Key="Update.ReloadText">COBA LAGI</system:String>
 
+    <system:String x:Key="Update.ReloadText.Browser.Opened">DIBUKA DALAM PELAYAR</system:String>
+    <system:String x:Key="Update.ReloadText.Browser.Opening">SEDANG DIBUKA DALAM PELAYAR</system:String>
+
     <system:String x:Key="Update.MessageText.Preparing">SEDANG MENYEDIAKAN SEDIAAN PERLU</system:String>
 
     <system:String x:Key="Update.MessageText.Temporary">MEMERIKSA LOKASI SEMENTARA</system:String>

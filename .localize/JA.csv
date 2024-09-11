@@ -181,6 +181,9 @@ Update\Update.JA.xaml,Update.HelpText,問題を解決する
 Update\Update.JA.xaml,,
 Update\Update.JA.xaml,Update.ReloadText,再試行
 Update\Update.JA.xaml,,
+Update\Update.JA.xaml,Update.ReloadText.Browser.Opened,ブラウザで開きました
+Update\Update.JA.xaml,Update.ReloadText.Browser.Opening,ブラウザで開いています
+Update\Update.JA.xaml,,
 Update\Update.JA.xaml,Update.MessageText.Preparing,必要な準備をしています
 Update\Update.JA.xaml,,
 Update\Update.JA.xaml,Update.MessageText.Temporary,一時的な場所をチェックしています
