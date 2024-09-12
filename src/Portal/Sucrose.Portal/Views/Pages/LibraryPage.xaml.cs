@@ -136,12 +136,15 @@ namespace Sucrose.Portal.Views.Pages
                             {
                                 SSTHI Info = SSTHI.FromJson(InfoContent);
 
-                                string PreviewPath = Path.Combine(ThemePath, Info.Preview);
-                                string ThumbnailPath = Path.Combine(ThemePath, Info.Thumbnail);
-
-                                if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(ThemePath, Info.Source))))
+                                if (Info != null && !string.IsNullOrEmpty(Info.Preview) && !string.IsNullOrEmpty(Info.Thumbnail))
                                 {
-                                    continue;
+                                    string PreviewPath = Path.Combine(ThemePath, Info.Preview);
+                                    string ThumbnailPath = Path.Combine(ThemePath, Info.Thumbnail);
+
+                                    if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(ThemePath, Info.Source))))
+                                    {
+                                        continue;
+                                    }
                                 }
                             }
                         }
@@ -178,17 +181,20 @@ namespace Sucrose.Portal.Views.Pages
                             {
                                 SSTHI Info = SSTHI.FromJson(InfoContent);
 
-                                string PreviewPath = Path.Combine(Folder, Info.Preview);
-                                string ThumbnailPath = Path.Combine(Folder, Info.Thumbnail);
-
-                                if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(Folder, Info.Source))))
+                                if (Info != null && !string.IsNullOrEmpty(Info.Preview) && !string.IsNullOrEmpty(Info.Thumbnail))
                                 {
-                                    if (!Themes.Contains(Path.GetFileName(Folder)))
-                                    {
-                                        Themes.Add(Path.GetFileName(Folder));
-                                    }
+                                    string PreviewPath = Path.Combine(Folder, Info.Preview);
+                                    string ThumbnailPath = Path.Combine(Folder, Info.Thumbnail);
 
-                                    continue;
+                                    if (File.Exists(PreviewPath) && File.Exists(ThumbnailPath) && (SSTHV.IsUrl(Info.Source) || File.Exists(Path.Combine(Folder, Info.Source))))
+                                    {
+                                        if (!Themes.Contains(Path.GetFileName(Folder)))
+                                        {
+                                            Themes.Add(Path.GetFileName(Folder));
+                                        }
+
+                                        continue;
+                                    }
                                 }
                             }
                         }
